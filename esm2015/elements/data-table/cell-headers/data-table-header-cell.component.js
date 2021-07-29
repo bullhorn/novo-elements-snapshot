@@ -329,6 +329,12 @@ export class NovoDataTableCellHeader {
         ];
         return opts;
     }
+    public handleClick(): void {
+        console.log( 'click!');
+    }
+    public handleDoubleClick(): void {
+        console.log('double click!')
+    }
 }
 NovoDataTableCellHeader.decorators = [
     { type: Component, args: [{
@@ -336,7 +342,7 @@ NovoDataTableCellHeader.decorators = [
                 template: `
     <i class="bhi-{{ labelIcon }} label-icon" *ngIf="labelIcon" data-automation-id="novo-data-table-header-icon"></i>
     <label data-automation-id="novo-data-table-label">{{ label }}</label>
-    <div>
+    <div (click)="this.handleClick()" (dblclick)="this.handleDoubleClick()">
       <button
         *ngIf="config.sortable"
         tooltipPosition="right"
