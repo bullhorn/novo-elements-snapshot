@@ -345,7 +345,7 @@ NovoDataTableCellHeader.decorators = [
     <div (click)="this.handleClick()" (dblclick)="this.handleDoubleClick()">
       <button
         *ngIf="config.sortable"
-        tooltipPosition="right"
+        tooltipPosition="left"
         [tooltip]="labels.sort"
         theme="icon"
         [icon]="icon"
