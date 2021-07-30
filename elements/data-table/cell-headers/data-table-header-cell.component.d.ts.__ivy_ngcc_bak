@@ -78,4 +78,5 @@ export declare class NovoDataTableCellHeader<T> implements IDataTableSortFilter,
     clearFilter(): void;
     private getNextSortDirection;
     private getDefaultDateFilterOptions;
+    handleDoubleClick(): any;
 }

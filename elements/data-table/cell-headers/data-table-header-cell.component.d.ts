@@ -79,6 +79,7 @@ export declare class NovoDataTableCellHeader<T> implements IDataTableSortFilter,
     clearFilter(): void;
     private getNextSortDirection;
     private getDefaultDateFilterOptions;
+    handleDoubleClick(): any;
     static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoDataTableCellHeader<any>, [null, null, null, null, null, { optional: true; }, { optional: true; }]>;
     static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<NovoDataTableCellHeader<any>, "[novo-data-table-cell-config]", never, { "allowMultipleFilters": "allowMultipleFilters"; "column": "novo-data-table-cell-config"; "defaultSort": "defaultSort"; "resized": "resized"; "filterTemplate": "filterTemplate"; }, {}, never, never>;
 }

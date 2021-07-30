@@ -1,1 +1,1 @@
-{"version":3,"file":"BaseRenderer.d.ts","sources":["BaseRenderer.d.ts"],"names":[],"mappings":";AAAA;AACA;AACA;AACA;;;AACA","sourcesContent":["export declare class BaseRenderer {\n    data: any;\n    value: any;\n    meta: any;\n}\n"]}
+{"version":3,"file":"BaseRenderer.d.ts","sources":["BaseRenderer.d.ts"],"names":[],"mappings":";AAAA;AACA;AACA;AACA;;;AACA","sourcesContent":["export declare class BaseRenderer {\r\n    data: any;\r\n    value: any;\r\n    meta: any;\r\n}\r\n"]}

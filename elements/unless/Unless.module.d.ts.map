@@ -1,1 +1,1 @@
-{"version":3,"file":"Unless.module.d.ts","sources":["Unless.module.d.ts"],"names":[],"mappings":";;;AAAA;;;AACA","sourcesContent":["export declare class UnlessModule {\n}\n"]}
+{"version":3,"file":"Unless.module.d.ts","sources":["Unless.module.d.ts"],"names":[],"mappings":";;;AAAA;;;AACA","sourcesContent":["export declare class UnlessModule {\r\n}\r\n"]}

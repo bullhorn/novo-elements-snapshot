@@ -1,1 +1,1 @@
-{"version":3,"file":"TableFooter.d.ts","sources":["TableFooter.d.ts"],"names":[],"mappings":";AAAA;;;AACA","sourcesContent":["export declare class NovoTableFooterElement {\n}\n"]}
+{"version":3,"file":"TableFooter.d.ts","sources":["TableFooter.d.ts"],"names":[],"mappings":";AAAA;;;AACA","sourcesContent":["export declare class NovoTableFooterElement {\r\n}\r\n"]}

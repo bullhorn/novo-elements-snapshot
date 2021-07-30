@@ -1,1 +1,1 @@
-{"version":3,"file":"Form.module.d.ts","sources":["Form.module.d.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;;;AACA","sourcesContent":["export declare class NovoFormModule {\n}\n"]}
+{"version":3,"file":"Form.module.d.ts","sources":["Form.module.d.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;;;AACA","sourcesContent":["export declare class NovoFormModule {\r\n}\r\n"]}
