@@ -1,0 +1,10 @@
+export declare class NovoCollapsableColumnElement {
+    header: string;
+    set icon(icon: string);
+    get icon(): string;
+    isChecked: boolean;
+    private _icon;
+    dragulaName: string;
+    dragulaModelData: any;
+    entity: 'Candidate' | 'JobOrder';
+}

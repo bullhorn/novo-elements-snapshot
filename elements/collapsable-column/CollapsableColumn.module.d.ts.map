@@ -1,0 +1,1 @@
+{"version":3,"file":"CollapsableColumn.module.d.ts","sources":["CollapsableColumn.module.d.ts"],"names":[],"mappings":";;;;;;AAAA;;;AACA","sourcesContent":["export declare class NovoCollapsableColumnModule {\n}\n"]}

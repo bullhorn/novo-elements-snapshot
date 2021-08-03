@@ -1,4 +1,4 @@
-import { forwardRef, EventEmitter, Component, ElementRef, Input, Output, NgModule, ChangeDetectionStrategy, Directive, ViewContainerRef, HostListener, Pipe, Injectable, Inject, LOCALE_ID, ChangeDetectorRef, Optional, HostBinding, ContentChildren, TemplateRef, Injector, ComponentFactoryResolver, ViewChild, NgZone, isDevMode, Renderer2, ViewChildren, ViewEncapsulation, Host, ContentChild, PLATFORM_ID } from '@angular/core';
+import { forwardRef, EventEmitter, Component, ElementRef, Input, Output, NgModule, ChangeDetectionStrategy, Directive, ViewContainerRef, HostListener, Pipe, Injectable, Inject, LOCALE_ID, ChangeDetectorRef, NgZone, Optional, ViewChild, TemplateRef, HostBinding, ContentChildren, Injector, ComponentFactoryResolver, isDevMode, Renderer2, ViewChildren, ViewEncapsulation, Host, ContentChild, PLATFORM_ID } from '@angular/core';
 import { NG_VALUE_ACCESSOR, FormsModule, ReactiveFormsModule, Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import 'brace/index';
 import 'brace/theme/chrome';
@@ -9,14 +9,14 @@ import { OverlayConfig, Overlay, OverlayModule } from '@angular/cdk/overlay';
 import { ComponentPortal, TemplatePortal, PortalModule } from '@angular/cdk/portal';
 import { trigger, state, style, transition, animate, group, query, animateChild } from '@angular/animations';
 import { addDays, addWeeks, addMonths, startOfWeek, endOfWeek, differenceInDays, addMinutes, endOfDay, startOfDay, isSameSecond, setMinutes, setHours, startOfMinute, isAfter, isBefore, isSameDay, getDay, differenceInSeconds, differenceInMinutes, startOfMonth, endOfMonth, isSameMonth, addHours, getYear, getMonth, getDate, setYear, setMonth, setDate, addSeconds, subMonths, startOfToday, endOfToday, isToday, isValid, format, setMilliseconds, setSeconds, getHours, getMinutes, getSeconds, getMilliseconds, isDate, parse, startOfTomorrow } from 'date-fns';
-import { ReplaySubject, merge, of, fromEvent, from, Subject, Subscription, BehaviorSubject } from 'rxjs';
-import { coerceBooleanProperty, coerceNumberProperty } from '@angular/cdk/coercion';
+import { merge, of, fromEvent, from, ReplaySubject, Subject, Subscription, BehaviorSubject } from 'rxjs';
+import * as dragulaImported from '@bullhorn/dragula';
+import { FocusMonitor, A11yModule } from '@angular/cdk/a11y';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { filter, first, switchMap, debounceTime, distinctUntilChanged, startWith, map, catchError, take, takeUntil } from 'rxjs/operators';
+import { coerceBooleanProperty, coerceNumberProperty } from '@angular/cdk/coercion';
 import { DomSanitizer } from '@angular/platform-browser';
 import { DataSource, CdkColumnDef, CdkCell, CdkHeaderRow, CDK_ROW_TEMPLATE, CdkRow, CdkHeaderCell, CdkTableModule, CdkCellDef, CdkHeaderCellDef, CdkHeaderRowDef, CdkRowDef, CdkTable, CDK_TABLE_TEMPLATE } from '@angular/cdk/table';
-import { FocusMonitor, A11yModule } from '@angular/cdk/a11y';
-import * as dragulaImported from '@bullhorn/dragula';
 import { ESCAPE, ENTER, TAB, SPACE } from '@angular/cdk/keycodes';
 import { TextMaskModule } from 'angular2-text-mask';
 import createAutoCorrectedDatePipe from 'text-mask-addons/dist/createAutoCorrectedDatePipe';
@@ -31,9 +31,9 @@ import * as ɵngcc0 from '@angular/core';
 import * as ɵngcc1 from '@angular/common';
 import * as ɵngcc2 from '@angular/cdk/overlay';
 import * as ɵngcc3 from '@angular/forms';
-import * as ɵngcc4 from '@angular/platform-browser';
-import * as ɵngcc5 from '@angular/cdk/table';
-import * as ɵngcc6 from '@angular/cdk/a11y';
+import * as ɵngcc4 from '@angular/cdk/a11y';
+import * as ɵngcc5 from '@angular/platform-browser';
+import * as ɵngcc6 from '@angular/cdk/table';
 import * as ɵngcc7 from 'angular2-text-mask';
 import * as ɵngcc8 from '@angular/cdk/collections';
 import * as ɵngcc9 from '@angular/cdk/portal';
@@ -439,303 +439,29 @@ function NovoCalendarAllDayEventElement_ng_template_0_Template(rf, ctx) { if (rf
 } }
 function NovoCalendarAllDayEventElement_ng_template_2_Template(rf, ctx) { }
 const _c10 = function (a0, a1) { return { event: a0, eventClicked: a1 }; };
-function CardElement_div_1_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "div", 12);
-    ɵngcc0.ɵɵelement(1, "novo-loading", 13);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r0 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵattribute("data-automation-id", ctx_r0.cardAutomationId + "-loading");
-} }
-function CardElement_i_5_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelement(0, "i", 14);
-} if (rf & 2) {
-    const ctx_r1 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵattribute("data-automation-id", ctx_r1.cardAutomationId + "-move");
-} }
-function CardElement_i_8_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelement(0, "i", 15);
-} if (rf & 2) {
-    const ctx_r2 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵproperty("ngClass", ctx_r2.iconClass);
-} }
-function CardElement_button_12_Template(rf, ctx) { if (rf & 1) {
-    const _r9 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "button", 16);
-    ɵngcc0.ɵɵlistener("click", function CardElement_button_12_Template_button_click_0_listener() { ɵngcc0.ɵɵrestoreView(_r9); const ctx_r8 = ɵngcc0.ɵɵnextContext(); return ctx_r8.toggleRefresh(); });
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r3 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵpropertyInterpolate("tooltip", ctx_r3.labels.refresh);
-    ɵngcc0.ɵɵattribute("data-automation-id", ctx_r3.cardAutomationId + "-refresh");
-} }
-function CardElement_button_13_Template(rf, ctx) { if (rf & 1) {
-    const _r11 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "button", 17);
-    ɵngcc0.ɵɵlistener("click", function CardElement_button_13_Template_button_click_0_listener() { ɵngcc0.ɵɵrestoreView(_r11); const ctx_r10 = ɵngcc0.ɵɵnextContext(); return ctx_r10.toggleClose(); });
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r4 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵpropertyInterpolate("tooltip", ctx_r4.labels.close);
-    ɵngcc0.ɵɵattribute("data-automation-id", ctx_r4.cardAutomationId + "-close");
-} }
-function CardElement_ng_content_15_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵprojection(0, 1, ["*ngIf", "!(loading || config.loading) && !(message || config.message)"]);
-} }
-function CardElement_p_16_i_1_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelement(0, "i", 15);
-} if (rf & 2) {
-    const ctx_r12 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵproperty("ngClass", ctx_r12.messageIconClass);
-} }
-function CardElement_p_16_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "p", 18);
-    ɵngcc0.ɵɵtemplate(1, CardElement_p_16_i_1_Template, 1, 1, "i", 6);
-    ɵngcc0.ɵɵelement(2, "span", 19);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r6 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵattribute("data-automation-id", ctx_r6.cardAutomationId + "-message");
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r6.messageIconClass);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("innerHtml", ctx_r6.message || ctx_r6.config.message, ɵngcc0.ɵɵsanitizeHtml);
-} }
-function CardElement_ng_content_17_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵprojection(0, 2, ["*ngIf", "!(loading || config.loading) && !(message || config.message)"]);
-} }
-const _c11 = [[["novo-card-actions"]], "*", [["footer"]]];
-const _c12 = function (a0) { return { "no-padding": a0 }; };
-const _c13 = ["novo-card-actions", "*", "footer"];
-function NovoCategoryDropdownElement_div_1_div_1_i_2_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelement(0, "i", 12);
-} }
-function NovoCategoryDropdownElement_div_1_div_1_i_3_Template(rf, ctx) { if (rf & 1) {
-    const _r9 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "i", 13);
-    ɵngcc0.ɵɵlistener("click", function NovoCategoryDropdownElement_div_1_div_1_i_3_Template_i_click_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r9); const ctx_r8 = ɵngcc0.ɵɵnextContext(3); return ctx_r8.clearQuery($event); });
-    ɵngcc0.ɵɵelementEnd();
-} }
-function NovoCategoryDropdownElement_div_1_div_1_Template(rf, ctx) { if (rf & 1) {
-    const _r11 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "div", 8);
-    ɵngcc0.ɵɵelementStart(1, "input", 9);
-    ɵngcc0.ɵɵlistener("input", function NovoCategoryDropdownElement_div_1_div_1_Template_input_input_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r11); const ctx_r10 = ɵngcc0.ɵɵnextContext(2); return ctx_r10.queryCategories($event.target.value); });
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵtemplate(2, NovoCategoryDropdownElement_div_1_div_1_i_2_Template, 1, 0, "i", 10);
-    ɵngcc0.ɵɵtemplate(3, NovoCategoryDropdownElement_div_1_div_1_i_3_Template, 1, 0, "i", 11);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r1 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("placeholder", ctx_r1.search.placeholder || ctx_r1.labels.search)("value", ctx_r1._query);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", !ctx_r1._query);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r1._query);
-} }
-function NovoCategoryDropdownElement_div_1_novo_tab_3_Template(rf, ctx) { if (rf & 1) {
-    const _r14 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "novo-tab", 14);
-    ɵngcc0.ɵɵlistener("activeChange", function NovoCategoryDropdownElement_div_1_novo_tab_3_Template_novo_tab_activeChange_0_listener() { ɵngcc0.ɵɵrestoreView(_r14); const category_r12 = ctx.$implicit; const ctx_r13 = ɵngcc0.ɵɵnextContext(2); return ctx_r13.onCategorySelected(category_r12); });
-    ɵngcc0.ɵɵelementStart(1, "span");
-    ɵngcc0.ɵɵtext(2);
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const category_r12 = ctx.$implicit;
-    const ctx_r2 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵattribute("data-automation-id", category_r12);
-    ɵngcc0.ɵɵadvance(2);
-    ɵngcc0.ɵɵtextInterpolate2("", category_r12, " (", ctx_r2._categoryMap[category_r12].length, ")");
-} }
-function NovoCategoryDropdownElement_div_1_novo_nav_content_6_novo_list_item_2_item_end_3_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "item-end", 21);
-    ɵngcc0.ɵɵtext(1);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const item_r18 = ɵngcc0.ɵɵnextContext().$implicit;
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate(item_r18.hoverText);
-} }
-function NovoCategoryDropdownElement_div_1_novo_nav_content_6_novo_list_item_2_item_end_4_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "item-end", 21);
-    ɵngcc0.ɵɵelement(1, "i");
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const item_r18 = ɵngcc0.ɵɵnextContext().$implicit;
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵclassMapInterpolate1("bhi-", item_r18.hoverIcon, "");
-} }
-function NovoCategoryDropdownElement_div_1_novo_nav_content_6_novo_list_item_2_item_end_5_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "item-end");
-    ɵngcc0.ɵɵelement(1, "i", 22);
-    ɵngcc0.ɵɵelementEnd();
-} }
-function NovoCategoryDropdownElement_div_1_novo_nav_content_6_novo_list_item_2_Template(rf, ctx) { if (rf & 1) {
-    const _r25 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "novo-list-item", 18);
-    ɵngcc0.ɵɵlistener("click", function NovoCategoryDropdownElement_div_1_novo_nav_content_6_novo_list_item_2_Template_novo_list_item_click_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r25); const item_r18 = ctx.$implicit; const ctx_r24 = ɵngcc0.ɵɵnextContext(3); return ctx_r24.select($event, item_r18); });
-    ɵngcc0.ɵɵelementStart(1, "item-content");
-    ɵngcc0.ɵɵtext(2);
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵtemplate(3, NovoCategoryDropdownElement_div_1_novo_nav_content_6_novo_list_item_2_item_end_3_Template, 2, 1, "item-end", 19);
-    ɵngcc0.ɵɵtemplate(4, NovoCategoryDropdownElement_div_1_novo_nav_content_6_novo_list_item_2_item_end_4_Template, 2, 3, "item-end", 19);
-    ɵngcc0.ɵɵtemplate(5, NovoCategoryDropdownElement_div_1_novo_nav_content_6_novo_list_item_2_item_end_5_Template, 2, 0, "item-end", 20);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const item_r18 = ctx.$implicit;
-    ɵngcc0.ɵɵattribute("data-automation-id", item_r18.label);
-    ɵngcc0.ɵɵadvance(2);
-    ɵngcc0.ɵɵtextInterpolate(item_r18.label);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", item_r18.hoverText && !item_r18.selected);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", item_r18.hoverIcon && !item_r18.selected);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", item_r18.selected);
-} }
-function NovoCategoryDropdownElement_div_1_novo_nav_content_6_novo_list_item_3_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "novo-list-item", 23);
-    ɵngcc0.ɵɵelementStart(1, "item-content");
-    ɵngcc0.ɵɵtext(2);
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r17 = ɵngcc0.ɵɵnextContext(3);
-    ɵngcc0.ɵɵadvance(2);
-    ɵngcc0.ɵɵtextInterpolate(ctx_r17.search.emptyMessage || ctx_r17.labels.noItems);
-} }
-function NovoCategoryDropdownElement_div_1_novo_nav_content_6_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "novo-nav-content");
-    ɵngcc0.ɵɵelementStart(1, "novo-list", 15);
-    ɵngcc0.ɵɵtemplate(2, NovoCategoryDropdownElement_div_1_novo_nav_content_6_novo_list_item_2_Template, 6, 5, "novo-list-item", 16);
-    ɵngcc0.ɵɵtemplate(3, NovoCategoryDropdownElement_div_1_novo_nav_content_6_novo_list_item_3_Template, 3, 1, "novo-list-item", 17);
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const category_r15 = ctx.$implicit;
-    const ctx_r4 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵadvance(2);
-    ɵngcc0.ɵɵproperty("ngForOf", ctx_r4._categoryMap[category_r15]);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r4._categoryMap[category_r15].length === 0 && ctx_r4.search);
-} }
-function NovoCategoryDropdownElement_div_1_footer_7_a_1_Template(rf, ctx) { if (rf & 1) {
-    const _r29 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "a", 18);
-    ɵngcc0.ɵɵlistener("click", function NovoCategoryDropdownElement_div_1_footer_7_a_1_Template_a_click_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r29); const link_r27 = ctx.$implicit; const ctx_r28 = ɵngcc0.ɵɵnextContext(3); return ctx_r28.executeClickCallback($event, link_r27); });
-    ɵngcc0.ɵɵtext(1);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const link_r27 = ctx.$implicit;
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate(link_r27.label);
-} }
-function NovoCategoryDropdownElement_div_1_footer_7_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "footer");
-    ɵngcc0.ɵɵtemplate(1, NovoCategoryDropdownElement_div_1_footer_7_a_1_Template, 2, 1, "a", 16);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r5 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵclassMapInterpolate1("novo-category-dropdown-footer-align-", ctx_r5.footer.align || "right", "");
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngForOf", ctx_r5.footer.links);
-} }
-function NovoCategoryDropdownElement_div_1_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "div", 1);
-    ɵngcc0.ɵɵtemplate(1, NovoCategoryDropdownElement_div_1_div_1_Template, 4, 4, "div", 2);
-    ɵngcc0.ɵɵelementStart(2, "novo-nav", 3);
-    ɵngcc0.ɵɵtemplate(3, NovoCategoryDropdownElement_div_1_novo_tab_3_Template, 3, 3, "novo-tab", 4);
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementStart(4, "novo-nav-outlet", null, 5);
-    ɵngcc0.ɵɵtemplate(6, NovoCategoryDropdownElement_div_1_novo_nav_content_6_Template, 4, 2, "novo-nav-content", 6);
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵtemplate(7, NovoCategoryDropdownElement_div_1_footer_7_Template, 2, 4, "footer", 7);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const _r3 = ɵngcc0.ɵɵreference(5);
-    const ctx_r0 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r0.search);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("outlet", _r3);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngForOf", ctx_r0._categories);
-    ɵngcc0.ɵɵadvance(3);
-    ɵngcc0.ɵɵproperty("ngForOf", ctx_r0._categories);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r0.footer);
-} }
-const _c14 = [[["button"]]];
-const _c15 = ["button"];
-const _c16 = [[["item-header"]], [["item-content"]], "*", [["item-end"]]];
-const _c17 = function (a0) { return { "avatar": a0 }; };
-const _c18 = ["item-header", "item-content", "*", "item-end"];
-function NovoItemAvatarElement_i_0_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelement(0, "i", 1);
-} if (rf & 2) {
-    const ctx_r0 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵproperty("ngClass", ctx_r0.classMap);
-} }
-const _c19 = [[["item-avatar"]], [["item-title"]], [["item-header-end"]]];
-const _c20 = ["item-avatar", "item-title", "item-header-end"];
-function NovoChipElement_i_1_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelement(0, "i", 3);
-} }
-function NovoChipElement_i_4_Template(rf, ctx) { if (rf & 1) {
+function NovoCollapsableColumnElement_div_8_Template(rf, ctx) { if (rf & 1) {
     const _r3 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "i", 4);
-    ɵngcc0.ɵɵlistener("click", function NovoChipElement_i_4_Template_i_click_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r3); const ctx_r2 = ɵngcc0.ɵɵnextContext(); return ctx_r2.onRemove($event); });
+    ɵngcc0.ɵɵelementStart(0, "div", 5);
+    ɵngcc0.ɵɵelementStart(1, "novo-checkbox", 1);
+    ɵngcc0.ɵɵlistener("ngModelChange", function NovoCollapsableColumnElement_div_8_Template_novo_checkbox_ngModelChange_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r3); const card_r1 = ctx.$implicit; return card_r1.selected = $event; });
     ɵngcc0.ɵɵelementEnd();
-} }
-const _c21 = ["preview"];
-function NovoChipsElement_novo_chip_1_Template(rf, ctx) { if (rf & 1) {
-    const _r7 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "novo-chip", 7);
-    ɵngcc0.ɵɵlistener("remove", function NovoChipsElement_novo_chip_1_Template_novo_chip_remove_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r7); const item_r5 = ctx.$implicit; const ctx_r6 = ɵngcc0.ɵɵnextContext(); return ctx_r6.remove($event, item_r5); })("select", function NovoChipsElement_novo_chip_1_Template_novo_chip_select_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r7); const item_r5 = ctx.$implicit; const ctx_r8 = ɵngcc0.ɵɵnextContext(); return ctx_r8.select($event, item_r5); })("deselect", function NovoChipsElement_novo_chip_1_Template_novo_chip_deselect_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r7); const item_r5 = ctx.$implicit; const ctx_r9 = ɵngcc0.ɵɵnextContext(); return ctx_r9.deselect($event, item_r5); });
-    ɵngcc0.ɵɵtext(1);
+    ɵngcc0.ɵɵelementStart(2, "span", 6);
+    ɵngcc0.ɵɵelement(3, "i", 7);
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementStart(4, "span", 8);
+    ɵngcc0.ɵɵelement(5, "i", 9);
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵtext(6);
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
-    const item_r5 = ctx.$implicit;
+    const card_r1 = ctx.$implicit;
     const ctx_r0 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵclassProp("selected", item_r5 == ctx_r0.selected);
-    ɵngcc0.ɵɵproperty("type", ctx_r0.type || (item_r5 == null ? null : item_r5.value == null ? null : item_r5.value.searchEntity))("disabled", ctx_r0.disablePickerInput);
     ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate1(" ", item_r5.label, " ");
+    ɵngcc0.ɵɵproperty("ngModel", card_r1.selected);
+    ɵngcc0.ɵɵadvance(5);
+    ɵngcc0.ɵɵtextInterpolate1(" ", ctx_r0.entity === "Candidate" ? card_r1 == null ? null : card_r1.jobOrder == null ? null : card_r1.jobOrder.title : (card_r1 == null ? null : card_r1.candidate == null ? null : card_r1.candidate.firstName) + " " + (card_r1 == null ? null : card_r1.candidate == null ? null : card_r1.candidate.lastName), " ");
 } }
-function NovoChipsElement_div_3_Template(rf, ctx) { if (rf & 1) {
-    const _r11 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "div", 8);
-    ɵngcc0.ɵɵelementStart(1, "novo-picker", 9);
-    ɵngcc0.ɵɵlistener("ngModelChange", function NovoChipsElement_div_3_Template_novo_picker_ngModelChange_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r11); const ctx_r10 = ɵngcc0.ɵɵnextContext(); return ctx_r10.itemToAdd = $event; })("select", function NovoChipsElement_div_3_Template_novo_picker_select_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r11); const ctx_r12 = ɵngcc0.ɵɵnextContext(); return ctx_r12.add($event); })("keydown", function NovoChipsElement_div_3_Template_novo_picker_keydown_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r11); const ctx_r13 = ɵngcc0.ɵɵnextContext(); return ctx_r13.onKeyDown($event); })("focus", function NovoChipsElement_div_3_Template_novo_picker_focus_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r11); const ctx_r14 = ɵngcc0.ɵɵnextContext(); return ctx_r14.onFocus($event); })("typing", function NovoChipsElement_div_3_Template_novo_picker_typing_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r11); const ctx_r15 = ɵngcc0.ɵɵnextContext(); return ctx_r15.onTyping($event); })("blur", function NovoChipsElement_div_3_Template_novo_picker_blur_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r11); const ctx_r16 = ɵngcc0.ɵɵnextContext(); return ctx_r16.onTouched($event); });
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r1 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("closeOnSelect", ctx_r1.closeOnSelect)("config", ctx_r1.source)("disablePickerInput", ctx_r1.disablePickerInput)("placeholder", ctx_r1.placeholder)("ngModel", ctx_r1.itemToAdd)("selected", ctx_r1.items)("overrideElement", ctx_r1.element);
-} }
-function NovoChipsElement_i_7_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelement(0, "i", 10);
-} if (rf & 2) {
-    const ctx_r3 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵclassProp("has-value", ctx_r3.items.length);
-} }
-function NovoChipsElement_label_8_Template(rf, ctx) { if (rf & 1) {
-    const _r18 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "label", 11);
-    ɵngcc0.ɵɵlistener("click", function NovoChipsElement_label_8_Template_label_click_0_listener() { ɵngcc0.ɵɵrestoreView(_r18); const ctx_r17 = ɵngcc0.ɵɵnextContext(); return ctx_r17.clearValue(); });
-    ɵngcc0.ɵɵtext(1);
-    ɵngcc0.ɵɵelement(2, "i", 12);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r4 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate1("", ctx_r4.labels.clearAll, " ");
-} }
-const _c22 = ["panel"];
+const _c11 = ["panel"];
 function NovoOverlayTemplateComponent_ng_template_0_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelementStart(0, "div", 0, 1);
     ɵngcc0.ɵɵprojection(2);
@@ -744,6 +470,93 @@ function NovoOverlayTemplateComponent_ng_template_0_Template(rf, ctx) { if (rf &
     const ctx_r0 = ɵngcc0.ɵɵnextContext();
     ɵngcc0.ɵɵproperty("id", ctx_r0.id);
 } }
+const _c12 = ["dropdownElement"];
+function NovoSelectElement_li_7_button_1_Template(rf, ctx) { if (rf & 1) {
+    const _r6 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "button", 10);
+    ɵngcc0.ɵɵlistener("click", function NovoSelectElement_li_7_button_1_Template_button_click_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r6); const ctx_r5 = ɵngcc0.ɵɵnextContext(2); ctx_r5.toggleHeader($event); return false; });
+    ɵngcc0.ɵɵelement(1, "i", 11);
+    ɵngcc0.ɵɵtext(2);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r3 = ɵngcc0.ɵɵnextContext(2);
+    ɵngcc0.ɵɵadvance(2);
+    ɵngcc0.ɵɵtextInterpolate1("\u00A0", ctx_r3.headerConfig.label, " ");
+} }
+const _c13 = function (a0) { return { active: a0 }; };
+const _c14 = function (a0) { return { invalid: a0 }; };
+function NovoSelectElement_li_7_div_2_Template(rf, ctx) { if (rf & 1) {
+    const _r8 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "div", 12);
+    ɵngcc0.ɵɵelementStart(1, "input", 13);
+    ɵngcc0.ɵɵlistener("ngModelChange", function NovoSelectElement_li_7_div_2_Template_input_ngModelChange_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r8); const ctx_r7 = ɵngcc0.ɵɵnextContext(2); return ctx_r7.header.value = $event; });
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementStart(2, "footer");
+    ɵngcc0.ɵɵelementStart(3, "button", 14);
+    ɵngcc0.ɵɵlistener("click", function NovoSelectElement_li_7_div_2_Template_button_click_3_listener($event) { ɵngcc0.ɵɵrestoreView(_r8); const ctx_r9 = ɵngcc0.ɵɵnextContext(2); return ctx_r9.toggleHeader($event, false); });
+    ɵngcc0.ɵɵtext(4);
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementStart(5, "button", 15);
+    ɵngcc0.ɵɵlistener("click", function NovoSelectElement_li_7_div_2_Template_button_click_5_listener() { ɵngcc0.ɵɵrestoreView(_r8); const ctx_r10 = ɵngcc0.ɵɵnextContext(2); return ctx_r10.saveHeader(); });
+    ɵngcc0.ɵɵtext(6);
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r4 = ɵngcc0.ɵɵnextContext(2);
+    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(7, _c13, ctx_r4.header.open));
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("placeholder", ctx_r4.headerConfig.placeholder)("ngModel", ctx_r4.header.value)("ngClass", ɵngcc0.ɵɵpureFunction1(9, _c14, !ctx_r4.header.valid));
+    ɵngcc0.ɵɵattribute("id", ctx_r4.name);
+    ɵngcc0.ɵɵadvance(3);
+    ɵngcc0.ɵɵtextInterpolate(ctx_r4.labels.cancel);
+    ɵngcc0.ɵɵadvance(2);
+    ɵngcc0.ɵɵtextInterpolate(ctx_r4.labels.save);
+} }
+function NovoSelectElement_li_7_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "li", 7);
+    ɵngcc0.ɵɵtemplate(1, NovoSelectElement_li_7_button_1_Template, 3, 1, "button", 8);
+    ɵngcc0.ɵɵtemplate(2, NovoSelectElement_li_7_div_2_Template, 7, 11, "div", 9);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r1 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵclassProp("open", ctx_r1.header.open);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", !ctx_r1.header.open);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", ctx_r1.header.open);
+} }
+function NovoSelectElement_li_8_i_2_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelement(0, "i", 19);
+} }
+function NovoSelectElement_li_8_Template(rf, ctx) { if (rf & 1) {
+    const _r15 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "li", 16);
+    ɵngcc0.ɵɵlistener("click", function NovoSelectElement_li_8_Template_li_click_0_listener() { ɵngcc0.ɵɵrestoreView(_r15); const option_r11 = ctx.$implicit; const i_r12 = ctx.index; const ctx_r14 = ɵngcc0.ɵɵnextContext(); return ctx_r14.setValueAndClose({ value: option_r11, index: i_r12 }); });
+    ɵngcc0.ɵɵelement(1, "span", 17);
+    ɵngcc0.ɵɵtemplate(2, NovoSelectElement_li_8_i_2_Template, 1, 0, "i", 18);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const option_r11 = ctx.$implicit;
+    const ctx_r2 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(4, _c13, option_r11.active));
+    ɵngcc0.ɵɵattribute("data-automation-value", option_r11.label);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("innerHtml", ctx_r2.highlight(option_r11.label, ctx_r2.filterTerm), ɵngcc0.ɵɵsanitizeHtml);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", option_r11.active);
+} }
+const _c15 = [[["item-header"]], [["item-content"]], "*", [["item-end"]]];
+const _c16 = function (a0) { return { "avatar": a0 }; };
+const _c17 = ["item-header", "item-content", "*", "item-end"];
+function NovoItemAvatarElement_i_0_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelement(0, "i", 1);
+} if (rf & 2) {
+    const ctx_r0 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵproperty("ngClass", ctx_r0.classMap);
+} }
+const _c18 = [[["item-avatar"]], [["item-title"]], [["item-header-end"]]];
+const _c19 = ["item-avatar", "item-title", "item-header-end"];
 function PickerResults_novo_list_0_novo_list_item_1_Template(rf, ctx) { if (rf & 1) {
     const _r8 = ɵngcc0.ɵɵgetCurrentView();
     ɵngcc0.ɵɵelementStart(0, "novo-list-item", 7);
@@ -797,8 +610,8 @@ function PickerResults_p_3_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵtextInterpolate(ctx_r3.getEmptyMessage());
 } }
-const _c23 = ["results"];
-const _c24 = ["input"];
+const _c20 = ["results"];
+const _c21 = ["input"];
 function NovoPickerElement_i_0_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelement(0, "i", 8);
 } }
@@ -1004,7 +817,6 @@ function EntityPickerResult_novo_list_item_0_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵproperty("ngIf", ctx_r0.match.data.occupation && ctx_r0.match.data.searchEntity === "CorporateUser");
 } }
-const _c25 = function (a0) { return { active: a0 }; };
 function EntityPickerResults_novo_list_0_entity_picker_result_1_Template(rf, ctx) { if (rf & 1) {
     const _r8 = ɵngcc0.ɵɵgetCurrentView();
     ɵngcc0.ɵɵelementStart(0, "entity-picker-result", 6);
@@ -1014,7 +826,7 @@ function EntityPickerResults_novo_list_0_entity_picker_result_1_Template(rf, ctx
     const match_r6 = ctx.$implicit;
     const ctx_r4 = ɵngcc0.ɵɵnextContext(2);
     ɵngcc0.ɵɵclassProp("disabled", ctx_r4.preselected(match_r6));
-    ɵngcc0.ɵɵproperty("match", match_r6)("term", ctx_r4.term)("ngClass", ɵngcc0.ɵɵpureFunction1(5, _c25, ctx_r4.isActive(match_r6)));
+    ɵngcc0.ɵɵproperty("match", match_r6)("term", ctx_r4.term)("ngClass", ɵngcc0.ɵɵpureFunction1(5, _c13, ctx_r4.isActive(match_r6)));
 } }
 function EntityPickerResults_novo_list_0_novo_loading_2_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelement(0, "novo-loading", 7);
@@ -1070,8 +882,8 @@ function ChecklistPickerResults_ul_1_span_1_li_1_Template(rf, ctx) { if (rf & 1)
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵtextInterpolate(section_r5.label || section_r5.type);
 } }
-const _c26 = function (a0) { return { checked: a0 }; };
-const _c27 = function (a0, a1, a2) { return { "bhi-checkbox-empty": a0, "bhi-checkbox-filled": a1, "bhi-checkbox-indeterminate": a2 }; };
+const _c22 = function (a0) { return { checked: a0 }; };
+const _c23 = function (a0, a1, a2) { return { "bhi-checkbox-empty": a0, "bhi-checkbox-filled": a1, "bhi-checkbox-indeterminate": a2 }; };
 function ChecklistPickerResults_ul_1_span_1_li_2_Template(rf, ctx) { if (rf & 1) {
     const _r13 = ɵngcc0.ɵɵgetCurrentView();
     ɵngcc0.ɵɵelementStart(0, "li", 9);
@@ -1085,9 +897,9 @@ function ChecklistPickerResults_ul_1_span_1_li_2_Template(rf, ctx) { if (rf & 1)
     const match_r10 = ctx.$implicit;
     const ctx_r8 = ɵngcc0.ɵɵnextContext(3);
     ɵngcc0.ɵɵclassProp("active", match_r10 === ctx_r8.activeMatch);
-    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(5, _c26, match_r10.checked));
+    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(5, _c22, match_r10.checked));
     ɵngcc0.ɵɵadvance(2);
-    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction3(7, _c27, !match_r10.checked, match_r10.checked, match_r10.indeterminate));
+    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction3(7, _c23, !match_r10.checked, match_r10.checked, match_r10.indeterminate));
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵtextInterpolate1(" ", match_r10.label, " ");
 } }
@@ -1130,7 +942,7 @@ function ChecklistPickerResults_p_3_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵtextInterpolate(ctx_r3.labels.pickerEmpty);
 } }
-const _c28 = ["list"];
+const _c24 = ["list"];
 function GroupedMultiPickerResults_novo_list_item_2_Template(rf, ctx) { if (rf & 1) {
     const _r12 = ɵngcc0.ɵɵgetCurrentView();
     ɵngcc0.ɵɵelementStart(0, "novo-list-item", 17);
@@ -1416,7 +1228,7 @@ function DistributionListPickerResults_section_0_Template(rf, ctx) { if (rf & 1)
     ɵngcc0.ɵɵelement(1, "novo-loading", 3);
     ɵngcc0.ɵɵelementEnd();
 } }
-const _c29 = function () { return { year: "numeric", month: "numeric", day: "numeric" }; };
+const _c25 = function () { return { year: "numeric", month: "numeric", day: "numeric" }; };
 function DistributionListPickerResults_novo_list_1_novo_list_item_1_Template(rf, ctx) { if (rf & 1) {
     const _r6 = ɵngcc0.ɵɵgetCurrentView();
     ɵngcc0.ɵɵelementStart(0, "novo-list-item", 7);
@@ -1458,7 +1270,7 @@ function DistributionListPickerResults_novo_list_1_novo_list_item_1_Template(rf,
     ɵngcc0.ɵɵadvance(3);
     ɵngcc0.ɵɵtextInterpolate1("", ctx_r2.labels.dateAdded, ": ");
     ɵngcc0.ɵɵadvance(2);
-    ɵngcc0.ɵɵtextInterpolate(ctx_r2.labels.formatDateWithFormat(match_r4 == null ? null : match_r4.data == null ? null : match_r4.data.dateAdded, ɵngcc0.ɵɵpureFunction0(9, _c29)));
+    ɵngcc0.ɵɵtextInterpolate(ctx_r2.labels.formatDateWithFormat(match_r4 == null ? null : match_r4.data == null ? null : match_r4.data.dateAdded, ɵngcc0.ɵɵpureFunction0(9, _c25)));
 } }
 function DistributionListPickerResults_novo_list_1_novo_loading_2_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelement(0, "novo-loading", 3);
@@ -1543,11 +1355,11 @@ function WorkersCompCodesPickerResults_novo_list_1_novo_list_item_1_Template(rf,
     ɵngcc0.ɵɵadvance(4);
     ɵngcc0.ɵɵtextInterpolate1("", ctx_r2.labels.startDate, ": ");
     ɵngcc0.ɵɵadvance(2);
-    ɵngcc0.ɵɵtextInterpolate(ctx_r2.labels.formatDateWithFormat(match_r4 == null ? null : match_r4.data == null ? null : match_r4.data.startDate, ɵngcc0.ɵɵpureFunction0(13, _c29)));
+    ɵngcc0.ɵɵtextInterpolate(ctx_r2.labels.formatDateWithFormat(match_r4 == null ? null : match_r4.data == null ? null : match_r4.data.startDate, ɵngcc0.ɵɵpureFunction0(13, _c25)));
     ɵngcc0.ɵɵadvance(3);
     ɵngcc0.ɵɵtextInterpolate1("", ctx_r2.labels.endDate, ": ");
     ɵngcc0.ɵɵadvance(2);
-    ɵngcc0.ɵɵtextInterpolate(ctx_r2.labels.formatDateWithFormat(match_r4 == null ? null : match_r4.data == null ? null : match_r4.data.endDate, ɵngcc0.ɵɵpureFunction0(14, _c29)));
+    ɵngcc0.ɵɵtextInterpolate(ctx_r2.labels.formatDateWithFormat(match_r4 == null ? null : match_r4.data == null ? null : match_r4.data.endDate, ɵngcc0.ɵɵpureFunction0(14, _c25)));
 } }
 function WorkersCompCodesPickerResults_novo_list_1_novo_loading_2_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelement(0, "novo-loading", 3);
@@ -1563,6 +1375,713 @@ function WorkersCompCodesPickerResults_novo_list_1_Template(rf, ctx) { if (rf & 
     ɵngcc0.ɵɵproperty("ngForOf", ctx_r1.matches);
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵproperty("ngIf", ctx_r1.isLoading && (ctx_r1.matches == null ? null : ctx_r1.matches.length) > 0);
+} }
+const _c26 = function (a0, a1) { return { "bhi-circle": a0, "bhi-check": a1 }; };
+function NovoAddressElement_span_0_i_1_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelement(0, "i", 9);
+} if (rf & 2) {
+    const ctx_r6 = ɵngcc0.ɵɵnextContext(2);
+    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction2(1, _c26, !ctx_r6.valid.address1, ctx_r6.valid.address1));
+} }
+function NovoAddressElement_span_0_Template(rf, ctx) { if (rf & 1) {
+    const _r8 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "span", 6);
+    ɵngcc0.ɵɵtemplate(1, NovoAddressElement_span_0_i_1_Template, 1, 4, "i", 7);
+    ɵngcc0.ɵɵelementStart(2, "input", 8);
+    ɵngcc0.ɵɵlistener("ngModelChange", function NovoAddressElement_span_0_Template_input_ngModelChange_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r8); const ctx_r7 = ɵngcc0.ɵɵnextContext(); return ctx_r7.model.address1 = $event; })("ngModelChange", function NovoAddressElement_span_0_Template_input_ngModelChange_2_listener() { ɵngcc0.ɵɵrestoreView(_r8); const ctx_r9 = ɵngcc0.ɵɵnextContext(); return ctx_r9.updateControl(); })("focus", function NovoAddressElement_span_0_Template_input_focus_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r8); const ctx_r10 = ɵngcc0.ɵɵnextContext(); return ctx_r10.isFocused($event, "address1"); })("blur", function NovoAddressElement_span_0_Template_input_blur_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r8); const ctx_r11 = ɵngcc0.ɵɵnextContext(); return ctx_r11.isBlurred($event, "address1"); })("input", function NovoAddressElement_span_0_Template_input_input_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r8); const ctx_r12 = ɵngcc0.ɵɵnextContext(); return ctx_r12.onInput($event, "address1"); });
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r0 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵclassProp("invalid", ctx_r0.invalid.address1)("focus", ctx_r0.focused.address1)("disabled", ctx_r0.disabled.address1);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", ctx_r0.config.address1.required);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵclassProp("maxlength-error", ctx_r0.invalidMaxlength.address1);
+    ɵngcc0.ɵɵproperty("placeholder", ctx_r0.config.address1.label)("maxlength", ctx_r0.config == null ? null : ctx_r0.config.address1 == null ? null : ctx_r0.config.address1.maxlength)("ngModel", ctx_r0.model.address1);
+} }
+function NovoAddressElement_span_1_i_1_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelement(0, "i", 13);
+} if (rf & 2) {
+    const ctx_r13 = ɵngcc0.ɵɵnextContext(2);
+    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction2(1, _c26, !ctx_r13.valid.address2, ctx_r13.valid.address2));
+} }
+function NovoAddressElement_span_1_Template(rf, ctx) { if (rf & 1) {
+    const _r15 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "span", 10);
+    ɵngcc0.ɵɵtemplate(1, NovoAddressElement_span_1_i_1_Template, 1, 4, "i", 11);
+    ɵngcc0.ɵɵelementStart(2, "input", 12);
+    ɵngcc0.ɵɵlistener("ngModelChange", function NovoAddressElement_span_1_Template_input_ngModelChange_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r15); const ctx_r14 = ɵngcc0.ɵɵnextContext(); return ctx_r14.model.address2 = $event; })("ngModelChange", function NovoAddressElement_span_1_Template_input_ngModelChange_2_listener() { ɵngcc0.ɵɵrestoreView(_r15); const ctx_r16 = ɵngcc0.ɵɵnextContext(); return ctx_r16.updateControl(); })("focus", function NovoAddressElement_span_1_Template_input_focus_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r15); const ctx_r17 = ɵngcc0.ɵɵnextContext(); return ctx_r17.isFocused($event, "address2"); })("blur", function NovoAddressElement_span_1_Template_input_blur_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r15); const ctx_r18 = ɵngcc0.ɵɵnextContext(); return ctx_r18.isBlurred($event, "address2"); })("input", function NovoAddressElement_span_1_Template_input_input_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r15); const ctx_r19 = ɵngcc0.ɵɵnextContext(); return ctx_r19.onInput($event, "address2"); });
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r1 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵclassProp("invalid", ctx_r1.invalid.address2)("focus", ctx_r1.focused.address2)("disabled", ctx_r1.disabled.address2);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", ctx_r1.config.address2.required);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵclassProp("maxlength-error", ctx_r1.invalidMaxlength.address2);
+    ɵngcc0.ɵɵproperty("placeholder", ctx_r1.config.address2.label)("maxlength", ctx_r1.config == null ? null : ctx_r1.config.address2 == null ? null : ctx_r1.config.address2.maxlength)("ngModel", ctx_r1.model.address2);
+} }
+function NovoAddressElement_span_2_i_1_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelement(0, "i", 17);
+} if (rf & 2) {
+    const ctx_r20 = ɵngcc0.ɵɵnextContext(2);
+    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction2(1, _c26, !ctx_r20.valid.city, ctx_r20.valid.city));
+} }
+function NovoAddressElement_span_2_Template(rf, ctx) { if (rf & 1) {
+    const _r22 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "span", 14);
+    ɵngcc0.ɵɵtemplate(1, NovoAddressElement_span_2_i_1_Template, 1, 4, "i", 15);
+    ɵngcc0.ɵɵelementStart(2, "input", 16);
+    ɵngcc0.ɵɵlistener("ngModelChange", function NovoAddressElement_span_2_Template_input_ngModelChange_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r22); const ctx_r21 = ɵngcc0.ɵɵnextContext(); return ctx_r21.model.city = $event; })("ngModelChange", function NovoAddressElement_span_2_Template_input_ngModelChange_2_listener() { ɵngcc0.ɵɵrestoreView(_r22); const ctx_r23 = ɵngcc0.ɵɵnextContext(); return ctx_r23.updateControl(); })("focus", function NovoAddressElement_span_2_Template_input_focus_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r22); const ctx_r24 = ɵngcc0.ɵɵnextContext(); return ctx_r24.isFocused($event, "city"); })("blur", function NovoAddressElement_span_2_Template_input_blur_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r22); const ctx_r25 = ɵngcc0.ɵɵnextContext(); return ctx_r25.isBlurred($event, "city"); })("input", function NovoAddressElement_span_2_Template_input_input_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r22); const ctx_r26 = ɵngcc0.ɵɵnextContext(); return ctx_r26.onInput($event, "city"); });
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r2 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵclassProp("invalid", ctx_r2.invalid.city)("focus", ctx_r2.focused.city)("disabled", ctx_r2.disabled.city);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", ctx_r2.config.city.required);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵclassProp("maxlength-error", ctx_r2.invalidMaxlength.city);
+    ɵngcc0.ɵɵproperty("placeholder", ctx_r2.config.city.label)("maxlength", ctx_r2.config == null ? null : ctx_r2.config.city == null ? null : ctx_r2.config.city.maxlength)("ngModel", ctx_r2.model.city);
+} }
+function NovoAddressElement_span_3_i_1_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelement(0, "i", 17);
+} if (rf & 2) {
+    const ctx_r27 = ɵngcc0.ɵɵnextContext(2);
+    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction2(1, _c26, !ctx_r27.valid.state, ctx_r27.valid.state));
+} }
+function NovoAddressElement_span_3_Template(rf, ctx) { if (rf & 1) {
+    const _r29 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "span", 18);
+    ɵngcc0.ɵɵtemplate(1, NovoAddressElement_span_3_i_1_Template, 1, 4, "i", 15);
+    ɵngcc0.ɵɵelementStart(2, "novo-picker", 19);
+    ɵngcc0.ɵɵlistener("changed", function NovoAddressElement_span_3_Template_novo_picker_changed_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r29); const ctx_r28 = ɵngcc0.ɵɵnextContext(); return ctx_r28.onStateChange($event); })("ngModelChange", function NovoAddressElement_span_3_Template_novo_picker_ngModelChange_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r29); const ctx_r30 = ɵngcc0.ɵɵnextContext(); return ctx_r30.model.state = $event; });
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r3 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵclassProp("invalid", ctx_r3.invalid.state)("focus", ctx_r3.focused.state)("disabled", ctx_r3.disabled.state);
+    ɵngcc0.ɵɵproperty("tooltip", ctx_r3.tooltip.state);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", ctx_r3.config.state.required);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("config", ctx_r3.config == null ? null : ctx_r3.config.state == null ? null : ctx_r3.config.state.pickerConfig)("placeholder", ctx_r3.config == null ? null : ctx_r3.config.state == null ? null : ctx_r3.config.state.label)("ngModel", ctx_r3.model.state)("disablePickerInput", ctx_r3.disabled.state);
+} }
+function NovoAddressElement_span_4_i_1_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelement(0, "i", 17);
+} if (rf & 2) {
+    const ctx_r31 = ɵngcc0.ɵɵnextContext(2);
+    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction2(1, _c26, !ctx_r31.valid.zip, ctx_r31.valid.zip));
+} }
+function NovoAddressElement_span_4_Template(rf, ctx) { if (rf & 1) {
+    const _r33 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "span", 20);
+    ɵngcc0.ɵɵtemplate(1, NovoAddressElement_span_4_i_1_Template, 1, 4, "i", 15);
+    ɵngcc0.ɵɵelementStart(2, "input", 21);
+    ɵngcc0.ɵɵlistener("ngModelChange", function NovoAddressElement_span_4_Template_input_ngModelChange_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r33); const ctx_r32 = ɵngcc0.ɵɵnextContext(); return ctx_r32.model.zip = $event; })("ngModelChange", function NovoAddressElement_span_4_Template_input_ngModelChange_2_listener() { ɵngcc0.ɵɵrestoreView(_r33); const ctx_r34 = ɵngcc0.ɵɵnextContext(); return ctx_r34.updateControl(); })("focus", function NovoAddressElement_span_4_Template_input_focus_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r33); const ctx_r35 = ɵngcc0.ɵɵnextContext(); return ctx_r35.isFocused($event, "zip"); })("blur", function NovoAddressElement_span_4_Template_input_blur_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r33); const ctx_r36 = ɵngcc0.ɵɵnextContext(); return ctx_r36.isBlurred($event, "zip"); })("input", function NovoAddressElement_span_4_Template_input_input_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r33); const ctx_r37 = ɵngcc0.ɵɵnextContext(); return ctx_r37.onInput($event, "zip"); });
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r4 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵclassProp("invalid", ctx_r4.invalid.zip)("focus", ctx_r4.focused.zip)("disabled", ctx_r4.disabled.zip);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", ctx_r4.config.zip.required);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵclassProp("maxlength-error", ctx_r4.invalidMaxlength.zip);
+    ɵngcc0.ɵɵproperty("placeholder", ctx_r4.config.zip.label)("maxlength", ctx_r4.config == null ? null : ctx_r4.config.zip == null ? null : ctx_r4.config.zip.maxlength)("ngModel", ctx_r4.model.zip);
+} }
+function NovoAddressElement_span_5_i_1_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelement(0, "i", 17);
+} if (rf & 2) {
+    const ctx_r38 = ɵngcc0.ɵɵnextContext(2);
+    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction2(1, _c26, !ctx_r38.valid.countryID, ctx_r38.valid.countryID));
+} }
+function NovoAddressElement_span_5_Template(rf, ctx) { if (rf & 1) {
+    const _r40 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "span", 22);
+    ɵngcc0.ɵɵtemplate(1, NovoAddressElement_span_5_i_1_Template, 1, 4, "i", 15);
+    ɵngcc0.ɵɵelementStart(2, "novo-picker", 23);
+    ɵngcc0.ɵɵlistener("changed", function NovoAddressElement_span_5_Template_novo_picker_changed_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r40); const ctx_r39 = ɵngcc0.ɵɵnextContext(); return ctx_r39.onCountryChange($event); })("ngModelChange", function NovoAddressElement_span_5_Template_novo_picker_ngModelChange_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r40); const ctx_r41 = ɵngcc0.ɵɵnextContext(); return ctx_r41.model.countryID = $event; });
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r5 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵclassProp("invalid", ctx_r5.invalid.countryID)("focus", ctx_r5.focused.countryID)("disabled", ctx_r5.disabled.countryID);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", ctx_r5.config.countryID.required);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("config", ctx_r5.config == null ? null : ctx_r5.config.countryID == null ? null : ctx_r5.config.countryID.pickerConfig)("placeholder", ctx_r5.config.countryID.label)("ngModel", ctx_r5.model.countryID)("disablePickerInput", ctx_r5.disabled.countryID);
+} }
+function NovoCheckboxElement_span_4_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "span");
+    ɵngcc0.ɵɵtext(1);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r0 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵtextInterpolate(ctx_r0.label);
+} }
+const _c27 = function (a0, a1) { return { "bhi-checkbox-empty": a0, "bhi-checkbox-filled": a1 }; };
+function NovoCheckListElement_div_0_Template(rf, ctx) { if (rf & 1) {
+    const _r4 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "div", 1);
+    ɵngcc0.ɵɵelementStart(1, "input", 2);
+    ɵngcc0.ɵɵlistener("change", function NovoCheckListElement_div_0_Template_input_change_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r4); const option_r1 = ctx.$implicit; const ctx_r3 = ɵngcc0.ɵɵnextContext(); return ctx_r3.select($event, option_r1); });
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementStart(2, "label", 3);
+    ɵngcc0.ɵɵlistener("click", function NovoCheckListElement_div_0_Template_label_click_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r4); const option_r1 = ctx.$implicit; const ctx_r5 = ɵngcc0.ɵɵnextContext(); return ctx_r5.select($event, option_r1); });
+    ɵngcc0.ɵɵelement(3, "i", 4);
+    ɵngcc0.ɵɵelementStart(4, "span");
+    ɵngcc0.ɵɵtext(5);
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const option_r1 = ctx.$implicit;
+    const i_r2 = ctx.index;
+    const ctx_r0 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵclassProp("disabled", ctx_r0.disabled);
+    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(12, _c22, option_r1.checked));
+    ɵngcc0.ɵɵattribute("data-automation-id", option_r1.label);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("name", ctx_r0.name)("ngModel", option_r1.checked)("value", option_r1.checked)("disabled", ctx_r0.disabled);
+    ɵngcc0.ɵɵattribute("id", ctx_r0.name + i_r2);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵattribute("for", ctx_r0.name + i_r2);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction2(14, _c27, !option_r1.checked, option_r1.checked));
+    ɵngcc0.ɵɵadvance(2);
+    ɵngcc0.ɵɵtextInterpolate(option_r1.label);
+} }
+const _c28 = ["fileInput"];
+const _c29 = ["fileOutput"];
+const _c30 = ["container"];
+function NovoFileInputElement_ng_template_2_input_1_Template(rf, ctx) { if (rf & 1) {
+    const _r10 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "input", 8);
+    ɵngcc0.ɵɵlistener("change", function NovoFileInputElement_ng_template_2_input_1_Template_input_change_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r10); const ctx_r9 = ɵngcc0.ɵɵnextContext(2); return ctx_r9.check($event); });
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r5 = ɵngcc0.ɵɵnextContext(2);
+    ɵngcc0.ɵɵproperty("name", ctx_r5.name);
+    ɵngcc0.ɵɵattribute("id", ctx_r5.name)("multiple", ctx_r5.multiple)("data-feature-id", ctx_r5.dataFeatureId);
+} }
+function NovoFileInputElement_ng_template_2_input_2_Template(rf, ctx) { if (rf & 1) {
+    const _r12 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "input", 8);
+    ɵngcc0.ɵɵlistener("change", function NovoFileInputElement_ng_template_2_input_2_Template_input_change_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r12); const ctx_r11 = ɵngcc0.ɵɵnextContext(2); return ctx_r11.customCheck($event); });
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r6 = ɵngcc0.ɵɵnextContext(2);
+    ɵngcc0.ɵɵproperty("name", ctx_r6.name);
+    ɵngcc0.ɵɵattribute("id", ctx_r6.name)("multiple", ctx_r6.multiple)("data-feature-id", ctx_r6.dataFeatureId);
+} }
+function NovoFileInputElement_ng_template_2_label_4_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "label", 9);
+    ɵngcc0.ɵɵelementStart(1, "div");
+    ɵngcc0.ɵɵelement(2, "i", 10);
+    ɵngcc0.ɵɵtext(3);
+    ɵngcc0.ɵɵelementStart(4, "strong", 11);
+    ɵngcc0.ɵɵtext(5);
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r7 = ɵngcc0.ɵɵnextContext(2);
+    ɵngcc0.ɵɵattribute("for", ctx_r7.name);
+    ɵngcc0.ɵɵadvance(3);
+    ɵngcc0.ɵɵtextInterpolate2("", ctx_r7.placeholder || ctx_r7.labels.chooseAFile, " ", ctx_r7.labels.or, " ");
+    ɵngcc0.ɵɵadvance(2);
+    ɵngcc0.ɵɵtextInterpolate(ctx_r7.labels.clickToBrowse);
+} }
+function NovoFileInputElement_ng_template_2_label_5_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "label", 12);
+    ɵngcc0.ɵɵelementStart(1, "span");
+    ɵngcc0.ɵɵtext(2);
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementStart(3, "small");
+    ɵngcc0.ɵɵtext(4);
+    ɵngcc0.ɵɵelementStart(5, "strong", 11);
+    ɵngcc0.ɵɵtext(6);
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r8 = ɵngcc0.ɵɵnextContext(2);
+    ɵngcc0.ɵɵattribute("for", ctx_r8.name);
+    ɵngcc0.ɵɵadvance(2);
+    ɵngcc0.ɵɵtextInterpolate(ctx_r8.placeholder || ctx_r8.labels.chooseAFile);
+    ɵngcc0.ɵɵadvance(2);
+    ɵngcc0.ɵɵtextInterpolate1("", ctx_r8.labels.or, " ");
+    ɵngcc0.ɵɵadvance(2);
+    ɵngcc0.ɵɵtextInterpolate(ctx_r8.labels.clickToBrowse);
+} }
+function NovoFileInputElement_ng_template_2_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "div", 3);
+    ɵngcc0.ɵɵtemplate(1, NovoFileInputElement_ng_template_2_input_1_Template, 1, 4, "input", 4);
+    ɵngcc0.ɵɵtemplate(2, NovoFileInputElement_ng_template_2_input_2_Template, 1, 4, "input", 4);
+    ɵngcc0.ɵɵelementStart(3, "section", 5);
+    ɵngcc0.ɵɵtemplate(4, NovoFileInputElement_ng_template_2_label_4_Template, 6, 4, "label", 6);
+    ɵngcc0.ɵɵtemplate(5, NovoFileInputElement_ng_template_2_label_5_Template, 7, 4, "label", 7);
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r2 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵclassProp("disabled", ctx_r2.disabled)("active", ctx_r2.active);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", !ctx_r2.layoutOptions.customActions);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", ctx_r2.layoutOptions.customActions);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngSwitch", ctx_r2.layoutOptions.labelStyle);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngSwitchCase", "no-box");
+} }
+function NovoFileInputElement_ng_template_4_div_1_i_1_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelement(0, "i", 19);
+} }
+function NovoFileInputElement_ng_template_4_div_1_label_2_span_5_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "span");
+    ɵngcc0.ɵɵtext(1, "||");
+    ɵngcc0.ɵɵelementEnd();
+} }
+function NovoFileInputElement_ng_template_4_div_1_label_2_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "label");
+    ɵngcc0.ɵɵelementStart(1, "span");
+    ɵngcc0.ɵɵelementStart(2, "a", 20);
+    ɵngcc0.ɵɵtext(3);
+    ɵngcc0.ɵɵpipe(4, "decodeURI");
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵtemplate(5, NovoFileInputElement_ng_template_4_div_1_label_2_span_5_Template, 2, 0, "span", 17);
+    ɵngcc0.ɵɵelementStart(6, "span");
+    ɵngcc0.ɵɵtext(7);
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const file_r14 = ɵngcc0.ɵɵnextContext().$implicit;
+    ɵngcc0.ɵɵadvance(2);
+    ɵngcc0.ɵɵpropertyInterpolate("href", file_r14.link, ɵngcc0.ɵɵsanitizeUrl);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind1(4, 4, file_r14.name));
+    ɵngcc0.ɵɵadvance(2);
+    ɵngcc0.ɵɵproperty("ngIf", file_r14.description);
+    ɵngcc0.ɵɵadvance(2);
+    ɵngcc0.ɵɵtextInterpolate(file_r14.description);
+} }
+function NovoFileInputElement_ng_template_4_div_1_label_3_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "label");
+    ɵngcc0.ɵɵtext(1);
+    ɵngcc0.ɵɵpipe(2, "decodeURI");
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const file_r14 = ɵngcc0.ɵɵnextContext().$implicit;
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind1(2, 1, file_r14.name));
+} }
+function NovoFileInputElement_ng_template_4_div_1_div_4_div_1_button_1_Template(rf, ctx) { if (rf & 1) {
+    const _r29 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "button", 24);
+    ɵngcc0.ɵɵlistener("click", function NovoFileInputElement_ng_template_4_div_1_div_4_div_1_button_1_Template_button_click_0_listener() { ɵngcc0.ɵɵrestoreView(_r29); const file_r14 = ɵngcc0.ɵɵnextContext(3).$implicit; const ctx_r27 = ɵngcc0.ɵɵnextContext(2); return ctx_r27.download(file_r14); });
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    ɵngcc0.ɵɵattribute("data-automation-id", "file-download");
+} }
+function NovoFileInputElement_ng_template_4_div_1_div_4_div_1_button_2_Template(rf, ctx) { if (rf & 1) {
+    const _r32 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "button", 25);
+    ɵngcc0.ɵɵlistener("click", function NovoFileInputElement_ng_template_4_div_1_div_4_div_1_button_2_Template_button_click_0_listener() { ɵngcc0.ɵɵrestoreView(_r32); const file_r14 = ɵngcc0.ɵɵnextContext(3).$implicit; const ctx_r30 = ɵngcc0.ɵɵnextContext(2); return ctx_r30.remove(file_r14); });
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    ɵngcc0.ɵɵattribute("data-automation-id", "file-remove");
+} }
+function NovoFileInputElement_ng_template_4_div_1_div_4_div_1_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "div");
+    ɵngcc0.ɵɵtemplate(1, NovoFileInputElement_ng_template_4_div_1_div_4_div_1_button_1_Template, 1, 1, "button", 22);
+    ɵngcc0.ɵɵtemplate(2, NovoFileInputElement_ng_template_4_div_1_div_4_div_1_button_2_Template, 1, 1, "button", 23);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const file_r14 = ɵngcc0.ɵɵnextContext(2).$implicit;
+    const ctx_r23 = ɵngcc0.ɵɵnextContext(2);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", ctx_r23.layoutOptions.download);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", !ctx_r23.disabled && (ctx_r23.layoutOptions.removable || !ctx_r23.layoutOptions.removable && ctx_r23.layoutOptions.removableWhenNew && !file_r14.link));
+} }
+function NovoFileInputElement_ng_template_4_div_1_div_4_div_2_button_1_Template(rf, ctx) { if (rf & 1) {
+    const _r39 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "button", 27);
+    ɵngcc0.ɵɵlistener("click", function NovoFileInputElement_ng_template_4_div_1_div_4_div_2_button_1_Template_button_click_0_listener() { ɵngcc0.ɵɵrestoreView(_r39); const file_r14 = ɵngcc0.ɵɵnextContext(3).$implicit; const ctx_r37 = ɵngcc0.ɵɵnextContext(2); return ctx_r37.customEdit(file_r14); });
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    ɵngcc0.ɵɵattribute("data-automation-id", "file-edit");
+} }
+function NovoFileInputElement_ng_template_4_div_1_div_4_div_2_button_2_Template(rf, ctx) { if (rf & 1) {
+    const _r42 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "button", 24);
+    ɵngcc0.ɵɵlistener("click", function NovoFileInputElement_ng_template_4_div_1_div_4_div_2_button_2_Template_button_click_0_listener() { ɵngcc0.ɵɵrestoreView(_r42); const file_r14 = ɵngcc0.ɵɵnextContext(3).$implicit; const ctx_r40 = ɵngcc0.ɵɵnextContext(2); return ctx_r40.customSave(file_r14); });
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    ɵngcc0.ɵɵattribute("data-automation-id", "file-download");
+} }
+function NovoFileInputElement_ng_template_4_div_1_div_4_div_2_button_3_Template(rf, ctx) { if (rf & 1) {
+    const _r45 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "button", 25);
+    ɵngcc0.ɵɵlistener("click", function NovoFileInputElement_ng_template_4_div_1_div_4_div_2_button_3_Template_button_click_0_listener() { ɵngcc0.ɵɵrestoreView(_r45); const file_r14 = ɵngcc0.ɵɵnextContext(3).$implicit; const ctx_r43 = ɵngcc0.ɵɵnextContext(2); return ctx_r43.customDelete(file_r14); });
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    ɵngcc0.ɵɵattribute("data-automation-id", "file-remove");
+} }
+function NovoFileInputElement_ng_template_4_div_1_div_4_div_2_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "div");
+    ɵngcc0.ɵɵtemplate(1, NovoFileInputElement_ng_template_4_div_1_div_4_div_2_button_1_Template, 1, 1, "button", 26);
+    ɵngcc0.ɵɵtemplate(2, NovoFileInputElement_ng_template_4_div_1_div_4_div_2_button_2_Template, 1, 1, "button", 22);
+    ɵngcc0.ɵɵtemplate(3, NovoFileInputElement_ng_template_4_div_1_div_4_div_2_button_3_Template, 1, 1, "button", 23);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r24 = ɵngcc0.ɵɵnextContext(4);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", ctx_r24.layoutOptions.edit && !ctx_r24.disabled);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", ctx_r24.layoutOptions.download);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", !ctx_r24.disabled);
+} }
+function NovoFileInputElement_ng_template_4_div_1_div_4_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "div", 21);
+    ɵngcc0.ɵɵtemplate(1, NovoFileInputElement_ng_template_4_div_1_div_4_div_1_Template, 3, 2, "div", 17);
+    ɵngcc0.ɵɵtemplate(2, NovoFileInputElement_ng_template_4_div_1_div_4_div_2_Template, 4, 3, "div", 17);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r18 = ɵngcc0.ɵɵnextContext(3);
+    ɵngcc0.ɵɵattribute("data-automation-id", "file-actions");
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", !ctx_r18.layoutOptions.customActions);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", ctx_r18.layoutOptions.customActions);
+} }
+function NovoFileInputElement_ng_template_4_div_1_novo_loading_5_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelement(0, "novo-loading");
+} }
+function NovoFileInputElement_ng_template_4_div_1_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "div", 15);
+    ɵngcc0.ɵɵtemplate(1, NovoFileInputElement_ng_template_4_div_1_i_1_Template, 1, 0, "i", 16);
+    ɵngcc0.ɵɵtemplate(2, NovoFileInputElement_ng_template_4_div_1_label_2_Template, 8, 6, "label", 17);
+    ɵngcc0.ɵɵtemplate(3, NovoFileInputElement_ng_template_4_div_1_label_3_Template, 3, 3, "label", 17);
+    ɵngcc0.ɵɵtemplate(4, NovoFileInputElement_ng_template_4_div_1_div_4_Template, 3, 3, "div", 18);
+    ɵngcc0.ɵɵtemplate(5, NovoFileInputElement_ng_template_4_div_1_novo_loading_5_Template, 1, 0, "novo-loading", 17);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const file_r14 = ctx.$implicit;
+    const ctx_r13 = ɵngcc0.ɵɵnextContext(2);
+    ɵngcc0.ɵɵclassProp("disabled", ctx_r13.disabled);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", ctx_r13.layoutOptions.draggable);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", file_r14.link);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", !file_r14.link);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", file_r14.loaded);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", !file_r14.loaded);
+} }
+function NovoFileInputElement_ng_template_4_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "div", 13);
+    ɵngcc0.ɵɵtemplate(1, NovoFileInputElement_ng_template_4_div_1_Template, 6, 7, "div", 14);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r4 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵproperty("dragula", ctx_r4.fileOutputBag)("dragulaModel", ctx_r4.files);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngForOf", ctx_r4.files);
+} }
+function CardElement_div_1_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "div", 12);
+    ɵngcc0.ɵɵelement(1, "novo-loading", 13);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r0 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵattribute("data-automation-id", ctx_r0.cardAutomationId + "-loading");
+} }
+function CardElement_i_5_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelement(0, "i", 14);
+} if (rf & 2) {
+    const ctx_r1 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵattribute("data-automation-id", ctx_r1.cardAutomationId + "-move");
+} }
+function CardElement_i_8_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelement(0, "i", 15);
+} if (rf & 2) {
+    const ctx_r2 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵproperty("ngClass", ctx_r2.iconClass);
+} }
+function CardElement_button_12_Template(rf, ctx) { if (rf & 1) {
+    const _r9 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "button", 16);
+    ɵngcc0.ɵɵlistener("click", function CardElement_button_12_Template_button_click_0_listener() { ɵngcc0.ɵɵrestoreView(_r9); const ctx_r8 = ɵngcc0.ɵɵnextContext(); return ctx_r8.toggleRefresh(); });
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r3 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵpropertyInterpolate("tooltip", ctx_r3.labels.refresh);
+    ɵngcc0.ɵɵattribute("data-automation-id", ctx_r3.cardAutomationId + "-refresh");
+} }
+function CardElement_button_13_Template(rf, ctx) { if (rf & 1) {
+    const _r11 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "button", 17);
+    ɵngcc0.ɵɵlistener("click", function CardElement_button_13_Template_button_click_0_listener() { ɵngcc0.ɵɵrestoreView(_r11); const ctx_r10 = ɵngcc0.ɵɵnextContext(); return ctx_r10.toggleClose(); });
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r4 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵpropertyInterpolate("tooltip", ctx_r4.labels.close);
+    ɵngcc0.ɵɵattribute("data-automation-id", ctx_r4.cardAutomationId + "-close");
+} }
+function CardElement_ng_content_15_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵprojection(0, 1, ["*ngIf", "!(loading || config.loading) && !(message || config.message)"]);
+} }
+function CardElement_p_16_i_1_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelement(0, "i", 15);
+} if (rf & 2) {
+    const ctx_r12 = ɵngcc0.ɵɵnextContext(2);
+    ɵngcc0.ɵɵproperty("ngClass", ctx_r12.messageIconClass);
+} }
+function CardElement_p_16_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "p", 18);
+    ɵngcc0.ɵɵtemplate(1, CardElement_p_16_i_1_Template, 1, 1, "i", 6);
+    ɵngcc0.ɵɵelement(2, "span", 19);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r6 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵattribute("data-automation-id", ctx_r6.cardAutomationId + "-message");
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", ctx_r6.messageIconClass);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("innerHtml", ctx_r6.message || ctx_r6.config.message, ɵngcc0.ɵɵsanitizeHtml);
+} }
+function CardElement_ng_content_17_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵprojection(0, 2, ["*ngIf", "!(loading || config.loading) && !(message || config.message)"]);
+} }
+const _c31 = [[["novo-card-actions"]], "*", [["footer"]]];
+const _c32 = function (a0) { return { "no-padding": a0 }; };
+const _c33 = ["novo-card-actions", "*", "footer"];
+function NovoCategoryDropdownElement_div_1_div_1_i_2_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelement(0, "i", 12);
+} }
+function NovoCategoryDropdownElement_div_1_div_1_i_3_Template(rf, ctx) { if (rf & 1) {
+    const _r9 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "i", 13);
+    ɵngcc0.ɵɵlistener("click", function NovoCategoryDropdownElement_div_1_div_1_i_3_Template_i_click_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r9); const ctx_r8 = ɵngcc0.ɵɵnextContext(3); return ctx_r8.clearQuery($event); });
+    ɵngcc0.ɵɵelementEnd();
+} }
+function NovoCategoryDropdownElement_div_1_div_1_Template(rf, ctx) { if (rf & 1) {
+    const _r11 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "div", 8);
+    ɵngcc0.ɵɵelementStart(1, "input", 9);
+    ɵngcc0.ɵɵlistener("input", function NovoCategoryDropdownElement_div_1_div_1_Template_input_input_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r11); const ctx_r10 = ɵngcc0.ɵɵnextContext(2); return ctx_r10.queryCategories($event.target.value); });
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵtemplate(2, NovoCategoryDropdownElement_div_1_div_1_i_2_Template, 1, 0, "i", 10);
+    ɵngcc0.ɵɵtemplate(3, NovoCategoryDropdownElement_div_1_div_1_i_3_Template, 1, 0, "i", 11);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r1 = ɵngcc0.ɵɵnextContext(2);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("placeholder", ctx_r1.search.placeholder || ctx_r1.labels.search)("value", ctx_r1._query);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", !ctx_r1._query);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", ctx_r1._query);
+} }
+function NovoCategoryDropdownElement_div_1_novo_tab_3_Template(rf, ctx) { if (rf & 1) {
+    const _r14 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "novo-tab", 14);
+    ɵngcc0.ɵɵlistener("activeChange", function NovoCategoryDropdownElement_div_1_novo_tab_3_Template_novo_tab_activeChange_0_listener() { ɵngcc0.ɵɵrestoreView(_r14); const category_r12 = ctx.$implicit; const ctx_r13 = ɵngcc0.ɵɵnextContext(2); return ctx_r13.onCategorySelected(category_r12); });
+    ɵngcc0.ɵɵelementStart(1, "span");
+    ɵngcc0.ɵɵtext(2);
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const category_r12 = ctx.$implicit;
+    const ctx_r2 = ɵngcc0.ɵɵnextContext(2);
+    ɵngcc0.ɵɵattribute("data-automation-id", category_r12);
+    ɵngcc0.ɵɵadvance(2);
+    ɵngcc0.ɵɵtextInterpolate2("", category_r12, " (", ctx_r2._categoryMap[category_r12].length, ")");
+} }
+function NovoCategoryDropdownElement_div_1_novo_nav_content_6_novo_list_item_2_item_end_3_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "item-end", 21);
+    ɵngcc0.ɵɵtext(1);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r18 = ɵngcc0.ɵɵnextContext().$implicit;
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵtextInterpolate(item_r18.hoverText);
+} }
+function NovoCategoryDropdownElement_div_1_novo_nav_content_6_novo_list_item_2_item_end_4_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "item-end", 21);
+    ɵngcc0.ɵɵelement(1, "i");
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r18 = ɵngcc0.ɵɵnextContext().$implicit;
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵclassMapInterpolate1("bhi-", item_r18.hoverIcon, "");
+} }
+function NovoCategoryDropdownElement_div_1_novo_nav_content_6_novo_list_item_2_item_end_5_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "item-end");
+    ɵngcc0.ɵɵelement(1, "i", 22);
+    ɵngcc0.ɵɵelementEnd();
+} }
+function NovoCategoryDropdownElement_div_1_novo_nav_content_6_novo_list_item_2_Template(rf, ctx) { if (rf & 1) {
+    const _r25 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "novo-list-item", 18);
+    ɵngcc0.ɵɵlistener("click", function NovoCategoryDropdownElement_div_1_novo_nav_content_6_novo_list_item_2_Template_novo_list_item_click_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r25); const item_r18 = ctx.$implicit; const ctx_r24 = ɵngcc0.ɵɵnextContext(3); return ctx_r24.select($event, item_r18); });
+    ɵngcc0.ɵɵelementStart(1, "item-content");
+    ɵngcc0.ɵɵtext(2);
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵtemplate(3, NovoCategoryDropdownElement_div_1_novo_nav_content_6_novo_list_item_2_item_end_3_Template, 2, 1, "item-end", 19);
+    ɵngcc0.ɵɵtemplate(4, NovoCategoryDropdownElement_div_1_novo_nav_content_6_novo_list_item_2_item_end_4_Template, 2, 3, "item-end", 19);
+    ɵngcc0.ɵɵtemplate(5, NovoCategoryDropdownElement_div_1_novo_nav_content_6_novo_list_item_2_item_end_5_Template, 2, 0, "item-end", 20);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r18 = ctx.$implicit;
+    ɵngcc0.ɵɵattribute("data-automation-id", item_r18.label);
+    ɵngcc0.ɵɵadvance(2);
+    ɵngcc0.ɵɵtextInterpolate(item_r18.label);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", item_r18.hoverText && !item_r18.selected);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", item_r18.hoverIcon && !item_r18.selected);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", item_r18.selected);
+} }
+function NovoCategoryDropdownElement_div_1_novo_nav_content_6_novo_list_item_3_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "novo-list-item", 23);
+    ɵngcc0.ɵɵelementStart(1, "item-content");
+    ɵngcc0.ɵɵtext(2);
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r17 = ɵngcc0.ɵɵnextContext(3);
+    ɵngcc0.ɵɵadvance(2);
+    ɵngcc0.ɵɵtextInterpolate(ctx_r17.search.emptyMessage || ctx_r17.labels.noItems);
+} }
+function NovoCategoryDropdownElement_div_1_novo_nav_content_6_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "novo-nav-content");
+    ɵngcc0.ɵɵelementStart(1, "novo-list", 15);
+    ɵngcc0.ɵɵtemplate(2, NovoCategoryDropdownElement_div_1_novo_nav_content_6_novo_list_item_2_Template, 6, 5, "novo-list-item", 16);
+    ɵngcc0.ɵɵtemplate(3, NovoCategoryDropdownElement_div_1_novo_nav_content_6_novo_list_item_3_Template, 3, 1, "novo-list-item", 17);
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const category_r15 = ctx.$implicit;
+    const ctx_r4 = ɵngcc0.ɵɵnextContext(2);
+    ɵngcc0.ɵɵadvance(2);
+    ɵngcc0.ɵɵproperty("ngForOf", ctx_r4._categoryMap[category_r15]);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", ctx_r4._categoryMap[category_r15].length === 0 && ctx_r4.search);
+} }
+function NovoCategoryDropdownElement_div_1_footer_7_a_1_Template(rf, ctx) { if (rf & 1) {
+    const _r29 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "a", 18);
+    ɵngcc0.ɵɵlistener("click", function NovoCategoryDropdownElement_div_1_footer_7_a_1_Template_a_click_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r29); const link_r27 = ctx.$implicit; const ctx_r28 = ɵngcc0.ɵɵnextContext(3); return ctx_r28.executeClickCallback($event, link_r27); });
+    ɵngcc0.ɵɵtext(1);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const link_r27 = ctx.$implicit;
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵtextInterpolate(link_r27.label);
+} }
+function NovoCategoryDropdownElement_div_1_footer_7_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "footer");
+    ɵngcc0.ɵɵtemplate(1, NovoCategoryDropdownElement_div_1_footer_7_a_1_Template, 2, 1, "a", 16);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r5 = ɵngcc0.ɵɵnextContext(2);
+    ɵngcc0.ɵɵclassMapInterpolate1("novo-category-dropdown-footer-align-", ctx_r5.footer.align || "right", "");
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngForOf", ctx_r5.footer.links);
+} }
+function NovoCategoryDropdownElement_div_1_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "div", 1);
+    ɵngcc0.ɵɵtemplate(1, NovoCategoryDropdownElement_div_1_div_1_Template, 4, 4, "div", 2);
+    ɵngcc0.ɵɵelementStart(2, "novo-nav", 3);
+    ɵngcc0.ɵɵtemplate(3, NovoCategoryDropdownElement_div_1_novo_tab_3_Template, 3, 3, "novo-tab", 4);
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementStart(4, "novo-nav-outlet", null, 5);
+    ɵngcc0.ɵɵtemplate(6, NovoCategoryDropdownElement_div_1_novo_nav_content_6_Template, 4, 2, "novo-nav-content", 6);
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵtemplate(7, NovoCategoryDropdownElement_div_1_footer_7_Template, 2, 4, "footer", 7);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const _r3 = ɵngcc0.ɵɵreference(5);
+    const ctx_r0 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", ctx_r0.search);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("outlet", _r3);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngForOf", ctx_r0._categories);
+    ɵngcc0.ɵɵadvance(3);
+    ɵngcc0.ɵɵproperty("ngForOf", ctx_r0._categories);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", ctx_r0.footer);
+} }
+const _c34 = [[["button"]]];
+const _c35 = ["button"];
+function NovoChipElement_i_1_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelement(0, "i", 3);
+} }
+function NovoChipElement_i_4_Template(rf, ctx) { if (rf & 1) {
+    const _r3 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "i", 4);
+    ɵngcc0.ɵɵlistener("click", function NovoChipElement_i_4_Template_i_click_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r3); const ctx_r2 = ɵngcc0.ɵɵnextContext(); return ctx_r2.onRemove($event); });
+    ɵngcc0.ɵɵelementEnd();
+} }
+const _c36 = ["preview"];
+function NovoChipsElement_novo_chip_1_Template(rf, ctx) { if (rf & 1) {
+    const _r7 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "novo-chip", 7);
+    ɵngcc0.ɵɵlistener("remove", function NovoChipsElement_novo_chip_1_Template_novo_chip_remove_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r7); const item_r5 = ctx.$implicit; const ctx_r6 = ɵngcc0.ɵɵnextContext(); return ctx_r6.remove($event, item_r5); })("select", function NovoChipsElement_novo_chip_1_Template_novo_chip_select_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r7); const item_r5 = ctx.$implicit; const ctx_r8 = ɵngcc0.ɵɵnextContext(); return ctx_r8.select($event, item_r5); })("deselect", function NovoChipsElement_novo_chip_1_Template_novo_chip_deselect_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r7); const item_r5 = ctx.$implicit; const ctx_r9 = ɵngcc0.ɵɵnextContext(); return ctx_r9.deselect($event, item_r5); });
+    ɵngcc0.ɵɵtext(1);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const item_r5 = ctx.$implicit;
+    const ctx_r0 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵclassProp("selected", item_r5 == ctx_r0.selected);
+    ɵngcc0.ɵɵproperty("type", ctx_r0.type || (item_r5 == null ? null : item_r5.value == null ? null : item_r5.value.searchEntity))("disabled", ctx_r0.disablePickerInput);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵtextInterpolate1(" ", item_r5.label, " ");
+} }
+function NovoChipsElement_div_3_Template(rf, ctx) { if (rf & 1) {
+    const _r11 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "div", 8);
+    ɵngcc0.ɵɵelementStart(1, "novo-picker", 9);
+    ɵngcc0.ɵɵlistener("ngModelChange", function NovoChipsElement_div_3_Template_novo_picker_ngModelChange_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r11); const ctx_r10 = ɵngcc0.ɵɵnextContext(); return ctx_r10.itemToAdd = $event; })("select", function NovoChipsElement_div_3_Template_novo_picker_select_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r11); const ctx_r12 = ɵngcc0.ɵɵnextContext(); return ctx_r12.add($event); })("keydown", function NovoChipsElement_div_3_Template_novo_picker_keydown_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r11); const ctx_r13 = ɵngcc0.ɵɵnextContext(); return ctx_r13.onKeyDown($event); })("focus", function NovoChipsElement_div_3_Template_novo_picker_focus_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r11); const ctx_r14 = ɵngcc0.ɵɵnextContext(); return ctx_r14.onFocus($event); })("typing", function NovoChipsElement_div_3_Template_novo_picker_typing_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r11); const ctx_r15 = ɵngcc0.ɵɵnextContext(); return ctx_r15.onTyping($event); })("blur", function NovoChipsElement_div_3_Template_novo_picker_blur_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r11); const ctx_r16 = ɵngcc0.ɵɵnextContext(); return ctx_r16.onTouched($event); });
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r1 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("closeOnSelect", ctx_r1.closeOnSelect)("config", ctx_r1.source)("disablePickerInput", ctx_r1.disablePickerInput)("placeholder", ctx_r1.placeholder)("ngModel", ctx_r1.itemToAdd)("selected", ctx_r1.items)("overrideElement", ctx_r1.element);
+} }
+function NovoChipsElement_i_7_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelement(0, "i", 10);
+} if (rf & 2) {
+    const ctx_r3 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵclassProp("has-value", ctx_r3.items.length);
+} }
+function NovoChipsElement_label_8_Template(rf, ctx) { if (rf & 1) {
+    const _r18 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "label", 11);
+    ɵngcc0.ɵɵlistener("click", function NovoChipsElement_label_8_Template_label_click_0_listener() { ɵngcc0.ɵɵrestoreView(_r18); const ctx_r17 = ɵngcc0.ɵɵnextContext(); return ctx_r17.clearValue(); });
+    ɵngcc0.ɵɵtext(1);
+    ɵngcc0.ɵɵelement(2, "i", 12);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r4 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵtextInterpolate1("", ctx_r4.labels.clearAll, " ");
 } }
 function NovoRowChipElement_i_2_Template(rf, ctx) { if (rf & 1) {
     const _r2 = ɵngcc0.ɵɵgetCurrentView();
@@ -1632,7 +2151,7 @@ function NovoRowChipsElement_novo_picker_4_Template(rf, ctx) { if (rf & 1) {
     const ctx_r3 = ɵngcc0.ɵɵnextContext();
     ɵngcc0.ɵɵproperty("closeOnSelect", ctx_r3.closeOnSelect)("config", ctx_r3.source)("disablePickerInput", ctx_r3.disablePickerInput)("hidden", ctx_r3.disablePickerInput)("placeholder", ctx_r3.placeholder)("ngModel", ctx_r3.itemToAdd)("selected", ctx_r3.items)("overrideElement", ctx_r3.element);
 } }
-const _c30 = ["host"];
+const _c37 = ["host"];
 function NovoDataTableClearButton_item_4_Template(rf, ctx) { if (rf & 1) {
     const _r4 = ɵngcc0.ɵɵgetCurrentView();
     ɵngcc0.ɵɵelementStart(0, "item", 5);
@@ -1666,11 +2185,11 @@ function NovoDataTableClearButton_item_6_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵtextInterpolate(ctx_r2.labels.clearAllNormalCase);
 } }
-const _c31 = [[["button"]], "*"];
-const _c32 = ["button", "*"];
-const _c33 = ["filterInput"];
-const _c34 = ["optionFilterInput"];
-const _c35 = ["novo-data-table-cell-config", ""];
+const _c38 = [[["button"]], "*"];
+const _c39 = ["button", "*"];
+const _c40 = ["filterInput"];
+const _c41 = ["optionFilterInput"];
+const _c42 = ["novo-data-table-cell-config", ""];
 function NovoDataTableCellHeader_i_0_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelement(0, "i", 6);
 } if (rf & 2) {
@@ -1871,7 +2390,7 @@ function NovoDataTableCellHeader_novo_dropdown_5_list_9_Template(rf, ctx) { if (
 function NovoDataTableCellHeader_novo_dropdown_5_list_10_ng_container_2_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelementContainer(0);
 } }
-const _c36 = function (a0) { return { $implicit: a0 }; };
+const _c43 = function (a0) { return { $implicit: a0 }; };
 function NovoDataTableCellHeader_novo_dropdown_5_list_10_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelementStart(0, "list");
     ɵngcc0.ɵɵelementStart(1, "item", 29);
@@ -1881,7 +2400,7 @@ function NovoDataTableCellHeader_novo_dropdown_5_list_10_Template(rf, ctx) { if 
 } if (rf & 2) {
     const ctx_r10 = ɵngcc0.ɵɵnextContext(2);
     ɵngcc0.ɵɵadvance(2);
-    ɵngcc0.ɵɵproperty("ngTemplateOutlet", ctx_r10.filterTemplate)("ngTemplateOutletContext", ɵngcc0.ɵɵpureFunction1(2, _c36, ctx_r10.config));
+    ɵngcc0.ɵɵproperty("ngTemplateOutlet", ctx_r10.filterTemplate)("ngTemplateOutletContext", ɵngcc0.ɵɵpureFunction1(2, _c43, ctx_r10.config));
 } }
 function NovoDataTableCellHeader_novo_dropdown_5_list_11_Template(rf, ctx) { if (rf & 1) {
     const _r47 = ɵngcc0.ɵɵgetCurrentView();
@@ -1969,7 +2488,7 @@ function NovoDataTableCellHeader_div_7_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelementEnd();
     ɵngcc0.ɵɵelementEnd();
 } }
-const _c37 = ["novoDataTableContainer"];
+const _c44 = ["novoDataTableContainer"];
 function NovoDataTable_header_0_ng_container_1_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelementContainer(0);
 } }
@@ -2092,7 +2611,7 @@ function NovoDataTable_cdk_table_6_novo_data_table_row_9_Template(rf, ctx) { if 
     const row_r52 = ctx.$implicit;
     const ctx_r41 = ɵngcc0.ɵɵnextContext(2);
     const _r24 = ɵngcc0.ɵɵreference(27);
-    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(5, _c25, row_r52[ctx_r41.rowIdentifier] == ctx_r41.activeRowIdentifier))("novoDataTableExpand", _r24)("row", row_r52)("id", ctx_r41.name + "-" + row_r52[ctx_r41.rowIdentifier])("dataAutomationId", row_r52[ctx_r41.rowIdentifier]);
+    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(5, _c13, row_r52[ctx_r41.rowIdentifier] == ctx_r41.activeRowIdentifier))("novoDataTableExpand", _r24)("row", row_r52)("id", ctx_r41.name + "-" + row_r52[ctx_r41.rowIdentifier])("dataAutomationId", row_r52[ctx_r41.rowIdentifier]);
 } }
 function NovoDataTable_cdk_table_6_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelementStart(0, "cdk-table", 36);
@@ -2122,7 +2641,7 @@ function NovoDataTable_cdk_table_6_Template(rf, ctx) { if (rf & 1) {
 function NovoDataTable_div_7_ng_container_1_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelementContainer(0);
 } }
-const _c38 = function (a0, a1) { return { $implicit: a0, data: a1 }; };
+const _c45 = function (a0, a1) { return { $implicit: a0, data: a1 }; };
 function NovoDataTable_div_7_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelementStart(0, "div", 52);
     ɵngcc0.ɵɵtemplate(1, NovoDataTable_div_7_ng_container_1_Template, 1, 0, "ng-container", 53);
@@ -2130,7 +2649,7 @@ function NovoDataTable_div_7_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const ctx_r5 = ɵngcc0.ɵɵnextContext();
     ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngTemplateOutlet", ctx_r5.templates["footer"])("ngTemplateOutletContext", ɵngcc0.ɵɵpureFunction2(2, _c38, ctx_r5.columns, ctx_r5.dataSource.data));
+    ɵngcc0.ɵɵproperty("ngTemplateOutlet", ctx_r5.templates["footer"])("ngTemplateOutletContext", ɵngcc0.ɵɵpureFunction2(2, _c45, ctx_r5.columns, ctx_r5.dataSource.data));
 } }
 function NovoDataTable_div_8_ng_container_2_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelementContainer(0);
@@ -2388,507 +2907,10 @@ function NovoDataTable_ng_template_26_Template(rf, ctx) { if (rf & 1) {
     const ctx_r25 = ɵngcc0.ɵɵnextContext();
     ɵngcc0.ɵɵproperty("@expand", undefined);
     ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngTemplateOutlet", ctx_r25.templates["expandedRow"])("ngTemplateOutletContext", ɵngcc0.ɵɵpureFunction1(3, _c36, row_r92));
+    ɵngcc0.ɵɵproperty("ngTemplateOutlet", ctx_r25.templates["expandedRow"])("ngTemplateOutletContext", ɵngcc0.ɵɵpureFunction1(3, _c43, row_r92));
 } }
-const _c39 = function (a0) { return { "novo-data-table-outside-container-fixed": a0 }; };
-const _c40 = function (a0) { return { "novo-data-table-container-fixed": a0 }; };
-const _c41 = ["dropdownElement"];
-function NovoSelectElement_li_7_button_1_Template(rf, ctx) { if (rf & 1) {
-    const _r6 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "button", 10);
-    ɵngcc0.ɵɵlistener("click", function NovoSelectElement_li_7_button_1_Template_button_click_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r6); const ctx_r5 = ɵngcc0.ɵɵnextContext(2); ctx_r5.toggleHeader($event); return false; });
-    ɵngcc0.ɵɵelement(1, "i", 11);
-    ɵngcc0.ɵɵtext(2);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r3 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵadvance(2);
-    ɵngcc0.ɵɵtextInterpolate1("\u00A0", ctx_r3.headerConfig.label, " ");
-} }
-const _c42 = function (a0) { return { invalid: a0 }; };
-function NovoSelectElement_li_7_div_2_Template(rf, ctx) { if (rf & 1) {
-    const _r8 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "div", 12);
-    ɵngcc0.ɵɵelementStart(1, "input", 13);
-    ɵngcc0.ɵɵlistener("ngModelChange", function NovoSelectElement_li_7_div_2_Template_input_ngModelChange_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r8); const ctx_r7 = ɵngcc0.ɵɵnextContext(2); return ctx_r7.header.value = $event; });
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementStart(2, "footer");
-    ɵngcc0.ɵɵelementStart(3, "button", 14);
-    ɵngcc0.ɵɵlistener("click", function NovoSelectElement_li_7_div_2_Template_button_click_3_listener($event) { ɵngcc0.ɵɵrestoreView(_r8); const ctx_r9 = ɵngcc0.ɵɵnextContext(2); return ctx_r9.toggleHeader($event, false); });
-    ɵngcc0.ɵɵtext(4);
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementStart(5, "button", 15);
-    ɵngcc0.ɵɵlistener("click", function NovoSelectElement_li_7_div_2_Template_button_click_5_listener() { ɵngcc0.ɵɵrestoreView(_r8); const ctx_r10 = ɵngcc0.ɵɵnextContext(2); return ctx_r10.saveHeader(); });
-    ɵngcc0.ɵɵtext(6);
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r4 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(7, _c25, ctx_r4.header.open));
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("placeholder", ctx_r4.headerConfig.placeholder)("ngModel", ctx_r4.header.value)("ngClass", ɵngcc0.ɵɵpureFunction1(9, _c42, !ctx_r4.header.valid));
-    ɵngcc0.ɵɵattribute("id", ctx_r4.name);
-    ɵngcc0.ɵɵadvance(3);
-    ɵngcc0.ɵɵtextInterpolate(ctx_r4.labels.cancel);
-    ɵngcc0.ɵɵadvance(2);
-    ɵngcc0.ɵɵtextInterpolate(ctx_r4.labels.save);
-} }
-function NovoSelectElement_li_7_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "li", 7);
-    ɵngcc0.ɵɵtemplate(1, NovoSelectElement_li_7_button_1_Template, 3, 1, "button", 8);
-    ɵngcc0.ɵɵtemplate(2, NovoSelectElement_li_7_div_2_Template, 7, 11, "div", 9);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r1 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵclassProp("open", ctx_r1.header.open);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", !ctx_r1.header.open);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r1.header.open);
-} }
-function NovoSelectElement_li_8_i_2_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelement(0, "i", 19);
-} }
-function NovoSelectElement_li_8_Template(rf, ctx) { if (rf & 1) {
-    const _r15 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "li", 16);
-    ɵngcc0.ɵɵlistener("click", function NovoSelectElement_li_8_Template_li_click_0_listener() { ɵngcc0.ɵɵrestoreView(_r15); const option_r11 = ctx.$implicit; const i_r12 = ctx.index; const ctx_r14 = ɵngcc0.ɵɵnextContext(); return ctx_r14.setValueAndClose({ value: option_r11, index: i_r12 }); });
-    ɵngcc0.ɵɵelement(1, "span", 17);
-    ɵngcc0.ɵɵtemplate(2, NovoSelectElement_li_8_i_2_Template, 1, 0, "i", 18);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const option_r11 = ctx.$implicit;
-    const ctx_r2 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(4, _c25, option_r11.active));
-    ɵngcc0.ɵɵattribute("data-automation-value", option_r11.label);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("innerHtml", ctx_r2.highlight(option_r11.label, ctx_r2.filterTerm), ɵngcc0.ɵɵsanitizeHtml);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", option_r11.active);
-} }
-const _c43 = function (a0, a1) { return { "bhi-circle": a0, "bhi-check": a1 }; };
-function NovoAddressElement_span_0_i_1_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelement(0, "i", 9);
-} if (rf & 2) {
-    const ctx_r6 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction2(1, _c43, !ctx_r6.valid.address1, ctx_r6.valid.address1));
-} }
-function NovoAddressElement_span_0_Template(rf, ctx) { if (rf & 1) {
-    const _r8 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "span", 6);
-    ɵngcc0.ɵɵtemplate(1, NovoAddressElement_span_0_i_1_Template, 1, 4, "i", 7);
-    ɵngcc0.ɵɵelementStart(2, "input", 8);
-    ɵngcc0.ɵɵlistener("ngModelChange", function NovoAddressElement_span_0_Template_input_ngModelChange_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r8); const ctx_r7 = ɵngcc0.ɵɵnextContext(); return ctx_r7.model.address1 = $event; })("ngModelChange", function NovoAddressElement_span_0_Template_input_ngModelChange_2_listener() { ɵngcc0.ɵɵrestoreView(_r8); const ctx_r9 = ɵngcc0.ɵɵnextContext(); return ctx_r9.updateControl(); })("focus", function NovoAddressElement_span_0_Template_input_focus_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r8); const ctx_r10 = ɵngcc0.ɵɵnextContext(); return ctx_r10.isFocused($event, "address1"); })("blur", function NovoAddressElement_span_0_Template_input_blur_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r8); const ctx_r11 = ɵngcc0.ɵɵnextContext(); return ctx_r11.isBlurred($event, "address1"); })("input", function NovoAddressElement_span_0_Template_input_input_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r8); const ctx_r12 = ɵngcc0.ɵɵnextContext(); return ctx_r12.onInput($event, "address1"); });
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r0 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵclassProp("invalid", ctx_r0.invalid.address1)("focus", ctx_r0.focused.address1)("disabled", ctx_r0.disabled.address1);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r0.config.address1.required);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵclassProp("maxlength-error", ctx_r0.invalidMaxlength.address1);
-    ɵngcc0.ɵɵproperty("placeholder", ctx_r0.config.address1.label)("maxlength", ctx_r0.config == null ? null : ctx_r0.config.address1 == null ? null : ctx_r0.config.address1.maxlength)("ngModel", ctx_r0.model.address1);
-} }
-function NovoAddressElement_span_1_i_1_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelement(0, "i", 13);
-} if (rf & 2) {
-    const ctx_r13 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction2(1, _c43, !ctx_r13.valid.address2, ctx_r13.valid.address2));
-} }
-function NovoAddressElement_span_1_Template(rf, ctx) { if (rf & 1) {
-    const _r15 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "span", 10);
-    ɵngcc0.ɵɵtemplate(1, NovoAddressElement_span_1_i_1_Template, 1, 4, "i", 11);
-    ɵngcc0.ɵɵelementStart(2, "input", 12);
-    ɵngcc0.ɵɵlistener("ngModelChange", function NovoAddressElement_span_1_Template_input_ngModelChange_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r15); const ctx_r14 = ɵngcc0.ɵɵnextContext(); return ctx_r14.model.address2 = $event; })("ngModelChange", function NovoAddressElement_span_1_Template_input_ngModelChange_2_listener() { ɵngcc0.ɵɵrestoreView(_r15); const ctx_r16 = ɵngcc0.ɵɵnextContext(); return ctx_r16.updateControl(); })("focus", function NovoAddressElement_span_1_Template_input_focus_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r15); const ctx_r17 = ɵngcc0.ɵɵnextContext(); return ctx_r17.isFocused($event, "address2"); })("blur", function NovoAddressElement_span_1_Template_input_blur_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r15); const ctx_r18 = ɵngcc0.ɵɵnextContext(); return ctx_r18.isBlurred($event, "address2"); })("input", function NovoAddressElement_span_1_Template_input_input_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r15); const ctx_r19 = ɵngcc0.ɵɵnextContext(); return ctx_r19.onInput($event, "address2"); });
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r1 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵclassProp("invalid", ctx_r1.invalid.address2)("focus", ctx_r1.focused.address2)("disabled", ctx_r1.disabled.address2);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r1.config.address2.required);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵclassProp("maxlength-error", ctx_r1.invalidMaxlength.address2);
-    ɵngcc0.ɵɵproperty("placeholder", ctx_r1.config.address2.label)("maxlength", ctx_r1.config == null ? null : ctx_r1.config.address2 == null ? null : ctx_r1.config.address2.maxlength)("ngModel", ctx_r1.model.address2);
-} }
-function NovoAddressElement_span_2_i_1_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelement(0, "i", 17);
-} if (rf & 2) {
-    const ctx_r20 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction2(1, _c43, !ctx_r20.valid.city, ctx_r20.valid.city));
-} }
-function NovoAddressElement_span_2_Template(rf, ctx) { if (rf & 1) {
-    const _r22 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "span", 14);
-    ɵngcc0.ɵɵtemplate(1, NovoAddressElement_span_2_i_1_Template, 1, 4, "i", 15);
-    ɵngcc0.ɵɵelementStart(2, "input", 16);
-    ɵngcc0.ɵɵlistener("ngModelChange", function NovoAddressElement_span_2_Template_input_ngModelChange_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r22); const ctx_r21 = ɵngcc0.ɵɵnextContext(); return ctx_r21.model.city = $event; })("ngModelChange", function NovoAddressElement_span_2_Template_input_ngModelChange_2_listener() { ɵngcc0.ɵɵrestoreView(_r22); const ctx_r23 = ɵngcc0.ɵɵnextContext(); return ctx_r23.updateControl(); })("focus", function NovoAddressElement_span_2_Template_input_focus_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r22); const ctx_r24 = ɵngcc0.ɵɵnextContext(); return ctx_r24.isFocused($event, "city"); })("blur", function NovoAddressElement_span_2_Template_input_blur_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r22); const ctx_r25 = ɵngcc0.ɵɵnextContext(); return ctx_r25.isBlurred($event, "city"); })("input", function NovoAddressElement_span_2_Template_input_input_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r22); const ctx_r26 = ɵngcc0.ɵɵnextContext(); return ctx_r26.onInput($event, "city"); });
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r2 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵclassProp("invalid", ctx_r2.invalid.city)("focus", ctx_r2.focused.city)("disabled", ctx_r2.disabled.city);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r2.config.city.required);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵclassProp("maxlength-error", ctx_r2.invalidMaxlength.city);
-    ɵngcc0.ɵɵproperty("placeholder", ctx_r2.config.city.label)("maxlength", ctx_r2.config == null ? null : ctx_r2.config.city == null ? null : ctx_r2.config.city.maxlength)("ngModel", ctx_r2.model.city);
-} }
-function NovoAddressElement_span_3_i_1_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelement(0, "i", 17);
-} if (rf & 2) {
-    const ctx_r27 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction2(1, _c43, !ctx_r27.valid.state, ctx_r27.valid.state));
-} }
-function NovoAddressElement_span_3_Template(rf, ctx) { if (rf & 1) {
-    const _r29 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "span", 18);
-    ɵngcc0.ɵɵtemplate(1, NovoAddressElement_span_3_i_1_Template, 1, 4, "i", 15);
-    ɵngcc0.ɵɵelementStart(2, "novo-picker", 19);
-    ɵngcc0.ɵɵlistener("changed", function NovoAddressElement_span_3_Template_novo_picker_changed_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r29); const ctx_r28 = ɵngcc0.ɵɵnextContext(); return ctx_r28.onStateChange($event); })("ngModelChange", function NovoAddressElement_span_3_Template_novo_picker_ngModelChange_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r29); const ctx_r30 = ɵngcc0.ɵɵnextContext(); return ctx_r30.model.state = $event; });
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r3 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵclassProp("invalid", ctx_r3.invalid.state)("focus", ctx_r3.focused.state)("disabled", ctx_r3.disabled.state);
-    ɵngcc0.ɵɵproperty("tooltip", ctx_r3.tooltip.state);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r3.config.state.required);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("config", ctx_r3.config == null ? null : ctx_r3.config.state == null ? null : ctx_r3.config.state.pickerConfig)("placeholder", ctx_r3.config == null ? null : ctx_r3.config.state == null ? null : ctx_r3.config.state.label)("ngModel", ctx_r3.model.state)("disablePickerInput", ctx_r3.disabled.state);
-} }
-function NovoAddressElement_span_4_i_1_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelement(0, "i", 17);
-} if (rf & 2) {
-    const ctx_r31 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction2(1, _c43, !ctx_r31.valid.zip, ctx_r31.valid.zip));
-} }
-function NovoAddressElement_span_4_Template(rf, ctx) { if (rf & 1) {
-    const _r33 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "span", 20);
-    ɵngcc0.ɵɵtemplate(1, NovoAddressElement_span_4_i_1_Template, 1, 4, "i", 15);
-    ɵngcc0.ɵɵelementStart(2, "input", 21);
-    ɵngcc0.ɵɵlistener("ngModelChange", function NovoAddressElement_span_4_Template_input_ngModelChange_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r33); const ctx_r32 = ɵngcc0.ɵɵnextContext(); return ctx_r32.model.zip = $event; })("ngModelChange", function NovoAddressElement_span_4_Template_input_ngModelChange_2_listener() { ɵngcc0.ɵɵrestoreView(_r33); const ctx_r34 = ɵngcc0.ɵɵnextContext(); return ctx_r34.updateControl(); })("focus", function NovoAddressElement_span_4_Template_input_focus_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r33); const ctx_r35 = ɵngcc0.ɵɵnextContext(); return ctx_r35.isFocused($event, "zip"); })("blur", function NovoAddressElement_span_4_Template_input_blur_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r33); const ctx_r36 = ɵngcc0.ɵɵnextContext(); return ctx_r36.isBlurred($event, "zip"); })("input", function NovoAddressElement_span_4_Template_input_input_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r33); const ctx_r37 = ɵngcc0.ɵɵnextContext(); return ctx_r37.onInput($event, "zip"); });
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r4 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵclassProp("invalid", ctx_r4.invalid.zip)("focus", ctx_r4.focused.zip)("disabled", ctx_r4.disabled.zip);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r4.config.zip.required);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵclassProp("maxlength-error", ctx_r4.invalidMaxlength.zip);
-    ɵngcc0.ɵɵproperty("placeholder", ctx_r4.config.zip.label)("maxlength", ctx_r4.config == null ? null : ctx_r4.config.zip == null ? null : ctx_r4.config.zip.maxlength)("ngModel", ctx_r4.model.zip);
-} }
-function NovoAddressElement_span_5_i_1_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelement(0, "i", 17);
-} if (rf & 2) {
-    const ctx_r38 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction2(1, _c43, !ctx_r38.valid.countryID, ctx_r38.valid.countryID));
-} }
-function NovoAddressElement_span_5_Template(rf, ctx) { if (rf & 1) {
-    const _r40 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "span", 22);
-    ɵngcc0.ɵɵtemplate(1, NovoAddressElement_span_5_i_1_Template, 1, 4, "i", 15);
-    ɵngcc0.ɵɵelementStart(2, "novo-picker", 23);
-    ɵngcc0.ɵɵlistener("changed", function NovoAddressElement_span_5_Template_novo_picker_changed_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r40); const ctx_r39 = ɵngcc0.ɵɵnextContext(); return ctx_r39.onCountryChange($event); })("ngModelChange", function NovoAddressElement_span_5_Template_novo_picker_ngModelChange_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r40); const ctx_r41 = ɵngcc0.ɵɵnextContext(); return ctx_r41.model.countryID = $event; });
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r5 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵclassProp("invalid", ctx_r5.invalid.countryID)("focus", ctx_r5.focused.countryID)("disabled", ctx_r5.disabled.countryID);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r5.config.countryID.required);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("config", ctx_r5.config == null ? null : ctx_r5.config.countryID == null ? null : ctx_r5.config.countryID.pickerConfig)("placeholder", ctx_r5.config.countryID.label)("ngModel", ctx_r5.model.countryID)("disablePickerInput", ctx_r5.disabled.countryID);
-} }
-function NovoCheckboxElement_span_4_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "span");
-    ɵngcc0.ɵɵtext(1);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r0 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate(ctx_r0.label);
-} }
-const _c44 = function (a0, a1) { return { "bhi-checkbox-empty": a0, "bhi-checkbox-filled": a1 }; };
-function NovoCheckListElement_div_0_Template(rf, ctx) { if (rf & 1) {
-    const _r4 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "div", 1);
-    ɵngcc0.ɵɵelementStart(1, "input", 2);
-    ɵngcc0.ɵɵlistener("change", function NovoCheckListElement_div_0_Template_input_change_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r4); const option_r1 = ctx.$implicit; const ctx_r3 = ɵngcc0.ɵɵnextContext(); return ctx_r3.select($event, option_r1); });
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementStart(2, "label", 3);
-    ɵngcc0.ɵɵlistener("click", function NovoCheckListElement_div_0_Template_label_click_2_listener($event) { ɵngcc0.ɵɵrestoreView(_r4); const option_r1 = ctx.$implicit; const ctx_r5 = ɵngcc0.ɵɵnextContext(); return ctx_r5.select($event, option_r1); });
-    ɵngcc0.ɵɵelement(3, "i", 4);
-    ɵngcc0.ɵɵelementStart(4, "span");
-    ɵngcc0.ɵɵtext(5);
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const option_r1 = ctx.$implicit;
-    const i_r2 = ctx.index;
-    const ctx_r0 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵclassProp("disabled", ctx_r0.disabled);
-    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(12, _c26, option_r1.checked));
-    ɵngcc0.ɵɵattribute("data-automation-id", option_r1.label);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("name", ctx_r0.name)("ngModel", option_r1.checked)("value", option_r1.checked)("disabled", ctx_r0.disabled);
-    ɵngcc0.ɵɵattribute("id", ctx_r0.name + i_r2);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵattribute("for", ctx_r0.name + i_r2);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction2(14, _c44, !option_r1.checked, option_r1.checked));
-    ɵngcc0.ɵɵadvance(2);
-    ɵngcc0.ɵɵtextInterpolate(option_r1.label);
-} }
-const _c45 = ["fileInput"];
-const _c46 = ["fileOutput"];
-const _c47 = ["container"];
-function NovoFileInputElement_ng_template_2_input_1_Template(rf, ctx) { if (rf & 1) {
-    const _r10 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "input", 8);
-    ɵngcc0.ɵɵlistener("change", function NovoFileInputElement_ng_template_2_input_1_Template_input_change_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r10); const ctx_r9 = ɵngcc0.ɵɵnextContext(2); return ctx_r9.check($event); });
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r5 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵproperty("name", ctx_r5.name);
-    ɵngcc0.ɵɵattribute("id", ctx_r5.name)("multiple", ctx_r5.multiple)("data-feature-id", ctx_r5.dataFeatureId);
-} }
-function NovoFileInputElement_ng_template_2_input_2_Template(rf, ctx) { if (rf & 1) {
-    const _r12 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "input", 8);
-    ɵngcc0.ɵɵlistener("change", function NovoFileInputElement_ng_template_2_input_2_Template_input_change_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r12); const ctx_r11 = ɵngcc0.ɵɵnextContext(2); return ctx_r11.customCheck($event); });
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r6 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵproperty("name", ctx_r6.name);
-    ɵngcc0.ɵɵattribute("id", ctx_r6.name)("multiple", ctx_r6.multiple)("data-feature-id", ctx_r6.dataFeatureId);
-} }
-function NovoFileInputElement_ng_template_2_label_4_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "label", 9);
-    ɵngcc0.ɵɵelementStart(1, "div");
-    ɵngcc0.ɵɵelement(2, "i", 10);
-    ɵngcc0.ɵɵtext(3);
-    ɵngcc0.ɵɵelementStart(4, "strong", 11);
-    ɵngcc0.ɵɵtext(5);
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r7 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵattribute("for", ctx_r7.name);
-    ɵngcc0.ɵɵadvance(3);
-    ɵngcc0.ɵɵtextInterpolate2("", ctx_r7.placeholder || ctx_r7.labels.chooseAFile, " ", ctx_r7.labels.or, " ");
-    ɵngcc0.ɵɵadvance(2);
-    ɵngcc0.ɵɵtextInterpolate(ctx_r7.labels.clickToBrowse);
-} }
-function NovoFileInputElement_ng_template_2_label_5_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "label", 12);
-    ɵngcc0.ɵɵelementStart(1, "span");
-    ɵngcc0.ɵɵtext(2);
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementStart(3, "small");
-    ɵngcc0.ɵɵtext(4);
-    ɵngcc0.ɵɵelementStart(5, "strong", 11);
-    ɵngcc0.ɵɵtext(6);
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r8 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵattribute("for", ctx_r8.name);
-    ɵngcc0.ɵɵadvance(2);
-    ɵngcc0.ɵɵtextInterpolate(ctx_r8.placeholder || ctx_r8.labels.chooseAFile);
-    ɵngcc0.ɵɵadvance(2);
-    ɵngcc0.ɵɵtextInterpolate1("", ctx_r8.labels.or, " ");
-    ɵngcc0.ɵɵadvance(2);
-    ɵngcc0.ɵɵtextInterpolate(ctx_r8.labels.clickToBrowse);
-} }
-function NovoFileInputElement_ng_template_2_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "div", 3);
-    ɵngcc0.ɵɵtemplate(1, NovoFileInputElement_ng_template_2_input_1_Template, 1, 4, "input", 4);
-    ɵngcc0.ɵɵtemplate(2, NovoFileInputElement_ng_template_2_input_2_Template, 1, 4, "input", 4);
-    ɵngcc0.ɵɵelementStart(3, "section", 5);
-    ɵngcc0.ɵɵtemplate(4, NovoFileInputElement_ng_template_2_label_4_Template, 6, 4, "label", 6);
-    ɵngcc0.ɵɵtemplate(5, NovoFileInputElement_ng_template_2_label_5_Template, 7, 4, "label", 7);
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r2 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵclassProp("disabled", ctx_r2.disabled)("active", ctx_r2.active);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", !ctx_r2.layoutOptions.customActions);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r2.layoutOptions.customActions);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngSwitch", ctx_r2.layoutOptions.labelStyle);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngSwitchCase", "no-box");
-} }
-function NovoFileInputElement_ng_template_4_div_1_i_1_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelement(0, "i", 19);
-} }
-function NovoFileInputElement_ng_template_4_div_1_label_2_span_5_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "span");
-    ɵngcc0.ɵɵtext(1, "||");
-    ɵngcc0.ɵɵelementEnd();
-} }
-function NovoFileInputElement_ng_template_4_div_1_label_2_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "label");
-    ɵngcc0.ɵɵelementStart(1, "span");
-    ɵngcc0.ɵɵelementStart(2, "a", 20);
-    ɵngcc0.ɵɵtext(3);
-    ɵngcc0.ɵɵpipe(4, "decodeURI");
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵtemplate(5, NovoFileInputElement_ng_template_4_div_1_label_2_span_5_Template, 2, 0, "span", 17);
-    ɵngcc0.ɵɵelementStart(6, "span");
-    ɵngcc0.ɵɵtext(7);
-    ɵngcc0.ɵɵelementEnd();
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const file_r14 = ɵngcc0.ɵɵnextContext().$implicit;
-    ɵngcc0.ɵɵadvance(2);
-    ɵngcc0.ɵɵpropertyInterpolate("href", file_r14.link, ɵngcc0.ɵɵsanitizeUrl);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind1(4, 4, file_r14.name));
-    ɵngcc0.ɵɵadvance(2);
-    ɵngcc0.ɵɵproperty("ngIf", file_r14.description);
-    ɵngcc0.ɵɵadvance(2);
-    ɵngcc0.ɵɵtextInterpolate(file_r14.description);
-} }
-function NovoFileInputElement_ng_template_4_div_1_label_3_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "label");
-    ɵngcc0.ɵɵtext(1);
-    ɵngcc0.ɵɵpipe(2, "decodeURI");
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const file_r14 = ɵngcc0.ɵɵnextContext().$implicit;
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind1(2, 1, file_r14.name));
-} }
-function NovoFileInputElement_ng_template_4_div_1_div_4_div_1_button_1_Template(rf, ctx) { if (rf & 1) {
-    const _r29 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "button", 24);
-    ɵngcc0.ɵɵlistener("click", function NovoFileInputElement_ng_template_4_div_1_div_4_div_1_button_1_Template_button_click_0_listener() { ɵngcc0.ɵɵrestoreView(_r29); const file_r14 = ɵngcc0.ɵɵnextContext(3).$implicit; const ctx_r27 = ɵngcc0.ɵɵnextContext(2); return ctx_r27.download(file_r14); });
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    ɵngcc0.ɵɵattribute("data-automation-id", "file-download");
-} }
-function NovoFileInputElement_ng_template_4_div_1_div_4_div_1_button_2_Template(rf, ctx) { if (rf & 1) {
-    const _r32 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "button", 25);
-    ɵngcc0.ɵɵlistener("click", function NovoFileInputElement_ng_template_4_div_1_div_4_div_1_button_2_Template_button_click_0_listener() { ɵngcc0.ɵɵrestoreView(_r32); const file_r14 = ɵngcc0.ɵɵnextContext(3).$implicit; const ctx_r30 = ɵngcc0.ɵɵnextContext(2); return ctx_r30.remove(file_r14); });
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    ɵngcc0.ɵɵattribute("data-automation-id", "file-remove");
-} }
-function NovoFileInputElement_ng_template_4_div_1_div_4_div_1_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "div");
-    ɵngcc0.ɵɵtemplate(1, NovoFileInputElement_ng_template_4_div_1_div_4_div_1_button_1_Template, 1, 1, "button", 22);
-    ɵngcc0.ɵɵtemplate(2, NovoFileInputElement_ng_template_4_div_1_div_4_div_1_button_2_Template, 1, 1, "button", 23);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const file_r14 = ɵngcc0.ɵɵnextContext(2).$implicit;
-    const ctx_r23 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r23.layoutOptions.download);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", !ctx_r23.disabled && (ctx_r23.layoutOptions.removable || !ctx_r23.layoutOptions.removable && ctx_r23.layoutOptions.removableWhenNew && !file_r14.link));
-} }
-function NovoFileInputElement_ng_template_4_div_1_div_4_div_2_button_1_Template(rf, ctx) { if (rf & 1) {
-    const _r39 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "button", 27);
-    ɵngcc0.ɵɵlistener("click", function NovoFileInputElement_ng_template_4_div_1_div_4_div_2_button_1_Template_button_click_0_listener() { ɵngcc0.ɵɵrestoreView(_r39); const file_r14 = ɵngcc0.ɵɵnextContext(3).$implicit; const ctx_r37 = ɵngcc0.ɵɵnextContext(2); return ctx_r37.customEdit(file_r14); });
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    ɵngcc0.ɵɵattribute("data-automation-id", "file-edit");
-} }
-function NovoFileInputElement_ng_template_4_div_1_div_4_div_2_button_2_Template(rf, ctx) { if (rf & 1) {
-    const _r42 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "button", 24);
-    ɵngcc0.ɵɵlistener("click", function NovoFileInputElement_ng_template_4_div_1_div_4_div_2_button_2_Template_button_click_0_listener() { ɵngcc0.ɵɵrestoreView(_r42); const file_r14 = ɵngcc0.ɵɵnextContext(3).$implicit; const ctx_r40 = ɵngcc0.ɵɵnextContext(2); return ctx_r40.customSave(file_r14); });
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    ɵngcc0.ɵɵattribute("data-automation-id", "file-download");
-} }
-function NovoFileInputElement_ng_template_4_div_1_div_4_div_2_button_3_Template(rf, ctx) { if (rf & 1) {
-    const _r45 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "button", 25);
-    ɵngcc0.ɵɵlistener("click", function NovoFileInputElement_ng_template_4_div_1_div_4_div_2_button_3_Template_button_click_0_listener() { ɵngcc0.ɵɵrestoreView(_r45); const file_r14 = ɵngcc0.ɵɵnextContext(3).$implicit; const ctx_r43 = ɵngcc0.ɵɵnextContext(2); return ctx_r43.customDelete(file_r14); });
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    ɵngcc0.ɵɵattribute("data-automation-id", "file-remove");
-} }
-function NovoFileInputElement_ng_template_4_div_1_div_4_div_2_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "div");
-    ɵngcc0.ɵɵtemplate(1, NovoFileInputElement_ng_template_4_div_1_div_4_div_2_button_1_Template, 1, 1, "button", 26);
-    ɵngcc0.ɵɵtemplate(2, NovoFileInputElement_ng_template_4_div_1_div_4_div_2_button_2_Template, 1, 1, "button", 22);
-    ɵngcc0.ɵɵtemplate(3, NovoFileInputElement_ng_template_4_div_1_div_4_div_2_button_3_Template, 1, 1, "button", 23);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r24 = ɵngcc0.ɵɵnextContext(4);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r24.layoutOptions.edit && !ctx_r24.disabled);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r24.layoutOptions.download);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", !ctx_r24.disabled);
-} }
-function NovoFileInputElement_ng_template_4_div_1_div_4_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "div", 21);
-    ɵngcc0.ɵɵtemplate(1, NovoFileInputElement_ng_template_4_div_1_div_4_div_1_Template, 3, 2, "div", 17);
-    ɵngcc0.ɵɵtemplate(2, NovoFileInputElement_ng_template_4_div_1_div_4_div_2_Template, 4, 3, "div", 17);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r18 = ɵngcc0.ɵɵnextContext(3);
-    ɵngcc0.ɵɵattribute("data-automation-id", "file-actions");
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", !ctx_r18.layoutOptions.customActions);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r18.layoutOptions.customActions);
-} }
-function NovoFileInputElement_ng_template_4_div_1_novo_loading_5_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelement(0, "novo-loading");
-} }
-function NovoFileInputElement_ng_template_4_div_1_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "div", 15);
-    ɵngcc0.ɵɵtemplate(1, NovoFileInputElement_ng_template_4_div_1_i_1_Template, 1, 0, "i", 16);
-    ɵngcc0.ɵɵtemplate(2, NovoFileInputElement_ng_template_4_div_1_label_2_Template, 8, 6, "label", 17);
-    ɵngcc0.ɵɵtemplate(3, NovoFileInputElement_ng_template_4_div_1_label_3_Template, 3, 3, "label", 17);
-    ɵngcc0.ɵɵtemplate(4, NovoFileInputElement_ng_template_4_div_1_div_4_Template, 3, 3, "div", 18);
-    ɵngcc0.ɵɵtemplate(5, NovoFileInputElement_ng_template_4_div_1_novo_loading_5_Template, 1, 0, "novo-loading", 17);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const file_r14 = ctx.$implicit;
-    const ctx_r13 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵclassProp("disabled", ctx_r13.disabled);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", ctx_r13.layoutOptions.draggable);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", file_r14.link);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", !file_r14.link);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", file_r14.loaded);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", !file_r14.loaded);
-} }
-function NovoFileInputElement_ng_template_4_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "div", 13);
-    ɵngcc0.ɵɵtemplate(1, NovoFileInputElement_ng_template_4_div_1_Template, 6, 7, "div", 14);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const ctx_r4 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵproperty("dragula", ctx_r4.fileOutputBag)("dragulaModel", ctx_r4.files);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngForOf", ctx_r4.files);
-} }
+const _c46 = function (a0) { return { "novo-data-table-outside-container-fixed": a0 }; };
+const _c47 = function (a0) { return { "novo-data-table-container-fixed": a0 }; };
 const _c48 = function (a0, a1) { return { active: a0, disabled: a1 }; };
 function NovoTilesElement_div_1_Template(rf, ctx) { if (rf & 1) {
     const _r4 = ɵngcc0.ɵɵgetCurrentView();
@@ -3147,7 +3169,7 @@ function NovoDataTablePagination_ng_container_1_li_8_Template(rf, ctx) { if (rf 
 } if (rf & 2) {
     const p_r12 = ctx.$implicit;
     const ctx_r11 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(2, _c25, p_r12.number === ctx_r11.page + 1));
+    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(2, _c13, p_r12.number === ctx_r11.page + 1));
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵtextInterpolate(p_r12.text);
 } }
@@ -3279,7 +3301,7 @@ function NovoTimePickerElement_div_5_span_9_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const hour_r15 = ctx.$implicit;
     const ctx_r13 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(3, _c25, ctx_r13.activeHour == hour_r15));
+    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(3, _c13, ctx_r13.activeHour == hour_r15));
     ɵngcc0.ɵɵattribute("data-automation-id", hour_r15);
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵtextInterpolate(hour_r15);
@@ -3293,7 +3315,7 @@ function NovoTimePickerElement_div_5_span_11_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const minute_r18 = ctx.$implicit;
     const ctx_r14 = ɵngcc0.ɵɵnextContext(2);
-    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(3, _c25, ctx_r14.activeMinute == minute_r18));
+    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(3, _c13, ctx_r14.activeMinute == minute_r18));
     ɵngcc0.ɵɵattribute("data-automation-id", minute_r18);
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵtextInterpolate(minute_r18);
@@ -3463,7 +3485,7 @@ function NovoControlElement_i_8_Template(rf, ctx) { if (rf & 1) {
 } if (rf & 2) {
     const ctx_r2 = ɵngcc0.ɵɵnextContext();
     ɵngcc0.ɵɵclassMapInterpolate1("required-indicator ", ctx_r2.form.controls[ctx_r2.control.key].controlType, "");
-    ɵngcc0.ɵɵproperty("hidden", !ctx_r2.form.controls[ctx_r2.control.key].required || ctx_r2.form.controls[ctx_r2.control.key].readOnly)("ngClass", ɵngcc0.ɵɵpureFunction2(5, _c43, !ctx_r2.isValid, ctx_r2.isValid));
+    ɵngcc0.ɵɵproperty("hidden", !ctx_r2.form.controls[ctx_r2.control.key].required || ctx_r2.form.controls[ctx_r2.control.key].readOnly)("ngClass", ɵngcc0.ɵɵpureFunction2(5, _c26, !ctx_r2.isValid, ctx_r2.isValid));
 } }
 function NovoControlElement_ng_container_10_ng_container_1_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelementContainer(0);
@@ -5474,7 +5496,7 @@ function Pagination_li_7_Template(rf, ctx) { if (rf & 1) {
     const p_r1 = ctx.$implicit;
     const ctx_r0 = ɵngcc0.ɵɵnextContext();
     ɵngcc0.ɵɵclassProp("disabled", ctx_r0.disablePageSelection);
-    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(4, _c25, p_r1.active));
+    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(4, _c13, p_r1.active));
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵtextInterpolate(p_r1.text);
 } }
@@ -5630,7 +5652,7 @@ function NovoTableElement_div_3_thead_3_th_4_div_1_novo_dropdown_5_list_2_item_7
     const option_r48 = ctx.$implicit;
     const column_r28 = ɵngcc0.ɵɵnextContext(4).$implicit;
     const ctx_r38 = ɵngcc0.ɵɵnextContext(3);
-    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(4, _c25, ctx_r38.isFilterActive(column_r28, option_r48)));
+    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(4, _c13, ctx_r38.isFilterActive(column_r28, option_r48)));
     ɵngcc0.ɵɵattribute("data-automation-id", ctx_r38.getOptionDataAutomationId(option_r48));
     ɵngcc0.ɵɵadvance(2);
     ɵngcc0.ɵɵtextInterpolate((option_r48 == null ? null : option_r48.label) || option_r48);
@@ -5741,7 +5763,7 @@ function NovoTableElement_div_3_thead_3_th_4_div_1_novo_dropdown_5_list_4_item_2
     const option_r73 = ctx.$implicit;
     const column_r28 = ɵngcc0.ɵɵnextContext(4).$implicit;
     const ctx_r66 = ɵngcc0.ɵɵnextContext(3);
-    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(6, _c25, ctx_r66.isFilterActive(column_r28, option_r73)))("keepOpen", option_r73.range)("hidden", column_r28.calenderShow);
+    ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(6, _c13, ctx_r66.isFilterActive(column_r28, option_r73)))("keepOpen", option_r73.range)("hidden", column_r28.calenderShow);
     ɵngcc0.ɵɵattribute("data-automation-id", (option_r73 == null ? null : option_r73.label) || option_r73);
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵtextInterpolate1(" ", (option_r73 == null ? null : option_r73.label) || option_r73, " ");
@@ -9763,6 +9785,583 @@ NovoCalendarModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoCa
             }]
     }], null, null); })();
 
+class NovoCollapsableColumnElement {
+    constructor() {
+        this.isChecked = false;
+    }
+    set icon(icon) {
+        if (icon) {
+            this._icon = `bhi-${icon}`;
+        }
+    }
+    get icon() {
+        return this._icon;
+    }
+}
+NovoCollapsableColumnElement.ɵfac = function NovoCollapsableColumnElement_Factory(t) { return new (t || NovoCollapsableColumnElement)(); };
+NovoCollapsableColumnElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoCollapsableColumnElement, selectors: [["novo-collapsable-column"]], inputs: { icon: "icon", header: "header", dragulaName: "dragulaName", dragulaModelData: "dragulaModelData", entity: "entity" }, decls: 9, vars: 8, consts: [[1, "mini-check-all-container"], [3, "ngModel", "ngModelChange"], [1, "check-all-header"], [1, "card-container", 3, "dragula", "dragulaModel"], ["class", "info-card", 4, "ngFor", "ngForOf"], [1, "info-card"], ["id", "info-card-menu"], [1, "bhi-more"], ["id", "info-card-status-dot"], [1, "bhi-circle"]], template: function NovoCollapsableColumnElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵelementStart(0, "h1");
+        ɵngcc0.ɵɵelement(1, "i");
+        ɵngcc0.ɵɵtext(2);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵelementStart(3, "div", 0);
+        ɵngcc0.ɵɵelementStart(4, "novo-checkbox", 1);
+        ɵngcc0.ɵɵlistener("ngModelChange", function NovoCollapsableColumnElement_Template_novo_checkbox_ngModelChange_4_listener($event) { return ctx.isChecked = $event; });
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵelementStart(5, "div", 2);
+        ɵngcc0.ɵɵtext(6);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵelementStart(7, "div", 3);
+        ɵngcc0.ɵɵtemplate(8, NovoCollapsableColumnElement_div_8_Template, 7, 2, "div", 4);
+        ɵngcc0.ɵɵelementEnd();
+    } if (rf & 2) {
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵclassMap(ctx.icon);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵtextInterpolate(ctx.header);
+        ɵngcc0.ɵɵadvance(2);
+        ɵngcc0.ɵɵproperty("ngModel", ctx.isChecked);
+        ɵngcc0.ɵɵadvance(2);
+        ɵngcc0.ɵɵtextInterpolate1(" ", ctx.entity === "Candidate" ? "Job Order" : "Candidate", " ");
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("dragula", ctx.dragulaName)("dragulaModel", ctx.dragulaModelData);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngForOf", ctx.dragulaModelData);
+    } }, directives: function () { return [NovoCheckboxElement, ɵngcc3.NgControlStatus, ɵngcc3.NgModel, NovoDragulaElement, ɵngcc1.NgForOf]; }, styles: ["@-webkit-keyframes rotate{0%{transform:rotate(0deg)}75%{transform:rotate(200deg)}to{transform:rotate(180deg)}}@keyframes rotate{0%{transform:rotate(0deg)}75%{transform:rotate(200deg)}to{transform:rotate(180deg)}}@-webkit-keyframes half-rotate{0%{transform:rotate(45deg)}75%{transform:rotate(100deg)}to{transform:rotate(90deg)}}@keyframes half-rotate{0%{transform:rotate(45deg)}75%{transform:rotate(100deg)}to{transform:rotate(90deg)}}@-webkit-keyframes rotateBack{0%{transform:rotate(90deg)}to{transform:rotate(0deg)}}@keyframes rotateBack{0%{transform:rotate(90deg)}to{transform:rotate(0deg)}}@-webkit-keyframes show{0%{opacity:0;transform:translateX(-100%)}75%{transform:translateX(0)}to{opacity:1;transform:translateX(0)}}@keyframes show{0%{opacity:0;transform:translateX(-100%)}75%{transform:translateX(0)}to{opacity:1;transform:translateX(0)}}[_nghost-%COMP%]{background:#fff;border-radius:.5em;box-shadow:0 2px 3px rgba(0,0,0,.1);display:inline-block;justify-content:flex-start;margin:1em;min-width:15%;padding-bottom:2em;vertical-align:top}[_nghost-%COMP%]   h1[_ngcontent-%COMP%]{border-bottom:1px solid #f4f4f4;color:#707070;font-size:1.1em;margin:auto;padding:1em}[_nghost-%COMP%]   h1[_ngcontent-%COMP%]   .active[_ngcontent-%COMP%]{color:#4a89dc}[_nghost-%COMP%]   .mini-check-all-container[_ngcontent-%COMP%]{align-items:baseline;border-bottom:1px solid #f4f4f4;display:flex}[_nghost-%COMP%]   .mini-check-all-container[_ngcontent-%COMP%]   novo-checkbox[_ngcontent-%COMP%]{border-right:1px solid #f4f4f4;flex-basis:30%;padding:1.5em 1.5em 1.5em 2em}[_nghost-%COMP%]   .mini-check-all-container[_ngcontent-%COMP%]   .check-all-header[_ngcontent-%COMP%]{flex-basis:70%;padding:1em}[_nghost-%COMP%]   #info-card-checkbox[_ngcontent-%COMP%]{padding:1em 1em 1em 0}[_nghost-%COMP%]   #info-card-menu[_ngcontent-%COMP%]{padding-right:1.5em}[_nghost-%COMP%]   #info-card-status-dot[_ngcontent-%COMP%]{color:#8cc152;padding-left:.5em;padding-right:.5em}[_nghost-%COMP%]   div.card-container[_ngcontent-%COMP%]{min-height:5em}[_nghost-%COMP%]   div.card-container[_ngcontent-%COMP%]   div.info-card[_ngcontent-%COMP%]{align-items:center;background:#f4f4f4;border-radius:.25em;box-shadow:0 1px 2px rgba(0,0,0,.15);display:flex;height:5em;justify-content:flex-start;margin:1em;padding:1em;position:relative;transition:all .2s ease-in-out}[_nghost-%COMP%]   div.card-container[_ngcontent-%COMP%]   div.info-card[_ngcontent-%COMP%]:hover{box-shadow:-2px 2px 2px 0 rgba(0,0,0,.3);cursor:-webkit-grab;cursor:grab;transform:translate(1px,-1px)}[_nghost-%COMP%]   div.card-container[_ngcontent-%COMP%]   div.info-card[_ngcontent-%COMP%]:active{box-shadow:0 1px 2px rgba(0,0,0,.15);cursor:-webkit-grabbing;cursor:grabbing;transform:translate(0)}[_nghost-%COMP%]   div.card-container[_ngcontent-%COMP%]   div.info-card[_ngcontent-%COMP%]:after{border-radius:.25em;box-shadow:-2px 2px 2px 0 rgba(0,0,0,.5);content:\"\";height:100%;opacity:0;position:absolute;transition:opacity .3s ease-in-out;width:100%;z-index:-1}[_nghost-%COMP%]   div.card-container[_ngcontent-%COMP%]   div.info-card[_ngcontent-%COMP%]:after:hover{opacity:1}"] });
+NovoCollapsableColumnElement.propDecorators = {
+    header: [{ type: Input }],
+    icon: [{ type: Input }],
+    dragulaName: [{ type: Input }],
+    dragulaModelData: [{ type: Input }],
+    entity: [{ type: Input }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoCollapsableColumnElement, [{
+        type: Component,
+        args: [{
+                selector: 'novo-collapsable-column',
+                template: `
+    <h1><i [class]="icon"></i>{{header}}</h1>
+    <div class="mini-check-all-container">
+      <novo-checkbox [(ngModel)]="isChecked"></novo-checkbox>
+      <div class="check-all-header">
+       {{ entity === 'Candidate' ? 'Job Order' : 'Candidate' }}
+      </div>
+    </div>
+    <div [dragula]="dragulaName" [dragulaModel]="dragulaModelData" class="card-container">
+      <div *ngFor="let card of dragulaModelData" class="info-card">
+        <novo-checkbox [(ngModel)]="card.selected"></novo-checkbox>
+          <span id="info-card-menu">
+            <i class="bhi-more"></i>
+          </span>
+          <span id="info-card-status-dot">
+            <i class="bhi-circle"></i>
+          </span>
+          {{ entity === 'Candidate' ? card?.jobOrder?.title : card?.candidate?.firstName + ' ' + card?.candidate?.lastName }}
+      </div>
+    </div>
+  `,
+                styles: ["@-webkit-keyframes rotate{0%{transform:rotate(0deg)}75%{transform:rotate(200deg)}to{transform:rotate(180deg)}}@keyframes rotate{0%{transform:rotate(0deg)}75%{transform:rotate(200deg)}to{transform:rotate(180deg)}}@-webkit-keyframes half-rotate{0%{transform:rotate(45deg)}75%{transform:rotate(100deg)}to{transform:rotate(90deg)}}@keyframes half-rotate{0%{transform:rotate(45deg)}75%{transform:rotate(100deg)}to{transform:rotate(90deg)}}@-webkit-keyframes rotateBack{0%{transform:rotate(90deg)}to{transform:rotate(0deg)}}@keyframes rotateBack{0%{transform:rotate(90deg)}to{transform:rotate(0deg)}}@-webkit-keyframes show{0%{opacity:0;transform:translateX(-100%)}75%{transform:translateX(0)}to{opacity:1;transform:translateX(0)}}@keyframes show{0%{opacity:0;transform:translateX(-100%)}75%{transform:translateX(0)}to{opacity:1;transform:translateX(0)}}:host{background:#fff;border-radius:.5em;box-shadow:0 2px 3px rgba(0,0,0,.1);display:inline-block;justify-content:flex-start;margin:1em;min-width:15%;padding-bottom:2em;vertical-align:top}:host h1{border-bottom:1px solid #f4f4f4;color:#707070;font-size:1.1em;margin:auto;padding:1em}:host h1 .active{color:#4a89dc}:host .mini-check-all-container{align-items:baseline;border-bottom:1px solid #f4f4f4;display:flex}:host .mini-check-all-container novo-checkbox{border-right:1px solid #f4f4f4;flex-basis:30%;padding:1.5em 1.5em 1.5em 2em}:host .mini-check-all-container .check-all-header{flex-basis:70%;padding:1em}:host #info-card-checkbox{padding:1em 1em 1em 0}:host #info-card-menu{padding-right:1.5em}:host #info-card-status-dot{color:#8cc152;padding-left:.5em;padding-right:.5em}:host div.card-container{min-height:5em}:host div.card-container div.info-card{align-items:center;background:#f4f4f4;border-radius:.25em;box-shadow:0 1px 2px rgba(0,0,0,.15);display:flex;height:5em;justify-content:flex-start;margin:1em;padding:1em;position:relative;transition:all .2s ease-in-out}:host div.card-container div.info-card:hover{box-shadow:-2px 2px 2px 0 rgba(0,0,0,.3);cursor:-webkit-grab;cursor:grab;transform:translate(1px,-1px)}:host div.card-container div.info-card:active{box-shadow:0 1px 2px rgba(0,0,0,.15);cursor:-webkit-grabbing;cursor:grabbing;transform:translate(0)}:host div.card-container div.info-card:after{border-radius:.25em;box-shadow:-2px 2px 2px 0 rgba(0,0,0,.5);content:\"\";height:100%;opacity:0;position:absolute;transition:opacity .3s ease-in-out;width:100%;z-index:-1}:host div.card-container div.info-card:after:hover{opacity:1}"]
+            }]
+    }], function () { return []; }, { icon: [{
+            type: Input
+        }], header: [{
+            type: Input
+        }], dragulaName: [{
+            type: Input
+        }], dragulaModelData: [{
+            type: Input
+        }], entity: [{
+            type: Input
+        }] }); })();
+
+// NG2
+const dragula = dragulaImported;
+class NovoDragulaService {
+    constructor() {
+        this.cancel = new EventEmitter();
+        this.cloned = new EventEmitter();
+        this.drag = new EventEmitter();
+        this.dragend = new EventEmitter();
+        this.drop = new EventEmitter();
+        this.out = new EventEmitter();
+        this.over = new EventEmitter();
+        this.remove = new EventEmitter();
+        this.shadow = new EventEmitter();
+        this.dropModel = new EventEmitter();
+        this.removeModel = new EventEmitter();
+        this.events = ['cancel', 'cloned', 'drag', 'dragend', 'drop', 'out', 'over', 'remove', 'shadow', 'dropModel', 'removeModel'];
+        this.bags = [];
+    }
+    add(name, drake) {
+        let bag = this.find(name);
+        if (bag) {
+            throw new Error(`Bag named: ${name} already exists.`);
+        }
+        bag = {
+            name,
+            drake,
+        };
+        this.bags.push(bag);
+        if (drake.models) {
+            // models to sync with (must have same structure as containers)
+            this.handleModels(name, drake);
+        }
+        if (!bag.initEvents) {
+            this.setupEvents(bag);
+        }
+        return bag;
+    }
+    find(name) {
+        for (let i = 0; i < this.bags.length; i++) {
+            if (this.bags[i].name === name) {
+                return this.bags[i];
+            }
+        }
+        return null;
+    }
+    destroy(name) {
+        const bag = this.find(name);
+        const i = this.bags.indexOf(bag);
+        this.bags.splice(i, 1);
+        bag.drake.destroy();
+    }
+    setOptions(name, options) {
+        const bag = this.add(name, dragula(options));
+        this.handleModels(name, bag.drake);
+    }
+    handleModels(name, drake) {
+        let dragElm;
+        let dragIndex;
+        let dropIndex;
+        let sourceModel;
+        let elmData;
+        drake.on('remove', (el, source) => {
+            if (!drake.models) {
+                return;
+            }
+            sourceModel = drake.models[drake.containers.indexOf(source)];
+            sourceModel.splice(dragIndex, 1);
+            this.removeModel.emit([name, el, source]);
+        });
+        drake.on('drag', (el, source) => {
+            dragElm = el;
+            dragIndex = this.domIndexOf(el, source);
+        });
+        drake.on('drop', (dropElm, target, source) => {
+            if (!drake.models) {
+                return;
+            }
+            dropIndex = this.domIndexOf(dropElm, target);
+            sourceModel = drake.models[drake.containers.indexOf(source)];
+            elmData = sourceModel[dropIndex];
+            if (target === source) {
+                sourceModel.splice(dropIndex, 0, sourceModel.splice(dragIndex, 1)[0]);
+            }
+            else {
+                const notCopy = dragElm === dropElm;
+                const targetModel = drake.models[drake.containers.indexOf(target)];
+                const dropElmModel = notCopy ? sourceModel[dragIndex] : JSON.parse(JSON.stringify(sourceModel[dragIndex]));
+                if (notCopy) {
+                    sourceModel.splice(dragIndex, 1);
+                }
+                targetModel.splice(dropIndex, 0, dropElmModel);
+                target.removeChild(dropElm); // element must be removed for ngFor to apply correctly
+            }
+            this.dropModel.emit([name, dropElm, target, source, elmData]);
+        });
+    }
+    setupEvents(bag) {
+        bag.initEvents = true;
+        const that = this;
+        const emitter = (type) => {
+            function replicate() {
+                const args = Array.prototype.slice.call(arguments);
+                that[type].emit([bag.name].concat(args));
+            }
+            bag.drake.on(type, replicate);
+        };
+        this.events.forEach(emitter);
+    }
+    domIndexOf(child, parent) {
+        return Array.prototype.indexOf.call(parent.children, child);
+    }
+}
+NovoDragulaService.ɵfac = function NovoDragulaService_Factory(t) { return new (t || NovoDragulaService)(); };
+NovoDragulaService.ɵprov = ɵngcc0.ɵɵdefineInjectable({ token: NovoDragulaService, factory: NovoDragulaService.ɵfac });
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoDragulaService, [{
+        type: Injectable
+    }], function () { return []; }, null); })();
+
+// NG2
+const dragula$1 = dragulaImported;
+class NovoDragulaElement {
+    constructor(element, dragulaService) {
+        this.dragulaService = dragulaService;
+        this.drake = null;
+        this.container = element.nativeElement;
+    }
+    ngOnInit() {
+        const bag = this.dragulaService.find(this.bag);
+        if (bag) {
+            this.drake = bag.drake;
+            this.checkModel();
+            this.drake.containers.push(this.container);
+        }
+        else {
+            this.drake = dragula$1({
+                containers: [this.container],
+            });
+            this.checkModel();
+            this.dragulaService.add(this.bag, this.drake);
+        }
+    }
+    checkModel() {
+        if (this.dragulaModel) {
+            if (this.drake.models) {
+                this.drake.models.push(this.dragulaModel);
+            }
+            else {
+                this.drake.models = [this.dragulaModel];
+            }
+        }
+    }
+    ngOnChanges(changes) {
+        if (changes && changes.dragulaModel) {
+            if (this.drake) {
+                if (this.drake.models) {
+                    const modelIndex = this.drake.models.indexOf(changes.dragulaModel.previousValue);
+                    this.drake.models.splice(modelIndex, 1, changes.dragulaModel.currentValue);
+                }
+                else {
+                    this.drake.models = [changes.dragulaModel.currentValue];
+                }
+            }
+        }
+    }
+}
+NovoDragulaElement.ɵfac = function NovoDragulaElement_Factory(t) { return new (t || NovoDragulaElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(NovoDragulaService)); };
+NovoDragulaElement.ɵdir = ɵngcc0.ɵɵdefineDirective({ type: NovoDragulaElement, selectors: [["", "dragula", ""]], inputs: { bag: ["dragula", "bag"], dragulaModel: "dragulaModel" }, features: [ɵngcc0.ɵɵNgOnChangesFeature] });
+NovoDragulaElement.ctorParameters = () => [
+    { type: ElementRef },
+    { type: NovoDragulaService }
+];
+NovoDragulaElement.propDecorators = {
+    bag: [{ type: Input, args: ['dragula',] }],
+    dragulaModel: [{ type: Input }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoDragulaElement, [{
+        type: Directive,
+        args: [{
+                selector: '[dragula]'
+            }]
+    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: NovoDragulaService }]; }, { bag: [{
+            type: Input,
+            args: ['dragula']
+        }], dragulaModel: [{
+            type: Input
+        }] }); })();
+
+// NG2
+class NovoDragulaModule {
+}
+NovoDragulaModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoDragulaModule });
+NovoDragulaModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoDragulaModule_Factory(t) { return new (t || NovoDragulaModule)(); } });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoDragulaModule, { declarations: [NovoDragulaElement], exports: [NovoDragulaElement] }); })();
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoDragulaModule, [{
+        type: NgModule,
+        args: [{
+                declarations: [NovoDragulaElement],
+                exports: [NovoDragulaElement]
+            }]
+    }], null, null); })();
+
+// Angular
+class NovoOverlayTemplateComponent {
+    constructor(overlay, viewContainerRef, zone, changeDetectorRef, document) {
+        this.overlay = overlay;
+        this.viewContainerRef = viewContainerRef;
+        this.zone = zone;
+        this.changeDetectorRef = changeDetectorRef;
+        this.document = document;
+        this.id = `novo-overlay-${Date.now()}`;
+        this.position = 'default';
+        this.scrollStrategy = 'reposition';
+        this.closeOnSelect = true;
+        this.select = new EventEmitter();
+        this.closing = new EventEmitter();
+    }
+    ngOnDestroy() {
+        this.destroyOverlay();
+    }
+    get panelOpen() {
+        return this.overlayRef && this.overlayRef.hasAttached();
+    }
+    set parent(value) {
+        this._parent = value;
+        this.checkSizes();
+    }
+    get parent() {
+        return this._parent;
+    }
+    openPanel() {
+        if (!this.overlayRef) {
+            this.createOverlay(this.template);
+        }
+        else {
+            this.checkSizes();
+        }
+        if (this.overlayRef && !this.overlayRef.hasAttached()) {
+            this.overlayRef.attach(this.portal);
+            this.closingActionsSubscription = this.subscribeToClosingActions();
+        }
+        this.changeDetectorRef.markForCheck();
+        setTimeout(() => {
+            if (this.overlayRef) {
+                this.overlayRef.updatePosition();
+            }
+        });
+    }
+    closePanel() {
+        this.zone.run(() => {
+            if (this.overlayRef && this.overlayRef.hasAttached()) {
+                this.overlayRef.detach();
+                this.closingActionsSubscription.unsubscribe();
+            }
+            this.closing.emit(true);
+            if (this.panelOpen) {
+                this.changeDetectorRef.markForCheck();
+            }
+        });
+    }
+    onClosingAction(event) {
+        this.closePanel();
+    }
+    /**
+     * A stream of actions that should close the autocomplete panel, including
+     * when an option is selected, on blur, and when TAB is pressed.
+     */
+    get panelClosingActions() {
+        return merge(
+        // this.overlayTemplate._keyManager.tabOut,
+        this.outsideClickStream);
+    }
+    /** Stream of clicks outside of the autocomplete panel. */
+    get outsideClickStream() {
+        if (!this.document) {
+            return of();
+        }
+        return merge(fromEvent(this.document, 'mousedown'), fromEvent(this.document, 'touchend')).pipe(filter((event) => {
+            const clickTarget = event.target;
+            const clicked = this.panelOpen &&
+                clickTarget !== this.getConnectedElement().nativeElement &&
+                !this.getConnectedElement().nativeElement.contains(clickTarget) &&
+                (!!this.overlayRef && !this.overlayRef.overlayElement.contains(clickTarget));
+            if (this.panelOpen && !!this.overlayRef && this.overlayRef.overlayElement.contains(clickTarget) && this.closeOnSelect) {
+                this.select.emit(event);
+            }
+            return clicked;
+        }));
+    }
+    /**
+     * This method listens to a stream of panel closing actions and resets the
+     * stream every time the option list changes.
+     */
+    subscribeToClosingActions() {
+        const firstStable = this.zone.onStable.asObservable().pipe(first());
+        // const valueChanges = Observable.from(this.value);
+        // When the zone is stable initially, and when the option list changes...
+        return (merge(firstStable)
+            .pipe(
+        // create a new stream of panelClosingActions, replacing any previous streams
+        // that were created, and flatten it so our stream only emits closing events...
+        switchMap(() => {
+            return this.panelClosingActions;
+        }), 
+        // when the first closing event occurs...
+        first())
+            // set the value, close the panel, and complete.
+            .subscribe((event) => this.onClosingAction(event)));
+    }
+    createOverlay(template) {
+        this.portal = new TemplatePortal(template, this.viewContainerRef);
+        this.overlayRef = this.overlay.create(this.getOverlayConfig());
+        this.overlayRef.backdropClick().subscribe(() => this.closePanel());
+    }
+    destroyOverlay() {
+        if (this.overlayRef) {
+            this.closePanel();
+            this.overlayRef.dispose();
+            this.overlayRef = undefined;
+        }
+    }
+    getOverlayConfig() {
+        const config = new OverlayConfig();
+        if (!this.width) {
+            config.width = this.getHostWidth();
+        }
+        else {
+            config.width = this.width;
+        }
+        if (this.height) {
+            config.height = this.height;
+        }
+        config.positionStrategy = this.getPosition();
+        config.hasBackdrop = false;
+        config.direction = 'ltr';
+        config.scrollStrategy = this.getScrollStrategy();
+        return config;
+    }
+    /**
+     * Supports the following position strategies:
+     * 'default', 'right', 'bottom', 'center', 'bottom-left', 'bottom-right', 'top-left', 'top-right'
+     */
+    getPosition() {
+        if (this.position === 'center') {
+            return this.overlay
+                .position()
+                .connectedTo(this.getConnectedElement(), { originX: 'start', originY: 'center' }, { overlayX: 'start', overlayY: 'center' })
+                .withFallbackPosition({ originX: 'start', originY: 'top' }, { overlayX: 'start', overlayY: 'top' })
+                .withFallbackPosition({ originX: 'start', originY: 'bottom' }, { overlayX: 'start', overlayY: 'bottom' });
+        }
+        const [originX, fallbackX] = this.position.includes('right') ? ['end', 'start'] : ['start', 'end'];
+        const [originY, overlayY] = this.position.includes('top') ? ['top', 'bottom'] : ['bottom', 'top'];
+        let strategy = this.overlay
+            .position()
+            .connectedTo(this.getConnectedElement(), { originX, originY }, { overlayX: originX, overlayY })
+            .withDirection('ltr');
+        if (this.position === 'bottom') {
+            strategy = strategy.withFallbackPosition({ originX: fallbackX, originY: 'bottom' }, { overlayX: fallbackX, overlayY: 'top' });
+        }
+        else if (this.position === 'right' || this.position === 'default' || this.position.includes('above-below')) {
+            strategy = strategy
+                .withFallbackPosition({ originX, originY: 'top' }, { overlayX: originX, overlayY: 'bottom' })
+                .withFallbackPosition({ originX: fallbackX, originY: 'bottom' }, { overlayX: fallbackX, overlayY: 'top' })
+                .withFallbackPosition({ originX: fallbackX, originY: 'top' }, { overlayX: fallbackX, overlayY: 'bottom' });
+            if (!this.position.includes('above-below')) {
+                strategy = strategy
+                    .withFallbackPosition({ originX, originY: 'center' }, { overlayX: originX, overlayY: 'center' })
+                    .withFallbackPosition({ originX: fallbackX, originY: 'center' }, { overlayX: fallbackX, overlayY: 'center' });
+            }
+        }
+        return strategy;
+    }
+    getScrollStrategy() {
+        switch (this.scrollStrategy) {
+            case 'block':
+                return this.overlay.scrollStrategies.block();
+            case 'reposition':
+                return this.overlay.scrollStrategies.reposition();
+            default:
+                return this.overlay.scrollStrategies.close();
+        }
+    }
+    checkSizes() {
+        if (this.overlayRef) {
+            if (!this.width) {
+                this.overlayRef.getConfig().width = this.getHostWidth();
+            }
+            if (this.height) {
+                this.overlayRef.getConfig().height = this.height;
+            }
+            this.overlayRef.updateSize(this.overlayRef.getConfig());
+            this.overlayRef.updatePosition();
+            this.changeDetectorRef.markForCheck();
+        }
+    }
+    getConnectedElement() {
+        return this.parent;
+    }
+    getHostWidth() {
+        return this.getConnectedElement().nativeElement.getBoundingClientRect().width;
+    }
+}
+NovoOverlayTemplateComponent.ɵfac = function NovoOverlayTemplateComponent_Factory(t) { return new (t || NovoOverlayTemplateComponent)(ɵngcc0.ɵɵdirectiveInject(ɵngcc2.Overlay), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ViewContainerRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.NgZone), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef), ɵngcc0.ɵɵdirectiveInject(DOCUMENT, 8)); };
+NovoOverlayTemplateComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoOverlayTemplateComponent, selectors: [["novo-overlay-template"]], viewQuery: function NovoOverlayTemplateComponent_Query(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵviewQuery(TemplateRef, true);
+        ɵngcc0.ɵɵviewQuery(_c11, true);
+    } if (rf & 2) {
+        var _t;
+        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.template = _t.first);
+        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.panel = _t.first);
+    } }, inputs: { position: "position", scrollStrategy: "scrollStrategy", closeOnSelect: "closeOnSelect", parent: "parent", width: "width", height: "height" }, outputs: { select: "select", closing: "closing" }, ngContentSelectors: _c1, decls: 1, vars: 0, consts: [["role", "listbox", 1, "novo-overlay-panel", 3, "id"], ["panel", ""]], template: function NovoOverlayTemplateComponent_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef();
+        ɵngcc0.ɵɵtemplate(0, NovoOverlayTemplateComponent_ng_template_0_Template, 3, 1, "ng-template");
+    } }, encapsulation: 2, changeDetection: 0 });
+NovoOverlayTemplateComponent.ctorParameters = () => [
+    { type: Overlay },
+    { type: ViewContainerRef },
+    { type: NgZone },
+    { type: ChangeDetectorRef },
+    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [DOCUMENT,] }] }
+];
+NovoOverlayTemplateComponent.propDecorators = {
+    template: [{ type: ViewChild, args: [TemplateRef,] }],
+    panel: [{ type: ViewChild, args: ['panel',] }],
+    position: [{ type: Input }],
+    scrollStrategy: [{ type: Input }],
+    width: [{ type: Input }],
+    height: [{ type: Input }],
+    closeOnSelect: [{ type: Input }],
+    select: [{ type: Output }],
+    closing: [{ type: Output }],
+    parent: [{ type: Input }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoOverlayTemplateComponent, [{
+        type: Component,
+        args: [{
+                selector: 'novo-overlay-template',
+                template: `
+    <ng-template>
+      <div class="novo-overlay-panel" role="listbox" [id]="id" #panel><ng-content></ng-content></div>
+    </ng-template>
+  `,
+                changeDetection: ChangeDetectionStrategy.OnPush
+            }]
+    }], function () { return [{ type: ɵngcc2.Overlay }, { type: ɵngcc0.ViewContainerRef }, { type: ɵngcc0.NgZone }, { type: ɵngcc0.ChangeDetectorRef }, { type: undefined, decorators: [{
+                type: Optional
+            }, {
+                type: Inject,
+                args: [DOCUMENT]
+            }] }]; }, { position: [{
+            type: Input
+        }], scrollStrategy: [{
+            type: Input
+        }], closeOnSelect: [{
+            type: Input
+        }], select: [{
+            type: Output
+        }], closing: [{
+            type: Output
+        }], parent: [{
+            type: Input
+        }], template: [{
+            type: ViewChild,
+            args: [TemplateRef]
+        }], panel: [{
+            type: ViewChild,
+            args: ['panel']
+        }], width: [{
+            type: Input
+        }], height: [{
+            type: Input
+        }] }); })();
+
+// NG2
+class NovoOverlayModule {
+}
+NovoOverlayModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoOverlayModule });
+NovoOverlayModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoOverlayModule_Factory(t) { return new (t || NovoOverlayModule)(); }, imports: [[CommonModule, FormsModule, OverlayModule, ScrollingModule], ScrollingModule] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoOverlayModule, { declarations: function () { return [NovoOverlayTemplateComponent]; }, imports: function () { return [CommonModule, FormsModule, OverlayModule, ScrollingModule]; }, exports: function () { return [NovoOverlayTemplateComponent, ScrollingModule]; } }); })();
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoOverlayModule, [{
+        type: NgModule,
+        args: [{
+                imports: [CommonModule, FormsModule, OverlayModule, ScrollingModule],
+                declarations: [NovoOverlayTemplateComponent],
+                exports: [NovoOverlayTemplateComponent, ScrollingModule]
+            }]
+    }], null, null); })();
+
 // NG2
 class NovoLabelService {
     constructor(userLocale = 'en-US') {
@@ -10048,199 +10647,763 @@ NovoLabelService.ctorParameters = () => [
             }] }]; }, null); })();
 const NOVO_ELEMENTS_LABELS_PROVIDERS = [{ provide: NovoLabelService, useClass: NovoLabelService }];
 
-// NG2
-class CardActionsElement {
+// Helper to keep track of key codes
+const KeyCodes = {
+    BACKSPACE: 8,
+    TAB: 9,
+    NUM_CENTER: 12,
+    ENTER: 13,
+    RETURN: 13,
+    SHIFT: 16,
+    CTRL: 17,
+    ALT: 18,
+    PAUSE: 19,
+    CAPS_LOCK: 20,
+    ESC: 27,
+    SPACE: 32,
+    PAGE_UP: 33,
+    PAGE_DOWN: 34,
+    HASH_SYMBOL: 35,
+    HOME: 36,
+    LEFT: 37,
+    UP: 38,
+    RIGHT: 39,
+    DOWN: 40,
+    PRINT_SCREEN: 44,
+    INSERT: 45,
+    DELETE: 46,
+    ZERO: 48,
+    ONE: 49,
+    TWO: 50,
+    THREE: 51,
+    FOUR: 52,
+    FIVE: 53,
+    SIX: 54,
+    SEVEN: 55,
+    EIGHT: 56,
+    NINE: 57,
+    AT_SYMBOL: 64,
+    A: 65,
+    B: 66,
+    C: 67,
+    D: 68,
+    E: 69,
+    F: 70,
+    G: 71,
+    H: 72,
+    I: 73,
+    J: 74,
+    K: 75,
+    L: 76,
+    M: 77,
+    N: 78,
+    O: 79,
+    P: 80,
+    Q: 81,
+    R: 82,
+    S: 83,
+    T: 84,
+    U: 85,
+    V: 86,
+    W: 87,
+    X: 88,
+    Y: 89,
+    Z: 90,
+    CONTEXT_MENU: 93,
+    NUM_ZERO: 96,
+    NUM_ONE: 97,
+    NUM_TWO: 98,
+    NUM_THREE: 99,
+    NUM_FOUR: 100,
+    NUM_FIVE: 101,
+    NUM_SIX: 102,
+    NUM_SEVEN: 103,
+    NUM_EIGHT: 104,
+    NUM_NINE: 105,
+    NUM_MULTIPLY: 106,
+    NUM_PLUS: 107,
+    NUM_MINUS: 109,
+    NUM_PERIOD: 110,
+    NUM_DIVISION: 111,
+    F1: 112,
+    F2: 113,
+    F3: 114,
+    F4: 115,
+    F5: 116,
+    F6: 117,
+    F7: 118,
+    F8: 119,
+    F9: 120,
+    F10: 121,
+    F11: 122,
+    F12: 123,
+    DASH: 189,
+    PERIOD: 190,
+    FORWARD_SLASH: 191,
+};
+
+// NG
+// Value accessor for the component (supports ngModel)
+const SELECT_VALUE_ACCESSOR = {
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => NovoSelectElement),
+    multi: true,
+};
+class NovoSelectElement {
+    constructor(element, labels, ref, focusMonitor, ngZone) {
+        this.element = element;
+        this.labels = labels;
+        this.ref = ref;
+        this.focusMonitor = focusMonitor;
+        this.ngZone = ngZone;
+        this.placeholder = 'Select...';
+        this.onSelect = new EventEmitter();
+        this.selectedIndex = -1;
+        this.empty = true;
+        this.header = {
+            open: false,
+            valid: true,
+            value: '',
+        };
+        this.onModelChange = () => { };
+        this.onModelTouched = () => { };
+        this.filterTerm = '';
+        this.disabled = false;
+    }
+    ngOnInit() {
+        this.focusMonitor.monitor(this.dropdown.nativeElement).subscribe((origin) => this.ngZone.run(() => {
+            if (origin === 'keyboard' && !this.disabled) {
+                this.openPanel();
+            }
+        }));
+        this.ngOnChanges();
+    }
+    ngOnChanges(changes) {
+        this.readonly = this.readonly === true;
+        if (this.options && this.options.length && typeof this.options[0] === 'string') {
+            this.filteredOptions = this.options.map((item) => {
+                return { value: item, label: item };
+            });
+        }
+        else {
+            this.filteredOptions = (this.options || [])
+                .filter((item) => {
+                return !item.readOnly;
+            })
+                .map((element) => {
+                return Object.assign(Object.assign({}, element), { active: false });
+            });
+        }
+        if (!this.model && !this.createdItem) {
+            this.clear();
+        }
+        else if (this.createdItem) {
+            const item = this.options.find((i) => i.label === this.createdItem);
+            const index = this.options.indexOf(item);
+            this.select(item, index);
+        }
+        else {
+            this.writeValue(this.model);
+        }
+        if (this.panelOpen) {
+            this.openPanel();
+        }
+    }
+    ngOnDestroy() {
+        this.focusMonitor.stopMonitoring(this.dropdown.nativeElement);
+    }
+    /** BEGIN: Convienient Panel Methods. */
+    openPanel() {
+        this.overlay.openPanel();
+    }
+    closePanel() {
+        this.overlay.closePanel();
+    }
+    togglePanel() {
+        if (this.panelOpen) {
+            this.closePanel();
+        }
+        else {
+            setTimeout(() => {
+                this.dropdown.nativeElement.focus();
+            });
+            this.openPanel();
+        }
+    }
+    get panelOpen() {
+        return this.overlay && this.overlay.panelOpen;
+    }
+    /** END: Convenient Panel Methods. */
+    /**
+     * This method closes the panel, and if a value is specified, also sets the associated
+     * control to that value. It will also mark the control as dirty if this interaction
+     * stemmed from the user.
+     */
+    setValueAndClose(event) {
+        if (event.value && event.index >= 0) {
+            this.select(event.value, event.index);
+        }
+        this.closePanel();
+    }
+    select(option, i, fireEvents = true) {
+        if (this.selected) {
+            this.selected.active = false;
+        }
+        this.selectedIndex = i;
+        this.selected = option;
+        this.selected.active = true;
+        this.empty = false;
+        if (fireEvents) {
+            this.onModelChange(this.selected.value);
+            this.onSelect.emit({ selected: this.selected.value });
+        }
+    }
+    clear() {
+        if (this.selected) {
+            this.selected.active = false;
+        }
+        this.selected = {
+            label: this.placeholder,
+            value: null,
+            active: false,
+        };
+        this.header = {
+            open: false,
+            valid: true,
+            value: '',
+        };
+        this.selectedIndex = -1;
+        this.empty = true;
+    }
+    onKeyDown(event) {
+        // To prevent default window scrolling
+        if ([KeyCodes.UP, KeyCodes.DOWN].includes(event.keyCode)) {
+            event.preventDefault();
+        }
+        if ([KeyCodes.ESC, KeyCodes.TAB].includes(event.keyCode)) {
+            this.closePanel();
+        }
+        else if (event.keyCode === KeyCodes.ENTER) {
+            if (this.header.open && this.header.value) {
+                this.saveHeader();
+            }
+            else {
+                this.setValueAndClose({
+                    value: this.filteredOptions[this.selectedIndex],
+                    index: this.selectedIndex,
+                });
+            }
+        }
+        else if (event.keyCode === KeyCodes.UP) {
+            if (!this.panelOpen) {
+                this.openPanel();
+            }
+            if (this.selectedIndex > 0) {
+                this.selectedIndex--;
+                this.select(this.filteredOptions[this.selectedIndex], this.selectedIndex);
+                this.scrollToSelected();
+            }
+        }
+        else if (event.keyCode === KeyCodes.DOWN) {
+            if (!this.panelOpen) {
+                this.openPanel();
+            }
+            if (this.selectedIndex < this.filteredOptions.length - 1) {
+                this.selectedIndex++;
+                this.select(this.filteredOptions[this.selectedIndex], this.selectedIndex);
+                this.scrollToSelected();
+                if (this.header.open) {
+                    this.toggleHeader(null, false);
+                }
+            }
+        }
+        else if (event.keyCode === KeyCodes.UP && this.selectedIndex === 0) {
+            if (!this.panelOpen) {
+                this.openPanel();
+            }
+            this.selectedIndex--;
+            this.toggleHeader(null, true);
+        }
+        else if ((event.keyCode >= 65 && event.keyCode <= 90) || event.keyCode === KeyCodes.SPACE) {
+            if (event.keyCode === KeyCodes.SPACE) {
+                event.preventDefault();
+            }
+            if (!this.panelOpen) {
+                this.openPanel();
+            }
+            clearTimeout(this.filterTermTimeout);
+            this.filterTermTimeout = setTimeout(() => {
+                this.filterTerm = '';
+            }, 2000);
+            const char = event.key;
+            this.filterTerm = this.filterTerm.concat(char).toUpperCase();
+            const item = this.filteredOptions.find((i) => i.label.toUpperCase().indexOf(this.filterTerm) === 0);
+            if (item) {
+                this.select(item, this.filteredOptions.indexOf(item));
+                this.scrollToSelected();
+            }
+        }
+        else if ([KeyCodes.BACKSPACE, KeyCodes.DELETE].includes(event.keyCode)) {
+            clearTimeout(this.filterTermTimeout);
+            this.filterTermTimeout = setTimeout(() => {
+                this.filterTerm = '';
+            }, 2000);
+            this.filterTerm = this.filterTerm.slice(0, -1);
+        }
+    }
+    scrollToSelected() {
+        this.scrollToIndex(this.selectedIndex);
+    }
+    scrollToIndex(index) {
+        const element = this.overlay.overlayRef.overlayElement;
+        const list = element.querySelector('.novo-select-list');
+        const items = list.querySelectorAll('li');
+        const item = items[this.headerConfig ? index + 1 : index];
+        if (item) {
+            list.scrollTop = item.offsetTop;
+        }
+    }
+    toggleHeader(event, forceValue = false) {
+        if (event) {
+            event.stopPropagation();
+            event.preventDefault();
+        }
+        // Reverse the active property (if forceValue, use that)
+        this.header = {
+            open: forceValue !== undefined ? forceValue : !this.header.open,
+            value: '',
+            valid: true,
+        };
+    }
+    highlight(match, query) {
+        // Replaces the capture string with a the same string inside of a "strong" tag
+        return query ? match.replace(new RegExp(this.escapeRegexp(query), 'gi'), '<strong>$&</strong>') : match;
+    }
+    escapeRegexp(queryToEscape) {
+        // Ex: if the capture is "a" the result will be \a
+        return queryToEscape.replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1');
+    }
+    saveHeader() {
+        if (this.header.value) {
+            this.headerConfig.onSave(this.header.value);
+            this.createdItem = this.header.value;
+            this.closePanel();
+        }
+        else {
+            this.header.valid = false;
+        }
+    }
+    writeValue(model) {
+        this.model = model;
+        if (this.options) {
+            let item = this.filteredOptions.find((i) => i.value === model || (model && i.value === model.id)) || this.options.find((i) => i.value === model || (model && i.value === model.id));
+            if (!item && !Helpers.isEmpty(model)) {
+                item = {
+                    label: model,
+                    value: model,
+                };
+                if (!item.readOnly) {
+                    this.options.unshift(item);
+                }
+            }
+            if (item) {
+                this.select(item, this.filteredOptions.indexOf(item), false);
+                this.empty = false;
+            }
+            else {
+                this.clear();
+            }
+        }
+        this.ref.markForCheck();
+    }
+    registerOnChange(fn) {
+        this.onModelChange = fn;
+    }
+    registerOnTouched(fn) {
+        this.onModelTouched = fn;
+    }
+    setDisabledState(disabled) {
+        this.disabled = disabled;
+    }
 }
-CardActionsElement.ɵfac = function CardActionsElement_Factory(t) { return new (t || CardActionsElement)(); };
-CardActionsElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: CardActionsElement, selectors: [["novo-card-actions"]], ngContentSelectors: _c1, decls: 1, vars: 0, template: function CardActionsElement_Template(rf, ctx) { if (rf & 1) {
+NovoSelectElement.ɵfac = function NovoSelectElement_Factory(t) { return new (t || NovoSelectElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(NovoLabelService), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc4.FocusMonitor), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.NgZone)); };
+NovoSelectElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoSelectElement, selectors: [["novo-select"]], viewQuery: function NovoSelectElement_Query(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵstaticViewQuery(NovoOverlayTemplateComponent, true);
+        ɵngcc0.ɵɵstaticViewQuery(_c12, true);
+    } if (rf & 2) {
+        var _t;
+        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.overlay = _t.first);
+        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.dropdown = _t.first);
+    } }, hostBindings: function NovoSelectElement_HostBindings(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵlistener("keydown", function NovoSelectElement_keydown_HostBindingHandler($event) { return ctx.onKeyDown($event); });
+    } }, inputs: { placeholder: "placeholder", readonly: "readonly", name: "name", options: "options", headerConfig: "headerConfig" }, outputs: { onSelect: "onSelect" }, features: [ɵngcc0.ɵɵProvidersFeature([SELECT_VALUE_ACCESSOR]), ɵngcc0.ɵɵNgOnChangesFeature], ngContentSelectors: _c1, decls: 9, vars: 11, consts: [["type", "button", 3, "tabIndex", "click"], ["dropdownElement", ""], [1, "bhi-collapse"], ["position", "center", 3, "parent", "closing"], ["tabIndex", "-1", 1, "novo-select-list"], ["class", "select-header", 3, "open", 4, "ngIf"], [3, "ngClass", "click", 4, "ngFor", "ngForOf"], [1, "select-header"], ["tabIndex", "-1", "type", "button", "class", "header", 3, "click", 4, "ngIf"], [3, "ngClass", 4, "ngIf"], ["tabIndex", "-1", "type", "button", 1, "header", 3, "click"], [1, "bhi-add-thin"], [3, "ngClass"], ["autofocus", "", "type", "text", "autocomplete", "false", 3, "placeholder", "ngModel", "ngClass", "ngModelChange"], [3, "click"], [1, "primary", 3, "click"], [3, "ngClass", "click"], [3, "innerHtml"], ["class", "bhi-check", 4, "ngIf"], [1, "bhi-check"]], template: function NovoSelectElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef();
+        ɵngcc0.ɵɵelementStart(0, "div", 0, 1);
+        ɵngcc0.ɵɵlistener("click", function NovoSelectElement_Template_div_click_0_listener() { ctx.togglePanel(); return false; });
+        ɵngcc0.ɵɵtext(2);
+        ɵngcc0.ɵɵelement(3, "i", 2);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵelementStart(4, "novo-overlay-template", 3);
+        ɵngcc0.ɵɵlistener("closing", function NovoSelectElement_Template_novo_overlay_template_closing_4_listener() { return ctx.dropdown.nativeElement.focus(); });
+        ɵngcc0.ɵɵelementStart(5, "ul", 4);
+        ɵngcc0.ɵɵprojection(6);
+        ɵngcc0.ɵɵtemplate(7, NovoSelectElement_li_7_Template, 3, 4, "li", 5);
+        ɵngcc0.ɵɵtemplate(8, NovoSelectElement_li_8_Template, 3, 6, "li", 6);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵelementEnd();
+    } if (rf & 2) {
+        ɵngcc0.ɵɵclassProp("empty", ctx.empty);
+        ɵngcc0.ɵɵpropertyInterpolate("tabIndex", ctx.disabled ? -1 : 0);
+        ɵngcc0.ɵɵadvance(2);
+        ɵngcc0.ɵɵtextInterpolate1(" ", ctx.selected.label, "");
+        ɵngcc0.ɵɵadvance(2);
+        ɵngcc0.ɵɵproperty("parent", ctx.element);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵclassProp("header", ctx.headerConfig)("active", ctx.panelOpen);
+        ɵngcc0.ɵɵadvance(2);
+        ɵngcc0.ɵɵproperty("ngIf", ctx.headerConfig);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngForOf", ctx.filteredOptions);
+    } }, directives: [NovoOverlayTemplateComponent, ɵngcc1.NgIf, ɵngcc1.NgForOf, ɵngcc1.NgClass, ɵngcc3.DefaultValueAccessor, ɵngcc3.NgControlStatus, ɵngcc3.NgModel], encapsulation: 2 });
+NovoSelectElement.ctorParameters = () => [
+    { type: ElementRef },
+    { type: NovoLabelService },
+    { type: ChangeDetectorRef },
+    { type: FocusMonitor },
+    { type: NgZone }
+];
+NovoSelectElement.propDecorators = {
+    name: [{ type: Input }],
+    options: [{ type: Input }],
+    placeholder: [{ type: Input }],
+    readonly: [{ type: Input }],
+    headerConfig: [{ type: Input }],
+    onSelect: [{ type: Output }],
+    overlay: [{ type: ViewChild, args: [NovoOverlayTemplateComponent, { static: true },] }],
+    dropdown: [{ type: ViewChild, args: ['dropdownElement', { static: true },] }],
+    onKeyDown: [{ type: HostListener, args: ['keydown', ['$event'],] }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoSelectElement, [{
+        type: Component,
+        args: [{
+                selector: 'novo-select',
+                providers: [SELECT_VALUE_ACCESSOR],
+                template: `
+    <div #dropdownElement (click)="togglePanel(); (false)" tabIndex="{{ disabled ? -1 : 0 }}" type="button" [class.empty]="empty">
+      {{ selected.label }}<i class="bhi-collapse"></i>
+    </div>
+    <novo-overlay-template [parent]="element" position="center" (closing)="dropdown.nativeElement.focus()">
+      <ul class="novo-select-list" tabIndex="-1" [class.header]="headerConfig" [class.active]="panelOpen">
+        <ng-content></ng-content>
+        <li *ngIf="headerConfig" class="select-header" [class.open]="header.open">
+          <button *ngIf="!header.open" (click)="toggleHeader($event); (false)" tabIndex="-1" type="button" class="header">
+            <i class="bhi-add-thin"></i>&nbsp;{{ headerConfig.label }}
+          </button>
+          <div *ngIf="header.open" [ngClass]="{ active: header.open }">
+            <input
+              autofocus
+              type="text"
+              [placeholder]="headerConfig.placeholder"
+              [attr.id]="name"
+              autocomplete="false"
+              [(ngModel)]="header.value"
+              [ngClass]="{ invalid: !header.valid }"
+            />
+            <footer>
+              <button (click)="toggleHeader($event, false)">{{ labels.cancel }}</button>
+              <button (click)="saveHeader()" class="primary">{{ labels.save }}</button>
+            </footer>
+          </div>
+        </li>
+        <li
+          *ngFor="let option of filteredOptions; let i = index"
+          [ngClass]="{ active: option.active }"
+          (click)="setValueAndClose({ value: option, index: i })"
+          [attr.data-automation-value]="option.label"
+        >
+          <span [innerHtml]="highlight(option.label, filterTerm)"></span> <i *ngIf="option.active" class="bhi-check"></i>
+        </li>
+      </ul>
+    </novo-overlay-template>
+  `,
+                host: {
+                    '(keydown)': 'onKeyDown($event)'
+                }
+            }]
+    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: NovoLabelService }, { type: ɵngcc0.ChangeDetectorRef }, { type: ɵngcc4.FocusMonitor }, { type: ɵngcc0.NgZone }]; }, { placeholder: [{
+            type: Input
+        }], onSelect: [{
+            type: Output
+        }], readonly: [{
+            type: Input
+        }], onKeyDown: [{
+            type: HostListener,
+            args: ['keydown', ['$event']]
+        }], name: [{
+            type: Input
+        }], options: [{
+            type: Input
+        }], headerConfig: [{
+            type: Input
+        }], overlay: [{
+            type: ViewChild,
+            args: [NovoOverlayTemplateComponent, { static: true }]
+        }], dropdown: [{
+            type: ViewChild,
+            args: ['dropdownElement', { static: true }]
+        }] }); })();
+
+// NG
+class NovoSelectModule {
+}
+NovoSelectModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoSelectModule });
+NovoSelectModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoSelectModule_Factory(t) { return new (t || NovoSelectModule)(); }, imports: [[CommonModule, FormsModule, A11yModule, NovoOverlayModule]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoSelectModule, { declarations: function () { return [NovoSelectElement]; }, imports: function () { return [CommonModule, FormsModule, A11yModule, NovoOverlayModule]; }, exports: function () { return [NovoSelectElement]; } }); })();
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoSelectModule, [{
+        type: NgModule,
+        args: [{
+                imports: [CommonModule, FormsModule, A11yModule, NovoOverlayModule],
+                declarations: [NovoSelectElement],
+                exports: [NovoSelectElement]
+            }]
+    }], null, null); })();
+
+// NG2
+class NovoListElement {
+    constructor(element) {
+        this.element = element;
+    }
+}
+NovoListElement.ɵfac = function NovoListElement_Factory(t) { return new (t || NovoListElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef)); };
+NovoListElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoListElement, selectors: [["novo-list"]], hostVars: 5, hostBindings: function NovoListElement_HostBindings(rf, ctx) { if (rf & 2) {
+        ɵngcc0.ɵɵattribute("theme", ctx.theme);
+        ɵngcc0.ɵɵclassProp("vertical-list", ctx.direction === "vertical")("horizontal-list", ctx.direction === "horizontal");
+    } }, inputs: { theme: "theme", direction: "direction" }, ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoListElement_Template(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵprojectionDef();
         ɵngcc0.ɵɵprojection(0);
     } }, encapsulation: 2 });
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(CardActionsElement, [{
-        type: Component,
-        args: [{
-                selector: 'novo-card-actions',
-                template: '<ng-content></ng-content>'
-            }]
-    }], null, null); })();
-class CardElement {
-    constructor(labels) {
-        this.padding = true;
-        this.config = {};
-        this.onClose = new EventEmitter();
-        this.onRefresh = new EventEmitter();
-        this.labels = labels;
-    }
-    ngOnInit() {
-        this.config = this.config || {};
-    }
-    ngOnChanges(changes) {
-        this.config = this.config || {};
-        this.cardAutomationId = `${(this.title || this.config.title || 'no-title').toLowerCase().replace(/\s/g, '-')}-card`;
-        const newIcon = this.icon || this.config.icon;
-        const newMessageIcon = this.messageIcon || this.config.messageIcon;
-        this.iconClass = newIcon ? `bhi-${newIcon}` : null;
-        this.messageIconClass = newMessageIcon ? `bhi-${newMessageIcon}` : null;
-    }
-    toggleClose() {
-        if (!this.config.onClose) {
-            this.onClose.next();
-        }
-        else {
-            this.config.onClose();
-        }
-    }
-    toggleRefresh() {
-        if (!this.config.onRefresh) {
-            this.onRefresh.next();
-        }
-        else {
-            this.config.onRefresh();
-        }
-    }
-}
-CardElement.ɵfac = function CardElement_Factory(t) { return new (t || CardElement)(ɵngcc0.ɵɵdirectiveInject(NovoLabelService)); };
-CardElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: CardElement, selectors: [["novo-card"]], inputs: { padding: "padding", config: "config", title: "title", message: "message", messageIcon: "messageIcon", icon: "icon", iconTooltip: "iconTooltip", refresh: "refresh", close: "close", move: "move", loading: "loading" }, outputs: { onClose: "onClose", onRefresh: "onRefresh" }, features: [ɵngcc0.ɵɵNgOnChangesFeature], ngContentSelectors: _c13, decls: 18, vars: 19, consts: [[1, "novo-card", 3, "ngClass"], ["class", "card-loading-container", 4, "ngIf"], [1, "title"], ["tooltipPosition", "bottom-right", 3, "tooltip"], ["class", "bhi-move", 4, "ngIf"], ["tooltipPosition", "right", 3, "tooltip"], [3, "ngClass", 4, "ngIf"], [1, "actions"], ["theme", "icon", "icon", "refresh", "tooltipPosition", "bottom-left", 3, "tooltip", "click", 4, "ngIf"], ["theme", "icon", "icon", "close-o", "tooltipPosition", "bottom-left", 3, "tooltip", "click", 4, "ngIf"], [4, "ngIf"], ["class", "card-message", 4, "ngIf"], [1, "card-loading-container"], ["theme", "line"], [1, "bhi-move"], [3, "ngClass"], ["theme", "icon", "icon", "refresh", "tooltipPosition", "bottom-left", 3, "tooltip", "click"], ["theme", "icon", "icon", "close-o", "tooltipPosition", "bottom-left", 3, "tooltip", "click"], [1, "card-message"], [3, "innerHtml"]], template: function CardElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef(_c11);
-        ɵngcc0.ɵɵelementStart(0, "div", 0);
-        ɵngcc0.ɵɵtemplate(1, CardElement_div_1_Template, 2, 1, "div", 1);
-        ɵngcc0.ɵɵelementStart(2, "header");
-        ɵngcc0.ɵɵelementStart(3, "div", 2);
-        ɵngcc0.ɵɵelementStart(4, "span", 3);
-        ɵngcc0.ɵɵtemplate(5, CardElement_i_5_Template, 1, 1, "i", 4);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementStart(6, "h3");
-        ɵngcc0.ɵɵelementStart(7, "span", 5);
-        ɵngcc0.ɵɵtemplate(8, CardElement_i_8_Template, 1, 1, "i", 6);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵtext(9);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementStart(10, "div", 7);
-        ɵngcc0.ɵɵprojection(11);
-        ɵngcc0.ɵɵtemplate(12, CardElement_button_12_Template, 1, 2, "button", 8);
-        ɵngcc0.ɵɵtemplate(13, CardElement_button_13_Template, 1, 2, "button", 9);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementStart(14, "main");
-        ɵngcc0.ɵɵtemplate(15, CardElement_ng_content_15_Template, 1, 0, "ng-content", 10);
-        ɵngcc0.ɵɵtemplate(16, CardElement_p_16_Template, 3, 3, "p", 11);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵtemplate(17, CardElement_ng_content_17_Template, 1, 0, "ng-content", 10);
-        ɵngcc0.ɵɵelementEnd();
-    } if (rf & 2) {
-        ɵngcc0.ɵɵclassProp("loading", ctx.loading || ctx.config.loading);
-        ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(17, _c12, !ctx.padding));
-        ɵngcc0.ɵɵattribute("data-automation-id", ctx.cardAutomationId);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngIf", ctx.loading || ctx.config.loading);
-        ɵngcc0.ɵɵadvance(3);
-        ɵngcc0.ɵɵpropertyInterpolate("tooltip", ctx.labels.move);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngIf", ctx.move || ctx.config.move);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵattribute("data-automation-id", ctx.cardAutomationId + "-title");
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("tooltip", ctx.iconTooltip);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngIf", ctx.icon);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵtextInterpolate1(" ", ctx.title || ctx.config.title, "");
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵattribute("data-automation-id", ctx.cardAutomationId + "-actions");
-        ɵngcc0.ɵɵadvance(2);
-        ɵngcc0.ɵɵproperty("ngIf", ctx.refresh || ctx.config.refresh);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngIf", ctx.close || ctx.config.close);
-        ɵngcc0.ɵɵadvance(2);
-        ɵngcc0.ɵɵproperty("ngIf", !(ctx.loading || ctx.config.loading) && !(ctx.message || ctx.config.message));
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngIf", !(ctx.loading || ctx.config.loading) && (ctx.message || ctx.config.message));
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngIf", !(ctx.loading || ctx.config.loading) && !(ctx.message || ctx.config.message));
-    } }, directives: function () { return [ɵngcc1.NgClass, ɵngcc1.NgIf, TooltipDirective, NovoLoadingElement, NovoButtonElement]; }, encapsulation: 2 });
-CardElement.ctorParameters = () => [
-    { type: NovoLabelService }
+NovoListElement.ctorParameters = () => [
+    { type: ElementRef }
 ];
-CardElement.propDecorators = {
-    padding: [{ type: Input }],
-    config: [{ type: Input }],
-    title: [{ type: Input }],
-    message: [{ type: Input }],
-    messageIcon: [{ type: Input }],
-    icon: [{ type: Input }],
-    iconTooltip: [{ type: Input }],
-    refresh: [{ type: Input }],
-    close: [{ type: Input }],
-    move: [{ type: Input }],
-    loading: [{ type: Input }],
-    onClose: [{ type: Output }],
-    onRefresh: [{ type: Output }]
+NovoListElement.propDecorators = {
+    theme: [{ type: Input }],
+    direction: [{ type: Input }]
 };
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(CardElement, [{
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoListElement, [{
         type: Component,
         args: [{
-                selector: 'novo-card',
+                selector: 'novo-list',
+                host: {
+                    '[class.vertical-list]': 'direction === "vertical"',
+                    '[class.horizontal-list]': 'direction === "horizontal"',
+                    '[attr.theme]': 'theme'
+                },
                 template: `
-        <div class="novo-card" [attr.data-automation-id]="cardAutomationId" [ngClass]="{'no-padding': !padding}" [class.loading]="loading || config.loading">
-            <!--Loading-->
-            <div class="card-loading-container" *ngIf="loading || config.loading">
-                <novo-loading theme="line" [attr.data-automation-id]="cardAutomationId + '-loading'"></novo-loading>
-            </div>
-            <!--Card Header-->
-            <header>
-                <div class="title">
-                    <!--Grabber Icon-->
-                    <span tooltip="{{ labels.move }}" tooltipPosition="bottom-right"><i *ngIf="move || config.move" class="bhi-move" [attr.data-automation-id]="cardAutomationId + '-move'"></i></span>
-                    <!--Card Title-->
-                    <h3 [attr.data-automation-id]="cardAutomationId + '-title'"><span [tooltip]="iconTooltip" tooltipPosition="right"><i *ngIf="icon" [ngClass]="iconClass"></i></span> {{title || config.title}}</h3>
-                </div>
-                <!--Card Actions-->
-                <div class="actions" [attr.data-automation-id]="cardAutomationId + '-actions'">
-                    <ng-content select="novo-card-actions"></ng-content>
-                    <button theme="icon" icon="refresh"  (click)="toggleRefresh()" *ngIf="refresh || config.refresh" [attr.data-automation-id]="cardAutomationId + '-refresh'" tooltip="{{ labels.refresh }}" tooltipPosition="bottom-left"></button>
-                    <button theme="icon" icon="close-o" (click)="toggleClose()" *ngIf="close || config.close" [attr.data-automation-id]="cardAutomationId + '-close'" tooltip="{{ labels.close }}" tooltipPosition="bottom-left"></button>
-                </div>
-            </header>
-            <!--Card Main-->
-            <main>
-                <!--Content (transcluded)-->
-                <ng-content *ngIf="!(loading || config.loading) && !(message || config.message)"></ng-content>
-                <!--Error/Empty Message-->
-                <p class="card-message" *ngIf="!(loading || config.loading) && (message || config.message)" [attr.data-automation-id]="cardAutomationId + '-message'"><i *ngIf="messageIconClass" [ngClass]="messageIconClass"></i> <span [innerHtml]="message || config.message"></span></p>
-            </main>
-            <!--Card Footer-->
-            <ng-content *ngIf="!(loading || config.loading) && !(message || config.message)" select="footer"></ng-content>
-        </div>
+        <ng-content></ng-content>
     `
             }]
-    }], function () { return [{ type: NovoLabelService }]; }, { padding: [{
+    }], function () { return [{ type: ɵngcc0.ElementRef }]; }, { theme: [{
             type: Input
-        }], config: [{
-            type: Input
-        }], onClose: [{
-            type: Output
-        }], onRefresh: [{
-            type: Output
-        }], title: [{
-            type: Input
-        }], message: [{
-            type: Input
-        }], messageIcon: [{
-            type: Input
-        }], icon: [{
-            type: Input
-        }], iconTooltip: [{
-            type: Input
-        }], refresh: [{
-            type: Input
-        }], close: [{
-            type: Input
-        }], move: [{
-            type: Input
-        }], loading: [{
+        }], direction: [{
             type: Input
         }] }); })();
+class NovoListItemElement {
+    constructor(element) {
+        this.element = element;
+        this.avatar = false;
+    }
+    ngOnInit() {
+        this.avatar = !!this.element.nativeElement.querySelector('item-avatar');
+    }
+}
+NovoListItemElement.ɵfac = function NovoListItemElement_Factory(t) { return new (t || NovoListItemElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef)); };
+NovoListItemElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoListItemElement, selectors: [["novo-list-item"]], ngContentSelectors: _c17, decls: 5, vars: 3, consts: [[1, "list-item", 3, "ngClass"]], template: function NovoListItemElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef(_c15);
+        ɵngcc0.ɵɵelementStart(0, "div", 0);
+        ɵngcc0.ɵɵprojection(1);
+        ɵngcc0.ɵɵprojection(2, 1);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵprojection(3, 2);
+        ɵngcc0.ɵɵprojection(4, 3);
+    } if (rf & 2) {
+        ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(1, _c16, ctx.avatar));
+    } }, directives: [ɵngcc1.NgClass], encapsulation: 2 });
+NovoListItemElement.ctorParameters = () => [
+    { type: ElementRef }
+];
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoListItemElement, [{
+        type: Component,
+        args: [{
+                selector: 'novo-list-item',
+                template: `
+        <div class="list-item" [ngClass]="{'avatar': avatar}">
+            <ng-content select="item-header"></ng-content>
+            <ng-content select="item-content"></ng-content>
+        </div>
+        <ng-content></ng-content>
+        <ng-content select="item-end"></ng-content>
+    `
+            }]
+    }], function () { return [{ type: ɵngcc0.ElementRef }]; }, null); })();
+class NovoItemAvatarElement {
+    ngOnChanges(changes) {
+        this.iconClass = this.icon ? `bhi-${this.icon}` : null;
+        this.classMap = [this.iconClass, this.icon];
+    }
+    ngOnInit() {
+        this.ngOnChanges();
+    }
+}
+NovoItemAvatarElement.ɵfac = function NovoItemAvatarElement_Factory(t) { return new (t || NovoItemAvatarElement)(); };
+NovoItemAvatarElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoItemAvatarElement, selectors: [["item-avatar"]], inputs: { icon: "icon" }, features: [ɵngcc0.ɵɵNgOnChangesFeature], decls: 1, vars: 1, consts: [["theme", "contained", 3, "ngClass", 4, "ngIf"], ["theme", "contained", 3, "ngClass"]], template: function NovoItemAvatarElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵtemplate(0, NovoItemAvatarElement_i_0_Template, 1, 1, "i", 0);
+    } if (rf & 2) {
+        ɵngcc0.ɵɵproperty("ngIf", ctx.iconClass);
+    } }, directives: [ɵngcc1.NgIf, ɵngcc1.NgClass], encapsulation: 2 });
+NovoItemAvatarElement.propDecorators = {
+    icon: [{ type: Input }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoItemAvatarElement, [{
+        type: Component,
+        args: [{
+                selector: 'item-avatar',
+                template: `
+        <i *ngIf="iconClass" [ngClass]="classMap" theme="contained"></i>
+    `
+            }]
+    }], null, { icon: [{
+            type: Input
+        }] }); })();
+class NovoItemTitleElement {
+}
+NovoItemTitleElement.ɵfac = function NovoItemTitleElement_Factory(t) { return new (t || NovoItemTitleElement)(); };
+NovoItemTitleElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoItemTitleElement, selectors: [["item-title"]], ngContentSelectors: _c1, decls: 2, vars: 0, template: function NovoItemTitleElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef();
+        ɵngcc0.ɵɵelementStart(0, "h6");
+        ɵngcc0.ɵɵprojection(1);
+        ɵngcc0.ɵɵelementEnd();
+    } }, encapsulation: 2 });
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoItemTitleElement, [{
+        type: Component,
+        args: [{
+                selector: 'item-title',
+                template: `
+        <h6><ng-content></ng-content></h6>
+    `
+            }]
+    }], null, null); })();
+class NovoItemHeaderElement {
+}
+NovoItemHeaderElement.ɵfac = function NovoItemHeaderElement_Factory(t) { return new (t || NovoItemHeaderElement)(); };
+NovoItemHeaderElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoItemHeaderElement, selectors: [["item-header"]], ngContentSelectors: _c19, decls: 3, vars: 0, template: function NovoItemHeaderElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef(_c18);
+        ɵngcc0.ɵɵprojection(0);
+        ɵngcc0.ɵɵprojection(1, 1);
+        ɵngcc0.ɵɵprojection(2, 2);
+    } }, encapsulation: 2 });
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoItemHeaderElement, [{
+        type: Component,
+        args: [{
+                selector: 'item-header',
+                template: `
+        <ng-content select="item-avatar"></ng-content>
+        <ng-content select="item-title"></ng-content>
+        <ng-content select="item-header-end"></ng-content>
+    `
+            }]
+    }], null, null); })();
+class NovoItemDateElement {
+}
+NovoItemDateElement.ɵfac = function NovoItemDateElement_Factory(t) { return new (t || NovoItemDateElement)(); };
+NovoItemDateElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoItemDateElement, selectors: [["item-header-end"]], ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoItemDateElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef();
+        ɵngcc0.ɵɵprojection(0);
+    } }, encapsulation: 2 });
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoItemDateElement, [{
+        type: Component,
+        args: [{
+                selector: 'item-header-end',
+                template: `
+        <ng-content></ng-content>
+    `
+            }]
+    }], null, null); })();
+class NovoItemContentElement {
+}
+NovoItemContentElement.ɵfac = function NovoItemContentElement_Factory(t) { return new (t || NovoItemContentElement)(); };
+NovoItemContentElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoItemContentElement, selectors: [["item-content"]], hostVars: 4, hostBindings: function NovoItemContentElement_HostBindings(rf, ctx) { if (rf & 2) {
+        ɵngcc0.ɵɵclassProp("vertical-list", ctx.direction === "vertical")("horizontal-list", ctx.direction === "horizontal");
+    } }, inputs: { direction: "direction" }, ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoItemContentElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef();
+        ɵngcc0.ɵɵprojection(0);
+    } }, encapsulation: 2 });
+NovoItemContentElement.propDecorators = {
+    direction: [{ type: Input }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoItemContentElement, [{
+        type: Component,
+        args: [{
+                selector: 'item-content',
+                host: {
+                    '[class.vertical-list]': 'direction === "vertical"',
+                    '[class.horizontal-list]': 'direction === "horizontal"'
+                },
+                template: `
+        <ng-content></ng-content>
+    `
+            }]
+    }], null, { direction: [{
+            type: Input
+        }] }); })();
+class NovoItemEndElement {
+}
+NovoItemEndElement.ɵfac = function NovoItemEndElement_Factory(t) { return new (t || NovoItemEndElement)(); };
+NovoItemEndElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoItemEndElement, selectors: [["item-end"]], ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoItemEndElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef();
+        ɵngcc0.ɵɵprojection(0);
+    } }, encapsulation: 2 });
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoItemEndElement, [{
+        type: Component,
+        args: [{
+                selector: 'item-end',
+                template: `
+        <ng-content></ng-content>
+    `
+            }]
+    }], null, null); })();
+
+// NG2
+class NovoListModule {
+}
+NovoListModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoListModule });
+NovoListModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoListModule_Factory(t) { return new (t || NovoListModule)(); }, imports: [[CommonModule]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoListModule, { declarations: function () { return [NovoListElement, NovoListItemElement, NovoItemAvatarElement, NovoItemTitleElement, NovoItemContentElement, NovoItemEndElement, NovoItemHeaderElement, NovoItemDateElement]; }, imports: function () { return [CommonModule]; }, exports: function () { return [NovoListElement, NovoListItemElement, NovoItemAvatarElement, NovoItemTitleElement, NovoItemHeaderElement, NovoItemContentElement, NovoItemEndElement, NovoItemDateElement]; } }); })();
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoListModule, [{
+        type: NgModule,
+        args: [{
+                imports: [CommonModule],
+                declarations: [
+                    NovoListElement,
+                    NovoListItemElement,
+                    NovoItemAvatarElement,
+                    NovoItemTitleElement,
+                    NovoItemContentElement,
+                    NovoItemEndElement,
+                    NovoItemHeaderElement,
+                    NovoItemDateElement,
+                ],
+                exports: [
+                    NovoListElement,
+                    NovoListItemElement,
+                    NovoItemAvatarElement,
+                    NovoItemTitleElement,
+                    NovoItemHeaderElement,
+                    NovoItemContentElement,
+                    NovoItemEndElement,
+                    NovoItemDateElement,
+                ]
+            }]
+    }], null, null); })();
 
 // NG2
 class NovoLoadingElement {
@@ -10535,1731 +11698,6 @@ NovoLoadingModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoLoa
                 imports: [CommonModule],
                 declarations: [NovoLoadingElement, NovoSpinnerElement, NovoIsLoadingDirective, NovoLoadedDirective, NovoSkeletonDirective],
                 exports: [NovoLoadingElement, NovoSpinnerElement, NovoIsLoadingDirective, NovoLoadedDirective, NovoSkeletonDirective]
-            }]
-    }], null, null); })();
-
-// NG2
-class NovoCardModule {
-}
-NovoCardModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoCardModule });
-NovoCardModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoCardModule_Factory(t) { return new (t || NovoCardModule)(); }, imports: [[CommonModule, NovoButtonModule, NovoLoadingModule, NovoTooltipModule]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoCardModule, { declarations: function () { return [CardElement, CardActionsElement]; }, imports: function () { return [CommonModule, NovoButtonModule, NovoLoadingModule, NovoTooltipModule]; }, exports: function () { return [CardElement, CardActionsElement]; } }); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoCardModule, [{
-        type: NgModule,
-        args: [{
-                imports: [CommonModule, NovoButtonModule, NovoLoadingModule, NovoTooltipModule],
-                declarations: [CardElement, CardActionsElement],
-                exports: [CardElement, CardActionsElement]
-            }]
-    }], null, null); })();
-
-// NG2
-/**
- * Outside click helper, makes to set the element as inactive when clicking outside of it
- */
-class OutsideClick {
-    constructor(element) {
-        this.active = false;
-        this.onActiveChange = new EventEmitter();
-        // Component element
-        this.element = element;
-        // Outside click handler
-        // Property because `this.func.bind(this)` returns a new function each time
-        this.onOutsideClick = this.handleOutsideClick.bind(this);
-    }
-    /**
-     * When the element is destroyed, make sure to remove the handler
-     */
-    ngOnDestroy() {
-        window.removeEventListener('click', this.onOutsideClick);
-    }
-    /**
-     * Toggles the element as active and adds/removes the outside click handler
-     */
-    toggleActive(event, forceValue) {
-        // Reverse the active property (if forceValue, use that)
-        this.active = !Helpers.isBlank(forceValue) ? forceValue : !this.active;
-        // Bind window click events to hide on outside click
-        if (this.active) {
-            window.addEventListener('click', this.onOutsideClick);
-        }
-        else {
-            window.removeEventListener('click', this.onOutsideClick);
-        }
-        // Fire the active change event
-        this.onActiveChange.emit(this.active);
-    }
-    /**
-     * When clicking outside, checks the element and closes if outside
-     */
-    handleOutsideClick(event) {
-        // If the elements doesn't contain the target element, it is an outside click
-        let outsideClick = !this.element.nativeElement.contains(event.target);
-        if (this.otherElement && outsideClick) {
-            outsideClick = !this.otherElement.nativeElement.contains(event.target);
-        }
-        if (outsideClick) {
-            this.toggleActive(event, false);
-        }
-    }
-}
-OutsideClick.ɵfac = function OutsideClick_Factory(t) { return new (t || OutsideClick)(ɵngcc0.ɵɵinject(ɵngcc0.ElementRef)); };
-OutsideClick.ɵprov = ɵngcc0.ɵɵdefineInjectable({ token: OutsideClick, factory: OutsideClick.ɵfac });
-OutsideClick.ctorParameters = () => [
-    { type: ElementRef }
-];
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(OutsideClick, [{
-        type: Injectable
-    }], function () { return [{ type: ɵngcc0.ElementRef }]; }, null); })();
-
-// Helper to keep track of key codes
-const KeyCodes = {
-    BACKSPACE: 8,
-    TAB: 9,
-    NUM_CENTER: 12,
-    ENTER: 13,
-    RETURN: 13,
-    SHIFT: 16,
-    CTRL: 17,
-    ALT: 18,
-    PAUSE: 19,
-    CAPS_LOCK: 20,
-    ESC: 27,
-    SPACE: 32,
-    PAGE_UP: 33,
-    PAGE_DOWN: 34,
-    HASH_SYMBOL: 35,
-    HOME: 36,
-    LEFT: 37,
-    UP: 38,
-    RIGHT: 39,
-    DOWN: 40,
-    PRINT_SCREEN: 44,
-    INSERT: 45,
-    DELETE: 46,
-    ZERO: 48,
-    ONE: 49,
-    TWO: 50,
-    THREE: 51,
-    FOUR: 52,
-    FIVE: 53,
-    SIX: 54,
-    SEVEN: 55,
-    EIGHT: 56,
-    NINE: 57,
-    AT_SYMBOL: 64,
-    A: 65,
-    B: 66,
-    C: 67,
-    D: 68,
-    E: 69,
-    F: 70,
-    G: 71,
-    H: 72,
-    I: 73,
-    J: 74,
-    K: 75,
-    L: 76,
-    M: 77,
-    N: 78,
-    O: 79,
-    P: 80,
-    Q: 81,
-    R: 82,
-    S: 83,
-    T: 84,
-    U: 85,
-    V: 86,
-    W: 87,
-    X: 88,
-    Y: 89,
-    Z: 90,
-    CONTEXT_MENU: 93,
-    NUM_ZERO: 96,
-    NUM_ONE: 97,
-    NUM_TWO: 98,
-    NUM_THREE: 99,
-    NUM_FOUR: 100,
-    NUM_FIVE: 101,
-    NUM_SIX: 102,
-    NUM_SEVEN: 103,
-    NUM_EIGHT: 104,
-    NUM_NINE: 105,
-    NUM_MULTIPLY: 106,
-    NUM_PLUS: 107,
-    NUM_MINUS: 109,
-    NUM_PERIOD: 110,
-    NUM_DIVISION: 111,
-    F1: 112,
-    F2: 113,
-    F3: 114,
-    F4: 115,
-    F5: 116,
-    F6: 117,
-    F7: 118,
-    F8: 119,
-    F9: 120,
-    F10: 121,
-    F11: 122,
-    F12: 123,
-    DASH: 189,
-    PERIOD: 190,
-    FORWARD_SLASH: 191,
-};
-
-// NG2
-class NovoCategoryDropdownElement extends OutsideClick {
-    constructor(element, labels) {
-        super(element);
-        this.labels = labels;
-        this._query = '';
-        this._categoryMap = {};
-        this._categories = [];
-        // Boolean to keep the selection persist when closing the dropdown
-        this.persistSelection = false;
-        // Boolean to close the dropdown on selection
-        this.closeOnSelect = false;
-        // Event that is emitted whenever an item is selected
-        this._select = new EventEmitter();
-        // Event that is emitted whenever a category is selected
-        this.categorySelected = new EventEmitter();
-        this.clickHandler = this.toggleActive.bind(this);
-    }
-    set categories(categories) {
-        this._masterCategoryMap = Object.assign({}, categories);
-        this._categoryMap = Object.assign({}, categories);
-        this._categories = Object.keys(categories);
-    }
-    ngOnInit() {
-        const button = this.element.nativeElement.querySelector('button');
-        button.addEventListener('click', this.clickHandler);
-    }
-    ngOnDestroy() {
-        const button = this.element.nativeElement.querySelector('button');
-        if (button) {
-            button.removeEventListener('click', this.clickHandler);
-        }
-    }
-    onKeyDown(event) {
-        if (this.active && (event.keyCode === KeyCodes.ESC || event.keyCode === KeyCodes.ENTER)) {
-            this.toggleActive();
-        }
-    }
-    clearSelection() {
-        this._categories.forEach((category) => {
-            this._categoryMap[category].forEach((item) => {
-                item.selected = false;
-            });
-        });
-    }
-    select(event, item) {
-        Helpers.swallowEvent(event);
-        // If we persist the selection, clear and show a check
-        if (this.persistSelection) {
-            this.clearSelection();
-            item.selected = true;
-        }
-        // Emit the item
-        this._select.emit(item);
-        // Close, if input is set
-        if (this.closeOnSelect) {
-            this.toggleActive();
-        }
-    }
-    onCategorySelected(category) {
-        this.categorySelected.emit(category);
-    }
-    clearQuery(event) {
-        Helpers.swallowEvent(event);
-        this._query = '';
-        // Reset the categories
-        this._categories.forEach((category) => {
-            this._categoryMap[category] = this._masterCategoryMap[category];
-        });
-    }
-    queryCategories(query) {
-        // Save the query
-        this._query = query;
-        // Check timeout
-        if (this._queryTimeout) {
-            clearTimeout(this._queryTimeout);
-        }
-        // Store a timeout, to debounce user input
-        this._queryTimeout = setTimeout(() => {
-            this._categories.forEach((category) => {
-                if (this.search.compare) {
-                    this._categoryMap[category] = this._masterCategoryMap[category].filter((item) => this.search.compare(query, item));
-                }
-                else {
-                    this._categoryMap[category] = this._masterCategoryMap[category].filter((item) => ~item.label.toLowerCase().indexOf(query.toLowerCase()));
-                }
-            });
-        }, this.search.debounce || 300);
-    }
-    executeClickCallback(event, link) {
-        link.callback(event);
-        // Close, if input is set
-        if (this.closeOnSelect) {
-            this.toggleActive();
-        }
-    }
-}
-NovoCategoryDropdownElement.ɵfac = function NovoCategoryDropdownElement_Factory(t) { return new (t || NovoCategoryDropdownElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(NovoLabelService)); };
-NovoCategoryDropdownElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoCategoryDropdownElement, selectors: [["novo-category-dropdown"]], hostVars: 2, hostBindings: function NovoCategoryDropdownElement_HostBindings(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵlistener("keydown", function NovoCategoryDropdownElement_keydown_HostBindingHandler($event) { return ctx.onKeyDown($event); });
-    } if (rf & 2) {
-        ɵngcc0.ɵɵclassProp("active", ctx.active);
-    } }, inputs: { persistSelection: "persistSelection", closeOnSelect: "closeOnSelect", categories: "categories", search: "search", footer: "footer" }, outputs: { _select: "itemSelected", categorySelected: "categorySelected" }, features: [ɵngcc0.ɵɵInheritDefinitionFeature], ngContentSelectors: _c15, decls: 2, vars: 1, consts: [["class", "dropdown-container", 4, "ngIf"], [1, "dropdown-container"], ["class", "novo-category-dropdown-search", "data-automation-id", "novo-category-dropdown-search", 4, "ngIf"], ["theme", "white", "direction", "vertical", 3, "outlet"], [3, "activeChange", 4, "ngFor", "ngForOf"], ["novoCategoryDropdownOutlet", ""], [4, "ngFor", "ngForOf"], [3, "class", 4, "ngIf"], ["data-automation-id", "novo-category-dropdown-search", 1, "novo-category-dropdown-search"], ["type", "text", 3, "placeholder", "value", "input"], ["class", "bhi-search", 4, "ngIf"], ["class", "bhi-times", 3, "click", 4, "ngIf"], [1, "bhi-search"], [1, "bhi-times", 3, "click"], [3, "activeChange"], ["direction", "vertical"], [3, "click", 4, "ngFor", "ngForOf"], ["class", "novo-category-dropdown-empty-item", 4, "ngIf"], [3, "click"], ["class", "novo-category-dropdown-hover", 4, "ngIf"], [4, "ngIf"], [1, "novo-category-dropdown-hover"], [1, "bhi-check"], [1, "novo-category-dropdown-empty-item"]], template: function NovoCategoryDropdownElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef(_c14);
-        ɵngcc0.ɵɵprojection(0);
-        ɵngcc0.ɵɵtemplate(1, NovoCategoryDropdownElement_div_1_Template, 8, 5, "div", 0);
-    } if (rf & 2) {
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngIf", ctx.active);
-    } }, directives: function () { return [ɵngcc1.NgIf, NovoNavElement, ɵngcc1.NgForOf, NovoNavOutletElement, NovoTabElement, NovoNavContentElement, NovoListElement, NovoListItemElement, NovoItemContentElement, NovoItemEndElement]; }, encapsulation: 2 });
-NovoCategoryDropdownElement.ctorParameters = () => [
-    { type: ElementRef },
-    { type: NovoLabelService }
-];
-NovoCategoryDropdownElement.propDecorators = {
-    persistSelection: [{ type: Input }],
-    closeOnSelect: [{ type: Input }],
-    search: [{ type: Input }],
-    footer: [{ type: Input }],
-    _select: [{ type: Output, args: ['itemSelected',] }],
-    categorySelected: [{ type: Output }],
-    categories: [{ type: Input }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoCategoryDropdownElement, [{
-        type: Component,
-        args: [{
-                selector: 'novo-category-dropdown',
-                template: `
-        <ng-content select="button"></ng-content>
-        <div class="dropdown-container" *ngIf="active">
-            <div class="novo-category-dropdown-search" *ngIf="search" data-automation-id="novo-category-dropdown-search">
-                <input type="text" [placeholder]="search.placeholder || labels.search" [value]="_query" (input)="queryCategories($event.target.value)"/>
-                <i class="bhi-search" *ngIf="!_query"></i>
-                <i class="bhi-times" *ngIf="_query" (click)="clearQuery($event)"></i>
-            </div>
-            <novo-nav theme="white" [outlet]="novoCategoryDropdownOutlet" direction="vertical">
-                <novo-tab *ngFor="let category of _categories" [attr.data-automation-id]="category" (activeChange)="onCategorySelected(category)">
-                    <span>{{ category }} ({{ _categoryMap[category].length }})</span>
-                </novo-tab>
-            </novo-nav>
-            <novo-nav-outlet #novoCategoryDropdownOutlet>
-                <novo-nav-content *ngFor="let category of _categories">
-                    <novo-list direction="vertical">
-                        <novo-list-item *ngFor="let item of _categoryMap[category]" (click)="select($event, item)" [attr.data-automation-id]="item.label">
-                            <item-content>{{ item.label }}</item-content>
-                            <item-end class="novo-category-dropdown-hover" *ngIf="item.hoverText && !item.selected">{{ item.hoverText }}</item-end>
-                            <item-end class="novo-category-dropdown-hover" *ngIf="item.hoverIcon && !item.selected"><i class="bhi-{{ item.hoverIcon }}"></i></item-end>
-                            <item-end *ngIf="item.selected"><i class="bhi-check"></i></item-end>
-                        </novo-list-item>
-                        <novo-list-item *ngIf="_categoryMap[category].length === 0 && search" class="novo-category-dropdown-empty-item">
-                            <item-content>{{ search.emptyMessage || labels.noItems }}</item-content>
-                        </novo-list-item>
-                    </novo-list>
-                </novo-nav-content>
-            </novo-nav-outlet>
-            <footer *ngIf="footer" class="novo-category-dropdown-footer-align-{{ footer.align || 'right' }}">
-                <a *ngFor="let link of footer.links" (click)="executeClickCallback($event, link)">{{ link.label }}</a>
-            </footer>
-        </div>
-    `,
-                host: {
-                    '(keydown)': 'onKeyDown($event)',
-                    '[class.active]': 'active'
-                }
-            }]
-    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: NovoLabelService }]; }, { persistSelection: [{
-            type: Input
-        }], closeOnSelect: [{
-            type: Input
-        }], _select: [{
-            type: Output,
-            args: ['itemSelected']
-        }], categorySelected: [{
-            type: Output
-        }], categories: [{
-            type: Input
-        }], search: [{
-            type: Input
-        }], footer: [{
-            type: Input
-        }] }); })();
-
-// NG2
-class NovoNavElement {
-    constructor() {
-        this.theme = '';
-        this.direction = '';
-        this.condensed = false;
-        this.items = [];
-    }
-    select(item) {
-        /**
-         * Deactivate all other tabs
-         */
-        function _deactivateAllItems(items) {
-            items.forEach((t) => {
-                if (t.active === true) {
-                    // t.deselected.next();
-                }
-                t.active = false;
-            });
-        }
-        _deactivateAllItems(this.items);
-        item.active = true;
-        if (this.outlet) {
-            this.outlet.show(this.items.indexOf(item));
-        }
-        // TODO - remove hack to make DOM rerender - jgodi
-        const element = document.querySelector('novo-tab-link.active span.indicator');
-        if (element) {
-            element.style.opacity = 0.99;
-            setTimeout(() => {
-                element.style.opacity = 1;
-            }, 10);
-        }
-    }
-    add(item) {
-        if (this.items.length === 0) {
-            item.active = true;
-            // item.selected.next();
-        }
-        this.items.push(item);
-    }
-}
-NovoNavElement.ɵfac = function NovoNavElement_Factory(t) { return new (t || NovoNavElement)(); };
-NovoNavElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoNavElement, selectors: [["novo-nav"]], hostVars: 2, hostBindings: function NovoNavElement_HostBindings(rf, ctx) { if (rf & 2) {
-        ɵngcc0.ɵɵclassProp("condensed", ctx.condensed);
-    } }, inputs: { theme: "theme", direction: "direction", condensed: "condensed", outlet: "outlet", router: "router" }, ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoNavElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef();
-        ɵngcc0.ɵɵprojection(0);
-    } }, encapsulation: 2 });
-NovoNavElement.propDecorators = {
-    theme: [{ type: Input }],
-    direction: [{ type: Input }],
-    outlet: [{ type: Input }],
-    router: [{ type: Input }],
-    condensed: [{ type: HostBinding, args: ['class.condensed',] }, { type: Input }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoNavElement, [{
-        type: Component,
-        args: [{
-                selector: 'novo-nav',
-                template: '<ng-content></ng-content>'
-            }]
-    }], function () { return []; }, { theme: [{
-            type: Input
-        }], direction: [{
-            type: Input
-        }], condensed: [{
-            type: HostBinding,
-            args: ['class.condensed']
-        }, {
-            type: Input
-        }], outlet: [{
-            type: Input
-        }], router: [{
-            type: Input
-        }] }); })();
-class NovoTabElement {
-    constructor(nav) {
-        this.active = false;
-        this.disabled = false;
-        this.activeChange = new EventEmitter();
-        this.nav = nav;
-        this.nav.add(this);
-    }
-    select() {
-        if (!this.disabled) {
-            this.activeChange.emit(true);
-            this.nav.select(this);
-        }
-    }
-}
-NovoTabElement.ɵfac = function NovoTabElement_Factory(t) { return new (t || NovoTabElement)(ɵngcc0.ɵɵdirectiveInject(NovoNavElement)); };
-NovoTabElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoTabElement, selectors: [["novo-tab"]], hostVars: 4, hostBindings: function NovoTabElement_HostBindings(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵlistener("click", function NovoTabElement_click_HostBindingHandler() { return ctx.select(); });
-    } if (rf & 2) {
-        ɵngcc0.ɵɵclassProp("active", ctx.active)("disabled", ctx.disabled);
-    } }, inputs: { active: "active", disabled: "disabled" }, outputs: { activeChange: "activeChange" }, ngContentSelectors: _c1, decls: 3, vars: 0, consts: [[1, "novo-tab-link"], [1, "indicator"]], template: function NovoTabElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef();
-        ɵngcc0.ɵɵelementStart(0, "div", 0);
-        ɵngcc0.ɵɵprojection(1);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelement(2, "span", 1);
-    } }, encapsulation: 2 });
-NovoTabElement.ctorParameters = () => [
-    { type: NovoNavElement }
-];
-NovoTabElement.propDecorators = {
-    active: [{ type: Input }],
-    disabled: [{ type: Input }],
-    activeChange: [{ type: Output }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoTabElement, [{
-        type: Component,
-        args: [{
-                selector: 'novo-tab',
-                host: {
-                    '(click)': 'select()',
-                    '[class.active]': 'active',
-                    '[class.disabled]': 'disabled'
-                },
-                template: `
-        <div class="novo-tab-link">
-            <ng-content></ng-content>
-        </div>
-        <span class="indicator"></span>
-   `
-            }]
-    }], function () { return [{ type: NovoNavElement }]; }, { active: [{
-            type: Input
-        }], disabled: [{
-            type: Input
-        }], activeChange: [{
-            type: Output
-        }] }); })();
-class NovoTabButtonElement {
-    constructor(nav) {
-        this.active = false;
-        this.disabled = false;
-        this.nav = nav;
-        this.nav.add(this);
-    }
-    select() {
-        if (!this.disabled) {
-            this.nav.select(this);
-        }
-    }
-}
-NovoTabButtonElement.ɵfac = function NovoTabButtonElement_Factory(t) { return new (t || NovoTabButtonElement)(ɵngcc0.ɵɵdirectiveInject(NovoNavElement)); };
-NovoTabButtonElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoTabButtonElement, selectors: [["novo-tab-button"]], hostVars: 4, hostBindings: function NovoTabButtonElement_HostBindings(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵlistener("click", function NovoTabButtonElement_click_HostBindingHandler() { return ctx.select(); });
-    } if (rf & 2) {
-        ɵngcc0.ɵɵclassProp("active", ctx.active)("disabled", ctx.disabled);
-    } }, inputs: { active: "active", disabled: "disabled" }, ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoTabButtonElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef();
-        ɵngcc0.ɵɵprojection(0);
-    } }, encapsulation: 2 });
-NovoTabButtonElement.ctorParameters = () => [
-    { type: NovoNavElement }
-];
-NovoTabButtonElement.propDecorators = {
-    active: [{ type: Input }],
-    disabled: [{ type: Input }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoTabButtonElement, [{
-        type: Component,
-        args: [{
-                selector: 'novo-tab-button',
-                host: {
-                    '(click)': 'select()',
-                    '[class.active]': 'active',
-                    '[class.disabled]': 'disabled'
-                },
-                template: '<ng-content></ng-content>'
-            }]
-    }], function () { return [{ type: NovoNavElement }]; }, { active: [{
-            type: Input
-        }], disabled: [{
-            type: Input
-        }] }); })();
-class NovoTabLinkElement {
-    constructor(nav) {
-        this.active = false;
-        this.disabled = false;
-        this.nav = nav;
-        this.nav.add(this);
-    }
-    select() {
-        if (!this.disabled) {
-            this.nav.select(this);
-        }
-    }
-}
-NovoTabLinkElement.ɵfac = function NovoTabLinkElement_Factory(t) { return new (t || NovoTabLinkElement)(ɵngcc0.ɵɵdirectiveInject(NovoNavElement)); };
-NovoTabLinkElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoTabLinkElement, selectors: [["novo-tab-link"]], hostVars: 4, hostBindings: function NovoTabLinkElement_HostBindings(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵlistener("click", function NovoTabLinkElement_click_HostBindingHandler() { return ctx.select(); });
-    } if (rf & 2) {
-        ɵngcc0.ɵɵclassProp("active", ctx.active)("disabled", ctx.disabled);
-    } }, inputs: { active: "active", disabled: "disabled" }, ngContentSelectors: _c1, decls: 3, vars: 0, consts: [[1, "novo-tab-link"], [1, "indicator"]], template: function NovoTabLinkElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef();
-        ɵngcc0.ɵɵelementStart(0, "div", 0);
-        ɵngcc0.ɵɵprojection(1);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelement(2, "span", 1);
-    } }, encapsulation: 2 });
-NovoTabLinkElement.ctorParameters = () => [
-    { type: NovoNavElement }
-];
-NovoTabLinkElement.propDecorators = {
-    active: [{ type: Input }],
-    disabled: [{ type: Input }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoTabLinkElement, [{
-        type: Component,
-        args: [{
-                selector: 'novo-tab-link',
-                host: {
-                    '(click)': 'select()',
-                    '[class.active]': 'active',
-                    '[class.disabled]': 'disabled'
-                },
-                template: `
-        <div class="novo-tab-link">
-            <ng-content></ng-content>
-        </div>
-        <span class="indicator"></span>
-    `
-            }]
-    }], function () { return [{ type: NovoNavElement }]; }, { active: [{
-            type: Input
-        }], disabled: [{
-            type: Input
-        }] }); })();
-class NovoNavOutletElement {
-    constructor() {
-        this.items = [];
-    }
-    show(index) {
-        const item = this.items[index];
-        /**
-         * Deactivates other tab items
-         * @param items - deactivated items
-         */
-        function _deactivateAllItems(items) {
-            items.forEach((t) => {
-                if (t.active === true) {
-                    // t.deselected.next();
-                }
-                t.active = false;
-            });
-        }
-        _deactivateAllItems(this.items);
-        item.active = true;
-    }
-    add(item) {
-        if (this.items.length === 0) {
-            item.active = true;
-        }
-        this.items.push(item);
-    }
-}
-NovoNavOutletElement.ɵfac = function NovoNavOutletElement_Factory(t) { return new (t || NovoNavOutletElement)(); };
-NovoNavOutletElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoNavOutletElement, selectors: [["novo-nav-outlet"]], ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoNavOutletElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef();
-        ɵngcc0.ɵɵprojection(0);
-    } }, encapsulation: 2 });
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoNavOutletElement, [{
-        type: Component,
-        args: [{
-                selector: 'novo-nav-outlet',
-                template: '<ng-content></ng-content>'
-            }]
-    }], function () { return []; }, null); })();
-class NovoNavContentElement {
-    constructor(outlet) {
-        this.active = false;
-        outlet.add(this);
-    }
-}
-NovoNavContentElement.ɵfac = function NovoNavContentElement_Factory(t) { return new (t || NovoNavContentElement)(ɵngcc0.ɵɵdirectiveInject(NovoNavOutletElement)); };
-NovoNavContentElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoNavContentElement, selectors: [["novo-nav-content"]], hostVars: 2, hostBindings: function NovoNavContentElement_HostBindings(rf, ctx) { if (rf & 2) {
-        ɵngcc0.ɵɵclassProp("active", ctx.active);
-    } }, inputs: { active: "active" }, ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoNavContentElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef();
-        ɵngcc0.ɵɵprojection(0);
-    } }, encapsulation: 2 });
-NovoNavContentElement.ctorParameters = () => [
-    { type: NovoNavOutletElement }
-];
-NovoNavContentElement.propDecorators = {
-    active: [{ type: Input }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoNavContentElement, [{
-        type: Component,
-        args: [{
-                selector: 'novo-nav-content',
-                host: {
-                    '[class.active]': 'active'
-                },
-                template: '<ng-content></ng-content>'
-            }]
-    }], function () { return [{ type: NovoNavOutletElement }]; }, { active: [{
-            type: Input
-        }] }); })();
-class NovoNavHeaderElement {
-    constructor(outlet) {
-        this.active = false;
-        this.active = this.active || false;
-        this.outlet = outlet;
-    }
-    show(event) {
-        try {
-            const INDEX = this.outlet.items.indexOf(this.forElement);
-            if (INDEX > -1) {
-                this.outlet.show(INDEX);
-            }
-        }
-        catch (err) {
-            // do nothing
-        }
-    }
-}
-NovoNavHeaderElement.ɵfac = function NovoNavHeaderElement_Factory(t) { return new (t || NovoNavHeaderElement)(ɵngcc0.ɵɵdirectiveInject(NovoNavOutletElement)); };
-NovoNavHeaderElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoNavHeaderElement, selectors: [["novo-nav-header"]], hostVars: 2, hostBindings: function NovoNavHeaderElement_HostBindings(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵlistener("click", function NovoNavHeaderElement_click_HostBindingHandler($event) { return ctx.show($event); });
-    } if (rf & 2) {
-        ɵngcc0.ɵɵclassProp("active", ctx.active);
-    } }, inputs: { active: "active", forElement: ["for", "forElement"] }, ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoNavHeaderElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef();
-        ɵngcc0.ɵɵprojection(0);
-    } }, encapsulation: 2 });
-NovoNavHeaderElement.ctorParameters = () => [
-    { type: NovoNavOutletElement }
-];
-NovoNavHeaderElement.propDecorators = {
-    active: [{ type: Input }],
-    forElement: [{ type: Input, args: ['for',] }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoNavHeaderElement, [{
-        type: Component,
-        args: [{
-                selector: 'novo-nav-header',
-                host: {
-                    '[class.active]': 'active',
-                    '(click)': 'show($event)'
-                },
-                template: '<ng-content></ng-content>'
-            }]
-    }], function () { return [{ type: NovoNavOutletElement }]; }, { active: [{
-            type: Input
-        }], forElement: [{
-            type: Input,
-            args: ['for']
-        }] }); })();
-
-// NG2
-class NovoTabModule {
-}
-NovoTabModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoTabModule });
-NovoTabModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoTabModule_Factory(t) { return new (t || NovoTabModule)(); }, imports: [[CommonModule]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoTabModule, { declarations: function () { return [NovoNavElement, NovoTabElement, NovoTabButtonElement, NovoTabLinkElement, NovoNavOutletElement, NovoNavContentElement, NovoNavHeaderElement]; }, imports: function () { return [CommonModule]; }, exports: function () { return [NovoNavElement, NovoTabElement, NovoTabButtonElement, NovoTabLinkElement, NovoNavOutletElement, NovoNavContentElement, NovoNavHeaderElement]; } }); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoTabModule, [{
-        type: NgModule,
-        args: [{
-                imports: [CommonModule],
-                declarations: [
-                    NovoNavElement,
-                    NovoTabElement,
-                    NovoTabButtonElement,
-                    NovoTabLinkElement,
-                    NovoNavOutletElement,
-                    NovoNavContentElement,
-                    NovoNavHeaderElement,
-                ],
-                exports: [
-                    NovoNavElement,
-                    NovoTabElement,
-                    NovoTabButtonElement,
-                    NovoTabLinkElement,
-                    NovoNavOutletElement,
-                    NovoNavContentElement,
-                    NovoNavHeaderElement,
-                ]
-            }]
-    }], null, null); })();
-
-// NG2
-class NovoListElement {
-    constructor(element) {
-        this.element = element;
-    }
-}
-NovoListElement.ɵfac = function NovoListElement_Factory(t) { return new (t || NovoListElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef)); };
-NovoListElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoListElement, selectors: [["novo-list"]], hostVars: 5, hostBindings: function NovoListElement_HostBindings(rf, ctx) { if (rf & 2) {
-        ɵngcc0.ɵɵattribute("theme", ctx.theme);
-        ɵngcc0.ɵɵclassProp("vertical-list", ctx.direction === "vertical")("horizontal-list", ctx.direction === "horizontal");
-    } }, inputs: { theme: "theme", direction: "direction" }, ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoListElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef();
-        ɵngcc0.ɵɵprojection(0);
-    } }, encapsulation: 2 });
-NovoListElement.ctorParameters = () => [
-    { type: ElementRef }
-];
-NovoListElement.propDecorators = {
-    theme: [{ type: Input }],
-    direction: [{ type: Input }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoListElement, [{
-        type: Component,
-        args: [{
-                selector: 'novo-list',
-                host: {
-                    '[class.vertical-list]': 'direction === "vertical"',
-                    '[class.horizontal-list]': 'direction === "horizontal"',
-                    '[attr.theme]': 'theme'
-                },
-                template: `
-        <ng-content></ng-content>
-    `
-            }]
-    }], function () { return [{ type: ɵngcc0.ElementRef }]; }, { theme: [{
-            type: Input
-        }], direction: [{
-            type: Input
-        }] }); })();
-class NovoListItemElement {
-    constructor(element) {
-        this.element = element;
-        this.avatar = false;
-    }
-    ngOnInit() {
-        this.avatar = !!this.element.nativeElement.querySelector('item-avatar');
-    }
-}
-NovoListItemElement.ɵfac = function NovoListItemElement_Factory(t) { return new (t || NovoListItemElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef)); };
-NovoListItemElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoListItemElement, selectors: [["novo-list-item"]], ngContentSelectors: _c18, decls: 5, vars: 3, consts: [[1, "list-item", 3, "ngClass"]], template: function NovoListItemElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef(_c16);
-        ɵngcc0.ɵɵelementStart(0, "div", 0);
-        ɵngcc0.ɵɵprojection(1);
-        ɵngcc0.ɵɵprojection(2, 1);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵprojection(3, 2);
-        ɵngcc0.ɵɵprojection(4, 3);
-    } if (rf & 2) {
-        ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(1, _c17, ctx.avatar));
-    } }, directives: [ɵngcc1.NgClass], encapsulation: 2 });
-NovoListItemElement.ctorParameters = () => [
-    { type: ElementRef }
-];
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoListItemElement, [{
-        type: Component,
-        args: [{
-                selector: 'novo-list-item',
-                template: `
-        <div class="list-item" [ngClass]="{'avatar': avatar}">
-            <ng-content select="item-header"></ng-content>
-            <ng-content select="item-content"></ng-content>
-        </div>
-        <ng-content></ng-content>
-        <ng-content select="item-end"></ng-content>
-    `
-            }]
-    }], function () { return [{ type: ɵngcc0.ElementRef }]; }, null); })();
-class NovoItemAvatarElement {
-    ngOnChanges(changes) {
-        this.iconClass = this.icon ? `bhi-${this.icon}` : null;
-        this.classMap = [this.iconClass, this.icon];
-    }
-    ngOnInit() {
-        this.ngOnChanges();
-    }
-}
-NovoItemAvatarElement.ɵfac = function NovoItemAvatarElement_Factory(t) { return new (t || NovoItemAvatarElement)(); };
-NovoItemAvatarElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoItemAvatarElement, selectors: [["item-avatar"]], inputs: { icon: "icon" }, features: [ɵngcc0.ɵɵNgOnChangesFeature], decls: 1, vars: 1, consts: [["theme", "contained", 3, "ngClass", 4, "ngIf"], ["theme", "contained", 3, "ngClass"]], template: function NovoItemAvatarElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵtemplate(0, NovoItemAvatarElement_i_0_Template, 1, 1, "i", 0);
-    } if (rf & 2) {
-        ɵngcc0.ɵɵproperty("ngIf", ctx.iconClass);
-    } }, directives: [ɵngcc1.NgIf, ɵngcc1.NgClass], encapsulation: 2 });
-NovoItemAvatarElement.propDecorators = {
-    icon: [{ type: Input }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoItemAvatarElement, [{
-        type: Component,
-        args: [{
-                selector: 'item-avatar',
-                template: `
-        <i *ngIf="iconClass" [ngClass]="classMap" theme="contained"></i>
-    `
-            }]
-    }], null, { icon: [{
-            type: Input
-        }] }); })();
-class NovoItemTitleElement {
-}
-NovoItemTitleElement.ɵfac = function NovoItemTitleElement_Factory(t) { return new (t || NovoItemTitleElement)(); };
-NovoItemTitleElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoItemTitleElement, selectors: [["item-title"]], ngContentSelectors: _c1, decls: 2, vars: 0, template: function NovoItemTitleElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef();
-        ɵngcc0.ɵɵelementStart(0, "h6");
-        ɵngcc0.ɵɵprojection(1);
-        ɵngcc0.ɵɵelementEnd();
-    } }, encapsulation: 2 });
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoItemTitleElement, [{
-        type: Component,
-        args: [{
-                selector: 'item-title',
-                template: `
-        <h6><ng-content></ng-content></h6>
-    `
-            }]
-    }], null, null); })();
-class NovoItemHeaderElement {
-}
-NovoItemHeaderElement.ɵfac = function NovoItemHeaderElement_Factory(t) { return new (t || NovoItemHeaderElement)(); };
-NovoItemHeaderElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoItemHeaderElement, selectors: [["item-header"]], ngContentSelectors: _c20, decls: 3, vars: 0, template: function NovoItemHeaderElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef(_c19);
-        ɵngcc0.ɵɵprojection(0);
-        ɵngcc0.ɵɵprojection(1, 1);
-        ɵngcc0.ɵɵprojection(2, 2);
-    } }, encapsulation: 2 });
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoItemHeaderElement, [{
-        type: Component,
-        args: [{
-                selector: 'item-header',
-                template: `
-        <ng-content select="item-avatar"></ng-content>
-        <ng-content select="item-title"></ng-content>
-        <ng-content select="item-header-end"></ng-content>
-    `
-            }]
-    }], null, null); })();
-class NovoItemDateElement {
-}
-NovoItemDateElement.ɵfac = function NovoItemDateElement_Factory(t) { return new (t || NovoItemDateElement)(); };
-NovoItemDateElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoItemDateElement, selectors: [["item-header-end"]], ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoItemDateElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef();
-        ɵngcc0.ɵɵprojection(0);
-    } }, encapsulation: 2 });
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoItemDateElement, [{
-        type: Component,
-        args: [{
-                selector: 'item-header-end',
-                template: `
-        <ng-content></ng-content>
-    `
-            }]
-    }], null, null); })();
-class NovoItemContentElement {
-}
-NovoItemContentElement.ɵfac = function NovoItemContentElement_Factory(t) { return new (t || NovoItemContentElement)(); };
-NovoItemContentElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoItemContentElement, selectors: [["item-content"]], hostVars: 4, hostBindings: function NovoItemContentElement_HostBindings(rf, ctx) { if (rf & 2) {
-        ɵngcc0.ɵɵclassProp("vertical-list", ctx.direction === "vertical")("horizontal-list", ctx.direction === "horizontal");
-    } }, inputs: { direction: "direction" }, ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoItemContentElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef();
-        ɵngcc0.ɵɵprojection(0);
-    } }, encapsulation: 2 });
-NovoItemContentElement.propDecorators = {
-    direction: [{ type: Input }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoItemContentElement, [{
-        type: Component,
-        args: [{
-                selector: 'item-content',
-                host: {
-                    '[class.vertical-list]': 'direction === "vertical"',
-                    '[class.horizontal-list]': 'direction === "horizontal"'
-                },
-                template: `
-        <ng-content></ng-content>
-    `
-            }]
-    }], null, { direction: [{
-            type: Input
-        }] }); })();
-class NovoItemEndElement {
-}
-NovoItemEndElement.ɵfac = function NovoItemEndElement_Factory(t) { return new (t || NovoItemEndElement)(); };
-NovoItemEndElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoItemEndElement, selectors: [["item-end"]], ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoItemEndElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef();
-        ɵngcc0.ɵɵprojection(0);
-    } }, encapsulation: 2 });
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoItemEndElement, [{
-        type: Component,
-        args: [{
-                selector: 'item-end',
-                template: `
-        <ng-content></ng-content>
-    `
-            }]
-    }], null, null); })();
-
-// NG2
-class NovoListModule {
-}
-NovoListModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoListModule });
-NovoListModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoListModule_Factory(t) { return new (t || NovoListModule)(); }, imports: [[CommonModule]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoListModule, { declarations: function () { return [NovoListElement, NovoListItemElement, NovoItemAvatarElement, NovoItemTitleElement, NovoItemContentElement, NovoItemEndElement, NovoItemHeaderElement, NovoItemDateElement]; }, imports: function () { return [CommonModule]; }, exports: function () { return [NovoListElement, NovoListItemElement, NovoItemAvatarElement, NovoItemTitleElement, NovoItemHeaderElement, NovoItemContentElement, NovoItemEndElement, NovoItemDateElement]; } }); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoListModule, [{
-        type: NgModule,
-        args: [{
-                imports: [CommonModule],
-                declarations: [
-                    NovoListElement,
-                    NovoListItemElement,
-                    NovoItemAvatarElement,
-                    NovoItemTitleElement,
-                    NovoItemContentElement,
-                    NovoItemEndElement,
-                    NovoItemHeaderElement,
-                    NovoItemDateElement,
-                ],
-                exports: [
-                    NovoListElement,
-                    NovoListItemElement,
-                    NovoItemAvatarElement,
-                    NovoItemTitleElement,
-                    NovoItemHeaderElement,
-                    NovoItemContentElement,
-                    NovoItemEndElement,
-                    NovoItemDateElement,
-                ]
-            }]
-    }], null, null); })();
-
-// NG2
-class NovoCategoryDropdownModule {
-}
-NovoCategoryDropdownModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoCategoryDropdownModule });
-NovoCategoryDropdownModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoCategoryDropdownModule_Factory(t) { return new (t || NovoCategoryDropdownModule)(); }, imports: [[CommonModule, NovoTabModule, NovoListModule]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoCategoryDropdownModule, { declarations: function () { return [NovoCategoryDropdownElement]; }, imports: function () { return [CommonModule, NovoTabModule, NovoListModule]; }, exports: function () { return [NovoCategoryDropdownElement]; } }); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoCategoryDropdownModule, [{
-        type: NgModule,
-        args: [{
-                imports: [CommonModule, NovoTabModule, NovoListModule],
-                declarations: [NovoCategoryDropdownElement],
-                exports: [NovoCategoryDropdownElement]
-            }]
-    }], null, null); })();
-
-// NG2
-class ComponentUtils {
-    constructor(componentFactoryResolver) {
-        this.componentFactoryResolver = componentFactoryResolver;
-    }
-    append(ComponentClass, location, providers, onTop) {
-        const componentFactory = this.componentFactoryResolver.resolveComponentFactory(ComponentClass);
-        const parent = location.injector;
-        const index = onTop ? 0 : location.length;
-        return location.createComponent(componentFactory, index, Injector.create({ providers, parent }));
-    }
-}
-ComponentUtils.ɵfac = function ComponentUtils_Factory(t) { return new (t || ComponentUtils)(ɵngcc0.ɵɵinject(ɵngcc0.ComponentFactoryResolver)); };
-ComponentUtils.ɵprov = ɵngcc0.ɵɵdefineInjectable({ token: ComponentUtils, factory: ComponentUtils.ɵfac });
-ComponentUtils.ctorParameters = () => [
-    { type: ComponentFactoryResolver }
-];
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(ComponentUtils, [{
-        type: Injectable
-    }], function () { return [{ type: ɵngcc0.ComponentFactoryResolver }]; }, null); })();
-
-// NG2
-// Value accessor for the component (supports ngModel)
-const CHIPS_VALUE_ACCESSOR = {
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => NovoChipsElement),
-    multi: true,
-};
-class NovoChipElement {
-    constructor() {
-        this.disabled = false;
-        this.select = new EventEmitter();
-        this.remove = new EventEmitter();
-        this.deselect = new EventEmitter();
-    }
-    set type(type) {
-        this._type = type ? type.toLowerCase() : null;
-    }
-    onRemove(e) {
-        if (e) {
-            e.stopPropagation();
-            e.preventDefault();
-        }
-        this.remove.emit(e);
-        return false;
-    }
-    onSelect(e) {
-        if (e) {
-            e.stopPropagation();
-            e.preventDefault();
-        }
-        this.select.emit(e);
-        return false;
-    }
-    onDeselect(e) {
-        if (e) {
-            e.stopPropagation();
-            e.preventDefault();
-        }
-        this.deselect.emit(e);
-        return false;
-    }
-}
-NovoChipElement.ɵfac = function NovoChipElement_Factory(t) { return new (t || NovoChipElement)(); };
-NovoChipElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoChipElement, selectors: [["chip"], ["novo-chip"]], inputs: { disabled: "disabled", type: "type" }, outputs: { select: "select", remove: "remove", deselect: "deselect" }, ngContentSelectors: _c1, decls: 5, vars: 3, consts: [[3, "ngClass", "click", "mouseenter", "mouseleave"], ["class", "bhi-circle", 4, "ngIf"], ["class", "bhi-close", 3, "click", 4, "ngIf"], [1, "bhi-circle"], [1, "bhi-close", 3, "click"]], template: function NovoChipElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef();
-        ɵngcc0.ɵɵelementStart(0, "span", 0);
-        ɵngcc0.ɵɵlistener("click", function NovoChipElement_Template_span_click_0_listener($event) { return ctx.onSelect($event); })("mouseenter", function NovoChipElement_Template_span_mouseenter_0_listener($event) { return ctx.onSelect($event); })("mouseleave", function NovoChipElement_Template_span_mouseleave_0_listener($event) { return ctx.onDeselect($event); });
-        ɵngcc0.ɵɵtemplate(1, NovoChipElement_i_1_Template, 1, 0, "i", 1);
-        ɵngcc0.ɵɵelementStart(2, "span");
-        ɵngcc0.ɵɵprojection(3);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵtemplate(4, NovoChipElement_i_4_Template, 1, 0, "i", 2);
-    } if (rf & 2) {
-        ɵngcc0.ɵɵproperty("ngClass", ctx._type);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngIf", ctx._type);
-        ɵngcc0.ɵɵadvance(3);
-        ɵngcc0.ɵɵproperty("ngIf", !ctx.disabled);
-    } }, directives: [ɵngcc1.NgClass, ɵngcc1.NgIf], encapsulation: 2 });
-NovoChipElement.propDecorators = {
-    type: [{ type: Input }],
-    disabled: [{ type: Input }],
-    select: [{ type: Output }],
-    remove: [{ type: Output }],
-    deselect: [{ type: Output }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoChipElement, [{
-        type: Component,
-        args: [{
-                selector: 'chip,novo-chip',
-                template: `
-        <span (click)="onSelect($event)" (mouseenter)="onSelect($event)" (mouseleave)="onDeselect($event)" [ngClass]="_type">
-            <i *ngIf="_type" class="bhi-circle"></i>
-            <span><ng-content></ng-content></span>
-        </span>
-        <i class="bhi-close" *ngIf="!disabled" (click)="onRemove($event)"></i>
-    `
-            }]
-    }], function () { return []; }, { disabled: [{
-            type: Input
-        }], select: [{
-            type: Output
-        }], remove: [{
-            type: Output
-        }], deselect: [{
-            type: Output
-        }], type: [{
-            type: Input
-        }] }); })();
-class NovoChipsElement {
-    constructor(element, componentUtils, labels) {
-        this.element = element;
-        this.componentUtils = componentUtils;
-        this.labels = labels;
-        this.closeOnSelect = false;
-        this.placeholder = '';
-        this._disablePickerInput = false;
-        this.changed = new EventEmitter();
-        this.focus = new EventEmitter();
-        this.blur = new EventEmitter();
-        this.typing = new EventEmitter();
-        this.items = [];
-        this.selected = null;
-        this.config = {};
-        // private data model
-        this._value = '';
-        this._items = new ReplaySubject(1);
-        // Placeholders for the callbacks
-        this.onModelChange = () => { };
-        this.onModelTouched = () => { };
-    }
-    set disablePickerInput(v) {
-        this._disablePickerInput = coerceBooleanProperty(v);
-    }
-    get disablePickerInput() {
-        return this._disablePickerInput;
-    }
-    ngOnInit() {
-        this.setItems();
-    }
-    get value() {
-        return this._value;
-    }
-    set value(selected) {
-        this.itemToAdd = '';
-        if (selected !== this._value) {
-            this._value = selected;
-            this.changed.emit({ value: selected, rawValue: this.items });
-            this.onModelChange(selected);
-        }
-    }
-    clearValue() {
-        this.items = [];
-        this._items.next(this.items);
-        this.value = null;
-        this.changed.emit({ value: this.value, rawValue: this.items });
-        this.onModelChange(this.value);
-    }
-    setItems() {
-        this.items = [];
-        if (this.model && Array.isArray(this.model)) {
-            const noLabels = [];
-            for (const value of this.model) {
-                let label;
-                if (this.source && this.source.format && Helpers.validateInterpolationProps(this.source.format, value)) {
-                    label = Helpers.interpolate(this.source.format, value);
-                }
-                if (this.source && label && label !== this.source.format) {
-                    this.items.push({
-                        value,
-                        label,
-                    });
-                }
-                else if (this.source.getLabels && typeof this.source.getLabels === 'function') {
-                    noLabels.push(value);
-                }
-                else if (this.source.options && Array.isArray(this.source.options)) {
-                    this.items.push(this.getLabelFromOptions(value));
-                }
-                else if (this.source.categoryMap && this.source.categoryMap.size) {
-                    this.items.push(value);
-                }
-                else {
-                    this.items.push({
-                        value,
-                        label: value,
-                    });
-                }
-            }
-            if (noLabels.length > 0 && this.source && this.source.getLabels && typeof this.source.getLabels === 'function') {
-                this.source.getLabels(noLabels).then((result) => {
-                    for (const value of result) {
-                        if (value.hasOwnProperty('label')) {
-                            this.items.push({
-                                value,
-                                label: value.label,
-                            });
-                        }
-                        else if (this.source.options && Array.isArray(this.source.options)) {
-                            this.items.push(this.getLabelFromOptions(value));
-                        }
-                        else {
-                            this.items.push(value);
-                        }
-                    }
-                    this._items.next(this.items);
-                });
-            }
-        }
-        this.changed.emit({ value: this.model, rawValue: this.items });
-        this._items.next(this.items);
-    }
-    getLabelFromOptions(value) {
-        let id = value;
-        let optLabel = this.source.options.find((val) => val.value === value);
-        if (!optLabel && value.hasOwnProperty('id')) {
-            optLabel = this.source.options.find((val) => val.value === value.id);
-            id = value.id;
-        }
-        return {
-            value: id,
-            label: optLabel ? optLabel.label : value,
-        };
-    }
-    deselectAll(event) {
-        this.selected = null;
-        this.hidePreview();
-    }
-    select(event, item) {
-        this.blur.emit(event);
-        this.deselectAll();
-        this.selected = item;
-        this.showPreview();
-    }
-    deselect(event, item) {
-        this.blur.emit(event);
-        this.deselectAll();
-    }
-    onTyping(event) {
-        this.typing.emit(event);
-    }
-    onFocus(event) {
-        this.deselectAll();
-        this.element.nativeElement.classList.add('selected');
-        this.focus.emit(event);
-    }
-    add(event) {
-        if (event && !(event instanceof Event)) {
-            this.items.push(event);
-            this.value = this.source && this.source.valueFormatter ? this.source.valueFormatter(this.items) : this.items.map((i) => i.value);
-            // Set focus on the picker
-            const input = this.element.nativeElement.querySelector('novo-picker > input');
-            if (input) {
-                input.focus();
-            }
-        }
-        this._items.next(this.items);
-    }
-    remove(event, item) {
-        if (event) {
-            event.stopPropagation();
-            event.preventDefault();
-        }
-        this.items.splice(this.items.indexOf(item), 1);
-        this.deselectAll();
-        this.value = this.source && this.source.valueFormatter ? this.source.valueFormatter(this.items) : this.items.map((i) => i.value);
-        this.changed.emit({ value: this.value.length ? this.value : '', rawValue: this.items });
-        this.onModelChange(this.value.length ? this.value : '');
-        this._items.next(this.items);
-    }
-    onKeyDown(event) {
-        if (event.keyCode === KeyCodes.BACKSPACE) {
-            if (event.target && event.target.value.length === 0 && this.items.length) {
-                if (event) {
-                    event.stopPropagation();
-                    event.preventDefault();
-                }
-                if (this.selected) {
-                    this.remove(event, this.selected);
-                }
-                else {
-                    this.select(event, this.items[this.items.length - 1]);
-                }
-            }
-        }
-    }
-    // Set touched on blur
-    onTouched(e) {
-        this.element.nativeElement.classList.remove('selected');
-        this.onModelTouched();
-        this.blur.emit(e);
-    }
-    writeValue(model) {
-        this.model = model;
-        this.setItems();
-    }
-    registerOnChange(fn) {
-        this.onModelChange = fn;
-    }
-    registerOnTouched(fn) {
-        this.onModelTouched = fn;
-    }
-    setDisabledState(disabled) {
-        this._disablePickerInput = disabled;
-    }
-    /**
-     * @description This method creates an instance of the preview (called popup) and adds all the bindings to that
-     * instance. Will reuse the popup or create a new one if it does not already exist. Will only work if there is
-     * a previewTemplate given in the config.
-     */
-    showPreview() {
-        if (this.source.previewTemplate) {
-            if (!this.popup) {
-                this.popup = this.componentUtils.append(this.source.previewTemplate, this.preview);
-            }
-            this.popup.instance.match = this.selected;
-        }
-    }
-    /**
-     * @description - This method deletes the preview popup from the DOM.
-     */
-    hidePreview() {
-        if (this.popup) {
-            this.popup.destroy();
-            this.popup = null;
-        }
-    }
-}
-NovoChipsElement.ɵfac = function NovoChipsElement_Factory(t) { return new (t || NovoChipsElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ComponentUtils), ɵngcc0.ɵɵdirectiveInject(NovoLabelService)); };
-NovoChipsElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoChipsElement, selectors: [["chips"], ["novo-chips"]], viewQuery: function NovoChipsElement_Query(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵviewQuery(_c21, true, ViewContainerRef);
-    } if (rf & 2) {
-        var _t;
-        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.preview = _t.first);
-    } }, hostVars: 4, hostBindings: function NovoChipsElement_HostBindings(rf, ctx) { if (rf & 2) {
-        ɵngcc0.ɵɵclassProp("with-value", ctx.items.length > 0)("disabled", ctx.disablePickerInput);
-    } }, inputs: { closeOnSelect: "closeOnSelect", placeholder: "placeholder", disablePickerInput: "disablePickerInput", value: "value", source: "source", maxlength: "maxlength", type: "type" }, outputs: { changed: "changed", focus: "focus", blur: "blur", typing: "typing" }, features: [ɵngcc0.ɵɵProvidersFeature([CHIPS_VALUE_ACCESSOR])], decls: 9, vars: 6, consts: [[1, "novo-chip-container"], [3, "type", "selected", "disabled", "remove", "select", "deselect", 4, "ngFor", "ngForOf"], ["class", "chip-input-container", 4, "ngIf"], [1, "preview-container"], ["preview", ""], ["class", "bhi-search", 3, "has-value", 4, "ngIf"], ["class", "clear-all", 3, "click", 4, "ngIf"], [3, "type", "disabled", "remove", "select", "deselect"], [1, "chip-input-container"], ["clearValueOnSelect", "true", 3, "closeOnSelect", "config", "disablePickerInput", "placeholder", "ngModel", "selected", "overrideElement", "ngModelChange", "select", "keydown", "focus", "typing", "blur"], [1, "bhi-search"], [1, "clear-all", 3, "click"], [1, "bhi-times"]], template: function NovoChipsElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵelementStart(0, "div", 0);
-        ɵngcc0.ɵɵtemplate(1, NovoChipsElement_novo_chip_1_Template, 2, 5, "novo-chip", 1);
-        ɵngcc0.ɵɵpipe(2, "async");
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵtemplate(3, NovoChipsElement_div_3_Template, 2, 7, "div", 2);
-        ɵngcc0.ɵɵelementStart(4, "div", 3);
-        ɵngcc0.ɵɵelement(5, "span", null, 4);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵtemplate(7, NovoChipsElement_i_7_Template, 1, 2, "i", 5);
-        ɵngcc0.ɵɵtemplate(8, NovoChipsElement_label_8_Template, 3, 1, "label", 6);
-    } if (rf & 2) {
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngForOf", ɵngcc0.ɵɵpipeBind1(2, 4, ctx._items));
-        ɵngcc0.ɵɵadvance(2);
-        ɵngcc0.ɵɵproperty("ngIf", !ctx.maxlength || ctx.maxlength && ctx.items.length < ctx.maxlength);
-        ɵngcc0.ɵɵadvance(4);
-        ɵngcc0.ɵɵproperty("ngIf", !ctx.disablePickerInput);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngIf", ctx.items.length && !ctx.disablePickerInput);
-    } }, directives: function () { return [ɵngcc1.NgForOf, ɵngcc1.NgIf, NovoChipElement, NovoPickerElement, ɵngcc3.NgControlStatus, ɵngcc3.NgModel]; }, pipes: function () { return [ɵngcc1.AsyncPipe]; }, encapsulation: 2 });
-NovoChipsElement.ctorParameters = () => [
-    { type: ElementRef },
-    { type: ComponentUtils },
-    { type: NovoLabelService }
-];
-NovoChipsElement.propDecorators = {
-    closeOnSelect: [{ type: Input }],
-    placeholder: [{ type: Input }],
-    source: [{ type: Input }],
-    maxlength: [{ type: Input }],
-    type: [{ type: Input }],
-    disablePickerInput: [{ type: Input }],
-    changed: [{ type: Output }],
-    focus: [{ type: Output }],
-    blur: [{ type: Output }],
-    typing: [{ type: Output }],
-    preview: [{ type: ViewChild, args: ['preview', { read: ViewContainerRef },] }],
-    value: [{ type: Input }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoChipsElement, [{
-        type: Component,
-        args: [{
-                selector: 'chips,novo-chips',
-                providers: [CHIPS_VALUE_ACCESSOR],
-                template: `
-        <div class="novo-chip-container">
-          <novo-chip
-              *ngFor="let item of _items | async"
-              [type]="type || item?.value?.searchEntity"
-              [class.selected]="item == selected"
-              [disabled]="disablePickerInput"
-              (remove)="remove($event, item)"
-              (select)="select($event, item)"
-              (deselect)="deselect($event, item)">
-              {{ item.label }}
-          </novo-chip>
-        </div>
-        <div class="chip-input-container" *ngIf="!maxlength || (maxlength && items.length < maxlength)">
-            <novo-picker
-                clearValueOnSelect="true"
-                [closeOnSelect]="closeOnSelect"
-                [config]="source"
-                [disablePickerInput]="disablePickerInput"
-                [placeholder]="placeholder"
-                [(ngModel)]="itemToAdd"
-                (select)="add($event)"
-                (keydown)="onKeyDown($event)"
-                (focus)="onFocus($event)"
-                (typing)="onTyping($event)"
-                (blur)="onTouched($event)"
-                [selected]="items"
-                [overrideElement]="element">
-            </novo-picker>
-        </div>
-        <div class="preview-container">
-            <span #preview></span>
-        </div>
-        <i class="bhi-search" [class.has-value]="items.length" *ngIf="!disablePickerInput"></i>
-        <label class="clear-all" *ngIf="items.length && !disablePickerInput" (click)="clearValue()">{{ labels.clearAll }} <i class="bhi-times"></i></label>
-   `,
-                host: {
-                    '[class.with-value]': 'items.length > 0',
-                    '[class.disabled]': 'disablePickerInput'
-                }
-            }]
-    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: ComponentUtils }, { type: NovoLabelService }]; }, { closeOnSelect: [{
-            type: Input
-        }], placeholder: [{
-            type: Input
-        }], changed: [{
-            type: Output
-        }], focus: [{
-            type: Output
-        }], blur: [{
-            type: Output
-        }], typing: [{
-            type: Output
-        }], disablePickerInput: [{
-            type: Input
-        }], value: [{
-            type: Input
-        }], source: [{
-            type: Input
-        }], maxlength: [{
-            type: Input
-        }], type: [{
-            type: Input
-        }], preview: [{
-            type: ViewChild,
-            args: ['preview', { read: ViewContainerRef }]
-        }] }); })();
-
-// Angular
-class NovoOverlayTemplateComponent {
-    constructor(overlay, viewContainerRef, zone, changeDetectorRef, document) {
-        this.overlay = overlay;
-        this.viewContainerRef = viewContainerRef;
-        this.zone = zone;
-        this.changeDetectorRef = changeDetectorRef;
-        this.document = document;
-        this.id = `novo-overlay-${Date.now()}`;
-        this.position = 'default';
-        this.scrollStrategy = 'reposition';
-        this.closeOnSelect = true;
-        this.select = new EventEmitter();
-        this.closing = new EventEmitter();
-    }
-    ngOnDestroy() {
-        this.destroyOverlay();
-    }
-    get panelOpen() {
-        return this.overlayRef && this.overlayRef.hasAttached();
-    }
-    set parent(value) {
-        this._parent = value;
-        this.checkSizes();
-    }
-    get parent() {
-        return this._parent;
-    }
-    openPanel() {
-        if (!this.overlayRef) {
-            this.createOverlay(this.template);
-        }
-        else {
-            this.checkSizes();
-        }
-        if (this.overlayRef && !this.overlayRef.hasAttached()) {
-            this.overlayRef.attach(this.portal);
-            this.closingActionsSubscription = this.subscribeToClosingActions();
-        }
-        this.changeDetectorRef.markForCheck();
-        setTimeout(() => {
-            if (this.overlayRef) {
-                this.overlayRef.updatePosition();
-            }
-        });
-    }
-    closePanel() {
-        this.zone.run(() => {
-            if (this.overlayRef && this.overlayRef.hasAttached()) {
-                this.overlayRef.detach();
-                this.closingActionsSubscription.unsubscribe();
-            }
-            this.closing.emit(true);
-            if (this.panelOpen) {
-                this.changeDetectorRef.markForCheck();
-            }
-        });
-    }
-    onClosingAction(event) {
-        this.closePanel();
-    }
-    /**
-     * A stream of actions that should close the autocomplete panel, including
-     * when an option is selected, on blur, and when TAB is pressed.
-     */
-    get panelClosingActions() {
-        return merge(
-        // this.overlayTemplate._keyManager.tabOut,
-        this.outsideClickStream);
-    }
-    /** Stream of clicks outside of the autocomplete panel. */
-    get outsideClickStream() {
-        if (!this.document) {
-            return of();
-        }
-        return merge(fromEvent(this.document, 'mousedown'), fromEvent(this.document, 'touchend')).pipe(filter((event) => {
-            const clickTarget = event.target;
-            const clicked = this.panelOpen &&
-                clickTarget !== this.getConnectedElement().nativeElement &&
-                !this.getConnectedElement().nativeElement.contains(clickTarget) &&
-                (!!this.overlayRef && !this.overlayRef.overlayElement.contains(clickTarget));
-            if (this.panelOpen && !!this.overlayRef && this.overlayRef.overlayElement.contains(clickTarget) && this.closeOnSelect) {
-                this.select.emit(event);
-            }
-            return clicked;
-        }));
-    }
-    /**
-     * This method listens to a stream of panel closing actions and resets the
-     * stream every time the option list changes.
-     */
-    subscribeToClosingActions() {
-        const firstStable = this.zone.onStable.asObservable().pipe(first());
-        // const valueChanges = Observable.from(this.value);
-        // When the zone is stable initially, and when the option list changes...
-        return (merge(firstStable)
-            .pipe(
-        // create a new stream of panelClosingActions, replacing any previous streams
-        // that were created, and flatten it so our stream only emits closing events...
-        switchMap(() => {
-            return this.panelClosingActions;
-        }), 
-        // when the first closing event occurs...
-        first())
-            // set the value, close the panel, and complete.
-            .subscribe((event) => this.onClosingAction(event)));
-    }
-    createOverlay(template) {
-        this.portal = new TemplatePortal(template, this.viewContainerRef);
-        this.overlayRef = this.overlay.create(this.getOverlayConfig());
-        this.overlayRef.backdropClick().subscribe(() => this.closePanel());
-    }
-    destroyOverlay() {
-        if (this.overlayRef) {
-            this.closePanel();
-            this.overlayRef.dispose();
-            this.overlayRef = undefined;
-        }
-    }
-    getOverlayConfig() {
-        const config = new OverlayConfig();
-        if (!this.width) {
-            config.width = this.getHostWidth();
-        }
-        else {
-            config.width = this.width;
-        }
-        if (this.height) {
-            config.height = this.height;
-        }
-        config.positionStrategy = this.getPosition();
-        config.hasBackdrop = false;
-        config.direction = 'ltr';
-        config.scrollStrategy = this.getScrollStrategy();
-        return config;
-    }
-    /**
-     * Supports the following position strategies:
-     * 'default', 'right', 'bottom', 'center', 'bottom-left', 'bottom-right', 'top-left', 'top-right'
-     */
-    getPosition() {
-        if (this.position === 'center') {
-            return this.overlay
-                .position()
-                .connectedTo(this.getConnectedElement(), { originX: 'start', originY: 'center' }, { overlayX: 'start', overlayY: 'center' })
-                .withFallbackPosition({ originX: 'start', originY: 'top' }, { overlayX: 'start', overlayY: 'top' })
-                .withFallbackPosition({ originX: 'start', originY: 'bottom' }, { overlayX: 'start', overlayY: 'bottom' });
-        }
-        const [originX, fallbackX] = this.position.includes('right') ? ['end', 'start'] : ['start', 'end'];
-        const [originY, overlayY] = this.position.includes('top') ? ['top', 'bottom'] : ['bottom', 'top'];
-        let strategy = this.overlay
-            .position()
-            .connectedTo(this.getConnectedElement(), { originX, originY }, { overlayX: originX, overlayY })
-            .withDirection('ltr');
-        if (this.position === 'bottom') {
-            strategy = strategy.withFallbackPosition({ originX: fallbackX, originY: 'bottom' }, { overlayX: fallbackX, overlayY: 'top' });
-        }
-        else if (this.position === 'right' || this.position === 'default' || this.position.includes('above-below')) {
-            strategy = strategy
-                .withFallbackPosition({ originX, originY: 'top' }, { overlayX: originX, overlayY: 'bottom' })
-                .withFallbackPosition({ originX: fallbackX, originY: 'bottom' }, { overlayX: fallbackX, overlayY: 'top' })
-                .withFallbackPosition({ originX: fallbackX, originY: 'top' }, { overlayX: fallbackX, overlayY: 'bottom' });
-            if (!this.position.includes('above-below')) {
-                strategy = strategy
-                    .withFallbackPosition({ originX, originY: 'center' }, { overlayX: originX, overlayY: 'center' })
-                    .withFallbackPosition({ originX: fallbackX, originY: 'center' }, { overlayX: fallbackX, overlayY: 'center' });
-            }
-        }
-        return strategy;
-    }
-    getScrollStrategy() {
-        switch (this.scrollStrategy) {
-            case 'block':
-                return this.overlay.scrollStrategies.block();
-            case 'reposition':
-                return this.overlay.scrollStrategies.reposition();
-            default:
-                return this.overlay.scrollStrategies.close();
-        }
-    }
-    checkSizes() {
-        if (this.overlayRef) {
-            if (!this.width) {
-                this.overlayRef.getConfig().width = this.getHostWidth();
-            }
-            if (this.height) {
-                this.overlayRef.getConfig().height = this.height;
-            }
-            this.overlayRef.updateSize(this.overlayRef.getConfig());
-            this.overlayRef.updatePosition();
-            this.changeDetectorRef.markForCheck();
-        }
-    }
-    getConnectedElement() {
-        return this.parent;
-    }
-    getHostWidth() {
-        return this.getConnectedElement().nativeElement.getBoundingClientRect().width;
-    }
-}
-NovoOverlayTemplateComponent.ɵfac = function NovoOverlayTemplateComponent_Factory(t) { return new (t || NovoOverlayTemplateComponent)(ɵngcc0.ɵɵdirectiveInject(ɵngcc2.Overlay), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ViewContainerRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.NgZone), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef), ɵngcc0.ɵɵdirectiveInject(DOCUMENT, 8)); };
-NovoOverlayTemplateComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoOverlayTemplateComponent, selectors: [["novo-overlay-template"]], viewQuery: function NovoOverlayTemplateComponent_Query(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵviewQuery(TemplateRef, true);
-        ɵngcc0.ɵɵviewQuery(_c22, true);
-    } if (rf & 2) {
-        var _t;
-        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.template = _t.first);
-        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.panel = _t.first);
-    } }, inputs: { position: "position", scrollStrategy: "scrollStrategy", closeOnSelect: "closeOnSelect", parent: "parent", width: "width", height: "height" }, outputs: { select: "select", closing: "closing" }, ngContentSelectors: _c1, decls: 1, vars: 0, consts: [["role", "listbox", 1, "novo-overlay-panel", 3, "id"], ["panel", ""]], template: function NovoOverlayTemplateComponent_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef();
-        ɵngcc0.ɵɵtemplate(0, NovoOverlayTemplateComponent_ng_template_0_Template, 3, 1, "ng-template");
-    } }, encapsulation: 2, changeDetection: 0 });
-NovoOverlayTemplateComponent.ctorParameters = () => [
-    { type: Overlay },
-    { type: ViewContainerRef },
-    { type: NgZone },
-    { type: ChangeDetectorRef },
-    { type: undefined, decorators: [{ type: Optional }, { type: Inject, args: [DOCUMENT,] }] }
-];
-NovoOverlayTemplateComponent.propDecorators = {
-    template: [{ type: ViewChild, args: [TemplateRef,] }],
-    panel: [{ type: ViewChild, args: ['panel',] }],
-    position: [{ type: Input }],
-    scrollStrategy: [{ type: Input }],
-    width: [{ type: Input }],
-    height: [{ type: Input }],
-    closeOnSelect: [{ type: Input }],
-    select: [{ type: Output }],
-    closing: [{ type: Output }],
-    parent: [{ type: Input }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoOverlayTemplateComponent, [{
-        type: Component,
-        args: [{
-                selector: 'novo-overlay-template',
-                template: `
-    <ng-template>
-      <div class="novo-overlay-panel" role="listbox" [id]="id" #panel><ng-content></ng-content></div>
-    </ng-template>
-  `,
-                changeDetection: ChangeDetectionStrategy.OnPush
-            }]
-    }], function () { return [{ type: ɵngcc2.Overlay }, { type: ɵngcc0.ViewContainerRef }, { type: ɵngcc0.NgZone }, { type: ɵngcc0.ChangeDetectorRef }, { type: undefined, decorators: [{
-                type: Optional
-            }, {
-                type: Inject,
-                args: [DOCUMENT]
-            }] }]; }, { position: [{
-            type: Input
-        }], scrollStrategy: [{
-            type: Input
-        }], closeOnSelect: [{
-            type: Input
-        }], select: [{
-            type: Output
-        }], closing: [{
-            type: Output
-        }], parent: [{
-            type: Input
-        }], template: [{
-            type: ViewChild,
-            args: [TemplateRef]
-        }], panel: [{
-            type: ViewChild,
-            args: ['panel']
-        }], width: [{
-            type: Input
-        }], height: [{
-            type: Input
-        }] }); })();
-
-// NG2
-class NovoOverlayModule {
-}
-NovoOverlayModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoOverlayModule });
-NovoOverlayModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoOverlayModule_Factory(t) { return new (t || NovoOverlayModule)(); }, imports: [[CommonModule, FormsModule, OverlayModule, ScrollingModule], ScrollingModule] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoOverlayModule, { declarations: function () { return [NovoOverlayTemplateComponent]; }, imports: function () { return [CommonModule, FormsModule, OverlayModule, ScrollingModule]; }, exports: function () { return [NovoOverlayTemplateComponent, ScrollingModule]; } }); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoOverlayModule, [{
-        type: NgModule,
-        args: [{
-                imports: [CommonModule, FormsModule, OverlayModule, ScrollingModule],
-                declarations: [NovoOverlayTemplateComponent],
-                exports: [NovoOverlayTemplateComponent, ScrollingModule]
             }]
     }], null, null); })();
 
@@ -12815,6 +12253,27 @@ PickerResults.ctorParameters = () => [
             }]
     }], function () { return [{ type: ɵngcc0.ElementRef }, { type: NovoLabelService }, { type: ɵngcc0.ChangeDetectorRef }]; }, null); })();
 
+// NG2
+class ComponentUtils {
+    constructor(componentFactoryResolver) {
+        this.componentFactoryResolver = componentFactoryResolver;
+    }
+    append(ComponentClass, location, providers, onTop) {
+        const componentFactory = this.componentFactoryResolver.resolveComponentFactory(ComponentClass);
+        const parent = location.injector;
+        const index = onTop ? 0 : location.length;
+        return location.createComponent(componentFactory, index, Injector.create({ providers, parent }));
+    }
+}
+ComponentUtils.ɵfac = function ComponentUtils_Factory(t) { return new (t || ComponentUtils)(ɵngcc0.ɵɵinject(ɵngcc0.ComponentFactoryResolver)); };
+ComponentUtils.ɵprov = ɵngcc0.ɵɵdefineInjectable({ token: ComponentUtils, factory: ComponentUtils.ɵfac });
+ComponentUtils.ctorParameters = () => [
+    { type: ComponentFactoryResolver }
+];
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(ComponentUtils, [{
+        type: Injectable
+    }], function () { return [{ type: ɵngcc0.ComponentFactoryResolver }]; }, null); })();
+
 const notifications = {};
 function notify(message) {
     if (!isDevMode() || message in notifications) {
@@ -13090,9 +12549,9 @@ class NovoPickerElement {
 }
 NovoPickerElement.ɵfac = function NovoPickerElement_Factory(t) { return new (t || NovoPickerElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ComponentUtils), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef)); };
 NovoPickerElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoPickerElement, selectors: [["novo-picker"]], viewQuery: function NovoPickerElement_Query(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵstaticViewQuery(_c23, true, ViewContainerRef);
+        ɵngcc0.ɵɵstaticViewQuery(_c20, true, ViewContainerRef);
         ɵngcc0.ɵɵstaticViewQuery(NovoOverlayTemplateComponent, true);
-        ɵngcc0.ɵɵstaticViewQuery(_c24, true);
+        ɵngcc0.ɵɵstaticViewQuery(_c21, true);
     } if (rf & 2) {
         var _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.results = _t.first);
@@ -13794,8 +13253,8 @@ class GroupedMultiPickerResults extends BasePickerResults {
 }
 GroupedMultiPickerResults.ɵfac = function GroupedMultiPickerResults_Factory(t) { return new (t || GroupedMultiPickerResults)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2), ɵngcc0.ɵɵdirectiveInject(NovoLabelService), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef)); };
 GroupedMultiPickerResults.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: GroupedMultiPickerResults, selectors: [["grouped-multi-picker-results"]], viewQuery: function GroupedMultiPickerResults_Query(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵstaticViewQuery(_c24, true);
-        ɵngcc0.ɵɵviewQuery(_c28, true);
+        ɵngcc0.ɵɵstaticViewQuery(_c21, true);
+        ɵngcc0.ɵɵviewQuery(_c24, true);
     } if (rf & 2) {
         var _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.inputElement = _t.first);
@@ -14065,8 +13524,8 @@ class MixedMultiPickerResults extends BasePickerResults {
 }
 MixedMultiPickerResults.ɵfac = function MixedMultiPickerResults_Factory(t) { return new (t || MixedMultiPickerResults)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2), ɵngcc0.ɵɵdirectiveInject(NovoLabelService), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef)); };
 MixedMultiPickerResults.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: MixedMultiPickerResults, selectors: [["mixed-multi-picker-results"]], viewQuery: function MixedMultiPickerResults_Query(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵstaticViewQuery(_c24, true);
-        ɵngcc0.ɵɵviewQuery(_c28, true);
+        ɵngcc0.ɵɵstaticViewQuery(_c21, true);
+        ɵngcc0.ɵɵviewQuery(_c24, true);
     } if (rf & 2) {
         var _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.inputElement = _t.first);
@@ -14298,7 +13757,7 @@ class DistributionListPickerResults extends BasePickerResults {
         return this.sanitizer.bypassSecurityTrustHtml(html);
     }
 }
-DistributionListPickerResults.ɵfac = function DistributionListPickerResults_Factory(t) { return new (t || DistributionListPickerResults)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc4.DomSanitizer), ɵngcc0.ɵɵdirectiveInject(NovoLabelService), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef)); };
+DistributionListPickerResults.ɵfac = function DistributionListPickerResults_Factory(t) { return new (t || DistributionListPickerResults)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc5.DomSanitizer), ɵngcc0.ɵɵdirectiveInject(NovoLabelService), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef)); };
 DistributionListPickerResults.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: DistributionListPickerResults, selectors: [["distribution-list-picker-results"]], hostVars: 3, hostBindings: function DistributionListPickerResults_HostBindings(rf, ctx) { if (rf & 2) {
         ɵngcc0.ɵɵhostProperty("hidden", ctx.isHidden);
         ɵngcc0.ɵɵclassProp("active", ctx.active);
@@ -14348,7 +13807,7 @@ DistributionListPickerResults.propDecorators = {
         </novo-list>
     `
             }]
-    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: ɵngcc4.DomSanitizer }, { type: NovoLabelService }, { type: ɵngcc0.ChangeDetectorRef }]; }, { active: [{
+    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: ɵngcc5.DomSanitizer }, { type: NovoLabelService }, { type: ɵngcc0.ChangeDetectorRef }]; }, { active: [{
             type: HostBinding,
             args: ['class.active']
         }], isHidden: [{
@@ -14375,7 +13834,7 @@ class WorkersCompCodesPickerResults extends BasePickerResults {
         return this.sanitizer.bypassSecurityTrustHtml(`${compCode} | ${name}`);
     }
 }
-WorkersCompCodesPickerResults.ɵfac = function WorkersCompCodesPickerResults_Factory(t) { return new (t || WorkersCompCodesPickerResults)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc4.DomSanitizer), ɵngcc0.ɵɵdirectiveInject(NovoLabelService), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef)); };
+WorkersCompCodesPickerResults.ɵfac = function WorkersCompCodesPickerResults_Factory(t) { return new (t || WorkersCompCodesPickerResults)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc5.DomSanitizer), ɵngcc0.ɵɵdirectiveInject(NovoLabelService), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef)); };
 WorkersCompCodesPickerResults.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: WorkersCompCodesPickerResults, selectors: [["workers-comp-codes-picker-results"]], hostVars: 3, hostBindings: function WorkersCompCodesPickerResults_HostBindings(rf, ctx) { if (rf & 2) {
         ɵngcc0.ɵɵhostProperty("hidden", ctx.isHidden);
         ɵngcc0.ɵɵclassProp("active", ctx.active);
@@ -14441,7 +13900,7 @@ WorkersCompCodesPickerResults.propDecorators = {
     </novo-list>
   `
             }]
-    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: ɵngcc4.DomSanitizer }, { type: NovoLabelService }, { type: ɵngcc0.ChangeDetectorRef }]; }, { active: [{
+    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: ɵngcc5.DomSanitizer }, { type: NovoLabelService }, { type: ɵngcc0.ChangeDetectorRef }]; }, { active: [{
             type: HostBinding,
             args: ['class.active']
         }], isHidden: [{
@@ -14483,3230 +13942,6 @@ NovoPickerModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoPick
                     WorkersCompCodesPickerResults,
                     SkillsSpecialtyPickerResults,
                 ]
-            }]
-    }], null, null); })();
-
-// NG2
-// Value accessor for the component (supports ngModel)
-const CHIPS_VALUE_ACCESSOR$1 = {
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => NovoRowChipsElement),
-    multi: true,
-};
-class NovoRowChipElement extends NovoChipElement {
-    onSelect(e) {
-        return false;
-    }
-}
-NovoRowChipElement.ɵfac = function NovoRowChipElement_Factory(t) { return ɵNovoRowChipElement_BaseFactory(t || NovoRowChipElement); };
-NovoRowChipElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoRowChipElement, selectors: [["novo-row-chip"]], features: [ɵngcc0.ɵɵInheritDefinitionFeature], ngContentSelectors: _c1, decls: 3, vars: 1, consts: [[1, "novo-row-chips-columns"], ["class", "bhi-delete-o", 3, "click", 4, "ngIf"], [1, "bhi-delete-o", 3, "click"]], template: function NovoRowChipElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef();
-        ɵngcc0.ɵɵelementStart(0, "div", 0);
-        ɵngcc0.ɵɵprojection(1);
-        ɵngcc0.ɵɵtemplate(2, NovoRowChipElement_i_2_Template, 1, 0, "i", 1);
-        ɵngcc0.ɵɵelementEnd();
-    } if (rf & 2) {
-        ɵngcc0.ɵɵadvance(2);
-        ɵngcc0.ɵɵproperty("ngIf", !ctx.disabled);
-    } }, directives: [ɵngcc1.NgIf], encapsulation: 2 });
-const ɵNovoRowChipElement_BaseFactory = /*@__PURE__*/ ɵngcc0.ɵɵgetInheritedFactory(NovoRowChipElement);
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoRowChipElement, [{
-        type: Component,
-        args: [{
-                selector: 'novo-row-chip',
-                template: `<div class="novo-row-chips-columns"><ng-content></ng-content><i class="bhi-delete-o" *ngIf="!disabled" (click)="onRemove($event)"></i></div>`
-            }]
-    }], null, null); })();
-class NovoRowChipsElement extends NovoChipsElement {
-    constructor(element, componentUtils, labels) {
-        super(element, componentUtils, labels);
-        this.closeOnSelect = true;
-    }
-    onKeyDown(event) {
-        return;
-    }
-}
-NovoRowChipsElement.ɵfac = function NovoRowChipsElement_Factory(t) { return new (t || NovoRowChipsElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ComponentUtils), ɵngcc0.ɵɵdirectiveInject(NovoLabelService)); };
-NovoRowChipsElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoRowChipsElement, selectors: [["novo-row-chips"]], hostVars: 2, hostBindings: function NovoRowChipsElement_HostBindings(rf, ctx) { if (rf & 2) {
-        ɵngcc0.ɵɵclassProp("with-value", ctx.items.length > 0);
-    } }, inputs: { closeOnSelect: "closeOnSelect" }, features: [ɵngcc0.ɵɵProvidersFeature([CHIPS_VALUE_ACCESSOR$1]), ɵngcc0.ɵɵInheritDefinitionFeature], decls: 8, vars: 6, consts: [["class", "novo-row-chips-columns", 4, "ngIf"], ["class", "novo-row-chips-empty-message", 4, "ngIf"], [3, "type", "selected", "disabled", "remove", "select", 4, "ngFor", "ngForOf"], ["clearValueOnSelect", "true", 3, "closeOnSelect", "config", "disablePickerInput", "hidden", "placeholder", "ngModel", "selected", "overrideElement", "ngModelChange", "select", "keydown", "focus", "typing", "blur", 4, "ngIf"], [1, "preview-container"], ["preview", ""], [1, "novo-row-chips-columns"], ["class", "column-label", 4, "ngFor", "ngForOf"], [1, "column-label"], [1, "novo-row-chips-empty-message"], [3, "type", "disabled", "remove", "select"], ["class", "column-data", 4, "ngFor", "ngForOf"], [1, "column-data"], ["clearValueOnSelect", "true", 3, "closeOnSelect", "config", "disablePickerInput", "hidden", "placeholder", "ngModel", "selected", "overrideElement", "ngModelChange", "select", "keydown", "focus", "typing", "blur"]], template: function NovoRowChipsElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵtemplate(0, NovoRowChipsElement_div_0_Template, 2, 1, "div", 0);
-        ɵngcc0.ɵɵtemplate(1, NovoRowChipsElement_div_1_Template, 2, 1, "div", 1);
-        ɵngcc0.ɵɵtemplate(2, NovoRowChipsElement_novo_row_chip_2_Template, 2, 5, "novo-row-chip", 2);
-        ɵngcc0.ɵɵpipe(3, "async");
-        ɵngcc0.ɵɵtemplate(4, NovoRowChipsElement_novo_picker_4_Template, 1, 8, "novo-picker", 3);
-        ɵngcc0.ɵɵelementStart(5, "div", 4);
-        ɵngcc0.ɵɵelement(6, "span", null, 5);
-        ɵngcc0.ɵɵelementEnd();
-    } if (rf & 2) {
-        ɵngcc0.ɵɵproperty("ngIf", ctx.items.length > 0);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngIf", ctx.source.emptyReadOnlyMessage && ctx.disablePickerInput && ctx.items.length === 0);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngForOf", ɵngcc0.ɵɵpipeBind1(3, 4, ctx._items));
-        ɵngcc0.ɵɵadvance(2);
-        ɵngcc0.ɵɵproperty("ngIf", !ctx.maxlength || ctx.maxlength && ctx.items.length < ctx.maxlength);
-    } }, directives: [ɵngcc1.NgIf, ɵngcc1.NgForOf, NovoRowChipElement, NovoPickerElement, ɵngcc3.NgControlStatus, ɵngcc3.NgModel], pipes: [ɵngcc1.AsyncPipe], encapsulation: 2 });
-NovoRowChipsElement.ctorParameters = () => [
-    { type: ElementRef },
-    { type: ComponentUtils },
-    { type: NovoLabelService }
-];
-NovoRowChipsElement.propDecorators = {
-    closeOnSelect: [{ type: Input }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoRowChipsElement, [{
-        type: Component,
-        args: [{
-                selector: 'novo-row-chips',
-                providers: [CHIPS_VALUE_ACCESSOR$1],
-                host: {
-                    '[class.with-value]': 'items.length > 0'
-                },
-                template: `
-        <div class="novo-row-chips-columns" *ngIf="items.length > 0">
-          <div class="column-label" *ngFor="let column of source.columns">{{ column.label }}</div>
-        </div>
-        <div class="novo-row-chips-empty-message" *ngIf="source.emptyReadOnlyMessage && disablePickerInput && items.length === 0">{{source.emptyReadOnlyMessage}}</div>
-        <novo-row-chip
-          *ngFor="let item of _items | async"
-          [type]="type || item?.value?.searchEntity"
-          [class.selected]="item == selected"
-          [disabled]="disablePickerInput"
-          (remove)="remove($event, item)"
-          (select)="select($event, item)">
-          <div class="column-data" *ngFor="let column of source.columns"><span>{{ column.data(item) }}</span></div>
-        </novo-row-chip>
-        <novo-picker
-            clearValueOnSelect="true"
-            [closeOnSelect]="closeOnSelect"
-            [config]="source"
-            [disablePickerInput]="disablePickerInput"
-            [hidden]="disablePickerInput"
-            [placeholder]="placeholder"
-            [(ngModel)]="itemToAdd"
-            (select)="add($event)"
-            (keydown)="onKeyDown($event)"
-            (focus)="onFocus($event)"
-            (typing)="onTyping($event)"
-            (blur)="onTouched($event)"
-            [selected]="items"
-            [overrideElement]="element"
-            *ngIf="!maxlength || (maxlength && items.length < maxlength)">
-        </novo-picker>
-        <div class="preview-container">
-            <span #preview></span>
-        </div>
-   `
-            }]
-    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: ComponentUtils }, { type: NovoLabelService }]; }, { closeOnSelect: [{
-            type: Input
-        }] }); })();
-
-// NG2
-class NovoChipsModule {
-}
-NovoChipsModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoChipsModule });
-NovoChipsModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoChipsModule_Factory(t) { return new (t || NovoChipsModule)(); }, imports: [[CommonModule, FormsModule, NovoPickerModule]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoChipsModule, { declarations: function () { return [NovoChipElement, NovoChipsElement, NovoRowChipElement, NovoRowChipsElement]; }, imports: function () { return [CommonModule, FormsModule, NovoPickerModule]; }, exports: function () { return [NovoChipElement, NovoChipsElement, NovoRowChipElement, NovoRowChipsElement]; } }); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoChipsModule, [{
-        type: NgModule,
-        args: [{
-                imports: [CommonModule, FormsModule, NovoPickerModule],
-                declarations: [NovoChipElement, NovoChipsElement, NovoRowChipElement, NovoRowChipsElement],
-                exports: [NovoChipElement, NovoChipsElement, NovoRowChipElement, NovoRowChipsElement]
-            }]
-    }], null, null); })();
-
-// NG2
-// Value accessor for the component (supports ngModel)
-const CKEDITOR_CONTROL_VALUE_ACCESSOR = {
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => NovoCKEditorElement),
-    multi: true,
-};
-/**
- * CKEditor component
- * Usage :
- *  <novo-editor [(ngModel)]="data" [config]="{...}" debounce="500"></novo-editor>
- */
-class NovoCKEditorElement {
-    constructor(zone) {
-        this.zone = zone;
-        this.startupFocus = false;
-        this.fileBrowserImageUploadUrl = '';
-        this.disabled = false;
-        this.change = new EventEmitter();
-        this.ready = new EventEmitter();
-        this.blur = new EventEmitter();
-        this.focus = new EventEmitter();
-        this.paste = new EventEmitter();
-        this.loaded = new EventEmitter();
-        this._value = '';
-    }
-    get value() {
-        return this._value;
-    }
-    set value(v) {
-        if (v !== this._value) {
-            this._value = v;
-            this.onChange(v);
-        }
-    }
-    ngOnDestroy() {
-        if (this.instance) {
-            this.instance.focusManager.blur(true); // Remove focus from editor
-            setTimeout(() => {
-                this.instance.removeAllListeners();
-                const aInstance = CKEDITOR.instances[this.instance.name];
-                if (aInstance) {
-                    aInstance.destroy();
-                }
-                this.instance.destroy();
-                this.instance = null;
-            });
-        }
-    }
-    ngAfterViewInit() {
-        const config = Object.assign(this.getBaseConfig(), this.config);
-        if (this.startupFocus) {
-            config.startupFocus = true;
-        }
-        if (this.disabled) {
-            config.readOnly = true;
-        }
-        this.ckeditorInit(config);
-    }
-    updateValue(value) {
-        this.zone.run(() => {
-            this.value = value;
-            this.onChange(value);
-            this.onTouched();
-            this.change.emit(value);
-        });
-    }
-    ckeditorInit(config) {
-        if (!CKEDITOR) {
-            console.error('Make sure to include CKEditor sources in your dependencies!');
-            return;
-        }
-        // CKEditor replace textarea
-        this.instance = CKEDITOR.replace(this.host.nativeElement, config);
-        // Set initial value
-        this.instance.setData(this.value);
-        // listen for instanceReady event
-        this.instance.on('instanceReady', (evt) => {
-            // send the evt to the EventEmitter
-            this.ready.emit(evt);
-        });
-        // CKEditor change event
-        this.instance.on('change', () => {
-            this.onTouched();
-            const value = this.instance.getData();
-            // Debounce update
-            if (this.debounce) {
-                if (this.debounceTimeout) {
-                    clearTimeout(this.debounceTimeout);
-                }
-                this.debounceTimeout = setTimeout(() => {
-                    this.updateValue(value);
-                    this.debounceTimeout = null;
-                }, parseInt(this.debounce, 10));
-            }
-            else {
-                this.updateValue(value);
-            }
-        });
-        this.instance.on('blur', (event) => {
-            this.blur.emit(event);
-        });
-        this.instance.on('focus', (event) => {
-            this.focus.emit(event);
-        });
-        this.instance.on('paste', (event) => {
-            this.paste.emit(event);
-        });
-        this.instance.on('loaded', (event) => {
-            this.loaded.emit(event);
-        });
-    }
-    getBaseConfig() {
-        const baseConfig = {
-            enterMode: CKEDITOR.ENTER_BR,
-            shiftEnterMode: CKEDITOR.ENTER_P,
-            disableNativeSpellChecker: false,
-            removePlugins: 'liststyle,tabletools,contextmenu',
-            extraAllowedContent: '*(*){*};table tbody tr td th[*];',
-            font_names: 'Arial/Arial, Helvetica, sans-serif;' +
-                'Calibri/Calibri, Verdana, Geneva, sans-serif;' +
-                'Comic Sans MS/Comic Sans MS, cursive;' +
-                'Courier New/Courier New, Courier, monospace;' +
-                'Georgia/Georgia, serif;' +
-                'Lucida Sans Unicode/Lucida Sans Unicode, Lucida Grande, sans-serif;' +
-                'Tahoma/Tahoma, Geneva, sans-serif;' +
-                'Times New Roman/Times New Roman, Times, serif;' +
-                'Trebuchet MS/Trebuchet MS, Helvetica, sans-serif;' +
-                'Verdana/Verdana, Geneva, sans-serif',
-        };
-        const minimalConfig = {
-            toolbar: [
-                {
-                    name: 'basicstyles',
-                    items: [
-                        'Styles',
-                        'FontSize',
-                        'Bold',
-                        'Italic',
-                        'Underline',
-                        'TextColor',
-                        '-',
-                        'NumberedList',
-                        'BulletedList',
-                        'Outdent',
-                        'Indent',
-                        'Link',
-                    ],
-                },
-            ],
-        };
-        const extendedConfig = {
-            toolbar: [
-                { name: 'clipboard', items: ['Paste', 'PasteText', 'PasteFromWord', 'Undo', 'Redo'] },
-                {
-                    name: 'paragraph',
-                    items: [
-                        'NumberedList',
-                        'BulletedList',
-                        'Outdent',
-                        'Indent',
-                        'Blockquote',
-                        'JustifyLeft',
-                        'JustifyCenter',
-                        'JustifyRight',
-                        'JustifyBlock',
-                        'BidiLtr',
-                        'BidiRtl',
-                    ],
-                },
-                { name: 'links', items: ['Link'] },
-                { name: 'insert', items: ['Image', 'Table', 'HorizontalRule'] },
-                { name: 'tools', items: ['Maximize', 'Source'] },
-                '/',
-                { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript'] },
-                { name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize'] },
-                { name: 'colors', items: ['TextColor', 'BGColor'] },
-            ],
-            filebrowserImageUploadUrl: this.fileBrowserImageUploadUrl,
-        };
-        return Object.assign(baseConfig, this.minimal ? minimalConfig : extendedConfig);
-    }
-    writeValue(value) {
-        this._value = value;
-        if (this.instance) {
-            this.instance.setData(value);
-        }
-    }
-    onChange(value) { }
-    onTouched(event) { }
-    registerOnChange(fn) {
-        this.onChange = fn;
-    }
-    registerOnTouched(fn) {
-        this.onTouched = fn;
-    }
-    setDisabledState(disabled) {
-        this.disabled = disabled;
-        if (this.instance) {
-            CKEDITOR.instances[this.instance.name].setReadOnly(disabled);
-        }
-    }
-    insertText(text) {
-        const trimmedText = text.trim();
-        this.instance.insertText(trimmedText);
-    }
-}
-NovoCKEditorElement.ɵfac = function NovoCKEditorElement_Factory(t) { return new (t || NovoCKEditorElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.NgZone)); };
-NovoCKEditorElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoCKEditorElement, selectors: [["novo-editor"]], viewQuery: function NovoCKEditorElement_Query(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵviewQuery(_c30, true);
-    } if (rf & 2) {
-        var _t;
-        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.host = _t.first);
-    } }, inputs: { startupFocus: "startupFocus", fileBrowserImageUploadUrl: "fileBrowserImageUploadUrl", disabled: "disabled", value: "value", config: "config", debounce: "debounce", name: "name", minimal: "minimal" }, outputs: { change: "change", ready: "ready", blur: "blur", focus: "focus", paste: "paste", loaded: "loaded" }, features: [ɵngcc0.ɵɵProvidersFeature([CKEDITOR_CONTROL_VALUE_ACCESSOR])], decls: 2, vars: 2, consts: [[3, "name", "id"], ["host", ""]], template: function NovoCKEditorElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵelement(0, "textarea", 0, 1);
-    } if (rf & 2) {
-        ɵngcc0.ɵɵproperty("name", ctx.name)("id", ctx.name);
-    } }, encapsulation: 2 });
-NovoCKEditorElement.ctorParameters = () => [
-    { type: NgZone }
-];
-NovoCKEditorElement.propDecorators = {
-    config: [{ type: Input }],
-    debounce: [{ type: Input }],
-    name: [{ type: Input }],
-    minimal: [{ type: Input }],
-    startupFocus: [{ type: Input }],
-    fileBrowserImageUploadUrl: [{ type: Input }],
-    disabled: [{ type: Input }],
-    change: [{ type: Output }],
-    ready: [{ type: Output }],
-    blur: [{ type: Output }],
-    focus: [{ type: Output }],
-    paste: [{ type: Output }],
-    loaded: [{ type: Output }],
-    host: [{ type: ViewChild, args: ['host',] }],
-    value: [{ type: Input }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoCKEditorElement, [{
-        type: Component,
-        args: [{
-                selector: 'novo-editor',
-                providers: [CKEDITOR_CONTROL_VALUE_ACCESSOR],
-                template: '<textarea [name]="name" [id]="name" #host></textarea>'
-            }]
-    }], function () { return [{ type: ɵngcc0.NgZone }]; }, { startupFocus: [{
-            type: Input
-        }], fileBrowserImageUploadUrl: [{
-            type: Input
-        }], disabled: [{
-            type: Input
-        }], change: [{
-            type: Output
-        }], ready: [{
-            type: Output
-        }], blur: [{
-            type: Output
-        }], focus: [{
-            type: Output
-        }], paste: [{
-            type: Output
-        }], loaded: [{
-            type: Output
-        }], value: [{
-            type: Input
-        }], config: [{
-            type: Input
-        }], debounce: [{
-            type: Input
-        }], name: [{
-            type: Input
-        }], minimal: [{
-            type: Input
-        }], host: [{
-            type: ViewChild,
-            args: ['host']
-        }] }); })();
-
-// NG2
-class NovoNovoCKEditorModule {
-}
-NovoNovoCKEditorModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoNovoCKEditorModule });
-NovoNovoCKEditorModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoNovoCKEditorModule_Factory(t) { return new (t || NovoNovoCKEditorModule)(); }, imports: [[CommonModule, FormsModule]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoNovoCKEditorModule, { declarations: function () { return [NovoCKEditorElement]; }, imports: function () { return [CommonModule, FormsModule]; }, exports: function () { return [NovoCKEditorElement]; } }); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoNovoCKEditorModule, [{
-        type: NgModule,
-        args: [{
-                imports: [CommonModule, FormsModule],
-                declarations: [NovoCKEditorElement],
-                exports: [NovoCKEditorElement]
-            }]
-    }], null, null); })();
-
-class NovoTemplate {
-    constructor(template) {
-        this.template = template;
-    }
-    getType() {
-        return this.name;
-    }
-}
-NovoTemplate.ɵfac = function NovoTemplate_Factory(t) { return new (t || NovoTemplate)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.TemplateRef)); };
-NovoTemplate.ɵdir = ɵngcc0.ɵɵdefineDirective({ type: NovoTemplate, selectors: [["", "novoTemplate", ""]], inputs: { type: "type", name: ["novoTemplate", "name"] } });
-NovoTemplate.ctorParameters = () => [
-    { type: TemplateRef }
-];
-NovoTemplate.propDecorators = {
-    type: [{ type: Input }],
-    name: [{ type: Input, args: ['novoTemplate',] }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoTemplate, [{
-        type: Directive,
-        args: [{
-                selector: '[novoTemplate]'
-            }]
-    }], function () { return [{ type: ɵngcc0.TemplateRef }]; }, { type: [{
-            type: Input
-        }], name: [{
-            type: Input,
-            args: ['novoTemplate']
-        }] }); })();
-
-class NovoCommonModule {
-}
-NovoCommonModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoCommonModule });
-NovoCommonModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoCommonModule_Factory(t) { return new (t || NovoCommonModule)(); }, imports: [[CommonModule]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoCommonModule, { declarations: function () { return [NovoTemplate]; }, imports: function () { return [CommonModule]; }, exports: function () { return [NovoTemplate]; } }); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoCommonModule, [{
-        type: NgModule,
-        args: [{
-                imports: [CommonModule],
-                exports: [NovoTemplate],
-                declarations: [NovoTemplate]
-            }]
-    }], null, null); })();
-
-class NovoDataTableFilterUtils {
-    static constructFilter(filter, type, multiSelect) {
-        let actualFilter = filter;
-        if (filter) {
-            if (type && type === 'date') {
-                if (filter.startDate && filter.endDate) {
-                    actualFilter = {
-                        min: startOfDay(filter.startDate.date),
-                        max: startOfDay(addDays(startOfDay(filter.endDate.date), 1)),
-                    };
-                }
-                else {
-                    actualFilter = {
-                        min: filter.min ? addDays(startOfToday(), filter.min) : startOfToday(),
-                        max: filter.max ? addDays(endOfToday(), filter.max) : endOfToday(),
-                    };
-                }
-            }
-            if (multiSelect && Array.isArray(filter)) {
-                actualFilter = filter.map((filterItem) => {
-                    if (filterItem && filterItem.hasOwnProperty('value')) {
-                        return filterItem.value;
-                    }
-                    return filterItem;
-                });
-            }
-            else if (actualFilter && actualFilter.hasOwnProperty('value')) {
-                actualFilter = filter.value;
-            }
-        }
-        return actualFilter;
-    }
-}
-
-class DataTableState {
-    constructor() {
-        this.selectionSource = new Subject();
-        this.paginationSource = new Subject();
-        this.sortFilterSource = new Subject();
-        this.resetSource = new Subject();
-        this.expandSource = new Subject();
-        this.dataLoaded = new Subject();
-        this.sort = undefined;
-        this.filter = undefined;
-        this.page = 0;
-        this.pageSize = undefined;
-        this.globalSearch = undefined;
-        this.selectedRows = new Map();
-        this.expandedRows = new Set();
-        this.isForceRefresh = false;
-        this.updates = new EventEmitter();
-    }
-    get userFiltered() {
-        return !!(this.filter || this.sort || this.globalSearch || this.outsideFilter);
-    }
-    get userFilteredInternal() {
-        return !!(this.filter || this.sort || this.globalSearch);
-    }
-    get selected() {
-        return Array.from(this.selectedRows.values());
-    }
-    reset(fireUpdate = true, persistUserFilters) {
-        if (!persistUserFilters) {
-            this.sort = undefined;
-            this.globalSearch = undefined;
-            this.filter = undefined;
-        }
-        this.page = 0;
-        this.selectedRows.clear();
-        this.resetSource.next();
-        this.onSortFilterChange();
-        if (fireUpdate) {
-            this.updates.emit({
-                sort: this.sort,
-                filter: this.filter,
-                globalSearch: this.globalSearch,
-            });
-        }
-    }
-    clearSort(fireUpdate = true) {
-        this.sort = undefined;
-        this.page = 0;
-        this.selectedRows.clear();
-        this.resetSource.next();
-        this.onSortFilterChange();
-        if (fireUpdate) {
-            this.updates.emit({
-                sort: this.sort,
-                filter: this.filter,
-                globalSearch: this.globalSearch,
-            });
-        }
-    }
-    clearFilter(fireUpdate = true) {
-        this.filter = undefined;
-        this.globalSearch = undefined;
-        this.page = 0;
-        this.selectedRows.clear();
-        this.resetSource.next();
-        this.onSortFilterChange();
-        if (fireUpdate) {
-            this.updates.emit({
-                sort: this.sort,
-                filter: this.filter,
-                globalSearch: this.globalSearch,
-            });
-        }
-    }
-    onSelectionChange() {
-        this.selectionSource.next();
-    }
-    onExpandChange(targetId) {
-        this.expandSource.next(targetId);
-    }
-    onPaginationChange(isPageSizeChange, pageSize) {
-        this.paginationSource.next({ isPageSizeChange, pageSize });
-    }
-    onSortFilterChange() {
-        this.sortFilterSource.next({
-            sort: this.sort,
-            filter: this.filter,
-            globalSearch: this.globalSearch,
-        });
-    }
-    setInitialSortFilter(preferences) {
-        if (preferences) {
-            if (preferences.sort) {
-                this.sort = preferences.sort;
-            }
-            if (preferences.filter) {
-                const filters = Helpers.convertToArray(preferences.filter);
-                filters.forEach((filter) => {
-                    filter.value =
-                        filter.selectedOption && filter.type
-                            ? NovoDataTableFilterUtils.constructFilter(filter.selectedOption, filter.type)
-                            : filter.value;
-                });
-                this.filter = filters;
-            }
-        }
-    }
-}
-DataTableState.ɵfac = function DataTableState_Factory(t) { return new (t || DataTableState)(); };
-DataTableState.ɵprov = ɵngcc0.ɵɵdefineInjectable({ token: DataTableState, factory: DataTableState.ɵfac });
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(DataTableState, [{
-        type: Injectable
-    }], function () { return []; }, null); })();
-
-class NovoDataTableClearButton {
-    constructor(state, ref, labels) {
-        this.state = state;
-        this.ref = ref;
-        this.labels = labels;
-        this.sortClear = new EventEmitter();
-        this.filterClear = new EventEmitter();
-        this.allClear = new EventEmitter();
-    }
-    clearSort() {
-        this.state.clearSort();
-        this.sortClear.emit(true);
-    }
-    clearFilter() {
-        this.state.clearFilter();
-        this.filterClear.emit(true);
-    }
-    clearAll() {
-        this.state.reset();
-        this.allClear.emit(true);
-        this.sortClear.emit(true);
-        this.filterClear.emit(true);
-    }
-}
-NovoDataTableClearButton.ɵfac = function NovoDataTableClearButton_Factory(t) { return new (t || NovoDataTableClearButton)(ɵngcc0.ɵɵdirectiveInject(DataTableState), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef), ɵngcc0.ɵɵdirectiveInject(NovoLabelService)); };
-NovoDataTableClearButton.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDataTableClearButton, selectors: [["novo-data-table-clear-button"]], outputs: { sortClear: "sortClear", filterClear: "filterClear", allClear: "allClear" }, decls: 7, vars: 4, consts: [["side", "bottom-right", "data-automation-id", "novo-data-table-clear-dropdown", 1, "novo-data-table-clear-button"], ["type", "button", "theme", "primary", "color", "negative", "icon", "collapse", "data-automation-id", "novo-data-table-clear-dropdown-btn"], ["data-automation-id", "novo-data-table-clear-dropdown-clear-sort", 3, "click", 4, "ngIf"], ["data-automation-id", "novo-data-table-clear-dropdown-clear-filter", 3, "click", 4, "ngIf"], ["data-automation-id", "novo-data-table-clear-dropdown-clear-all", 3, "click", 4, "ngIf"], ["data-automation-id", "novo-data-table-clear-dropdown-clear-sort", 3, "click"], ["data-automation-id", "novo-data-table-clear-dropdown-clear-filter", 3, "click"], ["data-automation-id", "novo-data-table-clear-dropdown-clear-all", 3, "click"]], template: function NovoDataTableClearButton_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵelementStart(0, "novo-dropdown", 0);
-        ɵngcc0.ɵɵelementStart(1, "button", 1);
-        ɵngcc0.ɵɵtext(2);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementStart(3, "list");
-        ɵngcc0.ɵɵtemplate(4, NovoDataTableClearButton_item_4_Template, 2, 1, "item", 2);
-        ɵngcc0.ɵɵtemplate(5, NovoDataTableClearButton_item_5_Template, 2, 1, "item", 3);
-        ɵngcc0.ɵɵtemplate(6, NovoDataTableClearButton_item_6_Template, 2, 1, "item", 4);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementEnd();
-    } if (rf & 2) {
-        ɵngcc0.ɵɵadvance(2);
-        ɵngcc0.ɵɵtextInterpolate(ctx.labels.clear);
-        ɵngcc0.ɵɵadvance(2);
-        ɵngcc0.ɵɵproperty("ngIf", ctx.state.sort);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngIf", ctx.state.filter);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngIf", ctx.state.sort && ctx.state.filter);
-    } }, directives: function () { return [NovoDropdownElement, NovoButtonElement, NovoDropdownListElement, ɵngcc1.NgIf, NovoItemElement]; }, encapsulation: 2, changeDetection: 0 });
-NovoDataTableClearButton.ctorParameters = () => [
-    { type: DataTableState },
-    { type: ChangeDetectorRef },
-    { type: NovoLabelService }
-];
-NovoDataTableClearButton.propDecorators = {
-    sortClear: [{ type: Output }],
-    filterClear: [{ type: Output }],
-    allClear: [{ type: Output }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoDataTableClearButton, [{
-        type: Component,
-        args: [{
-                selector: 'novo-data-table-clear-button',
-                template: `
-    <novo-dropdown side="bottom-right" class="novo-data-table-clear-button" data-automation-id="novo-data-table-clear-dropdown">
-      <button type="button" theme="primary" color="negative" icon="collapse" data-automation-id="novo-data-table-clear-dropdown-btn">{{ labels.clear }}</button>
-      <list>
-          <item *ngIf="state.sort" (click)="clearSort()" data-automation-id="novo-data-table-clear-dropdown-clear-sort">{{ labels.clearSort }}</item>
-          <item *ngIf="state.filter" (click)="clearFilter()" data-automation-id="novo-data-table-clear-dropdown-clear-filter">{{ labels.clearFilter }}</item>
-          <item *ngIf="state.sort && state.filter" (click)="clearAll()" data-automation-id="novo-data-table-clear-dropdown-clear-all">{{ labels.clearAllNormalCase }}</item>
-      </list>
-    </novo-dropdown>
-  `,
-                changeDetection: ChangeDetectionStrategy.OnPush
-            }]
-    }], function () { return [{ type: DataTableState }, { type: ɵngcc0.ChangeDetectorRef }, { type: NovoLabelService }]; }, { sortClear: [{
-            type: Output
-        }], filterClear: [{
-            type: Output
-        }], allClear: [{
-            type: Output
-        }] }); })();
-
-class DataTableSource extends DataSource {
-    constructor(tableService, state, ref) {
-        super();
-        this.tableService = tableService;
-        this.state = state;
-        this.ref = ref;
-        this.total = 0;
-        this.currentTotal = 0;
-        this.current = 0;
-        this.loading = false;
-        this.pristine = true;
-        this.totalSet = false;
-    }
-    get totallyEmpty() {
-        return this.total === 0;
-    }
-    get currentlyEmpty() {
-        return this.current === 0;
-    }
-    connect() {
-        const displayDataChanges = [this.state.updates];
-        return merge(...displayDataChanges).pipe(startWith(null), switchMap(() => {
-            this.pristine = false;
-            this.loading = true;
-            return this.tableService.getTableResults(this.state.sort, this.state.filter, this.state.page, this.state.pageSize, this.state.globalSearch, this.state.outsideFilter);
-        }), map((data) => {
-            if (!this.totalSet || this.state.isForceRefresh) {
-                this.total = data.total;
-                this.totalSet = true;
-                this.state.isForceRefresh = false;
-            }
-            else if (data.total > this.total) {
-                this.total = data.total;
-            }
-            this.currentTotal = data.total;
-            this.current = data.results.length;
-            this.data = data.results;
-            // Clear selection
-            this.state.selectedRows.clear();
-            this.state.onSelectionChange();
-            // Mark changes
-            setTimeout(() => {
-                this.ref.markForCheck();
-                setTimeout(() => {
-                    this.loading = false;
-                    this.state.dataLoaded.next();
-                    this.ref.markForCheck();
-                });
-            });
-            return data.results;
-        }), catchError((err, caught) => {
-            console.error(err, caught); // tslint: disable-line
-            this.loading = false;
-            return of(null);
-        }));
-    }
-    disconnect() { }
-}
-
-class StaticDataTableService {
-    constructor(currentData = []) {
-        this.currentData = currentData;
-        this.originalData = [...currentData];
-    }
-    getTableResults(sort, filter, page = 0, pageSize, globalSearch, outsideFilter) {
-        this.currentData = [...this.originalData];
-        let total = this.originalData.length;
-        if (this.currentData.length !== 0) {
-            if (globalSearch) {
-                this.currentData = this.currentData.filter((item) => Object.keys(item).some((key) => `${item[key]}`.toLowerCase().includes(globalSearch.toLowerCase())));
-                total = this.currentData.length;
-            }
-            if (filter) {
-                this.currentData = this.filterData(this.currentData, filter);
-                total = this.currentData.length;
-            }
-            if (sort) {
-                this.currentData = this.currentData.sort(Helpers.sortByField(sort.id, sort.value === 'desc'));
-                total = this.currentData.length;
-            }
-            if (!sort && !filter && !globalSearch && !outsideFilter) {
-                this.currentData = [...this.originalData];
-            }
-            if (!Helpers.isBlank(page) && !Helpers.isBlank(pageSize)) {
-                this.currentData = this.currentData.slice(page * pageSize, (page + 1) * pageSize);
-            }
-        }
-        return of({ results: this.currentData, total });
-    }
-    filterData(currentData, filter) {
-        const filters = Helpers.convertToArray(filter);
-        filters.forEach((aFilter) => {
-            if (Array.isArray(aFilter.value)) {
-                const values = Helpers.convertToArray(aFilter.value).map(Helpers.escapeString);
-                currentData = currentData.filter(Helpers.filterByField(aFilter.id, values));
-            }
-            else {
-                const value = Helpers.escapeString(aFilter.value);
-                currentData = currentData.filter(Helpers.filterByField(aFilter.id, value));
-            }
-        });
-        return currentData;
-    }
-}
-
-// NG2
-class NovoDropdownElement {
-    constructor(element, ref) {
-        this.element = element;
-        this.ref = ref;
-        this.parentScrollAction = 'close';
-        this.side = 'default';
-        this.scrollStrategy = 'reposition';
-        this.width = -1; // Defaults to dynamic width (no hardcoded width value and no host width lookup)
-        this.appendToBody = false; // Deprecated
-        this.toggled = new EventEmitter();
-        this.activeIndex = -1;
-        this.filterTerm = '';
-        this.clickHandler = this.togglePanel.bind(this);
-        this.closeHandler = this.closePanel.bind(this);
-    }
-    ngOnInit() {
-        if (this.appendToBody) {
-            notify(`'appendToBody' has been deprecated. Please remove this attribute.`);
-        }
-        // Add a click handler to the button to toggle the menu
-        const button = this.element.nativeElement.querySelector('button');
-        button.addEventListener('click', this.clickHandler);
-        if (this.parentScrollSelector) {
-            this.parentScrollElement = Helpers.findAncestor(this.element.nativeElement, this.parentScrollSelector);
-        }
-    }
-    ngOnDestroy() {
-        // Remove listener
-        const button = this.element.nativeElement.querySelector('button');
-        if (button) {
-            button.removeEventListener('click', this.clickHandler);
-        }
-        if (this.parentScrollElement && this.parentScrollAction === 'close') {
-            this.parentScrollElement.removeEventListener('scroll', this.closeHandler);
-        }
-    }
-    set items(items) {
-        this._items = items;
-        this.activeIndex = -1;
-        // Get the innerText of all the items to allow for searching
-        this._textItems = items.map((item) => {
-            return item.element.nativeElement.innerText;
-        });
-    }
-    /** BEGIN: Convenient Panel Methods. */
-    get panelOpen() {
-        return this.overlay && this.overlay.panelOpen;
-    }
-    openPanel() {
-        this.overlay.openPanel();
-        if (this.parentScrollElement && this.parentScrollAction === 'close') {
-            this.parentScrollElement.addEventListener('scroll', this.closeHandler);
-        }
-        this.toggled.emit(true);
-    }
-    closePanel() {
-        this.overlay.closePanel();
-        if (this.parentScrollElement && this.parentScrollAction === 'close') {
-            this.parentScrollElement.removeEventListener('scroll', this.closeHandler);
-        }
-        // Clear active index
-        if (this.activeIndex !== -1) {
-            this._items.toArray()[this.activeIndex].active = false;
-        }
-        this.activeIndex = -1;
-        this.ref.markForCheck();
-        this.toggled.emit(false);
-    }
-    togglePanel() {
-        this.panelOpen ? this.closePanel() : this.openPanel();
-    }
-    /** END: Convenient Panel Methods. */
-    onKeyDown(event) {
-        if (this.panelOpen && event.keyCode === KeyCodes.ESC) {
-            Helpers.swallowEvent(event);
-            // active & esc hit -- close
-            this.closePanel();
-        }
-        else if (event.keyCode === KeyCodes.ENTER) {
-            Helpers.swallowEvent(event);
-            // enter -- perform the "click"
-            this._items.toArray()[this.activeIndex].onClick(event);
-        }
-        else if (event.keyCode === KeyCodes.DOWN) {
-            Helpers.swallowEvent(event);
-            // down - navigate through the list ignoring disabled ones
-            if (this.activeIndex !== -1) {
-                this._items.toArray()[this.activeIndex].active = false;
-            }
-            this.activeIndex++;
-            if (this.activeIndex === this._items.length) {
-                this.activeIndex = 0;
-            }
-            while (this._items.toArray()[this.activeIndex].disabled) {
-                this.activeIndex++;
-                if (this.activeIndex === this._items.length) {
-                    this.activeIndex = 0;
-                }
-            }
-            this._items.toArray()[this.activeIndex].active = true;
-            this.scrollToActive();
-        }
-        else if (event.keyCode === KeyCodes.UP) {
-            Helpers.swallowEvent(event);
-            // up -- navigate through the list ignoring disabled ones
-            if (this.activeIndex !== -1) {
-                this._items.toArray()[this.activeIndex].active = false;
-            }
-            this.activeIndex--;
-            if (this.activeIndex < 0) {
-                this.activeIndex = this._items.length - 1;
-            }
-            while (this._items.toArray()[this.activeIndex].disabled) {
-                this.activeIndex--;
-                if (this.activeIndex < 0) {
-                    this.activeIndex = this._items.length - 1;
-                }
-            }
-            this._items.toArray()[this.activeIndex].active = true;
-            this.scrollToActive();
-        }
-        else if ((event.keyCode >= 65 && event.keyCode <= 90) ||
-            (event.keyCode >= 96 && event.keyCode <= 105) ||
-            (event.keyCode >= 48 && event.keyCode <= 57) ||
-            event.keyCode === KeyCodes.SPACE) {
-            Helpers.swallowEvent(event);
-            // A-Z, 0-9, space -- filter the list and scroll to active filter
-            // filter has hard reset after 2s
-            clearTimeout(this.filterTermTimeout);
-            this.filterTermTimeout = setTimeout(() => {
-                this.filterTerm = '';
-            }, 2000);
-            const char = event.key;
-            this.filterTerm = this.filterTerm.concat(char);
-            const index = this._textItems.findIndex((value) => {
-                return new RegExp(`^${this.filterTerm.toLowerCase()}`).test(value.trim().toLowerCase());
-            });
-            if (index !== -1) {
-                if (this.activeIndex !== -1) {
-                    this._items.toArray()[this.activeIndex].active = false;
-                }
-                this.activeIndex = index;
-                this._items.toArray()[this.activeIndex].active = true;
-                this.scrollToActive();
-            }
-        }
-        else if ([KeyCodes.BACKSPACE, KeyCodes.DELETE].includes(event.keyCode)) {
-            Helpers.swallowEvent(event);
-            // backspace, delete -- remove partial filters
-            clearTimeout(this.filterTermTimeout);
-            this.filterTermTimeout = setTimeout(() => {
-                this.filterTerm = '';
-            }, 2000);
-            this.filterTerm = this.filterTerm.slice(0, -1);
-        }
-    }
-    onOverlayKeyDown(event) {
-        if (event.keyCode === KeyCodes.ESC || event.keyCode === KeyCodes.ENTER) {
-            Helpers.swallowEvent(event);
-            this.closePanel();
-        }
-    }
-    scrollToActive() {
-        const container = this.overlay.overlayRef.overlayElement.querySelector('.dropdown-container');
-        const item = this._items.toArray()[this.activeIndex];
-        if (container && item) {
-            container.scrollTop = item.element.nativeElement.offsetTop;
-        }
-    }
-}
-NovoDropdownElement.ɵfac = function NovoDropdownElement_Factory(t) { return new (t || NovoDropdownElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef)); };
-NovoDropdownElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDropdownElement, selectors: [["novo-dropdown"]], viewQuery: function NovoDropdownElement_Query(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵviewQuery(NovoOverlayTemplateComponent, true);
-    } if (rf & 2) {
-        var _t;
-        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.overlay = _t.first);
-    } }, hostBindings: function NovoDropdownElement_HostBindings(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵlistener("keydown", function NovoDropdownElement_keydown_HostBindingHandler($event) { return ctx.onKeyDown($event); });
-    } }, inputs: { parentScrollAction: "parentScrollAction", side: "side", scrollStrategy: "scrollStrategy", width: "width", appendToBody: "appendToBody", parentScrollSelector: "parentScrollSelector", containerClass: "containerClass", height: "height" }, outputs: { toggled: "toggled" }, ngContentSelectors: _c32, decls: 4, vars: 11, consts: [[3, "parent", "width", "position", "scrollStrategy"], [3, "keydown"]], template: function NovoDropdownElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef(_c31);
-        ɵngcc0.ɵɵprojection(0, 0, ["#trigger", ""]);
-        ɵngcc0.ɵɵelementStart(1, "novo-overlay-template", 0);
-        ɵngcc0.ɵɵelementStart(2, "div", 1);
-        ɵngcc0.ɵɵlistener("keydown", function NovoDropdownElement_Template_div_keydown_2_listener($event) { return ctx.onOverlayKeyDown($event); });
-        ɵngcc0.ɵɵprojection(3, 1);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementEnd();
-    } if (rf & 2) {
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("parent", ctx.element)("width", ctx.width)("position", ctx.side)("scrollStrategy", ctx.scrollStrategy);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵclassMapInterpolate1("dropdown-container ", ctx.containerClass, "");
-        ɵngcc0.ɵɵstyleProp("height", ctx.height, "px");
-        ɵngcc0.ɵɵclassProp("has-height", !!ctx.height);
-    } }, directives: [NovoOverlayTemplateComponent], encapsulation: 2 });
-NovoDropdownElement.ctorParameters = () => [
-    { type: ElementRef },
-    { type: ChangeDetectorRef }
-];
-NovoDropdownElement.propDecorators = {
-    parentScrollSelector: [{ type: Input }],
-    parentScrollAction: [{ type: Input }],
-    containerClass: [{ type: Input }],
-    side: [{ type: Input }],
-    scrollStrategy: [{ type: Input }],
-    height: [{ type: Input }],
-    width: [{ type: Input }],
-    appendToBody: [{ type: Input }],
-    toggled: [{ type: Output }],
-    overlay: [{ type: ViewChild, args: [NovoOverlayTemplateComponent,] }],
-    onKeyDown: [{ type: HostListener, args: ['keydown', ['$event'],] }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoDropdownElement, [{
-        type: Component,
-        args: [{
-                selector: 'novo-dropdown',
-                template: `
-    <ng-content select="button" #trigger></ng-content>
-    <novo-overlay-template [parent]="element" [width]="width" [position]="side" [scrollStrategy]="scrollStrategy">
-      <div
-        class="dropdown-container {{ containerClass }}"
-        [style.height.px]="height"
-        [class.has-height]="!!height"
-        (keydown)="onOverlayKeyDown($event)"
-      >
-        <ng-content></ng-content>
-      </div>
-    </novo-overlay-template>
-  `
-            }]
-    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: ɵngcc0.ChangeDetectorRef }]; }, { parentScrollAction: [{
-            type: Input
-        }], side: [{
-            type: Input
-        }], scrollStrategy: [{
-            type: Input
-        }], width: [{
-            type: Input
-        }], appendToBody: [{
-            type: Input
-        }], toggled: [{
-            type: Output
-        }], 
-    /** END: Convenient Panel Methods. */
-    onKeyDown: [{
-            type: HostListener,
-            args: ['keydown', ['$event']]
-        }], parentScrollSelector: [{
-            type: Input
-        }], containerClass: [{
-            type: Input
-        }], height: [{
-            type: Input
-        }], overlay: [{
-            type: ViewChild,
-            args: [NovoOverlayTemplateComponent]
-        }] }); })();
-class NovoItemElement {
-    constructor(dropdown, element) {
-        this.dropdown = dropdown;
-        this.element = element;
-        this.keepOpen = false;
-        this.action = new EventEmitter();
-        this.active = false;
-    }
-    onClick(event) {
-        // Poor man's disable
-        if (!this.disabled) {
-            // Close if keepOpen is false
-            if (!this.keepOpen) {
-                this.dropdown.closePanel();
-            }
-            // Emit the action
-            this.action.emit({ originalEvent: event });
-        }
-    }
-}
-NovoItemElement.ɵfac = function NovoItemElement_Factory(t) { return new (t || NovoItemElement)(ɵngcc0.ɵɵdirectiveInject(NovoDropdownElement), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef)); };
-NovoItemElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoItemElement, selectors: [["item"]], hostVars: 4, hostBindings: function NovoItemElement_HostBindings(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵlistener("click", function NovoItemElement_click_HostBindingHandler($event) { return ctx.onClick($event); });
-    } if (rf & 2) {
-        ɵngcc0.ɵɵclassProp("disabled", ctx.disabled)("active", ctx.active);
-    } }, inputs: { keepOpen: "keepOpen", disabled: "disabled" }, outputs: { action: "action" }, ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoItemElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef();
-        ɵngcc0.ɵɵprojection(0);
-    } }, encapsulation: 2 });
-NovoItemElement.ctorParameters = () => [
-    { type: NovoDropdownElement },
-    { type: ElementRef }
-];
-NovoItemElement.propDecorators = {
-    disabled: [{ type: Input }],
-    keepOpen: [{ type: Input }],
-    action: [{ type: Output }],
-    onClick: [{ type: HostListener, args: ['click', ['$event'],] }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoItemElement, [{
-        type: Component,
-        args: [{
-                selector: 'item',
-                template: '<ng-content></ng-content>',
-                host: {
-                    '[class.disabled]': 'disabled',
-                    '[class.active]': 'active'
-                }
-            }]
-    }], function () { return [{ type: NovoDropdownElement }, { type: ɵngcc0.ElementRef }]; }, { keepOpen: [{
-            type: Input
-        }], action: [{
-            type: Output
-        }], onClick: [{
-            type: HostListener,
-            args: ['click', ['$event']]
-        }], disabled: [{
-            type: Input
-        }] }); })();
-class NovoDropdownListElement {
-    constructor(dropdown) {
-        this.dropdown = dropdown;
-    }
-    ngAfterContentInit() {
-        this.dropdown.items = this.items;
-        this.items.changes.subscribe(() => {
-            this.dropdown.items = this.items;
-        });
-    }
-}
-NovoDropdownListElement.ɵfac = function NovoDropdownListElement_Factory(t) { return new (t || NovoDropdownListElement)(ɵngcc0.ɵɵdirectiveInject(NovoDropdownElement)); };
-NovoDropdownListElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDropdownListElement, selectors: [["list"]], contentQueries: function NovoDropdownListElement_ContentQueries(rf, ctx, dirIndex) { if (rf & 1) {
-        ɵngcc0.ɵɵcontentQuery(dirIndex, NovoItemElement, false);
-    } if (rf & 2) {
-        var _t;
-        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.items = _t);
-    } }, ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoDropdownListElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef();
-        ɵngcc0.ɵɵprojection(0);
-    } }, encapsulation: 2 });
-NovoDropdownListElement.ctorParameters = () => [
-    { type: NovoDropdownElement }
-];
-NovoDropdownListElement.propDecorators = {
-    items: [{ type: ContentChildren, args: [NovoItemElement,] }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoDropdownListElement, [{
-        type: Component,
-        args: [{
-                selector: 'list',
-                template: '<ng-content></ng-content>'
-            }]
-    }], function () { return [{ type: NovoDropdownElement }]; }, { items: [{
-            type: ContentChildren,
-            args: [NovoItemElement]
-        }] }); })();
-class NovoDropDownItemHeaderElement {
-}
-NovoDropDownItemHeaderElement.ɵfac = function NovoDropDownItemHeaderElement_Factory(t) { return new (t || NovoDropDownItemHeaderElement)(); };
-NovoDropDownItemHeaderElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDropDownItemHeaderElement, selectors: [["dropdown-item-header"]], ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoDropDownItemHeaderElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef();
-        ɵngcc0.ɵɵprojection(0);
-    } }, encapsulation: 2 });
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoDropDownItemHeaderElement, [{
-        type: Component,
-        args: [{
-                selector: 'dropdown-item-header',
-                template: '<ng-content></ng-content>'
-            }]
-    }], null, null); })();
-
-class NovoDataTableSortFilter {
-    constructor(state) {
-        this.state = state;
-    }
-    filter(id, type, value, transform, allowMultipleFilters = false, selectedOption) {
-        let filter;
-        if (allowMultipleFilters) {
-            filter = this.resolveMultiFilter(id, type, value, transform, selectedOption);
-        }
-        else {
-            if (!Helpers.isBlank(value)) {
-                filter = Object.assign({ id, type, value, transform }, (selectedOption && { selectedOption }));
-            }
-            else {
-                filter = undefined;
-            }
-        }
-        this.state.filter = filter;
-        this.state.reset(false, true);
-        this.state.updates.next({ filter, sort: this.state.sort });
-        this.state.onSortFilterChange();
-    }
-    sort(id, value, transform) {
-        const sort = { id, value, transform };
-        this.state.sort = sort;
-        this.state.reset(false, true);
-        this.state.updates.next({ sort, filter: this.state.filter });
-        this.state.onSortFilterChange();
-    }
-    resolveMultiFilter(id, type, value, transform, selectedOption) {
-        let filter;
-        filter = Helpers.convertToArray(this.state.filter);
-        const filterIndex = filter.findIndex((aFilter) => aFilter && aFilter.id === id);
-        if (filterIndex > -1) {
-            filter.splice(filterIndex, 1);
-        }
-        if (!Helpers.isBlank(value)) {
-            filter = [...filter, Object.assign({ id, type, value, transform }, (selectedOption && { selectedOption }))];
-        }
-        if (filter.length < 1) {
-            filter = undefined;
-        }
-        return filter;
-    }
-}
-NovoDataTableSortFilter.ɵfac = function NovoDataTableSortFilter_Factory(t) { return new (t || NovoDataTableSortFilter)(ɵngcc0.ɵɵdirectiveInject(DataTableState)); };
-NovoDataTableSortFilter.ɵdir = ɵngcc0.ɵɵdefineDirective({ type: NovoDataTableSortFilter, selectors: [["", "novoDataTableSortFilter", ""]] });
-NovoDataTableSortFilter.ctorParameters = () => [
-    { type: DataTableState }
-];
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoDataTableSortFilter, [{
-        type: Directive,
-        args: [{
-                selector: '[novoDataTableSortFilter]'
-            }]
-    }], function () { return [{ type: DataTableState }]; }, null); })();
-
-class NovoDataTableCellHeader {
-    constructor(changeDetectorRef, labels, state, renderer, elementRef, _sort, _cdkColumnDef) {
-        this.changeDetectorRef = changeDetectorRef;
-        this.labels = labels;
-        this.state = state;
-        this.renderer = renderer;
-        this.elementRef = elementRef;
-        this._sort = _sort;
-        this._cdkColumnDef = _cdkColumnDef;
-        this.allowMultipleFilters = false;
-        this.icon = 'sortable';
-        this.filterActive = false;
-        this.sortActive = false;
-        this.showCustomRange = false;
-        this.multiSelect = false;
-        this.multiSelectedOptions = [];
-        this.multiSelectedOptionIsHidden = [];
-        this.optionFilter = '';
-        this.error = false;
-        this.subscriptions = [];
-        this._rerenderSubscription = state.updates.subscribe((change) => this.checkSortFilterState(change));
-    }
-    set column(column) {
-        this._column = column;
-        this.label = column.type === 'action' ? '' : column.label;
-        this.labelIcon = column.labelIcon;
-        this.config = {
-            sortable: !!column.sortable,
-            filterable: !!column.filterable,
-            resizable: !!column.resizable,
-        };
-        this.resizable = this.config.resizable;
-        const transforms = {};
-        if (column.filterable && Helpers.isObject(column.filterable)) {
-            this.config.filterConfig = column.filterable;
-            if (!this.config.filterConfig.type) {
-                this.config.filterConfig = { type: 'text' };
-            }
-            if (column.filterable.transform) {
-                transforms.filter = column.filterable.transform;
-            }
-        }
-        else {
-            this.config.filterConfig = { type: 'text' };
-        }
-        if (column.sortable && Helpers.isObject(column.sortable)) {
-            if (column.sortable.transform) {
-                transforms.sort = column.sortable.transform;
-            }
-        }
-        if (this.config.filterConfig.type === 'date' && !this.config.filterConfig.options) {
-            this.config.filterConfig.options = this.getDefaultDateFilterOptions();
-        }
-        this.config.transforms = transforms;
-    }
-    ngOnInit() {
-        if (this._cdkColumnDef) {
-            this.id = this._cdkColumnDef.name;
-        }
-        this.setupFilterOptions();
-        this.changeDetectorRef.markForCheck();
-    }
-    setupFilterOptions() {
-        this.checkSortFilterState({ filter: this.state.filter, sort: this.state.sort }, true);
-        this.multiSelect = this.config.filterConfig && this.config.filterConfig.type ? this.config.filterConfig.type === 'multi-select' : false;
-        if (this.multiSelect) {
-            this.multiSelectedOptions = this.filter ? [...this.filter] : [];
-        }
-    }
-    ngOnDestroy() {
-        this._rerenderSubscription.unsubscribe();
-        this.subscriptions.forEach((subscription) => {
-            subscription.unsubscribe();
-        });
-    }
-    checkSortFilterState(sortFilterState, initialConfig = false) {
-        if (sortFilterState.sort && sortFilterState.sort.id === this.id) {
-            this.icon = `sort-${sortFilterState.sort.value}`;
-            this.sortActive = true;
-        }
-        else {
-            this.icon = 'sortable';
-            this.sortActive = false;
-        }
-        const tableFilter = Helpers.convertToArray(sortFilterState.filter);
-        const thisFilter = tableFilter.find((filter) => filter && filter.id === this.id);
-        if (thisFilter) {
-            this.filterActive = true;
-            if (initialConfig && thisFilter.type === 'date' && thisFilter.selectedOption) {
-                this.activeDateFilter = thisFilter.selectedOption.label || this.labels.customDateRange;
-            }
-            this.filter = thisFilter.value;
-        }
-        else {
-            this.filterActive = false;
-            this.filter = undefined;
-            this.activeDateFilter = undefined;
-            this.multiSelectedOptions = [];
-        }
-        if (this.defaultSort && this.id === this.defaultSort.id) {
-            this.icon = `sort-${this.defaultSort.value}`;
-            this.sortActive = true;
-        }
-        this.multiSelect = this.config.filterConfig && this.config.filterConfig.type ? this.config.filterConfig.type === 'multi-select' : false;
-        if (this.multiSelect) {
-            this.multiSelectedOptions = this.filter ? [...this.filter] : [];
-            if (this.config.filterConfig.options) {
-                if (typeof this.config.filterConfig.options[0] === 'string') {
-                    this.multiSelectedOptionIsHidden = this.config.filterConfig.options.map((option) => ({ option, hidden: false }));
-                }
-                else {
-                    this.multiSelectedOptionIsHidden = this.config.filterConfig.options.map((option) => ({
-                        option,
-                        hidden: false,
-                    }));
-                }
-            }
-        }
-        this.changeDetectorRef.markForCheck();
-    }
-    isSelected(option, optionsList) {
-        if (optionsList) {
-            const optionValue = option.hasOwnProperty('value') ? option.value : option;
-            const found = optionsList.find((item) => this.optionPresentCheck(item, optionValue));
-            return found !== undefined;
-        }
-        return false;
-    }
-    toggleSelection(option) {
-        const optionValue = option.hasOwnProperty('value') ? option.value : option;
-        const optionIndex = this.multiSelectedOptions.findIndex((item) => this.optionPresentCheck(item, optionValue));
-        this.error = false;
-        if (optionIndex > -1) {
-            this.multiSelectedOptions.splice(optionIndex, 1);
-            if (this.optionFilter &&
-                !this.getOptionText(option)
-                    .toLowerCase()
-                    .startsWith(this.optionFilter.toLowerCase())) {
-                this.multiSelectedOptionIsHidden[this.multiSelectedOptionIsHidden.findIndex((record) => record.option === option)].hidden = true;
-            }
-        }
-        else {
-            this.multiSelectedOptions.push(optionValue);
-        }
-    }
-    optionPresentCheck(item, optionValue) {
-        if (item.hasOwnProperty('value')) {
-            return item.value === optionValue;
-        }
-        else {
-            return item === optionValue;
-        }
-    }
-    cancel() {
-        this.multiSelectedOptions = this.filter ? [...this.filter] : [];
-        this.dropdown.closePanel();
-        this.clearOptionFilter();
-    }
-    filterMultiSelect() {
-        if (this.multiSelectedOptions.length === 0 && !this.filter) {
-            this.multiSelectHasVisibleOptions() && this.dropdown ? (this.error = true) : null;
-        }
-        else {
-            this.clearOptionFilter();
-            const actualFilter = this.multiSelectedOptions.length > 0 ? [...this.multiSelectedOptions] : undefined;
-            this.filterData(actualFilter);
-            this.dropdown.closePanel();
-        }
-    }
-    multiSelectOptionFilter(optionFilter) {
-        this.multiSelectedOptionIsHidden.forEach((record) => {
-            if (record.option) {
-                record.hidden = !(this.getOptionText(record.option)
-                    .toLowerCase()
-                    .startsWith(optionFilter.toLowerCase()) || this.isSelected(record.option, this.multiSelectedOptions));
-            }
-        });
-    }
-    multiSelectOptionIsHidden(option) {
-        return this.multiSelectedOptionIsHidden.find((record) => record.option === option).hidden;
-    }
-    multiSelectHasVisibleOptions() {
-        return this.multiSelectedOptionIsHidden.some((record) => !record.hidden);
-    }
-    getOptionText(option) {
-        if (typeof option !== 'object') {
-            return option.toString();
-        }
-        else {
-            const opt = option;
-            return (opt.label.length > 0 ? opt.label : opt.value).toString();
-        }
-    }
-    multiSelectOptionFilterHandleKeydown(event) {
-        if (this.multiSelect) {
-            this.error = false;
-            if (this.dropdown.panelOpen && event.keyCode === KeyCodes.ESC) {
-                // escape = clear text box and close
-                Helpers.swallowEvent(event);
-                this.clearOptionFilter();
-                this.dropdown.closePanel();
-            }
-            else if (event.keyCode === KeyCodes.ENTER) {
-                Helpers.swallowEvent(event);
-                this.filterMultiSelect();
-            }
-            else if ((event.keyCode >= 65 && event.keyCode <= 90) ||
-                (event.keyCode >= 96 && event.keyCode <= 105) ||
-                (event.keyCode >= 48 && event.keyCode <= 57)) {
-                this.optionFilterInput.nativeElement.focus();
-            }
-        }
-    }
-    clearOptionFilter() {
-        this.error = false;
-        if (this.optionFilter.length > 0) {
-            this.optionFilter = '';
-            this.multiSelectedOptionIsHidden.forEach((record) => {
-                record.hidden = false;
-            });
-        }
-    }
-    startResize(mouseDownEvent) {
-        mouseDownEvent.preventDefault();
-        const minimumWidth = 60 + (this.config.filterable ? 30 : 0) + (this.config.sortable ? 30 : 0);
-        const startingWidth = this.elementRef.nativeElement.getBoundingClientRect().width;
-        const mouseMoveSubscription = fromEvent(window.document, 'mousemove').subscribe((middleMouseEvent) => {
-            const differenceWidth = middleMouseEvent.clientX - mouseDownEvent.clientX;
-            let width = startingWidth + differenceWidth;
-            if (width < minimumWidth) {
-                width = minimumWidth;
-            }
-            this._column.width = width;
-            this.renderer.setStyle(this.elementRef.nativeElement, 'min-width', `${this._column.width}px`);
-            this.renderer.setStyle(this.elementRef.nativeElement, 'max-width', `${this._column.width}px`);
-            this.renderer.setStyle(this.elementRef.nativeElement, 'width', `${this._column.width}px`);
-            this.changeDetectorRef.markForCheck();
-            this.resized.next(this._column);
-        });
-        const mouseUpSubscription = fromEvent(window.document, 'mouseup').subscribe(() => {
-            mouseUpSubscription.unsubscribe();
-            mouseMoveSubscription.unsubscribe();
-            this.changeDetectorRef.markForCheck();
-        });
-        this.subscriptions.push(mouseMoveSubscription);
-        this.subscriptions.push(mouseUpSubscription);
-    }
-    toggleCustomRange(event, value) {
-        Helpers.swallowEvent(event);
-        this.showCustomRange = value;
-        this.changeDetectorRef.markForCheck();
-        this.dropdown.openPanel(); // Ensures that the panel correctly updates to the dynamic size of the dropdown
-    }
-    focusInput() {
-        if (this.filterInput && this.filterInput.nativeElement) {
-            setTimeout(() => this.filterInput.nativeElement.focus(), 0);
-        }
-        if (this.multiSelect && this.dropdown) {
-            this.dropdown.onKeyDown = (event) => {
-                this.multiSelectOptionFilterHandleKeydown(event);
-            };
-            setTimeout(() => this.optionFilterInput.nativeElement.focus(), 0);
-            this.changeDetectorRef.markForCheck();
-        }
-    }
-    sort() {
-        if (this.changeTimeout) {
-            clearTimeout(this.changeTimeout);
-        }
-        this.changeTimeout = setTimeout(() => {
-            this.direction = this.getNextSortDirection(this.direction);
-            this._sort.sort(this.id, this.direction, this.config.transforms.sort);
-            this.changeDetectorRef.markForCheck();
-        }, 300);
-    }
-    filterData(filter) {
-        let actualFilter = NovoDataTableFilterUtils.constructFilter(filter, this.config.filterConfig.type, this.multiSelect);
-        const selectedOption = this.config.filterConfig.type === 'date' && filter ? filter : undefined;
-        if (this.changeTimeout) {
-            clearTimeout(this.changeTimeout);
-        }
-        this.changeTimeout = setTimeout(() => {
-            if (actualFilter === '') {
-                actualFilter = undefined;
-            }
-            this._sort.filter(this.id, this.config.filterConfig.type, actualFilter, this.config.transforms.filter, this.allowMultipleFilters, selectedOption);
-            this.changeDetectorRef.markForCheck();
-        }, 300);
-    }
-    clearFilter() {
-        this.filter = undefined;
-        this.multiSelectedOptions = [];
-        this.activeDateFilter = undefined;
-        this.filterData(undefined);
-        this.clearOptionFilter();
-        this.dropdown.closePanel();
-    }
-    getNextSortDirection(direction) {
-        if (!direction) {
-            return 'asc';
-        }
-        if (direction === 'asc') {
-            return 'desc';
-        }
-        return 'asc';
-    }
-    getDefaultDateFilterOptions() {
-        const opts = [
-            { label: this.labels.past1Day, min: -1, max: 0 },
-            { label: this.labels.past7Days, min: -7, max: 0 },
-            { label: this.labels.past30Days, min: -30, max: 0 },
-            { label: this.labels.past90Days, min: -90, max: 0 },
-            { label: this.labels.past1Year, min: -366, max: 0 },
-            { label: this.labels.next1Day, min: 0, max: 1 },
-            { label: this.labels.next7Days, min: 0, max: 7 },
-            { label: this.labels.next30Days, min: 0, max: 30 },
-            { label: this.labels.next90Days, min: 0, max: 90 },
-            { label: this.labels.next1Year, min: 0, max: 366 },
-        ];
-        return opts;
-    }
-}
-NovoDataTableCellHeader.ɵfac = function NovoDataTableCellHeader_Factory(t) { return new (t || NovoDataTableCellHeader)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef), ɵngcc0.ɵɵdirectiveInject(NovoLabelService), ɵngcc0.ɵɵdirectiveInject(DataTableState), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(NovoDataTableSortFilter, 8), ɵngcc0.ɵɵdirectiveInject(ɵngcc5.CdkColumnDef, 8)); };
-NovoDataTableCellHeader.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDataTableCellHeader, selectors: [["", "novo-data-table-cell-config", ""]], viewQuery: function NovoDataTableCellHeader_Query(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵviewQuery(_c33, true);
-        ɵngcc0.ɵɵviewQuery(NovoDropdownElement, true);
-        ɵngcc0.ɵɵviewQuery(_c34, true);
-    } if (rf & 2) {
-        var _t;
-        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.filterInput = _t.first);
-        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.dropdown = _t.first);
-        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.optionFilterInput = _t.first);
-    } }, hostVars: 2, hostBindings: function NovoDataTableCellHeader_HostBindings(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵlistener("keydown", function NovoDataTableCellHeader_keydown_HostBindingHandler($event) { return ctx.multiSelectOptionFilterHandleKeydown($event); });
-    } if (rf & 2) {
-        ɵngcc0.ɵɵclassProp("resizable", ctx.resizable);
-    } }, inputs: { allowMultipleFilters: "allowMultipleFilters", column: ["novo-data-table-cell-config", "column"], defaultSort: "defaultSort", resized: "resized", filterTemplate: "filterTemplate" }, attrs: _c35, decls: 8, vars: 5, consts: [["data-automation-id", "novo-data-table-header-icon", 3, "class", 4, "ngIf"], ["data-automation-id", "novo-data-table-label"], ["tooltipPosition", "right", "theme", "icon", "data-automation-id", "novo-data-table-sort", 3, "tooltip", "icon", "active", "click", 4, "ngIf"], ["side", "right", "parentScrollSelector", ".novo-data-table-container", "containerClass", "data-table-dropdown", "data-automation-id", "novo-data-table-filter", 4, "ngIf"], [1, "spacer"], ["class", "data-table-header-resizable", 4, "ngIf"], ["data-automation-id", "novo-data-table-header-icon"], ["tooltipPosition", "right", "theme", "icon", "data-automation-id", "novo-data-table-sort", 3, "tooltip", "icon", "click"], ["side", "right", "parentScrollSelector", ".novo-data-table-container", "containerClass", "data-table-dropdown", "data-automation-id", "novo-data-table-filter"], ["type", "button", "theme", "icon", "icon", "filter", "tooltipPosition", "right", 3, "tooltip", "click"], [1, "header"], ["theme", "dialogue", "color", "negative", "icon", "times", "data-automation-id", "novo-data-table-filter-clear", 3, "click", 4, "ngIf"], [3, "ngSwitch"], [4, "ngSwitchCase"], [4, "ngSwitchDefault"], ["class", "footer", 4, "ngIf"], ["theme", "dialogue", "color", "negative", "icon", "times", "data-automation-id", "novo-data-table-filter-clear", 3, "click"], [4, "ngIf"], [3, "active", "keepOpen", "click", 4, "ngIf"], ["class", "calendar-container", 4, "ngIf"], [3, "active", "click", 4, "ngFor", "ngForOf"], [3, "click"], ["class", "bhi-check", 4, "ngIf"], [1, "bhi-check"], [3, "keepOpen", "click"], [1, "calendar-container"], [1, "bhi-previous"], ["range", "true", 3, "ngModel", "onSelect", "ngModelChange"], [1, "dropdown-list-filter", 3, "keydown"], ["keepOpen", "true", 1, "filter-search"], ["data-automation-id", "novo-data-table-multi-select-option-filter-input", 3, "ngModel", "ngModelChange"], ["optionFilterInput", ""], [1, "bhi-search"], [1, "error-text", 3, "hidden"], [1, "dropdown-list-options"], [3, "hidden", "keepOpen", "click", 4, "ngFor", "ngForOf"], [1, "filter-null-results", 3, "hidden"], [3, "hidden", "keepOpen", "click"], [4, "ngTemplateOutlet", "ngTemplateOutletContext"], ["data-automation-id", "novo-data-table-filter-input", 3, "type", "ngModel", "ngModelChange"], ["filterInput", ""], [1, "footer"], ["theme", "dialogue", "color", "dark", "data-automation-id", "novo-data-table-multi-select-cancel", 3, "click"], ["theme", "dialogue", "color", "positive", "data-automation-id", "novo-data-table-multi-select-filter", 3, "click"], [1, "data-table-header-resizable"], [3, "mousedown"]], template: function NovoDataTableCellHeader_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵtemplate(0, NovoDataTableCellHeader_i_0_Template, 1, 3, "i", 0);
-        ɵngcc0.ɵɵelementStart(1, "label", 1);
-        ɵngcc0.ɵɵtext(2);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementStart(3, "div");
-        ɵngcc0.ɵɵtemplate(4, NovoDataTableCellHeader_button_4_Template, 1, 5, "button", 2);
-        ɵngcc0.ɵɵtemplate(5, NovoDataTableCellHeader_novo_dropdown_5_Template, 13, 12, "novo-dropdown", 3);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelement(6, "div", 4);
-        ɵngcc0.ɵɵtemplate(7, NovoDataTableCellHeader_div_7_Template, 3, 0, "div", 5);
-    } if (rf & 2) {
-        ɵngcc0.ɵɵproperty("ngIf", ctx.labelIcon);
-        ɵngcc0.ɵɵadvance(2);
-        ɵngcc0.ɵɵtextInterpolate(ctx.label);
-        ɵngcc0.ɵɵadvance(2);
-        ɵngcc0.ɵɵproperty("ngIf", ctx.config.sortable);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngIf", ctx.config.filterable);
-        ɵngcc0.ɵɵadvance(2);
-        ɵngcc0.ɵɵproperty("ngIf", ctx.config.resizable);
-    } }, directives: function () { return [ɵngcc1.NgIf, NovoButtonElement, TooltipDirective, NovoDropdownElement, ɵngcc1.NgSwitch, ɵngcc1.NgSwitchCase, ɵngcc1.NgSwitchDefault, NovoDropdownListElement, ɵngcc1.NgForOf, NovoItemElement, NovoDatePickerElement, ɵngcc3.NgControlStatus, ɵngcc3.NgModel, ɵngcc3.DefaultValueAccessor, ɵngcc1.NgTemplateOutlet]; }, encapsulation: 2, changeDetection: 0 });
-NovoDataTableCellHeader.ctorParameters = () => [
-    { type: ChangeDetectorRef },
-    { type: NovoLabelService },
-    { type: DataTableState },
-    { type: Renderer2 },
-    { type: ElementRef },
-    { type: NovoDataTableSortFilter, decorators: [{ type: Optional }] },
-    { type: CdkColumnDef, decorators: [{ type: Optional }] }
-];
-NovoDataTableCellHeader.propDecorators = {
-    filterInput: [{ type: ViewChild, args: ['filterInput',] }],
-    dropdown: [{ type: ViewChild, args: [NovoDropdownElement,] }],
-    optionFilterInput: [{ type: ViewChild, args: ['optionFilterInput',] }],
-    defaultSort: [{ type: Input }],
-    allowMultipleFilters: [{ type: Input }],
-    resized: [{ type: Input }],
-    filterTemplate: [{ type: Input }],
-    resizable: [{ type: HostBinding, args: ['class.resizable',] }],
-    column: [{ type: Input, args: ['novo-data-table-cell-config',] }],
-    multiSelectOptionFilterHandleKeydown: [{ type: HostListener, args: ['keydown', ['$event'],] }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoDataTableCellHeader, [{
-        type: Component,
-        args: [{
-                selector: '[novo-data-table-cell-config]',
-                template: `
-    <i class="bhi-{{ labelIcon }} label-icon" *ngIf="labelIcon" data-automation-id="novo-data-table-header-icon"></i>
-    <label data-automation-id="novo-data-table-label">{{ label }}</label>
-    <div>
-      <button
-        *ngIf="config.sortable"
-        tooltipPosition="right"
-        [tooltip]="labels.sort"
-        theme="icon"
-        [icon]="icon"
-        (click)="sort()"
-        [class.active]="sortActive"
-        data-automation-id="novo-data-table-sort"
-        [attr.data-feature-id]="'novo-data-table-sort-' + this.id"
-      ></button>
-      <novo-dropdown
-        *ngIf="config.filterable"
-        side="right"
-        parentScrollSelector=".novo-data-table-container"
-        containerClass="data-table-dropdown"
-        data-automation-id="novo-data-table-filter"
-      >
-        <button
-          type="button"
-          theme="icon"
-          icon="filter"
-          [class.active]="filterActive"
-          (click)="focusInput()"
-          tooltipPosition="right"
-          [tooltip]="labels.filters"
-          [attr.data-feature-id]="'novo-data-table-filter-' + this.id"
-        ></button>
-        <div class="header">
-          <span>{{ labels.filters }}</span>
-          <button
-            theme="dialogue"
-            color="negative"
-            icon="times"
-            (click)="clearFilter()"
-            *ngIf="filter !== null && filter !== undefined && filter !== ''"
-            data-automation-id="novo-data-table-filter-clear"
-          >
-            {{ labels.clear }}
-          </button>
-        </div>
-        <ng-container [ngSwitch]="config.filterConfig.type">
-          <list *ngSwitchCase="'date'">
-            <ng-container *ngIf="!showCustomRange">
-              <item
-                [class.active]="activeDateFilter === option.label"
-                *ngFor="let option of config.filterConfig.options"
-                (click)="filterData(option)"
-                [attr.data-automation-id]="'novo-data-table-filter-' + option.label"
-              >
-                {{ option.label }} <i class="bhi-check" *ngIf="activeDateFilter === option.label"></i>
-              </item>
-            </ng-container>
-            <item
-              [class.active]="labels.customDateRange === activeDateFilter"
-              (click)="toggleCustomRange($event, true)"
-              *ngIf="config.filterConfig.allowCustomRange && !showCustomRange"
-              [keepOpen]="true"
-            >
-              {{ labels.customDateRange }} <i class="bhi-check" *ngIf="labels.customDateRange === activeDateFilter"></i>
-            </item>
-            <div class="calendar-container" *ngIf="showCustomRange">
-              <div (click)="toggleCustomRange($event, false)"><i class="bhi-previous"></i>{{ labels.backToPresetFilters }}</div>
-              <novo-date-picker (onSelect)="filterData($event)" [(ngModel)]="filter" range="true"></novo-date-picker>
-            </div>
-          </list>
-          <list *ngSwitchCase="'select'">
-            <item
-              [class.active]="filter === option"
-              *ngFor="let option of config.filterConfig.options"
-              (click)="filterData(option)"
-              [attr.data-automation-id]="'novo-data-table-filter-' + (option?.label || option)"
-            >
-              <span>{{ option?.label || option }}</span>
-              <i class="bhi-check" *ngIf="option.hasOwnProperty('value') ? filter === option.value : filter === option"></i>
-            </item>
-          </list>
-          <list *ngSwitchCase="'multi-select'">
-            <div class="dropdown-list-filter" (keydown)="multiSelectOptionFilterHandleKeydown($event)">
-              <item class="filter-search" keepOpen="true">
-                <input
-                  [(ngModel)]="optionFilter"
-                  (ngModelChange)="multiSelectOptionFilter($event)"
-                  #optionFilterInput
-                  data-automation-id="novo-data-table-multi-select-option-filter-input"
-                />
-                <i class="bhi-search"></i>
-                <span class="error-text" [hidden]="!error || !multiSelectHasVisibleOptions()">{{ labels.selectFilterOptions }}</span>
-              </item>
-            </div>
-            <div class="dropdown-list-options">
-              <item
-                *ngFor="let option of config.filterConfig.options"
-                [hidden]="multiSelectOptionIsHidden(option)"
-                (click)="toggleSelection(option)"
-                [attr.data-automation-id]="'novo-data-table-filter-' + (option?.label || option)"
-                [keepOpen]="true"
-              >
-                <span>{{ option?.label || option }}</span>
-                <i
-                  [class.bhi-checkbox-empty]="!isSelected(option, multiSelectedOptions)"
-                  [class.bhi-checkbox-filled]="isSelected(option, multiSelectedOptions)"
-                ></i>
-              </item>
-            </div>
-            <p class="filter-null-results" [hidden]="multiSelectHasVisibleOptions()">{{ labels.pickerEmpty }}</p>
-          </list>
-          <list *ngSwitchCase="'custom'">
-            <item class="filter-search" keepOpen="true">
-              <ng-container *ngTemplateOutlet="filterTemplate; context: { $implicit: config }"></ng-container>
-            </item>
-          </list>
-          <list *ngSwitchDefault>
-            <item class="filter-search" keepOpen="true">
-              <input
-                [type]="config.filterConfig.type"
-                [(ngModel)]="filter"
-                (ngModelChange)="filterData($event)"
-                #filterInput
-                data-automation-id="novo-data-table-filter-input"
-              />
-            </item>
-          </list>
-        </ng-container>
-        <div class="footer" *ngIf="multiSelect">
-          <button theme="dialogue" color="dark" (click)="cancel()" data-automation-id="novo-data-table-multi-select-cancel">
-            {{ labels.cancel }}
-          </button>
-          <button theme="dialogue" color="positive" (click)="filterMultiSelect()" data-automation-id="novo-data-table-multi-select-filter">
-            {{ labels.filters }}
-          </button>
-        </div>
-      </novo-dropdown>
-    </div>
-    <div class="spacer"></div>
-    <div class="data-table-header-resizable" *ngIf="config.resizable"><span (mousedown)="startResize($event)">&nbsp;</span></div>
-  `,
-                changeDetection: ChangeDetectionStrategy.OnPush
-            }]
-    }], function () { return [{ type: ɵngcc0.ChangeDetectorRef }, { type: NovoLabelService }, { type: DataTableState }, { type: ɵngcc0.Renderer2 }, { type: ɵngcc0.ElementRef }, { type: NovoDataTableSortFilter, decorators: [{
-                type: Optional
-            }] }, { type: ɵngcc5.CdkColumnDef, decorators: [{
-                type: Optional
-            }] }]; }, { allowMultipleFilters: [{
-            type: Input
-        }], column: [{
-            type: Input,
-            args: ['novo-data-table-cell-config']
-        }], resizable: [{
-            type: HostBinding,
-            args: ['class.resizable']
-        }], multiSelectOptionFilterHandleKeydown: [{
-            type: HostListener,
-            args: ['keydown', ['$event']]
-        }], filterInput: [{
-            type: ViewChild,
-            args: ['filterInput']
-        }], dropdown: [{
-            type: ViewChild,
-            args: [NovoDropdownElement]
-        }], optionFilterInput: [{
-            type: ViewChild,
-            args: ['optionFilterInput']
-        }], defaultSort: [{
-            type: Input
-        }], resized: [{
-            type: Input
-        }], filterTemplate: [{
-            type: Input
-        }] }); })();
-
-class NovoDataTable {
-    constructor(labels, ref, state) {
-        this.labels = labels;
-        this.ref = ref;
-        this.state = state;
-        this.globalSearchHiddenClassToggle = false;
-        this.resized = new EventEmitter();
-        this.name = 'novo-data-table';
-        this.allowMultipleFilters = false;
-        this.rowIdentifier = 'id';
-        this.activeRowIdentifier = '';
-        // prettier-ignore
-        this.trackByFn = (index, item) => item.id;
-        this.templates = {};
-        this.fixedHeader = false;
-        this._hideGlobalSearch = true;
-        this.preferencesChanged = new EventEmitter();
-        this.loading = true;
-        this.columnToTemplate = {};
-        this.columnsLoaded = false;
-        this.selection = new Set();
-        this.scrollLeft = 0;
-        this.expandable = false;
-        this.initialized = false;
-        this.scrollListenerHandler = this.scrollListener.bind(this);
-        this.sortFilterSubscription = this.state.sortFilterSource.subscribe((event) => {
-            if (this.name !== 'novo-data-table') {
-                this.preferencesChanged.emit({ name: this.name, sort: event.sort, filter: event.filter, globalSearch: event.globalSearch });
-                this.performInteractions('change');
-            }
-            else {
-                notify('Must have [name] set on data-table to use preferences!');
-            }
-        });
-        this.paginationSubscription = this.state.paginationSource.subscribe((event) => {
-            if (this.name !== 'novo-data-table') {
-                if (event.isPageSizeChange) {
-                    this.preferencesChanged.emit({ name: this.name, pageSize: event.pageSize });
-                }
-            }
-            else {
-                notify('Must have [name] set on data-table to use preferences!');
-            }
-        });
-        this.resetSubscription = this.state.resetSource.subscribe(() => {
-            setTimeout(() => {
-                this.ref.detectChanges();
-            }, 300);
-        });
-    }
-    set displayedColumns(displayedColumns) {
-        if (this.displayedColumns && this.displayedColumns.length !== 0) {
-            if (this.name !== 'novo-data-table') {
-                this.preferencesChanged.emit({
-                    name: this.name,
-                    displayedColumns,
-                });
-            }
-            else {
-                notify('Must have [name] set on data-table to use preferences!');
-            }
-        }
-        this._disabledColumns = displayedColumns;
-        this.configureLastDisplayedColumn();
-        if (this.initialized) {
-            setTimeout(() => {
-                this.scrollListener();
-            });
-        }
-    }
-    get displayedColumns() {
-        return this._disabledColumns;
-    }
-    set dataTableService(service) {
-        this.loading = false;
-        if (!service) {
-            service = new StaticDataTableService([]);
-        }
-        this.dataSource = new DataTableSource(service, this.state, this.ref);
-        this.ref.detectChanges();
-    }
-    set rows(rows) {
-        this.loading = false;
-        const service = new StaticDataTableService(rows);
-        this.dataSource = new DataTableSource(service, this.state, this.ref);
-        this.ref.detectChanges();
-    }
-    set outsideFilter(outsideFilter) {
-        // Unsubscribe
-        if (this.outsideFilterSubscription) {
-            this.outsideFilterSubscription.unsubscribe();
-        }
-        if (outsideFilter) {
-            // Re-subscribe
-            this.outsideFilterSubscription = outsideFilter.subscribe((filter) => {
-                this.state.outsideFilter = filter;
-                this.state.updates.next({ globalSearch: this.state.globalSearch, filter: this.state.filter, sort: this.state.sort });
-                this.ref.markForCheck();
-            });
-        }
-    }
-    set refreshSubject(refreshSubject) {
-        // Unsubscribe
-        if (this.refreshSubscription) {
-            this.refreshSubscription.unsubscribe();
-        }
-        if (refreshSubject) {
-            // Re-subscribe
-            this.refreshSubscription = refreshSubject.subscribe((filter) => {
-                this.state.isForceRefresh = true;
-                this.state.updates.next({ globalSearch: this.state.globalSearch, filter: this.state.filter, sort: this.state.sort });
-                this.ref.markForCheck();
-            });
-        }
-    }
-    set columns(columns) {
-        this._columns = columns;
-        this.configureColumns();
-        this.performInteractions('init');
-    }
-    get columns() {
-        return this._columns;
-    }
-    set customFilter(v) {
-        this._customFilter = coerceBooleanProperty(v);
-    }
-    get customFilter() {
-        return this._customFilter;
-    }
-    set hasExandedRows(v) {
-        this._hasExandedRows = coerceBooleanProperty(v);
-    }
-    get hasExandedRows() {
-        return this._hasExandedRows;
-    }
-    set forceShowHeader(v) {
-        this._forceShowHeader = coerceBooleanProperty(v);
-    }
-    get forceShowHeader() {
-        return this._forceShowHeader;
-    }
-    set hideGlobalSearch(v) {
-        this._hideGlobalSearch = coerceBooleanProperty(v);
-        this.globalSearchHiddenClassToggle = this._hideGlobalSearch;
-    }
-    get hideGlobalSearch() {
-        return this._hideGlobalSearch;
-    }
-    get empty() {
-        return this.dataSource && this.dataSource.totallyEmpty;
-    }
-    get loadingClass() {
-        return this.loading || (this.dataSource && this.dataSource.loading);
-    }
-    modifyCellHeaderMultiSelectFilterOptions(column, newOptions) {
-        const header = this.cellHeaders.find((cellHeader) => cellHeader.id === column);
-        if (header && header.config && header.config.filterConfig && header.config.filterConfig.options) {
-            const filterOptions = header.config.filterConfig.options;
-            const optionsToKeep = filterOptions.filter((opt) => header.isSelected(opt, header.multiSelectedOptions) &&
-                !newOptions.find((newOpt) => opt.value && newOpt.value && newOpt.value === opt.value));
-            header.config.filterConfig.options = [...optionsToKeep, ...newOptions];
-        }
-        else {
-            header.config.filterConfig['options'] = newOptions;
-        }
-        header.setupFilterOptions();
-        header.changeDetectorRef.markForCheck();
-    }
-    ngOnDestroy() {
-        if (this.outsideFilterSubscription) {
-            this.outsideFilterSubscription.unsubscribe();
-        }
-        if (this.novoDataTableContainer) {
-            this.novoDataTableContainer.nativeElement.removeEventListener('scroll', this.scrollListenerHandler);
-        }
-        if (this.refreshSubscription) {
-            this.refreshSubscription.unsubscribe();
-        }
-        if (this.resetSubscription) {
-            this.resetSubscription.unsubscribe();
-        }
-        if (this.sortFilterSubscription) {
-            this.sortFilterSubscription.unsubscribe();
-        }
-    }
-    ngAfterContentInit() {
-        if (this.displayedColumns && this.displayedColumns.length) {
-            this.expandable = this.displayedColumns.includes('expand');
-        }
-        // Default templates defined here
-        this.defaultTemplates.forEach((item) => {
-            // Only override if it doesn't already exist
-            if (!this.templates[item.getType()]) {
-                this.templates[item.getType()] = item.template;
-            }
-        });
-        // Custom templates passed in
-        this.customTemplates.forEach((item) => {
-            // Override anything that is custom and in HTML
-            this.templates[item.getType()] = item.template;
-        });
-        // Load columns
-        this.configureColumns();
-        // State
-        if (this.paginationOptions && !this.paginationOptions.page) {
-            this.paginationOptions.page = 0;
-        }
-        if (this.paginationOptions && !this.paginationOptions.pageSize) {
-            this.paginationOptions.pageSize = 50;
-        }
-        if (this.paginationOptions && !this.paginationOptions.pageSizeOptions) {
-            this.paginationOptions.pageSizeOptions = [10, 25, 50, 100];
-        }
-        this.state.page = this.paginationOptions ? this.paginationOptions.page : undefined;
-        this.state.pageSize = this.paginationOptions ? this.paginationOptions.pageSize : undefined;
-        // Scrolling inside table
-        this.novoDataTableContainer.nativeElement.addEventListener('scroll', this.scrollListenerHandler);
-        this.initialized = true;
-        this.ref.markForCheck();
-    }
-    onSearchChange(term) {
-        this.state.globalSearch = term;
-        this.state.reset(false, true);
-        this.state.updates.next({ globalSearch: term, filter: this.state.filter, sort: this.state.sort });
-    }
-    trackColumnsBy(index, item) {
-        return item.id;
-    }
-    isDisabled(check, row) {
-        if (check.disabled === true) {
-            return true;
-        }
-        if (check.disabledFunc) {
-            return check.disabledFunc(row);
-        }
-        return false;
-    }
-    isExpanded(row) {
-        if (!row) {
-            return false;
-        }
-        return this.state.expandedRows.has(`${row[this.rowIdentifier]}`);
-    }
-    expandRow(row) {
-        const expanded = this.isExpanded(row);
-        if (expanded) {
-            this.state.expandedRows.delete(`${row[this.rowIdentifier]}`);
-        }
-        else {
-            this.state.expandedRows.add(`${row[this.rowIdentifier]}`);
-        }
-        this.state.onExpandChange(row.id);
-    }
-    expandRows(expand) {
-        (this.dataSource.data || []).forEach((row) => {
-            if (!expand) {
-                this.state.expandedRows.delete(`${row[this.rowIdentifier]}`);
-            }
-            else {
-                this.state.expandedRows.add(`${row[this.rowIdentifier]}`);
-            }
-        });
-        this.state.onExpandChange();
-    }
-    allCurrentRowsExpanded() {
-        for (let i = 0; i < (this.dataSource.data || []).length; i++) {
-            if (!this.isExpanded((this.dataSource.data || [])[i])) {
-                return false;
-            }
-        }
-        return true;
-    }
-    isSelected(row) {
-        if (!row) {
-            return false;
-        }
-        return this.state.selectedRows.has(`${row[this.rowIdentifier]}`);
-    }
-    selectRow(row) {
-        const selected = this.isSelected(row);
-        if (selected) {
-            this.state.selectedRows.delete(`${row[this.rowIdentifier]}`);
-        }
-        else {
-            this.state.selectedRows.set(`${row[this.rowIdentifier]}`, row);
-        }
-        this.state.onSelectionChange();
-    }
-    selectRows(selected) {
-        (this.dataSource.data || []).forEach((row) => {
-            if (!selected) {
-                this.state.selectedRows.delete(`${row[this.rowIdentifier]}`);
-            }
-            else {
-                this.state.selectedRows.set(`${row[this.rowIdentifier]}`, row);
-            }
-        });
-        this.state.onSelectionChange();
-    }
-    allCurrentRowsSelected() {
-        for (let i = 0; i < (this.dataSource.data || []).length; i++) {
-            if (!this.isSelected((this.dataSource.data || [])[i])) {
-                return false;
-            }
-        }
-        return true;
-    }
-    configureLastDisplayedColumn() {
-        if (this.columns && this.displayedColumns && 0 !== this.columns.length && 0 !== this.displayedColumns.length) {
-            this.columns.forEach((column) => {
-                if (column.initialResizable) {
-                    column.resizable = column.initialResizable.resizable;
-                    column.width = column.initialResizable.width;
-                    column.initialResizable = undefined;
-                }
-            });
-            const resizableColumns = this.displayedColumns.filter((name) => {
-                return (this.columns.findIndex((column) => {
-                    return column.resizable && column.id === name;
-                }) !== -1);
-            });
-            if (resizableColumns && resizableColumns.length > 0) {
-                const lastResizableColumn = this.columns.find((column) => {
-                    return column.id === resizableColumns[resizableColumns.length - 1];
-                });
-                lastResizableColumn.initialResizable = {
-                    resizable: lastResizableColumn.resizable,
-                    width: lastResizableColumn.width,
-                };
-                lastResizableColumn.width = undefined;
-                lastResizableColumn.resizable = false;
-            }
-        }
-    }
-    configureColumns() {
-        if (this.columns && this.columns.length !== 0 && Object.keys(this.templates).length !== 0) {
-            // Figure the column templates
-            this.columns.forEach((column) => {
-                // Figure the template
-                let templateName;
-                if (column.template) {
-                    // Pass it in as template
-                    templateName = column.template;
-                }
-                else if (!!this.templates[column.id]) {
-                    // Custom template for the column id
-                    templateName = column.id;
-                }
-                else {
-                    // Default to the defaulCellTemplate
-                    if (column.type === 'action') {
-                        if (column.action && column.action.options) {
-                            if (!column.action.icon) {
-                                column.action.icon = 'collapse';
-                            }
-                            templateName = 'dropdownCellTemplate';
-                        }
-                        else {
-                            templateName = 'buttonCellTemplate';
-                        }
-                    }
-                    else {
-                        if (column.type === 'link:tel' || column.type === 'link:mailto') {
-                            templateName = `${column.type.split(':')[1]}CellTemplate`;
-                        }
-                        else {
-                            templateName = `${column.type}CellTemplate`;
-                        }
-                    }
-                }
-                this.columnToTemplate[column.id] = this.templates[templateName];
-            });
-            this.configureLastDisplayedColumn();
-            this.columnsLoaded = true;
-        }
-    }
-    scrollListener() {
-        const target = this.novoDataTableContainer.nativeElement;
-        const left = target.scrollLeft;
-        if (left !== this.scrollLeft) {
-            this.scrollLeft = target.scrollLeft;
-        }
-        this.ref.markForCheck();
-    }
-    performInteractions(event) {
-        if (this.listInteractions) {
-            for (const column of this.columns) {
-                const allListColumnInteractions = this.listInteractions[column.id];
-                const listColumnInteraction = allListColumnInteractions && allListColumnInteractions.find((int) => int.event.includes(event));
-                if (listColumnInteraction) {
-                    listColumnInteraction.script(this, column.id);
-                }
-            }
-        }
-    }
-}
-NovoDataTable.ɵfac = function NovoDataTable_Factory(t) { return new (t || NovoDataTable)(ɵngcc0.ɵɵdirectiveInject(NovoLabelService), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef), ɵngcc0.ɵɵdirectiveInject(DataTableState)); };
-NovoDataTable.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDataTable, selectors: [["novo-data-table"]], contentQueries: function NovoDataTable_ContentQueries(rf, ctx, dirIndex) { if (rf & 1) {
-        ɵngcc0.ɵɵcontentQuery(dirIndex, NovoTemplate, false);
-    } if (rf & 2) {
-        var _t;
-        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.customTemplates = _t);
-    } }, viewQuery: function NovoDataTable_Query(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵviewQuery(_c37, true);
-        ɵngcc0.ɵɵviewQuery(NovoTemplate, true);
-        ɵngcc0.ɵɵviewQuery(NovoDataTableCellHeader, true);
-    } if (rf & 2) {
-        var _t;
-        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.novoDataTableContainer = _t.first);
-        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.defaultTemplates = _t);
-        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.cellHeaders = _t);
-    } }, hostVars: 6, hostBindings: function NovoDataTable_HostBindings(rf, ctx) { if (rf & 2) {
-        ɵngcc0.ɵɵclassProp("global-search-hidden", ctx.globalSearchHiddenClassToggle)("empty", ctx.empty)("loading", ctx.loadingClass);
-    } }, inputs: { name: "name", allowMultipleFilters: "allowMultipleFilters", rowIdentifier: "rowIdentifier", activeRowIdentifier: "activeRowIdentifier", trackByFn: "trackByFn", templates: "templates", fixedHeader: "fixedHeader", displayedColumns: "displayedColumns", dataTableService: "dataTableService", rows: "rows", outsideFilter: "outsideFilter", refreshSubject: "refreshSubject", columns: "columns", customFilter: "customFilter", hasExandedRows: "hasExandedRows", forceShowHeader: "forceShowHeader", hideGlobalSearch: "hideGlobalSearch", paginationOptions: "paginationOptions", searchOptions: "searchOptions", defaultSort: "defaultSort", paginatorDataFeatureId: "paginatorDataFeatureId", listInteractions: "listInteractions" }, outputs: { resized: "resized", preferencesChanged: "preferencesChanged" }, features: [ɵngcc0.ɵɵProvidersFeature([DataTableState])], ngContentSelectors: _c1, decls: 29, vars: 17, consts: [[3, "empty", 4, "ngIf"], ["class", "novo-data-table-loading-mask", "data-automation-id", "novo-data-table-loading", 4, "ngIf"], [1, "novo-data-table-outside-container", 3, "ngClass"], ["class", "novo-data-table-custom-filter", 4, "ngIf"], [1, "novo-data-table-container", 3, "ngClass"], ["novoDataTableContainer", ""], ["novoDataTableSortFilter", "", 3, "dataSource", "trackBy", "expandable", "empty", "hidden", 4, "ngIf"], ["class", "novo-data-table-footer", 4, "ngIf"], ["class", "novo-data-table-no-results-container", 3, "left", 4, "ngIf"], ["class", "novo-data-table-empty-container", 4, "ngIf"], ["novoTemplate", "textCellTemplate"], ["novoTemplate", "dateCellTemplate"], ["novoTemplate", "datetimeCellTemplate"], ["novoTemplate", "timeCellTemplate"], ["novoTemplate", "currencyCellTemplate"], ["novoTemplate", "bigdecimalCellTemplate"], ["novoTemplate", "numberCellTemplate"], ["novoTemplate", "percentCellTemplate"], ["novoTemplate", "linkCellTemplate"], ["novoTemplate", "telCellTemplate"], ["novoTemplate", "mailtoCellTemplate"], ["novoTemplate", "buttonCellTemplate"], ["novoTemplate", "dropdownCellTemplate"], ["novoTemplate", "defaultNoResultsMessage"], ["novoTemplate", "defaultEmptyMessage"], ["novoTemplate", "expandedRow"], ["detailRowTemplate", ""], [4, "ngTemplateOutlet"], ["alwaysOpen", "true", 3, "ngModel", "placeholder", "hint", "searchChanged", "ngModelChange", 4, "ngIf"], [3, "theme", "length", "page", "pageSize", "pageSizeOptions", "dataFeatureId", 4, "ngIf"], ["class", "novo-data-table-actions", 4, "ngIf"], ["alwaysOpen", "true", 3, "ngModel", "placeholder", "hint", "searchChanged", "ngModelChange"], [3, "theme", "length", "page", "pageSize", "pageSizeOptions", "dataFeatureId"], [1, "novo-data-table-actions"], ["data-automation-id", "novo-data-table-loading", 1, "novo-data-table-loading-mask"], [1, "novo-data-table-custom-filter"], ["novoDataTableSortFilter", "", 3, "dataSource", "trackBy", "hidden"], ["cdkColumnDef", "selection"], [4, "cdkHeaderCellDef"], [3, "row", 4, "cdkCellDef"], ["cdkColumnDef", "expand"], [3, "cdkColumnDef", 4, "ngFor", "ngForOf", "ngForTrackBy"], ["data-automation-id", "novo-data-table-header-row", 3, "fixedHeader", 4, "cdkHeaderRowDef"], [3, "ngClass", "novoDataTableExpand", "row", "id", "dataAutomationId", 4, "cdkRowDef", "cdkRowDefColumns"], [3, "row"], [3, "cdkColumnDef"], [3, "column", "filterTemplate", "novo-data-table-cell-config", "resized", "defaultSort", "allowMultipleFilters", "empty", "button-header-cell", "dropdown-header-cell", "fixed-header", 4, "cdkHeaderCellDef"], [3, "resized", "column", "row", "template", "empty", "button-cell", "dropdown-cell", 4, "cdkCellDef"], [3, "column", "filterTemplate", "novo-data-table-cell-config", "resized", "defaultSort", "allowMultipleFilters"], [3, "resized", "column", "row", "template"], ["data-automation-id", "novo-data-table-header-row", 3, "fixedHeader"], [3, "ngClass", "novoDataTableExpand", "row", "id", "dataAutomationId"], [1, "novo-data-table-footer"], [4, "ngTemplateOutlet", "ngTemplateOutletContext"], [1, "novo-data-table-no-results-container"], [1, "novo-data-table-empty-message"], [1, "novo-data-table-empty-container"], [3, "click"], [3, "href", "target"], ["tooltipPosition", "right", 3, "tooltip"], ["parentScrollSelector", ".novo-data-table-container", "containerClass", "novo-data-table-dropdown"], ["type", "button", "theme", "dialogue", "inverse", "", 3, "icon"], [3, "disabled", "action", 4, "ngFor", "ngForOf"], [3, "disabled", "action"], [1, "bhi-search-question"], [1, "novo-data-table-detail-row", 2, "overflow", "hidden"]], template: function NovoDataTable_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef();
-        ɵngcc0.ɵɵtemplate(0, NovoDataTable_header_0_Template, 5, 6, "header", 0);
-        ɵngcc0.ɵɵtemplate(1, NovoDataTable_div_1_Template, 2, 0, "div", 1);
-        ɵngcc0.ɵɵelementStart(2, "div", 2);
-        ɵngcc0.ɵɵtemplate(3, NovoDataTable_div_3_Template, 2, 1, "div", 3);
-        ɵngcc0.ɵɵelementStart(4, "div", 4, 5);
-        ɵngcc0.ɵɵtemplate(6, NovoDataTable_cdk_table_6_Template, 10, 11, "cdk-table", 6);
-        ɵngcc0.ɵɵtemplate(7, NovoDataTable_div_7_Template, 2, 5, "div", 7);
-        ɵngcc0.ɵɵtemplate(8, NovoDataTable_div_8_Template, 3, 3, "div", 8);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵtemplate(9, NovoDataTable_div_9_Template, 3, 1, "div", 9);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵtemplate(10, NovoDataTable_ng_template_10_Template, 3, 10, "ng-template", 10);
-        ɵngcc0.ɵɵtemplate(11, NovoDataTable_ng_template_11_Template, 4, 7, "ng-template", 11);
-        ɵngcc0.ɵɵtemplate(12, NovoDataTable_ng_template_12_Template, 4, 7, "ng-template", 12);
-        ɵngcc0.ɵɵtemplate(13, NovoDataTable_ng_template_13_Template, 4, 7, "ng-template", 13);
-        ɵngcc0.ɵɵtemplate(14, NovoDataTable_ng_template_14_Template, 4, 7, "ng-template", 14);
-        ɵngcc0.ɵɵtemplate(15, NovoDataTable_ng_template_15_Template, 4, 7, "ng-template", 15);
-        ɵngcc0.ɵɵtemplate(16, NovoDataTable_ng_template_16_Template, 4, 7, "ng-template", 16);
-        ɵngcc0.ɵɵtemplate(17, NovoDataTable_ng_template_17_Template, 4, 8, "ng-template", 17);
-        ɵngcc0.ɵɵtemplate(18, NovoDataTable_ng_template_18_Template, 3, 11, "ng-template", 18);
-        ɵngcc0.ɵɵtemplate(19, NovoDataTable_ng_template_19_Template, 4, 9, "ng-template", 19);
-        ɵngcc0.ɵɵtemplate(20, NovoDataTable_ng_template_20_Template, 4, 9, "ng-template", 20);
-        ɵngcc0.ɵɵtemplate(21, NovoDataTable_ng_template_21_Template, 2, 7, "ng-template", 21);
-        ɵngcc0.ɵɵtemplate(22, NovoDataTable_ng_template_22_Template, 5, 3, "ng-template", 22);
-        ɵngcc0.ɵɵtemplate(23, NovoDataTable_ng_template_23_Template, 3, 1, "ng-template", 23);
-        ɵngcc0.ɵɵtemplate(24, NovoDataTable_ng_template_24_Template, 3, 1, "ng-template", 24);
-        ɵngcc0.ɵɵtemplate(25, NovoDataTable_ng_template_25_Template, 1, 0, "ng-template", 25);
-        ɵngcc0.ɵɵtemplate(26, NovoDataTable_ng_template_26_Template, 2, 5, "ng-template", null, 26, ɵngcc0.ɵɵtemplateRefExtractor);
-        ɵngcc0.ɵɵprojection(28);
-    } if (rf & 2) {
-        ɵngcc0.ɵɵproperty("ngIf", !((ctx.dataSource == null ? null : ctx.dataSource.totallyEmpty) && !ctx.state.userFiltered) && !ctx.loading || ctx.forceShowHeader);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngIf", (ctx.dataSource == null ? null : ctx.dataSource.loading) || ctx.loading);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(13, _c39, ctx.fixedHeader));
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngIf", ctx.customFilter);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵclassProp("empty-user-filtered", (ctx.dataSource == null ? null : ctx.dataSource.currentlyEmpty) && ctx.state.userFiltered)("empty", (ctx.dataSource == null ? null : ctx.dataSource.totallyEmpty) && !(ctx.dataSource == null ? null : ctx.dataSource.loading) && !ctx.loading && !ctx.state.userFiltered && !ctx.dataSource.pristine);
-        ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(15, _c40, ctx.fixedHeader));
-        ɵngcc0.ɵɵadvance(2);
-        ɵngcc0.ɵɵproperty("ngIf", (ctx.columns == null ? null : ctx.columns.length) > 0 && ctx.columnsLoaded && ctx.dataSource);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngIf", ctx.templates["footer"]);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngIf", (ctx.dataSource == null ? null : ctx.dataSource.currentlyEmpty) && ctx.state.userFiltered && !(ctx.dataSource == null ? null : ctx.dataSource.loading) && !ctx.loading && !ctx.dataSource.pristine);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngIf", (ctx.dataSource == null ? null : ctx.dataSource.totallyEmpty) && !(ctx.dataSource == null ? null : ctx.dataSource.loading) && !ctx.loading && !ctx.state.userFiltered && !ctx.dataSource.pristine);
-    } }, directives: function () { return [ɵngcc1.NgIf, ɵngcc1.NgClass, NovoTemplate, ɵngcc1.NgTemplateOutlet, NovoSearchBoxElement, ɵngcc3.NgControlStatus, ɵngcc3.NgModel, NovoDataTablePagination, NovoLoadingElement, ɵngcc5.CdkTable, NovoDataTableSortFilter, ɵngcc5.CdkColumnDef, ɵngcc5.CdkHeaderCellDef, ɵngcc5.CdkCellDef, ɵngcc1.NgForOf, ɵngcc5.CdkHeaderRowDef, ɵngcc5.CdkRowDef, NovoDataTableCheckboxHeaderCell, NovoDataTableCheckboxCell, NovoDataTableExpandHeaderCell, NovoDataTableExpandCell, NovoDataTableHeaderCell, NovoDataTableCellHeader, NovoDataTableCell, NovoDataTableHeaderRow, NovoDataTableRow, NovoDataTableExpandDirective, TooltipDirective, NovoDropdownElement, NovoButtonElement, NovoDropdownListElement, NovoItemElement]; }, pipes: function () { return [DataTableInterpolatePipe, DateTableDateRendererPipe, DateTableDateTimeRendererPipe, DateTableTimeRendererPipe, DateTableCurrencyRendererPipe, DataTableBigDecimalRendererPipe, DateTableNumberRendererPipe]; }, encapsulation: 2, data: { animation: [
-            trigger('expand', [
-                state('void', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
-                state('*', style({ height: '*', visibility: 'visible' })),
-                transition('void <=> *', animate('70ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-            ]),
-        ] }, changeDetection: 0 });
-NovoDataTable.ctorParameters = () => [
-    { type: NovoLabelService },
-    { type: ChangeDetectorRef },
-    { type: DataTableState }
-];
-NovoDataTable.propDecorators = {
-    globalSearchHiddenClassToggle: [{ type: HostBinding, args: ['class.global-search-hidden',] }],
-    customTemplates: [{ type: ContentChildren, args: [NovoTemplate,] }],
-    defaultTemplates: [{ type: ViewChildren, args: [NovoTemplate,] }],
-    cellHeaders: [{ type: ViewChildren, args: [NovoDataTableCellHeader,] }],
-    novoDataTableContainer: [{ type: ViewChild, args: ['novoDataTableContainer',] }],
-    resized: [{ type: Output }],
-    displayedColumns: [{ type: Input }],
-    paginationOptions: [{ type: Input }],
-    searchOptions: [{ type: Input }],
-    defaultSort: [{ type: Input }],
-    name: [{ type: Input }],
-    allowMultipleFilters: [{ type: Input }],
-    rowIdentifier: [{ type: Input }],
-    activeRowIdentifier: [{ type: Input }],
-    trackByFn: [{ type: Input }],
-    templates: [{ type: Input }],
-    fixedHeader: [{ type: Input }],
-    paginatorDataFeatureId: [{ type: Input }],
-    dataTableService: [{ type: Input }],
-    rows: [{ type: Input }],
-    outsideFilter: [{ type: Input }],
-    refreshSubject: [{ type: Input }],
-    columns: [{ type: Input }],
-    customFilter: [{ type: Input }],
-    hasExandedRows: [{ type: Input }],
-    forceShowHeader: [{ type: Input }],
-    hideGlobalSearch: [{ type: Input }],
-    preferencesChanged: [{ type: Output }],
-    empty: [{ type: HostBinding, args: ['class.empty',] }],
-    loadingClass: [{ type: HostBinding, args: ['class.loading',] }],
-    listInteractions: [{ type: Input }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoDataTable, [{
-        type: Component,
-        args: [{
-                selector: 'novo-data-table',
-                animations: [
-                    trigger('expand', [
-                        state('void', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
-                        state('*', style({ height: '*', visibility: 'visible' })),
-                        transition('void <=> *', animate('70ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-                    ]),
-                ],
-                template: `
-    <header
-      *ngIf="(!(dataSource?.totallyEmpty && !state.userFiltered) && !loading) || forceShowHeader"
-      [class.empty]="hideGlobalSearch && !paginationOptions && !templates['customActions']"
-    >
-      <ng-container *ngTemplateOutlet="templates['customHeader']"></ng-container>
-      <novo-search
-        alwaysOpen="true"
-        (searchChanged)="onSearchChange($event)"
-        [(ngModel)]="state.globalSearch"
-        *ngIf="!hideGlobalSearch"
-        [placeholder]="searchOptions?.placeholder"
-        [hint]="searchOptions?.tooltip"
-      >
-      </novo-search>
-      <novo-data-table-pagination
-        *ngIf="paginationOptions"
-        [theme]="paginationOptions.theme"
-        [length]="dataSource?.currentTotal"
-        [page]="paginationOptions.page"
-        [pageSize]="paginationOptions.pageSize"
-        [pageSizeOptions]="paginationOptions.pageSizeOptions"
-        [dataFeatureId]="paginatorDataFeatureId"
-      >
-      </novo-data-table-pagination>
-      <div class="novo-data-table-actions" *ngIf="templates['customActions']">
-        <ng-container *ngTemplateOutlet="templates['customActions']"></ng-container>
-      </div>
-    </header>
-    <div class="novo-data-table-loading-mask" *ngIf="dataSource?.loading || loading" data-automation-id="novo-data-table-loading">
-      <novo-loading></novo-loading>
-    </div>
-    <div class="novo-data-table-outside-container" [ngClass]="{ 'novo-data-table-outside-container-fixed': fixedHeader }">
-      <div class="novo-data-table-custom-filter" *ngIf="customFilter">
-        <ng-container *ngTemplateOutlet="templates['customFilter']"></ng-container>
-      </div>
-      <div
-        #novoDataTableContainer
-        class="novo-data-table-container"
-        [ngClass]="{ 'novo-data-table-container-fixed': fixedHeader }"
-        [class.empty-user-filtered]="dataSource?.currentlyEmpty && state.userFiltered"
-        [class.empty]="dataSource?.totallyEmpty && !dataSource?.loading && !loading && !state.userFiltered && !dataSource.pristine"
-      >
-        <cdk-table
-          *ngIf="columns?.length > 0 && columnsLoaded && dataSource"
-          [dataSource]="dataSource"
-          [trackBy]="trackByFn"
-          novoDataTableSortFilter
-          [class.expandable]="expandable"
-          [class.empty]="dataSource?.currentlyEmpty && state.userFiltered"
-          [hidden]="dataSource?.totallyEmpty && !state.userFiltered"
-        >
-          <ng-container cdkColumnDef="selection">
-            <novo-data-table-checkbox-header-cell *cdkHeaderCellDef></novo-data-table-checkbox-header-cell>
-            <novo-data-table-checkbox-cell *cdkCellDef="let row; let i = index" [row]="row"></novo-data-table-checkbox-cell>
-          </ng-container>
-          <ng-container cdkColumnDef="expand">
-            <novo-data-table-expand-header-cell *cdkHeaderCellDef></novo-data-table-expand-header-cell>
-            <novo-data-table-expand-cell *cdkCellDef="let row; let i = index" [row]="row"></novo-data-table-expand-cell>
-          </ng-container>
-          <ng-container *ngFor="let column of columns; trackBy: trackColumnsBy" [cdkColumnDef]="column.id">
-            <novo-data-table-header-cell
-              *cdkHeaderCellDef
-              [column]="column"
-              [filterTemplate]="templates['column-filter-' + column.id]"
-              [novo-data-table-cell-config]="column"
-              [resized]="resized"
-              [defaultSort]="defaultSort"
-              [allowMultipleFilters]="allowMultipleFilters"
-              [class.empty]="column?.type === 'action' && !column?.label"
-              [class.button-header-cell]="column?.type === 'expand' || (column?.type === 'action' && !column?.action?.options)"
-              [class.dropdown-header-cell]="column?.type === 'action' && column?.action?.options"
-              [class.fixed-header]="fixedHeader"
-            ></novo-data-table-header-cell>
-            <novo-data-table-cell
-              *cdkCellDef="let row"
-              [resized]="resized"
-              [column]="column"
-              [row]="row"
-              [template]="columnToTemplate[column.id]"
-              [class.empty]="column?.type === 'action' && !column?.label"
-              [class.button-cell]="column?.type === 'expand' || (column?.type === 'action' && !column?.action?.options)"
-              [class.dropdown-cell]="column?.type === 'action' && column?.action?.options"
-            ></novo-data-table-cell>
-          </ng-container>
-          <novo-data-table-header-row
-            *cdkHeaderRowDef="displayedColumns"
-            [fixedHeader]="fixedHeader"
-            data-automation-id="novo-data-table-header-row"
-          ></novo-data-table-header-row>
-          <novo-data-table-row
-            *cdkRowDef="let row; columns: displayedColumns"
-            [ngClass]="{ active: row[rowIdentifier] == activeRowIdentifier }"
-            [novoDataTableExpand]="detailRowTemplate"
-            [row]="row"
-            [id]="name + '-' + row[rowIdentifier]"
-            [dataAutomationId]="row[rowIdentifier]"
-          ></novo-data-table-row>
-        </cdk-table>
-        <div class="novo-data-table-footer" *ngIf="templates['footer']">
-          <ng-container *ngTemplateOutlet="templates['footer']; context: { $implicit: columns, data: dataSource.data }"></ng-container>
-        </div>
-        <div
-          class="novo-data-table-no-results-container"
-          [style.left.px]="scrollLeft"
-          *ngIf="dataSource?.currentlyEmpty && state.userFiltered && !dataSource?.loading && !loading && !dataSource.pristine"
-        >
-          <div class="novo-data-table-empty-message">
-            <ng-container *ngTemplateOutlet="templates['noResultsMessage'] || templates['defaultNoResultsMessage']"></ng-container>
-          </div>
-        </div>
-      </div>
-      <div
-        class="novo-data-table-empty-container"
-        *ngIf="dataSource?.totallyEmpty && !dataSource?.loading && !loading && !state.userFiltered && !dataSource.pristine"
-      >
-        <div class="novo-data-table-empty-message">
-          <ng-container *ngTemplateOutlet="templates['emptyMessage'] || templates['defaultNoResultsMessage']"></ng-container>
-        </div>
-      </div>
-    </div>
-    <!-- DEFAULT CELL TEMPLATE -->
-    <ng-template novoTemplate="textCellTemplate" let-row let-col="col">
-      <span [style.width.px]="col?.width" [style.min-width.px]="col?.width" [style.max-width.px]="col?.width">{{
-        row[col.id] | dataTableInterpolate: col
-      }}</span>
-    </ng-template>
-    <ng-template novoTemplate="dateCellTemplate" let-row let-col="col">
-      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableDateRenderer: col }}</span>
-    </ng-template>
-    <ng-template novoTemplate="datetimeCellTemplate" let-row let-col="col">
-      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableDateTimeRenderer: col }}</span>
-    </ng-template>
-    <ng-template novoTemplate="timeCellTemplate" let-row let-col="col">
-      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableTimeRenderer: col }}</span>
-    </ng-template>
-    <ng-template novoTemplate="currencyCellTemplate" let-row let-col="col">
-      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableCurrencyRenderer: col }}</span>
-    </ng-template>
-    <ng-template novoTemplate="bigdecimalCellTemplate" let-row let-col="col">
-      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableBigDecimalRenderer: col }}</span>
-    </ng-template>
-    <ng-template novoTemplate="numberCellTemplate" let-row let-col="col">
-      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col }}</span>
-    </ng-template>
-    <ng-template novoTemplate="percentCellTemplate" let-row let-col="col">
-      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col:true }}</span>
-    </ng-template>
-    <ng-template novoTemplate="linkCellTemplate" let-row let-col="col">
-      <a
-        [attr.data-feature-id]="col?.attributes?.dataFeatureId"
-        (click)="col.handlers?.click({ originalEvent: $event, row: row })"
-        [style.width.px]="col?.width"
-        [style.min-width.px]="col?.width"
-        [style.max-width.px]="col?.width"
-        >{{ row[col.id] | dataTableInterpolate: col }}</a
-      >
-    </ng-template>
-    <ng-template novoTemplate="telCellTemplate" let-row let-col="col">
-      <a href="tel:{{ row[col.id] | dataTableInterpolate: col }}" [target]="col?.attributes?.target">{{
-        row[col.id] | dataTableInterpolate: col
-      }}</a>
-    </ng-template>
-    <ng-template novoTemplate="mailtoCellTemplate" let-row let-col="col">
-      <a href="mailto:{{ row[col.id] | dataTableInterpolate: col }}" [target]="col?.attributes?.target">{{
-        row[col.id] | dataTableInterpolate: col
-      }}</a>
-    </ng-template>
-    <ng-template novoTemplate="buttonCellTemplate" let-row let-col="col">
-      <p [tooltip]="col?.action?.tooltip" tooltipPosition="right" [attr.data-feature-id]="col?.attributes?.dataFeatureId">
-        <i
-          class="bhi-{{ col?.action?.icon }} data-table-icon"
-          (click)="col.handlers?.click({ originalEvent: $event, row: row })"
-          [class.disabled]="isDisabled(col, row)"
-        ></i>
-      </p>
-    </ng-template>
-    <ng-template novoTemplate="dropdownCellTemplate" let-row let-col="col">
-      <novo-dropdown parentScrollSelector=".novo-data-table-container" containerClass="novo-data-table-dropdown">
-        <button type="button" theme="dialogue" [icon]="col.action.icon" inverse>{{ col.label }}</button>
-        <list>
-          <item
-            *ngFor="let option of col?.action?.options"
-            (action)="option.handlers.click({ originalEvent: $event?.originalEvent, row: row })"
-            [disabled]="isDisabled(option, row)"
-          >
-            <span [attr.data-automation-id]="option.label">{{ option.label }}</span>
-          </item>
-        </list>
-      </novo-dropdown>
-    </ng-template>
-    <ng-template novoTemplate="defaultNoResultsMessage">
-      <h4><i class="bhi-search-question"></i> {{ labels.noMatchingRecordsMessage }}</h4>
-    </ng-template>
-    <ng-template novoTemplate="defaultEmptyMessage">
-      <h4><i class="bhi-search-question"></i> {{ labels.emptyTableMessage }}</h4>
-    </ng-template>
-    <ng-template novoTemplate="expandedRow"> You did not provide an "expandedRow" template! </ng-template>
-    <ng-template #detailRowTemplate let-row>
-      <div class="novo-data-table-detail-row" [@expand] style="overflow: hidden">
-        <ng-container *ngTemplateOutlet="templates['expandedRow']; context: { $implicit: row }"></ng-container>
-      </div>
-    </ng-template>
-    <!-- CUSTOM CELLS PASSED IN -->
-    <ng-content></ng-content>
-  `,
-                changeDetection: ChangeDetectionStrategy.OnPush,
-                providers: [DataTableState]
-            }]
-    }], function () { return [{ type: NovoLabelService }, { type: ɵngcc0.ChangeDetectorRef }, { type: DataTableState }]; }, { globalSearchHiddenClassToggle: [{
-            type: HostBinding,
-            args: ['class.global-search-hidden']
-        }], resized: [{
-            type: Output
-        }], name: [{
-            type: Input
-        }], allowMultipleFilters: [{
-            type: Input
-        }], rowIdentifier: [{
-            type: Input
-        }], activeRowIdentifier: [{
-            type: Input
-        }], trackByFn: [{
-            type: Input
-        }], templates: [{
-            type: Input
-        }], fixedHeader: [{
-            type: Input
-        }], preferencesChanged: [{
-            type: Output
-        }], displayedColumns: [{
-            type: Input
-        }], dataTableService: [{
-            type: Input
-        }], rows: [{
-            type: Input
-        }], outsideFilter: [{
-            type: Input
-        }], refreshSubject: [{
-            type: Input
-        }], columns: [{
-            type: Input
-        }], customFilter: [{
-            type: Input
-        }], hasExandedRows: [{
-            type: Input
-        }], forceShowHeader: [{
-            type: Input
-        }], hideGlobalSearch: [{
-            type: Input
-        }], empty: [{
-            type: HostBinding,
-            args: ['class.empty']
-        }], loadingClass: [{
-            type: HostBinding,
-            args: ['class.loading']
-        }], customTemplates: [{
-            type: ContentChildren,
-            args: [NovoTemplate]
-        }], defaultTemplates: [{
-            type: ViewChildren,
-            args: [NovoTemplate]
-        }], cellHeaders: [{
-            type: ViewChildren,
-            args: [NovoDataTableCellHeader]
-        }], novoDataTableContainer: [{
-            type: ViewChild,
-            args: ['novoDataTableContainer']
-        }], paginationOptions: [{
-            type: Input
-        }], searchOptions: [{
-            type: Input
-        }], defaultSort: [{
-            type: Input
-        }], paginatorDataFeatureId: [{
-            type: Input
-        }], listInteractions: [{
-            type: Input
-        }] }); })();
-
-// NG2
-class NovoDropdownModule {
-}
-NovoDropdownModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoDropdownModule });
-NovoDropdownModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoDropdownModule_Factory(t) { return new (t || NovoDropdownModule)(); }, imports: [[NovoOverlayModule]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoDropdownModule, { declarations: [NovoDropdownElement, NovoItemElement, NovoDropdownListElement, NovoDropDownItemHeaderElement], imports: [NovoOverlayModule], exports: [NovoDropdownElement, NovoItemElement, NovoDropdownListElement, NovoDropDownItemHeaderElement] }); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoDropdownModule, [{
-        type: NgModule,
-        args: [{
-                imports: [NovoOverlayModule],
-                declarations: [NovoDropdownElement, NovoItemElement, NovoDropdownListElement, NovoDropDownItemHeaderElement],
-                exports: [NovoDropdownElement, NovoItemElement, NovoDropdownListElement, NovoDropDownItemHeaderElement]
-            }]
-    }], null, null); })();
-
-// NG
-// Value accessor for the component (supports ngModel)
-const SELECT_VALUE_ACCESSOR = {
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: forwardRef(() => NovoSelectElement),
-    multi: true,
-};
-class NovoSelectElement {
-    constructor(element, labels, ref, focusMonitor, ngZone) {
-        this.element = element;
-        this.labels = labels;
-        this.ref = ref;
-        this.focusMonitor = focusMonitor;
-        this.ngZone = ngZone;
-        this.placeholder = 'Select...';
-        this.onSelect = new EventEmitter();
-        this.selectedIndex = -1;
-        this.empty = true;
-        this.header = {
-            open: false,
-            valid: true,
-            value: '',
-        };
-        this.onModelChange = () => { };
-        this.onModelTouched = () => { };
-        this.filterTerm = '';
-        this.disabled = false;
-    }
-    ngOnInit() {
-        this.focusMonitor.monitor(this.dropdown.nativeElement).subscribe((origin) => this.ngZone.run(() => {
-            if (origin === 'keyboard' && !this.disabled) {
-                this.openPanel();
-            }
-        }));
-        this.ngOnChanges();
-    }
-    ngOnChanges(changes) {
-        this.readonly = this.readonly === true;
-        if (this.options && this.options.length && typeof this.options[0] === 'string') {
-            this.filteredOptions = this.options.map((item) => {
-                return { value: item, label: item };
-            });
-        }
-        else {
-            this.filteredOptions = (this.options || [])
-                .filter((item) => {
-                return !item.readOnly;
-            })
-                .map((element) => {
-                return Object.assign(Object.assign({}, element), { active: false });
-            });
-        }
-        if (!this.model && !this.createdItem) {
-            this.clear();
-        }
-        else if (this.createdItem) {
-            const item = this.options.find((i) => i.label === this.createdItem);
-            const index = this.options.indexOf(item);
-            this.select(item, index);
-        }
-        else {
-            this.writeValue(this.model);
-        }
-        if (this.panelOpen) {
-            this.openPanel();
-        }
-    }
-    ngOnDestroy() {
-        this.focusMonitor.stopMonitoring(this.dropdown.nativeElement);
-    }
-    /** BEGIN: Convienient Panel Methods. */
-    openPanel() {
-        this.overlay.openPanel();
-    }
-    closePanel() {
-        this.overlay.closePanel();
-    }
-    togglePanel() {
-        if (this.panelOpen) {
-            this.closePanel();
-        }
-        else {
-            setTimeout(() => {
-                this.dropdown.nativeElement.focus();
-            });
-            this.openPanel();
-        }
-    }
-    get panelOpen() {
-        return this.overlay && this.overlay.panelOpen;
-    }
-    /** END: Convenient Panel Methods. */
-    /**
-     * This method closes the panel, and if a value is specified, also sets the associated
-     * control to that value. It will also mark the control as dirty if this interaction
-     * stemmed from the user.
-     */
-    setValueAndClose(event) {
-        if (event.value && event.index >= 0) {
-            this.select(event.value, event.index);
-        }
-        this.closePanel();
-    }
-    select(option, i, fireEvents = true) {
-        if (this.selected) {
-            this.selected.active = false;
-        }
-        this.selectedIndex = i;
-        this.selected = option;
-        this.selected.active = true;
-        this.empty = false;
-        if (fireEvents) {
-            this.onModelChange(this.selected.value);
-            this.onSelect.emit({ selected: this.selected.value });
-        }
-    }
-    clear() {
-        if (this.selected) {
-            this.selected.active = false;
-        }
-        this.selected = {
-            label: this.placeholder,
-            value: null,
-            active: false,
-        };
-        this.header = {
-            open: false,
-            valid: true,
-            value: '',
-        };
-        this.selectedIndex = -1;
-        this.empty = true;
-    }
-    onKeyDown(event) {
-        // To prevent default window scrolling
-        if ([KeyCodes.UP, KeyCodes.DOWN].includes(event.keyCode)) {
-            event.preventDefault();
-        }
-        if ([KeyCodes.ESC, KeyCodes.TAB].includes(event.keyCode)) {
-            this.closePanel();
-        }
-        else if (event.keyCode === KeyCodes.ENTER) {
-            if (this.header.open && this.header.value) {
-                this.saveHeader();
-            }
-            else {
-                this.setValueAndClose({
-                    value: this.filteredOptions[this.selectedIndex],
-                    index: this.selectedIndex,
-                });
-            }
-        }
-        else if (event.keyCode === KeyCodes.UP) {
-            if (!this.panelOpen) {
-                this.openPanel();
-            }
-            if (this.selectedIndex > 0) {
-                this.selectedIndex--;
-                this.select(this.filteredOptions[this.selectedIndex], this.selectedIndex);
-                this.scrollToSelected();
-            }
-        }
-        else if (event.keyCode === KeyCodes.DOWN) {
-            if (!this.panelOpen) {
-                this.openPanel();
-            }
-            if (this.selectedIndex < this.filteredOptions.length - 1) {
-                this.selectedIndex++;
-                this.select(this.filteredOptions[this.selectedIndex], this.selectedIndex);
-                this.scrollToSelected();
-                if (this.header.open) {
-                    this.toggleHeader(null, false);
-                }
-            }
-        }
-        else if (event.keyCode === KeyCodes.UP && this.selectedIndex === 0) {
-            if (!this.panelOpen) {
-                this.openPanel();
-            }
-            this.selectedIndex--;
-            this.toggleHeader(null, true);
-        }
-        else if ((event.keyCode >= 65 && event.keyCode <= 90) || event.keyCode === KeyCodes.SPACE) {
-            if (event.keyCode === KeyCodes.SPACE) {
-                event.preventDefault();
-            }
-            if (!this.panelOpen) {
-                this.openPanel();
-            }
-            clearTimeout(this.filterTermTimeout);
-            this.filterTermTimeout = setTimeout(() => {
-                this.filterTerm = '';
-            }, 2000);
-            const char = event.key;
-            this.filterTerm = this.filterTerm.concat(char).toUpperCase();
-            const item = this.filteredOptions.find((i) => i.label.toUpperCase().indexOf(this.filterTerm) === 0);
-            if (item) {
-                this.select(item, this.filteredOptions.indexOf(item));
-                this.scrollToSelected();
-            }
-        }
-        else if ([KeyCodes.BACKSPACE, KeyCodes.DELETE].includes(event.keyCode)) {
-            clearTimeout(this.filterTermTimeout);
-            this.filterTermTimeout = setTimeout(() => {
-                this.filterTerm = '';
-            }, 2000);
-            this.filterTerm = this.filterTerm.slice(0, -1);
-        }
-    }
-    scrollToSelected() {
-        this.scrollToIndex(this.selectedIndex);
-    }
-    scrollToIndex(index) {
-        const element = this.overlay.overlayRef.overlayElement;
-        const list = element.querySelector('.novo-select-list');
-        const items = list.querySelectorAll('li');
-        const item = items[this.headerConfig ? index + 1 : index];
-        if (item) {
-            list.scrollTop = item.offsetTop;
-        }
-    }
-    toggleHeader(event, forceValue = false) {
-        if (event) {
-            event.stopPropagation();
-            event.preventDefault();
-        }
-        // Reverse the active property (if forceValue, use that)
-        this.header = {
-            open: forceValue !== undefined ? forceValue : !this.header.open,
-            value: '',
-            valid: true,
-        };
-    }
-    highlight(match, query) {
-        // Replaces the capture string with a the same string inside of a "strong" tag
-        return query ? match.replace(new RegExp(this.escapeRegexp(query), 'gi'), '<strong>$&</strong>') : match;
-    }
-    escapeRegexp(queryToEscape) {
-        // Ex: if the capture is "a" the result will be \a
-        return queryToEscape.replace(/([.?*+^$[\]\\(){}|-])/g, '\\$1');
-    }
-    saveHeader() {
-        if (this.header.value) {
-            this.headerConfig.onSave(this.header.value);
-            this.createdItem = this.header.value;
-            this.closePanel();
-        }
-        else {
-            this.header.valid = false;
-        }
-    }
-    writeValue(model) {
-        this.model = model;
-        if (this.options) {
-            let item = this.filteredOptions.find((i) => i.value === model || (model && i.value === model.id)) || this.options.find((i) => i.value === model || (model && i.value === model.id));
-            if (!item && !Helpers.isEmpty(model)) {
-                item = {
-                    label: model,
-                    value: model,
-                };
-                if (!item.readOnly) {
-                    this.options.unshift(item);
-                }
-            }
-            if (item) {
-                this.select(item, this.filteredOptions.indexOf(item), false);
-                this.empty = false;
-            }
-            else {
-                this.clear();
-            }
-        }
-        this.ref.markForCheck();
-    }
-    registerOnChange(fn) {
-        this.onModelChange = fn;
-    }
-    registerOnTouched(fn) {
-        this.onModelTouched = fn;
-    }
-    setDisabledState(disabled) {
-        this.disabled = disabled;
-    }
-}
-NovoSelectElement.ɵfac = function NovoSelectElement_Factory(t) { return new (t || NovoSelectElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(NovoLabelService), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc6.FocusMonitor), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.NgZone)); };
-NovoSelectElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoSelectElement, selectors: [["novo-select"]], viewQuery: function NovoSelectElement_Query(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵstaticViewQuery(NovoOverlayTemplateComponent, true);
-        ɵngcc0.ɵɵstaticViewQuery(_c41, true);
-    } if (rf & 2) {
-        var _t;
-        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.overlay = _t.first);
-        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.dropdown = _t.first);
-    } }, hostBindings: function NovoSelectElement_HostBindings(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵlistener("keydown", function NovoSelectElement_keydown_HostBindingHandler($event) { return ctx.onKeyDown($event); });
-    } }, inputs: { placeholder: "placeholder", readonly: "readonly", name: "name", options: "options", headerConfig: "headerConfig" }, outputs: { onSelect: "onSelect" }, features: [ɵngcc0.ɵɵProvidersFeature([SELECT_VALUE_ACCESSOR]), ɵngcc0.ɵɵNgOnChangesFeature], ngContentSelectors: _c1, decls: 9, vars: 11, consts: [["type", "button", 3, "tabIndex", "click"], ["dropdownElement", ""], [1, "bhi-collapse"], ["position", "center", 3, "parent", "closing"], ["tabIndex", "-1", 1, "novo-select-list"], ["class", "select-header", 3, "open", 4, "ngIf"], [3, "ngClass", "click", 4, "ngFor", "ngForOf"], [1, "select-header"], ["tabIndex", "-1", "type", "button", "class", "header", 3, "click", 4, "ngIf"], [3, "ngClass", 4, "ngIf"], ["tabIndex", "-1", "type", "button", 1, "header", 3, "click"], [1, "bhi-add-thin"], [3, "ngClass"], ["autofocus", "", "type", "text", "autocomplete", "false", 3, "placeholder", "ngModel", "ngClass", "ngModelChange"], [3, "click"], [1, "primary", 3, "click"], [3, "ngClass", "click"], [3, "innerHtml"], ["class", "bhi-check", 4, "ngIf"], [1, "bhi-check"]], template: function NovoSelectElement_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef();
-        ɵngcc0.ɵɵelementStart(0, "div", 0, 1);
-        ɵngcc0.ɵɵlistener("click", function NovoSelectElement_Template_div_click_0_listener() { ctx.togglePanel(); return false; });
-        ɵngcc0.ɵɵtext(2);
-        ɵngcc0.ɵɵelement(3, "i", 2);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementStart(4, "novo-overlay-template", 3);
-        ɵngcc0.ɵɵlistener("closing", function NovoSelectElement_Template_novo_overlay_template_closing_4_listener() { return ctx.dropdown.nativeElement.focus(); });
-        ɵngcc0.ɵɵelementStart(5, "ul", 4);
-        ɵngcc0.ɵɵprojection(6);
-        ɵngcc0.ɵɵtemplate(7, NovoSelectElement_li_7_Template, 3, 4, "li", 5);
-        ɵngcc0.ɵɵtemplate(8, NovoSelectElement_li_8_Template, 3, 6, "li", 6);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementEnd();
-    } if (rf & 2) {
-        ɵngcc0.ɵɵclassProp("empty", ctx.empty);
-        ɵngcc0.ɵɵpropertyInterpolate("tabIndex", ctx.disabled ? -1 : 0);
-        ɵngcc0.ɵɵadvance(2);
-        ɵngcc0.ɵɵtextInterpolate1(" ", ctx.selected.label, "");
-        ɵngcc0.ɵɵadvance(2);
-        ɵngcc0.ɵɵproperty("parent", ctx.element);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵclassProp("header", ctx.headerConfig)("active", ctx.panelOpen);
-        ɵngcc0.ɵɵadvance(2);
-        ɵngcc0.ɵɵproperty("ngIf", ctx.headerConfig);
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵproperty("ngForOf", ctx.filteredOptions);
-    } }, directives: [NovoOverlayTemplateComponent, ɵngcc1.NgIf, ɵngcc1.NgForOf, ɵngcc1.NgClass, ɵngcc3.DefaultValueAccessor, ɵngcc3.NgControlStatus, ɵngcc3.NgModel], encapsulation: 2 });
-NovoSelectElement.ctorParameters = () => [
-    { type: ElementRef },
-    { type: NovoLabelService },
-    { type: ChangeDetectorRef },
-    { type: FocusMonitor },
-    { type: NgZone }
-];
-NovoSelectElement.propDecorators = {
-    name: [{ type: Input }],
-    options: [{ type: Input }],
-    placeholder: [{ type: Input }],
-    readonly: [{ type: Input }],
-    headerConfig: [{ type: Input }],
-    onSelect: [{ type: Output }],
-    overlay: [{ type: ViewChild, args: [NovoOverlayTemplateComponent, { static: true },] }],
-    dropdown: [{ type: ViewChild, args: ['dropdownElement', { static: true },] }],
-    onKeyDown: [{ type: HostListener, args: ['keydown', ['$event'],] }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoSelectElement, [{
-        type: Component,
-        args: [{
-                selector: 'novo-select',
-                providers: [SELECT_VALUE_ACCESSOR],
-                template: `
-    <div #dropdownElement (click)="togglePanel(); (false)" tabIndex="{{ disabled ? -1 : 0 }}" type="button" [class.empty]="empty">
-      {{ selected.label }}<i class="bhi-collapse"></i>
-    </div>
-    <novo-overlay-template [parent]="element" position="center" (closing)="dropdown.nativeElement.focus()">
-      <ul class="novo-select-list" tabIndex="-1" [class.header]="headerConfig" [class.active]="panelOpen">
-        <ng-content></ng-content>
-        <li *ngIf="headerConfig" class="select-header" [class.open]="header.open">
-          <button *ngIf="!header.open" (click)="toggleHeader($event); (false)" tabIndex="-1" type="button" class="header">
-            <i class="bhi-add-thin"></i>&nbsp;{{ headerConfig.label }}
-          </button>
-          <div *ngIf="header.open" [ngClass]="{ active: header.open }">
-            <input
-              autofocus
-              type="text"
-              [placeholder]="headerConfig.placeholder"
-              [attr.id]="name"
-              autocomplete="false"
-              [(ngModel)]="header.value"
-              [ngClass]="{ invalid: !header.valid }"
-            />
-            <footer>
-              <button (click)="toggleHeader($event, false)">{{ labels.cancel }}</button>
-              <button (click)="saveHeader()" class="primary">{{ labels.save }}</button>
-            </footer>
-          </div>
-        </li>
-        <li
-          *ngFor="let option of filteredOptions; let i = index"
-          [ngClass]="{ active: option.active }"
-          (click)="setValueAndClose({ value: option, index: i })"
-          [attr.data-automation-value]="option.label"
-        >
-          <span [innerHtml]="highlight(option.label, filterTerm)"></span> <i *ngIf="option.active" class="bhi-check"></i>
-        </li>
-      </ul>
-    </novo-overlay-template>
-  `,
-                host: {
-                    '(keydown)': 'onKeyDown($event)'
-                }
-            }]
-    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: NovoLabelService }, { type: ɵngcc0.ChangeDetectorRef }, { type: ɵngcc6.FocusMonitor }, { type: ɵngcc0.NgZone }]; }, { placeholder: [{
-            type: Input
-        }], onSelect: [{
-            type: Output
-        }], readonly: [{
-            type: Input
-        }], onKeyDown: [{
-            type: HostListener,
-            args: ['keydown', ['$event']]
-        }], name: [{
-            type: Input
-        }], options: [{
-            type: Input
-        }], headerConfig: [{
-            type: Input
-        }], overlay: [{
-            type: ViewChild,
-            args: [NovoOverlayTemplateComponent, { static: true }]
-        }], dropdown: [{
-            type: ViewChild,
-            args: ['dropdownElement', { static: true }]
-        }] }); })();
-
-// NG
-class NovoSelectModule {
-}
-NovoSelectModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoSelectModule });
-NovoSelectModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoSelectModule_Factory(t) { return new (t || NovoSelectModule)(); }, imports: [[CommonModule, FormsModule, A11yModule, NovoOverlayModule]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoSelectModule, { declarations: function () { return [NovoSelectElement]; }, imports: function () { return [CommonModule, FormsModule, A11yModule, NovoOverlayModule]; }, exports: function () { return [NovoSelectElement]; } }); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoSelectModule, [{
-        type: NgModule,
-        args: [{
-                imports: [CommonModule, FormsModule, A11yModule, NovoOverlayModule],
-                declarations: [NovoSelectElement],
-                exports: [NovoSelectElement]
-            }]
-    }], null, null); })();
-
-// NG2
-const dragula = dragulaImported;
-class NovoDragulaService {
-    constructor() {
-        this.cancel = new EventEmitter();
-        this.cloned = new EventEmitter();
-        this.drag = new EventEmitter();
-        this.dragend = new EventEmitter();
-        this.drop = new EventEmitter();
-        this.out = new EventEmitter();
-        this.over = new EventEmitter();
-        this.remove = new EventEmitter();
-        this.shadow = new EventEmitter();
-        this.dropModel = new EventEmitter();
-        this.removeModel = new EventEmitter();
-        this.events = ['cancel', 'cloned', 'drag', 'dragend', 'drop', 'out', 'over', 'remove', 'shadow', 'dropModel', 'removeModel'];
-        this.bags = [];
-    }
-    add(name, drake) {
-        let bag = this.find(name);
-        if (bag) {
-            throw new Error(`Bag named: ${name} already exists.`);
-        }
-        bag = {
-            name,
-            drake,
-        };
-        this.bags.push(bag);
-        if (drake.models) {
-            // models to sync with (must have same structure as containers)
-            this.handleModels(name, drake);
-        }
-        if (!bag.initEvents) {
-            this.setupEvents(bag);
-        }
-        return bag;
-    }
-    find(name) {
-        for (let i = 0; i < this.bags.length; i++) {
-            if (this.bags[i].name === name) {
-                return this.bags[i];
-            }
-        }
-        return null;
-    }
-    destroy(name) {
-        const bag = this.find(name);
-        const i = this.bags.indexOf(bag);
-        this.bags.splice(i, 1);
-        bag.drake.destroy();
-    }
-    setOptions(name, options) {
-        const bag = this.add(name, dragula(options));
-        this.handleModels(name, bag.drake);
-    }
-    handleModels(name, drake) {
-        let dragElm;
-        let dragIndex;
-        let dropIndex;
-        let sourceModel;
-        drake.on('remove', (el, source) => {
-            if (!drake.models) {
-                return;
-            }
-            sourceModel = drake.models[drake.containers.indexOf(source)];
-            sourceModel.splice(dragIndex, 1);
-            this.removeModel.emit([name, el, source]);
-        });
-        drake.on('drag', (el, source) => {
-            dragElm = el;
-            dragIndex = this.domIndexOf(el, source);
-        });
-        drake.on('drop', (dropElm, target, source) => {
-            if (!drake.models) {
-                return;
-            }
-            dropIndex = this.domIndexOf(dropElm, target);
-            sourceModel = drake.models[drake.containers.indexOf(source)];
-            if (target === source) {
-                sourceModel.splice(dropIndex, 0, sourceModel.splice(dragIndex, 1)[0]);
-            }
-            else {
-                const notCopy = dragElm === dropElm;
-                const targetModel = drake.models[drake.containers.indexOf(target)];
-                const dropElmModel = notCopy ? sourceModel[dragIndex] : JSON.parse(JSON.stringify(sourceModel[dragIndex]));
-                if (notCopy) {
-                    sourceModel.splice(dragIndex, 1);
-                }
-                targetModel.splice(dropIndex, 0, dropElmModel);
-                target.removeChild(dropElm); // element must be removed for ngFor to apply correctly
-            }
-            this.dropModel.emit([name, dropElm, target, source]);
-        });
-    }
-    setupEvents(bag) {
-        bag.initEvents = true;
-        const that = this;
-        const emitter = (type) => {
-            function replicate() {
-                const args = Array.prototype.slice.call(arguments);
-                that[type].emit([bag.name].concat(args));
-            }
-            bag.drake.on(type, replicate);
-        };
-        this.events.forEach(emitter);
-    }
-    domIndexOf(child, parent) {
-        return Array.prototype.indexOf.call(parent.children, child);
-    }
-}
-NovoDragulaService.ɵfac = function NovoDragulaService_Factory(t) { return new (t || NovoDragulaService)(); };
-NovoDragulaService.ɵprov = ɵngcc0.ɵɵdefineInjectable({ token: NovoDragulaService, factory: NovoDragulaService.ɵfac });
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoDragulaService, [{
-        type: Injectable
-    }], function () { return []; }, null); })();
-
-// NG2
-const dragula$1 = dragulaImported;
-class NovoDragulaElement {
-    constructor(element, dragulaService) {
-        this.dragulaService = dragulaService;
-        this.drake = null;
-        this.container = element.nativeElement;
-    }
-    ngOnInit() {
-        const bag = this.dragulaService.find(this.bag);
-        if (bag) {
-            this.drake = bag.drake;
-            this.checkModel();
-            this.drake.containers.push(this.container);
-        }
-        else {
-            this.drake = dragula$1({
-                containers: [this.container],
-            });
-            this.checkModel();
-            this.dragulaService.add(this.bag, this.drake);
-        }
-    }
-    checkModel() {
-        if (this.dragulaModel) {
-            if (this.drake.models) {
-                this.drake.models.push(this.dragulaModel);
-            }
-            else {
-                this.drake.models = [this.dragulaModel];
-            }
-        }
-    }
-    ngOnChanges(changes) {
-        if (changes && changes.dragulaModel) {
-            if (this.drake) {
-                if (this.drake.models) {
-                    const modelIndex = this.drake.models.indexOf(changes.dragulaModel.previousValue);
-                    this.drake.models.splice(modelIndex, 1, changes.dragulaModel.currentValue);
-                }
-                else {
-                    this.drake.models = [changes.dragulaModel.currentValue];
-                }
-            }
-        }
-    }
-}
-NovoDragulaElement.ɵfac = function NovoDragulaElement_Factory(t) { return new (t || NovoDragulaElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(NovoDragulaService)); };
-NovoDragulaElement.ɵdir = ɵngcc0.ɵɵdefineDirective({ type: NovoDragulaElement, selectors: [["", "dragula", ""]], inputs: { bag: ["dragula", "bag"], dragulaModel: "dragulaModel" }, features: [ɵngcc0.ɵɵNgOnChangesFeature] });
-NovoDragulaElement.ctorParameters = () => [
-    { type: ElementRef },
-    { type: NovoDragulaService }
-];
-NovoDragulaElement.propDecorators = {
-    bag: [{ type: Input, args: ['dragula',] }],
-    dragulaModel: [{ type: Input }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoDragulaElement, [{
-        type: Directive,
-        args: [{
-                selector: '[dragula]'
-            }]
-    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: NovoDragulaService }]; }, { bag: [{
-            type: Input,
-            args: ['dragula']
-        }], dragulaModel: [{
-            type: Input
-        }] }); })();
-
-// NG2
-class NovoDragulaModule {
-}
-NovoDragulaModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoDragulaModule });
-NovoDragulaModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoDragulaModule_Factory(t) { return new (t || NovoDragulaModule)(); } });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoDragulaModule, { declarations: [NovoDragulaElement], exports: [NovoDragulaElement] }); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoDragulaModule, [{
-        type: NgModule,
-        args: [{
-                declarations: [NovoDragulaElement],
-                exports: [NovoDragulaElement]
             }]
     }], null, null); })();
 
@@ -36242,9 +32477,9 @@ class NovoFileInputElement {
 }
 NovoFileInputElement.ɵfac = function NovoFileInputElement_Factory(t) { return new (t || NovoFileInputElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(NovoLabelService), ɵngcc0.ɵɵdirectiveInject(NovoDragulaService)); };
 NovoFileInputElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoFileInputElement, selectors: [["novo-file-input"]], viewQuery: function NovoFileInputElement_Query(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵstaticViewQuery(_c45, true);
-        ɵngcc0.ɵɵstaticViewQuery(_c46, true);
-        ɵngcc0.ɵɵstaticViewQuery(_c47, true, ViewContainerRef);
+        ɵngcc0.ɵɵstaticViewQuery(_c28, true);
+        ɵngcc0.ɵɵstaticViewQuery(_c29, true);
+        ɵngcc0.ɵɵstaticViewQuery(_c30, true, ViewContainerRef);
     } if (rf & 2) {
         var _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.fileInput = _t.first);
@@ -36454,6 +32689,3911 @@ NovoFormExtrasModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function Novo
                 ],
                 declarations: [NovoAddressElement, NovoCheckboxElement, NovoCheckListElement, NovoFileInputElement],
                 exports: [NovoAddressElement, NovoCheckboxElement, NovoCheckListElement, NovoFileInputElement]
+            }]
+    }], null, null); })();
+
+// NG2
+class NovoCollapsableColumnModule {
+}
+NovoCollapsableColumnModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoCollapsableColumnModule });
+NovoCollapsableColumnModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoCollapsableColumnModule_Factory(t) { return new (t || NovoCollapsableColumnModule)(); }, imports: [[
+            NovoDragulaModule,
+            CommonModule,
+            FormsModule,
+            NovoFormExtrasModule,
+        ]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoCollapsableColumnModule, { declarations: function () { return [NovoCollapsableColumnElement]; }, imports: function () { return [NovoDragulaModule, CommonModule,
+        FormsModule, NovoFormExtrasModule]; }, exports: function () { return [NovoCollapsableColumnElement]; } }); })();
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoCollapsableColumnModule, [{
+        type: NgModule,
+        args: [{
+                declarations: [NovoCollapsableColumnElement],
+                exports: [NovoCollapsableColumnElement],
+                imports: [
+                    NovoDragulaModule,
+                    CommonModule,
+                    FormsModule,
+                    NovoFormExtrasModule,
+                ]
+            }]
+    }], null, null); })();
+
+// NG2
+class CardActionsElement {
+}
+CardActionsElement.ɵfac = function CardActionsElement_Factory(t) { return new (t || CardActionsElement)(); };
+CardActionsElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: CardActionsElement, selectors: [["novo-card-actions"]], ngContentSelectors: _c1, decls: 1, vars: 0, template: function CardActionsElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef();
+        ɵngcc0.ɵɵprojection(0);
+    } }, encapsulation: 2 });
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(CardActionsElement, [{
+        type: Component,
+        args: [{
+                selector: 'novo-card-actions',
+                template: '<ng-content></ng-content>'
+            }]
+    }], null, null); })();
+class CardElement {
+    constructor(labels) {
+        this.padding = true;
+        this.config = {};
+        this.onClose = new EventEmitter();
+        this.onRefresh = new EventEmitter();
+        this.labels = labels;
+    }
+    ngOnInit() {
+        this.config = this.config || {};
+    }
+    ngOnChanges(changes) {
+        this.config = this.config || {};
+        this.cardAutomationId = `${(this.title || this.config.title || 'no-title').toLowerCase().replace(/\s/g, '-')}-card`;
+        const newIcon = this.icon || this.config.icon;
+        const newMessageIcon = this.messageIcon || this.config.messageIcon;
+        this.iconClass = newIcon ? `bhi-${newIcon}` : null;
+        this.messageIconClass = newMessageIcon ? `bhi-${newMessageIcon}` : null;
+    }
+    toggleClose() {
+        if (!this.config.onClose) {
+            this.onClose.next();
+        }
+        else {
+            this.config.onClose();
+        }
+    }
+    toggleRefresh() {
+        if (!this.config.onRefresh) {
+            this.onRefresh.next();
+        }
+        else {
+            this.config.onRefresh();
+        }
+    }
+}
+CardElement.ɵfac = function CardElement_Factory(t) { return new (t || CardElement)(ɵngcc0.ɵɵdirectiveInject(NovoLabelService)); };
+CardElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: CardElement, selectors: [["novo-card"]], inputs: { padding: "padding", config: "config", title: "title", message: "message", messageIcon: "messageIcon", icon: "icon", iconTooltip: "iconTooltip", refresh: "refresh", close: "close", move: "move", loading: "loading" }, outputs: { onClose: "onClose", onRefresh: "onRefresh" }, features: [ɵngcc0.ɵɵNgOnChangesFeature], ngContentSelectors: _c33, decls: 18, vars: 19, consts: [[1, "novo-card", 3, "ngClass"], ["class", "card-loading-container", 4, "ngIf"], [1, "title"], ["tooltipPosition", "bottom-right", 3, "tooltip"], ["class", "bhi-move", 4, "ngIf"], ["tooltipPosition", "right", 3, "tooltip"], [3, "ngClass", 4, "ngIf"], [1, "actions"], ["theme", "icon", "icon", "refresh", "tooltipPosition", "bottom-left", 3, "tooltip", "click", 4, "ngIf"], ["theme", "icon", "icon", "close-o", "tooltipPosition", "bottom-left", 3, "tooltip", "click", 4, "ngIf"], [4, "ngIf"], ["class", "card-message", 4, "ngIf"], [1, "card-loading-container"], ["theme", "line"], [1, "bhi-move"], [3, "ngClass"], ["theme", "icon", "icon", "refresh", "tooltipPosition", "bottom-left", 3, "tooltip", "click"], ["theme", "icon", "icon", "close-o", "tooltipPosition", "bottom-left", 3, "tooltip", "click"], [1, "card-message"], [3, "innerHtml"]], template: function CardElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef(_c31);
+        ɵngcc0.ɵɵelementStart(0, "div", 0);
+        ɵngcc0.ɵɵtemplate(1, CardElement_div_1_Template, 2, 1, "div", 1);
+        ɵngcc0.ɵɵelementStart(2, "header");
+        ɵngcc0.ɵɵelementStart(3, "div", 2);
+        ɵngcc0.ɵɵelementStart(4, "span", 3);
+        ɵngcc0.ɵɵtemplate(5, CardElement_i_5_Template, 1, 1, "i", 4);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵelementStart(6, "h3");
+        ɵngcc0.ɵɵelementStart(7, "span", 5);
+        ɵngcc0.ɵɵtemplate(8, CardElement_i_8_Template, 1, 1, "i", 6);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵtext(9);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵelementStart(10, "div", 7);
+        ɵngcc0.ɵɵprojection(11);
+        ɵngcc0.ɵɵtemplate(12, CardElement_button_12_Template, 1, 2, "button", 8);
+        ɵngcc0.ɵɵtemplate(13, CardElement_button_13_Template, 1, 2, "button", 9);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵelementStart(14, "main");
+        ɵngcc0.ɵɵtemplate(15, CardElement_ng_content_15_Template, 1, 0, "ng-content", 10);
+        ɵngcc0.ɵɵtemplate(16, CardElement_p_16_Template, 3, 3, "p", 11);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵtemplate(17, CardElement_ng_content_17_Template, 1, 0, "ng-content", 10);
+        ɵngcc0.ɵɵelementEnd();
+    } if (rf & 2) {
+        ɵngcc0.ɵɵclassProp("loading", ctx.loading || ctx.config.loading);
+        ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(17, _c32, !ctx.padding));
+        ɵngcc0.ɵɵattribute("data-automation-id", ctx.cardAutomationId);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngIf", ctx.loading || ctx.config.loading);
+        ɵngcc0.ɵɵadvance(3);
+        ɵngcc0.ɵɵpropertyInterpolate("tooltip", ctx.labels.move);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngIf", ctx.move || ctx.config.move);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵattribute("data-automation-id", ctx.cardAutomationId + "-title");
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("tooltip", ctx.iconTooltip);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngIf", ctx.icon);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵtextInterpolate1(" ", ctx.title || ctx.config.title, "");
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵattribute("data-automation-id", ctx.cardAutomationId + "-actions");
+        ɵngcc0.ɵɵadvance(2);
+        ɵngcc0.ɵɵproperty("ngIf", ctx.refresh || ctx.config.refresh);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngIf", ctx.close || ctx.config.close);
+        ɵngcc0.ɵɵadvance(2);
+        ɵngcc0.ɵɵproperty("ngIf", !(ctx.loading || ctx.config.loading) && !(ctx.message || ctx.config.message));
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngIf", !(ctx.loading || ctx.config.loading) && (ctx.message || ctx.config.message));
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngIf", !(ctx.loading || ctx.config.loading) && !(ctx.message || ctx.config.message));
+    } }, directives: [ɵngcc1.NgClass, ɵngcc1.NgIf, TooltipDirective, NovoLoadingElement, NovoButtonElement], encapsulation: 2 });
+CardElement.ctorParameters = () => [
+    { type: NovoLabelService }
+];
+CardElement.propDecorators = {
+    padding: [{ type: Input }],
+    config: [{ type: Input }],
+    title: [{ type: Input }],
+    message: [{ type: Input }],
+    messageIcon: [{ type: Input }],
+    icon: [{ type: Input }],
+    iconTooltip: [{ type: Input }],
+    refresh: [{ type: Input }],
+    close: [{ type: Input }],
+    move: [{ type: Input }],
+    loading: [{ type: Input }],
+    onClose: [{ type: Output }],
+    onRefresh: [{ type: Output }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(CardElement, [{
+        type: Component,
+        args: [{
+                selector: 'novo-card',
+                template: `
+        <div class="novo-card" [attr.data-automation-id]="cardAutomationId" [ngClass]="{'no-padding': !padding}" [class.loading]="loading || config.loading">
+            <!--Loading-->
+            <div class="card-loading-container" *ngIf="loading || config.loading">
+                <novo-loading theme="line" [attr.data-automation-id]="cardAutomationId + '-loading'"></novo-loading>
+            </div>
+            <!--Card Header-->
+            <header>
+                <div class="title">
+                    <!--Grabber Icon-->
+                    <span tooltip="{{ labels.move }}" tooltipPosition="bottom-right"><i *ngIf="move || config.move" class="bhi-move" [attr.data-automation-id]="cardAutomationId + '-move'"></i></span>
+                    <!--Card Title-->
+                    <h3 [attr.data-automation-id]="cardAutomationId + '-title'"><span [tooltip]="iconTooltip" tooltipPosition="right"><i *ngIf="icon" [ngClass]="iconClass"></i></span> {{title || config.title}}</h3>
+                </div>
+                <!--Card Actions-->
+                <div class="actions" [attr.data-automation-id]="cardAutomationId + '-actions'">
+                    <ng-content select="novo-card-actions"></ng-content>
+                    <button theme="icon" icon="refresh"  (click)="toggleRefresh()" *ngIf="refresh || config.refresh" [attr.data-automation-id]="cardAutomationId + '-refresh'" tooltip="{{ labels.refresh }}" tooltipPosition="bottom-left"></button>
+                    <button theme="icon" icon="close-o" (click)="toggleClose()" *ngIf="close || config.close" [attr.data-automation-id]="cardAutomationId + '-close'" tooltip="{{ labels.close }}" tooltipPosition="bottom-left"></button>
+                </div>
+            </header>
+            <!--Card Main-->
+            <main>
+                <!--Content (transcluded)-->
+                <ng-content *ngIf="!(loading || config.loading) && !(message || config.message)"></ng-content>
+                <!--Error/Empty Message-->
+                <p class="card-message" *ngIf="!(loading || config.loading) && (message || config.message)" [attr.data-automation-id]="cardAutomationId + '-message'"><i *ngIf="messageIconClass" [ngClass]="messageIconClass"></i> <span [innerHtml]="message || config.message"></span></p>
+            </main>
+            <!--Card Footer-->
+            <ng-content *ngIf="!(loading || config.loading) && !(message || config.message)" select="footer"></ng-content>
+        </div>
+    `
+            }]
+    }], function () { return [{ type: NovoLabelService }]; }, { padding: [{
+            type: Input
+        }], config: [{
+            type: Input
+        }], onClose: [{
+            type: Output
+        }], onRefresh: [{
+            type: Output
+        }], title: [{
+            type: Input
+        }], message: [{
+            type: Input
+        }], messageIcon: [{
+            type: Input
+        }], icon: [{
+            type: Input
+        }], iconTooltip: [{
+            type: Input
+        }], refresh: [{
+            type: Input
+        }], close: [{
+            type: Input
+        }], move: [{
+            type: Input
+        }], loading: [{
+            type: Input
+        }] }); })();
+
+// NG2
+class NovoCardModule {
+}
+NovoCardModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoCardModule });
+NovoCardModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoCardModule_Factory(t) { return new (t || NovoCardModule)(); }, imports: [[CommonModule, NovoButtonModule, NovoLoadingModule, NovoTooltipModule]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoCardModule, { declarations: function () { return [CardElement, CardActionsElement]; }, imports: function () { return [CommonModule, NovoButtonModule, NovoLoadingModule, NovoTooltipModule]; }, exports: function () { return [CardElement, CardActionsElement]; } }); })();
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoCardModule, [{
+        type: NgModule,
+        args: [{
+                imports: [CommonModule, NovoButtonModule, NovoLoadingModule, NovoTooltipModule],
+                declarations: [CardElement, CardActionsElement],
+                exports: [CardElement, CardActionsElement]
+            }]
+    }], null, null); })();
+
+// NG2
+/**
+ * Outside click helper, makes to set the element as inactive when clicking outside of it
+ */
+class OutsideClick {
+    constructor(element) {
+        this.active = false;
+        this.onActiveChange = new EventEmitter();
+        // Component element
+        this.element = element;
+        // Outside click handler
+        // Property because `this.func.bind(this)` returns a new function each time
+        this.onOutsideClick = this.handleOutsideClick.bind(this);
+    }
+    /**
+     * When the element is destroyed, make sure to remove the handler
+     */
+    ngOnDestroy() {
+        window.removeEventListener('click', this.onOutsideClick);
+    }
+    /**
+     * Toggles the element as active and adds/removes the outside click handler
+     */
+    toggleActive(event, forceValue) {
+        // Reverse the active property (if forceValue, use that)
+        this.active = !Helpers.isBlank(forceValue) ? forceValue : !this.active;
+        // Bind window click events to hide on outside click
+        if (this.active) {
+            window.addEventListener('click', this.onOutsideClick);
+        }
+        else {
+            window.removeEventListener('click', this.onOutsideClick);
+        }
+        // Fire the active change event
+        this.onActiveChange.emit(this.active);
+    }
+    /**
+     * When clicking outside, checks the element and closes if outside
+     */
+    handleOutsideClick(event) {
+        // If the elements doesn't contain the target element, it is an outside click
+        let outsideClick = !this.element.nativeElement.contains(event.target);
+        if (this.otherElement && outsideClick) {
+            outsideClick = !this.otherElement.nativeElement.contains(event.target);
+        }
+        if (outsideClick) {
+            this.toggleActive(event, false);
+        }
+    }
+}
+OutsideClick.ɵfac = function OutsideClick_Factory(t) { return new (t || OutsideClick)(ɵngcc0.ɵɵinject(ɵngcc0.ElementRef)); };
+OutsideClick.ɵprov = ɵngcc0.ɵɵdefineInjectable({ token: OutsideClick, factory: OutsideClick.ɵfac });
+OutsideClick.ctorParameters = () => [
+    { type: ElementRef }
+];
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(OutsideClick, [{
+        type: Injectable
+    }], function () { return [{ type: ɵngcc0.ElementRef }]; }, null); })();
+
+// NG2
+class NovoCategoryDropdownElement extends OutsideClick {
+    constructor(element, labels) {
+        super(element);
+        this.labels = labels;
+        this._query = '';
+        this._categoryMap = {};
+        this._categories = [];
+        // Boolean to keep the selection persist when closing the dropdown
+        this.persistSelection = false;
+        // Boolean to close the dropdown on selection
+        this.closeOnSelect = false;
+        // Event that is emitted whenever an item is selected
+        this._select = new EventEmitter();
+        // Event that is emitted whenever a category is selected
+        this.categorySelected = new EventEmitter();
+        this.clickHandler = this.toggleActive.bind(this);
+    }
+    set categories(categories) {
+        this._masterCategoryMap = Object.assign({}, categories);
+        this._categoryMap = Object.assign({}, categories);
+        this._categories = Object.keys(categories);
+    }
+    ngOnInit() {
+        const button = this.element.nativeElement.querySelector('button');
+        button.addEventListener('click', this.clickHandler);
+    }
+    ngOnDestroy() {
+        const button = this.element.nativeElement.querySelector('button');
+        if (button) {
+            button.removeEventListener('click', this.clickHandler);
+        }
+    }
+    onKeyDown(event) {
+        if (this.active && (event.keyCode === KeyCodes.ESC || event.keyCode === KeyCodes.ENTER)) {
+            this.toggleActive();
+        }
+    }
+    clearSelection() {
+        this._categories.forEach((category) => {
+            this._categoryMap[category].forEach((item) => {
+                item.selected = false;
+            });
+        });
+    }
+    select(event, item) {
+        Helpers.swallowEvent(event);
+        // If we persist the selection, clear and show a check
+        if (this.persistSelection) {
+            this.clearSelection();
+            item.selected = true;
+        }
+        // Emit the item
+        this._select.emit(item);
+        // Close, if input is set
+        if (this.closeOnSelect) {
+            this.toggleActive();
+        }
+    }
+    onCategorySelected(category) {
+        this.categorySelected.emit(category);
+    }
+    clearQuery(event) {
+        Helpers.swallowEvent(event);
+        this._query = '';
+        // Reset the categories
+        this._categories.forEach((category) => {
+            this._categoryMap[category] = this._masterCategoryMap[category];
+        });
+    }
+    queryCategories(query) {
+        // Save the query
+        this._query = query;
+        // Check timeout
+        if (this._queryTimeout) {
+            clearTimeout(this._queryTimeout);
+        }
+        // Store a timeout, to debounce user input
+        this._queryTimeout = setTimeout(() => {
+            this._categories.forEach((category) => {
+                if (this.search.compare) {
+                    this._categoryMap[category] = this._masterCategoryMap[category].filter((item) => this.search.compare(query, item));
+                }
+                else {
+                    this._categoryMap[category] = this._masterCategoryMap[category].filter((item) => ~item.label.toLowerCase().indexOf(query.toLowerCase()));
+                }
+            });
+        }, this.search.debounce || 300);
+    }
+    executeClickCallback(event, link) {
+        link.callback(event);
+        // Close, if input is set
+        if (this.closeOnSelect) {
+            this.toggleActive();
+        }
+    }
+}
+NovoCategoryDropdownElement.ɵfac = function NovoCategoryDropdownElement_Factory(t) { return new (t || NovoCategoryDropdownElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(NovoLabelService)); };
+NovoCategoryDropdownElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoCategoryDropdownElement, selectors: [["novo-category-dropdown"]], hostVars: 2, hostBindings: function NovoCategoryDropdownElement_HostBindings(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵlistener("keydown", function NovoCategoryDropdownElement_keydown_HostBindingHandler($event) { return ctx.onKeyDown($event); });
+    } if (rf & 2) {
+        ɵngcc0.ɵɵclassProp("active", ctx.active);
+    } }, inputs: { persistSelection: "persistSelection", closeOnSelect: "closeOnSelect", categories: "categories", search: "search", footer: "footer" }, outputs: { _select: "itemSelected", categorySelected: "categorySelected" }, features: [ɵngcc0.ɵɵInheritDefinitionFeature], ngContentSelectors: _c35, decls: 2, vars: 1, consts: [["class", "dropdown-container", 4, "ngIf"], [1, "dropdown-container"], ["class", "novo-category-dropdown-search", "data-automation-id", "novo-category-dropdown-search", 4, "ngIf"], ["theme", "white", "direction", "vertical", 3, "outlet"], [3, "activeChange", 4, "ngFor", "ngForOf"], ["novoCategoryDropdownOutlet", ""], [4, "ngFor", "ngForOf"], [3, "class", 4, "ngIf"], ["data-automation-id", "novo-category-dropdown-search", 1, "novo-category-dropdown-search"], ["type", "text", 3, "placeholder", "value", "input"], ["class", "bhi-search", 4, "ngIf"], ["class", "bhi-times", 3, "click", 4, "ngIf"], [1, "bhi-search"], [1, "bhi-times", 3, "click"], [3, "activeChange"], ["direction", "vertical"], [3, "click", 4, "ngFor", "ngForOf"], ["class", "novo-category-dropdown-empty-item", 4, "ngIf"], [3, "click"], ["class", "novo-category-dropdown-hover", 4, "ngIf"], [4, "ngIf"], [1, "novo-category-dropdown-hover"], [1, "bhi-check"], [1, "novo-category-dropdown-empty-item"]], template: function NovoCategoryDropdownElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef(_c34);
+        ɵngcc0.ɵɵprojection(0);
+        ɵngcc0.ɵɵtemplate(1, NovoCategoryDropdownElement_div_1_Template, 8, 5, "div", 0);
+    } if (rf & 2) {
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngIf", ctx.active);
+    } }, directives: function () { return [ɵngcc1.NgIf, NovoNavElement, ɵngcc1.NgForOf, NovoNavOutletElement, NovoTabElement, NovoNavContentElement, NovoListElement, NovoListItemElement, NovoItemContentElement, NovoItemEndElement]; }, encapsulation: 2 });
+NovoCategoryDropdownElement.ctorParameters = () => [
+    { type: ElementRef },
+    { type: NovoLabelService }
+];
+NovoCategoryDropdownElement.propDecorators = {
+    persistSelection: [{ type: Input }],
+    closeOnSelect: [{ type: Input }],
+    search: [{ type: Input }],
+    footer: [{ type: Input }],
+    _select: [{ type: Output, args: ['itemSelected',] }],
+    categorySelected: [{ type: Output }],
+    categories: [{ type: Input }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoCategoryDropdownElement, [{
+        type: Component,
+        args: [{
+                selector: 'novo-category-dropdown',
+                template: `
+        <ng-content select="button"></ng-content>
+        <div class="dropdown-container" *ngIf="active">
+            <div class="novo-category-dropdown-search" *ngIf="search" data-automation-id="novo-category-dropdown-search">
+                <input type="text" [placeholder]="search.placeholder || labels.search" [value]="_query" (input)="queryCategories($event.target.value)"/>
+                <i class="bhi-search" *ngIf="!_query"></i>
+                <i class="bhi-times" *ngIf="_query" (click)="clearQuery($event)"></i>
+            </div>
+            <novo-nav theme="white" [outlet]="novoCategoryDropdownOutlet" direction="vertical">
+                <novo-tab *ngFor="let category of _categories" [attr.data-automation-id]="category" (activeChange)="onCategorySelected(category)">
+                    <span>{{ category }} ({{ _categoryMap[category].length }})</span>
+                </novo-tab>
+            </novo-nav>
+            <novo-nav-outlet #novoCategoryDropdownOutlet>
+                <novo-nav-content *ngFor="let category of _categories">
+                    <novo-list direction="vertical">
+                        <novo-list-item *ngFor="let item of _categoryMap[category]" (click)="select($event, item)" [attr.data-automation-id]="item.label">
+                            <item-content>{{ item.label }}</item-content>
+                            <item-end class="novo-category-dropdown-hover" *ngIf="item.hoverText && !item.selected">{{ item.hoverText }}</item-end>
+                            <item-end class="novo-category-dropdown-hover" *ngIf="item.hoverIcon && !item.selected"><i class="bhi-{{ item.hoverIcon }}"></i></item-end>
+                            <item-end *ngIf="item.selected"><i class="bhi-check"></i></item-end>
+                        </novo-list-item>
+                        <novo-list-item *ngIf="_categoryMap[category].length === 0 && search" class="novo-category-dropdown-empty-item">
+                            <item-content>{{ search.emptyMessage || labels.noItems }}</item-content>
+                        </novo-list-item>
+                    </novo-list>
+                </novo-nav-content>
+            </novo-nav-outlet>
+            <footer *ngIf="footer" class="novo-category-dropdown-footer-align-{{ footer.align || 'right' }}">
+                <a *ngFor="let link of footer.links" (click)="executeClickCallback($event, link)">{{ link.label }}</a>
+            </footer>
+        </div>
+    `,
+                host: {
+                    '(keydown)': 'onKeyDown($event)',
+                    '[class.active]': 'active'
+                }
+            }]
+    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: NovoLabelService }]; }, { persistSelection: [{
+            type: Input
+        }], closeOnSelect: [{
+            type: Input
+        }], _select: [{
+            type: Output,
+            args: ['itemSelected']
+        }], categorySelected: [{
+            type: Output
+        }], categories: [{
+            type: Input
+        }], search: [{
+            type: Input
+        }], footer: [{
+            type: Input
+        }] }); })();
+
+// NG2
+class NovoNavElement {
+    constructor() {
+        this.theme = '';
+        this.direction = '';
+        this.condensed = false;
+        this.items = [];
+    }
+    select(item) {
+        /**
+         * Deactivate all other tabs
+         */
+        function _deactivateAllItems(items) {
+            items.forEach((t) => {
+                if (t.active === true) {
+                    // t.deselected.next();
+                }
+                t.active = false;
+            });
+        }
+        _deactivateAllItems(this.items);
+        item.active = true;
+        if (this.outlet) {
+            this.outlet.show(this.items.indexOf(item));
+        }
+        // TODO - remove hack to make DOM rerender - jgodi
+        const element = document.querySelector('novo-tab-link.active span.indicator');
+        if (element) {
+            element.style.opacity = 0.99;
+            setTimeout(() => {
+                element.style.opacity = 1;
+            }, 10);
+        }
+    }
+    add(item) {
+        if (this.items.length === 0) {
+            item.active = true;
+            // item.selected.next();
+        }
+        this.items.push(item);
+    }
+}
+NovoNavElement.ɵfac = function NovoNavElement_Factory(t) { return new (t || NovoNavElement)(); };
+NovoNavElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoNavElement, selectors: [["novo-nav"]], hostVars: 2, hostBindings: function NovoNavElement_HostBindings(rf, ctx) { if (rf & 2) {
+        ɵngcc0.ɵɵclassProp("condensed", ctx.condensed);
+    } }, inputs: { theme: "theme", direction: "direction", condensed: "condensed", outlet: "outlet", router: "router" }, ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoNavElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef();
+        ɵngcc0.ɵɵprojection(0);
+    } }, encapsulation: 2 });
+NovoNavElement.propDecorators = {
+    theme: [{ type: Input }],
+    direction: [{ type: Input }],
+    outlet: [{ type: Input }],
+    router: [{ type: Input }],
+    condensed: [{ type: HostBinding, args: ['class.condensed',] }, { type: Input }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoNavElement, [{
+        type: Component,
+        args: [{
+                selector: 'novo-nav',
+                template: '<ng-content></ng-content>'
+            }]
+    }], function () { return []; }, { theme: [{
+            type: Input
+        }], direction: [{
+            type: Input
+        }], condensed: [{
+            type: HostBinding,
+            args: ['class.condensed']
+        }, {
+            type: Input
+        }], outlet: [{
+            type: Input
+        }], router: [{
+            type: Input
+        }] }); })();
+class NovoTabElement {
+    constructor(nav) {
+        this.active = false;
+        this.disabled = false;
+        this.activeChange = new EventEmitter();
+        this.nav = nav;
+        this.nav.add(this);
+    }
+    select() {
+        if (!this.disabled) {
+            this.activeChange.emit(true);
+            this.nav.select(this);
+        }
+    }
+}
+NovoTabElement.ɵfac = function NovoTabElement_Factory(t) { return new (t || NovoTabElement)(ɵngcc0.ɵɵdirectiveInject(NovoNavElement)); };
+NovoTabElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoTabElement, selectors: [["novo-tab"]], hostVars: 4, hostBindings: function NovoTabElement_HostBindings(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵlistener("click", function NovoTabElement_click_HostBindingHandler() { return ctx.select(); });
+    } if (rf & 2) {
+        ɵngcc0.ɵɵclassProp("active", ctx.active)("disabled", ctx.disabled);
+    } }, inputs: { active: "active", disabled: "disabled" }, outputs: { activeChange: "activeChange" }, ngContentSelectors: _c1, decls: 3, vars: 0, consts: [[1, "novo-tab-link"], [1, "indicator"]], template: function NovoTabElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef();
+        ɵngcc0.ɵɵelementStart(0, "div", 0);
+        ɵngcc0.ɵɵprojection(1);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵelement(2, "span", 1);
+    } }, encapsulation: 2 });
+NovoTabElement.ctorParameters = () => [
+    { type: NovoNavElement }
+];
+NovoTabElement.propDecorators = {
+    active: [{ type: Input }],
+    disabled: [{ type: Input }],
+    activeChange: [{ type: Output }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoTabElement, [{
+        type: Component,
+        args: [{
+                selector: 'novo-tab',
+                host: {
+                    '(click)': 'select()',
+                    '[class.active]': 'active',
+                    '[class.disabled]': 'disabled'
+                },
+                template: `
+        <div class="novo-tab-link">
+            <ng-content></ng-content>
+        </div>
+        <span class="indicator"></span>
+   `
+            }]
+    }], function () { return [{ type: NovoNavElement }]; }, { active: [{
+            type: Input
+        }], disabled: [{
+            type: Input
+        }], activeChange: [{
+            type: Output
+        }] }); })();
+class NovoTabButtonElement {
+    constructor(nav) {
+        this.active = false;
+        this.disabled = false;
+        this.nav = nav;
+        this.nav.add(this);
+    }
+    select() {
+        if (!this.disabled) {
+            this.nav.select(this);
+        }
+    }
+}
+NovoTabButtonElement.ɵfac = function NovoTabButtonElement_Factory(t) { return new (t || NovoTabButtonElement)(ɵngcc0.ɵɵdirectiveInject(NovoNavElement)); };
+NovoTabButtonElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoTabButtonElement, selectors: [["novo-tab-button"]], hostVars: 4, hostBindings: function NovoTabButtonElement_HostBindings(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵlistener("click", function NovoTabButtonElement_click_HostBindingHandler() { return ctx.select(); });
+    } if (rf & 2) {
+        ɵngcc0.ɵɵclassProp("active", ctx.active)("disabled", ctx.disabled);
+    } }, inputs: { active: "active", disabled: "disabled" }, ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoTabButtonElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef();
+        ɵngcc0.ɵɵprojection(0);
+    } }, encapsulation: 2 });
+NovoTabButtonElement.ctorParameters = () => [
+    { type: NovoNavElement }
+];
+NovoTabButtonElement.propDecorators = {
+    active: [{ type: Input }],
+    disabled: [{ type: Input }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoTabButtonElement, [{
+        type: Component,
+        args: [{
+                selector: 'novo-tab-button',
+                host: {
+                    '(click)': 'select()',
+                    '[class.active]': 'active',
+                    '[class.disabled]': 'disabled'
+                },
+                template: '<ng-content></ng-content>'
+            }]
+    }], function () { return [{ type: NovoNavElement }]; }, { active: [{
+            type: Input
+        }], disabled: [{
+            type: Input
+        }] }); })();
+class NovoTabLinkElement {
+    constructor(nav) {
+        this.active = false;
+        this.disabled = false;
+        this.nav = nav;
+        this.nav.add(this);
+    }
+    select() {
+        if (!this.disabled) {
+            this.nav.select(this);
+        }
+    }
+}
+NovoTabLinkElement.ɵfac = function NovoTabLinkElement_Factory(t) { return new (t || NovoTabLinkElement)(ɵngcc0.ɵɵdirectiveInject(NovoNavElement)); };
+NovoTabLinkElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoTabLinkElement, selectors: [["novo-tab-link"]], hostVars: 4, hostBindings: function NovoTabLinkElement_HostBindings(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵlistener("click", function NovoTabLinkElement_click_HostBindingHandler() { return ctx.select(); });
+    } if (rf & 2) {
+        ɵngcc0.ɵɵclassProp("active", ctx.active)("disabled", ctx.disabled);
+    } }, inputs: { active: "active", disabled: "disabled" }, ngContentSelectors: _c1, decls: 3, vars: 0, consts: [[1, "novo-tab-link"], [1, "indicator"]], template: function NovoTabLinkElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef();
+        ɵngcc0.ɵɵelementStart(0, "div", 0);
+        ɵngcc0.ɵɵprojection(1);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵelement(2, "span", 1);
+    } }, encapsulation: 2 });
+NovoTabLinkElement.ctorParameters = () => [
+    { type: NovoNavElement }
+];
+NovoTabLinkElement.propDecorators = {
+    active: [{ type: Input }],
+    disabled: [{ type: Input }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoTabLinkElement, [{
+        type: Component,
+        args: [{
+                selector: 'novo-tab-link',
+                host: {
+                    '(click)': 'select()',
+                    '[class.active]': 'active',
+                    '[class.disabled]': 'disabled'
+                },
+                template: `
+        <div class="novo-tab-link">
+            <ng-content></ng-content>
+        </div>
+        <span class="indicator"></span>
+    `
+            }]
+    }], function () { return [{ type: NovoNavElement }]; }, { active: [{
+            type: Input
+        }], disabled: [{
+            type: Input
+        }] }); })();
+class NovoNavOutletElement {
+    constructor() {
+        this.items = [];
+    }
+    show(index) {
+        const item = this.items[index];
+        /**
+         * Deactivates other tab items
+         * @param items - deactivated items
+         */
+        function _deactivateAllItems(items) {
+            items.forEach((t) => {
+                if (t.active === true) {
+                    // t.deselected.next();
+                }
+                t.active = false;
+            });
+        }
+        _deactivateAllItems(this.items);
+        item.active = true;
+    }
+    add(item) {
+        if (this.items.length === 0) {
+            item.active = true;
+        }
+        this.items.push(item);
+    }
+}
+NovoNavOutletElement.ɵfac = function NovoNavOutletElement_Factory(t) { return new (t || NovoNavOutletElement)(); };
+NovoNavOutletElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoNavOutletElement, selectors: [["novo-nav-outlet"]], ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoNavOutletElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef();
+        ɵngcc0.ɵɵprojection(0);
+    } }, encapsulation: 2 });
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoNavOutletElement, [{
+        type: Component,
+        args: [{
+                selector: 'novo-nav-outlet',
+                template: '<ng-content></ng-content>'
+            }]
+    }], function () { return []; }, null); })();
+class NovoNavContentElement {
+    constructor(outlet) {
+        this.active = false;
+        outlet.add(this);
+    }
+}
+NovoNavContentElement.ɵfac = function NovoNavContentElement_Factory(t) { return new (t || NovoNavContentElement)(ɵngcc0.ɵɵdirectiveInject(NovoNavOutletElement)); };
+NovoNavContentElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoNavContentElement, selectors: [["novo-nav-content"]], hostVars: 2, hostBindings: function NovoNavContentElement_HostBindings(rf, ctx) { if (rf & 2) {
+        ɵngcc0.ɵɵclassProp("active", ctx.active);
+    } }, inputs: { active: "active" }, ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoNavContentElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef();
+        ɵngcc0.ɵɵprojection(0);
+    } }, encapsulation: 2 });
+NovoNavContentElement.ctorParameters = () => [
+    { type: NovoNavOutletElement }
+];
+NovoNavContentElement.propDecorators = {
+    active: [{ type: Input }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoNavContentElement, [{
+        type: Component,
+        args: [{
+                selector: 'novo-nav-content',
+                host: {
+                    '[class.active]': 'active'
+                },
+                template: '<ng-content></ng-content>'
+            }]
+    }], function () { return [{ type: NovoNavOutletElement }]; }, { active: [{
+            type: Input
+        }] }); })();
+class NovoNavHeaderElement {
+    constructor(outlet) {
+        this.active = false;
+        this.active = this.active || false;
+        this.outlet = outlet;
+    }
+    show(event) {
+        try {
+            const INDEX = this.outlet.items.indexOf(this.forElement);
+            if (INDEX > -1) {
+                this.outlet.show(INDEX);
+            }
+        }
+        catch (err) {
+            // do nothing
+        }
+    }
+}
+NovoNavHeaderElement.ɵfac = function NovoNavHeaderElement_Factory(t) { return new (t || NovoNavHeaderElement)(ɵngcc0.ɵɵdirectiveInject(NovoNavOutletElement)); };
+NovoNavHeaderElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoNavHeaderElement, selectors: [["novo-nav-header"]], hostVars: 2, hostBindings: function NovoNavHeaderElement_HostBindings(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵlistener("click", function NovoNavHeaderElement_click_HostBindingHandler($event) { return ctx.show($event); });
+    } if (rf & 2) {
+        ɵngcc0.ɵɵclassProp("active", ctx.active);
+    } }, inputs: { active: "active", forElement: ["for", "forElement"] }, ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoNavHeaderElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef();
+        ɵngcc0.ɵɵprojection(0);
+    } }, encapsulation: 2 });
+NovoNavHeaderElement.ctorParameters = () => [
+    { type: NovoNavOutletElement }
+];
+NovoNavHeaderElement.propDecorators = {
+    active: [{ type: Input }],
+    forElement: [{ type: Input, args: ['for',] }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoNavHeaderElement, [{
+        type: Component,
+        args: [{
+                selector: 'novo-nav-header',
+                host: {
+                    '[class.active]': 'active',
+                    '(click)': 'show($event)'
+                },
+                template: '<ng-content></ng-content>'
+            }]
+    }], function () { return [{ type: NovoNavOutletElement }]; }, { active: [{
+            type: Input
+        }], forElement: [{
+            type: Input,
+            args: ['for']
+        }] }); })();
+
+// NG2
+class NovoTabModule {
+}
+NovoTabModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoTabModule });
+NovoTabModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoTabModule_Factory(t) { return new (t || NovoTabModule)(); }, imports: [[CommonModule]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoTabModule, { declarations: function () { return [NovoNavElement, NovoTabElement, NovoTabButtonElement, NovoTabLinkElement, NovoNavOutletElement, NovoNavContentElement, NovoNavHeaderElement]; }, imports: function () { return [CommonModule]; }, exports: function () { return [NovoNavElement, NovoTabElement, NovoTabButtonElement, NovoTabLinkElement, NovoNavOutletElement, NovoNavContentElement, NovoNavHeaderElement]; } }); })();
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoTabModule, [{
+        type: NgModule,
+        args: [{
+                imports: [CommonModule],
+                declarations: [
+                    NovoNavElement,
+                    NovoTabElement,
+                    NovoTabButtonElement,
+                    NovoTabLinkElement,
+                    NovoNavOutletElement,
+                    NovoNavContentElement,
+                    NovoNavHeaderElement,
+                ],
+                exports: [
+                    NovoNavElement,
+                    NovoTabElement,
+                    NovoTabButtonElement,
+                    NovoTabLinkElement,
+                    NovoNavOutletElement,
+                    NovoNavContentElement,
+                    NovoNavHeaderElement,
+                ]
+            }]
+    }], null, null); })();
+
+// NG2
+class NovoCategoryDropdownModule {
+}
+NovoCategoryDropdownModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoCategoryDropdownModule });
+NovoCategoryDropdownModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoCategoryDropdownModule_Factory(t) { return new (t || NovoCategoryDropdownModule)(); }, imports: [[CommonModule, NovoTabModule, NovoListModule]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoCategoryDropdownModule, { declarations: function () { return [NovoCategoryDropdownElement]; }, imports: function () { return [CommonModule, NovoTabModule, NovoListModule]; }, exports: function () { return [NovoCategoryDropdownElement]; } }); })();
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoCategoryDropdownModule, [{
+        type: NgModule,
+        args: [{
+                imports: [CommonModule, NovoTabModule, NovoListModule],
+                declarations: [NovoCategoryDropdownElement],
+                exports: [NovoCategoryDropdownElement]
+            }]
+    }], null, null); })();
+
+// NG2
+// Value accessor for the component (supports ngModel)
+const CHIPS_VALUE_ACCESSOR = {
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => NovoChipsElement),
+    multi: true,
+};
+class NovoChipElement {
+    constructor() {
+        this.disabled = false;
+        this.select = new EventEmitter();
+        this.remove = new EventEmitter();
+        this.deselect = new EventEmitter();
+    }
+    set type(type) {
+        this._type = type ? type.toLowerCase() : null;
+    }
+    onRemove(e) {
+        if (e) {
+            e.stopPropagation();
+            e.preventDefault();
+        }
+        this.remove.emit(e);
+        return false;
+    }
+    onSelect(e) {
+        if (e) {
+            e.stopPropagation();
+            e.preventDefault();
+        }
+        this.select.emit(e);
+        return false;
+    }
+    onDeselect(e) {
+        if (e) {
+            e.stopPropagation();
+            e.preventDefault();
+        }
+        this.deselect.emit(e);
+        return false;
+    }
+}
+NovoChipElement.ɵfac = function NovoChipElement_Factory(t) { return new (t || NovoChipElement)(); };
+NovoChipElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoChipElement, selectors: [["chip"], ["novo-chip"]], inputs: { disabled: "disabled", type: "type" }, outputs: { select: "select", remove: "remove", deselect: "deselect" }, ngContentSelectors: _c1, decls: 5, vars: 3, consts: [[3, "ngClass", "click", "mouseenter", "mouseleave"], ["class", "bhi-circle", 4, "ngIf"], ["class", "bhi-close", 3, "click", 4, "ngIf"], [1, "bhi-circle"], [1, "bhi-close", 3, "click"]], template: function NovoChipElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef();
+        ɵngcc0.ɵɵelementStart(0, "span", 0);
+        ɵngcc0.ɵɵlistener("click", function NovoChipElement_Template_span_click_0_listener($event) { return ctx.onSelect($event); })("mouseenter", function NovoChipElement_Template_span_mouseenter_0_listener($event) { return ctx.onSelect($event); })("mouseleave", function NovoChipElement_Template_span_mouseleave_0_listener($event) { return ctx.onDeselect($event); });
+        ɵngcc0.ɵɵtemplate(1, NovoChipElement_i_1_Template, 1, 0, "i", 1);
+        ɵngcc0.ɵɵelementStart(2, "span");
+        ɵngcc0.ɵɵprojection(3);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵtemplate(4, NovoChipElement_i_4_Template, 1, 0, "i", 2);
+    } if (rf & 2) {
+        ɵngcc0.ɵɵproperty("ngClass", ctx._type);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngIf", ctx._type);
+        ɵngcc0.ɵɵadvance(3);
+        ɵngcc0.ɵɵproperty("ngIf", !ctx.disabled);
+    } }, directives: [ɵngcc1.NgClass, ɵngcc1.NgIf], encapsulation: 2 });
+NovoChipElement.propDecorators = {
+    type: [{ type: Input }],
+    disabled: [{ type: Input }],
+    select: [{ type: Output }],
+    remove: [{ type: Output }],
+    deselect: [{ type: Output }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoChipElement, [{
+        type: Component,
+        args: [{
+                selector: 'chip,novo-chip',
+                template: `
+        <span (click)="onSelect($event)" (mouseenter)="onSelect($event)" (mouseleave)="onDeselect($event)" [ngClass]="_type">
+            <i *ngIf="_type" class="bhi-circle"></i>
+            <span><ng-content></ng-content></span>
+        </span>
+        <i class="bhi-close" *ngIf="!disabled" (click)="onRemove($event)"></i>
+    `
+            }]
+    }], function () { return []; }, { disabled: [{
+            type: Input
+        }], select: [{
+            type: Output
+        }], remove: [{
+            type: Output
+        }], deselect: [{
+            type: Output
+        }], type: [{
+            type: Input
+        }] }); })();
+class NovoChipsElement {
+    constructor(element, componentUtils, labels) {
+        this.element = element;
+        this.componentUtils = componentUtils;
+        this.labels = labels;
+        this.closeOnSelect = false;
+        this.placeholder = '';
+        this._disablePickerInput = false;
+        this.changed = new EventEmitter();
+        this.focus = new EventEmitter();
+        this.blur = new EventEmitter();
+        this.typing = new EventEmitter();
+        this.items = [];
+        this.selected = null;
+        this.config = {};
+        // private data model
+        this._value = '';
+        this._items = new ReplaySubject(1);
+        // Placeholders for the callbacks
+        this.onModelChange = () => { };
+        this.onModelTouched = () => { };
+    }
+    set disablePickerInput(v) {
+        this._disablePickerInput = coerceBooleanProperty(v);
+    }
+    get disablePickerInput() {
+        return this._disablePickerInput;
+    }
+    ngOnInit() {
+        this.setItems();
+    }
+    get value() {
+        return this._value;
+    }
+    set value(selected) {
+        this.itemToAdd = '';
+        if (selected !== this._value) {
+            this._value = selected;
+            this.changed.emit({ value: selected, rawValue: this.items });
+            this.onModelChange(selected);
+        }
+    }
+    clearValue() {
+        this.items = [];
+        this._items.next(this.items);
+        this.value = null;
+        this.changed.emit({ value: this.value, rawValue: this.items });
+        this.onModelChange(this.value);
+    }
+    setItems() {
+        this.items = [];
+        if (this.model && Array.isArray(this.model)) {
+            const noLabels = [];
+            for (const value of this.model) {
+                let label;
+                if (this.source && this.source.format && Helpers.validateInterpolationProps(this.source.format, value)) {
+                    label = Helpers.interpolate(this.source.format, value);
+                }
+                if (this.source && label && label !== this.source.format) {
+                    this.items.push({
+                        value,
+                        label,
+                    });
+                }
+                else if (this.source.getLabels && typeof this.source.getLabels === 'function') {
+                    noLabels.push(value);
+                }
+                else if (this.source.options && Array.isArray(this.source.options)) {
+                    this.items.push(this.getLabelFromOptions(value));
+                }
+                else if (this.source.categoryMap && this.source.categoryMap.size) {
+                    this.items.push(value);
+                }
+                else {
+                    this.items.push({
+                        value,
+                        label: value,
+                    });
+                }
+            }
+            if (noLabels.length > 0 && this.source && this.source.getLabels && typeof this.source.getLabels === 'function') {
+                this.source.getLabels(noLabels).then((result) => {
+                    for (const value of result) {
+                        if (value.hasOwnProperty('label')) {
+                            this.items.push({
+                                value,
+                                label: value.label,
+                            });
+                        }
+                        else if (this.source.options && Array.isArray(this.source.options)) {
+                            this.items.push(this.getLabelFromOptions(value));
+                        }
+                        else {
+                            this.items.push(value);
+                        }
+                    }
+                    this._items.next(this.items);
+                });
+            }
+        }
+        this.changed.emit({ value: this.model, rawValue: this.items });
+        this._items.next(this.items);
+    }
+    getLabelFromOptions(value) {
+        let id = value;
+        let optLabel = this.source.options.find((val) => val.value === value);
+        if (!optLabel && value.hasOwnProperty('id')) {
+            optLabel = this.source.options.find((val) => val.value === value.id);
+            id = value.id;
+        }
+        return {
+            value: id,
+            label: optLabel ? optLabel.label : value,
+        };
+    }
+    deselectAll(event) {
+        this.selected = null;
+        this.hidePreview();
+    }
+    select(event, item) {
+        this.blur.emit(event);
+        this.deselectAll();
+        this.selected = item;
+        this.showPreview();
+    }
+    deselect(event, item) {
+        this.blur.emit(event);
+        this.deselectAll();
+    }
+    onTyping(event) {
+        this.typing.emit(event);
+    }
+    onFocus(event) {
+        this.deselectAll();
+        this.element.nativeElement.classList.add('selected');
+        this.focus.emit(event);
+    }
+    add(event) {
+        if (event && !(event instanceof Event)) {
+            this.items.push(event);
+            this.value = this.source && this.source.valueFormatter ? this.source.valueFormatter(this.items) : this.items.map((i) => i.value);
+            // Set focus on the picker
+            const input = this.element.nativeElement.querySelector('novo-picker > input');
+            if (input) {
+                input.focus();
+            }
+        }
+        this._items.next(this.items);
+    }
+    remove(event, item) {
+        if (event) {
+            event.stopPropagation();
+            event.preventDefault();
+        }
+        this.items.splice(this.items.indexOf(item), 1);
+        this.deselectAll();
+        this.value = this.source && this.source.valueFormatter ? this.source.valueFormatter(this.items) : this.items.map((i) => i.value);
+        this.changed.emit({ value: this.value.length ? this.value : '', rawValue: this.items });
+        this.onModelChange(this.value.length ? this.value : '');
+        this._items.next(this.items);
+    }
+    onKeyDown(event) {
+        if (event.keyCode === KeyCodes.BACKSPACE) {
+            if (event.target && event.target.value.length === 0 && this.items.length) {
+                if (event) {
+                    event.stopPropagation();
+                    event.preventDefault();
+                }
+                if (this.selected) {
+                    this.remove(event, this.selected);
+                }
+                else {
+                    this.select(event, this.items[this.items.length - 1]);
+                }
+            }
+        }
+    }
+    // Set touched on blur
+    onTouched(e) {
+        this.element.nativeElement.classList.remove('selected');
+        this.onModelTouched();
+        this.blur.emit(e);
+    }
+    writeValue(model) {
+        this.model = model;
+        this.setItems();
+    }
+    registerOnChange(fn) {
+        this.onModelChange = fn;
+    }
+    registerOnTouched(fn) {
+        this.onModelTouched = fn;
+    }
+    setDisabledState(disabled) {
+        this._disablePickerInput = disabled;
+    }
+    /**
+     * @description This method creates an instance of the preview (called popup) and adds all the bindings to that
+     * instance. Will reuse the popup or create a new one if it does not already exist. Will only work if there is
+     * a previewTemplate given in the config.
+     */
+    showPreview() {
+        if (this.source.previewTemplate) {
+            if (!this.popup) {
+                this.popup = this.componentUtils.append(this.source.previewTemplate, this.preview);
+            }
+            this.popup.instance.match = this.selected;
+        }
+    }
+    /**
+     * @description - This method deletes the preview popup from the DOM.
+     */
+    hidePreview() {
+        if (this.popup) {
+            this.popup.destroy();
+            this.popup = null;
+        }
+    }
+}
+NovoChipsElement.ɵfac = function NovoChipsElement_Factory(t) { return new (t || NovoChipsElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ComponentUtils), ɵngcc0.ɵɵdirectiveInject(NovoLabelService)); };
+NovoChipsElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoChipsElement, selectors: [["chips"], ["novo-chips"]], viewQuery: function NovoChipsElement_Query(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵviewQuery(_c36, true, ViewContainerRef);
+    } if (rf & 2) {
+        var _t;
+        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.preview = _t.first);
+    } }, hostVars: 4, hostBindings: function NovoChipsElement_HostBindings(rf, ctx) { if (rf & 2) {
+        ɵngcc0.ɵɵclassProp("with-value", ctx.items.length > 0)("disabled", ctx.disablePickerInput);
+    } }, inputs: { closeOnSelect: "closeOnSelect", placeholder: "placeholder", disablePickerInput: "disablePickerInput", value: "value", source: "source", maxlength: "maxlength", type: "type" }, outputs: { changed: "changed", focus: "focus", blur: "blur", typing: "typing" }, features: [ɵngcc0.ɵɵProvidersFeature([CHIPS_VALUE_ACCESSOR])], decls: 9, vars: 6, consts: [[1, "novo-chip-container"], [3, "type", "selected", "disabled", "remove", "select", "deselect", 4, "ngFor", "ngForOf"], ["class", "chip-input-container", 4, "ngIf"], [1, "preview-container"], ["preview", ""], ["class", "bhi-search", 3, "has-value", 4, "ngIf"], ["class", "clear-all", 3, "click", 4, "ngIf"], [3, "type", "disabled", "remove", "select", "deselect"], [1, "chip-input-container"], ["clearValueOnSelect", "true", 3, "closeOnSelect", "config", "disablePickerInput", "placeholder", "ngModel", "selected", "overrideElement", "ngModelChange", "select", "keydown", "focus", "typing", "blur"], [1, "bhi-search"], [1, "clear-all", 3, "click"], [1, "bhi-times"]], template: function NovoChipsElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵelementStart(0, "div", 0);
+        ɵngcc0.ɵɵtemplate(1, NovoChipsElement_novo_chip_1_Template, 2, 5, "novo-chip", 1);
+        ɵngcc0.ɵɵpipe(2, "async");
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵtemplate(3, NovoChipsElement_div_3_Template, 2, 7, "div", 2);
+        ɵngcc0.ɵɵelementStart(4, "div", 3);
+        ɵngcc0.ɵɵelement(5, "span", null, 4);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵtemplate(7, NovoChipsElement_i_7_Template, 1, 2, "i", 5);
+        ɵngcc0.ɵɵtemplate(8, NovoChipsElement_label_8_Template, 3, 1, "label", 6);
+    } if (rf & 2) {
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngForOf", ɵngcc0.ɵɵpipeBind1(2, 4, ctx._items));
+        ɵngcc0.ɵɵadvance(2);
+        ɵngcc0.ɵɵproperty("ngIf", !ctx.maxlength || ctx.maxlength && ctx.items.length < ctx.maxlength);
+        ɵngcc0.ɵɵadvance(4);
+        ɵngcc0.ɵɵproperty("ngIf", !ctx.disablePickerInput);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngIf", ctx.items.length && !ctx.disablePickerInput);
+    } }, directives: [ɵngcc1.NgForOf, ɵngcc1.NgIf, NovoChipElement, NovoPickerElement, ɵngcc3.NgControlStatus, ɵngcc3.NgModel], pipes: [ɵngcc1.AsyncPipe], encapsulation: 2 });
+NovoChipsElement.ctorParameters = () => [
+    { type: ElementRef },
+    { type: ComponentUtils },
+    { type: NovoLabelService }
+];
+NovoChipsElement.propDecorators = {
+    closeOnSelect: [{ type: Input }],
+    placeholder: [{ type: Input }],
+    source: [{ type: Input }],
+    maxlength: [{ type: Input }],
+    type: [{ type: Input }],
+    disablePickerInput: [{ type: Input }],
+    changed: [{ type: Output }],
+    focus: [{ type: Output }],
+    blur: [{ type: Output }],
+    typing: [{ type: Output }],
+    preview: [{ type: ViewChild, args: ['preview', { read: ViewContainerRef },] }],
+    value: [{ type: Input }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoChipsElement, [{
+        type: Component,
+        args: [{
+                selector: 'chips,novo-chips',
+                providers: [CHIPS_VALUE_ACCESSOR],
+                template: `
+        <div class="novo-chip-container">
+          <novo-chip
+              *ngFor="let item of _items | async"
+              [type]="type || item?.value?.searchEntity"
+              [class.selected]="item == selected"
+              [disabled]="disablePickerInput"
+              (remove)="remove($event, item)"
+              (select)="select($event, item)"
+              (deselect)="deselect($event, item)">
+              {{ item.label }}
+          </novo-chip>
+        </div>
+        <div class="chip-input-container" *ngIf="!maxlength || (maxlength && items.length < maxlength)">
+            <novo-picker
+                clearValueOnSelect="true"
+                [closeOnSelect]="closeOnSelect"
+                [config]="source"
+                [disablePickerInput]="disablePickerInput"
+                [placeholder]="placeholder"
+                [(ngModel)]="itemToAdd"
+                (select)="add($event)"
+                (keydown)="onKeyDown($event)"
+                (focus)="onFocus($event)"
+                (typing)="onTyping($event)"
+                (blur)="onTouched($event)"
+                [selected]="items"
+                [overrideElement]="element">
+            </novo-picker>
+        </div>
+        <div class="preview-container">
+            <span #preview></span>
+        </div>
+        <i class="bhi-search" [class.has-value]="items.length" *ngIf="!disablePickerInput"></i>
+        <label class="clear-all" *ngIf="items.length && !disablePickerInput" (click)="clearValue()">{{ labels.clearAll }} <i class="bhi-times"></i></label>
+   `,
+                host: {
+                    '[class.with-value]': 'items.length > 0',
+                    '[class.disabled]': 'disablePickerInput'
+                }
+            }]
+    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: ComponentUtils }, { type: NovoLabelService }]; }, { closeOnSelect: [{
+            type: Input
+        }], placeholder: [{
+            type: Input
+        }], changed: [{
+            type: Output
+        }], focus: [{
+            type: Output
+        }], blur: [{
+            type: Output
+        }], typing: [{
+            type: Output
+        }], disablePickerInput: [{
+            type: Input
+        }], value: [{
+            type: Input
+        }], source: [{
+            type: Input
+        }], maxlength: [{
+            type: Input
+        }], type: [{
+            type: Input
+        }], preview: [{
+            type: ViewChild,
+            args: ['preview', { read: ViewContainerRef }]
+        }] }); })();
+
+// NG2
+// Value accessor for the component (supports ngModel)
+const CHIPS_VALUE_ACCESSOR$1 = {
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => NovoRowChipsElement),
+    multi: true,
+};
+class NovoRowChipElement extends NovoChipElement {
+    onSelect(e) {
+        return false;
+    }
+}
+NovoRowChipElement.ɵfac = function NovoRowChipElement_Factory(t) { return ɵNovoRowChipElement_BaseFactory(t || NovoRowChipElement); };
+NovoRowChipElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoRowChipElement, selectors: [["novo-row-chip"]], features: [ɵngcc0.ɵɵInheritDefinitionFeature], ngContentSelectors: _c1, decls: 3, vars: 1, consts: [[1, "novo-row-chips-columns"], ["class", "bhi-delete-o", 3, "click", 4, "ngIf"], [1, "bhi-delete-o", 3, "click"]], template: function NovoRowChipElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef();
+        ɵngcc0.ɵɵelementStart(0, "div", 0);
+        ɵngcc0.ɵɵprojection(1);
+        ɵngcc0.ɵɵtemplate(2, NovoRowChipElement_i_2_Template, 1, 0, "i", 1);
+        ɵngcc0.ɵɵelementEnd();
+    } if (rf & 2) {
+        ɵngcc0.ɵɵadvance(2);
+        ɵngcc0.ɵɵproperty("ngIf", !ctx.disabled);
+    } }, directives: [ɵngcc1.NgIf], encapsulation: 2 });
+const ɵNovoRowChipElement_BaseFactory = /*@__PURE__*/ ɵngcc0.ɵɵgetInheritedFactory(NovoRowChipElement);
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoRowChipElement, [{
+        type: Component,
+        args: [{
+                selector: 'novo-row-chip',
+                template: `<div class="novo-row-chips-columns"><ng-content></ng-content><i class="bhi-delete-o" *ngIf="!disabled" (click)="onRemove($event)"></i></div>`
+            }]
+    }], null, null); })();
+class NovoRowChipsElement extends NovoChipsElement {
+    constructor(element, componentUtils, labels) {
+        super(element, componentUtils, labels);
+        this.closeOnSelect = true;
+    }
+    onKeyDown(event) {
+        return;
+    }
+}
+NovoRowChipsElement.ɵfac = function NovoRowChipsElement_Factory(t) { return new (t || NovoRowChipsElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ComponentUtils), ɵngcc0.ɵɵdirectiveInject(NovoLabelService)); };
+NovoRowChipsElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoRowChipsElement, selectors: [["novo-row-chips"]], hostVars: 2, hostBindings: function NovoRowChipsElement_HostBindings(rf, ctx) { if (rf & 2) {
+        ɵngcc0.ɵɵclassProp("with-value", ctx.items.length > 0);
+    } }, inputs: { closeOnSelect: "closeOnSelect" }, features: [ɵngcc0.ɵɵProvidersFeature([CHIPS_VALUE_ACCESSOR$1]), ɵngcc0.ɵɵInheritDefinitionFeature], decls: 8, vars: 6, consts: [["class", "novo-row-chips-columns", 4, "ngIf"], ["class", "novo-row-chips-empty-message", 4, "ngIf"], [3, "type", "selected", "disabled", "remove", "select", 4, "ngFor", "ngForOf"], ["clearValueOnSelect", "true", 3, "closeOnSelect", "config", "disablePickerInput", "hidden", "placeholder", "ngModel", "selected", "overrideElement", "ngModelChange", "select", "keydown", "focus", "typing", "blur", 4, "ngIf"], [1, "preview-container"], ["preview", ""], [1, "novo-row-chips-columns"], ["class", "column-label", 4, "ngFor", "ngForOf"], [1, "column-label"], [1, "novo-row-chips-empty-message"], [3, "type", "disabled", "remove", "select"], ["class", "column-data", 4, "ngFor", "ngForOf"], [1, "column-data"], ["clearValueOnSelect", "true", 3, "closeOnSelect", "config", "disablePickerInput", "hidden", "placeholder", "ngModel", "selected", "overrideElement", "ngModelChange", "select", "keydown", "focus", "typing", "blur"]], template: function NovoRowChipsElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵtemplate(0, NovoRowChipsElement_div_0_Template, 2, 1, "div", 0);
+        ɵngcc0.ɵɵtemplate(1, NovoRowChipsElement_div_1_Template, 2, 1, "div", 1);
+        ɵngcc0.ɵɵtemplate(2, NovoRowChipsElement_novo_row_chip_2_Template, 2, 5, "novo-row-chip", 2);
+        ɵngcc0.ɵɵpipe(3, "async");
+        ɵngcc0.ɵɵtemplate(4, NovoRowChipsElement_novo_picker_4_Template, 1, 8, "novo-picker", 3);
+        ɵngcc0.ɵɵelementStart(5, "div", 4);
+        ɵngcc0.ɵɵelement(6, "span", null, 5);
+        ɵngcc0.ɵɵelementEnd();
+    } if (rf & 2) {
+        ɵngcc0.ɵɵproperty("ngIf", ctx.items.length > 0);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngIf", ctx.source.emptyReadOnlyMessage && ctx.disablePickerInput && ctx.items.length === 0);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngForOf", ɵngcc0.ɵɵpipeBind1(3, 4, ctx._items));
+        ɵngcc0.ɵɵadvance(2);
+        ɵngcc0.ɵɵproperty("ngIf", !ctx.maxlength || ctx.maxlength && ctx.items.length < ctx.maxlength);
+    } }, directives: [ɵngcc1.NgIf, ɵngcc1.NgForOf, NovoRowChipElement, NovoPickerElement, ɵngcc3.NgControlStatus, ɵngcc3.NgModel], pipes: [ɵngcc1.AsyncPipe], encapsulation: 2 });
+NovoRowChipsElement.ctorParameters = () => [
+    { type: ElementRef },
+    { type: ComponentUtils },
+    { type: NovoLabelService }
+];
+NovoRowChipsElement.propDecorators = {
+    closeOnSelect: [{ type: Input }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoRowChipsElement, [{
+        type: Component,
+        args: [{
+                selector: 'novo-row-chips',
+                providers: [CHIPS_VALUE_ACCESSOR$1],
+                host: {
+                    '[class.with-value]': 'items.length > 0'
+                },
+                template: `
+        <div class="novo-row-chips-columns" *ngIf="items.length > 0">
+          <div class="column-label" *ngFor="let column of source.columns">{{ column.label }}</div>
+        </div>
+        <div class="novo-row-chips-empty-message" *ngIf="source.emptyReadOnlyMessage && disablePickerInput && items.length === 0">{{source.emptyReadOnlyMessage}}</div>
+        <novo-row-chip
+          *ngFor="let item of _items | async"
+          [type]="type || item?.value?.searchEntity"
+          [class.selected]="item == selected"
+          [disabled]="disablePickerInput"
+          (remove)="remove($event, item)"
+          (select)="select($event, item)">
+          <div class="column-data" *ngFor="let column of source.columns"><span>{{ column.data(item) }}</span></div>
+        </novo-row-chip>
+        <novo-picker
+            clearValueOnSelect="true"
+            [closeOnSelect]="closeOnSelect"
+            [config]="source"
+            [disablePickerInput]="disablePickerInput"
+            [hidden]="disablePickerInput"
+            [placeholder]="placeholder"
+            [(ngModel)]="itemToAdd"
+            (select)="add($event)"
+            (keydown)="onKeyDown($event)"
+            (focus)="onFocus($event)"
+            (typing)="onTyping($event)"
+            (blur)="onTouched($event)"
+            [selected]="items"
+            [overrideElement]="element"
+            *ngIf="!maxlength || (maxlength && items.length < maxlength)">
+        </novo-picker>
+        <div class="preview-container">
+            <span #preview></span>
+        </div>
+   `
+            }]
+    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: ComponentUtils }, { type: NovoLabelService }]; }, { closeOnSelect: [{
+            type: Input
+        }] }); })();
+
+// NG2
+class NovoChipsModule {
+}
+NovoChipsModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoChipsModule });
+NovoChipsModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoChipsModule_Factory(t) { return new (t || NovoChipsModule)(); }, imports: [[CommonModule, FormsModule, NovoPickerModule]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoChipsModule, { declarations: function () { return [NovoChipElement, NovoChipsElement, NovoRowChipElement, NovoRowChipsElement]; }, imports: function () { return [CommonModule, FormsModule, NovoPickerModule]; }, exports: function () { return [NovoChipElement, NovoChipsElement, NovoRowChipElement, NovoRowChipsElement]; } }); })();
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoChipsModule, [{
+        type: NgModule,
+        args: [{
+                imports: [CommonModule, FormsModule, NovoPickerModule],
+                declarations: [NovoChipElement, NovoChipsElement, NovoRowChipElement, NovoRowChipsElement],
+                exports: [NovoChipElement, NovoChipsElement, NovoRowChipElement, NovoRowChipsElement]
+            }]
+    }], null, null); })();
+
+// NG2
+// Value accessor for the component (supports ngModel)
+const CKEDITOR_CONTROL_VALUE_ACCESSOR = {
+    provide: NG_VALUE_ACCESSOR,
+    useExisting: forwardRef(() => NovoCKEditorElement),
+    multi: true,
+};
+/**
+ * CKEditor component
+ * Usage :
+ *  <novo-editor [(ngModel)]="data" [config]="{...}" debounce="500"></novo-editor>
+ */
+class NovoCKEditorElement {
+    constructor(zone) {
+        this.zone = zone;
+        this.startupFocus = false;
+        this.fileBrowserImageUploadUrl = '';
+        this.disabled = false;
+        this.change = new EventEmitter();
+        this.ready = new EventEmitter();
+        this.blur = new EventEmitter();
+        this.focus = new EventEmitter();
+        this.paste = new EventEmitter();
+        this.loaded = new EventEmitter();
+        this._value = '';
+    }
+    get value() {
+        return this._value;
+    }
+    set value(v) {
+        if (v !== this._value) {
+            this._value = v;
+            this.onChange(v);
+        }
+    }
+    ngOnDestroy() {
+        if (this.instance) {
+            this.instance.focusManager.blur(true); // Remove focus from editor
+            setTimeout(() => {
+                this.instance.removeAllListeners();
+                const aInstance = CKEDITOR.instances[this.instance.name];
+                if (aInstance) {
+                    aInstance.destroy();
+                }
+                this.instance.destroy();
+                this.instance = null;
+            });
+        }
+    }
+    ngAfterViewInit() {
+        const config = Object.assign(this.getBaseConfig(), this.config);
+        if (this.startupFocus) {
+            config.startupFocus = true;
+        }
+        if (this.disabled) {
+            config.readOnly = true;
+        }
+        this.ckeditorInit(config);
+    }
+    updateValue(value) {
+        this.zone.run(() => {
+            this.value = value;
+            this.onChange(value);
+            this.onTouched();
+            this.change.emit(value);
+        });
+    }
+    ckeditorInit(config) {
+        if (!CKEDITOR) {
+            console.error('Make sure to include CKEditor sources in your dependencies!');
+            return;
+        }
+        // CKEditor replace textarea
+        this.instance = CKEDITOR.replace(this.host.nativeElement, config);
+        // Set initial value
+        this.instance.setData(this.value);
+        // listen for instanceReady event
+        this.instance.on('instanceReady', (evt) => {
+            // send the evt to the EventEmitter
+            this.ready.emit(evt);
+        });
+        // CKEditor change event
+        this.instance.on('change', () => {
+            this.onTouched();
+            const value = this.instance.getData();
+            // Debounce update
+            if (this.debounce) {
+                if (this.debounceTimeout) {
+                    clearTimeout(this.debounceTimeout);
+                }
+                this.debounceTimeout = setTimeout(() => {
+                    this.updateValue(value);
+                    this.debounceTimeout = null;
+                }, parseInt(this.debounce, 10));
+            }
+            else {
+                this.updateValue(value);
+            }
+        });
+        this.instance.on('blur', (event) => {
+            this.blur.emit(event);
+        });
+        this.instance.on('focus', (event) => {
+            this.focus.emit(event);
+        });
+        this.instance.on('paste', (event) => {
+            this.paste.emit(event);
+        });
+        this.instance.on('loaded', (event) => {
+            this.loaded.emit(event);
+        });
+    }
+    getBaseConfig() {
+        const baseConfig = {
+            enterMode: CKEDITOR.ENTER_BR,
+            shiftEnterMode: CKEDITOR.ENTER_P,
+            disableNativeSpellChecker: false,
+            removePlugins: 'liststyle,tabletools,contextmenu',
+            extraAllowedContent: '*(*){*};table tbody tr td th[*];',
+            font_names: 'Arial/Arial, Helvetica, sans-serif;' +
+                'Calibri/Calibri, Verdana, Geneva, sans-serif;' +
+                'Comic Sans MS/Comic Sans MS, cursive;' +
+                'Courier New/Courier New, Courier, monospace;' +
+                'Georgia/Georgia, serif;' +
+                'Lucida Sans Unicode/Lucida Sans Unicode, Lucida Grande, sans-serif;' +
+                'Tahoma/Tahoma, Geneva, sans-serif;' +
+                'Times New Roman/Times New Roman, Times, serif;' +
+                'Trebuchet MS/Trebuchet MS, Helvetica, sans-serif;' +
+                'Verdana/Verdana, Geneva, sans-serif',
+        };
+        const minimalConfig = {
+            toolbar: [
+                {
+                    name: 'basicstyles',
+                    items: [
+                        'Styles',
+                        'FontSize',
+                        'Bold',
+                        'Italic',
+                        'Underline',
+                        'TextColor',
+                        '-',
+                        'NumberedList',
+                        'BulletedList',
+                        'Outdent',
+                        'Indent',
+                        'Link',
+                    ],
+                },
+            ],
+        };
+        const extendedConfig = {
+            toolbar: [
+                { name: 'clipboard', items: ['Paste', 'PasteText', 'PasteFromWord', 'Undo', 'Redo'] },
+                {
+                    name: 'paragraph',
+                    items: [
+                        'NumberedList',
+                        'BulletedList',
+                        'Outdent',
+                        'Indent',
+                        'Blockquote',
+                        'JustifyLeft',
+                        'JustifyCenter',
+                        'JustifyRight',
+                        'JustifyBlock',
+                        'BidiLtr',
+                        'BidiRtl',
+                    ],
+                },
+                { name: 'links', items: ['Link'] },
+                { name: 'insert', items: ['Image', 'Table', 'HorizontalRule'] },
+                { name: 'tools', items: ['Maximize', 'Source'] },
+                '/',
+                { name: 'basicstyles', items: ['Bold', 'Italic', 'Underline', 'Strike', 'Subscript', 'Superscript'] },
+                { name: 'styles', items: ['Styles', 'Format', 'Font', 'FontSize'] },
+                { name: 'colors', items: ['TextColor', 'BGColor'] },
+            ],
+            filebrowserImageUploadUrl: this.fileBrowserImageUploadUrl,
+        };
+        return Object.assign(baseConfig, this.minimal ? minimalConfig : extendedConfig);
+    }
+    writeValue(value) {
+        this._value = value;
+        if (this.instance) {
+            this.instance.setData(value);
+        }
+    }
+    onChange(value) { }
+    onTouched(event) { }
+    registerOnChange(fn) {
+        this.onChange = fn;
+    }
+    registerOnTouched(fn) {
+        this.onTouched = fn;
+    }
+    setDisabledState(disabled) {
+        this.disabled = disabled;
+        if (this.instance) {
+            CKEDITOR.instances[this.instance.name].setReadOnly(disabled);
+        }
+    }
+    insertText(text) {
+        const trimmedText = text.trim();
+        this.instance.insertText(trimmedText);
+    }
+}
+NovoCKEditorElement.ɵfac = function NovoCKEditorElement_Factory(t) { return new (t || NovoCKEditorElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.NgZone)); };
+NovoCKEditorElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoCKEditorElement, selectors: [["novo-editor"]], viewQuery: function NovoCKEditorElement_Query(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵviewQuery(_c37, true);
+    } if (rf & 2) {
+        var _t;
+        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.host = _t.first);
+    } }, inputs: { startupFocus: "startupFocus", fileBrowserImageUploadUrl: "fileBrowserImageUploadUrl", disabled: "disabled", value: "value", config: "config", debounce: "debounce", name: "name", minimal: "minimal" }, outputs: { change: "change", ready: "ready", blur: "blur", focus: "focus", paste: "paste", loaded: "loaded" }, features: [ɵngcc0.ɵɵProvidersFeature([CKEDITOR_CONTROL_VALUE_ACCESSOR])], decls: 2, vars: 2, consts: [[3, "name", "id"], ["host", ""]], template: function NovoCKEditorElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵelement(0, "textarea", 0, 1);
+    } if (rf & 2) {
+        ɵngcc0.ɵɵproperty("name", ctx.name)("id", ctx.name);
+    } }, encapsulation: 2 });
+NovoCKEditorElement.ctorParameters = () => [
+    { type: NgZone }
+];
+NovoCKEditorElement.propDecorators = {
+    config: [{ type: Input }],
+    debounce: [{ type: Input }],
+    name: [{ type: Input }],
+    minimal: [{ type: Input }],
+    startupFocus: [{ type: Input }],
+    fileBrowserImageUploadUrl: [{ type: Input }],
+    disabled: [{ type: Input }],
+    change: [{ type: Output }],
+    ready: [{ type: Output }],
+    blur: [{ type: Output }],
+    focus: [{ type: Output }],
+    paste: [{ type: Output }],
+    loaded: [{ type: Output }],
+    host: [{ type: ViewChild, args: ['host',] }],
+    value: [{ type: Input }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoCKEditorElement, [{
+        type: Component,
+        args: [{
+                selector: 'novo-editor',
+                providers: [CKEDITOR_CONTROL_VALUE_ACCESSOR],
+                template: '<textarea [name]="name" [id]="name" #host></textarea>'
+            }]
+    }], function () { return [{ type: ɵngcc0.NgZone }]; }, { startupFocus: [{
+            type: Input
+        }], fileBrowserImageUploadUrl: [{
+            type: Input
+        }], disabled: [{
+            type: Input
+        }], change: [{
+            type: Output
+        }], ready: [{
+            type: Output
+        }], blur: [{
+            type: Output
+        }], focus: [{
+            type: Output
+        }], paste: [{
+            type: Output
+        }], loaded: [{
+            type: Output
+        }], value: [{
+            type: Input
+        }], config: [{
+            type: Input
+        }], debounce: [{
+            type: Input
+        }], name: [{
+            type: Input
+        }], minimal: [{
+            type: Input
+        }], host: [{
+            type: ViewChild,
+            args: ['host']
+        }] }); })();
+
+// NG2
+class NovoNovoCKEditorModule {
+}
+NovoNovoCKEditorModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoNovoCKEditorModule });
+NovoNovoCKEditorModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoNovoCKEditorModule_Factory(t) { return new (t || NovoNovoCKEditorModule)(); }, imports: [[CommonModule, FormsModule]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoNovoCKEditorModule, { declarations: function () { return [NovoCKEditorElement]; }, imports: function () { return [CommonModule, FormsModule]; }, exports: function () { return [NovoCKEditorElement]; } }); })();
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoNovoCKEditorModule, [{
+        type: NgModule,
+        args: [{
+                imports: [CommonModule, FormsModule],
+                declarations: [NovoCKEditorElement],
+                exports: [NovoCKEditorElement]
+            }]
+    }], null, null); })();
+
+class NovoTemplate {
+    constructor(template) {
+        this.template = template;
+    }
+    getType() {
+        return this.name;
+    }
+}
+NovoTemplate.ɵfac = function NovoTemplate_Factory(t) { return new (t || NovoTemplate)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.TemplateRef)); };
+NovoTemplate.ɵdir = ɵngcc0.ɵɵdefineDirective({ type: NovoTemplate, selectors: [["", "novoTemplate", ""]], inputs: { type: "type", name: ["novoTemplate", "name"] } });
+NovoTemplate.ctorParameters = () => [
+    { type: TemplateRef }
+];
+NovoTemplate.propDecorators = {
+    type: [{ type: Input }],
+    name: [{ type: Input, args: ['novoTemplate',] }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoTemplate, [{
+        type: Directive,
+        args: [{
+                selector: '[novoTemplate]'
+            }]
+    }], function () { return [{ type: ɵngcc0.TemplateRef }]; }, { type: [{
+            type: Input
+        }], name: [{
+            type: Input,
+            args: ['novoTemplate']
+        }] }); })();
+
+class NovoCommonModule {
+}
+NovoCommonModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoCommonModule });
+NovoCommonModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoCommonModule_Factory(t) { return new (t || NovoCommonModule)(); }, imports: [[CommonModule]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoCommonModule, { declarations: function () { return [NovoTemplate]; }, imports: function () { return [CommonModule]; }, exports: function () { return [NovoTemplate]; } }); })();
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoCommonModule, [{
+        type: NgModule,
+        args: [{
+                imports: [CommonModule],
+                exports: [NovoTemplate],
+                declarations: [NovoTemplate]
+            }]
+    }], null, null); })();
+
+class NovoDataTableFilterUtils {
+    static constructFilter(filter, type, multiSelect) {
+        let actualFilter = filter;
+        if (filter) {
+            if (type && type === 'date') {
+                if (filter.startDate && filter.endDate) {
+                    actualFilter = {
+                        min: startOfDay(filter.startDate.date),
+                        max: startOfDay(addDays(startOfDay(filter.endDate.date), 1)),
+                    };
+                }
+                else {
+                    actualFilter = {
+                        min: filter.min ? addDays(startOfToday(), filter.min) : startOfToday(),
+                        max: filter.max ? addDays(endOfToday(), filter.max) : endOfToday(),
+                    };
+                }
+            }
+            if (multiSelect && Array.isArray(filter)) {
+                actualFilter = filter.map((filterItem) => {
+                    if (filterItem && filterItem.hasOwnProperty('value')) {
+                        return filterItem.value;
+                    }
+                    return filterItem;
+                });
+            }
+            else if (actualFilter && actualFilter.hasOwnProperty('value')) {
+                actualFilter = filter.value;
+            }
+        }
+        return actualFilter;
+    }
+}
+
+class DataTableState {
+    constructor() {
+        this.selectionSource = new Subject();
+        this.paginationSource = new Subject();
+        this.sortFilterSource = new Subject();
+        this.resetSource = new Subject();
+        this.expandSource = new Subject();
+        this.dataLoaded = new Subject();
+        this.sort = undefined;
+        this.filter = undefined;
+        this.page = 0;
+        this.pageSize = undefined;
+        this.globalSearch = undefined;
+        this.selectedRows = new Map();
+        this.expandedRows = new Set();
+        this.isForceRefresh = false;
+        this.updates = new EventEmitter();
+    }
+    get userFiltered() {
+        return !!(this.filter || this.sort || this.globalSearch || this.outsideFilter);
+    }
+    get userFilteredInternal() {
+        return !!(this.filter || this.sort || this.globalSearch);
+    }
+    get selected() {
+        return Array.from(this.selectedRows.values());
+    }
+    reset(fireUpdate = true, persistUserFilters) {
+        if (!persistUserFilters) {
+            this.sort = undefined;
+            this.globalSearch = undefined;
+            this.filter = undefined;
+        }
+        this.page = 0;
+        this.selectedRows.clear();
+        this.resetSource.next();
+        this.onSortFilterChange();
+        if (fireUpdate) {
+            this.updates.emit({
+                sort: this.sort,
+                filter: this.filter,
+                globalSearch: this.globalSearch,
+            });
+        }
+    }
+    clearSort(fireUpdate = true) {
+        this.sort = undefined;
+        this.page = 0;
+        this.selectedRows.clear();
+        this.resetSource.next();
+        this.onSortFilterChange();
+        if (fireUpdate) {
+            this.updates.emit({
+                sort: this.sort,
+                filter: this.filter,
+                globalSearch: this.globalSearch,
+            });
+        }
+    }
+    clearFilter(fireUpdate = true) {
+        this.filter = undefined;
+        this.globalSearch = undefined;
+        this.page = 0;
+        this.selectedRows.clear();
+        this.resetSource.next();
+        this.onSortFilterChange();
+        if (fireUpdate) {
+            this.updates.emit({
+                sort: this.sort,
+                filter: this.filter,
+                globalSearch: this.globalSearch,
+            });
+        }
+    }
+    onSelectionChange() {
+        this.selectionSource.next();
+    }
+    onExpandChange(targetId) {
+        this.expandSource.next(targetId);
+    }
+    onPaginationChange(isPageSizeChange, pageSize) {
+        this.paginationSource.next({ isPageSizeChange, pageSize });
+    }
+    onSortFilterChange() {
+        this.sortFilterSource.next({
+            sort: this.sort,
+            filter: this.filter,
+            globalSearch: this.globalSearch,
+        });
+    }
+    setInitialSortFilter(preferences) {
+        if (preferences) {
+            if (preferences.sort) {
+                this.sort = preferences.sort;
+            }
+            if (preferences.filter) {
+                const filters = Helpers.convertToArray(preferences.filter);
+                filters.forEach((filter) => {
+                    filter.value =
+                        filter.selectedOption && filter.type
+                            ? NovoDataTableFilterUtils.constructFilter(filter.selectedOption, filter.type)
+                            : filter.value;
+                });
+                this.filter = filters;
+            }
+        }
+    }
+}
+DataTableState.ɵfac = function DataTableState_Factory(t) { return new (t || DataTableState)(); };
+DataTableState.ɵprov = ɵngcc0.ɵɵdefineInjectable({ token: DataTableState, factory: DataTableState.ɵfac });
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(DataTableState, [{
+        type: Injectable
+    }], function () { return []; }, null); })();
+
+class NovoDataTableClearButton {
+    constructor(state, ref, labels) {
+        this.state = state;
+        this.ref = ref;
+        this.labels = labels;
+        this.sortClear = new EventEmitter();
+        this.filterClear = new EventEmitter();
+        this.allClear = new EventEmitter();
+    }
+    clearSort() {
+        this.state.clearSort();
+        this.sortClear.emit(true);
+    }
+    clearFilter() {
+        this.state.clearFilter();
+        this.filterClear.emit(true);
+    }
+    clearAll() {
+        this.state.reset();
+        this.allClear.emit(true);
+        this.sortClear.emit(true);
+        this.filterClear.emit(true);
+    }
+}
+NovoDataTableClearButton.ɵfac = function NovoDataTableClearButton_Factory(t) { return new (t || NovoDataTableClearButton)(ɵngcc0.ɵɵdirectiveInject(DataTableState), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef), ɵngcc0.ɵɵdirectiveInject(NovoLabelService)); };
+NovoDataTableClearButton.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDataTableClearButton, selectors: [["novo-data-table-clear-button"]], outputs: { sortClear: "sortClear", filterClear: "filterClear", allClear: "allClear" }, decls: 7, vars: 4, consts: [["side", "bottom-right", "data-automation-id", "novo-data-table-clear-dropdown", 1, "novo-data-table-clear-button"], ["type", "button", "theme", "primary", "color", "negative", "icon", "collapse", "data-automation-id", "novo-data-table-clear-dropdown-btn"], ["data-automation-id", "novo-data-table-clear-dropdown-clear-sort", 3, "click", 4, "ngIf"], ["data-automation-id", "novo-data-table-clear-dropdown-clear-filter", 3, "click", 4, "ngIf"], ["data-automation-id", "novo-data-table-clear-dropdown-clear-all", 3, "click", 4, "ngIf"], ["data-automation-id", "novo-data-table-clear-dropdown-clear-sort", 3, "click"], ["data-automation-id", "novo-data-table-clear-dropdown-clear-filter", 3, "click"], ["data-automation-id", "novo-data-table-clear-dropdown-clear-all", 3, "click"]], template: function NovoDataTableClearButton_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵelementStart(0, "novo-dropdown", 0);
+        ɵngcc0.ɵɵelementStart(1, "button", 1);
+        ɵngcc0.ɵɵtext(2);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵelementStart(3, "list");
+        ɵngcc0.ɵɵtemplate(4, NovoDataTableClearButton_item_4_Template, 2, 1, "item", 2);
+        ɵngcc0.ɵɵtemplate(5, NovoDataTableClearButton_item_5_Template, 2, 1, "item", 3);
+        ɵngcc0.ɵɵtemplate(6, NovoDataTableClearButton_item_6_Template, 2, 1, "item", 4);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵelementEnd();
+    } if (rf & 2) {
+        ɵngcc0.ɵɵadvance(2);
+        ɵngcc0.ɵɵtextInterpolate(ctx.labels.clear);
+        ɵngcc0.ɵɵadvance(2);
+        ɵngcc0.ɵɵproperty("ngIf", ctx.state.sort);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngIf", ctx.state.filter);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngIf", ctx.state.sort && ctx.state.filter);
+    } }, directives: function () { return [NovoDropdownElement, NovoButtonElement, NovoDropdownListElement, ɵngcc1.NgIf, NovoItemElement]; }, encapsulation: 2, changeDetection: 0 });
+NovoDataTableClearButton.ctorParameters = () => [
+    { type: DataTableState },
+    { type: ChangeDetectorRef },
+    { type: NovoLabelService }
+];
+NovoDataTableClearButton.propDecorators = {
+    sortClear: [{ type: Output }],
+    filterClear: [{ type: Output }],
+    allClear: [{ type: Output }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoDataTableClearButton, [{
+        type: Component,
+        args: [{
+                selector: 'novo-data-table-clear-button',
+                template: `
+    <novo-dropdown side="bottom-right" class="novo-data-table-clear-button" data-automation-id="novo-data-table-clear-dropdown">
+      <button type="button" theme="primary" color="negative" icon="collapse" data-automation-id="novo-data-table-clear-dropdown-btn">{{ labels.clear }}</button>
+      <list>
+          <item *ngIf="state.sort" (click)="clearSort()" data-automation-id="novo-data-table-clear-dropdown-clear-sort">{{ labels.clearSort }}</item>
+          <item *ngIf="state.filter" (click)="clearFilter()" data-automation-id="novo-data-table-clear-dropdown-clear-filter">{{ labels.clearFilter }}</item>
+          <item *ngIf="state.sort && state.filter" (click)="clearAll()" data-automation-id="novo-data-table-clear-dropdown-clear-all">{{ labels.clearAllNormalCase }}</item>
+      </list>
+    </novo-dropdown>
+  `,
+                changeDetection: ChangeDetectionStrategy.OnPush
+            }]
+    }], function () { return [{ type: DataTableState }, { type: ɵngcc0.ChangeDetectorRef }, { type: NovoLabelService }]; }, { sortClear: [{
+            type: Output
+        }], filterClear: [{
+            type: Output
+        }], allClear: [{
+            type: Output
+        }] }); })();
+
+class DataTableSource extends DataSource {
+    constructor(tableService, state, ref) {
+        super();
+        this.tableService = tableService;
+        this.state = state;
+        this.ref = ref;
+        this.total = 0;
+        this.currentTotal = 0;
+        this.current = 0;
+        this.loading = false;
+        this.pristine = true;
+        this.totalSet = false;
+    }
+    get totallyEmpty() {
+        return this.total === 0;
+    }
+    get currentlyEmpty() {
+        return this.current === 0;
+    }
+    connect() {
+        const displayDataChanges = [this.state.updates];
+        return merge(...displayDataChanges).pipe(startWith(null), switchMap(() => {
+            this.pristine = false;
+            this.loading = true;
+            return this.tableService.getTableResults(this.state.sort, this.state.filter, this.state.page, this.state.pageSize, this.state.globalSearch, this.state.outsideFilter);
+        }), map((data) => {
+            if (!this.totalSet || this.state.isForceRefresh) {
+                this.total = data.total;
+                this.totalSet = true;
+                this.state.isForceRefresh = false;
+            }
+            else if (data.total > this.total) {
+                this.total = data.total;
+            }
+            this.currentTotal = data.total;
+            this.current = data.results.length;
+            this.data = data.results;
+            // Clear selection
+            this.state.selectedRows.clear();
+            this.state.onSelectionChange();
+            // Mark changes
+            setTimeout(() => {
+                this.ref.markForCheck();
+                setTimeout(() => {
+                    this.loading = false;
+                    this.state.dataLoaded.next();
+                    this.ref.markForCheck();
+                });
+            });
+            return data.results;
+        }), catchError((err, caught) => {
+            console.error(err, caught); // tslint: disable-line
+            this.loading = false;
+            return of(null);
+        }));
+    }
+    disconnect() { }
+}
+
+class StaticDataTableService {
+    constructor(currentData = []) {
+        this.currentData = currentData;
+        this.originalData = [...currentData];
+    }
+    getTableResults(sort, filter, page = 0, pageSize, globalSearch, outsideFilter) {
+        this.currentData = [...this.originalData];
+        let total = this.originalData.length;
+        if (this.currentData.length !== 0) {
+            if (globalSearch) {
+                this.currentData = this.currentData.filter((item) => Object.keys(item).some((key) => `${item[key]}`.toLowerCase().includes(globalSearch.toLowerCase())));
+                total = this.currentData.length;
+            }
+            if (filter) {
+                this.currentData = this.filterData(this.currentData, filter);
+                total = this.currentData.length;
+            }
+            if (sort) {
+                this.currentData = this.currentData.sort(Helpers.sortByField(sort.id, sort.value === 'desc'));
+                total = this.currentData.length;
+            }
+            if (!sort && !filter && !globalSearch && !outsideFilter) {
+                this.currentData = [...this.originalData];
+            }
+            if (!Helpers.isBlank(page) && !Helpers.isBlank(pageSize)) {
+                this.currentData = this.currentData.slice(page * pageSize, (page + 1) * pageSize);
+            }
+        }
+        return of({ results: this.currentData, total });
+    }
+    filterData(currentData, filter) {
+        const filters = Helpers.convertToArray(filter);
+        filters.forEach((aFilter) => {
+            if (Array.isArray(aFilter.value)) {
+                const values = Helpers.convertToArray(aFilter.value).map(Helpers.escapeString);
+                currentData = currentData.filter(Helpers.filterByField(aFilter.id, values));
+            }
+            else {
+                const value = Helpers.escapeString(aFilter.value);
+                currentData = currentData.filter(Helpers.filterByField(aFilter.id, value));
+            }
+        });
+        return currentData;
+    }
+}
+
+// NG2
+class NovoDropdownElement {
+    constructor(element, ref) {
+        this.element = element;
+        this.ref = ref;
+        this.parentScrollAction = 'close';
+        this.side = 'default';
+        this.scrollStrategy = 'reposition';
+        this.width = -1; // Defaults to dynamic width (no hardcoded width value and no host width lookup)
+        this.appendToBody = false; // Deprecated
+        this.toggled = new EventEmitter();
+        this.activeIndex = -1;
+        this.filterTerm = '';
+        this.clickHandler = this.togglePanel.bind(this);
+        this.closeHandler = this.closePanel.bind(this);
+    }
+    ngOnInit() {
+        if (this.appendToBody) {
+            notify(`'appendToBody' has been deprecated. Please remove this attribute.`);
+        }
+        // Add a click handler to the button to toggle the menu
+        const button = this.element.nativeElement.querySelector('button');
+        button.addEventListener('click', this.clickHandler);
+        if (this.parentScrollSelector) {
+            this.parentScrollElement = Helpers.findAncestor(this.element.nativeElement, this.parentScrollSelector);
+        }
+    }
+    ngOnDestroy() {
+        // Remove listener
+        const button = this.element.nativeElement.querySelector('button');
+        if (button) {
+            button.removeEventListener('click', this.clickHandler);
+        }
+        if (this.parentScrollElement && this.parentScrollAction === 'close') {
+            this.parentScrollElement.removeEventListener('scroll', this.closeHandler);
+        }
+    }
+    set items(items) {
+        this._items = items;
+        this.activeIndex = -1;
+        // Get the innerText of all the items to allow for searching
+        this._textItems = items.map((item) => {
+            return item.element.nativeElement.innerText;
+        });
+    }
+    /** BEGIN: Convenient Panel Methods. */
+    get panelOpen() {
+        return this.overlay && this.overlay.panelOpen;
+    }
+    openPanel() {
+        this.overlay.openPanel();
+        if (this.parentScrollElement && this.parentScrollAction === 'close') {
+            this.parentScrollElement.addEventListener('scroll', this.closeHandler);
+        }
+        this.toggled.emit(true);
+    }
+    closePanel() {
+        this.overlay.closePanel();
+        if (this.parentScrollElement && this.parentScrollAction === 'close') {
+            this.parentScrollElement.removeEventListener('scroll', this.closeHandler);
+        }
+        // Clear active index
+        if (this.activeIndex !== -1) {
+            this._items.toArray()[this.activeIndex].active = false;
+        }
+        this.activeIndex = -1;
+        this.ref.markForCheck();
+        this.toggled.emit(false);
+    }
+    togglePanel() {
+        this.panelOpen ? this.closePanel() : this.openPanel();
+    }
+    /** END: Convenient Panel Methods. */
+    onKeyDown(event) {
+        if (this.panelOpen && event.keyCode === KeyCodes.ESC) {
+            Helpers.swallowEvent(event);
+            // active & esc hit -- close
+            this.closePanel();
+        }
+        else if (event.keyCode === KeyCodes.ENTER) {
+            Helpers.swallowEvent(event);
+            // enter -- perform the "click"
+            this._items.toArray()[this.activeIndex].onClick(event);
+        }
+        else if (event.keyCode === KeyCodes.DOWN) {
+            Helpers.swallowEvent(event);
+            // down - navigate through the list ignoring disabled ones
+            if (this.activeIndex !== -1) {
+                this._items.toArray()[this.activeIndex].active = false;
+            }
+            this.activeIndex++;
+            if (this.activeIndex === this._items.length) {
+                this.activeIndex = 0;
+            }
+            while (this._items.toArray()[this.activeIndex].disabled) {
+                this.activeIndex++;
+                if (this.activeIndex === this._items.length) {
+                    this.activeIndex = 0;
+                }
+            }
+            this._items.toArray()[this.activeIndex].active = true;
+            this.scrollToActive();
+        }
+        else if (event.keyCode === KeyCodes.UP) {
+            Helpers.swallowEvent(event);
+            // up -- navigate through the list ignoring disabled ones
+            if (this.activeIndex !== -1) {
+                this._items.toArray()[this.activeIndex].active = false;
+            }
+            this.activeIndex--;
+            if (this.activeIndex < 0) {
+                this.activeIndex = this._items.length - 1;
+            }
+            while (this._items.toArray()[this.activeIndex].disabled) {
+                this.activeIndex--;
+                if (this.activeIndex < 0) {
+                    this.activeIndex = this._items.length - 1;
+                }
+            }
+            this._items.toArray()[this.activeIndex].active = true;
+            this.scrollToActive();
+        }
+        else if ((event.keyCode >= 65 && event.keyCode <= 90) ||
+            (event.keyCode >= 96 && event.keyCode <= 105) ||
+            (event.keyCode >= 48 && event.keyCode <= 57) ||
+            event.keyCode === KeyCodes.SPACE) {
+            Helpers.swallowEvent(event);
+            // A-Z, 0-9, space -- filter the list and scroll to active filter
+            // filter has hard reset after 2s
+            clearTimeout(this.filterTermTimeout);
+            this.filterTermTimeout = setTimeout(() => {
+                this.filterTerm = '';
+            }, 2000);
+            const char = event.key;
+            this.filterTerm = this.filterTerm.concat(char);
+            const index = this._textItems.findIndex((value) => {
+                return new RegExp(`^${this.filterTerm.toLowerCase()}`).test(value.trim().toLowerCase());
+            });
+            if (index !== -1) {
+                if (this.activeIndex !== -1) {
+                    this._items.toArray()[this.activeIndex].active = false;
+                }
+                this.activeIndex = index;
+                this._items.toArray()[this.activeIndex].active = true;
+                this.scrollToActive();
+            }
+        }
+        else if ([KeyCodes.BACKSPACE, KeyCodes.DELETE].includes(event.keyCode)) {
+            Helpers.swallowEvent(event);
+            // backspace, delete -- remove partial filters
+            clearTimeout(this.filterTermTimeout);
+            this.filterTermTimeout = setTimeout(() => {
+                this.filterTerm = '';
+            }, 2000);
+            this.filterTerm = this.filterTerm.slice(0, -1);
+        }
+    }
+    onOverlayKeyDown(event) {
+        if (event.keyCode === KeyCodes.ESC || event.keyCode === KeyCodes.ENTER) {
+            Helpers.swallowEvent(event);
+            this.closePanel();
+        }
+    }
+    scrollToActive() {
+        const container = this.overlay.overlayRef.overlayElement.querySelector('.dropdown-container');
+        const item = this._items.toArray()[this.activeIndex];
+        if (container && item) {
+            container.scrollTop = item.element.nativeElement.offsetTop;
+        }
+    }
+}
+NovoDropdownElement.ɵfac = function NovoDropdownElement_Factory(t) { return new (t || NovoDropdownElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef)); };
+NovoDropdownElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDropdownElement, selectors: [["novo-dropdown"]], viewQuery: function NovoDropdownElement_Query(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵviewQuery(NovoOverlayTemplateComponent, true);
+    } if (rf & 2) {
+        var _t;
+        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.overlay = _t.first);
+    } }, hostBindings: function NovoDropdownElement_HostBindings(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵlistener("keydown", function NovoDropdownElement_keydown_HostBindingHandler($event) { return ctx.onKeyDown($event); });
+    } }, inputs: { parentScrollAction: "parentScrollAction", side: "side", scrollStrategy: "scrollStrategy", width: "width", appendToBody: "appendToBody", parentScrollSelector: "parentScrollSelector", containerClass: "containerClass", height: "height" }, outputs: { toggled: "toggled" }, ngContentSelectors: _c39, decls: 4, vars: 11, consts: [[3, "parent", "width", "position", "scrollStrategy"], [3, "keydown"]], template: function NovoDropdownElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef(_c38);
+        ɵngcc0.ɵɵprojection(0, 0, ["#trigger", ""]);
+        ɵngcc0.ɵɵelementStart(1, "novo-overlay-template", 0);
+        ɵngcc0.ɵɵelementStart(2, "div", 1);
+        ɵngcc0.ɵɵlistener("keydown", function NovoDropdownElement_Template_div_keydown_2_listener($event) { return ctx.onOverlayKeyDown($event); });
+        ɵngcc0.ɵɵprojection(3, 1);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵelementEnd();
+    } if (rf & 2) {
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("parent", ctx.element)("width", ctx.width)("position", ctx.side)("scrollStrategy", ctx.scrollStrategy);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵclassMapInterpolate1("dropdown-container ", ctx.containerClass, "");
+        ɵngcc0.ɵɵstyleProp("height", ctx.height, "px");
+        ɵngcc0.ɵɵclassProp("has-height", !!ctx.height);
+    } }, directives: [NovoOverlayTemplateComponent], encapsulation: 2 });
+NovoDropdownElement.ctorParameters = () => [
+    { type: ElementRef },
+    { type: ChangeDetectorRef }
+];
+NovoDropdownElement.propDecorators = {
+    parentScrollSelector: [{ type: Input }],
+    parentScrollAction: [{ type: Input }],
+    containerClass: [{ type: Input }],
+    side: [{ type: Input }],
+    scrollStrategy: [{ type: Input }],
+    height: [{ type: Input }],
+    width: [{ type: Input }],
+    appendToBody: [{ type: Input }],
+    toggled: [{ type: Output }],
+    overlay: [{ type: ViewChild, args: [NovoOverlayTemplateComponent,] }],
+    onKeyDown: [{ type: HostListener, args: ['keydown', ['$event'],] }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoDropdownElement, [{
+        type: Component,
+        args: [{
+                selector: 'novo-dropdown',
+                template: `
+    <ng-content select="button" #trigger></ng-content>
+    <novo-overlay-template [parent]="element" [width]="width" [position]="side" [scrollStrategy]="scrollStrategy">
+      <div
+        class="dropdown-container {{ containerClass }}"
+        [style.height.px]="height"
+        [class.has-height]="!!height"
+        (keydown)="onOverlayKeyDown($event)"
+      >
+        <ng-content></ng-content>
+      </div>
+    </novo-overlay-template>
+  `
+            }]
+    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: ɵngcc0.ChangeDetectorRef }]; }, { parentScrollAction: [{
+            type: Input
+        }], side: [{
+            type: Input
+        }], scrollStrategy: [{
+            type: Input
+        }], width: [{
+            type: Input
+        }], appendToBody: [{
+            type: Input
+        }], toggled: [{
+            type: Output
+        }], 
+    /** END: Convenient Panel Methods. */
+    onKeyDown: [{
+            type: HostListener,
+            args: ['keydown', ['$event']]
+        }], parentScrollSelector: [{
+            type: Input
+        }], containerClass: [{
+            type: Input
+        }], height: [{
+            type: Input
+        }], overlay: [{
+            type: ViewChild,
+            args: [NovoOverlayTemplateComponent]
+        }] }); })();
+class NovoItemElement {
+    constructor(dropdown, element) {
+        this.dropdown = dropdown;
+        this.element = element;
+        this.keepOpen = false;
+        this.action = new EventEmitter();
+        this.active = false;
+    }
+    onClick(event) {
+        // Poor man's disable
+        if (!this.disabled) {
+            // Close if keepOpen is false
+            if (!this.keepOpen) {
+                this.dropdown.closePanel();
+            }
+            // Emit the action
+            this.action.emit({ originalEvent: event });
+        }
+    }
+}
+NovoItemElement.ɵfac = function NovoItemElement_Factory(t) { return new (t || NovoItemElement)(ɵngcc0.ɵɵdirectiveInject(NovoDropdownElement), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef)); };
+NovoItemElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoItemElement, selectors: [["item"]], hostVars: 4, hostBindings: function NovoItemElement_HostBindings(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵlistener("click", function NovoItemElement_click_HostBindingHandler($event) { return ctx.onClick($event); });
+    } if (rf & 2) {
+        ɵngcc0.ɵɵclassProp("disabled", ctx.disabled)("active", ctx.active);
+    } }, inputs: { keepOpen: "keepOpen", disabled: "disabled" }, outputs: { action: "action" }, ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoItemElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef();
+        ɵngcc0.ɵɵprojection(0);
+    } }, encapsulation: 2 });
+NovoItemElement.ctorParameters = () => [
+    { type: NovoDropdownElement },
+    { type: ElementRef }
+];
+NovoItemElement.propDecorators = {
+    disabled: [{ type: Input }],
+    keepOpen: [{ type: Input }],
+    action: [{ type: Output }],
+    onClick: [{ type: HostListener, args: ['click', ['$event'],] }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoItemElement, [{
+        type: Component,
+        args: [{
+                selector: 'item',
+                template: '<ng-content></ng-content>',
+                host: {
+                    '[class.disabled]': 'disabled',
+                    '[class.active]': 'active'
+                }
+            }]
+    }], function () { return [{ type: NovoDropdownElement }, { type: ɵngcc0.ElementRef }]; }, { keepOpen: [{
+            type: Input
+        }], action: [{
+            type: Output
+        }], onClick: [{
+            type: HostListener,
+            args: ['click', ['$event']]
+        }], disabled: [{
+            type: Input
+        }] }); })();
+class NovoDropdownListElement {
+    constructor(dropdown) {
+        this.dropdown = dropdown;
+    }
+    ngAfterContentInit() {
+        this.dropdown.items = this.items;
+        this.items.changes.subscribe(() => {
+            this.dropdown.items = this.items;
+        });
+    }
+}
+NovoDropdownListElement.ɵfac = function NovoDropdownListElement_Factory(t) { return new (t || NovoDropdownListElement)(ɵngcc0.ɵɵdirectiveInject(NovoDropdownElement)); };
+NovoDropdownListElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDropdownListElement, selectors: [["list"]], contentQueries: function NovoDropdownListElement_ContentQueries(rf, ctx, dirIndex) { if (rf & 1) {
+        ɵngcc0.ɵɵcontentQuery(dirIndex, NovoItemElement, false);
+    } if (rf & 2) {
+        var _t;
+        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.items = _t);
+    } }, ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoDropdownListElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef();
+        ɵngcc0.ɵɵprojection(0);
+    } }, encapsulation: 2 });
+NovoDropdownListElement.ctorParameters = () => [
+    { type: NovoDropdownElement }
+];
+NovoDropdownListElement.propDecorators = {
+    items: [{ type: ContentChildren, args: [NovoItemElement,] }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoDropdownListElement, [{
+        type: Component,
+        args: [{
+                selector: 'list',
+                template: '<ng-content></ng-content>'
+            }]
+    }], function () { return [{ type: NovoDropdownElement }]; }, { items: [{
+            type: ContentChildren,
+            args: [NovoItemElement]
+        }] }); })();
+class NovoDropDownItemHeaderElement {
+}
+NovoDropDownItemHeaderElement.ɵfac = function NovoDropDownItemHeaderElement_Factory(t) { return new (t || NovoDropDownItemHeaderElement)(); };
+NovoDropDownItemHeaderElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDropDownItemHeaderElement, selectors: [["dropdown-item-header"]], ngContentSelectors: _c1, decls: 1, vars: 0, template: function NovoDropDownItemHeaderElement_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef();
+        ɵngcc0.ɵɵprojection(0);
+    } }, encapsulation: 2 });
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoDropDownItemHeaderElement, [{
+        type: Component,
+        args: [{
+                selector: 'dropdown-item-header',
+                template: '<ng-content></ng-content>'
+            }]
+    }], null, null); })();
+
+class NovoDataTableSortFilter {
+    constructor(state) {
+        this.state = state;
+    }
+    filter(id, type, value, transform, allowMultipleFilters = false, selectedOption) {
+        let filter;
+        if (allowMultipleFilters) {
+            filter = this.resolveMultiFilter(id, type, value, transform, selectedOption);
+        }
+        else {
+            if (!Helpers.isBlank(value)) {
+                filter = Object.assign({ id, type, value, transform }, (selectedOption && { selectedOption }));
+            }
+            else {
+                filter = undefined;
+            }
+        }
+        this.state.filter = filter;
+        this.state.reset(false, true);
+        this.state.updates.next({ filter, sort: this.state.sort });
+        this.state.onSortFilterChange();
+    }
+    sort(id, value, transform) {
+        const sort = { id, value, transform };
+        this.state.sort = sort;
+        this.state.reset(false, true);
+        this.state.updates.next({ sort, filter: this.state.filter });
+        this.state.onSortFilterChange();
+    }
+    resolveMultiFilter(id, type, value, transform, selectedOption) {
+        let filter;
+        filter = Helpers.convertToArray(this.state.filter);
+        const filterIndex = filter.findIndex((aFilter) => aFilter && aFilter.id === id);
+        if (filterIndex > -1) {
+            filter.splice(filterIndex, 1);
+        }
+        if (!Helpers.isBlank(value)) {
+            filter = [...filter, Object.assign({ id, type, value, transform }, (selectedOption && { selectedOption }))];
+        }
+        if (filter.length < 1) {
+            filter = undefined;
+        }
+        return filter;
+    }
+}
+NovoDataTableSortFilter.ɵfac = function NovoDataTableSortFilter_Factory(t) { return new (t || NovoDataTableSortFilter)(ɵngcc0.ɵɵdirectiveInject(DataTableState)); };
+NovoDataTableSortFilter.ɵdir = ɵngcc0.ɵɵdefineDirective({ type: NovoDataTableSortFilter, selectors: [["", "novoDataTableSortFilter", ""]] });
+NovoDataTableSortFilter.ctorParameters = () => [
+    { type: DataTableState }
+];
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoDataTableSortFilter, [{
+        type: Directive,
+        args: [{
+                selector: '[novoDataTableSortFilter]'
+            }]
+    }], function () { return [{ type: DataTableState }]; }, null); })();
+
+class NovoDataTableCellHeader {
+    constructor(changeDetectorRef, labels, state, renderer, elementRef, _sort, _cdkColumnDef) {
+        this.changeDetectorRef = changeDetectorRef;
+        this.labels = labels;
+        this.state = state;
+        this.renderer = renderer;
+        this.elementRef = elementRef;
+        this._sort = _sort;
+        this._cdkColumnDef = _cdkColumnDef;
+        this.allowMultipleFilters = false;
+        this.icon = 'sortable';
+        this.filterActive = false;
+        this.sortActive = false;
+        this.showCustomRange = false;
+        this.multiSelect = false;
+        this.multiSelectedOptions = [];
+        this.multiSelectedOptionIsHidden = [];
+        this.optionFilter = '';
+        this.error = false;
+        this.subscriptions = [];
+        this._rerenderSubscription = state.updates.subscribe((change) => this.checkSortFilterState(change));
+    }
+    set column(column) {
+        this._column = column;
+        this.label = column.type === 'action' ? '' : column.label;
+        this.labelIcon = column.labelIcon;
+        this.config = {
+            sortable: !!column.sortable,
+            filterable: !!column.filterable,
+            resizable: !!column.resizable,
+        };
+        this.resizable = this.config.resizable;
+        const transforms = {};
+        if (column.filterable && Helpers.isObject(column.filterable)) {
+            this.config.filterConfig = column.filterable;
+            if (!this.config.filterConfig.type) {
+                this.config.filterConfig = { type: 'text' };
+            }
+            if (column.filterable.transform) {
+                transforms.filter = column.filterable.transform;
+            }
+        }
+        else {
+            this.config.filterConfig = { type: 'text' };
+        }
+        if (column.sortable && Helpers.isObject(column.sortable)) {
+            if (column.sortable.transform) {
+                transforms.sort = column.sortable.transform;
+            }
+        }
+        if (this.config.filterConfig.type === 'date' && !this.config.filterConfig.options) {
+            this.config.filterConfig.options = this.getDefaultDateFilterOptions();
+        }
+        this.config.transforms = transforms;
+    }
+    ngOnInit() {
+        if (this._cdkColumnDef) {
+            this.id = this._cdkColumnDef.name;
+        }
+        this.setupFilterOptions();
+        this.changeDetectorRef.markForCheck();
+    }
+    setupFilterOptions() {
+        this.checkSortFilterState({ filter: this.state.filter, sort: this.state.sort }, true);
+        this.multiSelect = this.config.filterConfig && this.config.filterConfig.type ? this.config.filterConfig.type === 'multi-select' : false;
+        if (this.multiSelect) {
+            this.multiSelectedOptions = this.filter ? [...this.filter] : [];
+        }
+    }
+    ngOnDestroy() {
+        this._rerenderSubscription.unsubscribe();
+        this.subscriptions.forEach((subscription) => {
+            subscription.unsubscribe();
+        });
+    }
+    checkSortFilterState(sortFilterState, initialConfig = false) {
+        if (sortFilterState.sort && sortFilterState.sort.id === this.id) {
+            this.icon = `sort-${sortFilterState.sort.value}`;
+            this.sortActive = true;
+        }
+        else {
+            this.icon = 'sortable';
+            this.sortActive = false;
+        }
+        const tableFilter = Helpers.convertToArray(sortFilterState.filter);
+        const thisFilter = tableFilter.find((filter) => filter && filter.id === this.id);
+        if (thisFilter) {
+            this.filterActive = true;
+            if (initialConfig && thisFilter.type === 'date' && thisFilter.selectedOption) {
+                this.activeDateFilter = thisFilter.selectedOption.label || this.labels.customDateRange;
+            }
+            this.filter = thisFilter.value;
+        }
+        else {
+            this.filterActive = false;
+            this.filter = undefined;
+            this.activeDateFilter = undefined;
+            this.multiSelectedOptions = [];
+        }
+        if (this.defaultSort && this.id === this.defaultSort.id) {
+            this.icon = `sort-${this.defaultSort.value}`;
+            this.sortActive = true;
+        }
+        this.multiSelect = this.config.filterConfig && this.config.filterConfig.type ? this.config.filterConfig.type === 'multi-select' : false;
+        if (this.multiSelect) {
+            this.multiSelectedOptions = this.filter ? [...this.filter] : [];
+            if (this.config.filterConfig.options) {
+                if (typeof this.config.filterConfig.options[0] === 'string') {
+                    this.multiSelectedOptionIsHidden = this.config.filterConfig.options.map((option) => ({ option, hidden: false }));
+                }
+                else {
+                    this.multiSelectedOptionIsHidden = this.config.filterConfig.options.map((option) => ({
+                        option,
+                        hidden: false,
+                    }));
+                }
+            }
+        }
+        this.changeDetectorRef.markForCheck();
+    }
+    isSelected(option, optionsList) {
+        if (optionsList) {
+            const optionValue = option.hasOwnProperty('value') ? option.value : option;
+            const found = optionsList.find((item) => this.optionPresentCheck(item, optionValue));
+            return found !== undefined;
+        }
+        return false;
+    }
+    toggleSelection(option) {
+        const optionValue = option.hasOwnProperty('value') ? option.value : option;
+        const optionIndex = this.multiSelectedOptions.findIndex((item) => this.optionPresentCheck(item, optionValue));
+        this.error = false;
+        if (optionIndex > -1) {
+            this.multiSelectedOptions.splice(optionIndex, 1);
+            if (this.optionFilter &&
+                !this.getOptionText(option)
+                    .toLowerCase()
+                    .startsWith(this.optionFilter.toLowerCase())) {
+                this.multiSelectedOptionIsHidden[this.multiSelectedOptionIsHidden.findIndex((record) => record.option === option)].hidden = true;
+            }
+        }
+        else {
+            this.multiSelectedOptions.push(optionValue);
+        }
+    }
+    optionPresentCheck(item, optionValue) {
+        if (item.hasOwnProperty('value')) {
+            return item.value === optionValue;
+        }
+        else {
+            return item === optionValue;
+        }
+    }
+    cancel() {
+        this.multiSelectedOptions = this.filter ? [...this.filter] : [];
+        this.dropdown.closePanel();
+        this.clearOptionFilter();
+    }
+    filterMultiSelect() {
+        if (this.multiSelectedOptions.length === 0 && !this.filter) {
+            this.multiSelectHasVisibleOptions() && this.dropdown ? (this.error = true) : null;
+        }
+        else {
+            this.clearOptionFilter();
+            const actualFilter = this.multiSelectedOptions.length > 0 ? [...this.multiSelectedOptions] : undefined;
+            this.filterData(actualFilter);
+            this.dropdown.closePanel();
+        }
+    }
+    multiSelectOptionFilter(optionFilter) {
+        this.multiSelectedOptionIsHidden.forEach((record) => {
+            if (record.option) {
+                record.hidden = !(this.getOptionText(record.option)
+                    .toLowerCase()
+                    .startsWith(optionFilter.toLowerCase()) || this.isSelected(record.option, this.multiSelectedOptions));
+            }
+        });
+    }
+    multiSelectOptionIsHidden(option) {
+        return this.multiSelectedOptionIsHidden.find((record) => record.option === option).hidden;
+    }
+    multiSelectHasVisibleOptions() {
+        return this.multiSelectedOptionIsHidden.some((record) => !record.hidden);
+    }
+    getOptionText(option) {
+        if (typeof option !== 'object') {
+            return option.toString();
+        }
+        else {
+            const opt = option;
+            return (opt.label.length > 0 ? opt.label : opt.value).toString();
+        }
+    }
+    multiSelectOptionFilterHandleKeydown(event) {
+        if (this.multiSelect) {
+            this.error = false;
+            if (this.dropdown.panelOpen && event.keyCode === KeyCodes.ESC) {
+                // escape = clear text box and close
+                Helpers.swallowEvent(event);
+                this.clearOptionFilter();
+                this.dropdown.closePanel();
+            }
+            else if (event.keyCode === KeyCodes.ENTER) {
+                Helpers.swallowEvent(event);
+                this.filterMultiSelect();
+            }
+            else if ((event.keyCode >= 65 && event.keyCode <= 90) ||
+                (event.keyCode >= 96 && event.keyCode <= 105) ||
+                (event.keyCode >= 48 && event.keyCode <= 57)) {
+                this.optionFilterInput.nativeElement.focus();
+            }
+        }
+    }
+    clearOptionFilter() {
+        this.error = false;
+        if (this.optionFilter.length > 0) {
+            this.optionFilter = '';
+            this.multiSelectedOptionIsHidden.forEach((record) => {
+                record.hidden = false;
+            });
+        }
+    }
+    startResize(mouseDownEvent) {
+        mouseDownEvent.preventDefault();
+        const minimumWidth = 60 + (this.config.filterable ? 30 : 0) + (this.config.sortable ? 30 : 0);
+        const startingWidth = this.elementRef.nativeElement.getBoundingClientRect().width;
+        const mouseMoveSubscription = fromEvent(window.document, 'mousemove').subscribe((middleMouseEvent) => {
+            const differenceWidth = middleMouseEvent.clientX - mouseDownEvent.clientX;
+            let width = startingWidth + differenceWidth;
+            if (width < minimumWidth) {
+                width = minimumWidth;
+            }
+            this._column.width = width;
+            this.renderer.setStyle(this.elementRef.nativeElement, 'min-width', `${this._column.width}px`);
+            this.renderer.setStyle(this.elementRef.nativeElement, 'max-width', `${this._column.width}px`);
+            this.renderer.setStyle(this.elementRef.nativeElement, 'width', `${this._column.width}px`);
+            this.changeDetectorRef.markForCheck();
+            this.resized.next(this._column);
+        });
+        const mouseUpSubscription = fromEvent(window.document, 'mouseup').subscribe(() => {
+            mouseUpSubscription.unsubscribe();
+            mouseMoveSubscription.unsubscribe();
+            this.changeDetectorRef.markForCheck();
+        });
+        this.subscriptions.push(mouseMoveSubscription);
+        this.subscriptions.push(mouseUpSubscription);
+    }
+    toggleCustomRange(event, value) {
+        Helpers.swallowEvent(event);
+        this.showCustomRange = value;
+        this.changeDetectorRef.markForCheck();
+        this.dropdown.openPanel(); // Ensures that the panel correctly updates to the dynamic size of the dropdown
+    }
+    focusInput() {
+        if (this.filterInput && this.filterInput.nativeElement) {
+            setTimeout(() => this.filterInput.nativeElement.focus(), 0);
+        }
+        if (this.multiSelect && this.dropdown) {
+            this.dropdown.onKeyDown = (event) => {
+                this.multiSelectOptionFilterHandleKeydown(event);
+            };
+            setTimeout(() => this.optionFilterInput.nativeElement.focus(), 0);
+            this.changeDetectorRef.markForCheck();
+        }
+    }
+    sort() {
+        if (this.changeTimeout) {
+            clearTimeout(this.changeTimeout);
+        }
+        this.changeTimeout = setTimeout(() => {
+            this.direction = this.getNextSortDirection(this.direction);
+            this._sort.sort(this.id, this.direction, this.config.transforms.sort);
+            this.changeDetectorRef.markForCheck();
+        }, 300);
+    }
+    filterData(filter) {
+        let actualFilter = NovoDataTableFilterUtils.constructFilter(filter, this.config.filterConfig.type, this.multiSelect);
+        const selectedOption = this.config.filterConfig.type === 'date' && filter ? filter : undefined;
+        if (this.changeTimeout) {
+            clearTimeout(this.changeTimeout);
+        }
+        this.changeTimeout = setTimeout(() => {
+            if (actualFilter === '') {
+                actualFilter = undefined;
+            }
+            this._sort.filter(this.id, this.config.filterConfig.type, actualFilter, this.config.transforms.filter, this.allowMultipleFilters, selectedOption);
+            this.changeDetectorRef.markForCheck();
+        }, 300);
+    }
+    clearFilter() {
+        this.filter = undefined;
+        this.multiSelectedOptions = [];
+        this.activeDateFilter = undefined;
+        this.filterData(undefined);
+        this.clearOptionFilter();
+        this.dropdown.closePanel();
+    }
+    getNextSortDirection(direction) {
+        if (!direction) {
+            return 'asc';
+        }
+        if (direction === 'asc') {
+            return 'desc';
+        }
+        return 'asc';
+    }
+    getDefaultDateFilterOptions() {
+        const opts = [
+            { label: this.labels.past1Day, min: -1, max: 0 },
+            { label: this.labels.past7Days, min: -7, max: 0 },
+            { label: this.labels.past30Days, min: -30, max: 0 },
+            { label: this.labels.past90Days, min: -90, max: 0 },
+            { label: this.labels.past1Year, min: -366, max: 0 },
+            { label: this.labels.next1Day, min: 0, max: 1 },
+            { label: this.labels.next7Days, min: 0, max: 7 },
+            { label: this.labels.next30Days, min: 0, max: 30 },
+            { label: this.labels.next90Days, min: 0, max: 90 },
+            { label: this.labels.next1Year, min: 0, max: 366 },
+        ];
+        return opts;
+    }
+}
+NovoDataTableCellHeader.ɵfac = function NovoDataTableCellHeader_Factory(t) { return new (t || NovoDataTableCellHeader)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef), ɵngcc0.ɵɵdirectiveInject(NovoLabelService), ɵngcc0.ɵɵdirectiveInject(DataTableState), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(NovoDataTableSortFilter, 8), ɵngcc0.ɵɵdirectiveInject(ɵngcc6.CdkColumnDef, 8)); };
+NovoDataTableCellHeader.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDataTableCellHeader, selectors: [["", "novo-data-table-cell-config", ""]], viewQuery: function NovoDataTableCellHeader_Query(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵviewQuery(_c40, true);
+        ɵngcc0.ɵɵviewQuery(NovoDropdownElement, true);
+        ɵngcc0.ɵɵviewQuery(_c41, true);
+    } if (rf & 2) {
+        var _t;
+        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.filterInput = _t.first);
+        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.dropdown = _t.first);
+        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.optionFilterInput = _t.first);
+    } }, hostVars: 2, hostBindings: function NovoDataTableCellHeader_HostBindings(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵlistener("keydown", function NovoDataTableCellHeader_keydown_HostBindingHandler($event) { return ctx.multiSelectOptionFilterHandleKeydown($event); });
+    } if (rf & 2) {
+        ɵngcc0.ɵɵclassProp("resizable", ctx.resizable);
+    } }, inputs: { allowMultipleFilters: "allowMultipleFilters", column: ["novo-data-table-cell-config", "column"], defaultSort: "defaultSort", resized: "resized", filterTemplate: "filterTemplate" }, attrs: _c42, decls: 8, vars: 5, consts: [["data-automation-id", "novo-data-table-header-icon", 3, "class", 4, "ngIf"], ["data-automation-id", "novo-data-table-label"], ["tooltipPosition", "right", "theme", "icon", "data-automation-id", "novo-data-table-sort", 3, "tooltip", "icon", "active", "click", 4, "ngIf"], ["side", "right", "parentScrollSelector", ".novo-data-table-container", "containerClass", "data-table-dropdown", "data-automation-id", "novo-data-table-filter", 4, "ngIf"], [1, "spacer"], ["class", "data-table-header-resizable", 4, "ngIf"], ["data-automation-id", "novo-data-table-header-icon"], ["tooltipPosition", "right", "theme", "icon", "data-automation-id", "novo-data-table-sort", 3, "tooltip", "icon", "click"], ["side", "right", "parentScrollSelector", ".novo-data-table-container", "containerClass", "data-table-dropdown", "data-automation-id", "novo-data-table-filter"], ["type", "button", "theme", "icon", "icon", "filter", "tooltipPosition", "right", 3, "tooltip", "click"], [1, "header"], ["theme", "dialogue", "color", "negative", "icon", "times", "data-automation-id", "novo-data-table-filter-clear", 3, "click", 4, "ngIf"], [3, "ngSwitch"], [4, "ngSwitchCase"], [4, "ngSwitchDefault"], ["class", "footer", 4, "ngIf"], ["theme", "dialogue", "color", "negative", "icon", "times", "data-automation-id", "novo-data-table-filter-clear", 3, "click"], [4, "ngIf"], [3, "active", "keepOpen", "click", 4, "ngIf"], ["class", "calendar-container", 4, "ngIf"], [3, "active", "click", 4, "ngFor", "ngForOf"], [3, "click"], ["class", "bhi-check", 4, "ngIf"], [1, "bhi-check"], [3, "keepOpen", "click"], [1, "calendar-container"], [1, "bhi-previous"], ["range", "true", 3, "ngModel", "onSelect", "ngModelChange"], [1, "dropdown-list-filter", 3, "keydown"], ["keepOpen", "true", 1, "filter-search"], ["data-automation-id", "novo-data-table-multi-select-option-filter-input", 3, "ngModel", "ngModelChange"], ["optionFilterInput", ""], [1, "bhi-search"], [1, "error-text", 3, "hidden"], [1, "dropdown-list-options"], [3, "hidden", "keepOpen", "click", 4, "ngFor", "ngForOf"], [1, "filter-null-results", 3, "hidden"], [3, "hidden", "keepOpen", "click"], [4, "ngTemplateOutlet", "ngTemplateOutletContext"], ["data-automation-id", "novo-data-table-filter-input", 3, "type", "ngModel", "ngModelChange"], ["filterInput", ""], [1, "footer"], ["theme", "dialogue", "color", "dark", "data-automation-id", "novo-data-table-multi-select-cancel", 3, "click"], ["theme", "dialogue", "color", "positive", "data-automation-id", "novo-data-table-multi-select-filter", 3, "click"], [1, "data-table-header-resizable"], [3, "mousedown"]], template: function NovoDataTableCellHeader_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵtemplate(0, NovoDataTableCellHeader_i_0_Template, 1, 3, "i", 0);
+        ɵngcc0.ɵɵelementStart(1, "label", 1);
+        ɵngcc0.ɵɵtext(2);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵelementStart(3, "div");
+        ɵngcc0.ɵɵtemplate(4, NovoDataTableCellHeader_button_4_Template, 1, 5, "button", 2);
+        ɵngcc0.ɵɵtemplate(5, NovoDataTableCellHeader_novo_dropdown_5_Template, 13, 12, "novo-dropdown", 3);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵelement(6, "div", 4);
+        ɵngcc0.ɵɵtemplate(7, NovoDataTableCellHeader_div_7_Template, 3, 0, "div", 5);
+    } if (rf & 2) {
+        ɵngcc0.ɵɵproperty("ngIf", ctx.labelIcon);
+        ɵngcc0.ɵɵadvance(2);
+        ɵngcc0.ɵɵtextInterpolate(ctx.label);
+        ɵngcc0.ɵɵadvance(2);
+        ɵngcc0.ɵɵproperty("ngIf", ctx.config.sortable);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngIf", ctx.config.filterable);
+        ɵngcc0.ɵɵadvance(2);
+        ɵngcc0.ɵɵproperty("ngIf", ctx.config.resizable);
+    } }, directives: function () { return [ɵngcc1.NgIf, NovoButtonElement, TooltipDirective, NovoDropdownElement, ɵngcc1.NgSwitch, ɵngcc1.NgSwitchCase, ɵngcc1.NgSwitchDefault, NovoDropdownListElement, ɵngcc1.NgForOf, NovoItemElement, NovoDatePickerElement, ɵngcc3.NgControlStatus, ɵngcc3.NgModel, ɵngcc3.DefaultValueAccessor, ɵngcc1.NgTemplateOutlet]; }, encapsulation: 2, changeDetection: 0 });
+NovoDataTableCellHeader.ctorParameters = () => [
+    { type: ChangeDetectorRef },
+    { type: NovoLabelService },
+    { type: DataTableState },
+    { type: Renderer2 },
+    { type: ElementRef },
+    { type: NovoDataTableSortFilter, decorators: [{ type: Optional }] },
+    { type: CdkColumnDef, decorators: [{ type: Optional }] }
+];
+NovoDataTableCellHeader.propDecorators = {
+    filterInput: [{ type: ViewChild, args: ['filterInput',] }],
+    dropdown: [{ type: ViewChild, args: [NovoDropdownElement,] }],
+    optionFilterInput: [{ type: ViewChild, args: ['optionFilterInput',] }],
+    defaultSort: [{ type: Input }],
+    allowMultipleFilters: [{ type: Input }],
+    resized: [{ type: Input }],
+    filterTemplate: [{ type: Input }],
+    resizable: [{ type: HostBinding, args: ['class.resizable',] }],
+    column: [{ type: Input, args: ['novo-data-table-cell-config',] }],
+    multiSelectOptionFilterHandleKeydown: [{ type: HostListener, args: ['keydown', ['$event'],] }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoDataTableCellHeader, [{
+        type: Component,
+        args: [{
+                selector: '[novo-data-table-cell-config]',
+                template: `
+    <i class="bhi-{{ labelIcon }} label-icon" *ngIf="labelIcon" data-automation-id="novo-data-table-header-icon"></i>
+    <label data-automation-id="novo-data-table-label">{{ label }}</label>
+    <div>
+      <button
+        *ngIf="config.sortable"
+        tooltipPosition="right"
+        [tooltip]="labels.sort"
+        theme="icon"
+        [icon]="icon"
+        (click)="sort()"
+        [class.active]="sortActive"
+        data-automation-id="novo-data-table-sort"
+        [attr.data-feature-id]="'novo-data-table-sort-' + this.id"
+      ></button>
+      <novo-dropdown
+        *ngIf="config.filterable"
+        side="right"
+        parentScrollSelector=".novo-data-table-container"
+        containerClass="data-table-dropdown"
+        data-automation-id="novo-data-table-filter"
+      >
+        <button
+          type="button"
+          theme="icon"
+          icon="filter"
+          [class.active]="filterActive"
+          (click)="focusInput()"
+          tooltipPosition="right"
+          [tooltip]="labels.filters"
+          [attr.data-feature-id]="'novo-data-table-filter-' + this.id"
+        ></button>
+        <div class="header">
+          <span>{{ labels.filters }}</span>
+          <button
+            theme="dialogue"
+            color="negative"
+            icon="times"
+            (click)="clearFilter()"
+            *ngIf="filter !== null && filter !== undefined && filter !== ''"
+            data-automation-id="novo-data-table-filter-clear"
+          >
+            {{ labels.clear }}
+          </button>
+        </div>
+        <ng-container [ngSwitch]="config.filterConfig.type">
+          <list *ngSwitchCase="'date'">
+            <ng-container *ngIf="!showCustomRange">
+              <item
+                [class.active]="activeDateFilter === option.label"
+                *ngFor="let option of config.filterConfig.options"
+                (click)="filterData(option)"
+                [attr.data-automation-id]="'novo-data-table-filter-' + option.label"
+              >
+                {{ option.label }} <i class="bhi-check" *ngIf="activeDateFilter === option.label"></i>
+              </item>
+            </ng-container>
+            <item
+              [class.active]="labels.customDateRange === activeDateFilter"
+              (click)="toggleCustomRange($event, true)"
+              *ngIf="config.filterConfig.allowCustomRange && !showCustomRange"
+              [keepOpen]="true"
+            >
+              {{ labels.customDateRange }} <i class="bhi-check" *ngIf="labels.customDateRange === activeDateFilter"></i>
+            </item>
+            <div class="calendar-container" *ngIf="showCustomRange">
+              <div (click)="toggleCustomRange($event, false)"><i class="bhi-previous"></i>{{ labels.backToPresetFilters }}</div>
+              <novo-date-picker (onSelect)="filterData($event)" [(ngModel)]="filter" range="true"></novo-date-picker>
+            </div>
+          </list>
+          <list *ngSwitchCase="'select'">
+            <item
+              [class.active]="filter === option"
+              *ngFor="let option of config.filterConfig.options"
+              (click)="filterData(option)"
+              [attr.data-automation-id]="'novo-data-table-filter-' + (option?.label || option)"
+            >
+              <span>{{ option?.label || option }}</span>
+              <i class="bhi-check" *ngIf="option.hasOwnProperty('value') ? filter === option.value : filter === option"></i>
+            </item>
+          </list>
+          <list *ngSwitchCase="'multi-select'">
+            <div class="dropdown-list-filter" (keydown)="multiSelectOptionFilterHandleKeydown($event)">
+              <item class="filter-search" keepOpen="true">
+                <input
+                  [(ngModel)]="optionFilter"
+                  (ngModelChange)="multiSelectOptionFilter($event)"
+                  #optionFilterInput
+                  data-automation-id="novo-data-table-multi-select-option-filter-input"
+                />
+                <i class="bhi-search"></i>
+                <span class="error-text" [hidden]="!error || !multiSelectHasVisibleOptions()">{{ labels.selectFilterOptions }}</span>
+              </item>
+            </div>
+            <div class="dropdown-list-options">
+              <item
+                *ngFor="let option of config.filterConfig.options"
+                [hidden]="multiSelectOptionIsHidden(option)"
+                (click)="toggleSelection(option)"
+                [attr.data-automation-id]="'novo-data-table-filter-' + (option?.label || option)"
+                [keepOpen]="true"
+              >
+                <span>{{ option?.label || option }}</span>
+                <i
+                  [class.bhi-checkbox-empty]="!isSelected(option, multiSelectedOptions)"
+                  [class.bhi-checkbox-filled]="isSelected(option, multiSelectedOptions)"
+                ></i>
+              </item>
+            </div>
+            <p class="filter-null-results" [hidden]="multiSelectHasVisibleOptions()">{{ labels.pickerEmpty }}</p>
+          </list>
+          <list *ngSwitchCase="'custom'">
+            <item class="filter-search" keepOpen="true">
+              <ng-container *ngTemplateOutlet="filterTemplate; context: { $implicit: config }"></ng-container>
+            </item>
+          </list>
+          <list *ngSwitchDefault>
+            <item class="filter-search" keepOpen="true">
+              <input
+                [type]="config.filterConfig.type"
+                [(ngModel)]="filter"
+                (ngModelChange)="filterData($event)"
+                #filterInput
+                data-automation-id="novo-data-table-filter-input"
+              />
+            </item>
+          </list>
+        </ng-container>
+        <div class="footer" *ngIf="multiSelect">
+          <button theme="dialogue" color="dark" (click)="cancel()" data-automation-id="novo-data-table-multi-select-cancel">
+            {{ labels.cancel }}
+          </button>
+          <button theme="dialogue" color="positive" (click)="filterMultiSelect()" data-automation-id="novo-data-table-multi-select-filter">
+            {{ labels.filters }}
+          </button>
+        </div>
+      </novo-dropdown>
+    </div>
+    <div class="spacer"></div>
+    <div class="data-table-header-resizable" *ngIf="config.resizable"><span (mousedown)="startResize($event)">&nbsp;</span></div>
+  `,
+                changeDetection: ChangeDetectionStrategy.OnPush
+            }]
+    }], function () { return [{ type: ɵngcc0.ChangeDetectorRef }, { type: NovoLabelService }, { type: DataTableState }, { type: ɵngcc0.Renderer2 }, { type: ɵngcc0.ElementRef }, { type: NovoDataTableSortFilter, decorators: [{
+                type: Optional
+            }] }, { type: ɵngcc6.CdkColumnDef, decorators: [{
+                type: Optional
+            }] }]; }, { allowMultipleFilters: [{
+            type: Input
+        }], column: [{
+            type: Input,
+            args: ['novo-data-table-cell-config']
+        }], resizable: [{
+            type: HostBinding,
+            args: ['class.resizable']
+        }], multiSelectOptionFilterHandleKeydown: [{
+            type: HostListener,
+            args: ['keydown', ['$event']]
+        }], filterInput: [{
+            type: ViewChild,
+            args: ['filterInput']
+        }], dropdown: [{
+            type: ViewChild,
+            args: [NovoDropdownElement]
+        }], optionFilterInput: [{
+            type: ViewChild,
+            args: ['optionFilterInput']
+        }], defaultSort: [{
+            type: Input
+        }], resized: [{
+            type: Input
+        }], filterTemplate: [{
+            type: Input
+        }] }); })();
+
+class NovoDataTable {
+    constructor(labels, ref, state) {
+        this.labels = labels;
+        this.ref = ref;
+        this.state = state;
+        this.globalSearchHiddenClassToggle = false;
+        this.resized = new EventEmitter();
+        this.name = 'novo-data-table';
+        this.allowMultipleFilters = false;
+        this.rowIdentifier = 'id';
+        this.activeRowIdentifier = '';
+        // prettier-ignore
+        this.trackByFn = (index, item) => item.id;
+        this.templates = {};
+        this.fixedHeader = false;
+        this._hideGlobalSearch = true;
+        this.preferencesChanged = new EventEmitter();
+        this.loading = true;
+        this.columnToTemplate = {};
+        this.columnsLoaded = false;
+        this.selection = new Set();
+        this.scrollLeft = 0;
+        this.expandable = false;
+        this.initialized = false;
+        this.scrollListenerHandler = this.scrollListener.bind(this);
+        this.sortFilterSubscription = this.state.sortFilterSource.subscribe((event) => {
+            if (this.name !== 'novo-data-table') {
+                this.preferencesChanged.emit({ name: this.name, sort: event.sort, filter: event.filter, globalSearch: event.globalSearch });
+                this.performInteractions('change');
+            }
+            else {
+                notify('Must have [name] set on data-table to use preferences!');
+            }
+        });
+        this.paginationSubscription = this.state.paginationSource.subscribe((event) => {
+            if (this.name !== 'novo-data-table') {
+                if (event.isPageSizeChange) {
+                    this.preferencesChanged.emit({ name: this.name, pageSize: event.pageSize });
+                }
+            }
+            else {
+                notify('Must have [name] set on data-table to use preferences!');
+            }
+        });
+        this.resetSubscription = this.state.resetSource.subscribe(() => {
+            setTimeout(() => {
+                this.ref.detectChanges();
+            }, 300);
+        });
+    }
+    set displayedColumns(displayedColumns) {
+        if (this.displayedColumns && this.displayedColumns.length !== 0) {
+            if (this.name !== 'novo-data-table') {
+                this.preferencesChanged.emit({
+                    name: this.name,
+                    displayedColumns,
+                });
+            }
+            else {
+                notify('Must have [name] set on data-table to use preferences!');
+            }
+        }
+        this._disabledColumns = displayedColumns;
+        this.configureLastDisplayedColumn();
+        if (this.initialized) {
+            setTimeout(() => {
+                this.scrollListener();
+            });
+        }
+    }
+    get displayedColumns() {
+        return this._disabledColumns;
+    }
+    set dataTableService(service) {
+        this.loading = false;
+        if (!service) {
+            service = new StaticDataTableService([]);
+        }
+        this.dataSource = new DataTableSource(service, this.state, this.ref);
+        this.ref.detectChanges();
+    }
+    set rows(rows) {
+        this.loading = false;
+        const service = new StaticDataTableService(rows);
+        this.dataSource = new DataTableSource(service, this.state, this.ref);
+        this.ref.detectChanges();
+    }
+    set outsideFilter(outsideFilter) {
+        // Unsubscribe
+        if (this.outsideFilterSubscription) {
+            this.outsideFilterSubscription.unsubscribe();
+        }
+        if (outsideFilter) {
+            // Re-subscribe
+            this.outsideFilterSubscription = outsideFilter.subscribe((filter) => {
+                this.state.outsideFilter = filter;
+                this.state.updates.next({ globalSearch: this.state.globalSearch, filter: this.state.filter, sort: this.state.sort });
+                this.ref.markForCheck();
+            });
+        }
+    }
+    set refreshSubject(refreshSubject) {
+        // Unsubscribe
+        if (this.refreshSubscription) {
+            this.refreshSubscription.unsubscribe();
+        }
+        if (refreshSubject) {
+            // Re-subscribe
+            this.refreshSubscription = refreshSubject.subscribe((filter) => {
+                this.state.isForceRefresh = true;
+                this.state.updates.next({ globalSearch: this.state.globalSearch, filter: this.state.filter, sort: this.state.sort });
+                this.ref.markForCheck();
+            });
+        }
+    }
+    set columns(columns) {
+        this._columns = columns;
+        this.configureColumns();
+        this.performInteractions('init');
+    }
+    get columns() {
+        return this._columns;
+    }
+    set customFilter(v) {
+        this._customFilter = coerceBooleanProperty(v);
+    }
+    get customFilter() {
+        return this._customFilter;
+    }
+    set hasExandedRows(v) {
+        this._hasExandedRows = coerceBooleanProperty(v);
+    }
+    get hasExandedRows() {
+        return this._hasExandedRows;
+    }
+    set forceShowHeader(v) {
+        this._forceShowHeader = coerceBooleanProperty(v);
+    }
+    get forceShowHeader() {
+        return this._forceShowHeader;
+    }
+    set hideGlobalSearch(v) {
+        this._hideGlobalSearch = coerceBooleanProperty(v);
+        this.globalSearchHiddenClassToggle = this._hideGlobalSearch;
+    }
+    get hideGlobalSearch() {
+        return this._hideGlobalSearch;
+    }
+    get empty() {
+        return this.dataSource && this.dataSource.totallyEmpty;
+    }
+    get loadingClass() {
+        return this.loading || (this.dataSource && this.dataSource.loading);
+    }
+    modifyCellHeaderMultiSelectFilterOptions(column, newOptions) {
+        const header = this.cellHeaders.find((cellHeader) => cellHeader.id === column);
+        if (header && header.config && header.config.filterConfig && header.config.filterConfig.options) {
+            const filterOptions = header.config.filterConfig.options;
+            const optionsToKeep = filterOptions.filter((opt) => header.isSelected(opt, header.multiSelectedOptions) &&
+                !newOptions.find((newOpt) => opt.value && newOpt.value && newOpt.value === opt.value));
+            header.config.filterConfig.options = [...optionsToKeep, ...newOptions];
+        }
+        else {
+            header.config.filterConfig['options'] = newOptions;
+        }
+        header.setupFilterOptions();
+        header.changeDetectorRef.markForCheck();
+    }
+    ngOnDestroy() {
+        if (this.outsideFilterSubscription) {
+            this.outsideFilterSubscription.unsubscribe();
+        }
+        if (this.novoDataTableContainer) {
+            this.novoDataTableContainer.nativeElement.removeEventListener('scroll', this.scrollListenerHandler);
+        }
+        if (this.refreshSubscription) {
+            this.refreshSubscription.unsubscribe();
+        }
+        if (this.resetSubscription) {
+            this.resetSubscription.unsubscribe();
+        }
+        if (this.sortFilterSubscription) {
+            this.sortFilterSubscription.unsubscribe();
+        }
+    }
+    ngAfterContentInit() {
+        if (this.displayedColumns && this.displayedColumns.length) {
+            this.expandable = this.displayedColumns.includes('expand');
+        }
+        // Default templates defined here
+        this.defaultTemplates.forEach((item) => {
+            // Only override if it doesn't already exist
+            if (!this.templates[item.getType()]) {
+                this.templates[item.getType()] = item.template;
+            }
+        });
+        // Custom templates passed in
+        this.customTemplates.forEach((item) => {
+            // Override anything that is custom and in HTML
+            this.templates[item.getType()] = item.template;
+        });
+        // Load columns
+        this.configureColumns();
+        // State
+        if (this.paginationOptions && !this.paginationOptions.page) {
+            this.paginationOptions.page = 0;
+        }
+        if (this.paginationOptions && !this.paginationOptions.pageSize) {
+            this.paginationOptions.pageSize = 50;
+        }
+        if (this.paginationOptions && !this.paginationOptions.pageSizeOptions) {
+            this.paginationOptions.pageSizeOptions = [10, 25, 50, 100];
+        }
+        this.state.page = this.paginationOptions ? this.paginationOptions.page : undefined;
+        this.state.pageSize = this.paginationOptions ? this.paginationOptions.pageSize : undefined;
+        // Scrolling inside table
+        this.novoDataTableContainer.nativeElement.addEventListener('scroll', this.scrollListenerHandler);
+        this.initialized = true;
+        this.ref.markForCheck();
+    }
+    onSearchChange(term) {
+        this.state.globalSearch = term;
+        this.state.reset(false, true);
+        this.state.updates.next({ globalSearch: term, filter: this.state.filter, sort: this.state.sort });
+    }
+    trackColumnsBy(index, item) {
+        return item.id;
+    }
+    isDisabled(check, row) {
+        if (check.disabled === true) {
+            return true;
+        }
+        if (check.disabledFunc) {
+            return check.disabledFunc(row);
+        }
+        return false;
+    }
+    isExpanded(row) {
+        if (!row) {
+            return false;
+        }
+        return this.state.expandedRows.has(`${row[this.rowIdentifier]}`);
+    }
+    expandRow(row) {
+        const expanded = this.isExpanded(row);
+        if (expanded) {
+            this.state.expandedRows.delete(`${row[this.rowIdentifier]}`);
+        }
+        else {
+            this.state.expandedRows.add(`${row[this.rowIdentifier]}`);
+        }
+        this.state.onExpandChange(row.id);
+    }
+    expandRows(expand) {
+        (this.dataSource.data || []).forEach((row) => {
+            if (!expand) {
+                this.state.expandedRows.delete(`${row[this.rowIdentifier]}`);
+            }
+            else {
+                this.state.expandedRows.add(`${row[this.rowIdentifier]}`);
+            }
+        });
+        this.state.onExpandChange();
+    }
+    allCurrentRowsExpanded() {
+        for (let i = 0; i < (this.dataSource.data || []).length; i++) {
+            if (!this.isExpanded((this.dataSource.data || [])[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+    isSelected(row) {
+        if (!row) {
+            return false;
+        }
+        return this.state.selectedRows.has(`${row[this.rowIdentifier]}`);
+    }
+    selectRow(row) {
+        const selected = this.isSelected(row);
+        if (selected) {
+            this.state.selectedRows.delete(`${row[this.rowIdentifier]}`);
+        }
+        else {
+            this.state.selectedRows.set(`${row[this.rowIdentifier]}`, row);
+        }
+        this.state.onSelectionChange();
+    }
+    selectRows(selected) {
+        (this.dataSource.data || []).forEach((row) => {
+            if (!selected) {
+                this.state.selectedRows.delete(`${row[this.rowIdentifier]}`);
+            }
+            else {
+                this.state.selectedRows.set(`${row[this.rowIdentifier]}`, row);
+            }
+        });
+        this.state.onSelectionChange();
+    }
+    allCurrentRowsSelected() {
+        for (let i = 0; i < (this.dataSource.data || []).length; i++) {
+            if (!this.isSelected((this.dataSource.data || [])[i])) {
+                return false;
+            }
+        }
+        return true;
+    }
+    configureLastDisplayedColumn() {
+        if (this.columns && this.displayedColumns && 0 !== this.columns.length && 0 !== this.displayedColumns.length) {
+            this.columns.forEach((column) => {
+                if (column.initialResizable) {
+                    column.resizable = column.initialResizable.resizable;
+                    column.width = column.initialResizable.width;
+                    column.initialResizable = undefined;
+                }
+            });
+            const resizableColumns = this.displayedColumns.filter((name) => {
+                return (this.columns.findIndex((column) => {
+                    return column.resizable && column.id === name;
+                }) !== -1);
+            });
+            if (resizableColumns && resizableColumns.length > 0) {
+                const lastResizableColumn = this.columns.find((column) => {
+                    return column.id === resizableColumns[resizableColumns.length - 1];
+                });
+                lastResizableColumn.initialResizable = {
+                    resizable: lastResizableColumn.resizable,
+                    width: lastResizableColumn.width,
+                };
+                lastResizableColumn.width = undefined;
+                lastResizableColumn.resizable = false;
+            }
+        }
+    }
+    configureColumns() {
+        if (this.columns && this.columns.length !== 0 && Object.keys(this.templates).length !== 0) {
+            // Figure the column templates
+            this.columns.forEach((column) => {
+                // Figure the template
+                let templateName;
+                if (column.template) {
+                    // Pass it in as template
+                    templateName = column.template;
+                }
+                else if (!!this.templates[column.id]) {
+                    // Custom template for the column id
+                    templateName = column.id;
+                }
+                else {
+                    // Default to the defaulCellTemplate
+                    if (column.type === 'action') {
+                        if (column.action && column.action.options) {
+                            if (!column.action.icon) {
+                                column.action.icon = 'collapse';
+                            }
+                            templateName = 'dropdownCellTemplate';
+                        }
+                        else {
+                            templateName = 'buttonCellTemplate';
+                        }
+                    }
+                    else {
+                        if (column.type === 'link:tel' || column.type === 'link:mailto') {
+                            templateName = `${column.type.split(':')[1]}CellTemplate`;
+                        }
+                        else {
+                            templateName = `${column.type}CellTemplate`;
+                        }
+                    }
+                }
+                this.columnToTemplate[column.id] = this.templates[templateName];
+            });
+            this.configureLastDisplayedColumn();
+            this.columnsLoaded = true;
+        }
+    }
+    scrollListener() {
+        const target = this.novoDataTableContainer.nativeElement;
+        const left = target.scrollLeft;
+        if (left !== this.scrollLeft) {
+            this.scrollLeft = target.scrollLeft;
+        }
+        this.ref.markForCheck();
+    }
+    performInteractions(event) {
+        if (this.listInteractions) {
+            for (const column of this.columns) {
+                const allListColumnInteractions = this.listInteractions[column.id];
+                const listColumnInteraction = allListColumnInteractions && allListColumnInteractions.find((int) => int.event.includes(event));
+                if (listColumnInteraction) {
+                    listColumnInteraction.script(this, column.id);
+                }
+            }
+        }
+    }
+}
+NovoDataTable.ɵfac = function NovoDataTable_Factory(t) { return new (t || NovoDataTable)(ɵngcc0.ɵɵdirectiveInject(NovoLabelService), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef), ɵngcc0.ɵɵdirectiveInject(DataTableState)); };
+NovoDataTable.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDataTable, selectors: [["novo-data-table"]], contentQueries: function NovoDataTable_ContentQueries(rf, ctx, dirIndex) { if (rf & 1) {
+        ɵngcc0.ɵɵcontentQuery(dirIndex, NovoTemplate, false);
+    } if (rf & 2) {
+        var _t;
+        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.customTemplates = _t);
+    } }, viewQuery: function NovoDataTable_Query(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵviewQuery(_c44, true);
+        ɵngcc0.ɵɵviewQuery(NovoTemplate, true);
+        ɵngcc0.ɵɵviewQuery(NovoDataTableCellHeader, true);
+    } if (rf & 2) {
+        var _t;
+        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.novoDataTableContainer = _t.first);
+        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.defaultTemplates = _t);
+        ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.cellHeaders = _t);
+    } }, hostVars: 6, hostBindings: function NovoDataTable_HostBindings(rf, ctx) { if (rf & 2) {
+        ɵngcc0.ɵɵclassProp("global-search-hidden", ctx.globalSearchHiddenClassToggle)("empty", ctx.empty)("loading", ctx.loadingClass);
+    } }, inputs: { name: "name", allowMultipleFilters: "allowMultipleFilters", rowIdentifier: "rowIdentifier", activeRowIdentifier: "activeRowIdentifier", trackByFn: "trackByFn", templates: "templates", fixedHeader: "fixedHeader", displayedColumns: "displayedColumns", dataTableService: "dataTableService", rows: "rows", outsideFilter: "outsideFilter", refreshSubject: "refreshSubject", columns: "columns", customFilter: "customFilter", hasExandedRows: "hasExandedRows", forceShowHeader: "forceShowHeader", hideGlobalSearch: "hideGlobalSearch", paginationOptions: "paginationOptions", searchOptions: "searchOptions", defaultSort: "defaultSort", paginatorDataFeatureId: "paginatorDataFeatureId", listInteractions: "listInteractions" }, outputs: { resized: "resized", preferencesChanged: "preferencesChanged" }, features: [ɵngcc0.ɵɵProvidersFeature([DataTableState])], ngContentSelectors: _c1, decls: 29, vars: 17, consts: [[3, "empty", 4, "ngIf"], ["class", "novo-data-table-loading-mask", "data-automation-id", "novo-data-table-loading", 4, "ngIf"], [1, "novo-data-table-outside-container", 3, "ngClass"], ["class", "novo-data-table-custom-filter", 4, "ngIf"], [1, "novo-data-table-container", 3, "ngClass"], ["novoDataTableContainer", ""], ["novoDataTableSortFilter", "", 3, "dataSource", "trackBy", "expandable", "empty", "hidden", 4, "ngIf"], ["class", "novo-data-table-footer", 4, "ngIf"], ["class", "novo-data-table-no-results-container", 3, "left", 4, "ngIf"], ["class", "novo-data-table-empty-container", 4, "ngIf"], ["novoTemplate", "textCellTemplate"], ["novoTemplate", "dateCellTemplate"], ["novoTemplate", "datetimeCellTemplate"], ["novoTemplate", "timeCellTemplate"], ["novoTemplate", "currencyCellTemplate"], ["novoTemplate", "bigdecimalCellTemplate"], ["novoTemplate", "numberCellTemplate"], ["novoTemplate", "percentCellTemplate"], ["novoTemplate", "linkCellTemplate"], ["novoTemplate", "telCellTemplate"], ["novoTemplate", "mailtoCellTemplate"], ["novoTemplate", "buttonCellTemplate"], ["novoTemplate", "dropdownCellTemplate"], ["novoTemplate", "defaultNoResultsMessage"], ["novoTemplate", "defaultEmptyMessage"], ["novoTemplate", "expandedRow"], ["detailRowTemplate", ""], [4, "ngTemplateOutlet"], ["alwaysOpen", "true", 3, "ngModel", "placeholder", "hint", "searchChanged", "ngModelChange", 4, "ngIf"], [3, "theme", "length", "page", "pageSize", "pageSizeOptions", "dataFeatureId", 4, "ngIf"], ["class", "novo-data-table-actions", 4, "ngIf"], ["alwaysOpen", "true", 3, "ngModel", "placeholder", "hint", "searchChanged", "ngModelChange"], [3, "theme", "length", "page", "pageSize", "pageSizeOptions", "dataFeatureId"], [1, "novo-data-table-actions"], ["data-automation-id", "novo-data-table-loading", 1, "novo-data-table-loading-mask"], [1, "novo-data-table-custom-filter"], ["novoDataTableSortFilter", "", 3, "dataSource", "trackBy", "hidden"], ["cdkColumnDef", "selection"], [4, "cdkHeaderCellDef"], [3, "row", 4, "cdkCellDef"], ["cdkColumnDef", "expand"], [3, "cdkColumnDef", 4, "ngFor", "ngForOf", "ngForTrackBy"], ["data-automation-id", "novo-data-table-header-row", 3, "fixedHeader", 4, "cdkHeaderRowDef"], [3, "ngClass", "novoDataTableExpand", "row", "id", "dataAutomationId", 4, "cdkRowDef", "cdkRowDefColumns"], [3, "row"], [3, "cdkColumnDef"], [3, "column", "filterTemplate", "novo-data-table-cell-config", "resized", "defaultSort", "allowMultipleFilters", "empty", "button-header-cell", "dropdown-header-cell", "fixed-header", 4, "cdkHeaderCellDef"], [3, "resized", "column", "row", "template", "empty", "button-cell", "dropdown-cell", 4, "cdkCellDef"], [3, "column", "filterTemplate", "novo-data-table-cell-config", "resized", "defaultSort", "allowMultipleFilters"], [3, "resized", "column", "row", "template"], ["data-automation-id", "novo-data-table-header-row", 3, "fixedHeader"], [3, "ngClass", "novoDataTableExpand", "row", "id", "dataAutomationId"], [1, "novo-data-table-footer"], [4, "ngTemplateOutlet", "ngTemplateOutletContext"], [1, "novo-data-table-no-results-container"], [1, "novo-data-table-empty-message"], [1, "novo-data-table-empty-container"], [3, "click"], [3, "href", "target"], ["tooltipPosition", "right", 3, "tooltip"], ["parentScrollSelector", ".novo-data-table-container", "containerClass", "novo-data-table-dropdown"], ["type", "button", "theme", "dialogue", "inverse", "", 3, "icon"], [3, "disabled", "action", 4, "ngFor", "ngForOf"], [3, "disabled", "action"], [1, "bhi-search-question"], [1, "novo-data-table-detail-row", 2, "overflow", "hidden"]], template: function NovoDataTable_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef();
+        ɵngcc0.ɵɵtemplate(0, NovoDataTable_header_0_Template, 5, 6, "header", 0);
+        ɵngcc0.ɵɵtemplate(1, NovoDataTable_div_1_Template, 2, 0, "div", 1);
+        ɵngcc0.ɵɵelementStart(2, "div", 2);
+        ɵngcc0.ɵɵtemplate(3, NovoDataTable_div_3_Template, 2, 1, "div", 3);
+        ɵngcc0.ɵɵelementStart(4, "div", 4, 5);
+        ɵngcc0.ɵɵtemplate(6, NovoDataTable_cdk_table_6_Template, 10, 11, "cdk-table", 6);
+        ɵngcc0.ɵɵtemplate(7, NovoDataTable_div_7_Template, 2, 5, "div", 7);
+        ɵngcc0.ɵɵtemplate(8, NovoDataTable_div_8_Template, 3, 3, "div", 8);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵtemplate(9, NovoDataTable_div_9_Template, 3, 1, "div", 9);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵtemplate(10, NovoDataTable_ng_template_10_Template, 3, 10, "ng-template", 10);
+        ɵngcc0.ɵɵtemplate(11, NovoDataTable_ng_template_11_Template, 4, 7, "ng-template", 11);
+        ɵngcc0.ɵɵtemplate(12, NovoDataTable_ng_template_12_Template, 4, 7, "ng-template", 12);
+        ɵngcc0.ɵɵtemplate(13, NovoDataTable_ng_template_13_Template, 4, 7, "ng-template", 13);
+        ɵngcc0.ɵɵtemplate(14, NovoDataTable_ng_template_14_Template, 4, 7, "ng-template", 14);
+        ɵngcc0.ɵɵtemplate(15, NovoDataTable_ng_template_15_Template, 4, 7, "ng-template", 15);
+        ɵngcc0.ɵɵtemplate(16, NovoDataTable_ng_template_16_Template, 4, 7, "ng-template", 16);
+        ɵngcc0.ɵɵtemplate(17, NovoDataTable_ng_template_17_Template, 4, 8, "ng-template", 17);
+        ɵngcc0.ɵɵtemplate(18, NovoDataTable_ng_template_18_Template, 3, 11, "ng-template", 18);
+        ɵngcc0.ɵɵtemplate(19, NovoDataTable_ng_template_19_Template, 4, 9, "ng-template", 19);
+        ɵngcc0.ɵɵtemplate(20, NovoDataTable_ng_template_20_Template, 4, 9, "ng-template", 20);
+        ɵngcc0.ɵɵtemplate(21, NovoDataTable_ng_template_21_Template, 2, 7, "ng-template", 21);
+        ɵngcc0.ɵɵtemplate(22, NovoDataTable_ng_template_22_Template, 5, 3, "ng-template", 22);
+        ɵngcc0.ɵɵtemplate(23, NovoDataTable_ng_template_23_Template, 3, 1, "ng-template", 23);
+        ɵngcc0.ɵɵtemplate(24, NovoDataTable_ng_template_24_Template, 3, 1, "ng-template", 24);
+        ɵngcc0.ɵɵtemplate(25, NovoDataTable_ng_template_25_Template, 1, 0, "ng-template", 25);
+        ɵngcc0.ɵɵtemplate(26, NovoDataTable_ng_template_26_Template, 2, 5, "ng-template", null, 26, ɵngcc0.ɵɵtemplateRefExtractor);
+        ɵngcc0.ɵɵprojection(28);
+    } if (rf & 2) {
+        ɵngcc0.ɵɵproperty("ngIf", !((ctx.dataSource == null ? null : ctx.dataSource.totallyEmpty) && !ctx.state.userFiltered) && !ctx.loading || ctx.forceShowHeader);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngIf", (ctx.dataSource == null ? null : ctx.dataSource.loading) || ctx.loading);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(13, _c46, ctx.fixedHeader));
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngIf", ctx.customFilter);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵclassProp("empty-user-filtered", (ctx.dataSource == null ? null : ctx.dataSource.currentlyEmpty) && ctx.state.userFiltered)("empty", (ctx.dataSource == null ? null : ctx.dataSource.totallyEmpty) && !(ctx.dataSource == null ? null : ctx.dataSource.loading) && !ctx.loading && !ctx.state.userFiltered && !ctx.dataSource.pristine);
+        ɵngcc0.ɵɵproperty("ngClass", ɵngcc0.ɵɵpureFunction1(15, _c47, ctx.fixedHeader));
+        ɵngcc0.ɵɵadvance(2);
+        ɵngcc0.ɵɵproperty("ngIf", (ctx.columns == null ? null : ctx.columns.length) > 0 && ctx.columnsLoaded && ctx.dataSource);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngIf", ctx.templates["footer"]);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngIf", (ctx.dataSource == null ? null : ctx.dataSource.currentlyEmpty) && ctx.state.userFiltered && !(ctx.dataSource == null ? null : ctx.dataSource.loading) && !ctx.loading && !ctx.dataSource.pristine);
+        ɵngcc0.ɵɵadvance(1);
+        ɵngcc0.ɵɵproperty("ngIf", (ctx.dataSource == null ? null : ctx.dataSource.totallyEmpty) && !(ctx.dataSource == null ? null : ctx.dataSource.loading) && !ctx.loading && !ctx.state.userFiltered && !ctx.dataSource.pristine);
+    } }, directives: function () { return [ɵngcc1.NgIf, ɵngcc1.NgClass, NovoTemplate, ɵngcc1.NgTemplateOutlet, NovoSearchBoxElement, ɵngcc3.NgControlStatus, ɵngcc3.NgModel, NovoDataTablePagination, NovoLoadingElement, ɵngcc6.CdkTable, NovoDataTableSortFilter, ɵngcc6.CdkColumnDef, ɵngcc6.CdkHeaderCellDef, ɵngcc6.CdkCellDef, ɵngcc1.NgForOf, ɵngcc6.CdkHeaderRowDef, ɵngcc6.CdkRowDef, NovoDataTableCheckboxHeaderCell, NovoDataTableCheckboxCell, NovoDataTableExpandHeaderCell, NovoDataTableExpandCell, NovoDataTableHeaderCell, NovoDataTableCellHeader, NovoDataTableCell, NovoDataTableHeaderRow, NovoDataTableRow, NovoDataTableExpandDirective, TooltipDirective, NovoDropdownElement, NovoButtonElement, NovoDropdownListElement, NovoItemElement]; }, pipes: function () { return [DataTableInterpolatePipe, DateTableDateRendererPipe, DateTableDateTimeRendererPipe, DateTableTimeRendererPipe, DateTableCurrencyRendererPipe, DataTableBigDecimalRendererPipe, DateTableNumberRendererPipe]; }, encapsulation: 2, data: { animation: [
+            trigger('expand', [
+                state('void', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
+                state('*', style({ height: '*', visibility: 'visible' })),
+                transition('void <=> *', animate('70ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+            ]),
+        ] }, changeDetection: 0 });
+NovoDataTable.ctorParameters = () => [
+    { type: NovoLabelService },
+    { type: ChangeDetectorRef },
+    { type: DataTableState }
+];
+NovoDataTable.propDecorators = {
+    globalSearchHiddenClassToggle: [{ type: HostBinding, args: ['class.global-search-hidden',] }],
+    customTemplates: [{ type: ContentChildren, args: [NovoTemplate,] }],
+    defaultTemplates: [{ type: ViewChildren, args: [NovoTemplate,] }],
+    cellHeaders: [{ type: ViewChildren, args: [NovoDataTableCellHeader,] }],
+    novoDataTableContainer: [{ type: ViewChild, args: ['novoDataTableContainer',] }],
+    resized: [{ type: Output }],
+    displayedColumns: [{ type: Input }],
+    paginationOptions: [{ type: Input }],
+    searchOptions: [{ type: Input }],
+    defaultSort: [{ type: Input }],
+    name: [{ type: Input }],
+    allowMultipleFilters: [{ type: Input }],
+    rowIdentifier: [{ type: Input }],
+    activeRowIdentifier: [{ type: Input }],
+    trackByFn: [{ type: Input }],
+    templates: [{ type: Input }],
+    fixedHeader: [{ type: Input }],
+    paginatorDataFeatureId: [{ type: Input }],
+    dataTableService: [{ type: Input }],
+    rows: [{ type: Input }],
+    outsideFilter: [{ type: Input }],
+    refreshSubject: [{ type: Input }],
+    columns: [{ type: Input }],
+    customFilter: [{ type: Input }],
+    hasExandedRows: [{ type: Input }],
+    forceShowHeader: [{ type: Input }],
+    hideGlobalSearch: [{ type: Input }],
+    preferencesChanged: [{ type: Output }],
+    empty: [{ type: HostBinding, args: ['class.empty',] }],
+    loadingClass: [{ type: HostBinding, args: ['class.loading',] }],
+    listInteractions: [{ type: Input }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoDataTable, [{
+        type: Component,
+        args: [{
+                selector: 'novo-data-table',
+                animations: [
+                    trigger('expand', [
+                        state('void', style({ height: '0px', minHeight: '0', visibility: 'hidden' })),
+                        state('*', style({ height: '*', visibility: 'visible' })),
+                        transition('void <=> *', animate('70ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
+                    ]),
+                ],
+                template: `
+    <header
+      *ngIf="(!(dataSource?.totallyEmpty && !state.userFiltered) && !loading) || forceShowHeader"
+      [class.empty]="hideGlobalSearch && !paginationOptions && !templates['customActions']"
+    >
+      <ng-container *ngTemplateOutlet="templates['customHeader']"></ng-container>
+      <novo-search
+        alwaysOpen="true"
+        (searchChanged)="onSearchChange($event)"
+        [(ngModel)]="state.globalSearch"
+        *ngIf="!hideGlobalSearch"
+        [placeholder]="searchOptions?.placeholder"
+        [hint]="searchOptions?.tooltip"
+      >
+      </novo-search>
+      <novo-data-table-pagination
+        *ngIf="paginationOptions"
+        [theme]="paginationOptions.theme"
+        [length]="dataSource?.currentTotal"
+        [page]="paginationOptions.page"
+        [pageSize]="paginationOptions.pageSize"
+        [pageSizeOptions]="paginationOptions.pageSizeOptions"
+        [dataFeatureId]="paginatorDataFeatureId"
+      >
+      </novo-data-table-pagination>
+      <div class="novo-data-table-actions" *ngIf="templates['customActions']">
+        <ng-container *ngTemplateOutlet="templates['customActions']"></ng-container>
+      </div>
+    </header>
+    <div class="novo-data-table-loading-mask" *ngIf="dataSource?.loading || loading" data-automation-id="novo-data-table-loading">
+      <novo-loading></novo-loading>
+    </div>
+    <div class="novo-data-table-outside-container" [ngClass]="{ 'novo-data-table-outside-container-fixed': fixedHeader }">
+      <div class="novo-data-table-custom-filter" *ngIf="customFilter">
+        <ng-container *ngTemplateOutlet="templates['customFilter']"></ng-container>
+      </div>
+      <div
+        #novoDataTableContainer
+        class="novo-data-table-container"
+        [ngClass]="{ 'novo-data-table-container-fixed': fixedHeader }"
+        [class.empty-user-filtered]="dataSource?.currentlyEmpty && state.userFiltered"
+        [class.empty]="dataSource?.totallyEmpty && !dataSource?.loading && !loading && !state.userFiltered && !dataSource.pristine"
+      >
+        <cdk-table
+          *ngIf="columns?.length > 0 && columnsLoaded && dataSource"
+          [dataSource]="dataSource"
+          [trackBy]="trackByFn"
+          novoDataTableSortFilter
+          [class.expandable]="expandable"
+          [class.empty]="dataSource?.currentlyEmpty && state.userFiltered"
+          [hidden]="dataSource?.totallyEmpty && !state.userFiltered"
+        >
+          <ng-container cdkColumnDef="selection">
+            <novo-data-table-checkbox-header-cell *cdkHeaderCellDef></novo-data-table-checkbox-header-cell>
+            <novo-data-table-checkbox-cell *cdkCellDef="let row; let i = index" [row]="row"></novo-data-table-checkbox-cell>
+          </ng-container>
+          <ng-container cdkColumnDef="expand">
+            <novo-data-table-expand-header-cell *cdkHeaderCellDef></novo-data-table-expand-header-cell>
+            <novo-data-table-expand-cell *cdkCellDef="let row; let i = index" [row]="row"></novo-data-table-expand-cell>
+          </ng-container>
+          <ng-container *ngFor="let column of columns; trackBy: trackColumnsBy" [cdkColumnDef]="column.id">
+            <novo-data-table-header-cell
+              *cdkHeaderCellDef
+              [column]="column"
+              [filterTemplate]="templates['column-filter-' + column.id]"
+              [novo-data-table-cell-config]="column"
+              [resized]="resized"
+              [defaultSort]="defaultSort"
+              [allowMultipleFilters]="allowMultipleFilters"
+              [class.empty]="column?.type === 'action' && !column?.label"
+              [class.button-header-cell]="column?.type === 'expand' || (column?.type === 'action' && !column?.action?.options)"
+              [class.dropdown-header-cell]="column?.type === 'action' && column?.action?.options"
+              [class.fixed-header]="fixedHeader"
+            ></novo-data-table-header-cell>
+            <novo-data-table-cell
+              *cdkCellDef="let row"
+              [resized]="resized"
+              [column]="column"
+              [row]="row"
+              [template]="columnToTemplate[column.id]"
+              [class.empty]="column?.type === 'action' && !column?.label"
+              [class.button-cell]="column?.type === 'expand' || (column?.type === 'action' && !column?.action?.options)"
+              [class.dropdown-cell]="column?.type === 'action' && column?.action?.options"
+            ></novo-data-table-cell>
+          </ng-container>
+          <novo-data-table-header-row
+            *cdkHeaderRowDef="displayedColumns"
+            [fixedHeader]="fixedHeader"
+            data-automation-id="novo-data-table-header-row"
+          ></novo-data-table-header-row>
+          <novo-data-table-row
+            *cdkRowDef="let row; columns: displayedColumns"
+            [ngClass]="{ active: row[rowIdentifier] == activeRowIdentifier }"
+            [novoDataTableExpand]="detailRowTemplate"
+            [row]="row"
+            [id]="name + '-' + row[rowIdentifier]"
+            [dataAutomationId]="row[rowIdentifier]"
+          ></novo-data-table-row>
+        </cdk-table>
+        <div class="novo-data-table-footer" *ngIf="templates['footer']">
+          <ng-container *ngTemplateOutlet="templates['footer']; context: { $implicit: columns, data: dataSource.data }"></ng-container>
+        </div>
+        <div
+          class="novo-data-table-no-results-container"
+          [style.left.px]="scrollLeft"
+          *ngIf="dataSource?.currentlyEmpty && state.userFiltered && !dataSource?.loading && !loading && !dataSource.pristine"
+        >
+          <div class="novo-data-table-empty-message">
+            <ng-container *ngTemplateOutlet="templates['noResultsMessage'] || templates['defaultNoResultsMessage']"></ng-container>
+          </div>
+        </div>
+      </div>
+      <div
+        class="novo-data-table-empty-container"
+        *ngIf="dataSource?.totallyEmpty && !dataSource?.loading && !loading && !state.userFiltered && !dataSource.pristine"
+      >
+        <div class="novo-data-table-empty-message">
+          <ng-container *ngTemplateOutlet="templates['emptyMessage'] || templates['defaultNoResultsMessage']"></ng-container>
+        </div>
+      </div>
+    </div>
+    <!-- DEFAULT CELL TEMPLATE -->
+    <ng-template novoTemplate="textCellTemplate" let-row let-col="col">
+      <span [style.width.px]="col?.width" [style.min-width.px]="col?.width" [style.max-width.px]="col?.width">{{
+        row[col.id] | dataTableInterpolate: col
+      }}</span>
+    </ng-template>
+    <ng-template novoTemplate="dateCellTemplate" let-row let-col="col">
+      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableDateRenderer: col }}</span>
+    </ng-template>
+    <ng-template novoTemplate="datetimeCellTemplate" let-row let-col="col">
+      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableDateTimeRenderer: col }}</span>
+    </ng-template>
+    <ng-template novoTemplate="timeCellTemplate" let-row let-col="col">
+      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableTimeRenderer: col }}</span>
+    </ng-template>
+    <ng-template novoTemplate="currencyCellTemplate" let-row let-col="col">
+      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableCurrencyRenderer: col }}</span>
+    </ng-template>
+    <ng-template novoTemplate="bigdecimalCellTemplate" let-row let-col="col">
+      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableBigDecimalRenderer: col }}</span>
+    </ng-template>
+    <ng-template novoTemplate="numberCellTemplate" let-row let-col="col">
+      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col }}</span>
+    </ng-template>
+    <ng-template novoTemplate="percentCellTemplate" let-row let-col="col">
+      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col:true }}</span>
+    </ng-template>
+    <ng-template novoTemplate="linkCellTemplate" let-row let-col="col">
+      <a
+        [attr.data-feature-id]="col?.attributes?.dataFeatureId"
+        (click)="col.handlers?.click({ originalEvent: $event, row: row })"
+        [style.width.px]="col?.width"
+        [style.min-width.px]="col?.width"
+        [style.max-width.px]="col?.width"
+        >{{ row[col.id] | dataTableInterpolate: col }}</a
+      >
+    </ng-template>
+    <ng-template novoTemplate="telCellTemplate" let-row let-col="col">
+      <a href="tel:{{ row[col.id] | dataTableInterpolate: col }}" [target]="col?.attributes?.target">{{
+        row[col.id] | dataTableInterpolate: col
+      }}</a>
+    </ng-template>
+    <ng-template novoTemplate="mailtoCellTemplate" let-row let-col="col">
+      <a href="mailto:{{ row[col.id] | dataTableInterpolate: col }}" [target]="col?.attributes?.target">{{
+        row[col.id] | dataTableInterpolate: col
+      }}</a>
+    </ng-template>
+    <ng-template novoTemplate="buttonCellTemplate" let-row let-col="col">
+      <p [tooltip]="col?.action?.tooltip" tooltipPosition="right" [attr.data-feature-id]="col?.attributes?.dataFeatureId">
+        <i
+          class="bhi-{{ col?.action?.icon }} data-table-icon"
+          (click)="col.handlers?.click({ originalEvent: $event, row: row })"
+          [class.disabled]="isDisabled(col, row)"
+        ></i>
+      </p>
+    </ng-template>
+    <ng-template novoTemplate="dropdownCellTemplate" let-row let-col="col">
+      <novo-dropdown parentScrollSelector=".novo-data-table-container" containerClass="novo-data-table-dropdown">
+        <button type="button" theme="dialogue" [icon]="col.action.icon" inverse>{{ col.label }}</button>
+        <list>
+          <item
+            *ngFor="let option of col?.action?.options"
+            (action)="option.handlers.click({ originalEvent: $event?.originalEvent, row: row })"
+            [disabled]="isDisabled(option, row)"
+          >
+            <span [attr.data-automation-id]="option.label">{{ option.label }}</span>
+          </item>
+        </list>
+      </novo-dropdown>
+    </ng-template>
+    <ng-template novoTemplate="defaultNoResultsMessage">
+      <h4><i class="bhi-search-question"></i> {{ labels.noMatchingRecordsMessage }}</h4>
+    </ng-template>
+    <ng-template novoTemplate="defaultEmptyMessage">
+      <h4><i class="bhi-search-question"></i> {{ labels.emptyTableMessage }}</h4>
+    </ng-template>
+    <ng-template novoTemplate="expandedRow"> You did not provide an "expandedRow" template! </ng-template>
+    <ng-template #detailRowTemplate let-row>
+      <div class="novo-data-table-detail-row" [@expand] style="overflow: hidden">
+        <ng-container *ngTemplateOutlet="templates['expandedRow']; context: { $implicit: row }"></ng-container>
+      </div>
+    </ng-template>
+    <!-- CUSTOM CELLS PASSED IN -->
+    <ng-content></ng-content>
+  `,
+                changeDetection: ChangeDetectionStrategy.OnPush,
+                providers: [DataTableState]
+            }]
+    }], function () { return [{ type: NovoLabelService }, { type: ɵngcc0.ChangeDetectorRef }, { type: DataTableState }]; }, { globalSearchHiddenClassToggle: [{
+            type: HostBinding,
+            args: ['class.global-search-hidden']
+        }], resized: [{
+            type: Output
+        }], name: [{
+            type: Input
+        }], allowMultipleFilters: [{
+            type: Input
+        }], rowIdentifier: [{
+            type: Input
+        }], activeRowIdentifier: [{
+            type: Input
+        }], trackByFn: [{
+            type: Input
+        }], templates: [{
+            type: Input
+        }], fixedHeader: [{
+            type: Input
+        }], preferencesChanged: [{
+            type: Output
+        }], displayedColumns: [{
+            type: Input
+        }], dataTableService: [{
+            type: Input
+        }], rows: [{
+            type: Input
+        }], outsideFilter: [{
+            type: Input
+        }], refreshSubject: [{
+            type: Input
+        }], columns: [{
+            type: Input
+        }], customFilter: [{
+            type: Input
+        }], hasExandedRows: [{
+            type: Input
+        }], forceShowHeader: [{
+            type: Input
+        }], hideGlobalSearch: [{
+            type: Input
+        }], empty: [{
+            type: HostBinding,
+            args: ['class.empty']
+        }], loadingClass: [{
+            type: HostBinding,
+            args: ['class.loading']
+        }], customTemplates: [{
+            type: ContentChildren,
+            args: [NovoTemplate]
+        }], defaultTemplates: [{
+            type: ViewChildren,
+            args: [NovoTemplate]
+        }], cellHeaders: [{
+            type: ViewChildren,
+            args: [NovoDataTableCellHeader]
+        }], novoDataTableContainer: [{
+            type: ViewChild,
+            args: ['novoDataTableContainer']
+        }], paginationOptions: [{
+            type: Input
+        }], searchOptions: [{
+            type: Input
+        }], defaultSort: [{
+            type: Input
+        }], paginatorDataFeatureId: [{
+            type: Input
+        }], listInteractions: [{
+            type: Input
+        }] }); })();
+
+// NG2
+class NovoDropdownModule {
+}
+NovoDropdownModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoDropdownModule });
+NovoDropdownModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoDropdownModule_Factory(t) { return new (t || NovoDropdownModule)(); }, imports: [[NovoOverlayModule]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoDropdownModule, { declarations: [NovoDropdownElement, NovoItemElement, NovoDropdownListElement, NovoDropDownItemHeaderElement], imports: [NovoOverlayModule], exports: [NovoDropdownElement, NovoItemElement, NovoDropdownListElement, NovoDropDownItemHeaderElement] }); })();
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoDropdownModule, [{
+        type: NgModule,
+        args: [{
+                imports: [NovoOverlayModule],
+                declarations: [NovoDropdownElement, NovoItemElement, NovoDropdownListElement, NovoDropDownItemHeaderElement],
+                exports: [NovoDropdownElement, NovoItemElement, NovoDropdownListElement, NovoDropDownItemHeaderElement]
             }]
     }], null, null); })();
 
@@ -36773,7 +36913,7 @@ class NovoSearchBoxElement {
 NovoSearchBoxElement.ɵfac = function NovoSearchBoxElement_Factory(t) { return new (t || NovoSearchBoxElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(NovoLabelService), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.NgZone)); };
 NovoSearchBoxElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoSearchBoxElement, selectors: [["novo-search"]], viewQuery: function NovoSearchBoxElement_Query(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵviewQuery(NovoOverlayTemplateComponent, true);
-        ɵngcc0.ɵɵstaticViewQuery(_c24, true);
+        ɵngcc0.ɵɵstaticViewQuery(_c21, true);
     } if (rf & 2) {
         var _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.overlay = _t.first);
@@ -38063,7 +38203,7 @@ class NovoDataTableCell extends CdkCell {
         }
     }
 }
-NovoDataTableCell.ɵfac = function NovoDataTableCell_Factory(t) { return new (t || NovoDataTableCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc5.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2)); };
+NovoDataTableCell.ɵfac = function NovoDataTableCell_Factory(t) { return new (t || NovoDataTableCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc6.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2)); };
 NovoDataTableCell.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDataTableCell, selectors: [["novo-data-table-cell"]], hostVars: 1, hostBindings: function NovoDataTableCell_HostBindings(rf, ctx) { if (rf & 2) {
         ɵngcc0.ɵɵattribute("role", ctx.role);
     } }, inputs: { row: "row", template: "template", column: "column", resized: "resized" }, features: [ɵngcc0.ɵɵInheritDefinitionFeature], decls: 1, vars: 5, consts: [[4, "ngTemplateOutlet", "ngTemplateOutletContext"]], template: function NovoDataTableCell_Template(rf, ctx) { if (rf & 1) {
@@ -38092,7 +38232,7 @@ NovoDataTableCell.propDecorators = {
   `,
                 changeDetection: ChangeDetectionStrategy.OnPush
             }]
-    }], function () { return [{ type: ɵngcc5.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }]; }, { role: [{
+    }], function () { return [{ type: ɵngcc6.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }]; }, { role: [{
             type: HostBinding,
             args: ['attr.role']
         }], row: [{
@@ -38140,7 +38280,7 @@ class NovoDataTableCheckboxCell extends CdkCell {
         }
     }
 }
-NovoDataTableCheckboxCell.ɵfac = function NovoDataTableCheckboxCell_Factory(t) { return new (t || NovoDataTableCheckboxCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc5.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2), ɵngcc0.ɵɵdirectiveInject(NovoDataTable), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef)); };
+NovoDataTableCheckboxCell.ɵfac = function NovoDataTableCheckboxCell_Factory(t) { return new (t || NovoDataTableCheckboxCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc6.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2), ɵngcc0.ɵɵdirectiveInject(NovoDataTable), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef)); };
 NovoDataTableCheckboxCell.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDataTableCheckboxCell, selectors: [["novo-data-table-checkbox-cell"]], hostVars: 1, hostBindings: function NovoDataTableCheckboxCell_HostBindings(rf, ctx) { if (rf & 2) {
         ɵngcc0.ɵɵattribute("role", ctx.role);
     } }, inputs: { row: "row" }, features: [ɵngcc0.ɵɵInheritDefinitionFeature], decls: 4, vars: 5, consts: [[1, "data-table-checkbox", 3, "click"], ["type", "checkbox", 3, "checked"]], template: function NovoDataTableCheckboxCell_Template(rf, ctx) { if (rf & 1) {
@@ -38183,7 +38323,7 @@ NovoDataTableCheckboxCell.propDecorators = {
     `,
                 changeDetection: ChangeDetectionStrategy.OnPush
             }]
-    }], function () { return [{ type: ɵngcc5.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }, { type: NovoDataTable }, { type: ɵngcc0.ChangeDetectorRef }]; }, { role: [{
+    }], function () { return [{ type: ɵngcc6.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }, { type: NovoDataTable }, { type: ɵngcc0.ChangeDetectorRef }]; }, { role: [{
             type: HostBinding,
             args: ['attr.role']
         }], row: [{
@@ -38218,7 +38358,7 @@ class NovoDataTableExpandCell extends CdkCell {
         }
     }
 }
-NovoDataTableExpandCell.ɵfac = function NovoDataTableExpandCell_Factory(t) { return new (t || NovoDataTableExpandCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc5.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2), ɵngcc0.ɵɵdirectiveInject(NovoDataTable), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef)); };
+NovoDataTableExpandCell.ɵfac = function NovoDataTableExpandCell_Factory(t) { return new (t || NovoDataTableExpandCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc6.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2), ɵngcc0.ɵɵdirectiveInject(NovoDataTable), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef)); };
 NovoDataTableExpandCell.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDataTableExpandCell, selectors: [["novo-data-table-expand-cell"]], hostVars: 1, hostBindings: function NovoDataTableExpandCell_HostBindings(rf, ctx) { if (rf & 2) {
         ɵngcc0.ɵɵattribute("role", ctx.role);
     } }, inputs: { row: "row" }, features: [ɵngcc0.ɵɵInheritDefinitionFeature], decls: 1, vars: 2, consts: [["novo-data-table-expander", "true", 1, "bhi-next", "data-table-icon"]], template: function NovoDataTableExpandCell_Template(rf, ctx) { if (rf & 1) {
@@ -38246,7 +38386,7 @@ NovoDataTableExpandCell.propDecorators = {
   `,
                 changeDetection: ChangeDetectionStrategy.OnPush
             }]
-    }], function () { return [{ type: ɵngcc5.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }, { type: NovoDataTable }, { type: ɵngcc0.ChangeDetectorRef }]; }, { role: [{
+    }], function () { return [{ type: ɵngcc6.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }, { type: NovoDataTable }, { type: ɵngcc0.ChangeDetectorRef }]; }, { role: [{
             type: HostBinding,
             args: ['attr.role']
         }], row: [{
@@ -38268,7 +38408,7 @@ NovoDataTableHeaderRow.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDataTable
         ɵngcc0.ɵɵclassProp("fixed-header", ctx.fixedHeader);
     } }, inputs: { fixedHeader: "fixedHeader" }, features: [ɵngcc0.ɵɵInheritDefinitionFeature], decls: 1, vars: 0, consts: [["cdkCellOutlet", ""]], template: function NovoDataTableHeaderRow_Template(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵelementContainer(0, 0);
-    } }, directives: [ɵngcc5.CdkCellOutlet], encapsulation: 2, changeDetection: 0 });
+    } }, directives: [ɵngcc6.CdkCellOutlet], encapsulation: 2, changeDetection: 0 });
 NovoDataTableHeaderRow.propDecorators = {
     rowClass: [{ type: HostBinding, args: ['class',] }],
     fixedHeader: [{ type: HostBinding, args: ['class.fixed-header',] }, { type: Input }],
@@ -38308,7 +38448,7 @@ NovoDataTableRow.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDataTableRow, s
         ɵngcc0.ɵɵclassMap(ctx.rowClass);
     } }, inputs: { id: "id", dataAutomationId: "dataAutomationId" }, features: [ɵngcc0.ɵɵInheritDefinitionFeature], decls: 1, vars: 0, consts: [["cdkCellOutlet", ""]], template: function NovoDataTableRow_Template(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵelementContainer(0, 0);
-    } }, directives: [ɵngcc5.CdkCellOutlet], encapsulation: 2, changeDetection: 0 });
+    } }, directives: [ɵngcc6.CdkCellOutlet], encapsulation: 2, changeDetection: 0 });
 NovoDataTableRow.propDecorators = {
     rowClass: [{ type: HostBinding, args: ['class',] }],
     role: [{ type: HostBinding, args: ['attr.role',] }],
@@ -38365,7 +38505,7 @@ class NovoDataTableExpandHeaderCell extends CdkHeaderCell {
         this.dataTable.expandRows(!this.expanded);
     }
 }
-NovoDataTableExpandHeaderCell.ɵfac = function NovoDataTableExpandHeaderCell_Factory(t) { return new (t || NovoDataTableExpandHeaderCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc5.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2), ɵngcc0.ɵɵdirectiveInject(NovoDataTable), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef)); };
+NovoDataTableExpandHeaderCell.ɵfac = function NovoDataTableExpandHeaderCell_Factory(t) { return new (t || NovoDataTableExpandHeaderCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc6.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2), ɵngcc0.ɵɵdirectiveInject(NovoDataTable), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef)); };
 NovoDataTableExpandHeaderCell.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDataTableExpandHeaderCell, selectors: [["novo-data-table-expand-header-cell"]], hostVars: 1, hostBindings: function NovoDataTableExpandHeaderCell_HostBindings(rf, ctx) { if (rf & 2) {
         ɵngcc0.ɵɵattribute("role", ctx.role);
     } }, features: [ɵngcc0.ɵɵInheritDefinitionFeature], decls: 1, vars: 2, consts: [["novo-data-table-expander", "true", 1, "bhi-next", "data-table-icon", 3, "click"]], template: function NovoDataTableExpandHeaderCell_Template(rf, ctx) { if (rf & 1) {
@@ -38394,7 +38534,7 @@ NovoDataTableExpandHeaderCell.propDecorators = {
   `,
                 changeDetection: ChangeDetectionStrategy.OnPush
             }]
-    }], function () { return [{ type: ɵngcc5.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }, { type: NovoDataTable }, { type: ɵngcc0.ChangeDetectorRef }]; }, { role: [{
+    }], function () { return [{ type: ɵngcc6.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }, { type: NovoDataTable }, { type: ɵngcc0.ChangeDetectorRef }]; }, { role: [{
             type: HostBinding,
             args: ['attr.role']
         }] }); })();
@@ -38443,7 +38583,7 @@ class NovoDataTableCheckboxHeaderCell extends CdkHeaderCell {
         this.dataTable.selectRows(!this.checked);
     }
 }
-NovoDataTableCheckboxHeaderCell.ɵfac = function NovoDataTableCheckboxHeaderCell_Factory(t) { return new (t || NovoDataTableCheckboxHeaderCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc5.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2), ɵngcc0.ɵɵdirectiveInject(NovoDataTable), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef)); };
+NovoDataTableCheckboxHeaderCell.ɵfac = function NovoDataTableCheckboxHeaderCell_Factory(t) { return new (t || NovoDataTableCheckboxHeaderCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc6.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2), ɵngcc0.ɵɵdirectiveInject(NovoDataTable), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef)); };
 NovoDataTableCheckboxHeaderCell.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDataTableCheckboxHeaderCell, selectors: [["novo-data-table-checkbox-header-cell"]], hostVars: 1, hostBindings: function NovoDataTableCheckboxHeaderCell_HostBindings(rf, ctx) { if (rf & 2) {
         ɵngcc0.ɵɵattribute("role", ctx.role);
     } }, features: [ɵngcc0.ɵɵInheritDefinitionFeature], decls: 4, vars: 5, consts: [[1, "data-table-checkbox", 3, "click"], ["type", "checkbox", 3, "checked"]], template: function NovoDataTableCheckboxHeaderCell_Template(rf, ctx) { if (rf & 1) {
@@ -38485,7 +38625,7 @@ NovoDataTableCheckboxHeaderCell.propDecorators = {
   `,
                 changeDetection: ChangeDetectionStrategy.OnPush
             }]
-    }], function () { return [{ type: ɵngcc5.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }, { type: NovoDataTable }, { type: ɵngcc0.ChangeDetectorRef }]; }, { role: [{
+    }], function () { return [{ type: ɵngcc6.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }, { type: NovoDataTable }, { type: ɵngcc0.ChangeDetectorRef }]; }, { role: [{
             type: HostBinding,
             args: ['attr.role']
         }] }); })();
@@ -38508,7 +38648,7 @@ class NovoDataTableHeaderCell extends CdkHeaderCell {
         }
     }
 }
-NovoDataTableHeaderCell.ɵfac = function NovoDataTableHeaderCell_Factory(t) { return new (t || NovoDataTableHeaderCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc5.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2)); };
+NovoDataTableHeaderCell.ɵfac = function NovoDataTableHeaderCell_Factory(t) { return new (t || NovoDataTableHeaderCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc6.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2)); };
 NovoDataTableHeaderCell.ɵdir = ɵngcc0.ɵɵdefineDirective({ type: NovoDataTableHeaderCell, selectors: [["novo-data-table-header-cell"]], hostVars: 1, hostBindings: function NovoDataTableHeaderCell_HostBindings(rf, ctx) { if (rf & 2) {
         ɵngcc0.ɵɵattribute("role", ctx.role);
     } }, inputs: { column: "column" }, features: [ɵngcc0.ɵɵInheritDefinitionFeature] });
@@ -38526,7 +38666,7 @@ NovoDataTableHeaderCell.propDecorators = {
         args: [{
                 selector: 'novo-data-table-header-cell'
             }]
-    }], function () { return [{ type: ɵngcc5.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }]; }, { role: [{
+    }], function () { return [{ type: ɵngcc6.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }]; }, { role: [{
             type: HostBinding,
             args: ['attr.role']
         }], column: [{
@@ -42099,7 +42239,7 @@ class NovoModalContainerElement {
 }
 NovoModalContainerElement.ɵfac = function NovoModalContainerElement_Factory(t) { return new (t || NovoModalContainerElement)(ɵngcc0.ɵɵdirectiveInject(NovoModalRef), ɵngcc0.ɵɵdirectiveInject(ComponentUtils)); };
 NovoModalContainerElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoModalContainerElement, selectors: [["novo-modal-container"]], viewQuery: function NovoModalContainerElement_Query(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵviewQuery(_c47, true, ViewContainerRef);
+        ɵngcc0.ɵɵviewQuery(_c30, true, ViewContainerRef);
     } if (rf & 2) {
         var _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.container = _t.first);
@@ -42331,7 +42471,7 @@ class NovoToastElement {
         }
     }
 }
-NovoToastElement.ɵfac = function NovoToastElement_Factory(t) { return new (t || NovoToastElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc4.DomSanitizer)); };
+NovoToastElement.ɵfac = function NovoToastElement_Factory(t) { return new (t || NovoToastElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc5.DomSanitizer)); };
 NovoToastElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoToastElement, selectors: [["novo-toast"]], hostVars: 8, hostBindings: function NovoToastElement_HostBindings(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵlistener("click", function NovoToastElement_click_HostBindingHandler($event) { return !ctx.isCloseable && ctx.clickHandler($event); });
     } if (rf & 2) {
@@ -42406,7 +42546,7 @@ NovoToastElement.propDecorators = {
         </div>
     `
             }]
-    }], function () { return [{ type: ɵngcc4.DomSanitizer }]; }, { theme: [{
+    }], function () { return [{ type: ɵngcc5.DomSanitizer }]; }, { theme: [{
             type: Input
         }], icon: [{
             type: Input
@@ -45827,8 +45967,8 @@ class QuickNoteElement extends OutsideClick {
 QuickNoteElement.ɵfac = function QuickNoteElement_Factory(t) { return new (t || QuickNoteElement)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.NgZone), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ComponentUtils)); };
 QuickNoteElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: QuickNoteElement, selectors: [["novo-quick-note"]], viewQuery: function QuickNoteElement_Query(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵstaticViewQuery(_c73, true);
-        ɵngcc0.ɵɵstaticViewQuery(_c30, true);
-        ɵngcc0.ɵɵstaticViewQuery(_c23, true, ViewContainerRef);
+        ɵngcc0.ɵɵstaticViewQuery(_c37, true);
+        ɵngcc0.ɵɵstaticViewQuery(_c20, true, ViewContainerRef);
     } if (rf & 2) {
         var _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.wrapper = _t.first);
@@ -46142,7 +46282,7 @@ class NovoTipWellElement {
         this.confirmed.emit();
     }
 }
-NovoTipWellElement.ɵfac = function NovoTipWellElement_Factory(t) { return new (t || NovoTipWellElement)(ɵngcc0.ɵɵdirectiveInject(NovoLabelService), ɵngcc0.ɵɵdirectiveInject(ɵngcc4.DomSanitizer)); };
+NovoTipWellElement.ɵfac = function NovoTipWellElement_Factory(t) { return new (t || NovoTipWellElement)(ɵngcc0.ɵɵdirectiveInject(NovoLabelService), ɵngcc0.ɵɵdirectiveInject(ɵngcc5.DomSanitizer)); };
 NovoTipWellElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoTipWellElement, selectors: [["novo-tip-well"]], hostVars: 2, hostBindings: function NovoTipWellElement_HostBindings(rf, ctx) { if (rf & 2) {
         ɵngcc0.ɵɵclassProp("active", ctx.isActive);
     } }, inputs: { button: "button", sanitize: "sanitize", tip: "tip", buttonText: "buttonText", icon: "icon", name: "name" }, outputs: { confirmed: "confirmed" }, decls: 1, vars: 1, consts: [[4, "ngIf"], [3, "class", 4, "ngIf"], [3, "innerHTML", 4, "ngIf"], ["theme", "dialogue", 3, "click", 4, "ngIf"], [3, "innerHTML"], ["theme", "dialogue", 3, "click"]], template: function NovoTipWellElement_Template(rf, ctx) { if (rf & 1) {
@@ -46183,7 +46323,7 @@ NovoTipWellElement.propDecorators = {
                     '[class.active]': 'isActive'
                 }
             }]
-    }], function () { return [{ type: NovoLabelService }, { type: ɵngcc4.DomSanitizer }]; }, { button: [{
+    }], function () { return [{ type: NovoLabelService }, { type: ɵngcc5.DomSanitizer }]; }, { button: [{
             type: Input
         }], sanitize: [{
             type: Input
@@ -48411,7 +48551,7 @@ class NovoSimpleHeaderCell extends _NovoHeaderCell {
         }
     }
 }
-NovoSimpleHeaderCell.ɵfac = function NovoSimpleHeaderCell_Factory(t) { return new (t || NovoSimpleHeaderCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc5.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2)); };
+NovoSimpleHeaderCell.ɵfac = function NovoSimpleHeaderCell_Factory(t) { return new (t || NovoSimpleHeaderCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc6.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2)); };
 NovoSimpleHeaderCell.ɵdir = ɵngcc0.ɵɵdefineDirective({ type: NovoSimpleHeaderCell, selectors: [["novo-simple-header-cell"]], hostVars: 1, hostBindings: function NovoSimpleHeaderCell_HostBindings(rf, ctx) { if (rf & 2) {
         ɵngcc0.ɵɵattribute("role", ctx.role);
     } }, inputs: { column: "column" }, features: [ɵngcc0.ɵɵInheritDefinitionFeature] });
@@ -48429,7 +48569,7 @@ NovoSimpleHeaderCell.propDecorators = {
         args: [{
                 selector: 'novo-simple-header-cell'
             }]
-    }], function () { return [{ type: ɵngcc5.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }]; }, { role: [{
+    }], function () { return [{ type: ɵngcc6.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }]; }, { role: [{
             type: HostBinding,
             args: ['attr.role']
         }], column: [{
@@ -48444,7 +48584,7 @@ class NovoSimpleEmptyHeaderCell extends _NovoHeaderCell {
         renderer.addClass(elementRef.nativeElement, 'novo-simple-empty-header-cell');
     }
 }
-NovoSimpleEmptyHeaderCell.ɵfac = function NovoSimpleEmptyHeaderCell_Factory(t) { return new (t || NovoSimpleEmptyHeaderCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc5.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2)); };
+NovoSimpleEmptyHeaderCell.ɵfac = function NovoSimpleEmptyHeaderCell_Factory(t) { return new (t || NovoSimpleEmptyHeaderCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc6.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2)); };
 NovoSimpleEmptyHeaderCell.ɵdir = ɵngcc0.ɵɵdefineDirective({ type: NovoSimpleEmptyHeaderCell, selectors: [["novo-simple-empty-header-cell"]], hostVars: 1, hostBindings: function NovoSimpleEmptyHeaderCell_HostBindings(rf, ctx) { if (rf & 2) {
         ɵngcc0.ɵɵattribute("role", ctx.role);
     } }, features: [ɵngcc0.ɵɵInheritDefinitionFeature] });
@@ -48461,7 +48601,7 @@ NovoSimpleEmptyHeaderCell.propDecorators = {
         args: [{
                 selector: 'novo-simple-empty-header-cell'
             }]
-    }], function () { return [{ type: ɵngcc5.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }]; }, { role: [{
+    }], function () { return [{ type: ɵngcc6.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }]; }, { role: [{
             type: HostBinding,
             args: ['attr.role']
         }] }); })();
@@ -48486,7 +48626,7 @@ class NovoSimpleCheckboxHeaderCell extends _NovoHeaderCell {
         this._selection.selectAll(value);
     }
 }
-NovoSimpleCheckboxHeaderCell.ɵfac = function NovoSimpleCheckboxHeaderCell_Factory(t) { return new (t || NovoSimpleCheckboxHeaderCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc5.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef), ɵngcc0.ɵɵdirectiveInject(NovoSelection, 8)); };
+NovoSimpleCheckboxHeaderCell.ɵfac = function NovoSimpleCheckboxHeaderCell_Factory(t) { return new (t || NovoSimpleCheckboxHeaderCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc6.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef), ɵngcc0.ɵɵdirectiveInject(NovoSelection, 8)); };
 NovoSimpleCheckboxHeaderCell.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoSimpleCheckboxHeaderCell, selectors: [["novo-simple-checkbox-header-cell"]], hostVars: 1, hostBindings: function NovoSimpleCheckboxHeaderCell_HostBindings(rf, ctx) { if (rf & 2) {
         ɵngcc0.ɵɵattribute("role", ctx.role);
     } }, features: [ɵngcc0.ɵɵInheritDefinitionFeature], decls: 1, vars: 1, consts: [[3, "ngModel", "ngModelChange"]], template: function NovoSimpleCheckboxHeaderCell_Template(rf, ctx) { if (rf & 1) {
@@ -48512,7 +48652,7 @@ NovoSimpleCheckboxHeaderCell.propDecorators = {
                 selector: 'novo-simple-checkbox-header-cell',
                 template: `<novo-checkbox [(ngModel)]="selectAll" (ngModelChange)="toggle($event)"></novo-checkbox>`
             }]
-    }], function () { return [{ type: ɵngcc5.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }, { type: ɵngcc0.ChangeDetectorRef }, { type: NovoSelection, decorators: [{
+    }], function () { return [{ type: ɵngcc6.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }, { type: ɵngcc0.ChangeDetectorRef }, { type: NovoSelection, decorators: [{
                 type: Optional
             }] }]; }, { role: [{
             type: HostBinding,
@@ -48556,7 +48696,7 @@ class NovoSimpleCell extends _NovoCell {
         return;
     }
 }
-NovoSimpleCell.ɵfac = function NovoSimpleCell_Factory(t) { return new (t || NovoSimpleCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc5.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2)); };
+NovoSimpleCell.ɵfac = function NovoSimpleCell_Factory(t) { return new (t || NovoSimpleCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc6.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2)); };
 NovoSimpleCell.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoSimpleCell, selectors: [["novo-simple-cell"]], hostVars: 1, hostBindings: function NovoSimpleCell_HostBindings(rf, ctx) { if (rf & 2) {
         ɵngcc0.ɵɵattribute("role", ctx.role);
     } }, inputs: { row: "row", column: "column" }, features: [ɵngcc0.ɵɵInheritDefinitionFeature], decls: 3, vars: 3, consts: [[3, "click"], ["span", ""]], template: function NovoSimpleCell_Template(rf, ctx) { if (rf & 1) {
@@ -48588,7 +48728,7 @@ NovoSimpleCell.propDecorators = {
   `,
                 changeDetection: ChangeDetectionStrategy.OnPush
             }]
-    }], function () { return [{ type: ɵngcc5.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }]; }, { role: [{
+    }], function () { return [{ type: ɵngcc6.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }]; }, { role: [{
             type: HostBinding,
             args: ['attr.role']
         }], row: [{
@@ -48622,7 +48762,7 @@ class NovoSimpleCheckboxCell extends _NovoCell {
         this._selection.toggle(this.row.id || this.index, value, this.row);
     }
 }
-NovoSimpleCheckboxCell.ɵfac = function NovoSimpleCheckboxCell_Factory(t) { return new (t || NovoSimpleCheckboxCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc5.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2), ɵngcc0.ɵɵdirectiveInject(NovoSelection, 8)); };
+NovoSimpleCheckboxCell.ɵfac = function NovoSimpleCheckboxCell_Factory(t) { return new (t || NovoSimpleCheckboxCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc6.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2), ɵngcc0.ɵɵdirectiveInject(NovoSelection, 8)); };
 NovoSimpleCheckboxCell.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoSimpleCheckboxCell, selectors: [["novo-simple-checkbox-cell"]], hostVars: 1, hostBindings: function NovoSimpleCheckboxCell_HostBindings(rf, ctx) { if (rf & 2) {
         ɵngcc0.ɵɵattribute("role", ctx.role);
     } }, inputs: { row: "row", index: "index" }, features: [ɵngcc0.ɵɵInheritDefinitionFeature], decls: 1, vars: 1, consts: [[3, "ngModel", "ngModelChange"]], template: function NovoSimpleCheckboxCell_Template(rf, ctx) { if (rf & 1) {
@@ -48651,7 +48791,7 @@ NovoSimpleCheckboxCell.propDecorators = {
     <novo-checkbox [ngModel]="selected" (ngModelChange)="toggle($event)"></novo-checkbox>
   `
             }]
-    }], function () { return [{ type: ɵngcc5.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }, { type: NovoSelection, decorators: [{
+    }], function () { return [{ type: ɵngcc6.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }, { type: NovoSelection, decorators: [{
                 type: Optional
             }] }]; }, { role: [{
             type: HostBinding,
@@ -48688,7 +48828,7 @@ class NovoSimpleActionCell extends _NovoCell {
         return false;
     }
 }
-NovoSimpleActionCell.ɵfac = function NovoSimpleActionCell_Factory(t) { return new (t || NovoSimpleActionCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc5.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2), ɵngcc0.ɵɵdirectiveInject(NovoLabelService)); };
+NovoSimpleActionCell.ɵfac = function NovoSimpleActionCell_Factory(t) { return new (t || NovoSimpleActionCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc6.CdkColumnDef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2), ɵngcc0.ɵɵdirectiveInject(NovoLabelService)); };
 NovoSimpleActionCell.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoSimpleActionCell, selectors: [["novo-simple-action-cell"]], hostVars: 1, hostBindings: function NovoSimpleActionCell_HostBindings(rf, ctx) { if (rf & 2) {
         ɵngcc0.ɵɵattribute("role", ctx.role);
     } }, inputs: { row: "row", column: "column" }, features: [ɵngcc0.ɵɵInheritDefinitionFeature], decls: 2, vars: 2, consts: [[4, "ngIf"], ["theme", "icon", 3, "icon", "disabled", "click"], ["parentScrollSelector", ".novo-simple-table", "containerClass", "novo-table-dropdown-cell"], ["type", "button", "theme", "dialogue", "icon", "collapse", "inverse", ""], [3, "disabled", "action", 4, "ngFor", "ngForOf"], [3, "disabled", "action"]], template: function NovoSimpleActionCell_Template(rf, ctx) { if (rf & 1) {
@@ -48731,7 +48871,7 @@ NovoSimpleActionCell.propDecorators = {
   `,
                 changeDetection: ChangeDetectionStrategy.OnPush
             }]
-    }], function () { return [{ type: ɵngcc5.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }, { type: NovoLabelService }]; }, { role: [{
+    }], function () { return [{ type: ɵngcc6.CdkColumnDef }, { type: ɵngcc0.ElementRef }, { type: ɵngcc0.Renderer2 }, { type: NovoLabelService }]; }, { role: [{
             type: HostBinding,
             args: ['attr.role']
         }], row: [{
@@ -48907,7 +49047,7 @@ class NovoSimpleCellHeader {
         return opts;
     }
 }
-NovoSimpleCellHeader.ɵfac = function NovoSimpleCellHeader_Factory(t) { return new (t || NovoSimpleCellHeader)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef), ɵngcc0.ɵɵdirectiveInject(NovoLabelService), ɵngcc0.ɵɵdirectiveInject(NovoActivityTableState), ɵngcc0.ɵɵdirectiveInject(NovoSortFilter, 8), ɵngcc0.ɵɵdirectiveInject(ɵngcc5.CdkColumnDef, 8)); };
+NovoSimpleCellHeader.ɵfac = function NovoSimpleCellHeader_Factory(t) { return new (t || NovoSimpleCellHeader)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef), ɵngcc0.ɵɵdirectiveInject(NovoLabelService), ɵngcc0.ɵɵdirectiveInject(NovoActivityTableState), ɵngcc0.ɵɵdirectiveInject(NovoSortFilter, 8), ɵngcc0.ɵɵdirectiveInject(ɵngcc6.CdkColumnDef, 8)); };
 NovoSimpleCellHeader.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoSimpleCellHeader, selectors: [["", "novo-simple-cell-config", ""]], viewQuery: function NovoSimpleCellHeader_Query(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵviewQuery(NovoDropdownElement, true);
     } if (rf & 2) {
@@ -49036,7 +49176,7 @@ NovoSimpleCellHeader.propDecorators = {
             }]
     }], function () { return [{ type: ɵngcc0.ChangeDetectorRef }, { type: NovoLabelService }, { type: NovoActivityTableState }, { type: NovoSortFilter, decorators: [{
                 type: Optional
-            }] }, { type: ɵngcc5.CdkColumnDef, decorators: [{
+            }] }, { type: ɵngcc6.CdkColumnDef, decorators: [{
                 type: Optional
             }] }]; }, { config: [{
             type: Input,
@@ -49327,7 +49467,7 @@ NovoSimpleHeaderRow.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoSimpleHeader
         ɵngcc0.ɵɵclassMap(ctx.rowClass);
     } }, features: [ɵngcc0.ɵɵInheritDefinitionFeature], decls: 1, vars: 0, consts: [["cdkCellOutlet", ""]], template: function NovoSimpleHeaderRow_Template(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵelementContainer(0, 0);
-    } }, directives: [ɵngcc5.CdkCellOutlet], encapsulation: 2, changeDetection: 0 });
+    } }, directives: [ɵngcc6.CdkCellOutlet], encapsulation: 2, changeDetection: 0 });
 NovoSimpleHeaderRow.propDecorators = {
     rowClass: [{ type: HostBinding, args: ['class',] }],
     role: [{ type: HostBinding, args: ['attr.role',] }]
@@ -49360,7 +49500,7 @@ NovoSimpleRow.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoSimpleRow, selecto
         ɵngcc0.ɵɵclassMap(ctx.rowClass);
     } }, features: [ɵngcc0.ɵɵInheritDefinitionFeature], decls: 1, vars: 0, consts: [["cdkCellOutlet", ""]], template: function NovoSimpleRow_Template(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵelementContainer(0, 0);
-    } }, directives: [ɵngcc5.CdkCellOutlet], encapsulation: 2, changeDetection: 0 });
+    } }, directives: [ɵngcc6.CdkCellOutlet], encapsulation: 2, changeDetection: 0 });
 NovoSimpleRow.propDecorators = {
     rowClass: [{ type: HostBinding, args: ['class',] }],
     role: [{ type: HostBinding, args: ['attr.role',] }]
@@ -49460,7 +49600,7 @@ NovoTable.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoTable, selectors: [["n
         ɵngcc0.ɵɵelementContainer(3, 1);
         ɵngcc0.ɵɵelementContainer(4, 2);
         ɵngcc0.ɵɵelementContainer(5, 3);
-    } }, directives: [ɵngcc5.HeaderRowOutlet, ɵngcc5.DataRowOutlet, ɵngcc5.NoDataRowOutlet, ɵngcc5.FooterRowOutlet], encapsulation: 2, changeDetection: 0 });
+    } }, directives: [ɵngcc6.HeaderRowOutlet, ɵngcc6.DataRowOutlet, ɵngcc6.NoDataRowOutlet, ɵngcc6.FooterRowOutlet], encapsulation: 2, changeDetection: 0 });
 const ɵNovoTable_BaseFactory = /*@__PURE__*/ ɵngcc0.ɵɵgetInheritedFactory(NovoTable);
 /*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoTable, [{
         type: Component,
@@ -50055,7 +50195,7 @@ class NovoStepHeader extends CdkStepHeader {
         return this._element.nativeElement;
     }
 }
-NovoStepHeader.ɵfac = function NovoStepHeader_Factory(t) { return new (t || NovoStepHeader)(ɵngcc0.ɵɵdirectiveInject(ɵngcc6.FocusMonitor), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef)); };
+NovoStepHeader.ɵfac = function NovoStepHeader_Factory(t) { return new (t || NovoStepHeader)(ɵngcc0.ɵɵdirectiveInject(ɵngcc4.FocusMonitor), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef)); };
 NovoStepHeader.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoStepHeader, selectors: [["novo-step-header"]], hostAttrs: ["role", "tab", 1, "novo-step-header"], inputs: { index: "index", selected: "selected", active: "active", optional: "optional", theme: "theme", color: "color", icon: "icon", state: "state", label: "label", iconOverrides: "iconOverrides" }, features: [ɵngcc0.ɵɵInheritDefinitionFeature], decls: 7, vars: 13, consts: [[4, "ngIf"], [1, "novo-step-label"], [3, "ngTemplateOutlet", 4, "ngIf"], ["class", "novo-step-text-label", 4, "ngIf"], [3, "state"], ["size", "small", "raised", "true", 3, "theme"], [1, "novo-step-number"], [3, "ngTemplateOutlet"], [1, "novo-step-text-label"]], template: function NovoStepHeader_Template(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵelementStart(0, "div");
         ɵngcc0.ɵɵtemplate(1, NovoStepHeader_ng_container_1_Template, 3, 2, "ng-container", 0);
@@ -50110,7 +50250,7 @@ NovoStepHeader.propDecorators = {
                 changeDetection: ChangeDetectionStrategy.OnPush,
                 styles: ["@-webkit-keyframes rotate{0%{transform:rotate(0deg)}75%{transform:rotate(200deg)}to{transform:rotate(180deg)}}@keyframes rotate{0%{transform:rotate(0deg)}75%{transform:rotate(200deg)}to{transform:rotate(180deg)}}@-webkit-keyframes half-rotate{0%{transform:rotate(45deg)}75%{transform:rotate(100deg)}to{transform:rotate(90deg)}}@keyframes half-rotate{0%{transform:rotate(45deg)}75%{transform:rotate(100deg)}to{transform:rotate(90deg)}}@-webkit-keyframes rotateBack{0%{transform:rotate(90deg)}to{transform:rotate(0deg)}}@keyframes rotateBack{0%{transform:rotate(90deg)}to{transform:rotate(0deg)}}@-webkit-keyframes show{0%{opacity:0;transform:translateX(-100%)}75%{transform:translateX(0)}to{opacity:1;transform:translateX(0)}}@keyframes show{0%{opacity:0;transform:translateX(-100%)}75%{transform:translateX(0)}to{opacity:1;transform:translateX(0)}}.novo-step-header{cursor:pointer;outline:none;overflow:visible;position:relative}.novo-step-optional{font-size:12px}.novo-step-icon,.novo-step-icon-not-touched{align-items:center;border-radius:50%;display:flex;height:24px;justify-content:center;width:24px}.novo-step-icon-not-touched .novo-step-number,.novo-step-icon .novo-step-number{align-items:center;border-radius:4px;box-shadow:2px 2px 0 rgba(0,0,0,.2);display:flex;font-size:1em;height:1.6em;justify-content:center;min-width:1.6em}.novo-step-icon .novo-step-number{background:#4a89dc;color:#fff}.novo-step-icon-not-touched .novo-step-number{background:#a9adbb;color:#fff}.novo-step-label{display:inline-block;min-width:50px;padding:4px 0;vertical-align:middle;white-space:nowrap}.novo-step-label,.novo-step-text-label{overflow:hidden;text-align:center;text-overflow:ellipsis}"]
             }]
-    }], function () { return [{ type: ɵngcc6.FocusMonitor }, { type: ɵngcc0.ElementRef }]; }, { index: [{
+    }], function () { return [{ type: ɵngcc4.FocusMonitor }, { type: ɵngcc0.ElementRef }]; }, { index: [{
             type: Input
         }], selected: [{
             type: Input
@@ -51144,7 +51284,7 @@ class RowDetails {
 }
 RowDetails.ɵfac = function RowDetails_Factory(t) { return new (t || RowDetails)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ComponentUtils)); };
 RowDetails.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: RowDetails, selectors: [["novo-row-details"]], viewQuery: function RowDetails_Query(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵstaticViewQuery(_c47, true, ViewContainerRef);
+        ɵngcc0.ɵɵstaticViewQuery(_c30, true, ViewContainerRef);
     } if (rf & 2) {
         var _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.container = _t.first);
@@ -51252,7 +51392,7 @@ class TableCell {
 }
 TableCell.ɵfac = function TableCell_Factory(t) { return new (t || TableCell)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ComponentUtils)); };
 TableCell.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: TableCell, selectors: [["novo-table-cell"]], viewQuery: function TableCell_Query(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵstaticViewQuery(_c47, true, ViewContainerRef);
+        ɵngcc0.ɵɵstaticViewQuery(_c30, true, ViewContainerRef);
     } if (rf & 2) {
         var _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.container = _t.first);
@@ -52753,7 +52893,7 @@ class NovoTableElement {
 }
 NovoTableElement.ɵfac = function NovoTableElement_Factory(t) { return new (t || NovoTableElement)(ɵngcc0.ɵɵdirectiveInject(NovoLabelService), ɵngcc0.ɵɵdirectiveInject(FormUtils), ɵngcc0.ɵɵdirectiveInject(ɵngcc3.FormBuilder)); };
 NovoTableElement.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoTableElement, selectors: [["novo-table"]], viewQuery: function NovoTableElement_Query(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵviewQuery(_c33, true, ElementRef);
+        ɵngcc0.ɵɵviewQuery(_c40, true, ElementRef);
     } if (rf & 2) {
         var _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.filterInputs = _t);
@@ -53696,7 +53836,7 @@ class RenderPipe {
         return value.charAt(0).toUpperCase() + value.slice(1);
     }
 }
-RenderPipe.ɵfac = function RenderPipe_Factory(t) { return new (t || RenderPipe)(ɵngcc0.ɵɵinjectPipeChangeDetectorRef(), ɵngcc0.ɵɵdirectiveInject(ɵngcc4.DomSanitizer), ɵngcc0.ɵɵdirectiveInject(NovoLabelService)); };
+RenderPipe.ɵfac = function RenderPipe_Factory(t) { return new (t || RenderPipe)(ɵngcc0.ɵɵinjectPipeChangeDetectorRef(), ɵngcc0.ɵɵdirectiveInject(ɵngcc5.DomSanitizer), ɵngcc0.ɵɵdirectiveInject(NovoLabelService)); };
 RenderPipe.ɵpipe = ɵngcc0.ɵɵdefinePipe({ name: "render", type: RenderPipe, pure: false });
 RenderPipe.ɵprov = ɵngcc0.ɵɵdefineInjectable({ token: RenderPipe, factory: RenderPipe.ɵfac });
 RenderPipe.ctorParameters = () => [
@@ -53712,7 +53852,7 @@ RenderPipe.ctorParameters = () => [
             }]
     }, {
         type: Injectable
-    }], function () { return [{ type: ɵngcc0.ChangeDetectorRef }, { type: ɵngcc4.DomSanitizer }, { type: NovoLabelService }]; }, null); })();
+    }], function () { return [{ type: ɵngcc0.ChangeDetectorRef }, { type: ɵngcc5.DomSanitizer }, { type: NovoLabelService }]; }, null); })();
 
 // NG2
 var NOVO_VALUE_TYPE;
@@ -53930,8 +54070,8 @@ NovoElementsModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoEl
         { provide: LocalStorageService, useClass: LocalStorageService },
         { provide: OptionsService, useClass: OptionsService },
         { provide: FormUtils, useClass: FormUtils },
-    ], imports: [[ReactiveFormsModule], NovoPipesModule, NovoButtonModule, NovoLoadingModule, NovoCardModule, NovoCalendarModule, NovoToastModule, NovoTooltipModule, NovoHeaderModule, NovoTabModule, NovoTilesModule, NovoModalModule, NovoQuickNoteModule, NovoRadioModule, NovoDropdownModule, NovoSelectModule, NovoListModule, NovoSwitchModule, NovoDragulaModule, NovoSliderModule, NovoPickerModule, NovoChipsModule, NovoDatePickerModule, NovoTimePickerModule, NovoDateTimePickerModule, NovoNovoCKEditorModule, NovoTipWellModule, NovoSimpleTableModule, NovoTableModule, NovoTableExtrasModule, NovoFormModule, NovoFormExtrasModule, NovoCategoryDropdownModule, NovoMultiPickerModule, NovoPopOverModule, NovoDataTableModule, NovoSearchBoxModule, NovoOverlayModule, GooglePlacesModule, NovoValueModule, NovoAceEditorModule, NovoIconModule, NovoExpansionModule, UnlessModule, NovoCommonModule, NovoStepperModule, ScrollingModule, NovoTabbedGroupPickerModule] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoElementsModule, { imports: function () { return [ReactiveFormsModule]; }, exports: function () { return [NovoPipesModule, NovoButtonModule, NovoLoadingModule, NovoCardModule, NovoCalendarModule, NovoToastModule, NovoTooltipModule, NovoHeaderModule, NovoTabModule, NovoTilesModule, NovoModalModule, NovoQuickNoteModule, NovoRadioModule, NovoDropdownModule, NovoSelectModule, NovoListModule, NovoSwitchModule, NovoDragulaModule, NovoSliderModule, NovoPickerModule, NovoChipsModule, NovoDatePickerModule, NovoTimePickerModule, NovoDateTimePickerModule, NovoNovoCKEditorModule, NovoTipWellModule, NovoSimpleTableModule, NovoTableModule, NovoTableExtrasModule, NovoFormModule, NovoFormExtrasModule, NovoCategoryDropdownModule, NovoMultiPickerModule, NovoPopOverModule, NovoDataTableModule, NovoSearchBoxModule, NovoOverlayModule, GooglePlacesModule, NovoValueModule, NovoAceEditorModule, NovoIconModule, NovoExpansionModule, UnlessModule, NovoCommonModule, NovoStepperModule, ScrollingModule, NovoTabbedGroupPickerModule]; } }); })();
+    ], imports: [[ReactiveFormsModule], NovoPipesModule, NovoButtonModule, NovoLoadingModule, NovoCardModule, NovoCalendarModule, NovoToastModule, NovoTooltipModule, NovoHeaderModule, NovoTabModule, NovoTilesModule, NovoModalModule, NovoQuickNoteModule, NovoRadioModule, NovoDropdownModule, NovoSelectModule, NovoListModule, NovoSwitchModule, NovoDragulaModule, NovoSliderModule, NovoPickerModule, NovoChipsModule, NovoDatePickerModule, NovoTimePickerModule, NovoDateTimePickerModule, NovoNovoCKEditorModule, NovoTipWellModule, NovoSimpleTableModule, NovoTableModule, NovoTableExtrasModule, NovoFormModule, NovoFormExtrasModule, NovoCategoryDropdownModule, NovoMultiPickerModule, NovoPopOverModule, NovoDataTableModule, NovoSearchBoxModule, NovoOverlayModule, GooglePlacesModule, NovoValueModule, NovoAceEditorModule, NovoIconModule, NovoExpansionModule, UnlessModule, NovoCommonModule, NovoStepperModule, ScrollingModule, NovoCollapsableColumnModule, NovoTabbedGroupPickerModule] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoElementsModule, { imports: function () { return [ReactiveFormsModule]; }, exports: function () { return [NovoPipesModule, NovoButtonModule, NovoLoadingModule, NovoCardModule, NovoCalendarModule, NovoToastModule, NovoTooltipModule, NovoHeaderModule, NovoTabModule, NovoTilesModule, NovoModalModule, NovoQuickNoteModule, NovoRadioModule, NovoDropdownModule, NovoSelectModule, NovoListModule, NovoSwitchModule, NovoDragulaModule, NovoSliderModule, NovoPickerModule, NovoChipsModule, NovoDatePickerModule, NovoTimePickerModule, NovoDateTimePickerModule, NovoNovoCKEditorModule, NovoTipWellModule, NovoSimpleTableModule, NovoTableModule, NovoTableExtrasModule, NovoFormModule, NovoFormExtrasModule, NovoCategoryDropdownModule, NovoMultiPickerModule, NovoPopOverModule, NovoDataTableModule, NovoSearchBoxModule, NovoOverlayModule, GooglePlacesModule, NovoValueModule, NovoAceEditorModule, NovoIconModule, NovoExpansionModule, UnlessModule, NovoCommonModule, NovoStepperModule, ScrollingModule, NovoCollapsableColumnModule, NovoTabbedGroupPickerModule]; } }); })();
 /*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoElementsModule, [{
         type: NgModule,
         args: [{
@@ -53983,6 +54123,7 @@ NovoElementsModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoEl
                     NovoCommonModule,
                     NovoStepperModule,
                     ScrollingModule,
+                    NovoCollapsableColumnModule,
                     NovoTabbedGroupPickerModule,
                 ],
                 providers: [
@@ -54751,6 +54892,6 @@ class DevAppBridge extends AppBridge {
  * Generated bundle index. Do not edit.
  */
 
-export { AceEditorControl, ActivityTableDataSource, ActivityTableRenderers, AddressControl, AppBridge, AppBridgeHandler, AppBridgeService, ArrayCollection, BaseControl, BasePickerResults, BaseRenderer, BrowserGlobalRef, COUNTRIES, CalendarEventResponse, CardActionsElement, CardElement, CheckListControl, CheckboxControl, ChecklistPickerResults, CollectionEvent, ComponentUtils, ControlFactory, CustomControl, DataTableBigDecimalRendererPipe, DataTableInterpolatePipe, DateCell, DateControl, DateTableCurrencyRendererPipe, DateTableDateRendererPipe, DateTableDateTimeRendererPipe, DateTableNumberRendererPipe, DateTableTimeRendererPipe, DateTimeControl, DayOfMonthPipe, DecodeURIPipe, Deferred, DevAppBridge, DevAppBridgeService, DistributionListPickerResults, EditorControl, EndOfWeekDisplayPipe, EntityList, EntityPickerResult, EntityPickerResults, FieldInteractionApi, FileControl, FormUtils, FormValidators, GlobalRef, GooglePlacesModule, GooglePlacesService, GroupByPipe, GroupedControl, GroupedMultiPickerResults, Helpers, HoursPipe, KeyCodes, LocalStorageService, MixedMultiPickerResults, MonthDayPipe, MonthPipe, NOVO_VALUE_THEME, NOVO_VALUE_TYPE, NativeSelectControl, NovoAccordion, NovoAceEditor, NovoAceEditorModule, NovoActivityTable, NovoActivityTableActions, NovoActivityTableCustomFilter, NovoActivityTableCustomHeader, NovoActivityTableEmptyMessage, NovoActivityTableNoResultsMessage, NovoActivityTableState, NovoAddressElement, NovoAutoSize, NovoButtonElement, NovoButtonModule, NovoCKEditorElement, NovoCalendarAllDayEventElement, NovoCalendarDateChangeElement, NovoCalendarDayEventElement, NovoCalendarDayViewElement, NovoCalendarHourSegmentElement, NovoCalendarModule, NovoCalendarMonthDayElement, NovoCalendarMonthHeaderElement, NovoCalendarMonthViewElement, NovoCalendarWeekEventElement, NovoCalendarWeekHeaderElement, NovoCalendarWeekViewElement, NovoCardModule, NovoCategoryDropdownElement, NovoCategoryDropdownModule, NovoCheckListElement, NovoCheckboxElement, NovoChipElement, NovoChipsElement, NovoChipsModule, NovoCommonModule, NovoControlElement, NovoControlGroup, NovoControlTemplates, NovoDataTable, NovoDataTableClearButton, NovoDataTableFilterUtils, NovoDataTableModule, NovoDatePickerElement, NovoDatePickerInputElement, NovoDatePickerModule, NovoDateTimePickerElement, NovoDateTimePickerInputElement, NovoDateTimePickerModule, NovoDragulaElement, NovoDragulaModule, NovoDragulaService, NovoDropDownItemHeaderElement, NovoDropdownCell, NovoDropdownElement, NovoDropdownListElement, NovoDropdownModule, NovoDynamicFormElement, NovoElementProviders, NovoElementsModule, NovoEventTypeLegendElement, NovoExpansionModule, NovoExpansionPanel, NovoExpansionPanelActionRow, NovoExpansionPanelContent, NovoExpansionPanelDescription, NovoExpansionPanelHeader, NovoExpansionPanelTitle, NovoFieldsetHeaderElement, NovoFile, NovoFileInputElement, NovoFormControl, NovoFormElement, NovoFormExtrasModule, NovoFormGroup, NovoFormModule, NovoHeaderComponent, NovoHeaderModule, NovoHeaderSpacer, NovoHorizontalStepper, NovoIconComponent, NovoIconModule, NovoIsLoadingDirective, NovoItemAvatarElement, NovoItemContentElement, NovoItemDateElement, NovoItemElement, NovoItemEndElement, NovoItemHeaderElement, NovoItemTitleElement, NovoLabelService, NovoListElement, NovoListItemElement, NovoListModule, NovoLoadedDirective, NovoLoadingElement, NovoLoadingModule, NovoModalElement, NovoModalModule, NovoModalNotificationElement, NovoModalParams, NovoModalRef, NovoModalService, NovoMultiPickerElement, NovoMultiPickerModule, NovoNavContentElement, NovoNavElement, NovoNavHeaderElement, NovoNavOutletElement, NovoNovoCKEditorModule, NovoOverlayModule, NovoOverlayTemplateComponent, NovoPickerElement, NovoPickerModule, NovoPipesModule, NovoPopOverModule, NovoQuickNoteModule, NovoRadioElement, NovoRadioGroup, NovoRadioModule, NovoRowChipElement, NovoRowChipsElement, NovoSearchBoxElement, NovoSearchBoxModule, NovoSelectElement, NovoSelectModule, NovoSelection, NovoSimpleActionCell, NovoSimpleCell, NovoSimpleCellDef, NovoSimpleCellHeader, NovoSimpleCheckboxCell, NovoSimpleCheckboxHeaderCell, NovoSimpleColumnDef, NovoSimpleEmptyHeaderCell, NovoSimpleFilterFocus, NovoSimpleHeaderCell, NovoSimpleHeaderCellDef, NovoSimpleHeaderRow, NovoSimpleHeaderRowDef, NovoSimpleRow, NovoSimpleRowDef, NovoSimpleTableModule, NovoSimpleTablePagination, NovoSkeletonDirective, NovoSliderElement, NovoSliderModule, NovoSortFilter, NovoSpinnerElement, NovoStep, NovoStepHeader, NovoStepLabel, NovoStepStatus, NovoStepper, NovoStepperModule, NovoSwitchElement, NovoSwitchModule, NovoTabButtonElement, NovoTabElement, NovoTabLinkElement, NovoTabModule, NovoTabbedGroupPickerElement, NovoTabbedGroupPickerModule, NovoTable, NovoTableActionsElement, NovoTableElement, NovoTableExtrasModule, NovoTableFooterElement, NovoTableHeaderElement, NovoTableKeepFilterFocus, NovoTableMode, NovoTableModule, NovoTemplate, NovoTemplateService, NovoTilesElement, NovoTilesModule, NovoTimePickerElement, NovoTimePickerInputElement, NovoTimePickerModule, NovoTipWellElement, NovoTipWellModule, NovoToastElement, NovoToastModule, NovoToastService, NovoTooltipModule, NovoUtilActionComponent, NovoUtilsComponent, NovoValueElement, NovoValueModule, NovoVerticalStepper, OptionsService, OutsideClick, PagedArrayCollection, Pagination, PercentageCell, PickerControl, PickerResults, PlacesListComponent, PluralPipe, PopOverContent, PopOverDirective, QuickNoteControl, QuickNoteElement, QuickNoteResults, RadioControl, ReadOnlyControl, RemoteActivityTableService, RemoteDataTableService, RenderPipe, RowDetails, Security, SelectControl, SkillsSpecialtyPickerResults, StaticActivityTableService, StaticDataTableService, TableCell, TableFilter, TablePickerControl, TextAreaControl, TextBoxControl, ThOrderable, ThSortable, TilesControl, TimeControl, TooltipDirective, Unless, UnlessModule, WeekdayPipe, WorkersCompCodesPickerResults, YearPipe, findByCountryCode, findByCountryId, findByCountryName, getCountries, getStateObjects, getStates, notify, NovoFieldsetElement as ɵa, NovoModalContainerElement as ɵb, NovoTooltip as ɵc, DataTableState as ɵd, NovoDataTableCellHeader as ɵe, NovoDataTableSortFilter as ɵf, DateFormatService as ɵg, NovoDataTableHeaderCell as ɵh, NovoDataTableCell as ɵi, NovoDataTableHeaderRow as ɵj, NovoDataTableRow as ɵk, NovoDataTablePagination as ɵl, NovoDataTableCheckboxCell as ɵm, NovoDataTableCheckboxHeaderCell as ɵn, NovoDataTableExpandCell as ɵo, NovoDataTableExpandHeaderCell as ɵp, NovoDataTableExpandDirective as ɵq, novoExpansionAnimations as ɵr, ControlConfirmModal as ɵs, ControlPromptModal as ɵt, novoStepperAnimations as ɵu };
+export { AceEditorControl, ActivityTableDataSource, ActivityTableRenderers, AddressControl, AppBridge, AppBridgeHandler, AppBridgeService, ArrayCollection, BaseControl, BasePickerResults, BaseRenderer, BrowserGlobalRef, COUNTRIES, CalendarEventResponse, CardActionsElement, CardElement, CheckListControl, CheckboxControl, ChecklistPickerResults, CollectionEvent, ComponentUtils, ControlFactory, CustomControl, DataTableBigDecimalRendererPipe, DataTableInterpolatePipe, DateCell, DateControl, DateTableCurrencyRendererPipe, DateTableDateRendererPipe, DateTableDateTimeRendererPipe, DateTableNumberRendererPipe, DateTableTimeRendererPipe, DateTimeControl, DayOfMonthPipe, DecodeURIPipe, Deferred, DevAppBridge, DevAppBridgeService, DistributionListPickerResults, EditorControl, EndOfWeekDisplayPipe, EntityList, EntityPickerResult, EntityPickerResults, FieldInteractionApi, FileControl, FormUtils, FormValidators, GlobalRef, GooglePlacesModule, GooglePlacesService, GroupByPipe, GroupedControl, GroupedMultiPickerResults, Helpers, HoursPipe, KeyCodes, LocalStorageService, MixedMultiPickerResults, MonthDayPipe, MonthPipe, NOVO_VALUE_THEME, NOVO_VALUE_TYPE, NativeSelectControl, NovoAccordion, NovoAceEditor, NovoAceEditorModule, NovoActivityTable, NovoActivityTableActions, NovoActivityTableCustomFilter, NovoActivityTableCustomHeader, NovoActivityTableEmptyMessage, NovoActivityTableNoResultsMessage, NovoActivityTableState, NovoAddressElement, NovoAutoSize, NovoButtonElement, NovoButtonModule, NovoCKEditorElement, NovoCalendarAllDayEventElement, NovoCalendarDateChangeElement, NovoCalendarDayEventElement, NovoCalendarDayViewElement, NovoCalendarHourSegmentElement, NovoCalendarModule, NovoCalendarMonthDayElement, NovoCalendarMonthHeaderElement, NovoCalendarMonthViewElement, NovoCalendarWeekEventElement, NovoCalendarWeekHeaderElement, NovoCalendarWeekViewElement, NovoCardModule, NovoCategoryDropdownElement, NovoCategoryDropdownModule, NovoCheckListElement, NovoCheckboxElement, NovoChipElement, NovoChipsElement, NovoChipsModule, NovoCollapsableColumnElement, NovoCollapsableColumnModule, NovoCommonModule, NovoControlElement, NovoControlGroup, NovoControlTemplates, NovoDataTable, NovoDataTableClearButton, NovoDataTableFilterUtils, NovoDataTableModule, NovoDatePickerElement, NovoDatePickerInputElement, NovoDatePickerModule, NovoDateTimePickerElement, NovoDateTimePickerInputElement, NovoDateTimePickerModule, NovoDragulaElement, NovoDragulaModule, NovoDragulaService, NovoDropDownItemHeaderElement, NovoDropdownCell, NovoDropdownElement, NovoDropdownListElement, NovoDropdownModule, NovoDynamicFormElement, NovoElementProviders, NovoElementsModule, NovoEventTypeLegendElement, NovoExpansionModule, NovoExpansionPanel, NovoExpansionPanelActionRow, NovoExpansionPanelContent, NovoExpansionPanelDescription, NovoExpansionPanelHeader, NovoExpansionPanelTitle, NovoFieldsetHeaderElement, NovoFile, NovoFileInputElement, NovoFormControl, NovoFormElement, NovoFormExtrasModule, NovoFormGroup, NovoFormModule, NovoHeaderComponent, NovoHeaderModule, NovoHeaderSpacer, NovoHorizontalStepper, NovoIconComponent, NovoIconModule, NovoIsLoadingDirective, NovoItemAvatarElement, NovoItemContentElement, NovoItemDateElement, NovoItemElement, NovoItemEndElement, NovoItemHeaderElement, NovoItemTitleElement, NovoLabelService, NovoListElement, NovoListItemElement, NovoListModule, NovoLoadedDirective, NovoLoadingElement, NovoLoadingModule, NovoModalElement, NovoModalModule, NovoModalNotificationElement, NovoModalParams, NovoModalRef, NovoModalService, NovoMultiPickerElement, NovoMultiPickerModule, NovoNavContentElement, NovoNavElement, NovoNavHeaderElement, NovoNavOutletElement, NovoNovoCKEditorModule, NovoOverlayModule, NovoOverlayTemplateComponent, NovoPickerElement, NovoPickerModule, NovoPipesModule, NovoPopOverModule, NovoQuickNoteModule, NovoRadioElement, NovoRadioGroup, NovoRadioModule, NovoRowChipElement, NovoRowChipsElement, NovoSearchBoxElement, NovoSearchBoxModule, NovoSelectElement, NovoSelectModule, NovoSelection, NovoSimpleActionCell, NovoSimpleCell, NovoSimpleCellDef, NovoSimpleCellHeader, NovoSimpleCheckboxCell, NovoSimpleCheckboxHeaderCell, NovoSimpleColumnDef, NovoSimpleEmptyHeaderCell, NovoSimpleFilterFocus, NovoSimpleHeaderCell, NovoSimpleHeaderCellDef, NovoSimpleHeaderRow, NovoSimpleHeaderRowDef, NovoSimpleRow, NovoSimpleRowDef, NovoSimpleTableModule, NovoSimpleTablePagination, NovoSkeletonDirective, NovoSliderElement, NovoSliderModule, NovoSortFilter, NovoSpinnerElement, NovoStep, NovoStepHeader, NovoStepLabel, NovoStepStatus, NovoStepper, NovoStepperModule, NovoSwitchElement, NovoSwitchModule, NovoTabButtonElement, NovoTabElement, NovoTabLinkElement, NovoTabModule, NovoTabbedGroupPickerElement, NovoTabbedGroupPickerModule, NovoTable, NovoTableActionsElement, NovoTableElement, NovoTableExtrasModule, NovoTableFooterElement, NovoTableHeaderElement, NovoTableKeepFilterFocus, NovoTableMode, NovoTableModule, NovoTemplate, NovoTemplateService, NovoTilesElement, NovoTilesModule, NovoTimePickerElement, NovoTimePickerInputElement, NovoTimePickerModule, NovoTipWellElement, NovoTipWellModule, NovoToastElement, NovoToastModule, NovoToastService, NovoTooltipModule, NovoUtilActionComponent, NovoUtilsComponent, NovoValueElement, NovoValueModule, NovoVerticalStepper, OptionsService, OutsideClick, PagedArrayCollection, Pagination, PercentageCell, PickerControl, PickerResults, PlacesListComponent, PluralPipe, PopOverContent, PopOverDirective, QuickNoteControl, QuickNoteElement, QuickNoteResults, RadioControl, ReadOnlyControl, RemoteActivityTableService, RemoteDataTableService, RenderPipe, RowDetails, Security, SelectControl, SkillsSpecialtyPickerResults, StaticActivityTableService, StaticDataTableService, TableCell, TableFilter, TablePickerControl, TextAreaControl, TextBoxControl, ThOrderable, ThSortable, TilesControl, TimeControl, TooltipDirective, Unless, UnlessModule, WeekdayPipe, WorkersCompCodesPickerResults, YearPipe, findByCountryCode, findByCountryId, findByCountryName, getCountries, getStateObjects, getStates, notify, NovoFieldsetElement as ɵa, NovoModalContainerElement as ɵb, NovoTooltip as ɵc, DataTableState as ɵd, NovoDataTableCellHeader as ɵe, NovoDataTableSortFilter as ɵf, DateFormatService as ɵg, NovoDataTableHeaderCell as ɵh, NovoDataTableCell as ɵi, NovoDataTableHeaderRow as ɵj, NovoDataTableRow as ɵk, NovoDataTablePagination as ɵl, NovoDataTableCheckboxCell as ɵm, NovoDataTableCheckboxHeaderCell as ɵn, NovoDataTableExpandCell as ɵo, NovoDataTableExpandHeaderCell as ɵp, NovoDataTableExpandDirective as ɵq, novoExpansionAnimations as ɵr, ControlConfirmModal as ɵs, ControlPromptModal as ɵt, novoStepperAnimations as ɵu };
 
 //# sourceMappingURL=novo-elements.js.map
