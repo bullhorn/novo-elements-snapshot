@@ -641,7 +641,8 @@ NovoTooltip.decorators = [
                 selector: 'novo-tooltip',
                 template: `
     <div [@state]="noAnimate ? 'no-animation' : 'visible'"
-         [ngClass]="[tooltipType, this.rounded ? 'rounded' : '', size ? size : '', this.preline? 'preline' : '', position]">{{message}}</div>`,
+         [ngClass]="[tooltipType, this.rounded ? 'rounded' : '', size ? size : '', this.preline? 'preline' : '', position]"
+         [innerHTML]="message"></div>`,
                 animations: [
                     trigger('state', [
                         state('initial, void, hidden', style({ opacity: '0' })),
@@ -7748,6 +7749,7 @@ class NovoDataTableCellHeader {
         this._column = column;
         this.label = column.type === 'action' ? '' : column.label;
         this.labelIcon = column.labelIcon;
+        column.resizable = true;
         this.config = {
             sortable: !!column.sortable,
             filterable: !!column.filterable,
@@ -8043,13 +8045,22 @@ class NovoDataTableCellHeader {
         ];
         return opts;
     }
+    handleDoubleClick() {
+        const newWidth = this.label.length * 6 + 96;
+        this._column.width = newWidth;
+        this.renderer.setStyle(this.elementRef.nativeElement, 'min-width', `${this._column.width}px`);
+        this.renderer.setStyle(this.elementRef.nativeElement, 'max-width', `${this._column.width}px`);
+        this.renderer.setStyle(this.elementRef.nativeElement, 'width', `${this._column.width}px`);
+        this.changeDetectorRef.markForCheck();
+        this.resized.next(this._column);
+    }
 }
 NovoDataTableCellHeader.decorators = [
     { type: Component, args: [{
                 selector: '[novo-data-table-cell-config]',
                 template: `
     <i class="bhi-{{ labelIcon }} label-icon" *ngIf="labelIcon" data-automation-id="novo-data-table-header-icon"></i>
-    <label data-automation-id="novo-data-table-label">{{ label }}</label>
+    <label data-automation-id="novo-data-table-label" (dblclick)="this.handleDoubleClick()">{{ label }}</label>
     <div>
       <button
         *ngIf="config.sortable"
@@ -8742,38 +8753,41 @@ NovoDataTable.decorators = [
     </div>
     <!-- DEFAULT CELL TEMPLATE -->
     <ng-template novoTemplate="textCellTemplate" let-row let-col="col">
-      <span [style.width.px]="col?.width" [style.min-width.px]="col?.width" [style.max-width.px]="col?.width">{{
+      <span [tooltipSize]="toolTipSize" tooltipPreline="true" tooltipPosition="top" [tooltip]="row[col.id] | dataTableInterpolate: col" [style.width.px]="col?.width" [style.min-width.px]="col?.width" [style.max-width.px]="col?.width">{{
         row[col.id] | dataTableInterpolate: col
       }}</span>
     </ng-template>
     <ng-template novoTemplate="dateCellTemplate" let-row let-col="col">
-      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableDateRenderer: col }}</span>
+      <span [tooltip]="row[col.id] | dataTableInterpolate: col | dataTableDateRenderer: col">{{ row[col.id] | dataTableInterpolate: col | dataTableDateRenderer: col }}</span>
     </ng-template>
     <ng-template novoTemplate="datetimeCellTemplate" let-row let-col="col">
-      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableDateTimeRenderer: col }}</span>
+      <span [tooltip]="row[col.id] | dataTableInterpolate: col | dataTableDateTimeRenderer: col">{{ row[col.id] | dataTableInterpolate: col | dataTableDateTimeRenderer: col }}</span>
     </ng-template>
     <ng-template novoTemplate="timeCellTemplate" let-row let-col="col">
-      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableTimeRenderer: col }}</span>
+      <span [tooltip]="row[col.id] | dataTableInterpolate: col | dataTableTimeRenderer: col">{{ row[col.id] | dataTableInterpolate: col | dataTableTimeRenderer: col }}</span>
     </ng-template>
     <ng-template novoTemplate="currencyCellTemplate" let-row let-col="col">
-      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableCurrencyRenderer: col }}</span>
+      <span [tooltip]="row[col.id] | dataTableInterpolate: col | dataTableCurrencyRenderer: col">{{ row[col.id] | dataTableInterpolate: col | dataTableCurrencyRenderer: col }}</span>
     </ng-template>
     <ng-template novoTemplate="bigdecimalCellTemplate" let-row let-col="col">
-      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableBigDecimalRenderer: col }}</span>
+      <span [tooltip]="row[col.id] | dataTableInterpolate: col | dataTableBigDecimalRenderer: col">{{ row[col.id] | dataTableInterpolate: col | dataTableBigDecimalRenderer: col }}</span>
     </ng-template>
     <ng-template novoTemplate="numberCellTemplate" let-row let-col="col">
-      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col }}</span>
+      <span [tooltip]="row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col">{{ row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col }}</span>
     </ng-template>
     <ng-template novoTemplate="percentCellTemplate" let-row let-col="col">
-      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col:true }}</span>
+      <span tooltip="row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col:true">{{ row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col:true }}</span>
     </ng-template>
     <ng-template novoTemplate="linkCellTemplate" let-row let-col="col">
       <a
         [attr.data-feature-id]="col?.attributes?.dataFeatureId"
         (click)="col.handlers?.click({ originalEvent: $event, row: row })"
+        (auxclick)="col.handlers?.auxClick({ originalEvent: $event, row: row })"
         [style.width.px]="col?.width"
         [style.min-width.px]="col?.width"
         [style.max-width.px]="col?.width"
+        [attr.target]="col.target"
+        [attr.href]="col.href"
         >{{ row[col.id] | dataTableInterpolate: col }}</a
       >
     </ng-template>

@@ -23,6 +23,10 @@ export interface IDataTableColumn<T> {
             originalEvent: any;
             row: any;
         }): void;
+        auxClick?({ originalEvent: MouseEvent, row: T }: {
+            originalEvent: any;
+            row: any;
+        }): void;
     };
     width?: number;
     sortable?: boolean | IDataTableColumnSortConfig;
@@ -35,6 +39,10 @@ export interface IDataTableColumn<T> {
             label: string;
             handlers: {
                 click({ originalEvent: MouseEvent, row: T }: {
+                    originalEvent: any;
+                    row: any;
+                }): void;
+                auxClick?({ originalEvent: MouseEvent, row: T }: {
                     originalEvent: any;
                     row: any;
                 }): void;
@@ -52,6 +60,8 @@ export interface IDataTableColumn<T> {
     };
     rightAlignCellContent?: boolean;
     configuration?: object;
+    target?: string;
+    href?: string;
 }
 export interface IDataTablePaginationOptions {
     theme: 'basic' | 'standard' | 'basic-wide';

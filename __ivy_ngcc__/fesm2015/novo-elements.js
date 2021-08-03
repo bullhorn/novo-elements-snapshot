@@ -2162,91 +2162,112 @@ function NovoDataTable_div_9_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵproperty("ngTemplateOutlet", ctx_r7.templates["emptyMessage"] || ctx_r7.templates["defaultNoResultsMessage"]);
 } }
 function NovoDataTable_ng_template_10_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "span");
-    ɵngcc0.ɵɵtext(1);
-    ɵngcc0.ɵɵpipe(2, "dataTableInterpolate");
+    ɵngcc0.ɵɵelementStart(0, "span", 57);
+    ɵngcc0.ɵɵpipe(1, "dataTableInterpolate");
+    ɵngcc0.ɵɵtext(2);
+    ɵngcc0.ɵɵpipe(3, "dataTableInterpolate");
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
     const row_r56 = ctx.$implicit;
     const col_r57 = ctx.col;
+    const ctx_r8 = ɵngcc0.ɵɵnextContext();
     ɵngcc0.ɵɵstyleProp("width", col_r57 == null ? null : col_r57.width, "px")("min-width", col_r57 == null ? null : col_r57.width, "px")("max-width", col_r57 == null ? null : col_r57.width, "px");
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind2(2, 7, row_r56[col_r57.id], col_r57));
+    ɵngcc0.ɵɵproperty("tooltipSize", ctx_r8.toolTipSize)("tooltip", ɵngcc0.ɵɵpipeBind2(1, 9, row_r56[col_r57.id], col_r57));
+    ɵngcc0.ɵɵadvance(2);
+    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind2(3, 12, row_r56[col_r57.id], col_r57));
 } }
 function NovoDataTable_ng_template_11_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "span");
-    ɵngcc0.ɵɵtext(1);
-    ɵngcc0.ɵɵpipe(2, "dataTableDateRenderer");
-    ɵngcc0.ɵɵpipe(3, "dataTableInterpolate");
+    ɵngcc0.ɵɵelementStart(0, "span", 58);
+    ɵngcc0.ɵɵpipe(1, "dataTableDateRenderer");
+    ɵngcc0.ɵɵpipe(2, "dataTableInterpolate");
+    ɵngcc0.ɵɵtext(3);
+    ɵngcc0.ɵɵpipe(4, "dataTableDateRenderer");
+    ɵngcc0.ɵɵpipe(5, "dataTableInterpolate");
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
     const row_r58 = ctx.$implicit;
     const col_r59 = ctx.col;
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind2(2, 1, ɵngcc0.ɵɵpipeBind2(3, 4, row_r58[col_r59.id], col_r59), col_r59));
+    ɵngcc0.ɵɵproperty("tooltip", ɵngcc0.ɵɵpipeBind2(1, 2, ɵngcc0.ɵɵpipeBind2(2, 5, row_r58[col_r59.id], col_r59), col_r59));
+    ɵngcc0.ɵɵadvance(3);
+    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind2(4, 8, ɵngcc0.ɵɵpipeBind2(5, 11, row_r58[col_r59.id], col_r59), col_r59));
 } }
 function NovoDataTable_ng_template_12_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "span");
-    ɵngcc0.ɵɵtext(1);
-    ɵngcc0.ɵɵpipe(2, "dataTableDateTimeRenderer");
-    ɵngcc0.ɵɵpipe(3, "dataTableInterpolate");
+    ɵngcc0.ɵɵelementStart(0, "span", 58);
+    ɵngcc0.ɵɵpipe(1, "dataTableDateTimeRenderer");
+    ɵngcc0.ɵɵpipe(2, "dataTableInterpolate");
+    ɵngcc0.ɵɵtext(3);
+    ɵngcc0.ɵɵpipe(4, "dataTableDateTimeRenderer");
+    ɵngcc0.ɵɵpipe(5, "dataTableInterpolate");
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
     const row_r60 = ctx.$implicit;
     const col_r61 = ctx.col;
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind2(2, 1, ɵngcc0.ɵɵpipeBind2(3, 4, row_r60[col_r61.id], col_r61), col_r61));
+    ɵngcc0.ɵɵproperty("tooltip", ɵngcc0.ɵɵpipeBind2(1, 2, ɵngcc0.ɵɵpipeBind2(2, 5, row_r60[col_r61.id], col_r61), col_r61));
+    ɵngcc0.ɵɵadvance(3);
+    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind2(4, 8, ɵngcc0.ɵɵpipeBind2(5, 11, row_r60[col_r61.id], col_r61), col_r61));
 } }
 function NovoDataTable_ng_template_13_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "span");
-    ɵngcc0.ɵɵtext(1);
-    ɵngcc0.ɵɵpipe(2, "dataTableTimeRenderer");
-    ɵngcc0.ɵɵpipe(3, "dataTableInterpolate");
+    ɵngcc0.ɵɵelementStart(0, "span", 58);
+    ɵngcc0.ɵɵpipe(1, "dataTableTimeRenderer");
+    ɵngcc0.ɵɵpipe(2, "dataTableInterpolate");
+    ɵngcc0.ɵɵtext(3);
+    ɵngcc0.ɵɵpipe(4, "dataTableTimeRenderer");
+    ɵngcc0.ɵɵpipe(5, "dataTableInterpolate");
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
     const row_r62 = ctx.$implicit;
     const col_r63 = ctx.col;
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind2(2, 1, ɵngcc0.ɵɵpipeBind2(3, 4, row_r62[col_r63.id], col_r63), col_r63));
+    ɵngcc0.ɵɵproperty("tooltip", ɵngcc0.ɵɵpipeBind2(1, 2, ɵngcc0.ɵɵpipeBind2(2, 5, row_r62[col_r63.id], col_r63), col_r63));
+    ɵngcc0.ɵɵadvance(3);
+    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind2(4, 8, ɵngcc0.ɵɵpipeBind2(5, 11, row_r62[col_r63.id], col_r63), col_r63));
 } }
 function NovoDataTable_ng_template_14_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "span");
-    ɵngcc0.ɵɵtext(1);
-    ɵngcc0.ɵɵpipe(2, "dataTableCurrencyRenderer");
-    ɵngcc0.ɵɵpipe(3, "dataTableInterpolate");
+    ɵngcc0.ɵɵelementStart(0, "span", 58);
+    ɵngcc0.ɵɵpipe(1, "dataTableCurrencyRenderer");
+    ɵngcc0.ɵɵpipe(2, "dataTableInterpolate");
+    ɵngcc0.ɵɵtext(3);
+    ɵngcc0.ɵɵpipe(4, "dataTableCurrencyRenderer");
+    ɵngcc0.ɵɵpipe(5, "dataTableInterpolate");
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
     const row_r64 = ctx.$implicit;
     const col_r65 = ctx.col;
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind2(2, 1, ɵngcc0.ɵɵpipeBind2(3, 4, row_r64[col_r65.id], col_r65), col_r65));
+    ɵngcc0.ɵɵproperty("tooltip", ɵngcc0.ɵɵpipeBind2(1, 2, ɵngcc0.ɵɵpipeBind2(2, 5, row_r64[col_r65.id], col_r65), col_r65));
+    ɵngcc0.ɵɵadvance(3);
+    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind2(4, 8, ɵngcc0.ɵɵpipeBind2(5, 11, row_r64[col_r65.id], col_r65), col_r65));
 } }
 function NovoDataTable_ng_template_15_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "span");
-    ɵngcc0.ɵɵtext(1);
-    ɵngcc0.ɵɵpipe(2, "dataTableBigDecimalRenderer");
-    ɵngcc0.ɵɵpipe(3, "dataTableInterpolate");
+    ɵngcc0.ɵɵelementStart(0, "span", 58);
+    ɵngcc0.ɵɵpipe(1, "dataTableBigDecimalRenderer");
+    ɵngcc0.ɵɵpipe(2, "dataTableInterpolate");
+    ɵngcc0.ɵɵtext(3);
+    ɵngcc0.ɵɵpipe(4, "dataTableBigDecimalRenderer");
+    ɵngcc0.ɵɵpipe(5, "dataTableInterpolate");
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
     const row_r66 = ctx.$implicit;
     const col_r67 = ctx.col;
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind2(2, 1, ɵngcc0.ɵɵpipeBind2(3, 4, row_r66[col_r67.id], col_r67), col_r67));
+    ɵngcc0.ɵɵproperty("tooltip", ɵngcc0.ɵɵpipeBind2(1, 2, ɵngcc0.ɵɵpipeBind2(2, 5, row_r66[col_r67.id], col_r67), col_r67));
+    ɵngcc0.ɵɵadvance(3);
+    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind2(4, 8, ɵngcc0.ɵɵpipeBind2(5, 11, row_r66[col_r67.id], col_r67), col_r67));
 } }
 function NovoDataTable_ng_template_16_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "span");
-    ɵngcc0.ɵɵtext(1);
-    ɵngcc0.ɵɵpipe(2, "dataTableNumberRenderer");
-    ɵngcc0.ɵɵpipe(3, "dataTableInterpolate");
+    ɵngcc0.ɵɵelementStart(0, "span", 58);
+    ɵngcc0.ɵɵpipe(1, "dataTableNumberRenderer");
+    ɵngcc0.ɵɵpipe(2, "dataTableInterpolate");
+    ɵngcc0.ɵɵtext(3);
+    ɵngcc0.ɵɵpipe(4, "dataTableNumberRenderer");
+    ɵngcc0.ɵɵpipe(5, "dataTableInterpolate");
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
     const row_r68 = ctx.$implicit;
     const col_r69 = ctx.col;
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind2(2, 1, ɵngcc0.ɵɵpipeBind2(3, 4, row_r68[col_r69.id], col_r69), col_r69));
+    ɵngcc0.ɵɵproperty("tooltip", ɵngcc0.ɵɵpipeBind2(1, 2, ɵngcc0.ɵɵpipeBind2(2, 5, row_r68[col_r69.id], col_r69), col_r69));
+    ɵngcc0.ɵɵadvance(3);
+    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind2(4, 8, ɵngcc0.ɵɵpipeBind2(5, 11, row_r68[col_r69.id], col_r69), col_r69));
 } }
 function NovoDataTable_ng_template_17_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "span");
+    ɵngcc0.ɵɵelementStart(0, "span", 59);
     ɵngcc0.ɵɵtext(1);
     ɵngcc0.ɵɵpipe(2, "dataTableNumberRenderer");
     ɵngcc0.ɵɵpipe(3, "dataTableInterpolate");
@@ -2259,8 +2280,8 @@ function NovoDataTable_ng_template_17_Template(rf, ctx) { if (rf & 1) {
 } }
 function NovoDataTable_ng_template_18_Template(rf, ctx) { if (rf & 1) {
     const _r75 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "a", 57);
-    ɵngcc0.ɵɵlistener("click", function NovoDataTable_ng_template_18_Template_a_click_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r75); const col_r73 = ctx.col; const row_r72 = ctx.$implicit; return col_r73.handlers == null ? null : col_r73.handlers.click({ originalEvent: $event, row: row_r72 }); });
+    ɵngcc0.ɵɵelementStart(0, "a", 60);
+    ɵngcc0.ɵɵlistener("click", function NovoDataTable_ng_template_18_Template_a_click_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r75); const col_r73 = ctx.col; const row_r72 = ctx.$implicit; return col_r73.handlers == null ? null : col_r73.handlers.click({ originalEvent: $event, row: row_r72 }); })("auxclick", function NovoDataTable_ng_template_18_Template_a_auxclick_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r75); const col_r73 = ctx.col; const row_r72 = ctx.$implicit; return col_r73.handlers == null ? null : col_r73.handlers.auxClick({ originalEvent: $event, row: row_r72 }); });
     ɵngcc0.ɵɵtext(1);
     ɵngcc0.ɵɵpipe(2, "dataTableInterpolate");
     ɵngcc0.ɵɵelementEnd();
@@ -2268,94 +2289,94 @@ function NovoDataTable_ng_template_18_Template(rf, ctx) { if (rf & 1) {
     const row_r72 = ctx.$implicit;
     const col_r73 = ctx.col;
     ɵngcc0.ɵɵstyleProp("width", col_r73 == null ? null : col_r73.width, "px")("min-width", col_r73 == null ? null : col_r73.width, "px")("max-width", col_r73 == null ? null : col_r73.width, "px");
-    ɵngcc0.ɵɵattribute("data-feature-id", col_r73 == null ? null : col_r73.attributes == null ? null : col_r73.attributes.dataFeatureId);
+    ɵngcc0.ɵɵattribute("data-feature-id", col_r73 == null ? null : col_r73.attributes == null ? null : col_r73.attributes.dataFeatureId)("target", col_r73.target)("href", col_r73.href, ɵngcc0.ɵɵsanitizeUrl);
     ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind2(2, 8, row_r72[col_r73.id], col_r73));
+    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind2(2, 10, row_r72[col_r73.id], col_r73));
 } }
 function NovoDataTable_ng_template_19_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "a", 58);
+    ɵngcc0.ɵɵelementStart(0, "a", 61);
     ɵngcc0.ɵɵpipe(1, "dataTableInterpolate");
     ɵngcc0.ɵɵtext(2);
     ɵngcc0.ɵɵpipe(3, "dataTableInterpolate");
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
-    const row_r76 = ctx.$implicit;
-    const col_r77 = ctx.col;
-    ɵngcc0.ɵɵpropertyInterpolate1("href", "tel:", ɵngcc0.ɵɵpipeBind2(1, 3, row_r76[col_r77.id], col_r77), "", ɵngcc0.ɵɵsanitizeUrl);
-    ɵngcc0.ɵɵproperty("target", col_r77 == null ? null : col_r77.attributes == null ? null : col_r77.attributes.target);
+    const row_r77 = ctx.$implicit;
+    const col_r78 = ctx.col;
+    ɵngcc0.ɵɵpropertyInterpolate1("href", "tel:", ɵngcc0.ɵɵpipeBind2(1, 3, row_r77[col_r78.id], col_r78), "", ɵngcc0.ɵɵsanitizeUrl);
+    ɵngcc0.ɵɵproperty("target", col_r78 == null ? null : col_r78.attributes == null ? null : col_r78.attributes.target);
     ɵngcc0.ɵɵadvance(2);
-    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind2(3, 6, row_r76[col_r77.id], col_r77));
+    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind2(3, 6, row_r77[col_r78.id], col_r78));
 } }
 function NovoDataTable_ng_template_20_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "a", 58);
+    ɵngcc0.ɵɵelementStart(0, "a", 61);
     ɵngcc0.ɵɵpipe(1, "dataTableInterpolate");
     ɵngcc0.ɵɵtext(2);
     ɵngcc0.ɵɵpipe(3, "dataTableInterpolate");
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
-    const row_r78 = ctx.$implicit;
-    const col_r79 = ctx.col;
-    ɵngcc0.ɵɵpropertyInterpolate1("href", "mailto:", ɵngcc0.ɵɵpipeBind2(1, 3, row_r78[col_r79.id], col_r79), "", ɵngcc0.ɵɵsanitizeUrl);
-    ɵngcc0.ɵɵproperty("target", col_r79 == null ? null : col_r79.attributes == null ? null : col_r79.attributes.target);
+    const row_r79 = ctx.$implicit;
+    const col_r80 = ctx.col;
+    ɵngcc0.ɵɵpropertyInterpolate1("href", "mailto:", ɵngcc0.ɵɵpipeBind2(1, 3, row_r79[col_r80.id], col_r80), "", ɵngcc0.ɵɵsanitizeUrl);
+    ɵngcc0.ɵɵproperty("target", col_r80 == null ? null : col_r80.attributes == null ? null : col_r80.attributes.target);
     ɵngcc0.ɵɵadvance(2);
-    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind2(3, 6, row_r78[col_r79.id], col_r79));
+    ɵngcc0.ɵɵtextInterpolate(ɵngcc0.ɵɵpipeBind2(3, 6, row_r79[col_r80.id], col_r80));
 } }
 function NovoDataTable_ng_template_21_Template(rf, ctx) { if (rf & 1) {
-    const _r83 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "p", 59);
-    ɵngcc0.ɵɵelementStart(1, "i", 57);
-    ɵngcc0.ɵɵlistener("click", function NovoDataTable_ng_template_21_Template_i_click_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r83); const col_r81 = ctx.col; const row_r80 = ctx.$implicit; return col_r81.handlers == null ? null : col_r81.handlers.click({ originalEvent: $event, row: row_r80 }); });
+    const _r84 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "p", 62);
+    ɵngcc0.ɵɵelementStart(1, "i", 63);
+    ɵngcc0.ɵɵlistener("click", function NovoDataTable_ng_template_21_Template_i_click_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r84); const col_r82 = ctx.col; const row_r81 = ctx.$implicit; return col_r82.handlers == null ? null : col_r82.handlers.click({ originalEvent: $event, row: row_r81 }); });
     ɵngcc0.ɵɵelementEnd();
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
-    const row_r80 = ctx.$implicit;
-    const col_r81 = ctx.col;
+    const row_r81 = ctx.$implicit;
+    const col_r82 = ctx.col;
     const ctx_r19 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵproperty("tooltip", col_r81 == null ? null : col_r81.action == null ? null : col_r81.action.tooltip);
-    ɵngcc0.ɵɵattribute("data-feature-id", col_r81 == null ? null : col_r81.attributes == null ? null : col_r81.attributes.dataFeatureId);
+    ɵngcc0.ɵɵproperty("tooltip", col_r82 == null ? null : col_r82.action == null ? null : col_r82.action.tooltip);
+    ɵngcc0.ɵɵattribute("data-feature-id", col_r82 == null ? null : col_r82.attributes == null ? null : col_r82.attributes.dataFeatureId);
     ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵclassMapInterpolate1("bhi-", col_r81 == null ? null : col_r81.action == null ? null : col_r81.action.icon, " data-table-icon");
-    ɵngcc0.ɵɵclassProp("disabled", ctx_r19.isDisabled(col_r81, row_r80));
+    ɵngcc0.ɵɵclassMapInterpolate1("bhi-", col_r82 == null ? null : col_r82.action == null ? null : col_r82.action.icon, " data-table-icon");
+    ɵngcc0.ɵɵclassProp("disabled", ctx_r19.isDisabled(col_r82, row_r81));
 } }
 function NovoDataTable_ng_template_22_item_4_Template(rf, ctx) { if (rf & 1) {
-    const _r89 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "item", 63);
-    ɵngcc0.ɵɵlistener("action", function NovoDataTable_ng_template_22_item_4_Template_item_action_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r89); const option_r87 = ctx.$implicit; const row_r84 = ɵngcc0.ɵɵnextContext().$implicit; return option_r87.handlers.click({ originalEvent: $event == null ? null : $event.originalEvent, row: row_r84 }); });
+    const _r90 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "item", 67);
+    ɵngcc0.ɵɵlistener("action", function NovoDataTable_ng_template_22_item_4_Template_item_action_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r90); const option_r88 = ctx.$implicit; const row_r85 = ɵngcc0.ɵɵnextContext().$implicit; return option_r88.handlers.click({ originalEvent: $event == null ? null : $event.originalEvent, row: row_r85 }); });
     ɵngcc0.ɵɵelementStart(1, "span");
     ɵngcc0.ɵɵtext(2);
     ɵngcc0.ɵɵelementEnd();
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
-    const option_r87 = ctx.$implicit;
-    const row_r84 = ɵngcc0.ɵɵnextContext().$implicit;
-    const ctx_r86 = ɵngcc0.ɵɵnextContext();
-    ɵngcc0.ɵɵproperty("disabled", ctx_r86.isDisabled(option_r87, row_r84));
+    const option_r88 = ctx.$implicit;
+    const row_r85 = ɵngcc0.ɵɵnextContext().$implicit;
+    const ctx_r87 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵproperty("disabled", ctx_r87.isDisabled(option_r88, row_r85));
     ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵattribute("data-automation-id", option_r87.label);
+    ɵngcc0.ɵɵattribute("data-automation-id", option_r88.label);
     ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate(option_r87.label);
+    ɵngcc0.ɵɵtextInterpolate(option_r88.label);
 } }
 function NovoDataTable_ng_template_22_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "novo-dropdown", 60);
-    ɵngcc0.ɵɵelementStart(1, "button", 61);
+    ɵngcc0.ɵɵelementStart(0, "novo-dropdown", 64);
+    ɵngcc0.ɵɵelementStart(1, "button", 65);
     ɵngcc0.ɵɵtext(2);
     ɵngcc0.ɵɵelementEnd();
     ɵngcc0.ɵɵelementStart(3, "list");
-    ɵngcc0.ɵɵtemplate(4, NovoDataTable_ng_template_22_item_4_Template, 3, 3, "item", 62);
+    ɵngcc0.ɵɵtemplate(4, NovoDataTable_ng_template_22_item_4_Template, 3, 3, "item", 66);
     ɵngcc0.ɵɵelementEnd();
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
-    const col_r85 = ctx.col;
+    const col_r86 = ctx.col;
     ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("icon", col_r85.action.icon);
+    ɵngcc0.ɵɵproperty("icon", col_r86.action.icon);
     ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵtextInterpolate(col_r85.label);
+    ɵngcc0.ɵɵtextInterpolate(col_r86.label);
     ɵngcc0.ɵɵadvance(2);
-    ɵngcc0.ɵɵproperty("ngForOf", col_r85 == null ? null : col_r85.action == null ? null : col_r85.action.options);
+    ɵngcc0.ɵɵproperty("ngForOf", col_r86 == null ? null : col_r86.action == null ? null : col_r86.action.options);
 } }
 function NovoDataTable_ng_template_23_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelementStart(0, "h4");
-    ɵngcc0.ɵɵelement(1, "i", 64);
+    ɵngcc0.ɵɵelement(1, "i", 68);
     ɵngcc0.ɵɵtext(2);
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
@@ -2365,7 +2386,7 @@ function NovoDataTable_ng_template_23_Template(rf, ctx) { if (rf & 1) {
 } }
 function NovoDataTable_ng_template_24_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelementStart(0, "h4");
-    ɵngcc0.ɵɵelement(1, "i", 64);
+    ɵngcc0.ɵɵelement(1, "i", 68);
     ɵngcc0.ɵɵtext(2);
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
@@ -2380,15 +2401,15 @@ function NovoDataTable_ng_template_26_ng_container_1_Template(rf, ctx) { if (rf 
     ɵngcc0.ɵɵelementContainer(0);
 } }
 function NovoDataTable_ng_template_26_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "div", 65);
+    ɵngcc0.ɵɵelementStart(0, "div", 69);
     ɵngcc0.ɵɵtemplate(1, NovoDataTable_ng_template_26_ng_container_1_Template, 1, 0, "ng-container", 53);
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
-    const row_r92 = ctx.$implicit;
+    const row_r93 = ctx.$implicit;
     const ctx_r25 = ɵngcc0.ɵɵnextContext();
     ɵngcc0.ɵɵproperty("@expand", undefined);
     ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngTemplateOutlet", ctx_r25.templates["expandedRow"])("ngTemplateOutletContext", ɵngcc0.ɵɵpureFunction1(3, _c36, row_r92));
+    ɵngcc0.ɵɵproperty("ngTemplateOutlet", ctx_r25.templates["expandedRow"])("ngTemplateOutletContext", ɵngcc0.ɵɵpureFunction1(3, _c36, row_r93));
 } }
 const _c39 = function (a0) { return { "novo-data-table-outside-container-fixed": a0 }; };
 const _c40 = function (a0) { return { "novo-data-table-container-fixed": a0 }; };
@@ -6973,14 +6994,10 @@ NovoButtonModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoButt
 class NovoTooltip {
 }
 NovoTooltip.ɵfac = function NovoTooltip_Factory(t) { return new (t || NovoTooltip)(); };
-NovoTooltip.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoTooltip, selectors: [["novo-tooltip"]], decls: 2, vars: 9, consts: [[3, "ngClass"]], template: function NovoTooltip_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵelementStart(0, "div", 0);
-        ɵngcc0.ɵɵtext(1);
-        ɵngcc0.ɵɵelementEnd();
+NovoTooltip.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoTooltip, selectors: [["novo-tooltip"]], decls: 1, vars: 9, consts: [[3, "ngClass", "innerHTML"]], template: function NovoTooltip_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵelement(0, "div", 0);
     } if (rf & 2) {
-        ɵngcc0.ɵɵproperty("@state", ctx.noAnimate ? "no-animation" : "visible")("ngClass", ɵngcc0.ɵɵpureFunction5(3, _c2, ctx.tooltipType, ctx.rounded ? "rounded" : "", ctx.size ? ctx.size : "", ctx.preline ? "preline" : "", ctx.position));
-        ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵtextInterpolate(ctx.message);
+        ɵngcc0.ɵɵproperty("@state", ctx.noAnimate ? "no-animation" : "visible")("ngClass", ɵngcc0.ɵɵpureFunction5(3, _c2, ctx.tooltipType, ctx.rounded ? "rounded" : "", ctx.size ? ctx.size : "", ctx.preline ? "preline" : "", ctx.position))("innerHTML", ctx.message, ɵngcc0.ɵɵsanitizeHtml);
     } }, directives: [ɵngcc1.NgClass], encapsulation: 2, data: { animation: [
             trigger('state', [
                 state('initial, void, hidden', style({ opacity: '0' })),
@@ -7007,7 +7024,8 @@ NovoTooltip.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoTooltip, selectors: 
                 selector: 'novo-tooltip',
                 template: `
     <div [@state]="noAnimate ? 'no-animation' : 'visible'"
-         [ngClass]="[tooltipType, this.rounded ? 'rounded' : '', size ? size : '', this.preline? 'preline' : '', position]">{{message}}</div>`,
+         [ngClass]="[tooltipType, this.rounded ? 'rounded' : '', size ? size : '', this.preline? 'preline' : '', position]"
+         [innerHTML]="message"></div>`,
                 animations: [
                     trigger('state', [
                         state('initial, void, hidden', style({ opacity: '0' })),
@@ -15739,6 +15757,7 @@ class NovoDataTableCellHeader {
         this._column = column;
         this.label = column.type === 'action' ? '' : column.label;
         this.labelIcon = column.labelIcon;
+        column.resizable = true;
         this.config = {
             sortable: !!column.sortable,
             filterable: !!column.filterable,
@@ -16034,6 +16053,15 @@ class NovoDataTableCellHeader {
         ];
         return opts;
     }
+    handleDoubleClick() {
+        const newWidth = this.label.length * 6 + 96;
+        this._column.width = newWidth;
+        this.renderer.setStyle(this.elementRef.nativeElement, 'min-width', `${this._column.width}px`);
+        this.renderer.setStyle(this.elementRef.nativeElement, 'max-width', `${this._column.width}px`);
+        this.renderer.setStyle(this.elementRef.nativeElement, 'width', `${this._column.width}px`);
+        this.changeDetectorRef.markForCheck();
+        this.resized.next(this._column);
+    }
 }
 NovoDataTableCellHeader.ɵfac = function NovoDataTableCellHeader_Factory(t) { return new (t || NovoDataTableCellHeader)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef), ɵngcc0.ɵɵdirectiveInject(NovoLabelService), ɵngcc0.ɵɵdirectiveInject(DataTableState), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.Renderer2), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(NovoDataTableSortFilter, 8), ɵngcc0.ɵɵdirectiveInject(ɵngcc5.CdkColumnDef, 8)); };
 NovoDataTableCellHeader.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDataTableCellHeader, selectors: [["", "novo-data-table-cell-config", ""]], viewQuery: function NovoDataTableCellHeader_Query(rf, ctx) { if (rf & 1) {
@@ -16049,9 +16077,10 @@ NovoDataTableCellHeader.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDataTabl
         ɵngcc0.ɵɵlistener("keydown", function NovoDataTableCellHeader_keydown_HostBindingHandler($event) { return ctx.multiSelectOptionFilterHandleKeydown($event); });
     } if (rf & 2) {
         ɵngcc0.ɵɵclassProp("resizable", ctx.resizable);
-    } }, inputs: { allowMultipleFilters: "allowMultipleFilters", column: ["novo-data-table-cell-config", "column"], defaultSort: "defaultSort", resized: "resized", filterTemplate: "filterTemplate" }, attrs: _c35, decls: 8, vars: 5, consts: [["data-automation-id", "novo-data-table-header-icon", 3, "class", 4, "ngIf"], ["data-automation-id", "novo-data-table-label"], ["tooltipPosition", "right", "theme", "icon", "data-automation-id", "novo-data-table-sort", 3, "tooltip", "icon", "active", "click", 4, "ngIf"], ["side", "right", "parentScrollSelector", ".novo-data-table-container", "containerClass", "data-table-dropdown", "data-automation-id", "novo-data-table-filter", 4, "ngIf"], [1, "spacer"], ["class", "data-table-header-resizable", 4, "ngIf"], ["data-automation-id", "novo-data-table-header-icon"], ["tooltipPosition", "right", "theme", "icon", "data-automation-id", "novo-data-table-sort", 3, "tooltip", "icon", "click"], ["side", "right", "parentScrollSelector", ".novo-data-table-container", "containerClass", "data-table-dropdown", "data-automation-id", "novo-data-table-filter"], ["type", "button", "theme", "icon", "icon", "filter", "tooltipPosition", "right", 3, "tooltip", "click"], [1, "header"], ["theme", "dialogue", "color", "negative", "icon", "times", "data-automation-id", "novo-data-table-filter-clear", 3, "click", 4, "ngIf"], [3, "ngSwitch"], [4, "ngSwitchCase"], [4, "ngSwitchDefault"], ["class", "footer", 4, "ngIf"], ["theme", "dialogue", "color", "negative", "icon", "times", "data-automation-id", "novo-data-table-filter-clear", 3, "click"], [4, "ngIf"], [3, "active", "keepOpen", "click", 4, "ngIf"], ["class", "calendar-container", 4, "ngIf"], [3, "active", "click", 4, "ngFor", "ngForOf"], [3, "click"], ["class", "bhi-check", 4, "ngIf"], [1, "bhi-check"], [3, "keepOpen", "click"], [1, "calendar-container"], [1, "bhi-previous"], ["range", "true", 3, "ngModel", "onSelect", "ngModelChange"], [1, "dropdown-list-filter", 3, "keydown"], ["keepOpen", "true", 1, "filter-search"], ["data-automation-id", "novo-data-table-multi-select-option-filter-input", 3, "ngModel", "ngModelChange"], ["optionFilterInput", ""], [1, "bhi-search"], [1, "error-text", 3, "hidden"], [1, "dropdown-list-options"], [3, "hidden", "keepOpen", "click", 4, "ngFor", "ngForOf"], [1, "filter-null-results", 3, "hidden"], [3, "hidden", "keepOpen", "click"], [4, "ngTemplateOutlet", "ngTemplateOutletContext"], ["data-automation-id", "novo-data-table-filter-input", 3, "type", "ngModel", "ngModelChange"], ["filterInput", ""], [1, "footer"], ["theme", "dialogue", "color", "dark", "data-automation-id", "novo-data-table-multi-select-cancel", 3, "click"], ["theme", "dialogue", "color", "positive", "data-automation-id", "novo-data-table-multi-select-filter", 3, "click"], [1, "data-table-header-resizable"], [3, "mousedown"]], template: function NovoDataTableCellHeader_Template(rf, ctx) { if (rf & 1) {
+    } }, inputs: { allowMultipleFilters: "allowMultipleFilters", column: ["novo-data-table-cell-config", "column"], defaultSort: "defaultSort", resized: "resized", filterTemplate: "filterTemplate" }, attrs: _c35, decls: 8, vars: 5, consts: [["data-automation-id", "novo-data-table-header-icon", 3, "class", 4, "ngIf"], ["data-automation-id", "novo-data-table-label", 3, "dblclick"], ["tooltipPosition", "right", "theme", "icon", "data-automation-id", "novo-data-table-sort", 3, "tooltip", "icon", "active", "click", 4, "ngIf"], ["side", "right", "parentScrollSelector", ".novo-data-table-container", "containerClass", "data-table-dropdown", "data-automation-id", "novo-data-table-filter", 4, "ngIf"], [1, "spacer"], ["class", "data-table-header-resizable", 4, "ngIf"], ["data-automation-id", "novo-data-table-header-icon"], ["tooltipPosition", "right", "theme", "icon", "data-automation-id", "novo-data-table-sort", 3, "tooltip", "icon", "click"], ["side", "right", "parentScrollSelector", ".novo-data-table-container", "containerClass", "data-table-dropdown", "data-automation-id", "novo-data-table-filter"], ["type", "button", "theme", "icon", "icon", "filter", "tooltipPosition", "right", 3, "tooltip", "click"], [1, "header"], ["theme", "dialogue", "color", "negative", "icon", "times", "data-automation-id", "novo-data-table-filter-clear", 3, "click", 4, "ngIf"], [3, "ngSwitch"], [4, "ngSwitchCase"], [4, "ngSwitchDefault"], ["class", "footer", 4, "ngIf"], ["theme", "dialogue", "color", "negative", "icon", "times", "data-automation-id", "novo-data-table-filter-clear", 3, "click"], [4, "ngIf"], [3, "active", "keepOpen", "click", 4, "ngIf"], ["class", "calendar-container", 4, "ngIf"], [3, "active", "click", 4, "ngFor", "ngForOf"], [3, "click"], ["class", "bhi-check", 4, "ngIf"], [1, "bhi-check"], [3, "keepOpen", "click"], [1, "calendar-container"], [1, "bhi-previous"], ["range", "true", 3, "ngModel", "onSelect", "ngModelChange"], [1, "dropdown-list-filter", 3, "keydown"], ["keepOpen", "true", 1, "filter-search"], ["data-automation-id", "novo-data-table-multi-select-option-filter-input", 3, "ngModel", "ngModelChange"], ["optionFilterInput", ""], [1, "bhi-search"], [1, "error-text", 3, "hidden"], [1, "dropdown-list-options"], [3, "hidden", "keepOpen", "click", 4, "ngFor", "ngForOf"], [1, "filter-null-results", 3, "hidden"], [3, "hidden", "keepOpen", "click"], [4, "ngTemplateOutlet", "ngTemplateOutletContext"], ["data-automation-id", "novo-data-table-filter-input", 3, "type", "ngModel", "ngModelChange"], ["filterInput", ""], [1, "footer"], ["theme", "dialogue", "color", "dark", "data-automation-id", "novo-data-table-multi-select-cancel", 3, "click"], ["theme", "dialogue", "color", "positive", "data-automation-id", "novo-data-table-multi-select-filter", 3, "click"], [1, "data-table-header-resizable"], [3, "mousedown"]], template: function NovoDataTableCellHeader_Template(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵtemplate(0, NovoDataTableCellHeader_i_0_Template, 1, 3, "i", 0);
         ɵngcc0.ɵɵelementStart(1, "label", 1);
+        ɵngcc0.ɵɵlistener("dblclick", function NovoDataTableCellHeader_Template_label_dblclick_1_listener() { return ctx.handleDoubleClick(); });
         ɵngcc0.ɵɵtext(2);
         ɵngcc0.ɵɵelementEnd();
         ɵngcc0.ɵɵelementStart(3, "div");
@@ -16098,7 +16127,7 @@ NovoDataTableCellHeader.propDecorators = {
                 selector: '[novo-data-table-cell-config]',
                 template: `
     <i class="bhi-{{ labelIcon }} label-icon" *ngIf="labelIcon" data-automation-id="novo-data-table-header-icon"></i>
-    <label data-automation-id="novo-data-table-label">{{ label }}</label>
+    <label data-automation-id="novo-data-table-label" (dblclick)="this.handleDoubleClick()">{{ label }}</label>
     <div>
       <button
         *ngIf="config.sortable"
@@ -16684,7 +16713,7 @@ NovoDataTable.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDataTable, selecto
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.cellHeaders = _t);
     } }, hostVars: 6, hostBindings: function NovoDataTable_HostBindings(rf, ctx) { if (rf & 2) {
         ɵngcc0.ɵɵclassProp("global-search-hidden", ctx.globalSearchHiddenClassToggle)("empty", ctx.empty)("loading", ctx.loadingClass);
-    } }, inputs: { name: "name", allowMultipleFilters: "allowMultipleFilters", rowIdentifier: "rowIdentifier", activeRowIdentifier: "activeRowIdentifier", trackByFn: "trackByFn", templates: "templates", fixedHeader: "fixedHeader", displayedColumns: "displayedColumns", dataTableService: "dataTableService", rows: "rows", outsideFilter: "outsideFilter", refreshSubject: "refreshSubject", columns: "columns", customFilter: "customFilter", hasExandedRows: "hasExandedRows", forceShowHeader: "forceShowHeader", hideGlobalSearch: "hideGlobalSearch", paginationOptions: "paginationOptions", searchOptions: "searchOptions", defaultSort: "defaultSort", paginatorDataFeatureId: "paginatorDataFeatureId", listInteractions: "listInteractions" }, outputs: { resized: "resized", preferencesChanged: "preferencesChanged" }, features: [ɵngcc0.ɵɵProvidersFeature([DataTableState])], ngContentSelectors: _c1, decls: 29, vars: 17, consts: [[3, "empty", 4, "ngIf"], ["class", "novo-data-table-loading-mask", "data-automation-id", "novo-data-table-loading", 4, "ngIf"], [1, "novo-data-table-outside-container", 3, "ngClass"], ["class", "novo-data-table-custom-filter", 4, "ngIf"], [1, "novo-data-table-container", 3, "ngClass"], ["novoDataTableContainer", ""], ["novoDataTableSortFilter", "", 3, "dataSource", "trackBy", "expandable", "empty", "hidden", 4, "ngIf"], ["class", "novo-data-table-footer", 4, "ngIf"], ["class", "novo-data-table-no-results-container", 3, "left", 4, "ngIf"], ["class", "novo-data-table-empty-container", 4, "ngIf"], ["novoTemplate", "textCellTemplate"], ["novoTemplate", "dateCellTemplate"], ["novoTemplate", "datetimeCellTemplate"], ["novoTemplate", "timeCellTemplate"], ["novoTemplate", "currencyCellTemplate"], ["novoTemplate", "bigdecimalCellTemplate"], ["novoTemplate", "numberCellTemplate"], ["novoTemplate", "percentCellTemplate"], ["novoTemplate", "linkCellTemplate"], ["novoTemplate", "telCellTemplate"], ["novoTemplate", "mailtoCellTemplate"], ["novoTemplate", "buttonCellTemplate"], ["novoTemplate", "dropdownCellTemplate"], ["novoTemplate", "defaultNoResultsMessage"], ["novoTemplate", "defaultEmptyMessage"], ["novoTemplate", "expandedRow"], ["detailRowTemplate", ""], [4, "ngTemplateOutlet"], ["alwaysOpen", "true", 3, "ngModel", "placeholder", "hint", "searchChanged", "ngModelChange", 4, "ngIf"], [3, "theme", "length", "page", "pageSize", "pageSizeOptions", "dataFeatureId", 4, "ngIf"], ["class", "novo-data-table-actions", 4, "ngIf"], ["alwaysOpen", "true", 3, "ngModel", "placeholder", "hint", "searchChanged", "ngModelChange"], [3, "theme", "length", "page", "pageSize", "pageSizeOptions", "dataFeatureId"], [1, "novo-data-table-actions"], ["data-automation-id", "novo-data-table-loading", 1, "novo-data-table-loading-mask"], [1, "novo-data-table-custom-filter"], ["novoDataTableSortFilter", "", 3, "dataSource", "trackBy", "hidden"], ["cdkColumnDef", "selection"], [4, "cdkHeaderCellDef"], [3, "row", 4, "cdkCellDef"], ["cdkColumnDef", "expand"], [3, "cdkColumnDef", 4, "ngFor", "ngForOf", "ngForTrackBy"], ["data-automation-id", "novo-data-table-header-row", 3, "fixedHeader", 4, "cdkHeaderRowDef"], [3, "ngClass", "novoDataTableExpand", "row", "id", "dataAutomationId", 4, "cdkRowDef", "cdkRowDefColumns"], [3, "row"], [3, "cdkColumnDef"], [3, "column", "filterTemplate", "novo-data-table-cell-config", "resized", "defaultSort", "allowMultipleFilters", "empty", "button-header-cell", "dropdown-header-cell", "fixed-header", 4, "cdkHeaderCellDef"], [3, "resized", "column", "row", "template", "empty", "button-cell", "dropdown-cell", 4, "cdkCellDef"], [3, "column", "filterTemplate", "novo-data-table-cell-config", "resized", "defaultSort", "allowMultipleFilters"], [3, "resized", "column", "row", "template"], ["data-automation-id", "novo-data-table-header-row", 3, "fixedHeader"], [3, "ngClass", "novoDataTableExpand", "row", "id", "dataAutomationId"], [1, "novo-data-table-footer"], [4, "ngTemplateOutlet", "ngTemplateOutletContext"], [1, "novo-data-table-no-results-container"], [1, "novo-data-table-empty-message"], [1, "novo-data-table-empty-container"], [3, "click"], [3, "href", "target"], ["tooltipPosition", "right", 3, "tooltip"], ["parentScrollSelector", ".novo-data-table-container", "containerClass", "novo-data-table-dropdown"], ["type", "button", "theme", "dialogue", "inverse", "", 3, "icon"], [3, "disabled", "action", 4, "ngFor", "ngForOf"], [3, "disabled", "action"], [1, "bhi-search-question"], [1, "novo-data-table-detail-row", 2, "overflow", "hidden"]], template: function NovoDataTable_Template(rf, ctx) { if (rf & 1) {
+    } }, inputs: { name: "name", allowMultipleFilters: "allowMultipleFilters", rowIdentifier: "rowIdentifier", activeRowIdentifier: "activeRowIdentifier", trackByFn: "trackByFn", templates: "templates", fixedHeader: "fixedHeader", displayedColumns: "displayedColumns", dataTableService: "dataTableService", rows: "rows", outsideFilter: "outsideFilter", refreshSubject: "refreshSubject", columns: "columns", customFilter: "customFilter", hasExandedRows: "hasExandedRows", forceShowHeader: "forceShowHeader", hideGlobalSearch: "hideGlobalSearch", paginationOptions: "paginationOptions", searchOptions: "searchOptions", defaultSort: "defaultSort", paginatorDataFeatureId: "paginatorDataFeatureId", listInteractions: "listInteractions" }, outputs: { resized: "resized", preferencesChanged: "preferencesChanged" }, features: [ɵngcc0.ɵɵProvidersFeature([DataTableState])], ngContentSelectors: _c1, decls: 29, vars: 17, consts: [[3, "empty", 4, "ngIf"], ["class", "novo-data-table-loading-mask", "data-automation-id", "novo-data-table-loading", 4, "ngIf"], [1, "novo-data-table-outside-container", 3, "ngClass"], ["class", "novo-data-table-custom-filter", 4, "ngIf"], [1, "novo-data-table-container", 3, "ngClass"], ["novoDataTableContainer", ""], ["novoDataTableSortFilter", "", 3, "dataSource", "trackBy", "expandable", "empty", "hidden", 4, "ngIf"], ["class", "novo-data-table-footer", 4, "ngIf"], ["class", "novo-data-table-no-results-container", 3, "left", 4, "ngIf"], ["class", "novo-data-table-empty-container", 4, "ngIf"], ["novoTemplate", "textCellTemplate"], ["novoTemplate", "dateCellTemplate"], ["novoTemplate", "datetimeCellTemplate"], ["novoTemplate", "timeCellTemplate"], ["novoTemplate", "currencyCellTemplate"], ["novoTemplate", "bigdecimalCellTemplate"], ["novoTemplate", "numberCellTemplate"], ["novoTemplate", "percentCellTemplate"], ["novoTemplate", "linkCellTemplate"], ["novoTemplate", "telCellTemplate"], ["novoTemplate", "mailtoCellTemplate"], ["novoTemplate", "buttonCellTemplate"], ["novoTemplate", "dropdownCellTemplate"], ["novoTemplate", "defaultNoResultsMessage"], ["novoTemplate", "defaultEmptyMessage"], ["novoTemplate", "expandedRow"], ["detailRowTemplate", ""], [4, "ngTemplateOutlet"], ["alwaysOpen", "true", 3, "ngModel", "placeholder", "hint", "searchChanged", "ngModelChange", 4, "ngIf"], [3, "theme", "length", "page", "pageSize", "pageSizeOptions", "dataFeatureId", 4, "ngIf"], ["class", "novo-data-table-actions", 4, "ngIf"], ["alwaysOpen", "true", 3, "ngModel", "placeholder", "hint", "searchChanged", "ngModelChange"], [3, "theme", "length", "page", "pageSize", "pageSizeOptions", "dataFeatureId"], [1, "novo-data-table-actions"], ["data-automation-id", "novo-data-table-loading", 1, "novo-data-table-loading-mask"], [1, "novo-data-table-custom-filter"], ["novoDataTableSortFilter", "", 3, "dataSource", "trackBy", "hidden"], ["cdkColumnDef", "selection"], [4, "cdkHeaderCellDef"], [3, "row", 4, "cdkCellDef"], ["cdkColumnDef", "expand"], [3, "cdkColumnDef", 4, "ngFor", "ngForOf", "ngForTrackBy"], ["data-automation-id", "novo-data-table-header-row", 3, "fixedHeader", 4, "cdkHeaderRowDef"], [3, "ngClass", "novoDataTableExpand", "row", "id", "dataAutomationId", 4, "cdkRowDef", "cdkRowDefColumns"], [3, "row"], [3, "cdkColumnDef"], [3, "column", "filterTemplate", "novo-data-table-cell-config", "resized", "defaultSort", "allowMultipleFilters", "empty", "button-header-cell", "dropdown-header-cell", "fixed-header", 4, "cdkHeaderCellDef"], [3, "resized", "column", "row", "template", "empty", "button-cell", "dropdown-cell", 4, "cdkCellDef"], [3, "column", "filterTemplate", "novo-data-table-cell-config", "resized", "defaultSort", "allowMultipleFilters"], [3, "resized", "column", "row", "template"], ["data-automation-id", "novo-data-table-header-row", 3, "fixedHeader"], [3, "ngClass", "novoDataTableExpand", "row", "id", "dataAutomationId"], [1, "novo-data-table-footer"], [4, "ngTemplateOutlet", "ngTemplateOutletContext"], [1, "novo-data-table-no-results-container"], [1, "novo-data-table-empty-message"], [1, "novo-data-table-empty-container"], ["tooltipPreline", "true", "tooltipPosition", "top", 3, "tooltipSize", "tooltip"], [3, "tooltip"], ["tooltip", "row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col:true"], [3, "click", "auxclick"], [3, "href", "target"], ["tooltipPosition", "right", 3, "tooltip"], [3, "click"], ["parentScrollSelector", ".novo-data-table-container", "containerClass", "novo-data-table-dropdown"], ["type", "button", "theme", "dialogue", "inverse", "", 3, "icon"], [3, "disabled", "action", 4, "ngFor", "ngForOf"], [3, "disabled", "action"], [1, "bhi-search-question"], [1, "novo-data-table-detail-row", 2, "overflow", "hidden"]], template: function NovoDataTable_Template(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵprojectionDef();
         ɵngcc0.ɵɵtemplate(0, NovoDataTable_header_0_Template, 5, 6, "header", 0);
         ɵngcc0.ɵɵtemplate(1, NovoDataTable_div_1_Template, 2, 0, "div", 1);
@@ -16697,15 +16726,15 @@ NovoDataTable.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoDataTable, selecto
         ɵngcc0.ɵɵelementEnd();
         ɵngcc0.ɵɵtemplate(9, NovoDataTable_div_9_Template, 3, 1, "div", 9);
         ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵtemplate(10, NovoDataTable_ng_template_10_Template, 3, 10, "ng-template", 10);
-        ɵngcc0.ɵɵtemplate(11, NovoDataTable_ng_template_11_Template, 4, 7, "ng-template", 11);
-        ɵngcc0.ɵɵtemplate(12, NovoDataTable_ng_template_12_Template, 4, 7, "ng-template", 12);
-        ɵngcc0.ɵɵtemplate(13, NovoDataTable_ng_template_13_Template, 4, 7, "ng-template", 13);
-        ɵngcc0.ɵɵtemplate(14, NovoDataTable_ng_template_14_Template, 4, 7, "ng-template", 14);
-        ɵngcc0.ɵɵtemplate(15, NovoDataTable_ng_template_15_Template, 4, 7, "ng-template", 15);
-        ɵngcc0.ɵɵtemplate(16, NovoDataTable_ng_template_16_Template, 4, 7, "ng-template", 16);
+        ɵngcc0.ɵɵtemplate(10, NovoDataTable_ng_template_10_Template, 4, 15, "ng-template", 10);
+        ɵngcc0.ɵɵtemplate(11, NovoDataTable_ng_template_11_Template, 6, 14, "ng-template", 11);
+        ɵngcc0.ɵɵtemplate(12, NovoDataTable_ng_template_12_Template, 6, 14, "ng-template", 12);
+        ɵngcc0.ɵɵtemplate(13, NovoDataTable_ng_template_13_Template, 6, 14, "ng-template", 13);
+        ɵngcc0.ɵɵtemplate(14, NovoDataTable_ng_template_14_Template, 6, 14, "ng-template", 14);
+        ɵngcc0.ɵɵtemplate(15, NovoDataTable_ng_template_15_Template, 6, 14, "ng-template", 15);
+        ɵngcc0.ɵɵtemplate(16, NovoDataTable_ng_template_16_Template, 6, 14, "ng-template", 16);
         ɵngcc0.ɵɵtemplate(17, NovoDataTable_ng_template_17_Template, 4, 8, "ng-template", 17);
-        ɵngcc0.ɵɵtemplate(18, NovoDataTable_ng_template_18_Template, 3, 11, "ng-template", 18);
+        ɵngcc0.ɵɵtemplate(18, NovoDataTable_ng_template_18_Template, 3, 13, "ng-template", 18);
         ɵngcc0.ɵɵtemplate(19, NovoDataTable_ng_template_19_Template, 4, 9, "ng-template", 19);
         ɵngcc0.ɵɵtemplate(20, NovoDataTable_ng_template_20_Template, 4, 9, "ng-template", 20);
         ɵngcc0.ɵɵtemplate(21, NovoDataTable_ng_template_21_Template, 2, 7, "ng-template", 21);
@@ -16913,38 +16942,41 @@ NovoDataTable.propDecorators = {
     </div>
     <!-- DEFAULT CELL TEMPLATE -->
     <ng-template novoTemplate="textCellTemplate" let-row let-col="col">
-      <span [style.width.px]="col?.width" [style.min-width.px]="col?.width" [style.max-width.px]="col?.width">{{
+      <span [tooltipSize]="toolTipSize" tooltipPreline="true" tooltipPosition="top" [tooltip]="row[col.id] | dataTableInterpolate: col" [style.width.px]="col?.width" [style.min-width.px]="col?.width" [style.max-width.px]="col?.width">{{
         row[col.id] | dataTableInterpolate: col
       }}</span>
     </ng-template>
     <ng-template novoTemplate="dateCellTemplate" let-row let-col="col">
-      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableDateRenderer: col }}</span>
+      <span [tooltip]="row[col.id] | dataTableInterpolate: col | dataTableDateRenderer: col">{{ row[col.id] | dataTableInterpolate: col | dataTableDateRenderer: col }}</span>
     </ng-template>
     <ng-template novoTemplate="datetimeCellTemplate" let-row let-col="col">
-      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableDateTimeRenderer: col }}</span>
+      <span [tooltip]="row[col.id] | dataTableInterpolate: col | dataTableDateTimeRenderer: col">{{ row[col.id] | dataTableInterpolate: col | dataTableDateTimeRenderer: col }}</span>
     </ng-template>
     <ng-template novoTemplate="timeCellTemplate" let-row let-col="col">
-      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableTimeRenderer: col }}</span>
+      <span [tooltip]="row[col.id] | dataTableInterpolate: col | dataTableTimeRenderer: col">{{ row[col.id] | dataTableInterpolate: col | dataTableTimeRenderer: col }}</span>
     </ng-template>
     <ng-template novoTemplate="currencyCellTemplate" let-row let-col="col">
-      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableCurrencyRenderer: col }}</span>
+      <span [tooltip]="row[col.id] | dataTableInterpolate: col | dataTableCurrencyRenderer: col">{{ row[col.id] | dataTableInterpolate: col | dataTableCurrencyRenderer: col }}</span>
     </ng-template>
     <ng-template novoTemplate="bigdecimalCellTemplate" let-row let-col="col">
-      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableBigDecimalRenderer: col }}</span>
+      <span [tooltip]="row[col.id] | dataTableInterpolate: col | dataTableBigDecimalRenderer: col">{{ row[col.id] | dataTableInterpolate: col | dataTableBigDecimalRenderer: col }}</span>
     </ng-template>
     <ng-template novoTemplate="numberCellTemplate" let-row let-col="col">
-      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col }}</span>
+      <span [tooltip]="row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col">{{ row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col }}</span>
     </ng-template>
     <ng-template novoTemplate="percentCellTemplate" let-row let-col="col">
-      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col:true }}</span>
+      <span tooltip="row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col:true">{{ row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col:true }}</span>
     </ng-template>
     <ng-template novoTemplate="linkCellTemplate" let-row let-col="col">
       <a
         [attr.data-feature-id]="col?.attributes?.dataFeatureId"
         (click)="col.handlers?.click({ originalEvent: $event, row: row })"
+        (auxclick)="col.handlers?.auxClick({ originalEvent: $event, row: row })"
         [style.width.px]="col?.width"
         [style.min-width.px]="col?.width"
         [style.max-width.px]="col?.width"
+        [attr.target]="col.target"
+        [attr.href]="col.href"
         >{{ row[col.id] | dataTableInterpolate: col }}</a
       >
     </ng-template>

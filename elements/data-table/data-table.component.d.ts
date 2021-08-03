@@ -72,6 +72,7 @@ export declare class NovoDataTable<T> implements AfterContentInit, OnDestroy {
     private _columns;
     private scrollListenerHandler;
     private initialized;
+    toolTipSize: 'extra-large';
     get empty(): boolean;
     get loadingClass(): boolean;
     listInteractions: ListInteractionDictionary;
