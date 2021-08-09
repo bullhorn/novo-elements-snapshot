@@ -32053,9 +32053,11 @@ class FormUtils {
             YEAR: 'year',
             WORKFLOW_OPTIONS: 'select',
             SPECIALIZED_OPTIONS: 'select',
+            ALL_WORKFLOW_OPTIONS: 'select',
             WorkflowOptionsLookup: 'select',
             SpecializedOptionsLookup: 'select',
             SimplifiedOptionsLookup: 'select',
+            AllWorkflowOptionsLookup: 'select',
         };
         const dataTypeToTypeMap = {
             Timestamp: 'date',
@@ -32101,10 +32103,10 @@ class FormUtils {
             }
         }
         else if (field.type === 'TO_ONE') {
-            if ('SYSTEM' === field.dataSpecialization && ['WorkflowOptionsLookup', 'SpecializedOptionsLookup'].includes(field.dataType)) {
+            if ('SYSTEM' === field.dataSpecialization && ['WorkflowOptionsLookup', 'SpecializedOptionsLookup', 'AllWorkflowOptionsLookup'].includes(field.dataType)) {
                 type = dataSpecializationTypeMap[field.dataType];
             }
-            else if (['WORKFLOW_OPTIONS', 'SPECIALIZED_OPTIONS'].includes(field.dataSpecialization)) {
+            else if (['WORKFLOW_OPTIONS', 'SPECIALIZED_OPTIONS', 'ALL_WORKFLOW_OPTIONS'].includes(field.dataSpecialization)) {
                 type = dataSpecializationTypeMap[field.dataSpecialization];
             }
             else if (['SimplifiedOptionsLookup', 'SpecializedOptionsLookup'].includes(field.dataType)) {
