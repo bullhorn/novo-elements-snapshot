@@ -1,6 +1,5 @@
 import { EventEmitter, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { NovoLabelService } from '../../../../services/novo-label-service';
-import * as ɵngcc0 from '@angular/core';
 interface Page {
     num: number;
     text: string;
@@ -36,9 +35,5 @@ export declare class Pagination implements OnInit, OnChanges {
     makePage(num: number, text: string, isActive: boolean): Page;
     getPages(currentPage: number, totalPages: number): Page[];
     calculateTotalPages(): number;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<Pagination, never>;
-    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<Pagination, "novo-pagination", never, { "itemsPerPage": "itemsPerPage"; "disablePageSelection": "disablePageSelection"; "label": "label"; "rowOptions": "rowOptions"; "page": "page"; "totalItems": "totalItems"; }, { "pageChange": "pageChange"; "itemsPerPageChange": "itemsPerPageChange"; "onPageChange": "onPageChange"; }, never, never>;
 }
 export {};
-
-//# sourceMappingURL=Pagination.d.ts.map

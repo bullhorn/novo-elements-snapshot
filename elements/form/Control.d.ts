@@ -5,7 +5,6 @@ import { NovoLabelService } from '../../services/novo-label-service';
 import { DateFormatService } from '../../services/date-format/DateFormat';
 import { FieldInteractionApi } from './FieldInteractionApi';
 import { NovoTemplateService } from '../../services/template/NovoTemplateService';
-import * as ɵngcc0 from '@angular/core';
 export interface IMaskOptions {
     mask: any;
     keepCharPositions: boolean;
@@ -17,8 +16,6 @@ export declare class NovoAutoSize implements AfterContentInit {
     constructor(element: ElementRef);
     ngAfterContentInit(): void;
     adjust(): void;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoAutoSize, never>;
-    static ɵdir: ɵngcc0.ɵɵDirectiveDefWithMeta<NovoAutoSize, "textarea[autosize]", never, {}, {}, never>;
 }
 export declare class NovoControlElement extends OutsideClick implements OnInit, OnDestroy, AfterViewInit, AfterContentInit {
     labels: NovoLabelService;
@@ -107,8 +104,4 @@ export declare class NovoControlElement extends OutsideClick implements OnInit, 
     handleUpload(value: any): void;
     handleAddressChange(data: any): void;
     updateValidity(shouldEventBeEmitted: any): void;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoControlElement, never>;
-    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<NovoControlElement, "novo-control", never, { "condensed": "condensed"; "autoFocus": "autoFocus"; "control": "control"; "form": "form"; }, { "change": "change"; "edit": "edit"; "save": "save"; "delete": "delete"; "upload": "upload"; "onBlur": "blur"; "onFocus": "focus"; }, never, never>;
 }
-
-//# sourceMappingURL=Control.d.ts.map

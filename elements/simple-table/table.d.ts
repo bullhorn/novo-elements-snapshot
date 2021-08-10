@@ -5,31 +5,18 @@ import { ActivityTableService, ActivityTableDataSource } from './table-source';
 import { NovoLabelService } from '../../services/novo-label-service';
 import { NovoActivityTableState } from './state';
 /** Workaround for https://github.com/angular/angular/issues/17849 */
-import * as ɵngcc0 from '@angular/core';
 export declare const _NovoTable: typeof CdkTable;
 export declare class NovoTable<T> extends _NovoTable<T> {
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoTable<any>, never>;
-    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<NovoTable<any>, "novo-simple-table", never, {}, {}, never, ["caption", "colgroup, col"]>;
 }
 export declare class NovoActivityTableActions {
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoActivityTableActions, never>;
-    static ɵdir: ɵngcc0.ɵɵDirectiveDefWithMeta<NovoActivityTableActions, "novo-activity-table-actions", never, {}, {}, never>;
 }
 export declare class NovoActivityTableCustomHeader {
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoActivityTableCustomHeader, never>;
-    static ɵdir: ɵngcc0.ɵɵDirectiveDefWithMeta<NovoActivityTableCustomHeader, "novo-activity-table-custom-header", never, {}, {}, never>;
 }
 export declare class NovoActivityTableCustomFilter {
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoActivityTableCustomFilter, never>;
-    static ɵdir: ɵngcc0.ɵɵDirectiveDefWithMeta<NovoActivityTableCustomFilter, "novo-activity-table-custom-filter", never, {}, {}, never>;
 }
 export declare class NovoActivityTableEmptyMessage {
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoActivityTableEmptyMessage, never>;
-    static ɵdir: ɵngcc0.ɵɵDirectiveDefWithMeta<NovoActivityTableEmptyMessage, "novo-activity-table-empty-message", never, {}, {}, never>;
 }
 export declare class NovoActivityTableNoResultsMessage {
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoActivityTableNoResultsMessage, never>;
-    static ɵdir: ɵngcc0.ɵɵDirectiveDefWithMeta<NovoActivityTableNoResultsMessage, "novo-activity-table-no-results-message", never, {}, {}, never>;
 }
 export declare class NovoActivityTable<T> implements AfterContentInit, OnChanges, OnDestroy {
     labels: NovoLabelService;
@@ -69,8 +56,4 @@ export declare class NovoActivityTable<T> implements AfterContentInit, OnChanges
     ngOnDestroy(): void;
     ngAfterContentInit(): void;
     onSearchChange(term: string): void;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoActivityTable<any>, never>;
-    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<NovoActivityTable<any>, "novo-activity-table", never, { "customFilter": "customFilter"; "forceShowHeader": "forceShowHeader"; "hideGlobalSearch": "hideGlobalSearch"; "debug": "debug"; "activityService": "activityService"; "columns": "columns"; "displayedColumns": "displayedColumns"; "actionColumns": "actionColumns"; "paginationOptions": "paginationOptions"; "searchOptions": "searchOptions"; "defaultSort": "defaultSort"; "outsideFilter": "outsideFilter"; }, {}, never, ["[novo-activity-table-custom-header]", "[novo-activity-table-actions]", "[novo-activity-table-custom-filter]", "*", "[novo-activity-table-no-results-message]", "[novo-activity-table-empty-message]"]>;
 }
-
-//# sourceMappingURL=table.d.ts.map

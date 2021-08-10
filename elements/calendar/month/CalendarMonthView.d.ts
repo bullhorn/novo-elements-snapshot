@@ -11,7 +11,6 @@ import { Subject, Subscription } from 'rxjs';
  * &lt;/novo-calendar-month-view&gt;
  * ```
  */
-import * as ɵngcc0 from '@angular/core';
 export declare class NovoCalendarMonthViewElement implements OnChanges, OnInit, OnDestroy {
     private cdr;
     /**
@@ -108,8 +107,4 @@ export declare class NovoCalendarMonthViewElement implements OnChanges, OnInit, 
     private refreshHeader;
     private refreshBody;
     refreshAll(): void;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoCalendarMonthViewElement, never>;
-    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<NovoCalendarMonthViewElement, "novo-calendar-month", never, { "events": "events"; "excludeDays": "excludeDays"; "locale": "locale"; "tooltipPosition": "tooltipPosition"; "viewDate": "viewDate"; "dayModifier": "dayModifier"; "refresh": "refresh"; "weekStartsOn": "weekStartsOn"; "headerTemplate": "headerTemplate"; "cellTemplate": "cellTemplate"; }, { "dayClicked": "dayClicked"; "eventClicked": "eventClicked"; "eventTimesChanged": "eventTimesChanged"; "viewDateChange": "viewDateChange"; }, never, never>;
 }
-
-//# sourceMappingURL=CalendarMonthView.d.ts.map

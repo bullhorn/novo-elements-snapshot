@@ -5926,7 +5926,7 @@
             _this.labels = labels;
             return _this;
         }
-        ChecklistPickerResults.prototype.search = function () {
+        ChecklistPickerResults.prototype.search = function (term) {
             var _this = this;
             var options = this.config.options;
             // only set this the first time
@@ -5938,6 +5938,20 @@
                         _this.isStatic = true;
                         // Arrays are returned immediately
                         resolve(options);
+                    }
+                    else if (_this.shouldCallOptionsFunction(term)) {
+                        if ((options.hasOwnProperty('reject') && options.hasOwnProperty('resolve')) ||
+                            Object.getPrototypeOf(options).hasOwnProperty('then')) {
+                            _this.isStatic = false;
+                            // Promises (ES6 or Deferred) are resolved whenever they resolve
+                            options.then(resolve, reject);
+                        }
+                        else if (typeof options === 'function') {
+                            _this.isStatic = false;
+                            // Promises (ES6 or Deferred) are resolved whenever they resolve
+                            options(term, ++_this.page)
+                                .then(resolve, reject);
+                        }
                     }
                     else {
                         // All other kinds of data are rejected

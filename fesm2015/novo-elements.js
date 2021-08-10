@@ -5926,7 +5926,7 @@ class ChecklistPickerResults extends BasePickerResults {
         super(element, ref);
         this.labels = labels;
     }
-    search() {
+    search(term) {
         const options = this.config.options;
         // only set this the first time
         return from(new Promise((resolve, reject) => {
@@ -5937,6 +5937,20 @@ class ChecklistPickerResults extends BasePickerResults {
                     this.isStatic = true;
                     // Arrays are returned immediately
                     resolve(options);
+                }
+                else if (this.shouldCallOptionsFunction(term)) {
+                    if ((options.hasOwnProperty('reject') && options.hasOwnProperty('resolve')) ||
+                        Object.getPrototypeOf(options).hasOwnProperty('then')) {
+                        this.isStatic = false;
+                        // Promises (ES6 or Deferred) are resolved whenever they resolve
+                        options.then(resolve, reject);
+                    }
+                    else if (typeof options === 'function') {
+                        this.isStatic = false;
+                        // Promises (ES6 or Deferred) are resolved whenever they resolve
+                        options(term, ++this.page)
+                            .then(resolve, reject);
+                    }
                 }
                 else {
                     // All other kinds of data are rejected

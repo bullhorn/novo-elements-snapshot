@@ -1,7 +1,6 @@
 import { EventEmitter } from '@angular/core';
 import { Subject } from 'rxjs';
 import { IDataTableChangeEvent, IDataTableFilter, IDataTableSort } from '../interfaces';
-import * as ɵngcc0 from '@angular/core';
 export declare class DataTableState<T> {
     selectionSource: Subject<unknown>;
     paginationSource: Subject<unknown>;
@@ -30,8 +29,4 @@ export declare class DataTableState<T> {
     onPaginationChange(isPageSizeChange: boolean, pageSize: number): void;
     onSortFilterChange(): void;
     setInitialSortFilter(preferences: any): void;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<DataTableState<any>, never>;
-    static ɵprov: ɵngcc0.ɵɵInjectableDef<DataTableState<any>>;
 }
-
-//# sourceMappingURL=data-table-state.service.d.ts.map
