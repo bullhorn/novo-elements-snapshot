@@ -640,7 +640,10 @@ NovoTooltip.decorators = [
     { type: Component, args: [{
                 selector: 'novo-tooltip',
                 template: `
-    <div [@state]="noAnimate ? 'no-animation' : 'visible'"
+    <div *ngIf="this.isHTML" [@state]="noAnimate ? 'no-animation' : 'visible'"
+         [ngClass]="[tooltipType, this.rounded ? 'rounded' : '', size ? size : '', this.preline? 'preline' : '', position]"
+         [innerHTML]="message"></div>
+    <div *ngIf="!this.isHTML" [@state]="noAnimate ? 'no-animation' : 'visible'"
          [ngClass]="[tooltipType, this.rounded ? 'rounded' : '', size ? size : '', this.preline? 'preline' : '', position]">{{message}}</div>`,
                 animations: [
                     trigger('state', [
@@ -729,6 +732,7 @@ class TooltipDirective {
         tooltipInstance.preline = this.preline;
         tooltipInstance.noAnimate = this.noAnimate;
         tooltipInstance.position = this.removeArrow ? 'no-arrow' : this.position;
+        tooltipInstance.isHTML = this.isHTML;
     }
     hide() {
         if (this.overlayRef) {
@@ -843,6 +847,7 @@ TooltipDirective.propDecorators = {
     preline: [{ type: Input, args: ['tooltipPreline',] }],
     removeArrow: [{ type: Input, args: ['removeTooltipArrow',] }],
     autoPosition: [{ type: Input, args: ['tooltipAutoPosition',] }],
+    isHTML: [{ type: Input, args: ['tooltipIsHTML',] }],
     onMouseEnter: [{ type: HostListener, args: ['mouseenter',] }],
     onMouseLeave: [{ type: HostListener, args: ['mouseleave',] }]
 };

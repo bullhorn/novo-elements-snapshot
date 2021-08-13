@@ -9,6 +9,7 @@ export declare class NovoTooltip {
     preline: boolean;
     noAnimate: boolean;
     position: string;
+    isHTML: boolean;
     static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoTooltip, never>;
     static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<NovoTooltip, "novo-tooltip", never, {}, {}, never, never>;
 }

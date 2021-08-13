@@ -16,6 +16,7 @@ export declare class TooltipDirective implements OnDestroy, OnInit {
     preline: boolean;
     removeArrow: boolean;
     autoPosition: boolean;
+    isHTML: boolean;
     private tooltipInstance;
     private portal;
     private overlayRef;

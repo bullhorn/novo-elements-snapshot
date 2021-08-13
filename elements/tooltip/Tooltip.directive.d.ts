@@ -17,6 +17,7 @@ export declare class TooltipDirective implements OnDestroy, OnInit {
     preline: boolean;
     removeArrow: boolean;
     autoPosition: boolean;
+    isHTML: boolean;
     private tooltipInstance;
     private portal;
     private overlayRef;
@@ -33,7 +34,7 @@ export declare class TooltipDirective implements OnDestroy, OnInit {
     private getPosition;
     private withFallbackStrategy;
     static ɵfac: ɵngcc0.ɵɵFactoryDef<TooltipDirective, never>;
-    static ɵdir: ɵngcc0.ɵɵDirectiveDefWithMeta<TooltipDirective, "[tooltip]", never, { "position": "tooltipPosition"; "type": "tooltipType"; "active": "tooltipActive"; "removeArrow": "removeTooltipArrow"; "autoPosition": "tooltipAutoPosition"; "tooltip": "tooltip"; "size": "tooltipSize"; "bounce": "tooltipBounce"; "noAnimate": "tooltipNoAnimate"; "rounded": "tooltipRounded"; "always": "tooltipAlways"; "preline": "tooltipPreline"; }, {}, never>;
+    static ɵdir: ɵngcc0.ɵɵDirectiveDefWithMeta<TooltipDirective, "[tooltip]", never, { "position": "tooltipPosition"; "type": "tooltipType"; "active": "tooltipActive"; "removeArrow": "removeTooltipArrow"; "autoPosition": "tooltipAutoPosition"; "tooltip": "tooltip"; "size": "tooltipSize"; "bounce": "tooltipBounce"; "noAnimate": "tooltipNoAnimate"; "rounded": "tooltipRounded"; "always": "tooltipAlways"; "preline": "tooltipPreline"; "isHTML": "tooltipIsHTML"; }, {}, never>;
 }
 
 //# sourceMappingURL=Tooltip.directive.d.ts.map

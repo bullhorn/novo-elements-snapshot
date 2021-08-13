@@ -68,6 +68,22 @@ function NovoButtonElement_i_4_Template(rf, ctx) { if (rf & 1) {
 } }
 const _c1 = ["*"];
 const _c2 = function (a0, a1, a2, a3, a4) { return [a0, a1, a2, a3, a4]; };
+function NovoTooltip_div_0_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelement(0, "div", 2);
+} if (rf & 2) {
+    const ctx_r0 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵproperty("@state", ctx_r0.noAnimate ? "no-animation" : "visible")("ngClass", ɵngcc0.ɵɵpureFunction5(3, _c2, ctx_r0.tooltipType, ctx_r0.rounded ? "rounded" : "", ctx_r0.size ? ctx_r0.size : "", ctx_r0.preline ? "preline" : "", ctx_r0.position))("innerHTML", ctx_r0.message, ɵngcc0.ɵɵsanitizeHtml);
+} }
+function NovoTooltip_div_1_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "div", 3);
+    ɵngcc0.ɵɵtext(1);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const ctx_r1 = ɵngcc0.ɵɵnextContext();
+    ɵngcc0.ɵɵproperty("@state", ctx_r1.noAnimate ? "no-animation" : "visible")("ngClass", ɵngcc0.ɵɵpureFunction5(3, _c2, ctx_r1.tooltipType, ctx_r1.rounded ? "rounded" : "", ctx_r1.size ? ctx_r1.size : "", ctx_r1.preline ? "preline" : "", ctx_r1.position));
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵtextInterpolate(ctx_r1.message);
+} }
 function NovoEventTypeLegendElement_ng_template_0_div_1_Template(rf, ctx) { if (rf & 1) {
     const _r6 = ɵngcc0.ɵɵgetCurrentView();
     ɵngcc0.ɵɵelementStart(0, "div", 4);
@@ -6973,15 +6989,14 @@ NovoButtonModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoButt
 class NovoTooltip {
 }
 NovoTooltip.ɵfac = function NovoTooltip_Factory(t) { return new (t || NovoTooltip)(); };
-NovoTooltip.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoTooltip, selectors: [["novo-tooltip"]], decls: 2, vars: 9, consts: [[3, "ngClass"]], template: function NovoTooltip_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵelementStart(0, "div", 0);
-        ɵngcc0.ɵɵtext(1);
-        ɵngcc0.ɵɵelementEnd();
+NovoTooltip.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoTooltip, selectors: [["novo-tooltip"]], decls: 2, vars: 2, consts: [[3, "ngClass", "innerHTML", 4, "ngIf"], [3, "ngClass", 4, "ngIf"], [3, "ngClass", "innerHTML"], [3, "ngClass"]], template: function NovoTooltip_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵtemplate(0, NovoTooltip_div_0_Template, 1, 9, "div", 0);
+        ɵngcc0.ɵɵtemplate(1, NovoTooltip_div_1_Template, 2, 9, "div", 1);
     } if (rf & 2) {
-        ɵngcc0.ɵɵproperty("@state", ctx.noAnimate ? "no-animation" : "visible")("ngClass", ɵngcc0.ɵɵpureFunction5(3, _c2, ctx.tooltipType, ctx.rounded ? "rounded" : "", ctx.size ? ctx.size : "", ctx.preline ? "preline" : "", ctx.position));
+        ɵngcc0.ɵɵproperty("ngIf", ctx.isHTML);
         ɵngcc0.ɵɵadvance(1);
-        ɵngcc0.ɵɵtextInterpolate(ctx.message);
-    } }, directives: [ɵngcc1.NgClass], encapsulation: 2, data: { animation: [
+        ɵngcc0.ɵɵproperty("ngIf", !ctx.isHTML);
+    } }, directives: [ɵngcc1.NgIf, ɵngcc1.NgClass], encapsulation: 2, data: { animation: [
             trigger('state', [
                 state('initial, void, hidden', style({ opacity: '0' })),
                 state('visible', style({ opacity: '1' })),
@@ -7006,7 +7021,10 @@ NovoTooltip.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoTooltip, selectors: 
         args: [{
                 selector: 'novo-tooltip',
                 template: `
-    <div [@state]="noAnimate ? 'no-animation' : 'visible'"
+    <div *ngIf="this.isHTML" [@state]="noAnimate ? 'no-animation' : 'visible'"
+         [ngClass]="[tooltipType, this.rounded ? 'rounded' : '', size ? size : '', this.preline? 'preline' : '', position]"
+         [innerHTML]="message"></div>
+    <div *ngIf="!this.isHTML" [@state]="noAnimate ? 'no-animation' : 'visible'"
          [ngClass]="[tooltipType, this.rounded ? 'rounded' : '', size ? size : '', this.preline? 'preline' : '', position]">{{message}}</div>`,
                 animations: [
                     trigger('state', [
@@ -7095,6 +7113,7 @@ class TooltipDirective {
         tooltipInstance.preline = this.preline;
         tooltipInstance.noAnimate = this.noAnimate;
         tooltipInstance.position = this.removeArrow ? 'no-arrow' : this.position;
+        tooltipInstance.isHTML = this.isHTML;
     }
     hide() {
         if (this.overlayRef) {
@@ -7188,7 +7207,7 @@ TooltipDirective.ɵdir = ɵngcc0.ɵɵdefineDirective({ type: TooltipDirective, s
         ɵngcc0.ɵɵlistener("mouseenter", function TooltipDirective_mouseenter_HostBindingHandler() { return ctx.onMouseEnter(); })("mouseleave", function TooltipDirective_mouseleave_HostBindingHandler() { return ctx.onMouseLeave(); });
     } if (rf & 2) {
         ɵngcc0.ɵɵattribute("data-hint", ctx.tooltip);
-    } }, inputs: { position: ["tooltipPosition", "position"], type: ["tooltipType", "type"], active: ["tooltipActive", "active"], removeArrow: ["removeTooltipArrow", "removeArrow"], autoPosition: ["tooltipAutoPosition", "autoPosition"], tooltip: "tooltip", size: ["tooltipSize", "size"], bounce: ["tooltipBounce", "bounce"], noAnimate: ["tooltipNoAnimate", "noAnimate"], rounded: ["tooltipRounded", "rounded"], always: ["tooltipAlways", "always"], preline: ["tooltipPreline", "preline"] } });
+    } }, inputs: { position: ["tooltipPosition", "position"], type: ["tooltipType", "type"], active: ["tooltipActive", "active"], removeArrow: ["removeTooltipArrow", "removeArrow"], autoPosition: ["tooltipAutoPosition", "autoPosition"], tooltip: "tooltip", size: ["tooltipSize", "size"], bounce: ["tooltipBounce", "bounce"], noAnimate: ["tooltipNoAnimate", "noAnimate"], rounded: ["tooltipRounded", "rounded"], always: ["tooltipAlways", "always"], preline: ["tooltipPreline", "preline"], isHTML: ["tooltipIsHTML", "isHTML"] } });
 TooltipDirective.ctorParameters = () => [
     { type: Overlay },
     { type: ViewContainerRef },
@@ -7207,6 +7226,7 @@ TooltipDirective.propDecorators = {
     preline: [{ type: Input, args: ['tooltipPreline',] }],
     removeArrow: [{ type: Input, args: ['removeTooltipArrow',] }],
     autoPosition: [{ type: Input, args: ['tooltipAutoPosition',] }],
+    isHTML: [{ type: Input, args: ['tooltipIsHTML',] }],
     onMouseEnter: [{ type: HostListener, args: ['mouseenter',] }],
     onMouseLeave: [{ type: HostListener, args: ['mouseleave',] }]
 };
@@ -7259,6 +7279,9 @@ TooltipDirective.propDecorators = {
         }], preline: [{
             type: Input,
             args: ['tooltipPreline']
+        }], isHTML: [{
+            type: Input,
+            args: ['tooltipIsHTML']
         }] }); })();
 
 // NG2
