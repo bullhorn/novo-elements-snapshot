@@ -1,4 +1,4 @@
-import { forwardRef, EventEmitter, Component, ElementRef, Input, Output, NgModule, ChangeDetectionStrategy, Directive, ViewContainerRef, HostListener, Pipe, Injectable, Inject, LOCALE_ID, ChangeDetectorRef, Optional, HostBinding, ContentChildren, TemplateRef, Injector, ComponentFactoryResolver, ViewChild, NgZone, isDevMode, Renderer2, ViewChildren, ViewEncapsulation, Host, ContentChild, PLATFORM_ID } from '@angular/core';
+import { forwardRef, EventEmitter, Component, ElementRef, Input, Output, NgModule, ChangeDetectionStrategy, Directive, ViewContainerRef, HostListener, Pipe, Injectable, Inject, LOCALE_ID, ChangeDetectorRef, Optional, HostBinding, ContentChildren, TemplateRef, Injector, ComponentFactoryResolver, ViewChild, NgZone, isDevMode, Renderer2, ViewChildren, ViewEncapsulation, Host, ContentChild, PLATFORM_ID, ɵɵdefineInjectable } from '@angular/core';
 import { NG_VALUE_ACCESSOR, FormsModule, ReactiveFormsModule, Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import 'brace/index';
 import 'brace/theme/chrome';
@@ -53156,9 +53156,12 @@ class Security {
     }
 }
 Security.ɵfac = function Security_Factory(t) { return new (t || Security)(); };
-Security.ɵprov = ɵngcc0.ɵɵdefineInjectable({ token: Security, factory: Security.ɵfac });
+Security.ɵprov = ɵɵdefineInjectable({ factory: function Security_Factory() { return new Security(); }, token: Security, providedIn: "root" });
 /*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(Security, [{
-        type: Injectable
+        type: Injectable,
+        args: [{
+                providedIn: 'root'
+            }]
     }], function () { return []; }, null); })();
 
 // NG2

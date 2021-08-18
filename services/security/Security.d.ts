@@ -18,7 +18,6 @@ export declare class Security {
         entityType?: string;
     }): any;
     static ɵfac: ɵngcc0.ɵɵFactoryDef<Security, never>;
-    static ɵprov: ɵngcc0.ɵɵInjectableDef<Security>;
 }
 
 //# sourceMappingURL=Security.d.ts.map

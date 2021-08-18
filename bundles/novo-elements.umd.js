@@ -2,7 +2,7 @@
     typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports, require('@angular/core'), require('@angular/forms'), require('brace/index'), require('brace/theme/chrome'), require('brace/mode/javascript'), require('brace/ext/language_tools.js'), require('@angular/common'), require('@angular/cdk/overlay'), require('@angular/cdk/portal'), require('@angular/animations'), require('date-fns'), require('rxjs'), require('@angular/cdk/coercion'), require('@angular/cdk/scrolling'), require('rxjs/operators'), require('@angular/platform-browser'), require('@angular/cdk/table'), require('@angular/cdk/a11y'), require('@bullhorn/dragula'), require('@angular/cdk/keycodes'), require('angular2-text-mask'), require('text-mask-addons/dist/createAutoCorrectedDatePipe'), require('@angular/cdk/accordion'), require('@angular/cdk/collections'), require('@angular/common/http'), require('@angular/cdk/stepper'), require('@angular/cdk/bidi')) :
     typeof define === 'function' && define.amd ? define('novo-elements', ['exports', '@angular/core', '@angular/forms', 'brace/index', 'brace/theme/chrome', 'brace/mode/javascript', 'brace/ext/language_tools.js', '@angular/common', '@angular/cdk/overlay', '@angular/cdk/portal', '@angular/animations', 'date-fns', 'rxjs', '@angular/cdk/coercion', '@angular/cdk/scrolling', 'rxjs/operators', '@angular/platform-browser', '@angular/cdk/table', '@angular/cdk/a11y', '@bullhorn/dragula', '@angular/cdk/keycodes', 'angular2-text-mask', 'text-mask-addons/dist/createAutoCorrectedDatePipe', '@angular/cdk/accordion', '@angular/cdk/collections', '@angular/common/http', '@angular/cdk/stepper', '@angular/cdk/bidi'], factory) :
     (global = typeof globalThis !== 'undefined' ? globalThis : global || self, factory(global['novo-elements'] = {}, global.ng.core, global.ng.forms, null, null, null, null, global.ng.common, global.ng.cdk.overlay, global.ng.cdk.portal, global.ng.animations, global.dateFns, global.rxjs, global.ng.cdk.coercion, global.ng.cdk.scrolling, global.rxjs.operators, global.ng.platformBrowser, global.ng.cdk.table, global.ng.cdk.a11y, global.dragulaImported, global.ng.cdk.keycodes, global.angular2TextMask, global.createAutoCorrectedDatePipe, global.ng.cdk.accordion, global.ng.cdk.collections, global.ng.common.http, global.ng.cdk.stepper, global.ng.cdk.bidi));
-}(this, (function (exports, core, forms, index, chrome, javascript, language_tools_js, common, overlay, portal, animations, dateFns, rxjs, coercion, scrolling, operators, platformBrowser, table, a11y, dragulaImported, keycodes, angular2TextMask, createAutoCorrectedDatePipe, accordion, collections, http, stepper, bidi) { 'use strict';
+}(this, (function (exports, i0, forms, index, chrome, javascript, language_tools_js, common, overlay, portal, animations, dateFns, rxjs, coercion, scrolling, operators, platformBrowser, table, a11y, dragulaImported, keycodes, angular2TextMask, createAutoCorrectedDatePipe, accordion, collections, http, stepper, bidi) { 'use strict';
 
     function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -441,14 +441,14 @@
     // NG2
     var ACE_VALUE_ACCESSOR = {
         provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return NovoAceEditor; }),
+        useExisting: i0.forwardRef(function () { return NovoAceEditor; }),
         multi: true,
     };
     var NovoAceEditor = /** @class */ (function () {
         function NovoAceEditor(elementRef) {
             this.elementRef = elementRef;
-            this.blur = new core.EventEmitter();
-            this.focus = new core.EventEmitter();
+            this.blur = new i0.EventEmitter();
+            this.focus = new i0.EventEmitter();
             this._options = {
                 showPrintMargin: false,
                 displayIndentGuides: true,
@@ -551,22 +551,22 @@
         return NovoAceEditor;
     }());
     NovoAceEditor.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-ace-editor',
                     template: '',
                     providers: [ACE_VALUE_ACCESSOR]
                 },] }
     ];
     NovoAceEditor.ctorParameters = function () { return [
-        { type: core.ElementRef }
+        { type: i0.ElementRef }
     ]; };
     NovoAceEditor.propDecorators = {
-        theme: [{ type: core.Input }],
-        options: [{ type: core.Input }],
-        mode: [{ type: core.Input }],
-        name: [{ type: core.Input }],
-        blur: [{ type: core.Output }],
-        focus: [{ type: core.Output }]
+        theme: [{ type: i0.Input }],
+        options: [{ type: i0.Input }],
+        mode: [{ type: i0.Input }],
+        name: [{ type: i0.Input }],
+        blur: [{ type: i0.Output }],
+        focus: [{ type: i0.Output }]
     };
 
     // NG2
@@ -576,7 +576,7 @@
         return NovoAceEditorModule;
     }());
     NovoAceEditorModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule],
                     declarations: [NovoAceEditor],
                     exports: [NovoAceEditor],
@@ -603,7 +603,7 @@
         return NovoButtonElement;
     }());
     NovoButtonElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'button[theme]',
                     host: {
                         '[attr.theme]': 'theme',
@@ -613,15 +613,15 @@
                         '[attr.side]': 'side',
                     },
                     template: "\n    <div class=\"flex-wrapper\">\n      <!--Left Icon-->\n      <i *ngIf=\"icon && side === 'left' && !loading\" [ngClass]=\"icon\"></i>\n      <!--Transcluded Content-->\n      <ng-content></ng-content>\n      <!--Right Icon-->\n      <i *ngIf=\"icon && side === 'right' && !loading\" [ngClass]=\"icon\"></i>\n      <!--Loading-->\n      <i *ngIf=\"loading\" class=\"loading\">\n        <svg\n          version=\"1.1\"\n          xmlns=\"http://www.w3.org/2000/svg\"\n          xmlns:xlink=\"http://www.w3.org/1999/xlink\"\n          xmlns:a=\"http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/\"\n          x=\"0px\"\n          y=\"0px\"\n          width=\"18.2px\"\n          height=\"18.5px\"\n          viewBox=\"0 0 18.2 18.5\"\n          style=\"enable-background:new 0 0 18.2 18.5;\"\n          xml:space=\"preserve\"\n        >\n          <style type=\"text/css\">\n            .spinner {\n              fill: #ffffff;\n            }\n          </style>\n          <path\n            class=\"spinner\"\n            d=\"M9.2,18.5C4.1,18.5,0,14.4,0,9.2S4.1,0,9.2,0c0.9,0,1.9,0.1,2.7,0.4c0.8,0.2,1.2,1.1,1,1.9\n                        c-0.2,0.8-1.1,1.2-1.9,1C10.5,3.1,9.9,3,9.2,3C5.8,3,3,5.8,3,9.2s2.8,6.2,6.2,6.2c2.8,0,5.3-1.9,6-4.7c0.2-0.8,1-1.3,1.8-1.1\n                        c0.8,0.2,1.3,1,1.1,1.8C17.1,15.7,13.4,18.5,9.2,18.5z\"\n          />\n        </svg>\n      </i>\n    </div>\n  ",
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     NovoButtonElement.propDecorators = {
-        color: [{ type: core.Input }],
-        side: [{ type: core.Input }],
-        theme: [{ type: core.Input }],
-        loading: [{ type: core.Input }],
-        icon: [{ type: core.Input }]
+        color: [{ type: i0.Input }],
+        side: [{ type: i0.Input }],
+        theme: [{ type: i0.Input }],
+        loading: [{ type: i0.Input }],
+        icon: [{ type: i0.Input }]
     };
 
     // NG2
@@ -631,7 +631,7 @@
         return NovoButtonModule;
     }());
     NovoButtonModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule],
                     declarations: [NovoButtonElement],
                     exports: [NovoButtonElement],
@@ -645,7 +645,7 @@
         return NovoTooltip;
     }());
     NovoTooltip.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-tooltip',
                     template: "\n    <div *ngIf=\"this.isHTML\" [@state]=\"noAnimate ? 'no-animation' : 'visible'\"\n         [ngClass]=\"[tooltipType, this.rounded ? 'rounded' : '', size ? size : '', this.preline? 'preline' : '', position]\"\n         [innerHTML]=\"message\"></div>\n    <div *ngIf=\"!this.isHTML\" [@state]=\"noAnimate ? 'no-animation' : 'visible'\"\n         [ngClass]=\"[tooltipType, this.rounded ? 'rounded' : '', size ? size : '', this.preline? 'preline' : '', position]\">{{message}}</div>",
                     animations: [
@@ -826,7 +826,7 @@
         return TooltipDirective;
     }());
     TooltipDirective.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[tooltip]',
                     host: {
                         '[attr.data-hint]': 'tooltip',
@@ -835,25 +835,25 @@
     ];
     TooltipDirective.ctorParameters = function () { return [
         { type: overlay.Overlay },
-        { type: core.ViewContainerRef },
-        { type: core.ElementRef }
+        { type: i0.ViewContainerRef },
+        { type: i0.ElementRef }
     ]; };
     TooltipDirective.propDecorators = {
-        tooltip: [{ type: core.Input }],
-        position: [{ type: core.Input, args: ['tooltipPosition',] }],
-        type: [{ type: core.Input, args: ['tooltipType',] }],
-        size: [{ type: core.Input, args: ['tooltipSize',] }],
-        bounce: [{ type: core.Input, args: ['tooltipBounce',] }],
-        noAnimate: [{ type: core.Input, args: ['tooltipNoAnimate',] }],
-        rounded: [{ type: core.Input, args: ['tooltipRounded',] }],
-        always: [{ type: core.Input, args: ['tooltipAlways',] }],
-        active: [{ type: core.Input, args: ['tooltipActive',] }],
-        preline: [{ type: core.Input, args: ['tooltipPreline',] }],
-        removeArrow: [{ type: core.Input, args: ['removeTooltipArrow',] }],
-        autoPosition: [{ type: core.Input, args: ['tooltipAutoPosition',] }],
-        isHTML: [{ type: core.Input, args: ['tooltipIsHTML',] }],
-        onMouseEnter: [{ type: core.HostListener, args: ['mouseenter',] }],
-        onMouseLeave: [{ type: core.HostListener, args: ['mouseleave',] }]
+        tooltip: [{ type: i0.Input }],
+        position: [{ type: i0.Input, args: ['tooltipPosition',] }],
+        type: [{ type: i0.Input, args: ['tooltipType',] }],
+        size: [{ type: i0.Input, args: ['tooltipSize',] }],
+        bounce: [{ type: i0.Input, args: ['tooltipBounce',] }],
+        noAnimate: [{ type: i0.Input, args: ['tooltipNoAnimate',] }],
+        rounded: [{ type: i0.Input, args: ['tooltipRounded',] }],
+        always: [{ type: i0.Input, args: ['tooltipAlways',] }],
+        active: [{ type: i0.Input, args: ['tooltipActive',] }],
+        preline: [{ type: i0.Input, args: ['tooltipPreline',] }],
+        removeArrow: [{ type: i0.Input, args: ['removeTooltipArrow',] }],
+        autoPosition: [{ type: i0.Input, args: ['tooltipAutoPosition',] }],
+        isHTML: [{ type: i0.Input, args: ['tooltipIsHTML',] }],
+        onMouseEnter: [{ type: i0.HostListener, args: ['mouseenter',] }],
+        onMouseLeave: [{ type: i0.HostListener, args: ['mouseleave',] }]
     };
 
     // NG2
@@ -863,7 +863,7 @@
         return NovoTooltipModule;
     }());
     NovoTooltipModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule],
                     declarations: [TooltipDirective, NovoTooltip],
                     exports: [TooltipDirective],
@@ -1226,8 +1226,8 @@
         return PluralPipe;
     }());
     PluralPipe.decorators = [
-        { type: core.Pipe, args: [{ name: 'plural' },] },
-        { type: core.Injectable }
+        { type: i0.Pipe, args: [{ name: 'plural' },] },
+        { type: i0.Injectable }
     ];
 
     // NG2
@@ -1244,8 +1244,8 @@
         return DecodeURIPipe;
     }());
     DecodeURIPipe.decorators = [
-        { type: core.Pipe, args: [{ name: 'decodeURI' },] },
-        { type: core.Injectable }
+        { type: i0.Pipe, args: [{ name: 'decodeURI' },] },
+        { type: i0.Injectable }
     ];
 
     /*! *****************************************************************************
@@ -1591,7 +1591,7 @@
         return GroupByPipe;
     }());
     GroupByPipe.decorators = [
-        { type: core.Pipe, args: [{
+        { type: i0.Pipe, args: [{
                     name: 'groupBy',
                 },] }
     ];
@@ -1603,7 +1603,7 @@
         return NovoPipesModule;
     }());
     NovoPipesModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     declarations: [PluralPipe, DecodeURIPipe, GroupByPipe],
                     exports: [PluralPipe, DecodeURIPipe, GroupByPipe],
                 },] }
@@ -1611,20 +1611,20 @@
 
     var NovoEventTypeLegendElement = /** @class */ (function () {
         function NovoEventTypeLegendElement() {
-            this.eventTypeClicked = new core.EventEmitter();
+            this.eventTypeClicked = new i0.EventEmitter();
         }
         return NovoEventTypeLegendElement;
     }());
     NovoEventTypeLegendElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-event-type-legend',
                     template: "\n    <ng-template #defaultTemplate>\n      <div class=\"cal-event-legend\">\n        <div class=\"cal-event-type\"\n          *ngFor=\"let type of events | groupBy : 'type'\"\n          (click)=\"$event.stopPropagation(); eventTypeClicked.emit({event:type?.key})\">\n          <div class=\"cal-event-type-swatch\"></div><div>{{type?.key}}</div>\n        </div>\n      </div>\n    </ng-template>\n    <ng-template\n      [ngTemplateOutlet]=\"customTemplate || defaultTemplate\"\n      [ngTemplateOutletContext]=\"{events: events, eventTypeClicked: eventTypeClicked}\">\n    </ng-template>\n  "
                 },] }
     ];
     NovoEventTypeLegendElement.propDecorators = {
-        events: [{ type: core.Input }],
-        customTemplate: [{ type: core.Input }],
-        eventTypeClicked: [{ type: core.Output }]
+        events: [{ type: i0.Input }],
+        customTemplate: [{ type: i0.Input }],
+        eventTypeClicked: [{ type: i0.Output }]
     };
 
     var NovoCalendarDateChangeElement = /** @class */ (function () {
@@ -1632,7 +1632,7 @@
             /**
              * Called when the view date is changed
              */
-            this.viewDateChange = new core.EventEmitter();
+            this.viewDateChange = new i0.EventEmitter();
             this.locale = locale;
         }
         /**
@@ -1669,19 +1669,19 @@
         return NovoCalendarDateChangeElement;
     }());
     NovoCalendarDateChangeElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-calendar-date-change',
                     template: "\n    <div class=\"cal-date-change\">\n        <i class=\"bhi-arrow-left\" (click)=\"subtractDate()\" ></i>\n        <span [ngSwitch]=\"view\">\n            <span *ngSwitchCase=\"'month'\">{{ ( viewDate | month:locale ) + ' ' + ( viewDate | year:locale ) }}</span>\n            <span *ngSwitchCase=\"'week'\">{{ ( startOfWeek | monthday:locale:'long' ) + ' - ' + ( endOfWeek | endofweekdisplay:startOfWeek:locale:'long' ) }}</span>\n            <span *ngSwitchCase=\"'day'\">{{ ( viewDate | weekday:locale:'long' ) + ', ' + ( viewDate | month:locale ) + ' ' + ( viewDate | dayofmonth:locale ) }}</span>\n        </span>\n        <i class=\"bhi-arrow-right\" (click)=\"addDate()\"></i>\n    </div>\n  "
                 },] }
     ];
     NovoCalendarDateChangeElement.ctorParameters = function () { return [
-        { type: String, decorators: [{ type: core.Inject, args: [core.LOCALE_ID,] }] }
+        { type: String, decorators: [{ type: i0.Inject, args: [i0.LOCALE_ID,] }] }
     ]; };
     NovoCalendarDateChangeElement.propDecorators = {
-        view: [{ type: core.Input }],
-        viewDate: [{ type: core.Input }],
-        locale: [{ type: core.Input }],
-        viewDateChange: [{ type: core.Output }]
+        view: [{ type: i0.Input }],
+        viewDate: [{ type: i0.Input }],
+        locale: [{ type: i0.Input }],
+        viewDateChange: [{ type: i0.Output }]
     };
 
     var WEEKEND_DAY_NUMBERS = [0, 6];
@@ -2055,16 +2055,16 @@
             /**
              * Called when the day cell is clicked
              */
-            this.dayClicked = new core.EventEmitter();
+            this.dayClicked = new i0.EventEmitter();
             /**
              * Called when the event title is clicked
              */
-            this.eventClicked = new core.EventEmitter();
+            this.eventClicked = new i0.EventEmitter();
             /**
              * Called when an event is dragged and dropped
              */
-            this.eventTimesChanged = new core.EventEmitter();
-            this.viewDateChange = new core.EventEmitter();
+            this.eventTimesChanged = new i0.EventEmitter();
+            this.viewDateChange = new i0.EventEmitter();
             this.locale = locale;
         }
         /**
@@ -2140,30 +2140,30 @@
         return NovoCalendarMonthViewElement;
     }());
     NovoCalendarMonthViewElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-calendar-month',
                     template: "\n    <div class=\"calendar-month-view\">\n       <novo-calendar-month-header\n         [(viewDate)]=\"viewDate\"\n         [days]=\"columnHeaders\"\n         [locale]=\"locale\"\n         [customTemplate]=\"headerTemplate\"\n         (viewDateChange)=\"refreshAll()\">\n       </novo-calendar-month-header>\n      <div class=\"calendar-days\">\n        <div *ngFor=\"let rowIndex of view.rowOffsets\">\n          <div class=\"calendar-cell-row\">\n            <novo-calendar-month-day\n              *ngFor=\"let day of view.days | slice : rowIndex : rowIndex + (view.totalDaysVisibleInWeek)\"\n              [day]=\"day\"\n              [locale]=\"locale\"\n              [customTemplate]=\"cellTemplate\"\n              (click)=\"dayClicked.emit({day: day})\"\n              (eventClicked)=\"eventClicked.emit({ day: day, event: $event.event})\">\n            </novo-calendar-month-day>\n          </div>\n        </div>\n      </div>\n    </div>\n  "
                 },] }
     ];
     NovoCalendarMonthViewElement.ctorParameters = function () { return [
-        { type: core.ChangeDetectorRef },
-        { type: String, decorators: [{ type: core.Inject, args: [core.LOCALE_ID,] }] }
+        { type: i0.ChangeDetectorRef },
+        { type: String, decorators: [{ type: i0.Inject, args: [i0.LOCALE_ID,] }] }
     ]; };
     NovoCalendarMonthViewElement.propDecorators = {
-        viewDate: [{ type: core.Input }],
-        events: [{ type: core.Input }],
-        excludeDays: [{ type: core.Input }],
-        dayModifier: [{ type: core.Input }],
-        refresh: [{ type: core.Input }],
-        locale: [{ type: core.Input }],
-        tooltipPosition: [{ type: core.Input }],
-        weekStartsOn: [{ type: core.Input }],
-        headerTemplate: [{ type: core.Input }],
-        cellTemplate: [{ type: core.Input }],
-        dayClicked: [{ type: core.Output }],
-        eventClicked: [{ type: core.Output }],
-        eventTimesChanged: [{ type: core.Output }],
-        viewDateChange: [{ type: core.Output }]
+        viewDate: [{ type: i0.Input }],
+        events: [{ type: i0.Input }],
+        excludeDays: [{ type: i0.Input }],
+        dayModifier: [{ type: i0.Input }],
+        refresh: [{ type: i0.Input }],
+        locale: [{ type: i0.Input }],
+        tooltipPosition: [{ type: i0.Input }],
+        weekStartsOn: [{ type: i0.Input }],
+        headerTemplate: [{ type: i0.Input }],
+        cellTemplate: [{ type: i0.Input }],
+        dayClicked: [{ type: i0.Output }],
+        eventClicked: [{ type: i0.Output }],
+        eventTimesChanged: [{ type: i0.Output }],
+        viewDateChange: [{ type: i0.Output }]
     };
 
     var NovoCalendarMonthHeaderElement = /** @class */ (function () {
@@ -2171,7 +2171,7 @@
             /**
              * Called when the view date is changed
              */
-            this.viewDateChange = new core.EventEmitter();
+            this.viewDateChange = new i0.EventEmitter();
         }
         NovoCalendarMonthHeaderElement.prototype.prevMonth = function (event) {
             this.viewDateChange.emit(dateFns.subMonths(this.viewDate, 1));
@@ -2182,22 +2182,22 @@
         return NovoCalendarMonthHeaderElement;
     }());
     NovoCalendarMonthHeaderElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-calendar-month-header',
                     template: "\n    <ng-template #defaultTemplate>\n      <div class=\"calendar-header\">\n        <div class=\"calendar-header-top\">\n          <button theme=\"icon\" icon=\"previous\" (click)=\"prevMonth($event)\"></button>\n          <div class=\"calendar-month\">{{ viewDate | month:locale }}</div>\n          <button theme=\"icon\" icon=\"next\" (click)=\"nextMonth($event)\"></button>\n        </div>\n        <div class=\"calendar-weekdays\">\n          <div\n            class=\"calendar-weekday\"\n            *ngFor=\"let day of days\"\n            [class.calendar-past]=\"day.isPast\"\n            [class.calendar-today]=\"day.isToday\"\n            [class.calendar-future]=\"day.isFuture\"\n            [class.calendar-weekend]=\"day.isWeekend\">\n            {{ day.date | weekday:locale }}\n          </div>\n        </div>\n      </div>\n    </ng-template>\n    <ng-template\n      [ngTemplateOutlet]=\"customTemplate || defaultTemplate\"\n      [ngTemplateOutletContext]=\"{days: days, locale: locale, viewDate: viewDate}\">\n    </ng-template>\n  "
                 },] }
     ];
     NovoCalendarMonthHeaderElement.propDecorators = {
-        viewDate: [{ type: core.Input }],
-        days: [{ type: core.Input }],
-        locale: [{ type: core.Input }],
-        customTemplate: [{ type: core.Input }],
-        viewDateChange: [{ type: core.Output }]
+        viewDate: [{ type: i0.Input }],
+        days: [{ type: i0.Input }],
+        locale: [{ type: i0.Input }],
+        customTemplate: [{ type: i0.Input }],
+        viewDateChange: [{ type: i0.Output }]
     };
 
     var NovoCalendarMonthDayElement = /** @class */ (function () {
         function NovoCalendarMonthDayElement() {
-            this.eventClicked = new core.EventEmitter();
+            this.eventClicked = new i0.EventEmitter();
         }
         Object.defineProperty(NovoCalendarMonthDayElement.prototype, "accepted", {
             get: function () {
@@ -2238,7 +2238,7 @@
         return NovoCalendarMonthDayElement;
     }());
     NovoCalendarMonthDayElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-calendar-month-day',
                     template: "\n    <ng-template #defaultTemplate>\n      <div class=\"calendar-day-top\">\n        <span class=\"calendar-day-badge\" *ngIf=\"day.badgeTotal > 0\">{{ day.badgeTotal }}</span>\n        <span class=\"calendar-day-number\">{{ day.date | dayofmonth:locale }}</span>\n      </div>\n      <div class=\"calendar-events\">\n        <div\n          class=\"calendar-event\"\n          *ngFor=\"let type of day.events | groupBy : 'type'\"\n          [style.backgroundColor]=\"type?.value[0]?.color.primary\"\n          [ngClass]=\"type?.value[0]?.cssClass\"\n          (click)=\"$event.stopPropagation(); eventClicked.emit({event:type?.value[0]})\">\n          {{type?.value.length}}\n        </div>\n      </div>\n    </ng-template>\n    <ng-template\n      [ngTemplateOutlet]=\"customTemplate || defaultTemplate\"\n      [ngTemplateOutletContext]=\"{\n        day: day,\n        locale: locale,\n        tooltipPosition: tooltipPosition,\n        eventClicked: eventClicked,\n        accepted: accepted,\n        rejected: rejected,\n        maybes: maybes\n      }\">\n    </ng-template>\n  ",
                     host: {
@@ -2257,11 +2257,11 @@
                 },] }
     ];
     NovoCalendarMonthDayElement.propDecorators = {
-        day: [{ type: core.Input }],
-        locale: [{ type: core.Input }],
-        tooltipPosition: [{ type: core.Input }],
-        customTemplate: [{ type: core.Input }],
-        eventClicked: [{ type: core.Output }]
+        day: [{ type: i0.Input }],
+        locale: [{ type: i0.Input }],
+        tooltipPosition: [{ type: i0.Input }],
+        customTemplate: [{ type: i0.Input }],
+        eventClicked: [{ type: i0.Output }]
     };
 
     /**
@@ -2328,19 +2328,19 @@
             /**
              * Called when an hour segment is clicked
              */
-            this.hourSegmentClicked = new core.EventEmitter();
+            this.hourSegmentClicked = new i0.EventEmitter();
             /**
              * Called when a header week day is clicked
              */
-            this.dayClicked = new core.EventEmitter();
+            this.dayClicked = new i0.EventEmitter();
             /**
              * Called when the event title is clicked
              */
-            this.eventClicked = new core.EventEmitter();
+            this.eventClicked = new i0.EventEmitter();
             /**
              * Called when an event is resized or dragged and dropped
              */
-            this.eventTimesChanged = new core.EventEmitter();
+            this.eventTimesChanged = new i0.EventEmitter();
             /**
              * @hidden
              */
@@ -2507,76 +2507,76 @@
         return NovoCalendarWeekViewElement;
     }());
     NovoCalendarWeekViewElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-calendar-week',
                     template: "\n    <div class=\"cal-week-view\" #weekViewContainer>\n      <novo-calendar-week-header\n        [days]=\"days\"\n        [locale]=\"locale\"\n        [customTemplate]=\"headerTemplate\"\n        (dayClicked)=\"dayClicked.emit($event)\">\n      </novo-calendar-week-header>\n      <div *ngFor=\"let eventRow of eventRows\" #eventRowContainer>\n        <div\n          class=\"cal-event-container\"\n          #event\n          *ngFor=\"let weekEvent of eventRow.row\"\n          [style.width]=\"((100 / days.length) * weekEvent.span) + '%'\"\n          [style.marginTop.px]=\"weekEvent.top\"\n          [style.height.px]=\"weekEvent.height\"\n          [style.marginLeft]=\"((100 / days.length) * weekEvent.offset) + '%'\">\n          <novo-calendar-week-event\n            [weekEvent]=\"weekEvent\"\n            [tooltipPosition]=\"tooltipPosition\"\n            [customTemplate]=\"eventTemplate\"\n            (eventClicked)=\"eventClicked.emit($event)\">\n          </novo-calendar-week-event>\n        </div>\n      </div>\n      <div class=\"cal-hour\" *ngFor=\"let hour of hours\" [style.minWidth.px]=\"70\">\n        <novo-calendar-day-hour-segment\n          *ngFor=\"let segment of hour.segments\"\n          [segment]=\"segment\"\n          [locale]=\"locale\"\n          [customTemplate]=\"hourSegmentTemplate\"\n          (click)=\"hourSegmentClicked.emit({date: segment.date})\">\n        </novo-calendar-day-hour-segment>\n      </div>\n    </div>\n  "
                 },] }
     ];
     NovoCalendarWeekViewElement.ctorParameters = function () { return [
-        { type: core.ChangeDetectorRef },
-        { type: String, decorators: [{ type: core.Inject, args: [core.LOCALE_ID,] }] }
+        { type: i0.ChangeDetectorRef },
+        { type: String, decorators: [{ type: i0.Inject, args: [i0.LOCALE_ID,] }] }
     ]; };
     NovoCalendarWeekViewElement.propDecorators = {
-        viewDate: [{ type: core.Input }],
-        events: [{ type: core.Input }],
-        excludeDays: [{ type: core.Input }],
-        refresh: [{ type: core.Input }],
-        locale: [{ type: core.Input }],
-        tooltipPosition: [{ type: core.Input }],
-        weekStartsOn: [{ type: core.Input }],
-        headerTemplate: [{ type: core.Input }],
-        eventTemplate: [{ type: core.Input }],
-        precision: [{ type: core.Input }],
-        hourSegments: [{ type: core.Input }],
-        dayStartHour: [{ type: core.Input }],
-        dayStartMinute: [{ type: core.Input }],
-        dayEndHour: [{ type: core.Input }],
-        dayEndMinute: [{ type: core.Input }],
-        hourSegmentTemplate: [{ type: core.Input }],
-        hourSegmentClicked: [{ type: core.Output }],
-        dayClicked: [{ type: core.Output }],
-        eventClicked: [{ type: core.Output }],
-        eventTimesChanged: [{ type: core.Output }]
+        viewDate: [{ type: i0.Input }],
+        events: [{ type: i0.Input }],
+        excludeDays: [{ type: i0.Input }],
+        refresh: [{ type: i0.Input }],
+        locale: [{ type: i0.Input }],
+        tooltipPosition: [{ type: i0.Input }],
+        weekStartsOn: [{ type: i0.Input }],
+        headerTemplate: [{ type: i0.Input }],
+        eventTemplate: [{ type: i0.Input }],
+        precision: [{ type: i0.Input }],
+        hourSegments: [{ type: i0.Input }],
+        dayStartHour: [{ type: i0.Input }],
+        dayStartMinute: [{ type: i0.Input }],
+        dayEndHour: [{ type: i0.Input }],
+        dayEndMinute: [{ type: i0.Input }],
+        hourSegmentTemplate: [{ type: i0.Input }],
+        hourSegmentClicked: [{ type: i0.Output }],
+        dayClicked: [{ type: i0.Output }],
+        eventClicked: [{ type: i0.Output }],
+        eventTimesChanged: [{ type: i0.Output }]
     };
 
     var NovoCalendarWeekHeaderElement = /** @class */ (function () {
         function NovoCalendarWeekHeaderElement() {
-            this.dayClicked = new core.EventEmitter();
-            this.eventDropped = new core.EventEmitter();
+            this.dayClicked = new i0.EventEmitter();
+            this.eventDropped = new i0.EventEmitter();
         }
         return NovoCalendarWeekHeaderElement;
     }());
     NovoCalendarWeekHeaderElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-calendar-week-header',
                     template: "\n    <ng-template #defaultTemplate>\n      <div class=\"cal-day-headers\">\n        <div\n          class=\"cal-header\"\n          *ngFor=\"let day of days\"\n          [class.cal-past]=\"day.isPast\"\n          [class.cal-today]=\"day.isToday\"\n          [class.cal-future]=\"day.isFuture\"\n          [class.cal-weekend]=\"day.isWeekend\"\n          [class.cal-drag-over]=\"day.dragOver\"\n          (click)=\"dayClicked.emit({date: day.date})\"\n          mwlDroppable\n          (dragEnter)=\"day.dragOver = true\"\n          (dragLeave)=\"day.dragOver = false\"\n          (drop)=\"day.dragOver = false; eventDropped.emit({event: $event.dropData.event, newStart: day.date})\">\n          <b>{{ day.date | weekday:locale:'long'}}</b><br>\n          <span>{{ day.date | monthday:locale }}</span>\n        </div>\n      </div>\n    </ng-template>\n    <ng-template\n      [ngTemplateOutlet]=\"customTemplate || defaultTemplate\"\n      [ngTemplateOutletContext]=\"{days: days, locale: locale, dayClicked: dayClicked, eventDropped: eventDropped}\">\n    </ng-template>\n  "
                 },] }
     ];
     NovoCalendarWeekHeaderElement.propDecorators = {
-        days: [{ type: core.Input }],
-        locale: [{ type: core.Input }],
-        customTemplate: [{ type: core.Input }],
-        dayClicked: [{ type: core.Output }],
-        eventDropped: [{ type: core.Output }]
+        days: [{ type: i0.Input }],
+        locale: [{ type: i0.Input }],
+        customTemplate: [{ type: i0.Input }],
+        dayClicked: [{ type: i0.Output }],
+        eventDropped: [{ type: i0.Output }]
     };
 
     var NovoCalendarWeekEventElement = /** @class */ (function () {
         function NovoCalendarWeekEventElement() {
-            this.eventClicked = new core.EventEmitter();
+            this.eventClicked = new i0.EventEmitter();
         }
         return NovoCalendarWeekEventElement;
     }());
     NovoCalendarWeekEventElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-calendar-week-event',
                     template: "\n    <ng-template #defaultTemplate>\n      <div\n        class=\"cal-event\"\n        [class.cal-starts-within-week]=\"!weekEvent.startsBeforeWeek\"\n        [class.cal-ends-within-week]=\"!weekEvent.endsAfterWeek\"\n        [ngClass]=\"weekEvent.event?.cssClass\"\n        [tooltip]=\"weekEvent.event.description\"\n        [tooltipPosition]=\"tooltipPosition\"\n        (click)=\"eventClicked.emit({event: weekEvent.event})\">\n        <div class=\"cal-event-ribbon\" [style.backgroundColor]=\"weekEvent.event.color.primary\"></div>\n        <div class=\"cal-event-title\">{{weekEvent.event?.title}}</div>\n        <div class=\"cal-event-description\">{{weekEvent.event?.description}}</div>\n      </div>\n    </ng-template>\n    <ng-template\n      [ngTemplateOutlet]=\"customTemplate || defaultTemplate\"\n      [ngTemplateOutletContext]=\"{weekEvent: weekEvent, tooltipPosition: tooltipPosition, eventClicked: eventClicked}\">\n    </ng-template>\n  "
                 },] }
     ];
     NovoCalendarWeekEventElement.propDecorators = {
-        weekEvent: [{ type: core.Input }],
-        tooltipPosition: [{ type: core.Input }],
-        customTemplate: [{ type: core.Input }],
-        eventClicked: [{ type: core.Output }]
+        weekEvent: [{ type: i0.Input }],
+        tooltipPosition: [{ type: i0.Input }],
+        customTemplate: [{ type: i0.Input }],
+        eventClicked: [{ type: i0.Output }]
     };
 
     /**
@@ -2642,15 +2642,15 @@
             /**
              * Called when an event title is clicked
              */
-            this.eventClicked = new core.EventEmitter();
+            this.eventClicked = new i0.EventEmitter();
             /**
              * Called when an hour segment is clicked
              */
-            this.hourSegmentClicked = new core.EventEmitter();
+            this.hourSegmentClicked = new i0.EventEmitter();
             /**
              * Called when an event is resized or dragged and dropped
              */
-            this.eventTimesChanged = new core.EventEmitter();
+            this.eventTimesChanged = new i0.EventEmitter();
             /**
              * @hidden
              */
@@ -2813,54 +2813,54 @@
         return NovoCalendarDayViewElement;
     }());
     NovoCalendarDayViewElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-calendar-day',
                     template: "\n    <div class=\"cal-day-view\" #dayViewContainer>\n      <novo-calendar-all-day-event\n        *ngFor=\"let event of view.allDayEvents\"\n        [event]=\"event\"\n        [customTemplate]=\"allDayEventTemplate\"\n        (eventClicked)=\"eventClicked.emit({event: event})\">\n      </novo-calendar-all-day-event>\n      <div class=\"cal-hour-rows\">\n        <div class=\"cal-events\">\n          <div\n            #event\n            *ngFor=\"let dayEvent of view?.events\"\n            class=\"cal-event-container\"\n            [style.marginTop.px]=\"dayEvent.top\"\n            [style.height.px]=\"dayEvent.height\"\n            [style.marginLeft.px]=\"dayEvent.left + 70\"\n            [style.width.px]=\"dayEvent.width - 1\">\n            <novo-calendar-day-event\n              [dayEvent]=\"dayEvent\"\n              [tooltipPosition]=\"tooltipPosition\"\n              [customTemplate]=\"eventTemplate\"\n              (eventClicked)=\"eventClicked.emit($event)\">\n            </novo-calendar-day-event>\n          </div>\n        </div>\n        <div class=\"cal-hour\" *ngFor=\"let hour of hours\" [style.minWidth.px]=\"view?.width + 70\">\n          <novo-calendar-day-hour-segment\n            *ngFor=\"let segment of hour.segments\"\n            [segment]=\"segment\"\n            [locale]=\"locale\"\n            [customTemplate]=\"hourSegmentTemplate\"\n            (click)=\"hourSegmentClicked.emit({date: segment.date})\">\n          </novo-calendar-day-hour-segment>\n        </div>\n      </div>\n    </div>\n  "
                 },] }
     ];
     NovoCalendarDayViewElement.ctorParameters = function () { return [
-        { type: core.ChangeDetectorRef },
-        { type: String, decorators: [{ type: core.Inject, args: [core.LOCALE_ID,] }] }
+        { type: i0.ChangeDetectorRef },
+        { type: String, decorators: [{ type: i0.Inject, args: [i0.LOCALE_ID,] }] }
     ]; };
     NovoCalendarDayViewElement.propDecorators = {
-        viewDate: [{ type: core.Input }],
-        events: [{ type: core.Input }],
-        hourSegments: [{ type: core.Input }],
-        dayStartHour: [{ type: core.Input }],
-        dayStartMinute: [{ type: core.Input }],
-        dayEndHour: [{ type: core.Input }],
-        dayEndMinute: [{ type: core.Input }],
-        eventWidth: [{ type: core.Input }],
-        refresh: [{ type: core.Input }],
-        locale: [{ type: core.Input }],
-        hourSegmentModifier: [{ type: core.Input }],
-        eventSnapSize: [{ type: core.Input }],
-        tooltipPosition: [{ type: core.Input }],
-        hourSegmentTemplate: [{ type: core.Input }],
-        allDayEventTemplate: [{ type: core.Input }],
-        eventTemplate: [{ type: core.Input }],
-        eventClicked: [{ type: core.Output }],
-        hourSegmentClicked: [{ type: core.Output }],
-        eventTimesChanged: [{ type: core.Output }]
+        viewDate: [{ type: i0.Input }],
+        events: [{ type: i0.Input }],
+        hourSegments: [{ type: i0.Input }],
+        dayStartHour: [{ type: i0.Input }],
+        dayStartMinute: [{ type: i0.Input }],
+        dayEndHour: [{ type: i0.Input }],
+        dayEndMinute: [{ type: i0.Input }],
+        eventWidth: [{ type: i0.Input }],
+        refresh: [{ type: i0.Input }],
+        locale: [{ type: i0.Input }],
+        hourSegmentModifier: [{ type: i0.Input }],
+        eventSnapSize: [{ type: i0.Input }],
+        tooltipPosition: [{ type: i0.Input }],
+        hourSegmentTemplate: [{ type: i0.Input }],
+        allDayEventTemplate: [{ type: i0.Input }],
+        eventTemplate: [{ type: i0.Input }],
+        eventClicked: [{ type: i0.Output }],
+        hourSegmentClicked: [{ type: i0.Output }],
+        eventTimesChanged: [{ type: i0.Output }]
     };
 
     var NovoCalendarDayEventElement = /** @class */ (function () {
         function NovoCalendarDayEventElement() {
-            this.eventClicked = new core.EventEmitter();
+            this.eventClicked = new i0.EventEmitter();
         }
         return NovoCalendarDayEventElement;
     }());
     NovoCalendarDayEventElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-calendar-day-event',
                     template: "\n    <ng-template #defaultTemplate>\n      <div\n        class=\"cal-event\"\n        [style.borderColor]=\"dayEvent.event.color.secondary\"\n        [class.cal-starts-within-day]=\"!dayEvent.startsBeforeDay\"\n        [class.cal-ends-within-day]=\"!dayEvent.endsAfterDay\"\n        [ngClass]=\"dayEvent.event.cssClass\"\n        [tooltip]=\"dayEvent.event.description\"\n        [tooltipPosition]=\"tooltipPosition\"\n        (click)=\"eventClicked.emit({event: dayEvent.event})\">\n          <div class=\"cal-event-ribbon\" [style.backgroundColor]=\"dayEvent.event.color.primary\"></div>\n          <div class=\"cal-event-group\">\n            <div class=\"cal-event-title\">{{dayEvent.event.title}}</div>\n            <div class=\"cal-event-description\">{{dayEvent.event?.description}}</div>\n          </div>\n      </div>\n    </ng-template>\n    <ng-template\n      [ngTemplateOutlet]=\"customTemplate || defaultTemplate\"\n      [ngTemplateOutletContext]=\"{dayEvent: dayEvent, tooltipPosition: tooltipPosition, eventClicked: eventClicked}\">\n    </ng-template>\n  "
                 },] }
     ];
     NovoCalendarDayEventElement.propDecorators = {
-        dayEvent: [{ type: core.Input }],
-        tooltipPosition: [{ type: core.Input }],
-        customTemplate: [{ type: core.Input }],
-        eventClicked: [{ type: core.Output }]
+        dayEvent: [{ type: i0.Input }],
+        tooltipPosition: [{ type: i0.Input }],
+        customTemplate: [{ type: i0.Input }],
+        eventClicked: [{ type: i0.Output }]
     };
 
     var NovoCalendarHourSegmentElement = /** @class */ (function () {
@@ -2869,33 +2869,33 @@
         return NovoCalendarHourSegmentElement;
     }());
     NovoCalendarHourSegmentElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-calendar-day-hour-segment',
                     template: "\n    <ng-template #defaultTemplate>\n      <div\n        class=\"cal-hour-segment\"\n        [class.cal-hour-start]=\"segment.isStart\"\n        [class.cal-after-hour-start]=\"!segment.isStart\"\n        [ngClass]=\"segment.cssClass\">\n        <div class=\"cal-time\">\n          {{ segment.date | hours:locale }}\n        </div>\n      </div>\n    </ng-template>\n    <ng-template\n      [ngTemplateOutlet]=\"customTemplate || defaultTemplate\"\n      [ngTemplateOutletContext]=\"{\n        segment: segment,\n        locale: locale\n      }\">\n    </ng-template>\n  "
                 },] }
     ];
     NovoCalendarHourSegmentElement.propDecorators = {
-        segment: [{ type: core.Input }],
-        locale: [{ type: core.Input }],
-        customTemplate: [{ type: core.Input }]
+        segment: [{ type: i0.Input }],
+        locale: [{ type: i0.Input }],
+        customTemplate: [{ type: i0.Input }]
     };
 
     var NovoCalendarAllDayEventElement = /** @class */ (function () {
         function NovoCalendarAllDayEventElement() {
-            this.eventClicked = new core.EventEmitter();
+            this.eventClicked = new i0.EventEmitter();
         }
         return NovoCalendarAllDayEventElement;
     }());
     NovoCalendarAllDayEventElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-calendar-all-day-event',
                     template: "\n    <ng-template #defaultTemplate>\n      <div\n        class=\"cal-all-day-event\"\n        [style.backgroundColor]=\"event.color.secondary\"\n        [style.borderColor]=\"event.color.primary\">\n        {{event.title}}\n        <!--<novo-calendar-event-title\n          [event]=\"event\"\n          view=\"day\"\n          (click)=\"eventClicked.emit()\">\n        </novo-calendar-event-title>\n        <novo-calendar-event-actions [event]=\"event\"></novo-calendar-event-actions>-->\n      </div>\n    </ng-template>\n    <ng-template\n      [ngTemplateOutlet]=\"customTemplate || defaultTemplate\"\n      [ngTemplateOutletContext]=\"{\n        event: event,\n        eventClicked: eventClicked\n      }\">\n    </ng-template>\n  "
                 },] }
     ];
     NovoCalendarAllDayEventElement.propDecorators = {
-        event: [{ type: core.Input }],
-        customTemplate: [{ type: core.Input }],
-        eventClicked: [{ type: core.Output }]
+        event: [{ type: i0.Input }],
+        customTemplate: [{ type: i0.Input }],
+        eventClicked: [{ type: i0.Output }]
     };
 
     var WeekdayPipe = /** @class */ (function () {
@@ -2911,10 +2911,10 @@
         return WeekdayPipe;
     }());
     WeekdayPipe.decorators = [
-        { type: core.Pipe, args: [{ name: 'weekday' },] }
+        { type: i0.Pipe, args: [{ name: 'weekday' },] }
     ];
     WeekdayPipe.ctorParameters = function () { return [
-        { type: String, decorators: [{ type: core.Inject, args: [core.LOCALE_ID,] }] }
+        { type: String, decorators: [{ type: i0.Inject, args: [i0.LOCALE_ID,] }] }
     ]; };
 
     var MonthPipe = /** @class */ (function () {
@@ -2930,10 +2930,10 @@
         return MonthPipe;
     }());
     MonthPipe.decorators = [
-        { type: core.Pipe, args: [{ name: 'month' },] }
+        { type: i0.Pipe, args: [{ name: 'month' },] }
     ];
     MonthPipe.ctorParameters = function () { return [
-        { type: String, decorators: [{ type: core.Inject, args: [core.LOCALE_ID,] }] }
+        { type: String, decorators: [{ type: i0.Inject, args: [i0.LOCALE_ID,] }] }
     ]; };
 
     var MonthDayPipe = /** @class */ (function () {
@@ -2949,10 +2949,10 @@
         return MonthDayPipe;
     }());
     MonthDayPipe.decorators = [
-        { type: core.Pipe, args: [{ name: 'monthday' },] }
+        { type: i0.Pipe, args: [{ name: 'monthday' },] }
     ];
     MonthDayPipe.ctorParameters = function () { return [
-        { type: String, decorators: [{ type: core.Inject, args: [core.LOCALE_ID,] }] }
+        { type: String, decorators: [{ type: i0.Inject, args: [i0.LOCALE_ID,] }] }
     ]; };
 
     var YearPipe = /** @class */ (function () {
@@ -2968,10 +2968,10 @@
         return YearPipe;
     }());
     YearPipe.decorators = [
-        { type: core.Pipe, args: [{ name: 'year' },] }
+        { type: i0.Pipe, args: [{ name: 'year' },] }
     ];
     YearPipe.ctorParameters = function () { return [
-        { type: String, decorators: [{ type: core.Inject, args: [core.LOCALE_ID,] }] }
+        { type: String, decorators: [{ type: i0.Inject, args: [i0.LOCALE_ID,] }] }
     ]; };
 
     var HoursPipe = /** @class */ (function () {
@@ -2987,10 +2987,10 @@
         return HoursPipe;
     }());
     HoursPipe.decorators = [
-        { type: core.Pipe, args: [{ name: 'hours' },] }
+        { type: i0.Pipe, args: [{ name: 'hours' },] }
     ];
     HoursPipe.ctorParameters = function () { return [
-        { type: String, decorators: [{ type: core.Inject, args: [core.LOCALE_ID,] }] }
+        { type: String, decorators: [{ type: i0.Inject, args: [i0.LOCALE_ID,] }] }
     ]; };
 
     var DayOfMonthPipe = /** @class */ (function () {
@@ -3006,10 +3006,10 @@
         return DayOfMonthPipe;
     }());
     DayOfMonthPipe.decorators = [
-        { type: core.Pipe, args: [{ name: 'dayofmonth' },] }
+        { type: i0.Pipe, args: [{ name: 'dayofmonth' },] }
     ];
     DayOfMonthPipe.ctorParameters = function () { return [
-        { type: String, decorators: [{ type: core.Inject, args: [core.LOCALE_ID,] }] }
+        { type: String, decorators: [{ type: i0.Inject, args: [i0.LOCALE_ID,] }] }
     ]; };
 
     var EndOfWeekDisplayPipe = /** @class */ (function () {
@@ -3028,10 +3028,10 @@
         return EndOfWeekDisplayPipe;
     }());
     EndOfWeekDisplayPipe.decorators = [
-        { type: core.Pipe, args: [{ name: 'endofweekdisplay' },] }
+        { type: i0.Pipe, args: [{ name: 'endofweekdisplay' },] }
     ];
     EndOfWeekDisplayPipe.ctorParameters = function () { return [
-        { type: String, decorators: [{ type: core.Inject, args: [core.LOCALE_ID,] }] }
+        { type: String, decorators: [{ type: i0.Inject, args: [i0.LOCALE_ID,] }] }
     ]; };
 
     // NG2
@@ -3041,7 +3041,7 @@
         return NovoCalendarModule;
     }());
     NovoCalendarModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, NovoButtonModule, NovoTooltipModule, NovoPipesModule],
                     declarations: [
                         NovoEventTypeLegendElement,
@@ -3364,10 +3364,10 @@
         return NovoLabelService;
     }());
     NovoLabelService.decorators = [
-        { type: core.Injectable }
+        { type: i0.Injectable }
     ];
     NovoLabelService.ctorParameters = function () { return [
-        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [core.LOCALE_ID,] }] }
+        { type: undefined, decorators: [{ type: i0.Optional }, { type: i0.Inject, args: [i0.LOCALE_ID,] }] }
     ]; };
     var NOVO_ELEMENTS_LABELS_PROVIDERS = [{ provide: NovoLabelService, useClass: NovoLabelService }];
 
@@ -3378,7 +3378,7 @@
         return CardActionsElement;
     }());
     CardActionsElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-card-actions',
                     template: '<ng-content></ng-content>'
                 },] }
@@ -3387,8 +3387,8 @@
         function CardElement(labels) {
             this.padding = true;
             this.config = {};
-            this.onClose = new core.EventEmitter();
-            this.onRefresh = new core.EventEmitter();
+            this.onClose = new i0.EventEmitter();
+            this.onRefresh = new i0.EventEmitter();
             this.labels = labels;
         }
         CardElement.prototype.ngOnInit = function () {
@@ -3421,7 +3421,7 @@
         return CardElement;
     }());
     CardElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-card',
                     template: "\n        <div class=\"novo-card\" [attr.data-automation-id]=\"cardAutomationId\" [ngClass]=\"{'no-padding': !padding}\" [class.loading]=\"loading || config.loading\">\n            <!--Loading-->\n            <div class=\"card-loading-container\" *ngIf=\"loading || config.loading\">\n                <novo-loading theme=\"line\" [attr.data-automation-id]=\"cardAutomationId + '-loading'\"></novo-loading>\n            </div>\n            <!--Card Header-->\n            <header>\n                <div class=\"title\">\n                    <!--Grabber Icon-->\n                    <span tooltip=\"{{ labels.move }}\" tooltipPosition=\"bottom-right\"><i *ngIf=\"move || config.move\" class=\"bhi-move\" [attr.data-automation-id]=\"cardAutomationId + '-move'\"></i></span>\n                    <!--Card Title-->\n                    <h3 [attr.data-automation-id]=\"cardAutomationId + '-title'\"><span [tooltip]=\"iconTooltip\" tooltipPosition=\"right\"><i *ngIf=\"icon\" [ngClass]=\"iconClass\"></i></span> {{title || config.title}}</h3>\n                </div>\n                <!--Card Actions-->\n                <div class=\"actions\" [attr.data-automation-id]=\"cardAutomationId + '-actions'\">\n                    <ng-content select=\"novo-card-actions\"></ng-content>\n                    <button theme=\"icon\" icon=\"refresh\"  (click)=\"toggleRefresh()\" *ngIf=\"refresh || config.refresh\" [attr.data-automation-id]=\"cardAutomationId + '-refresh'\" tooltip=\"{{ labels.refresh }}\" tooltipPosition=\"bottom-left\"></button>\n                    <button theme=\"icon\" icon=\"close-o\" (click)=\"toggleClose()\" *ngIf=\"close || config.close\" [attr.data-automation-id]=\"cardAutomationId + '-close'\" tooltip=\"{{ labels.close }}\" tooltipPosition=\"bottom-left\"></button>\n                </div>\n            </header>\n            <!--Card Main-->\n            <main>\n                <!--Content (transcluded)-->\n                <ng-content *ngIf=\"!(loading || config.loading) && !(message || config.message)\"></ng-content>\n                <!--Error/Empty Message-->\n                <p class=\"card-message\" *ngIf=\"!(loading || config.loading) && (message || config.message)\" [attr.data-automation-id]=\"cardAutomationId + '-message'\"><i *ngIf=\"messageIconClass\" [ngClass]=\"messageIconClass\"></i> <span [innerHtml]=\"message || config.message\"></span></p>\n            </main>\n            <!--Card Footer-->\n            <ng-content *ngIf=\"!(loading || config.loading) && !(message || config.message)\" select=\"footer\"></ng-content>\n        </div>\n    "
                 },] }
@@ -3430,19 +3430,19 @@
         { type: NovoLabelService }
     ]; };
     CardElement.propDecorators = {
-        padding: [{ type: core.Input }],
-        config: [{ type: core.Input }],
-        title: [{ type: core.Input }],
-        message: [{ type: core.Input }],
-        messageIcon: [{ type: core.Input }],
-        icon: [{ type: core.Input }],
-        iconTooltip: [{ type: core.Input }],
-        refresh: [{ type: core.Input }],
-        close: [{ type: core.Input }],
-        move: [{ type: core.Input }],
-        loading: [{ type: core.Input }],
-        onClose: [{ type: core.Output }],
-        onRefresh: [{ type: core.Output }]
+        padding: [{ type: i0.Input }],
+        config: [{ type: i0.Input }],
+        title: [{ type: i0.Input }],
+        message: [{ type: i0.Input }],
+        messageIcon: [{ type: i0.Input }],
+        icon: [{ type: i0.Input }],
+        iconTooltip: [{ type: i0.Input }],
+        refresh: [{ type: i0.Input }],
+        close: [{ type: i0.Input }],
+        move: [{ type: i0.Input }],
+        loading: [{ type: i0.Input }],
+        onClose: [{ type: i0.Output }],
+        onRefresh: [{ type: i0.Output }]
     };
 
     var NovoLoadingElement = /** @class */ (function () {
@@ -3451,7 +3451,7 @@
         return NovoLoadingElement;
     }());
     NovoLoadingElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-loading',
                     host: {
                         '[class]': 'theme || ""',
@@ -3460,7 +3460,7 @@
                 },] }
     ];
     NovoLoadingElement.propDecorators = {
-        theme: [{ type: core.Input }]
+        theme: [{ type: i0.Input }]
     };
     var NovoSpinnerElement = /** @class */ (function () {
         function NovoSpinnerElement() {
@@ -3468,15 +3468,15 @@
         return NovoSpinnerElement;
     }());
     NovoSpinnerElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-spinner',
                     template: "\n        <svg class=\"bullhornSpinner\" [ngClass]=\"theme\" height=\"100\" width=\"100\" viewBox=\"0 0 100 100\" version=\"1.1\" xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" [attr.inverse]=\"inverse\">\n            <title>Bullhorn Spinner Animation</title>\n            <desc>Spinner animation indicating loading</desc>\n            <defs>\n                <style>\n                    .bullhornSpinner g.circleGroup {\n                        -webkit-filter: url(\"{{baseHref || ''}}#gooEffect\");\n                        filter: url(\"{{baseHref || ''}}#gooEffect\");\n                    }\n                    _:-webkit-full-screen:not(:root:root), .bullhornSpinner g.circleGroup {\n                        -webkit-filter: none;\n                        filter: none;\n                    }\n                    @supports (-webkit-text-size-adjust:none) and (not (-ms-accelerator:true)) and (not (-moz-appearance:none)) {\n                        .bullhornSpinner g.circleGroup {\n                            -webkit-filter: none;\n                            filter: none;\n                        }\n                    }\n                    @supports (-webkit-text-size-adjust:none) and (not (-ms-accelerator:true)) and (not (-moz-appearance:none)) {\n                        .bullhornSpinner g.circleGroup {\n                            -webkit-filter: none;\n                            filter: none;\n                        }\n                    }\n                </style>\n                <filter id=\"gooEffect\">\n                    <feGaussianBlur in=\"SourceGraphic\" stdDeviation=\"5\" result=\"blur\" />\n                    <feColorMatrix in=\"blur\" mode=\"matrix\" values=\"\n                            1.3 0 0 0 0\n                            0 1.3 0 0 0\n                            0 0 1.3 0 0\n                            0 0 0 19 -7\" result=\"gooEffect\" />\n                    <feComposite in=\"SourceGraphic\" in2=\"gooEffect\" operator=\"atop\" />\n                </filter>\n            </defs>\n            <path d=\"M 43 43 L 54 45 L 80 40 L 43 43\" stroke=\"none\" fill=\"none\" id=\"firstLinePath\"/>\n            <path d=\"M 43 43 L 48 41 L 48 18 L 43 43\" stroke=\"none\" fill=\"none\" id=\"secondLinePath\"/>\n            <path d=\"M 43 43 L 42 45 L 15 40 L 43 43\" stroke=\"none\" fill=\"none\" id=\"thirdLinePath\"/>\n            <path d=\"M 43 43 L 44 52 L 29 78 L 43 43\" stroke=\"none\" fill=\"none\" id=\"fourthLinePath\"/>\n            <path d=\"M 43 43 L 52 52 L 68 78 L 43 43\" stroke=\"none\" fill=\"none\" id=\"fifthLinePath\"/>\n            <g class=\"circleGroup\" transform=\"translate(7, 7)\">\n                <circle r=\"6\" cx=\"0\" cy=\"0\">\n                    <!-- Define the motion path animation -->\n                    <animateMotion dur=\"3.4\" repeatCount=\"indefinite\">\n                        <mpath xlink:href=\"#firstLinePath\"/>\n                    </animateMotion>\n                </circle>\n                <circle r=\"6\" cx=\"0\" cy=\"0\">\n                    <!-- Define the motion path animation -->\n                    <animateMotion dur=\"3.4\" repeatCount=\"indefinite\">\n                        <mpath xlink:href=\"#secondLinePath\"/>\n                    </animateMotion>\n                </circle>\n                <circle r=\"6\" cx=\"0\" cy=\"0\">\n                    <!-- Define the motion path animation -->\n                    <animateMotion dur=\"3.4\" repeatCount=\"indefinite\">\n                        <mpath xlink:href=\"#thirdLinePath\"/>\n                    </animateMotion>\n                </circle>\n                <circle r=\"6\" cx=\"0\" cy=\"0\">\n                    <!-- Define the motion path animation -->\n                    <animateMotion dur=\"3.4\" repeatCount=\"indefinite\">\n                        <mpath xlink:href=\"#fourthLinePath\"/>\n                    </animateMotion>\n                </circle>\n                <circle r=\"6\" cx=\"0\" cy=\"0\">\n                    <!-- Define the motion path animation -->\n                    <animateMotion dur=\"3.4\" repeatCount=\"indefinite\">\n                        <mpath xlink:href=\"#fifthLinePath\"/>\n                    </animateMotion>\n                </circle>\n            </g>\n        </svg>\n    "
                 },] }
     ];
     NovoSpinnerElement.propDecorators = {
-        theme: [{ type: core.Input }],
-        inverse: [{ type: core.Input }],
-        baseHref: [{ type: core.Input }]
+        theme: [{ type: i0.Input }],
+        inverse: [{ type: i0.Input }],
+        baseHref: [{ type: i0.Input }]
     };
     var NovoSkeletonDirective = /** @class */ (function () {
         function NovoSkeletonDirective() {
@@ -3485,12 +3485,12 @@
         return NovoSkeletonDirective;
     }());
     NovoSkeletonDirective.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[skeleton]',
                 },] }
     ];
     NovoSkeletonDirective.propDecorators = {
-        skeleton: [{ type: core.HostBinding, args: ['class.skeleton',] }]
+        skeleton: [{ type: i0.HostBinding, args: ['class.skeleton',] }]
     };
     var NovoLoadedDirective = /** @class */ (function () {
         function NovoLoadedDirective() {
@@ -3498,7 +3498,7 @@
         return NovoLoadedDirective;
     }());
     NovoLoadedDirective.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[loaded]',
                 },] }
     ];
@@ -3550,17 +3550,17 @@
         return NovoIsLoadingDirective;
     }());
     NovoIsLoadingDirective.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[isLoading]',
                 },] }
     ];
     NovoIsLoadingDirective.ctorParameters = function () { return [
-        { type: core.ViewContainerRef }
+        { type: i0.ViewContainerRef }
     ]; };
     NovoIsLoadingDirective.propDecorators = {
-        skeletonTemplates: [{ type: core.ContentChildren, args: [NovoSkeletonDirective, { read: core.TemplateRef },] }],
-        loadedTemplates: [{ type: core.ContentChildren, args: [NovoLoadedDirective, { read: core.TemplateRef },] }],
-        isLoading: [{ type: core.Input }]
+        skeletonTemplates: [{ type: i0.ContentChildren, args: [NovoSkeletonDirective, { read: i0.TemplateRef },] }],
+        loadedTemplates: [{ type: i0.ContentChildren, args: [NovoLoadedDirective, { read: i0.TemplateRef },] }],
+        isLoading: [{ type: i0.Input }]
     };
 
     // NG2
@@ -3570,7 +3570,7 @@
         return NovoLoadingModule;
     }());
     NovoLoadingModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule],
                     declarations: [NovoLoadingElement, NovoSpinnerElement, NovoIsLoadingDirective, NovoLoadedDirective, NovoSkeletonDirective],
                     exports: [NovoLoadingElement, NovoSpinnerElement, NovoIsLoadingDirective, NovoLoadedDirective, NovoSkeletonDirective],
@@ -3584,7 +3584,7 @@
         return NovoCardModule;
     }());
     NovoCardModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, NovoButtonModule, NovoLoadingModule, NovoTooltipModule],
                     declarations: [CardElement, CardActionsElement],
                     exports: [CardElement, CardActionsElement],
@@ -3598,7 +3598,7 @@
     var OutsideClick = /** @class */ (function () {
         function OutsideClick(element) {
             this.active = false;
-            this.onActiveChange = new core.EventEmitter();
+            this.onActiveChange = new i0.EventEmitter();
             // Component element
             this.element = element;
             // Outside click handler
@@ -3643,10 +3643,10 @@
         return OutsideClick;
     }());
     OutsideClick.decorators = [
-        { type: core.Injectable }
+        { type: i0.Injectable }
     ];
     OutsideClick.ctorParameters = function () { return [
-        { type: core.ElementRef }
+        { type: i0.ElementRef }
     ]; };
 
     // Helper to keep track of key codes
@@ -3757,9 +3757,9 @@
             // Boolean to close the dropdown on selection
             _this.closeOnSelect = false;
             // Event that is emitted whenever an item is selected
-            _this._select = new core.EventEmitter();
+            _this._select = new i0.EventEmitter();
             // Event that is emitted whenever a category is selected
-            _this.categorySelected = new core.EventEmitter();
+            _this.categorySelected = new i0.EventEmitter();
             _this.clickHandler = _this.toggleActive.bind(_this);
             return _this;
         }
@@ -3851,7 +3851,7 @@
         return NovoCategoryDropdownElement;
     }(OutsideClick));
     NovoCategoryDropdownElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-category-dropdown',
                     template: "\n        <ng-content select=\"button\"></ng-content>\n        <div class=\"dropdown-container\" *ngIf=\"active\">\n            <div class=\"novo-category-dropdown-search\" *ngIf=\"search\" data-automation-id=\"novo-category-dropdown-search\">\n                <input type=\"text\" [placeholder]=\"search.placeholder || labels.search\" [value]=\"_query\" (input)=\"queryCategories($event.target.value)\"/>\n                <i class=\"bhi-search\" *ngIf=\"!_query\"></i>\n                <i class=\"bhi-times\" *ngIf=\"_query\" (click)=\"clearQuery($event)\"></i>\n            </div>\n            <novo-nav theme=\"white\" [outlet]=\"novoCategoryDropdownOutlet\" direction=\"vertical\">\n                <novo-tab *ngFor=\"let category of _categories\" [attr.data-automation-id]=\"category\" (activeChange)=\"onCategorySelected(category)\">\n                    <span>{{ category }} ({{ _categoryMap[category].length }})</span>\n                </novo-tab>\n            </novo-nav>\n            <novo-nav-outlet #novoCategoryDropdownOutlet>\n                <novo-nav-content *ngFor=\"let category of _categories\">\n                    <novo-list direction=\"vertical\">\n                        <novo-list-item *ngFor=\"let item of _categoryMap[category]\" (click)=\"select($event, item)\" [attr.data-automation-id]=\"item.label\">\n                            <item-content>{{ item.label }}</item-content>\n                            <item-end class=\"novo-category-dropdown-hover\" *ngIf=\"item.hoverText && !item.selected\">{{ item.hoverText }}</item-end>\n                            <item-end class=\"novo-category-dropdown-hover\" *ngIf=\"item.hoverIcon && !item.selected\"><i class=\"bhi-{{ item.hoverIcon }}\"></i></item-end>\n                            <item-end *ngIf=\"item.selected\"><i class=\"bhi-check\"></i></item-end>\n                        </novo-list-item>\n                        <novo-list-item *ngIf=\"_categoryMap[category].length === 0 && search\" class=\"novo-category-dropdown-empty-item\">\n                            <item-content>{{ search.emptyMessage || labels.noItems }}</item-content>\n                        </novo-list-item>\n                    </novo-list>\n                </novo-nav-content>\n            </novo-nav-outlet>\n            <footer *ngIf=\"footer\" class=\"novo-category-dropdown-footer-align-{{ footer.align || 'right' }}\">\n                <a *ngFor=\"let link of footer.links\" (click)=\"executeClickCallback($event, link)\">{{ link.label }}</a>\n            </footer>\n        </div>\n    ",
                     host: {
@@ -3861,17 +3861,17 @@
                 },] }
     ];
     NovoCategoryDropdownElement.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: NovoLabelService }
     ]; };
     NovoCategoryDropdownElement.propDecorators = {
-        persistSelection: [{ type: core.Input }],
-        closeOnSelect: [{ type: core.Input }],
-        search: [{ type: core.Input }],
-        footer: [{ type: core.Input }],
-        _select: [{ type: core.Output, args: ['itemSelected',] }],
-        categorySelected: [{ type: core.Output }],
-        categories: [{ type: core.Input }]
+        persistSelection: [{ type: i0.Input }],
+        closeOnSelect: [{ type: i0.Input }],
+        search: [{ type: i0.Input }],
+        footer: [{ type: i0.Input }],
+        _select: [{ type: i0.Output, args: ['itemSelected',] }],
+        categorySelected: [{ type: i0.Output }],
+        categories: [{ type: i0.Input }]
     };
 
     // NG2
@@ -3918,23 +3918,23 @@
         return NovoNavElement;
     }());
     NovoNavElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-nav',
                     template: '<ng-content></ng-content>'
                 },] }
     ];
     NovoNavElement.propDecorators = {
-        theme: [{ type: core.Input }],
-        direction: [{ type: core.Input }],
-        outlet: [{ type: core.Input }],
-        router: [{ type: core.Input }],
-        condensed: [{ type: core.HostBinding, args: ['class.condensed',] }, { type: core.Input }]
+        theme: [{ type: i0.Input }],
+        direction: [{ type: i0.Input }],
+        outlet: [{ type: i0.Input }],
+        router: [{ type: i0.Input }],
+        condensed: [{ type: i0.HostBinding, args: ['class.condensed',] }, { type: i0.Input }]
     };
     var NovoTabElement = /** @class */ (function () {
         function NovoTabElement(nav) {
             this.active = false;
             this.disabled = false;
-            this.activeChange = new core.EventEmitter();
+            this.activeChange = new i0.EventEmitter();
             this.nav = nav;
             this.nav.add(this);
         }
@@ -3947,7 +3947,7 @@
         return NovoTabElement;
     }());
     NovoTabElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-tab',
                     host: {
                         '(click)': 'select()',
@@ -3961,9 +3961,9 @@
         { type: NovoNavElement }
     ]; };
     NovoTabElement.propDecorators = {
-        active: [{ type: core.Input }],
-        disabled: [{ type: core.Input }],
-        activeChange: [{ type: core.Output }]
+        active: [{ type: i0.Input }],
+        disabled: [{ type: i0.Input }],
+        activeChange: [{ type: i0.Output }]
     };
     var NovoTabButtonElement = /** @class */ (function () {
         function NovoTabButtonElement(nav) {
@@ -3980,7 +3980,7 @@
         return NovoTabButtonElement;
     }());
     NovoTabButtonElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-tab-button',
                     host: {
                         '(click)': 'select()',
@@ -3994,8 +3994,8 @@
         { type: NovoNavElement }
     ]; };
     NovoTabButtonElement.propDecorators = {
-        active: [{ type: core.Input }],
-        disabled: [{ type: core.Input }]
+        active: [{ type: i0.Input }],
+        disabled: [{ type: i0.Input }]
     };
     var NovoTabLinkElement = /** @class */ (function () {
         function NovoTabLinkElement(nav) {
@@ -4012,7 +4012,7 @@
         return NovoTabLinkElement;
     }());
     NovoTabLinkElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-tab-link',
                     host: {
                         '(click)': 'select()',
@@ -4026,8 +4026,8 @@
         { type: NovoNavElement }
     ]; };
     NovoTabLinkElement.propDecorators = {
-        active: [{ type: core.Input }],
-        disabled: [{ type: core.Input }]
+        active: [{ type: i0.Input }],
+        disabled: [{ type: i0.Input }]
     };
     var NovoNavOutletElement = /** @class */ (function () {
         function NovoNavOutletElement() {
@@ -4059,7 +4059,7 @@
         return NovoNavOutletElement;
     }());
     NovoNavOutletElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-nav-outlet',
                     template: '<ng-content></ng-content>'
                 },] }
@@ -4072,7 +4072,7 @@
         return NovoNavContentElement;
     }());
     NovoNavContentElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-nav-content',
                     host: {
                         '[class.active]': 'active',
@@ -4084,7 +4084,7 @@
         { type: NovoNavOutletElement }
     ]; };
     NovoNavContentElement.propDecorators = {
-        active: [{ type: core.Input }]
+        active: [{ type: i0.Input }]
     };
     var NovoNavHeaderElement = /** @class */ (function () {
         function NovoNavHeaderElement(outlet) {
@@ -4106,7 +4106,7 @@
         return NovoNavHeaderElement;
     }());
     NovoNavHeaderElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-nav-header',
                     host: {
                         '[class.active]': 'active',
@@ -4119,8 +4119,8 @@
         { type: NovoNavOutletElement }
     ]; };
     NovoNavHeaderElement.propDecorators = {
-        active: [{ type: core.Input }],
-        forElement: [{ type: core.Input, args: ['for',] }]
+        active: [{ type: i0.Input }],
+        forElement: [{ type: i0.Input, args: ['for',] }]
     };
 
     // NG2
@@ -4130,7 +4130,7 @@
         return NovoTabModule;
     }());
     NovoTabModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule],
                     declarations: [
                         NovoNavElement,
@@ -4161,7 +4161,7 @@
         return NovoListElement;
     }());
     NovoListElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-list',
                     host: {
                         '[class.vertical-list]': 'direction === "vertical"',
@@ -4172,11 +4172,11 @@
                 },] }
     ];
     NovoListElement.ctorParameters = function () { return [
-        { type: core.ElementRef }
+        { type: i0.ElementRef }
     ]; };
     NovoListElement.propDecorators = {
-        theme: [{ type: core.Input }],
-        direction: [{ type: core.Input }]
+        theme: [{ type: i0.Input }],
+        direction: [{ type: i0.Input }]
     };
     var NovoListItemElement = /** @class */ (function () {
         function NovoListItemElement(element) {
@@ -4189,13 +4189,13 @@
         return NovoListItemElement;
     }());
     NovoListItemElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-list-item',
                     template: "\n        <div class=\"list-item\" [ngClass]=\"{'avatar': avatar}\">\n            <ng-content select=\"item-header\"></ng-content>\n            <ng-content select=\"item-content\"></ng-content>\n        </div>\n        <ng-content></ng-content>\n        <ng-content select=\"item-end\"></ng-content>\n    "
                 },] }
     ];
     NovoListItemElement.ctorParameters = function () { return [
-        { type: core.ElementRef }
+        { type: i0.ElementRef }
     ]; };
     var NovoItemAvatarElement = /** @class */ (function () {
         function NovoItemAvatarElement() {
@@ -4210,13 +4210,13 @@
         return NovoItemAvatarElement;
     }());
     NovoItemAvatarElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'item-avatar',
                     template: "\n        <i *ngIf=\"iconClass\" [ngClass]=\"classMap\" theme=\"contained\"></i>\n    "
                 },] }
     ];
     NovoItemAvatarElement.propDecorators = {
-        icon: [{ type: core.Input }]
+        icon: [{ type: i0.Input }]
     };
     var NovoItemTitleElement = /** @class */ (function () {
         function NovoItemTitleElement() {
@@ -4224,7 +4224,7 @@
         return NovoItemTitleElement;
     }());
     NovoItemTitleElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'item-title',
                     template: "\n        <h6><ng-content></ng-content></h6>\n    "
                 },] }
@@ -4235,7 +4235,7 @@
         return NovoItemHeaderElement;
     }());
     NovoItemHeaderElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'item-header',
                     template: "\n        <ng-content select=\"item-avatar\"></ng-content>\n        <ng-content select=\"item-title\"></ng-content>\n        <ng-content select=\"item-header-end\"></ng-content>\n    "
                 },] }
@@ -4246,7 +4246,7 @@
         return NovoItemDateElement;
     }());
     NovoItemDateElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'item-header-end',
                     template: "\n        <ng-content></ng-content>\n    "
                 },] }
@@ -4257,7 +4257,7 @@
         return NovoItemContentElement;
     }());
     NovoItemContentElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'item-content',
                     host: {
                         '[class.vertical-list]': 'direction === "vertical"',
@@ -4267,7 +4267,7 @@
                 },] }
     ];
     NovoItemContentElement.propDecorators = {
-        direction: [{ type: core.Input }]
+        direction: [{ type: i0.Input }]
     };
     var NovoItemEndElement = /** @class */ (function () {
         function NovoItemEndElement() {
@@ -4275,7 +4275,7 @@
         return NovoItemEndElement;
     }());
     NovoItemEndElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'item-end',
                     template: "\n        <ng-content></ng-content>\n    "
                 },] }
@@ -4288,7 +4288,7 @@
         return NovoListModule;
     }());
     NovoListModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule],
                     declarations: [
                         NovoListElement,
@@ -4320,7 +4320,7 @@
         return NovoCategoryDropdownModule;
     }());
     NovoCategoryDropdownModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, NovoTabModule, NovoListModule],
                     declarations: [NovoCategoryDropdownElement],
                     exports: [NovoCategoryDropdownElement],
@@ -4336,29 +4336,29 @@
             var componentFactory = this.componentFactoryResolver.resolveComponentFactory(ComponentClass);
             var parent = location.injector;
             var index = onTop ? 0 : location.length;
-            return location.createComponent(componentFactory, index, core.Injector.create({ providers: providers, parent: parent }));
+            return location.createComponent(componentFactory, index, i0.Injector.create({ providers: providers, parent: parent }));
         };
         return ComponentUtils;
     }());
     ComponentUtils.decorators = [
-        { type: core.Injectable }
+        { type: i0.Injectable }
     ];
     ComponentUtils.ctorParameters = function () { return [
-        { type: core.ComponentFactoryResolver }
+        { type: i0.ComponentFactoryResolver }
     ]; };
 
     // Value accessor for the component (supports ngModel)
     var CHIPS_VALUE_ACCESSOR = {
         provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return NovoChipsElement; }),
+        useExisting: i0.forwardRef(function () { return NovoChipsElement; }),
         multi: true,
     };
     var NovoChipElement = /** @class */ (function () {
         function NovoChipElement() {
             this.disabled = false;
-            this.select = new core.EventEmitter();
-            this.remove = new core.EventEmitter();
-            this.deselect = new core.EventEmitter();
+            this.select = new i0.EventEmitter();
+            this.remove = new i0.EventEmitter();
+            this.deselect = new i0.EventEmitter();
         }
         Object.defineProperty(NovoChipElement.prototype, "type", {
             set: function (type) {
@@ -4394,17 +4394,17 @@
         return NovoChipElement;
     }());
     NovoChipElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'chip,novo-chip',
                     template: "\n        <span (click)=\"onSelect($event)\" (mouseenter)=\"onSelect($event)\" (mouseleave)=\"onDeselect($event)\" [ngClass]=\"_type\">\n            <i *ngIf=\"_type\" class=\"bhi-circle\"></i>\n            <span><ng-content></ng-content></span>\n        </span>\n        <i class=\"bhi-close\" *ngIf=\"!disabled\" (click)=\"onRemove($event)\"></i>\n    "
                 },] }
     ];
     NovoChipElement.propDecorators = {
-        type: [{ type: core.Input }],
-        disabled: [{ type: core.Input }],
-        select: [{ type: core.Output }],
-        remove: [{ type: core.Output }],
-        deselect: [{ type: core.Output }]
+        type: [{ type: i0.Input }],
+        disabled: [{ type: i0.Input }],
+        select: [{ type: i0.Output }],
+        remove: [{ type: i0.Output }],
+        deselect: [{ type: i0.Output }]
     };
     var NovoChipsElement = /** @class */ (function () {
         function NovoChipsElement(element, componentUtils, labels) {
@@ -4414,10 +4414,10 @@
             this.closeOnSelect = false;
             this.placeholder = '';
             this._disablePickerInput = false;
-            this.changed = new core.EventEmitter();
-            this.focus = new core.EventEmitter();
-            this.blur = new core.EventEmitter();
-            this.typing = new core.EventEmitter();
+            this.changed = new i0.EventEmitter();
+            this.focus = new i0.EventEmitter();
+            this.blur = new i0.EventEmitter();
+            this.typing = new i0.EventEmitter();
             this.items = [];
             this.selected = null;
             this.config = {};
@@ -4658,7 +4658,7 @@
         return NovoChipsElement;
     }());
     NovoChipsElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'chips,novo-chips',
                     providers: [CHIPS_VALUE_ACCESSOR],
                     template: "\n        <div class=\"novo-chip-container\">\n          <novo-chip\n              *ngFor=\"let item of _items | async\"\n              [type]=\"type || item?.value?.searchEntity\"\n              [class.selected]=\"item == selected\"\n              [disabled]=\"disablePickerInput\"\n              (remove)=\"remove($event, item)\"\n              (select)=\"select($event, item)\"\n              (deselect)=\"deselect($event, item)\">\n              {{ item.label }}\n          </novo-chip>\n        </div>\n        <div class=\"chip-input-container\" *ngIf=\"!maxlength || (maxlength && items.length < maxlength)\">\n            <novo-picker\n                clearValueOnSelect=\"true\"\n                [closeOnSelect]=\"closeOnSelect\"\n                [config]=\"source\"\n                [disablePickerInput]=\"disablePickerInput\"\n                [placeholder]=\"placeholder\"\n                [(ngModel)]=\"itemToAdd\"\n                (select)=\"add($event)\"\n                (keydown)=\"onKeyDown($event)\"\n                (focus)=\"onFocus($event)\"\n                (typing)=\"onTyping($event)\"\n                (blur)=\"onTouched($event)\"\n                [selected]=\"items\"\n                [overrideElement]=\"element\">\n            </novo-picker>\n        </div>\n        <div class=\"preview-container\">\n            <span #preview></span>\n        </div>\n        <i class=\"bhi-search\" [class.has-value]=\"items.length\" *ngIf=\"!disablePickerInput\"></i>\n        <label class=\"clear-all\" *ngIf=\"items.length && !disablePickerInput\" (click)=\"clearValue()\">{{ labels.clearAll }} <i class=\"bhi-times\"></i></label>\n   ",
@@ -4669,23 +4669,23 @@
                 },] }
     ];
     NovoChipsElement.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: ComponentUtils },
         { type: NovoLabelService }
     ]; };
     NovoChipsElement.propDecorators = {
-        closeOnSelect: [{ type: core.Input }],
-        placeholder: [{ type: core.Input }],
-        source: [{ type: core.Input }],
-        maxlength: [{ type: core.Input }],
-        type: [{ type: core.Input }],
-        disablePickerInput: [{ type: core.Input }],
-        changed: [{ type: core.Output }],
-        focus: [{ type: core.Output }],
-        blur: [{ type: core.Output }],
-        typing: [{ type: core.Output }],
-        preview: [{ type: core.ViewChild, args: ['preview', { read: core.ViewContainerRef },] }],
-        value: [{ type: core.Input }]
+        closeOnSelect: [{ type: i0.Input }],
+        placeholder: [{ type: i0.Input }],
+        source: [{ type: i0.Input }],
+        maxlength: [{ type: i0.Input }],
+        type: [{ type: i0.Input }],
+        disablePickerInput: [{ type: i0.Input }],
+        changed: [{ type: i0.Output }],
+        focus: [{ type: i0.Output }],
+        blur: [{ type: i0.Output }],
+        typing: [{ type: i0.Output }],
+        preview: [{ type: i0.ViewChild, args: ['preview', { read: i0.ViewContainerRef },] }],
+        value: [{ type: i0.Input }]
     };
 
     var NovoOverlayTemplateComponent = /** @class */ (function () {
@@ -4699,8 +4699,8 @@
             this.position = 'default';
             this.scrollStrategy = 'reposition';
             this.closeOnSelect = true;
-            this.select = new core.EventEmitter();
-            this.closing = new core.EventEmitter();
+            this.select = new i0.EventEmitter();
+            this.closing = new i0.EventEmitter();
         }
         NovoOverlayTemplateComponent.prototype.ngOnDestroy = function () {
             this.destroyOverlay();
@@ -4910,30 +4910,30 @@
         return NovoOverlayTemplateComponent;
     }());
     NovoOverlayTemplateComponent.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-overlay-template',
                     template: "\n    <ng-template>\n      <div class=\"novo-overlay-panel\" role=\"listbox\" [id]=\"id\" #panel><ng-content></ng-content></div>\n    </ng-template>\n  ",
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     NovoOverlayTemplateComponent.ctorParameters = function () { return [
         { type: overlay.Overlay },
-        { type: core.ViewContainerRef },
-        { type: core.NgZone },
-        { type: core.ChangeDetectorRef },
-        { type: undefined, decorators: [{ type: core.Optional }, { type: core.Inject, args: [common.DOCUMENT,] }] }
+        { type: i0.ViewContainerRef },
+        { type: i0.NgZone },
+        { type: i0.ChangeDetectorRef },
+        { type: undefined, decorators: [{ type: i0.Optional }, { type: i0.Inject, args: [common.DOCUMENT,] }] }
     ]; };
     NovoOverlayTemplateComponent.propDecorators = {
-        template: [{ type: core.ViewChild, args: [core.TemplateRef,] }],
-        panel: [{ type: core.ViewChild, args: ['panel',] }],
-        position: [{ type: core.Input }],
-        scrollStrategy: [{ type: core.Input }],
-        width: [{ type: core.Input }],
-        height: [{ type: core.Input }],
-        closeOnSelect: [{ type: core.Input }],
-        select: [{ type: core.Output }],
-        closing: [{ type: core.Output }],
-        parent: [{ type: core.Input }]
+        template: [{ type: i0.ViewChild, args: [i0.TemplateRef,] }],
+        panel: [{ type: i0.ViewChild, args: ['panel',] }],
+        position: [{ type: i0.Input }],
+        scrollStrategy: [{ type: i0.Input }],
+        width: [{ type: i0.Input }],
+        height: [{ type: i0.Input }],
+        closeOnSelect: [{ type: i0.Input }],
+        select: [{ type: i0.Output }],
+        closing: [{ type: i0.Output }],
+        parent: [{ type: i0.Input }]
     };
 
     // NG2
@@ -4943,7 +4943,7 @@
         return NovoOverlayModule;
     }());
     NovoOverlayModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, forms.FormsModule, overlay.OverlayModule, scrolling.ScrollingModule],
                     declarations: [NovoOverlayTemplateComponent],
                     exports: [NovoOverlayTemplateComponent, scrolling.ScrollingModule],
@@ -4954,13 +4954,13 @@
     // Value accessor for the component (supports ngModel)
     var SWITCH_VALUE_ACCESSOR = {
         provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return NovoSwitchElement; }),
+        useExisting: i0.forwardRef(function () { return NovoSwitchElement; }),
         multi: true,
     };
     var NovoSwitchElement = /** @class */ (function () {
         function NovoSwitchElement(ref) {
             this.ref = ref;
-            this.onChange = new core.EventEmitter();
+            this.onChange = new i0.EventEmitter();
             this._disabled = false;
             this.onModelChange = function () { };
             this.onModelTouched = function () { };
@@ -5007,7 +5007,7 @@
         return NovoSwitchElement;
     }());
     NovoSwitchElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-switch',
                     providers: [SWITCH_VALUE_ACCESSOR],
                     template: "\n        <div (click)=\"toggle($event)\">\n            <div class=\"novo-switch-container\">\n                <div class=\"novo-switch-bar\"></div>\n                <div class=\"novo-switch-thumb-container\">\n                    <div class=\"novo-switch-thumb\"></div>\n                </div>\n            </div>\n            <div class=\"novo-switch-label\"><ng-content></ng-content></div>\n        </div>\n    ",
@@ -5021,12 +5021,12 @@
                 },] }
     ];
     NovoSwitchElement.ctorParameters = function () { return [
-        { type: core.ChangeDetectorRef }
+        { type: i0.ChangeDetectorRef }
     ]; };
     NovoSwitchElement.propDecorators = {
-        theme: [{ type: core.Input }],
-        onChange: [{ type: core.Output }],
-        disabled: [{ type: core.Input, args: ['disabled',] }]
+        theme: [{ type: i0.Input }],
+        onChange: [{ type: i0.Output }],
+        disabled: [{ type: i0.Input, args: ['disabled',] }]
     };
 
     // NG2
@@ -5036,7 +5036,7 @@
         return NovoSwitchModule;
     }());
     NovoSwitchModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, forms.FormsModule],
                     declarations: [NovoSwitchElement],
                     exports: [NovoSwitchElement],
@@ -5394,14 +5394,14 @@
         return BasePickerResults;
     }());
     BasePickerResults.decorators = [
-        { type: core.Directive }
+        { type: i0.Directive }
     ];
     BasePickerResults.ctorParameters = function () { return [
-        { type: core.ElementRef },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ElementRef },
+        { type: i0.ChangeDetectorRef }
     ]; };
     BasePickerResults.propDecorators = {
-        matches: [{ type: core.Input }]
+        matches: [{ type: i0.Input }]
     };
 
     var PickerResults = /** @class */ (function (_super) {
@@ -5436,7 +5436,7 @@
         return PickerResults;
     }(BasePickerResults));
     PickerResults.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'picker-results',
                     host: {
                         class: 'active',
@@ -5445,14 +5445,14 @@
                 },] }
     ];
     PickerResults.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: NovoLabelService },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ChangeDetectorRef }
     ]; };
 
     var notifications = {};
     function notify(message) {
-        if (!core.isDevMode() || message in notifications) {
+        if (!i0.isDevMode() || message in notifications) {
             return;
         }
         notifications[message] = true;
@@ -5463,7 +5463,7 @@
     // Value accessor for the component (supports ngModel)
     var PICKER_VALUE_ACCESSOR = {
         provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return NovoPickerElement; }),
+        useExisting: i0.forwardRef(function () { return NovoPickerElement; }),
         multi: true,
     };
     /**
@@ -5489,11 +5489,11 @@
             this.autoSelectFirstOption = true;
             this._disablePickerInput = false;
             // Emitter for selects
-            this.changed = new core.EventEmitter();
-            this.select = new core.EventEmitter();
-            this.focus = new core.EventEmitter();
-            this.blur = new core.EventEmitter();
-            this.typing = new core.EventEmitter();
+            this.changed = new i0.EventEmitter();
+            this.select = new i0.EventEmitter();
+            this.focus = new i0.EventEmitter();
+            this.blur = new i0.EventEmitter();
+            this.typing = new i0.EventEmitter();
             this.term = '';
             this.onModelChange = function () { };
             this.onModelTouched = function () { };
@@ -5739,39 +5739,39 @@
         return NovoPickerElement;
     }());
     NovoPickerElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-picker',
                     providers: [PICKER_VALUE_ACCESSOR],
                     template: "\n    <i class=\"bhi-more\" *ngIf=\"config?.entityIcon && !_value\"></i>\n    <i class=\"bhi-{{ config?.entityIcon }} entity-icon {{ config?.entityIcon }}\" *ngIf=\"config?.entityIcon && _value\"></i>\n    <input\n      type=\"text\"\n      class=\"picker-input\"\n      [(ngModel)]=\"term\"\n      [class.entity-picker]=\"config?.entityIcon\"\n      [class.entity-selected]=\"config?.entityIcon && _value\"\n      (ngModelChange)=\"checkTerm($event)\"\n      [placeholder]=\"placeholder\"\n      (keydown)=\"onKeyDown($event)\"\n      (focus)=\"onFocus($event)\"\n      (click)=\"onFocus($event)\"\n      (blur)=\"onTouched($event)\"\n      autocomplete=\"off\"\n      #input\n      [disabled]=\"disablePickerInput\"\n    />\n    <i class=\"bhi-search\" *ngIf=\"(!_value || clearValueOnSelect) && !disablePickerInput\"></i>\n    <i\n      class=\"bhi-times\"\n      [class.entity-selected]=\"config?.entityIcon && _value\"\n      *ngIf=\"_value && !clearValueOnSelect && !disablePickerInput\"\n      (click)=\"clearValue(true)\"\n    ></i>\n    <novo-overlay-template class=\"picker-results-container\" [parent]=\"element\" position=\"above-below\" (closing)=\"onOverlayClosed()\">\n      <span #results></span>\n      <ng-content></ng-content>\n    </novo-overlay-template>\n  "
                 },] }
     ];
     NovoPickerElement.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: ComponentUtils },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ChangeDetectorRef }
     ]; };
     NovoPickerElement.propDecorators = {
-        results: [{ type: core.ViewChild, args: ['results', { read: core.ViewContainerRef, static: true },] }],
-        config: [{ type: core.Input }],
-        placeholder: [{ type: core.Input }],
-        clearValueOnSelect: [{ type: core.Input }],
-        closeOnSelect: [{ type: core.Input }],
-        selected: [{ type: core.Input }],
-        appendToBody: [{ type: core.Input }],
-        parentScrollSelector: [{ type: core.Input }],
-        parentScrollAction: [{ type: core.Input }],
-        containerClass: [{ type: core.Input }],
-        side: [{ type: core.Input }],
-        autoSelectFirstOption: [{ type: core.Input }],
-        overrideElement: [{ type: core.Input }],
-        disablePickerInput: [{ type: core.Input }],
-        changed: [{ type: core.Output }],
-        select: [{ type: core.Output }],
-        focus: [{ type: core.Output }],
-        blur: [{ type: core.Output }],
-        typing: [{ type: core.Output }],
-        container: [{ type: core.ViewChild, args: [NovoOverlayTemplateComponent, { static: true },] }],
-        input: [{ type: core.ViewChild, args: ['input', { static: true },] }]
+        results: [{ type: i0.ViewChild, args: ['results', { read: i0.ViewContainerRef, static: true },] }],
+        config: [{ type: i0.Input }],
+        placeholder: [{ type: i0.Input }],
+        clearValueOnSelect: [{ type: i0.Input }],
+        closeOnSelect: [{ type: i0.Input }],
+        selected: [{ type: i0.Input }],
+        appendToBody: [{ type: i0.Input }],
+        parentScrollSelector: [{ type: i0.Input }],
+        parentScrollAction: [{ type: i0.Input }],
+        containerClass: [{ type: i0.Input }],
+        side: [{ type: i0.Input }],
+        autoSelectFirstOption: [{ type: i0.Input }],
+        overrideElement: [{ type: i0.Input }],
+        disablePickerInput: [{ type: i0.Input }],
+        changed: [{ type: i0.Output }],
+        select: [{ type: i0.Output }],
+        focus: [{ type: i0.Output }],
+        blur: [{ type: i0.Output }],
+        typing: [{ type: i0.Output }],
+        container: [{ type: i0.ViewChild, args: [NovoOverlayTemplateComponent, { static: true },] }],
+        input: [{ type: i0.ViewChild, args: ['input', { static: true },] }]
     };
 
     var EntityPickerResult = /** @class */ (function () {
@@ -5867,7 +5867,7 @@
         return EntityPickerResult;
     }());
     EntityPickerResult.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'entity-picker-result',
                     template: "\n    <novo-list-item *ngIf=\"match.data\">\n      <item-header>\n        <item-avatar [icon]=\"getIconForResult(match.data)\"></item-avatar>\n        <item-title> <span [innerHtml]=\"highlight(getNameForResult(match.data), term)\"></span> </item-title>\n      </item-header>\n      <item-content direction=\"horizontal\">\n        <!-- COMPANY 1 -->\n        <p class=\"company\" *ngIf=\"match.data.companyName || match.data?.clientCorporation?.name\">\n          <i class=\"bhi-company\"></i>\n          <span [innerHtml]=\"highlight(match.data.companyName || match.data?.clientCorporation?.name, term)\"></span>\n        </p>\n        <!-- CLIENT CONTACT -->\n        <p class=\"contact\" *ngIf=\"match.data?.clientContact?.firstName\">\n          <i class=\"bhi-person contact person\"></i>\n          <span [innerHtml]=\"highlight(match.data.clientContact.firstName + ' ' + match.data.clientContact.lastName, term)\"></span>\n        </p>\n        <!-- CANDIDATE -->\n        <p class=\"candidate\" *ngIf=\"match.data.candidate && match.data.searchEntity === 'Placement'\">\n          <i class=\"bhi-candidate\"></i>\n          <span [innerHtml]=\"highlight(match.data.candidate.firstName + ' ' + match.data.candidate.lastName, term)\"></span>\n        </p>\n        <!-- START & END DATE -->\n        <p class=\"start-date\" *ngIf=\"match.data.dateBegin && match.data.searchEntity === 'Placement'\">\n          <i class=\"bhi-calendar\"></i>\n          <span [innerHtml]=\"renderTimestamp(match.data.dateBegin) + ' - ' + renderTimestamp(match.data.dateEnd)\"></span>\n        </p>\n        <!-- EMAIL -->\n        <p class=\"email\" *ngIf=\"match.data.email\">\n          <i class=\"bhi-email\"></i> <span [innerHtml]=\"highlight(match.data.email, term)\"></span>\n        </p>\n        <!-- PHONE -->\n        <p class=\"phone\" *ngIf=\"match.data.phone\">\n          <i class=\"bhi-phone\"></i> <span [innerHtml]=\"highlight(match.data.phone, term)\"></span>\n        </p>\n        <!-- ADDRESS -->\n        <p class=\"location\" *ngIf=\"match.data.address && (match.data.address.city || match.data.address.state)\">\n          <i class=\"bhi-location\"></i> <span *ngIf=\"match.data.address.city\" [innerHtml]=\"highlight(match.data.address.city, term)\"></span>\n          <span *ngIf=\"match.data.address.city && match.data.address.state\">, </span>\n          <span *ngIf=\"match.data.address.state\" [innerHtml]=\"highlight(match.data.address.state, term)\"></span>\n        </p>\n        <!-- STATUS -->\n        <p class=\"status\" *ngIf=\"match.data.status\">\n          <i class=\"bhi-info\"></i> <span [innerHtml]=\"highlight(match.data.status, term)\"></span>\n        </p>\n        <!-- OWNER -->\n        <p class=\"owner\" *ngIf=\"match.data.owner && match.data.owner.name && match.data.searchEntity === 'Candidate'\">\n          <i class=\"bhi-person\"></i> <span [innerHtml]=\"highlight(match.data.owner.name, term)\"></span>\n        </p>\n        <!-- PRIMARY DEPARTMENT -->\n        <p\n          class=\"primary-department\"\n          *ngIf=\"match.data.primaryDepartment && match.data.primaryDepartment.name && match.data.searchEntity === 'CorporateUser'\"\n        >\n          <i class=\"bhi-department\"></i> <span [innerHtml]=\"highlight(match.data.primaryDepartment.name, term)\"></span>\n        </p>\n        <!-- OCCUPATION -->\n        <p class=\"occupation\" *ngIf=\"match.data.occupation && match.data.searchEntity === 'CorporateUser'\">\n          <i class=\"bhi-occupation\"></i> <span [innerHtml]=\"highlight(match.data.occupation, term)\"></span>\n        </p>\n      </item-content>\n    </novo-list-item>\n  "
                 },] }
@@ -5876,15 +5876,15 @@
         { type: NovoLabelService }
     ]; };
     EntityPickerResult.propDecorators = {
-        match: [{ type: core.Input }],
-        term: [{ type: core.Input }]
+        match: [{ type: i0.Input }],
+        term: [{ type: i0.Input }]
     };
     var EntityPickerResults = /** @class */ (function (_super) {
         __extends(EntityPickerResults, _super);
         function EntityPickerResults(element, labels, ref) {
             var _this = _super.call(this, element, ref) || this;
             _this.labels = labels;
-            _this.select = new core.EventEmitter();
+            _this.select = new i0.EventEmitter();
             return _this;
         }
         Object.defineProperty(EntityPickerResults.prototype, "hasNonErrorMessage", {
@@ -5904,18 +5904,18 @@
         return EntityPickerResults;
     }(BasePickerResults));
     EntityPickerResults.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'entity-picker-results',
                     template: "\n    <novo-list *ngIf=\"matches.length > 0\" direction=\"vertical\">\n      <entity-picker-result\n        *ngFor=\"let match of matches\"\n        [match]=\"match\"\n        [term]=\"term\"\n        (click)=\"selectMatch($event, match)\"\n        [ngClass]=\"{ active: isActive(match) }\"\n        (mouseenter)=\"selectActive(match)\"\n        [class.disabled]=\"preselected(match)\"\n      >\n      </entity-picker-result>\n      <novo-loading theme=\"line\" *ngIf=\"isLoading && matches.length > 0\"></novo-loading>\n    </novo-list>\n    <p class=\"picker-error\" *ngIf=\"hasError\">{{ labels.pickerError }}</p>\n    <p class=\"picker-null-results\" *ngIf=\"hasNonErrorMessage && term !== ''\">{{ labels.pickerEmpty }}</p>\n    <p class=\"picker-null-results\" *ngIf=\"hasNonErrorMessage && term === ''\">{{ labels.pickerTextFieldEmpty }}</p>\n  "
                 },] }
     ];
     EntityPickerResults.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: NovoLabelService },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ChangeDetectorRef }
     ]; };
     EntityPickerResults.propDecorators = {
-        select: [{ type: core.Output }]
+        select: [{ type: i0.Output }]
     };
 
     /**
@@ -6001,7 +6001,7 @@
         return ChecklistPickerResults;
     }(BasePickerResults));
     ChecklistPickerResults.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'checklist-picker-results',
                     host: {
                         class: 'active picker-results',
@@ -6010,9 +6010,9 @@
                 },] }
     ];
     ChecklistPickerResults.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: NovoLabelService },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ChangeDetectorRef }
     ]; };
 
     var GroupedMultiPickerResults = /** @class */ (function (_super) {
@@ -6206,20 +6206,20 @@
         return GroupedMultiPickerResults;
     }(BasePickerResults));
     GroupedMultiPickerResults.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'grouped-multi-picker-results',
                     template: "\n        <div class=\"grouped-multi-picker-groups\">\n            <novo-list direction=\"vertical\">\n                <novo-list-item\n                    *ngIf=\"config.displayAll\"\n                    (click)=\"selectCategory({ value: 'all', label: 'all' })\"\n                    [class.active]=\"selectedCategory?.value === 'all'\"\n                    data-automation-id=\"display-all\"\n                    [class.disabled]=\"isLoading\">\n                    <item-content>\n                        <span data-automation-id=\"label\">{{ labels.all }}</span>\n                    </item-content>\n                    <item-end>\n                        <i class=\"bhi-next\"></i>\n                    </item-end>\n                </novo-list-item>\n                <novo-list-item\n                    *ngFor=\"let category of categories\"\n                    (click)=\"selectCategory(category)\"\n                    [class.active]=\"selectedCategory?.value === category.value\"\n                    [attr.data-automation-id]=\"category.label\"\n                    [class.disabled]=\"isLoading\">\n                    <item-content>\n                        <i *ngIf=\"category.iconClass\" [class]=\"category.iconClass\"></i>\n                        <span data-automation-id=\"label\">{{ category.label }}</span>\n                    </item-content>\n                    <item-end>\n                        <i class=\"bhi-next\"></i>\n                    </item-end>\n                </novo-list-item>\n            </novo-list>\n            <footer class=\"grouped-multi-picker-groups-footer\" *ngIf=\"customFilterEnabled\" data-automation-id=\"footer\" [class.disabled]=\"isLoading\">\n                <novo-switch [(ngModel)]=\"customFilterValue\" (onChange)=\"fireCustomFilter($event)\" data-automation-id=\"switch\"></novo-switch>\n                <label data-automation-id=\"label\">{{ customFilterLabel }}</label>\n            </footer>\n        </div>\n        <div class=\"grouped-multi-picker-matches\">\n            <div class=\"grouped-multi-picker-input-container\" [hidden]=\"!selectedCategory\" data-automation-id=\"input-container\">\n                <input autofocus #input [(ngModel)]=\"searchTerm\" [disabled]=\"isLoading\" data-automation-id=\"input\" [placeholder]=\"placeholder\"/>\n                <i class=\"bhi-search\" *ngIf=\"!searchTerm\" [class.disabled]=\"isLoading\" data-automation-id=\"seach-icon\"></i>\n                <i class=\"bhi-times\" *ngIf=\"searchTerm\" (click)=\"clearSearchTerm($event)\" [class.disabled]=\"isLoading\" data-automation-id=\"remove-icon\"></i>\n            </div>\n            <div class=\"grouped-multi-picker-list-container\">\n                <novo-list direction=\"vertical\" #list>\n                    <novo-list-item\n                        *ngFor=\"let match of matches\"\n                        (click)=\"selectMatch($event)\"\n                        [class.active]=\"match === activeMatch\"\n                        (mouseenter)=\"selectActive(match)\"\n                        [class.disabled]=\"preselected(match) || isLoading\"\n                        [attr.data-automation-id]=\"match.label\">\n                        <item-content>\n                            <span>{{ match.label }}</span>\n                        </item-content>\n                    </novo-list-item>\n                </novo-list>\n                <div class=\"grouped-multi-picker-no-results\" *ngIf=\"matches.length === 0 && !isLoading && selectedCategory\" data-automation-id=\"empty-message\">\n                    {{ labels.groupedMultiPickerEmpty }}\n                </div>\n                <div class=\"grouped-multi-picker-no-category\" *ngIf=\"matches.length === 0 && !isLoading && !selectedCategory\" data-automation-id=\"select-category-message\">\n                    {{ labels.groupedMultiPickerSelectCategory }}\n                </div>\n                <div class=\"grouped-multi-picker-loading\" *ngIf=\"isLoading\" data-automation-id=\"loading-message\">\n                    <novo-loading theme=\"line\"></novo-loading>\n                </div>\n            </div>\n        </div>\n    "
                 },] }
     ];
     GroupedMultiPickerResults.ctorParameters = function () { return [
-        { type: core.ElementRef },
-        { type: core.Renderer2 },
+        { type: i0.ElementRef },
+        { type: i0.Renderer2 },
         { type: NovoLabelService },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ChangeDetectorRef }
     ]; };
     GroupedMultiPickerResults.propDecorators = {
-        inputElement: [{ type: core.ViewChild, args: ['input', { static: true },] }],
-        listElement: [{ type: core.ViewChild, args: ['list',] }]
+        inputElement: [{ type: i0.ViewChild, args: ['input', { static: true },] }],
+        listElement: [{ type: i0.ViewChild, args: ['list',] }]
     };
 
     var MixedMultiPickerResults = /** @class */ (function (_super) {
@@ -6361,20 +6361,20 @@
         return MixedMultiPickerResults;
     }(BasePickerResults));
     MixedMultiPickerResults.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'mixed-multi-picker-results',
                     template: "\n    <div class=\"mixed-multi-picker-groups\">\n        <novo-list direction=\"vertical\">\n            <novo-list-item\n                *ngFor=\"let option of options\"\n                (click)=\"selectPrimaryOption(option, $event)\"\n                [class.active]=\"selectedPrimaryOption?.value === option.value\"\n                [attr.data-automation-id]=\"option.label\"\n                [class.disabled]=\"isLoading\">\n                <item-content>\n                    <i *ngIf=\"option.iconClass\" [class]=\"option.iconClass\"></i>\n                    <span data-automation-id=\"label\">{{ option.label }}</span>\n                </item-content>\n                <item-end *ngIf=\"optionHasSecondaryOptions(option)\">\n                    <i class=\"bhi-next\"></i>\n                </item-end>\n            </novo-list-item>\n        </novo-list>\n    </div>\n    <div class=\"mixed-multi-picker-matches\" [hidden]=\"!optionHasSecondaryOptions(selectedPrimaryOption)\">\n        <div class=\"mixed-multi-picker-input-container\" [hidden]=\"!shouldShowSearchBox(selectedPrimaryOption)\" data-automation-id=\"input-container\">\n            <input autofocus #input [(ngModel)]=\"searchTerm\" [disabled]=\"isLoading\" data-automation-id=\"input\" [placeholder]=\"placeholder\"/>\n            <i class=\"bhi-search\" *ngIf=\"!searchTerm\" [class.disabled]=\"isLoading\" data-automation-id=\"seach-icon\"></i>\n            <i class=\"bhi-times\" *ngIf=\"searchTerm\" (click)=\"clearSearchTerm($event)\" [class.disabled]=\"isLoading\" data-automation-id=\"remove-icon\"></i>\n        </div>\n        <div class=\"mixed-multi-picker-list-container\">\n            <novo-list direction=\"vertical\" #list>\n                <novo-list-item\n                    *ngFor=\"let match of matches\"\n                    (click)=\"selectMatch($event)\"\n                    [class.active]=\"match === activeMatch\"\n                    (mouseenter)=\"selectActive(match)\"\n                    [class.disabled]=\"preselected(match) || isLoading\"\n                    [attr.data-automation-id]=\"match.label\">\n                    <item-content>\n                        <span>{{ match.label }}</span>\n                    </item-content>\n                </novo-list-item>\n            </novo-list>\n            <div class=\"mixed-multi-picker-no-results\" *ngIf=\"matches.length === 0 && !isLoading && selectedPrimaryOption\" data-automation-id=\"empty-message\">\n                {{ labels.groupedMultiPickerEmpty }}\n            </div>\n            <div class=\"mixed-multi-picker-loading\" *ngIf=\"isLoading\" data-automation-id=\"loading-message\">\n                <novo-loading theme=\"line\"></novo-loading>\n            </div>\n        </div>\n    </div>"
                 },] }
     ];
     MixedMultiPickerResults.ctorParameters = function () { return [
-        { type: core.ElementRef },
-        { type: core.Renderer2 },
+        { type: i0.ElementRef },
+        { type: i0.Renderer2 },
         { type: NovoLabelService },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ChangeDetectorRef }
     ]; };
     MixedMultiPickerResults.propDecorators = {
-        inputElement: [{ type: core.ViewChild, args: ['input', { static: true },] }],
-        listElement: [{ type: core.ViewChild, args: ['list',] }]
+        inputElement: [{ type: i0.ViewChild, args: ['input', { static: true },] }],
+        listElement: [{ type: i0.ViewChild, args: ['list',] }]
     };
 
     var SkillsSpecialtyPickerResults = /** @class */ (function (_super) {
@@ -6415,18 +6415,18 @@
         return SkillsSpecialtyPickerResults;
     }(BasePickerResults));
     SkillsSpecialtyPickerResults.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'skill-specialty-picker-results',
                     template: "\n    <section class=\"picker-loading\" *ngIf=\"isLoading && !matches?.length\"><novo-loading theme=\"line\"></novo-loading></section>\n    <novo-list *ngIf=\"matches.length > 0\" direction=\"vertical\">\n      <novo-list-item\n        *ngFor=\"let match of matches\"\n        (click)=\"selectMatch($event)\"\n        [class.active]=\"match === activeMatch\"\n        (mouseenter)=\"selectActive(match)\"\n        [class.disabled]=\"preselected(match)\"\n      >\n        <item-content>\n          <h6><span [innerHtml]=\"highlight(match.label, term)\"></span></h6>\n          <div class=\"category\">\n            <i class=\"bhi-category-tags\"></i\n            ><span [innerHtml]=\"highlight(match.data.categories || match.data.parentCategory.name, term)\"></span>\n          </div>\n        </item-content>\n      </novo-list-item>\n      <novo-list-item *ngIf=\"limitedTo\"\n        ><div>{{ labels.showingXofXResults(limit, total) }}</div></novo-list-item\n      >\n      <novo-loading theme=\"line\" *ngIf=\"isLoading && matches.length > 0\"></novo-loading>\n    </novo-list>\n    <p class=\"picker-error\" *ngIf=\"hasError\">{{ labels.pickerError }}</p>\n    <p class=\"picker-null\" *ngIf=\"!isLoading && !matches.length && !hasError\">{{ labels.pickerEmpty }}</p>\n  "
                 },] }
     ];
     SkillsSpecialtyPickerResults.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: NovoLabelService },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ChangeDetectorRef }
     ]; };
     SkillsSpecialtyPickerResults.propDecorators = {
-        active: [{ type: core.HostBinding, args: ['class.active',] }]
+        active: [{ type: i0.HostBinding, args: ['class.active',] }]
     };
 
     var DistributionListPickerResults = /** @class */ (function (_super) {
@@ -6455,20 +6455,20 @@
         return DistributionListPickerResults;
     }(BasePickerResults));
     DistributionListPickerResults.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'distribution-list-picker-results',
                     template: "\n        <section class=\"picker-loading\" *ngIf=\"isLoading && !matches?.length\">\n            <novo-loading theme=\"line\"></novo-loading>\n        </section>\n        <novo-list direction=\"vertical\" *ngIf=\"matches?.length > 0 && !hasError\">\n            <novo-list-item *ngFor=\"let match of matches\" (click)=\"selectMatch($event)\" [class.active]=\"match === activeMatch\" (mouseenter)=\"selectActive(match)\" [class.disabled]=\"preselected(match)\">\n                <item-header>\n                    <item-title>\n                        <span [innerHtml]=\"sanitizeHTML(match.label)\"></span>\n                    </item-title>\n                </item-header>\n                <item-content direction=\"horizontal\">\n                    <p>\n                        <span class='label'>{{ labels.distributionListOwner }}: </span><span>{{ match?.data?.owner?.name }}</span>\n                    </p>\n                    <p>\n                        <span class='label'>{{ labels.dateAdded }}: </span><span>{{ labels.formatDateWithFormat(match?.data?.dateAdded, { year: 'numeric', month: 'numeric', day: 'numeric' }) }}</span>\n                    </p>\n                </item-content>\n            </novo-list-item>\n            <novo-loading theme=\"line\" *ngIf=\"isLoading && matches?.length > 0\"></novo-loading>\n        </novo-list>\n    "
                 },] }
     ];
     DistributionListPickerResults.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: platformBrowser.DomSanitizer },
         { type: NovoLabelService },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ChangeDetectorRef }
     ]; };
     DistributionListPickerResults.propDecorators = {
-        active: [{ type: core.HostBinding, args: ['class.active',] }],
-        isHidden: [{ type: core.HostBinding, args: ['hidden',] }]
+        active: [{ type: i0.HostBinding, args: ['class.active',] }],
+        isHidden: [{ type: i0.HostBinding, args: ['hidden',] }]
     };
 
     var WorkersCompCodesPickerResults = /** @class */ (function (_super) {
@@ -6497,20 +6497,20 @@
         return WorkersCompCodesPickerResults;
     }(BasePickerResults));
     WorkersCompCodesPickerResults.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'workers-comp-codes-picker-results',
                     template: "\n    <section class=\"picker-loading\" *ngIf=\"isLoading && !matches?.length\">\n      <novo-loading theme=\"line\"></novo-loading>\n    </section>\n    <novo-list direction=\"vertical\" *ngIf=\"matches?.length > 0 && !hasError\">\n      <novo-list-item\n        *ngFor=\"let match of matches\"\n        (click)=\"selectMatch($event)\"\n        [class.active]=\"match === activeMatch\"\n        (mouseenter)=\"selectActive(match)\"\n        [class.disabled]=\"preselected(match)\"\n      >\n        <item-header>\n          <item-title>\n            <span [innerHtml]=\"sanitizeHTML(match?.data?.compensation?.code, match?.data?.compensation?.name)\"></span>\n          </item-title>\n        </item-header>\n        <item-content direction=\"horizontal\">\n          <p>\n            <span class=\"label\">{{ labels.state }}: </span><span>{{ match?.data?.compensation?.state }}</span>\n          </p>\n          <p>\n            <span class=\"label\">{{ labels.rate }}: </span><span>{{ labels.formatCurrency(match?.data?.rate) }}</span>\n          </p>\n        </item-content>\n        <item-content direction=\"horizontal\">\n          <p>\n            <span class=\"label\">{{ labels.startDate }}: </span\n            ><span>{{ labels.formatDateWithFormat(match?.data?.startDate, { year: 'numeric', month: 'numeric', day: 'numeric' }) }}</span>\n          </p>\n          <p>\n            <span class=\"label\">{{ labels.endDate }}: </span\n            ><span>{{ labels.formatDateWithFormat(match?.data?.endDate, { year: 'numeric', month: 'numeric', day: 'numeric' }) }}</span>\n          </p>\n        </item-content>\n      </novo-list-item>\n      <novo-loading theme=\"line\" *ngIf=\"isLoading && matches?.length > 0\"></novo-loading>\n    </novo-list>\n  "
                 },] }
     ];
     WorkersCompCodesPickerResults.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: platformBrowser.DomSanitizer },
         { type: NovoLabelService },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ChangeDetectorRef }
     ]; };
     WorkersCompCodesPickerResults.propDecorators = {
-        active: [{ type: core.HostBinding, args: ['class.active',] }],
-        isHidden: [{ type: core.HostBinding, args: ['hidden',] }]
+        active: [{ type: i0.HostBinding, args: ['class.active',] }],
+        isHidden: [{ type: i0.HostBinding, args: ['hidden',] }]
     };
 
     // NG2
@@ -6520,7 +6520,7 @@
         return NovoPickerModule;
     }());
     NovoPickerModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, forms.FormsModule, NovoLoadingModule, NovoListModule, NovoOverlayModule, NovoSwitchModule],
                     declarations: [
                         NovoPickerElement,
@@ -6552,7 +6552,7 @@
     // Value accessor for the component (supports ngModel)
     var CHIPS_VALUE_ACCESSOR$1 = {
         provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return NovoRowChipsElement; }),
+        useExisting: i0.forwardRef(function () { return NovoRowChipsElement; }),
         multi: true,
     };
     var NovoRowChipElement = /** @class */ (function (_super) {
@@ -6566,7 +6566,7 @@
         return NovoRowChipElement;
     }(NovoChipElement));
     NovoRowChipElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-row-chip',
                     template: "<div class=\"novo-row-chips-columns\"><ng-content></ng-content><i class=\"bhi-delete-o\" *ngIf=\"!disabled\" (click)=\"onRemove($event)\"></i></div>"
                 },] }
@@ -6584,7 +6584,7 @@
         return NovoRowChipsElement;
     }(NovoChipsElement));
     NovoRowChipsElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-row-chips',
                     providers: [CHIPS_VALUE_ACCESSOR$1],
                     host: {
@@ -6594,12 +6594,12 @@
                 },] }
     ];
     NovoRowChipsElement.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: ComponentUtils },
         { type: NovoLabelService }
     ]; };
     NovoRowChipsElement.propDecorators = {
-        closeOnSelect: [{ type: core.Input }]
+        closeOnSelect: [{ type: i0.Input }]
     };
 
     // NG2
@@ -6609,7 +6609,7 @@
         return NovoChipsModule;
     }());
     NovoChipsModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, forms.FormsModule, NovoPickerModule],
                     declarations: [NovoChipElement, NovoChipsElement, NovoRowChipElement, NovoRowChipsElement],
                     exports: [NovoChipElement, NovoChipsElement, NovoRowChipElement, NovoRowChipsElement],
@@ -6620,7 +6620,7 @@
     // Value accessor for the component (supports ngModel)
     var CKEDITOR_CONTROL_VALUE_ACCESSOR = {
         provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return NovoCKEditorElement; }),
+        useExisting: i0.forwardRef(function () { return NovoCKEditorElement; }),
         multi: true,
     };
     /**
@@ -6634,12 +6634,12 @@
             this.startupFocus = false;
             this.fileBrowserImageUploadUrl = '';
             this.disabled = false;
-            this.change = new core.EventEmitter();
-            this.ready = new core.EventEmitter();
-            this.blur = new core.EventEmitter();
-            this.focus = new core.EventEmitter();
-            this.paste = new core.EventEmitter();
-            this.loaded = new core.EventEmitter();
+            this.change = new i0.EventEmitter();
+            this.ready = new i0.EventEmitter();
+            this.blur = new i0.EventEmitter();
+            this.focus = new i0.EventEmitter();
+            this.paste = new i0.EventEmitter();
+            this.loaded = new i0.EventEmitter();
             this._value = '';
         }
         Object.defineProperty(NovoCKEditorElement.prototype, "value", {
@@ -6832,31 +6832,31 @@
         return NovoCKEditorElement;
     }());
     NovoCKEditorElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-editor',
                     providers: [CKEDITOR_CONTROL_VALUE_ACCESSOR],
                     template: '<textarea [name]="name" [id]="name" #host></textarea>'
                 },] }
     ];
     NovoCKEditorElement.ctorParameters = function () { return [
-        { type: core.NgZone }
+        { type: i0.NgZone }
     ]; };
     NovoCKEditorElement.propDecorators = {
-        config: [{ type: core.Input }],
-        debounce: [{ type: core.Input }],
-        name: [{ type: core.Input }],
-        minimal: [{ type: core.Input }],
-        startupFocus: [{ type: core.Input }],
-        fileBrowserImageUploadUrl: [{ type: core.Input }],
-        disabled: [{ type: core.Input }],
-        change: [{ type: core.Output }],
-        ready: [{ type: core.Output }],
-        blur: [{ type: core.Output }],
-        focus: [{ type: core.Output }],
-        paste: [{ type: core.Output }],
-        loaded: [{ type: core.Output }],
-        host: [{ type: core.ViewChild, args: ['host',] }],
-        value: [{ type: core.Input }]
+        config: [{ type: i0.Input }],
+        debounce: [{ type: i0.Input }],
+        name: [{ type: i0.Input }],
+        minimal: [{ type: i0.Input }],
+        startupFocus: [{ type: i0.Input }],
+        fileBrowserImageUploadUrl: [{ type: i0.Input }],
+        disabled: [{ type: i0.Input }],
+        change: [{ type: i0.Output }],
+        ready: [{ type: i0.Output }],
+        blur: [{ type: i0.Output }],
+        focus: [{ type: i0.Output }],
+        paste: [{ type: i0.Output }],
+        loaded: [{ type: i0.Output }],
+        host: [{ type: i0.ViewChild, args: ['host',] }],
+        value: [{ type: i0.Input }]
     };
 
     // NG2
@@ -6866,7 +6866,7 @@
         return NovoNovoCKEditorModule;
     }());
     NovoNovoCKEditorModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, forms.FormsModule],
                     declarations: [NovoCKEditorElement],
                     exports: [NovoCKEditorElement],
@@ -6883,16 +6883,16 @@
         return NovoTemplate;
     }());
     NovoTemplate.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[novoTemplate]',
                 },] }
     ];
     NovoTemplate.ctorParameters = function () { return [
-        { type: core.TemplateRef }
+        { type: i0.TemplateRef }
     ]; };
     NovoTemplate.propDecorators = {
-        type: [{ type: core.Input }],
-        name: [{ type: core.Input, args: ['novoTemplate',] }]
+        type: [{ type: i0.Input }],
+        name: [{ type: i0.Input, args: ['novoTemplate',] }]
     };
 
     var NovoCommonModule = /** @class */ (function () {
@@ -6901,7 +6901,7 @@
         return NovoCommonModule;
     }());
     NovoCommonModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule],
                     exports: [NovoTemplate],
                     declarations: [NovoTemplate],
@@ -6961,7 +6961,7 @@
             this.selectedRows = new Map();
             this.expandedRows = new Set();
             this.isForceRefresh = false;
-            this.updates = new core.EventEmitter();
+            this.updates = new i0.EventEmitter();
         }
         Object.defineProperty(DataTableState.prototype, "userFiltered", {
             get: function () {
@@ -7070,7 +7070,7 @@
         return DataTableState;
     }());
     DataTableState.decorators = [
-        { type: core.Injectable }
+        { type: i0.Injectable }
     ];
 
     var NovoDataTableClearButton = /** @class */ (function () {
@@ -7078,9 +7078,9 @@
             this.state = state;
             this.ref = ref;
             this.labels = labels;
-            this.sortClear = new core.EventEmitter();
-            this.filterClear = new core.EventEmitter();
-            this.allClear = new core.EventEmitter();
+            this.sortClear = new i0.EventEmitter();
+            this.filterClear = new i0.EventEmitter();
+            this.allClear = new i0.EventEmitter();
         }
         NovoDataTableClearButton.prototype.clearSort = function () {
             this.state.clearSort();
@@ -7099,21 +7099,21 @@
         return NovoDataTableClearButton;
     }());
     NovoDataTableClearButton.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-data-table-clear-button',
                     template: "\n    <novo-dropdown side=\"bottom-right\" class=\"novo-data-table-clear-button\" data-automation-id=\"novo-data-table-clear-dropdown\">\n      <button type=\"button\" theme=\"primary\" color=\"negative\" icon=\"collapse\" data-automation-id=\"novo-data-table-clear-dropdown-btn\">{{ labels.clear }}</button>\n      <list>\n          <item *ngIf=\"state.sort\" (click)=\"clearSort()\" data-automation-id=\"novo-data-table-clear-dropdown-clear-sort\">{{ labels.clearSort }}</item>\n          <item *ngIf=\"state.filter\" (click)=\"clearFilter()\" data-automation-id=\"novo-data-table-clear-dropdown-clear-filter\">{{ labels.clearFilter }}</item>\n          <item *ngIf=\"state.sort && state.filter\" (click)=\"clearAll()\" data-automation-id=\"novo-data-table-clear-dropdown-clear-all\">{{ labels.clearAllNormalCase }}</item>\n      </list>\n    </novo-dropdown>\n  ",
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     NovoDataTableClearButton.ctorParameters = function () { return [
         { type: DataTableState },
-        { type: core.ChangeDetectorRef },
+        { type: i0.ChangeDetectorRef },
         { type: NovoLabelService }
     ]; };
     NovoDataTableClearButton.propDecorators = {
-        sortClear: [{ type: core.Output }],
-        filterClear: [{ type: core.Output }],
-        allClear: [{ type: core.Output }]
+        sortClear: [{ type: i0.Output }],
+        filterClear: [{ type: i0.Output }],
+        allClear: [{ type: i0.Output }]
     };
 
     var DataTableSource = /** @class */ (function (_super) {
@@ -7246,7 +7246,7 @@
             this.scrollStrategy = 'reposition';
             this.width = -1; // Defaults to dynamic width (no hardcoded width value and no host width lookup)
             this.appendToBody = false; // Deprecated
-            this.toggled = new core.EventEmitter();
+            this.toggled = new i0.EventEmitter();
             this.activeIndex = -1;
             this.filterTerm = '';
             this.clickHandler = this.togglePanel.bind(this);
@@ -7418,34 +7418,34 @@
         return NovoDropdownElement;
     }());
     NovoDropdownElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-dropdown',
                     template: "\n    <ng-content select=\"button\" #trigger></ng-content>\n    <novo-overlay-template [parent]=\"element\" [width]=\"width\" [position]=\"side\" [scrollStrategy]=\"scrollStrategy\">\n      <div\n        class=\"dropdown-container {{ containerClass }}\"\n        [style.height.px]=\"height\"\n        [class.has-height]=\"!!height\"\n        (keydown)=\"onOverlayKeyDown($event)\"\n      >\n        <ng-content></ng-content>\n      </div>\n    </novo-overlay-template>\n  "
                 },] }
     ];
     NovoDropdownElement.ctorParameters = function () { return [
-        { type: core.ElementRef },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ElementRef },
+        { type: i0.ChangeDetectorRef }
     ]; };
     NovoDropdownElement.propDecorators = {
-        parentScrollSelector: [{ type: core.Input }],
-        parentScrollAction: [{ type: core.Input }],
-        containerClass: [{ type: core.Input }],
-        side: [{ type: core.Input }],
-        scrollStrategy: [{ type: core.Input }],
-        height: [{ type: core.Input }],
-        width: [{ type: core.Input }],
-        appendToBody: [{ type: core.Input }],
-        toggled: [{ type: core.Output }],
-        overlay: [{ type: core.ViewChild, args: [NovoOverlayTemplateComponent,] }],
-        onKeyDown: [{ type: core.HostListener, args: ['keydown', ['$event'],] }]
+        parentScrollSelector: [{ type: i0.Input }],
+        parentScrollAction: [{ type: i0.Input }],
+        containerClass: [{ type: i0.Input }],
+        side: [{ type: i0.Input }],
+        scrollStrategy: [{ type: i0.Input }],
+        height: [{ type: i0.Input }],
+        width: [{ type: i0.Input }],
+        appendToBody: [{ type: i0.Input }],
+        toggled: [{ type: i0.Output }],
+        overlay: [{ type: i0.ViewChild, args: [NovoOverlayTemplateComponent,] }],
+        onKeyDown: [{ type: i0.HostListener, args: ['keydown', ['$event'],] }]
     };
     var NovoItemElement = /** @class */ (function () {
         function NovoItemElement(dropdown, element) {
             this.dropdown = dropdown;
             this.element = element;
             this.keepOpen = false;
-            this.action = new core.EventEmitter();
+            this.action = new i0.EventEmitter();
             this.active = false;
         }
         NovoItemElement.prototype.onClick = function (event) {
@@ -7462,7 +7462,7 @@
         return NovoItemElement;
     }());
     NovoItemElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'item',
                     template: '<ng-content></ng-content>',
                     host: {
@@ -7473,13 +7473,13 @@
     ];
     NovoItemElement.ctorParameters = function () { return [
         { type: NovoDropdownElement },
-        { type: core.ElementRef }
+        { type: i0.ElementRef }
     ]; };
     NovoItemElement.propDecorators = {
-        disabled: [{ type: core.Input }],
-        keepOpen: [{ type: core.Input }],
-        action: [{ type: core.Output }],
-        onClick: [{ type: core.HostListener, args: ['click', ['$event'],] }]
+        disabled: [{ type: i0.Input }],
+        keepOpen: [{ type: i0.Input }],
+        action: [{ type: i0.Output }],
+        onClick: [{ type: i0.HostListener, args: ['click', ['$event'],] }]
     };
     var NovoDropdownListElement = /** @class */ (function () {
         function NovoDropdownListElement(dropdown) {
@@ -7495,7 +7495,7 @@
         return NovoDropdownListElement;
     }());
     NovoDropdownListElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'list',
                     template: '<ng-content></ng-content>'
                 },] }
@@ -7504,7 +7504,7 @@
         { type: NovoDropdownElement }
     ]; };
     NovoDropdownListElement.propDecorators = {
-        items: [{ type: core.ContentChildren, args: [NovoItemElement,] }]
+        items: [{ type: i0.ContentChildren, args: [NovoItemElement,] }]
     };
     var NovoDropDownItemHeaderElement = /** @class */ (function () {
         function NovoDropDownItemHeaderElement() {
@@ -7512,7 +7512,7 @@
         return NovoDropDownItemHeaderElement;
     }());
     NovoDropDownItemHeaderElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'dropdown-item-header',
                     template: '<ng-content></ng-content>'
                 },] }
@@ -7566,7 +7566,7 @@
         return NovoDataTableSortFilter;
     }());
     NovoDataTableSortFilter.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[novoDataTableSortFilter]',
                 },] }
     ];
@@ -7912,32 +7912,32 @@
         return NovoDataTableCellHeader;
     }());
     NovoDataTableCellHeader.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: '[novo-data-table-cell-config]',
                     template: "\n    <i class=\"bhi-{{ labelIcon }} label-icon\" *ngIf=\"labelIcon\" data-automation-id=\"novo-data-table-header-icon\"></i>\n    <label data-automation-id=\"novo-data-table-label\">{{ label }}</label>\n    <div>\n      <button\n        *ngIf=\"config.sortable\"\n        tooltipPosition=\"right\"\n        [tooltip]=\"labels.sort\"\n        theme=\"icon\"\n        [icon]=\"icon\"\n        (click)=\"sort()\"\n        [class.active]=\"sortActive\"\n        data-automation-id=\"novo-data-table-sort\"\n        [attr.data-feature-id]=\"'novo-data-table-sort-' + this.id\"\n      ></button>\n      <novo-dropdown\n        *ngIf=\"config.filterable\"\n        side=\"right\"\n        parentScrollSelector=\".novo-data-table-container\"\n        containerClass=\"data-table-dropdown\"\n        data-automation-id=\"novo-data-table-filter\"\n      >\n        <button\n          type=\"button\"\n          theme=\"icon\"\n          icon=\"filter\"\n          [class.active]=\"filterActive\"\n          (click)=\"focusInput()\"\n          tooltipPosition=\"right\"\n          [tooltip]=\"labels.filters\"\n          [attr.data-feature-id]=\"'novo-data-table-filter-' + this.id\"\n        ></button>\n        <div class=\"header\">\n          <span>{{ labels.filters }}</span>\n          <button\n            theme=\"dialogue\"\n            color=\"negative\"\n            icon=\"times\"\n            (click)=\"clearFilter()\"\n            *ngIf=\"filter !== null && filter !== undefined && filter !== ''\"\n            data-automation-id=\"novo-data-table-filter-clear\"\n          >\n            {{ labels.clear }}\n          </button>\n        </div>\n        <ng-container [ngSwitch]=\"config.filterConfig.type\">\n          <list *ngSwitchCase=\"'date'\">\n            <ng-container *ngIf=\"!showCustomRange\">\n              <item\n                [class.active]=\"activeDateFilter === option.label\"\n                *ngFor=\"let option of config.filterConfig.options\"\n                (click)=\"filterData(option)\"\n                [attr.data-automation-id]=\"'novo-data-table-filter-' + option.label\"\n              >\n                {{ option.label }} <i class=\"bhi-check\" *ngIf=\"activeDateFilter === option.label\"></i>\n              </item>\n            </ng-container>\n            <item\n              [class.active]=\"labels.customDateRange === activeDateFilter\"\n              (click)=\"toggleCustomRange($event, true)\"\n              *ngIf=\"config.filterConfig.allowCustomRange && !showCustomRange\"\n              [keepOpen]=\"true\"\n            >\n              {{ labels.customDateRange }} <i class=\"bhi-check\" *ngIf=\"labels.customDateRange === activeDateFilter\"></i>\n            </item>\n            <div class=\"calendar-container\" *ngIf=\"showCustomRange\">\n              <div (click)=\"toggleCustomRange($event, false)\"><i class=\"bhi-previous\"></i>{{ labels.backToPresetFilters }}</div>\n              <novo-date-picker (onSelect)=\"filterData($event)\" [(ngModel)]=\"filter\" range=\"true\"></novo-date-picker>\n            </div>\n          </list>\n          <list *ngSwitchCase=\"'select'\">\n            <item\n              [class.active]=\"filter === option\"\n              *ngFor=\"let option of config.filterConfig.options\"\n              (click)=\"filterData(option)\"\n              [attr.data-automation-id]=\"'novo-data-table-filter-' + (option?.label || option)\"\n            >\n              <span>{{ option?.label || option }}</span>\n              <i class=\"bhi-check\" *ngIf=\"option.hasOwnProperty('value') ? filter === option.value : filter === option\"></i>\n            </item>\n          </list>\n          <list *ngSwitchCase=\"'multi-select'\">\n            <div class=\"dropdown-list-filter\" (keydown)=\"multiSelectOptionFilterHandleKeydown($event)\">\n              <item class=\"filter-search\" keepOpen=\"true\">\n                <input\n                  [(ngModel)]=\"optionFilter\"\n                  (ngModelChange)=\"multiSelectOptionFilter($event)\"\n                  #optionFilterInput\n                  data-automation-id=\"novo-data-table-multi-select-option-filter-input\"\n                />\n                <i class=\"bhi-search\"></i>\n                <span class=\"error-text\" [hidden]=\"!error || !multiSelectHasVisibleOptions()\">{{ labels.selectFilterOptions }}</span>\n              </item>\n            </div>\n            <div class=\"dropdown-list-options\">\n              <item\n                *ngFor=\"let option of config.filterConfig.options\"\n                [hidden]=\"multiSelectOptionIsHidden(option)\"\n                (click)=\"toggleSelection(option)\"\n                [attr.data-automation-id]=\"'novo-data-table-filter-' + (option?.label || option)\"\n                [keepOpen]=\"true\"\n              >\n                <span>{{ option?.label || option }}</span>\n                <i\n                  [class.bhi-checkbox-empty]=\"!isSelected(option, multiSelectedOptions)\"\n                  [class.bhi-checkbox-filled]=\"isSelected(option, multiSelectedOptions)\"\n                ></i>\n              </item>\n            </div>\n            <p class=\"filter-null-results\" [hidden]=\"multiSelectHasVisibleOptions()\">{{ labels.pickerEmpty }}</p>\n          </list>\n          <list *ngSwitchCase=\"'custom'\">\n            <item class=\"filter-search\" keepOpen=\"true\">\n              <ng-container *ngTemplateOutlet=\"filterTemplate; context: { $implicit: config }\"></ng-container>\n            </item>\n          </list>\n          <list *ngSwitchDefault>\n            <item class=\"filter-search\" keepOpen=\"true\">\n              <input\n                [type]=\"config.filterConfig.type\"\n                [(ngModel)]=\"filter\"\n                (ngModelChange)=\"filterData($event)\"\n                #filterInput\n                data-automation-id=\"novo-data-table-filter-input\"\n              />\n            </item>\n          </list>\n        </ng-container>\n        <div class=\"footer\" *ngIf=\"multiSelect\">\n          <button theme=\"dialogue\" color=\"dark\" (click)=\"cancel()\" data-automation-id=\"novo-data-table-multi-select-cancel\">\n            {{ labels.cancel }}\n          </button>\n          <button theme=\"dialogue\" color=\"positive\" (click)=\"filterMultiSelect()\" data-automation-id=\"novo-data-table-multi-select-filter\">\n            {{ labels.filters }}\n          </button>\n        </div>\n      </novo-dropdown>\n    </div>\n    <div class=\"spacer\"></div>\n    <div class=\"data-table-header-resizable\" *ngIf=\"config.resizable\"><span (mousedown)=\"startResize($event)\">&nbsp;</span></div>\n  ",
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     NovoDataTableCellHeader.ctorParameters = function () { return [
-        { type: core.ChangeDetectorRef },
+        { type: i0.ChangeDetectorRef },
         { type: NovoLabelService },
         { type: DataTableState },
-        { type: core.Renderer2 },
-        { type: core.ElementRef },
-        { type: NovoDataTableSortFilter, decorators: [{ type: core.Optional }] },
-        { type: table.CdkColumnDef, decorators: [{ type: core.Optional }] }
+        { type: i0.Renderer2 },
+        { type: i0.ElementRef },
+        { type: NovoDataTableSortFilter, decorators: [{ type: i0.Optional }] },
+        { type: table.CdkColumnDef, decorators: [{ type: i0.Optional }] }
     ]; };
     NovoDataTableCellHeader.propDecorators = {
-        filterInput: [{ type: core.ViewChild, args: ['filterInput',] }],
-        dropdown: [{ type: core.ViewChild, args: [NovoDropdownElement,] }],
-        optionFilterInput: [{ type: core.ViewChild, args: ['optionFilterInput',] }],
-        defaultSort: [{ type: core.Input }],
-        allowMultipleFilters: [{ type: core.Input }],
-        resized: [{ type: core.Input }],
-        filterTemplate: [{ type: core.Input }],
-        resizable: [{ type: core.HostBinding, args: ['class.resizable',] }],
-        column: [{ type: core.Input, args: ['novo-data-table-cell-config',] }],
-        multiSelectOptionFilterHandleKeydown: [{ type: core.HostListener, args: ['keydown', ['$event'],] }]
+        filterInput: [{ type: i0.ViewChild, args: ['filterInput',] }],
+        dropdown: [{ type: i0.ViewChild, args: [NovoDropdownElement,] }],
+        optionFilterInput: [{ type: i0.ViewChild, args: ['optionFilterInput',] }],
+        defaultSort: [{ type: i0.Input }],
+        allowMultipleFilters: [{ type: i0.Input }],
+        resized: [{ type: i0.Input }],
+        filterTemplate: [{ type: i0.Input }],
+        resizable: [{ type: i0.HostBinding, args: ['class.resizable',] }],
+        column: [{ type: i0.Input, args: ['novo-data-table-cell-config',] }],
+        multiSelectOptionFilterHandleKeydown: [{ type: i0.HostListener, args: ['keydown', ['$event'],] }]
     };
 
     var NovoDataTable = /** @class */ (function () {
@@ -7947,7 +7947,7 @@
             this.ref = ref;
             this.state = state;
             this.globalSearchHiddenClassToggle = false;
-            this.resized = new core.EventEmitter();
+            this.resized = new i0.EventEmitter();
             this.name = 'novo-data-table';
             this.allowMultipleFilters = false;
             this.rowIdentifier = 'id';
@@ -7957,7 +7957,7 @@
             this.templates = {};
             this.fixedHeader = false;
             this._hideGlobalSearch = true;
-            this.preferencesChanged = new core.EventEmitter();
+            this.preferencesChanged = new i0.EventEmitter();
             this.loading = true;
             this.columnToTemplate = {};
             this.columnsLoaded = false;
@@ -8406,7 +8406,7 @@
         return NovoDataTable;
     }());
     NovoDataTable.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-data-table',
                     animations: [
                         animations.trigger('expand', [
@@ -8416,47 +8416,47 @@
                         ]),
                     ],
                     template: "\n    <header\n      *ngIf=\"(!(dataSource?.totallyEmpty && !state.userFiltered) && !loading) || forceShowHeader\"\n      [class.empty]=\"hideGlobalSearch && !paginationOptions && !templates['customActions']\"\n    >\n      <ng-container *ngTemplateOutlet=\"templates['customHeader']\"></ng-container>\n      <novo-search\n        alwaysOpen=\"true\"\n        (searchChanged)=\"onSearchChange($event)\"\n        [(ngModel)]=\"state.globalSearch\"\n        *ngIf=\"!hideGlobalSearch\"\n        [placeholder]=\"searchOptions?.placeholder\"\n        [hint]=\"searchOptions?.tooltip\"\n      >\n      </novo-search>\n      <novo-data-table-pagination\n        *ngIf=\"paginationOptions\"\n        [theme]=\"paginationOptions.theme\"\n        [length]=\"dataSource?.currentTotal\"\n        [page]=\"paginationOptions.page\"\n        [pageSize]=\"paginationOptions.pageSize\"\n        [pageSizeOptions]=\"paginationOptions.pageSizeOptions\"\n        [dataFeatureId]=\"paginatorDataFeatureId\"\n      >\n      </novo-data-table-pagination>\n      <div class=\"novo-data-table-actions\" *ngIf=\"templates['customActions']\">\n        <ng-container *ngTemplateOutlet=\"templates['customActions']\"></ng-container>\n      </div>\n    </header>\n    <div class=\"novo-data-table-loading-mask\" *ngIf=\"dataSource?.loading || loading\" data-automation-id=\"novo-data-table-loading\">\n      <novo-loading></novo-loading>\n    </div>\n    <div class=\"novo-data-table-outside-container\" [ngClass]=\"{ 'novo-data-table-outside-container-fixed': fixedHeader }\">\n      <div class=\"novo-data-table-custom-filter\" *ngIf=\"customFilter\">\n        <ng-container *ngTemplateOutlet=\"templates['customFilter']\"></ng-container>\n      </div>\n      <div\n        #novoDataTableContainer\n        class=\"novo-data-table-container\"\n        [ngClass]=\"{ 'novo-data-table-container-fixed': fixedHeader }\"\n        [class.empty-user-filtered]=\"dataSource?.currentlyEmpty && state.userFiltered\"\n        [class.empty]=\"dataSource?.totallyEmpty && !dataSource?.loading && !loading && !state.userFiltered && !dataSource.pristine\"\n      >\n        <cdk-table\n          *ngIf=\"columns?.length > 0 && columnsLoaded && dataSource\"\n          [dataSource]=\"dataSource\"\n          [trackBy]=\"trackByFn\"\n          novoDataTableSortFilter\n          [class.expandable]=\"expandable\"\n          [class.empty]=\"dataSource?.currentlyEmpty && state.userFiltered\"\n          [hidden]=\"dataSource?.totallyEmpty && !state.userFiltered\"\n        >\n          <ng-container cdkColumnDef=\"selection\">\n            <novo-data-table-checkbox-header-cell *cdkHeaderCellDef></novo-data-table-checkbox-header-cell>\n            <novo-data-table-checkbox-cell *cdkCellDef=\"let row; let i = index\" [row]=\"row\"></novo-data-table-checkbox-cell>\n          </ng-container>\n          <ng-container cdkColumnDef=\"expand\">\n            <novo-data-table-expand-header-cell *cdkHeaderCellDef></novo-data-table-expand-header-cell>\n            <novo-data-table-expand-cell *cdkCellDef=\"let row; let i = index\" [row]=\"row\"></novo-data-table-expand-cell>\n          </ng-container>\n          <ng-container *ngFor=\"let column of columns; trackBy: trackColumnsBy\" [cdkColumnDef]=\"column.id\">\n            <novo-data-table-header-cell\n              *cdkHeaderCellDef\n              [column]=\"column\"\n              [filterTemplate]=\"templates['column-filter-' + column.id]\"\n              [novo-data-table-cell-config]=\"column\"\n              [resized]=\"resized\"\n              [defaultSort]=\"defaultSort\"\n              [allowMultipleFilters]=\"allowMultipleFilters\"\n              [class.empty]=\"column?.type === 'action' && !column?.label\"\n              [class.button-header-cell]=\"column?.type === 'expand' || (column?.type === 'action' && !column?.action?.options)\"\n              [class.dropdown-header-cell]=\"column?.type === 'action' && column?.action?.options\"\n              [class.fixed-header]=\"fixedHeader\"\n            ></novo-data-table-header-cell>\n            <novo-data-table-cell\n              *cdkCellDef=\"let row\"\n              [resized]=\"resized\"\n              [column]=\"column\"\n              [row]=\"row\"\n              [template]=\"columnToTemplate[column.id]\"\n              [class.empty]=\"column?.type === 'action' && !column?.label\"\n              [class.button-cell]=\"column?.type === 'expand' || (column?.type === 'action' && !column?.action?.options)\"\n              [class.dropdown-cell]=\"column?.type === 'action' && column?.action?.options\"\n            ></novo-data-table-cell>\n          </ng-container>\n          <novo-data-table-header-row\n            *cdkHeaderRowDef=\"displayedColumns\"\n            [fixedHeader]=\"fixedHeader\"\n            data-automation-id=\"novo-data-table-header-row\"\n          ></novo-data-table-header-row>\n          <novo-data-table-row\n            *cdkRowDef=\"let row; columns: displayedColumns\"\n            [ngClass]=\"{ active: row[rowIdentifier] == activeRowIdentifier }\"\n            [novoDataTableExpand]=\"detailRowTemplate\"\n            [row]=\"row\"\n            [id]=\"name + '-' + row[rowIdentifier]\"\n            [dataAutomationId]=\"row[rowIdentifier]\"\n          ></novo-data-table-row>\n        </cdk-table>\n        <div class=\"novo-data-table-footer\" *ngIf=\"templates['footer']\">\n          <ng-container *ngTemplateOutlet=\"templates['footer']; context: { $implicit: columns, data: dataSource.data }\"></ng-container>\n        </div>\n        <div\n          class=\"novo-data-table-no-results-container\"\n          [style.left.px]=\"scrollLeft\"\n          *ngIf=\"dataSource?.currentlyEmpty && state.userFiltered && !dataSource?.loading && !loading && !dataSource.pristine\"\n        >\n          <div class=\"novo-data-table-empty-message\">\n            <ng-container *ngTemplateOutlet=\"templates['noResultsMessage'] || templates['defaultNoResultsMessage']\"></ng-container>\n          </div>\n        </div>\n      </div>\n      <div\n        class=\"novo-data-table-empty-container\"\n        *ngIf=\"dataSource?.totallyEmpty && !dataSource?.loading && !loading && !state.userFiltered && !dataSource.pristine\"\n      >\n        <div class=\"novo-data-table-empty-message\">\n          <ng-container *ngTemplateOutlet=\"templates['emptyMessage'] || templates['defaultNoResultsMessage']\"></ng-container>\n        </div>\n      </div>\n    </div>\n    <!-- DEFAULT CELL TEMPLATE -->\n    <ng-template novoTemplate=\"textCellTemplate\" let-row let-col=\"col\">\n      <span [style.width.px]=\"col?.width\" [style.min-width.px]=\"col?.width\" [style.max-width.px]=\"col?.width\">{{\n        row[col.id] | dataTableInterpolate: col\n      }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"dateCellTemplate\" let-row let-col=\"col\">\n      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableDateRenderer: col }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"datetimeCellTemplate\" let-row let-col=\"col\">\n      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableDateTimeRenderer: col }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"timeCellTemplate\" let-row let-col=\"col\">\n      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableTimeRenderer: col }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"currencyCellTemplate\" let-row let-col=\"col\">\n      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableCurrencyRenderer: col }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"bigdecimalCellTemplate\" let-row let-col=\"col\">\n      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableBigDecimalRenderer: col }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"numberCellTemplate\" let-row let-col=\"col\">\n      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"percentCellTemplate\" let-row let-col=\"col\">\n      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col:true }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"linkCellTemplate\" let-row let-col=\"col\">\n      <a\n        [attr.data-feature-id]=\"col?.attributes?.dataFeatureId\"\n        (click)=\"col.handlers?.click({ originalEvent: $event, row: row })\"\n        [style.width.px]=\"col?.width\"\n        [style.min-width.px]=\"col?.width\"\n        [style.max-width.px]=\"col?.width\"\n        >{{ row[col.id] | dataTableInterpolate: col }}</a\n      >\n    </ng-template>\n    <ng-template novoTemplate=\"telCellTemplate\" let-row let-col=\"col\">\n      <a href=\"tel:{{ row[col.id] | dataTableInterpolate: col }}\" [target]=\"col?.attributes?.target\">{{\n        row[col.id] | dataTableInterpolate: col\n      }}</a>\n    </ng-template>\n    <ng-template novoTemplate=\"mailtoCellTemplate\" let-row let-col=\"col\">\n      <a href=\"mailto:{{ row[col.id] | dataTableInterpolate: col }}\" [target]=\"col?.attributes?.target\">{{\n        row[col.id] | dataTableInterpolate: col\n      }}</a>\n    </ng-template>\n    <ng-template novoTemplate=\"buttonCellTemplate\" let-row let-col=\"col\">\n      <p [tooltip]=\"col?.action?.tooltip\" tooltipPosition=\"right\" [attr.data-feature-id]=\"col?.attributes?.dataFeatureId\">\n        <i\n          class=\"bhi-{{ col?.action?.icon }} data-table-icon\"\n          (click)=\"col.handlers?.click({ originalEvent: $event, row: row })\"\n          [class.disabled]=\"isDisabled(col, row)\"\n        ></i>\n      </p>\n    </ng-template>\n    <ng-template novoTemplate=\"dropdownCellTemplate\" let-row let-col=\"col\">\n      <novo-dropdown parentScrollSelector=\".novo-data-table-container\" containerClass=\"novo-data-table-dropdown\">\n        <button type=\"button\" theme=\"dialogue\" [icon]=\"col.action.icon\" inverse>{{ col.label }}</button>\n        <list>\n          <item\n            *ngFor=\"let option of col?.action?.options\"\n            (action)=\"option.handlers.click({ originalEvent: $event?.originalEvent, row: row })\"\n            [disabled]=\"isDisabled(option, row)\"\n          >\n            <span [attr.data-automation-id]=\"option.label\">{{ option.label }}</span>\n          </item>\n        </list>\n      </novo-dropdown>\n    </ng-template>\n    <ng-template novoTemplate=\"defaultNoResultsMessage\">\n      <h4><i class=\"bhi-search-question\"></i> {{ labels.noMatchingRecordsMessage }}</h4>\n    </ng-template>\n    <ng-template novoTemplate=\"defaultEmptyMessage\">\n      <h4><i class=\"bhi-search-question\"></i> {{ labels.emptyTableMessage }}</h4>\n    </ng-template>\n    <ng-template novoTemplate=\"expandedRow\"> You did not provide an \"expandedRow\" template! </ng-template>\n    <ng-template #detailRowTemplate let-row>\n      <div class=\"novo-data-table-detail-row\" [@expand] style=\"overflow: hidden\">\n        <ng-container *ngTemplateOutlet=\"templates['expandedRow']; context: { $implicit: row }\"></ng-container>\n      </div>\n    </ng-template>\n    <!-- CUSTOM CELLS PASSED IN -->\n    <ng-content></ng-content>\n  ",
-                    changeDetection: core.ChangeDetectionStrategy.OnPush,
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush,
                     providers: [DataTableState]
                 },] }
     ];
     NovoDataTable.ctorParameters = function () { return [
         { type: NovoLabelService },
-        { type: core.ChangeDetectorRef },
+        { type: i0.ChangeDetectorRef },
         { type: DataTableState }
     ]; };
     NovoDataTable.propDecorators = {
-        globalSearchHiddenClassToggle: [{ type: core.HostBinding, args: ['class.global-search-hidden',] }],
-        customTemplates: [{ type: core.ContentChildren, args: [NovoTemplate,] }],
-        defaultTemplates: [{ type: core.ViewChildren, args: [NovoTemplate,] }],
-        cellHeaders: [{ type: core.ViewChildren, args: [NovoDataTableCellHeader,] }],
-        novoDataTableContainer: [{ type: core.ViewChild, args: ['novoDataTableContainer',] }],
-        resized: [{ type: core.Output }],
-        displayedColumns: [{ type: core.Input }],
-        paginationOptions: [{ type: core.Input }],
-        searchOptions: [{ type: core.Input }],
-        defaultSort: [{ type: core.Input }],
-        name: [{ type: core.Input }],
-        allowMultipleFilters: [{ type: core.Input }],
-        rowIdentifier: [{ type: core.Input }],
-        activeRowIdentifier: [{ type: core.Input }],
-        trackByFn: [{ type: core.Input }],
-        templates: [{ type: core.Input }],
-        fixedHeader: [{ type: core.Input }],
-        paginatorDataFeatureId: [{ type: core.Input }],
-        dataTableService: [{ type: core.Input }],
-        rows: [{ type: core.Input }],
-        outsideFilter: [{ type: core.Input }],
-        refreshSubject: [{ type: core.Input }],
-        columns: [{ type: core.Input }],
-        customFilter: [{ type: core.Input }],
-        hasExandedRows: [{ type: core.Input }],
-        forceShowHeader: [{ type: core.Input }],
-        hideGlobalSearch: [{ type: core.Input }],
-        preferencesChanged: [{ type: core.Output }],
-        empty: [{ type: core.HostBinding, args: ['class.empty',] }],
-        loadingClass: [{ type: core.HostBinding, args: ['class.loading',] }],
-        listInteractions: [{ type: core.Input }]
+        globalSearchHiddenClassToggle: [{ type: i0.HostBinding, args: ['class.global-search-hidden',] }],
+        customTemplates: [{ type: i0.ContentChildren, args: [NovoTemplate,] }],
+        defaultTemplates: [{ type: i0.ViewChildren, args: [NovoTemplate,] }],
+        cellHeaders: [{ type: i0.ViewChildren, args: [NovoDataTableCellHeader,] }],
+        novoDataTableContainer: [{ type: i0.ViewChild, args: ['novoDataTableContainer',] }],
+        resized: [{ type: i0.Output }],
+        displayedColumns: [{ type: i0.Input }],
+        paginationOptions: [{ type: i0.Input }],
+        searchOptions: [{ type: i0.Input }],
+        defaultSort: [{ type: i0.Input }],
+        name: [{ type: i0.Input }],
+        allowMultipleFilters: [{ type: i0.Input }],
+        rowIdentifier: [{ type: i0.Input }],
+        activeRowIdentifier: [{ type: i0.Input }],
+        trackByFn: [{ type: i0.Input }],
+        templates: [{ type: i0.Input }],
+        fixedHeader: [{ type: i0.Input }],
+        paginatorDataFeatureId: [{ type: i0.Input }],
+        dataTableService: [{ type: i0.Input }],
+        rows: [{ type: i0.Input }],
+        outsideFilter: [{ type: i0.Input }],
+        refreshSubject: [{ type: i0.Input }],
+        columns: [{ type: i0.Input }],
+        customFilter: [{ type: i0.Input }],
+        hasExandedRows: [{ type: i0.Input }],
+        forceShowHeader: [{ type: i0.Input }],
+        hideGlobalSearch: [{ type: i0.Input }],
+        preferencesChanged: [{ type: i0.Output }],
+        empty: [{ type: i0.HostBinding, args: ['class.empty',] }],
+        loadingClass: [{ type: i0.HostBinding, args: ['class.loading',] }],
+        listInteractions: [{ type: i0.Input }]
     };
 
     // NG2
@@ -8466,7 +8466,7 @@
         return NovoDropdownModule;
     }());
     NovoDropdownModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [NovoOverlayModule],
                     declarations: [NovoDropdownElement, NovoItemElement, NovoDropdownListElement, NovoDropDownItemHeaderElement],
                     exports: [NovoDropdownElement, NovoItemElement, NovoDropdownListElement, NovoDropDownItemHeaderElement],
@@ -8477,7 +8477,7 @@
     // Value accessor for the component (supports ngModel)
     var SELECT_VALUE_ACCESSOR = {
         provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return NovoSelectElement; }),
+        useExisting: i0.forwardRef(function () { return NovoSelectElement; }),
         multi: true,
     };
     var NovoSelectElement = /** @class */ (function () {
@@ -8488,7 +8488,7 @@
             this.focusMonitor = focusMonitor;
             this.ngZone = ngZone;
             this.placeholder = 'Select...';
-            this.onSelect = new core.EventEmitter();
+            this.onSelect = new i0.EventEmitter();
             this.selectedIndex = -1;
             this.empty = true;
             this.header = {
@@ -8769,7 +8769,7 @@
         return NovoSelectElement;
     }());
     NovoSelectElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-select',
                     providers: [SELECT_VALUE_ACCESSOR],
                     template: "\n    <div #dropdownElement (click)=\"togglePanel(); (false)\" tabIndex=\"{{ disabled ? -1 : 0 }}\" type=\"button\" [class.empty]=\"empty\">\n      {{ selected.label }}<i class=\"bhi-collapse\"></i>\n    </div>\n    <novo-overlay-template [parent]=\"element\" position=\"center\" (closing)=\"dropdown.nativeElement.focus()\">\n      <ul class=\"novo-select-list\" tabIndex=\"-1\" [class.header]=\"headerConfig\" [class.active]=\"panelOpen\">\n        <ng-content></ng-content>\n        <li *ngIf=\"headerConfig\" class=\"select-header\" [class.open]=\"header.open\">\n          <button *ngIf=\"!header.open\" (click)=\"toggleHeader($event); (false)\" tabIndex=\"-1\" type=\"button\" class=\"header\">\n            <i class=\"bhi-add-thin\"></i>&nbsp;{{ headerConfig.label }}\n          </button>\n          <div *ngIf=\"header.open\" [ngClass]=\"{ active: header.open }\">\n            <input\n              autofocus\n              type=\"text\"\n              [placeholder]=\"headerConfig.placeholder\"\n              [attr.id]=\"name\"\n              autocomplete=\"false\"\n              [(ngModel)]=\"header.value\"\n              [ngClass]=\"{ invalid: !header.valid }\"\n            />\n            <footer>\n              <button (click)=\"toggleHeader($event, false)\">{{ labels.cancel }}</button>\n              <button (click)=\"saveHeader()\" class=\"primary\">{{ labels.save }}</button>\n            </footer>\n          </div>\n        </li>\n        <li\n          *ngFor=\"let option of filteredOptions; let i = index\"\n          [ngClass]=\"{ active: option.active }\"\n          (click)=\"setValueAndClose({ value: option, index: i })\"\n          [attr.data-automation-value]=\"option.label\"\n        >\n          <span [innerHtml]=\"highlight(option.label, filterTerm)\"></span> <i *ngIf=\"option.active\" class=\"bhi-check\"></i>\n        </li>\n      </ul>\n    </novo-overlay-template>\n  ",
@@ -8779,22 +8779,22 @@
                 },] }
     ];
     NovoSelectElement.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: NovoLabelService },
-        { type: core.ChangeDetectorRef },
+        { type: i0.ChangeDetectorRef },
         { type: a11y.FocusMonitor },
-        { type: core.NgZone }
+        { type: i0.NgZone }
     ]; };
     NovoSelectElement.propDecorators = {
-        name: [{ type: core.Input }],
-        options: [{ type: core.Input }],
-        placeholder: [{ type: core.Input }],
-        readonly: [{ type: core.Input }],
-        headerConfig: [{ type: core.Input }],
-        onSelect: [{ type: core.Output }],
-        overlay: [{ type: core.ViewChild, args: [NovoOverlayTemplateComponent, { static: true },] }],
-        dropdown: [{ type: core.ViewChild, args: ['dropdownElement', { static: true },] }],
-        onKeyDown: [{ type: core.HostListener, args: ['keydown', ['$event'],] }]
+        name: [{ type: i0.Input }],
+        options: [{ type: i0.Input }],
+        placeholder: [{ type: i0.Input }],
+        readonly: [{ type: i0.Input }],
+        headerConfig: [{ type: i0.Input }],
+        onSelect: [{ type: i0.Output }],
+        overlay: [{ type: i0.ViewChild, args: [NovoOverlayTemplateComponent, { static: true },] }],
+        dropdown: [{ type: i0.ViewChild, args: ['dropdownElement', { static: true },] }],
+        onKeyDown: [{ type: i0.HostListener, args: ['keydown', ['$event'],] }]
     };
 
     // NG
@@ -8804,7 +8804,7 @@
         return NovoSelectModule;
     }());
     NovoSelectModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, forms.FormsModule, a11y.A11yModule, NovoOverlayModule],
                     declarations: [NovoSelectElement],
                     exports: [NovoSelectElement],
@@ -8815,17 +8815,17 @@
     var dragula = dragulaImported__namespace;
     var NovoDragulaService = /** @class */ (function () {
         function NovoDragulaService() {
-            this.cancel = new core.EventEmitter();
-            this.cloned = new core.EventEmitter();
-            this.drag = new core.EventEmitter();
-            this.dragend = new core.EventEmitter();
-            this.drop = new core.EventEmitter();
-            this.out = new core.EventEmitter();
-            this.over = new core.EventEmitter();
-            this.remove = new core.EventEmitter();
-            this.shadow = new core.EventEmitter();
-            this.dropModel = new core.EventEmitter();
-            this.removeModel = new core.EventEmitter();
+            this.cancel = new i0.EventEmitter();
+            this.cloned = new i0.EventEmitter();
+            this.drag = new i0.EventEmitter();
+            this.dragend = new i0.EventEmitter();
+            this.drop = new i0.EventEmitter();
+            this.out = new i0.EventEmitter();
+            this.over = new i0.EventEmitter();
+            this.remove = new i0.EventEmitter();
+            this.shadow = new i0.EventEmitter();
+            this.dropModel = new i0.EventEmitter();
+            this.removeModel = new i0.EventEmitter();
             this.events = ['cancel', 'cloned', 'drag', 'dragend', 'drop', 'out', 'over', 'remove', 'shadow', 'dropModel', 'removeModel'];
             this.bags = [];
         }
@@ -8924,7 +8924,7 @@
         return NovoDragulaService;
     }());
     NovoDragulaService.decorators = [
-        { type: core.Injectable }
+        { type: i0.Injectable }
     ];
 
     // NG2
@@ -8976,17 +8976,17 @@
         return NovoDragulaElement;
     }());
     NovoDragulaElement.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[dragula]',
                 },] }
     ];
     NovoDragulaElement.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: NovoDragulaService }
     ]; };
     NovoDragulaElement.propDecorators = {
-        bag: [{ type: core.Input, args: ['dragula',] }],
-        dragulaModel: [{ type: core.Input }]
+        bag: [{ type: i0.Input, args: ['dragula',] }],
+        dragulaModel: [{ type: i0.Input }]
     };
 
     // NG2
@@ -8996,7 +8996,7 @@
         return NovoDragulaModule;
     }());
     NovoDragulaModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     declarations: [NovoDragulaElement],
                     exports: [NovoDragulaElement],
                 },] }
@@ -26544,7 +26544,7 @@
     // Value accessor for the component (supports ngModel)
     var ADDRESS_VALUE_ACCESSOR = {
         provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return NovoAddressElement; }),
+        useExisting: i0.forwardRef(function () { return NovoAddressElement; }),
         multi: true,
     };
     var NovoAddressElement = /** @class */ (function () {
@@ -26562,10 +26562,10 @@
             this.valid = {};
             this.tooltip = {};
             this.initComplete = false;
-            this.change = new core.EventEmitter();
-            this.focus = new core.EventEmitter();
-            this.blur = new core.EventEmitter();
-            this.validityChange = new core.EventEmitter();
+            this.change = new i0.EventEmitter();
+            this.focus = new i0.EventEmitter();
+            this.blur = new i0.EventEmitter();
+            this.validityChange = new i0.EventEmitter();
         }
         Object.defineProperty(NovoAddressElement.prototype, "readOnly", {
             get: function () {
@@ -26900,7 +26900,7 @@
         return NovoAddressElement;
     }());
     NovoAddressElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-address',
                     providers: [ADDRESS_VALUE_ACCESSOR],
                     template: "\n    <span\n      *ngIf=\"!config?.address1?.hidden\"\n      class=\"street-address\"\n      [class.invalid]=\"invalid.address1\"\n      [class.focus]=\"focused.address1\"\n      [class.disabled]=\"disabled.address1\"\n    >\n      <i\n        *ngIf=\"config.address1.required\"\n        class=\"required-indicator address1\"\n        [ngClass]=\"{ 'bhi-circle': !valid.address1, 'bhi-check': valid.address1 }\"\n      >\n      </i>\n      <input\n        [class.maxlength-error]=\"invalidMaxlength.address1\"\n        type=\"text\"\n        id=\"address1\"\n        name=\"address1\"\n        [placeholder]=\"config.address1.label\"\n        [maxlength]=\"config?.address1?.maxlength\"\n        autocomplete=\"shipping street-address address-line-1\"\n        [(ngModel)]=\"model.address1\"\n        (ngModelChange)=\"updateControl()\"\n        (focus)=\"isFocused($event, 'address1')\"\n        (blur)=\"isBlurred($event, 'address1')\"\n        (input)=\"onInput($event, 'address1')\"\n      />\n    </span>\n    <span\n      *ngIf=\"!config?.address2?.hidden\"\n      class=\"apt suite\"\n      [class.invalid]=\"invalid.address2\"\n      [class.focus]=\"focused.address2\"\n      [class.disabled]=\"disabled.address2\"\n    >\n      <i\n        *ngIf=\"config.address2.required\"\n        class=\"required-indicator address2\"\n        [ngClass]=\"{ 'bhi-circle': !valid.address2, 'bhi-check': valid.address2 }\"\n      >\n      </i>\n      <input\n        [class.maxlength-error]=\"invalidMaxlength.address2\"\n        type=\"text\"\n        id=\"address2\"\n        name=\"address2\"\n        [placeholder]=\"config.address2.label\"\n        [maxlength]=\"config?.address2?.maxlength\"\n        autocomplete=\"shipping address-line-2\"\n        [(ngModel)]=\"model.address2\"\n        (ngModelChange)=\"updateControl()\"\n        (focus)=\"isFocused($event, 'address2')\"\n        (blur)=\"isBlurred($event, 'address2')\"\n        (input)=\"onInput($event, 'address2')\"\n      />\n    </span>\n    <span\n      *ngIf=\"!config?.city?.hidden\"\n      class=\"city locality\"\n      [class.invalid]=\"invalid.city\"\n      [class.focus]=\"focused.city\"\n      [class.disabled]=\"disabled.city\"\n    >\n      <i *ngIf=\"config.city.required\" class=\"required-indicator\" [ngClass]=\"{ 'bhi-circle': !valid.city, 'bhi-check': valid.city }\"> </i>\n      <input\n        [class.maxlength-error]=\"invalidMaxlength.city\"\n        type=\"text\"\n        id=\"city\"\n        name=\"city\"\n        [placeholder]=\"config.city.label\"\n        autocomplete=\"shipping city locality\"\n        [maxlength]=\"config?.city?.maxlength\"\n        [(ngModel)]=\"model.city\"\n        (ngModelChange)=\"updateControl()\"\n        (focus)=\"isFocused($event, 'city')\"\n        (blur)=\"isBlurred($event, 'city')\"\n        (input)=\"onInput($event, 'city')\"\n      />\n    </span>\n    <span\n      *ngIf=\"!config?.state?.hidden\"\n      class=\"state region\"\n      [class.invalid]=\"invalid.state\"\n      [class.focus]=\"focused.state\"\n      [class.disabled]=\"disabled.state\"\n      [tooltip]=\"tooltip.state\"\n    >\n      <i *ngIf=\"config.state.required\" class=\"required-indicator\" [ngClass]=\"{ 'bhi-circle': !valid.state, 'bhi-check': valid.state }\"> </i>\n      <novo-picker\n        [config]=\"config?.state?.pickerConfig\"\n        [placeholder]=\"config?.state?.label\"\n        (changed)=\"onStateChange($event)\"\n        autocomplete=\"shipping region\"\n        [(ngModel)]=\"model.state\"\n        [disablePickerInput]=\"disabled.state\"\n      ></novo-picker>\n    </span>\n    <span\n      *ngIf=\"!config?.zip?.hidden\"\n      class=\"zip postal-code\"\n      [class.invalid]=\"invalid.zip\"\n      [class.focus]=\"focused.zip\"\n      [class.disabled]=\"disabled.zip\"\n    >\n      <i *ngIf=\"config.zip.required\" class=\"required-indicator\" [ngClass]=\"{ 'bhi-circle': !valid.zip, 'bhi-check': valid.zip }\"> </i>\n      <input\n        [class.maxlength-error]=\"invalidMaxlength.zip\"\n        type=\"text\"\n        id=\"zip\"\n        name=\"zip\"\n        [placeholder]=\"config.zip.label\"\n        autocomplete=\"shipping postal-code\"\n        [maxlength]=\"config?.zip?.maxlength\"\n        [(ngModel)]=\"model.zip\"\n        (ngModelChange)=\"updateControl()\"\n        (focus)=\"isFocused($event, 'zip')\"\n        (blur)=\"isBlurred($event, 'zip')\"\n        (input)=\"onInput($event, 'zip')\"\n      />\n    </span>\n    <span\n      *ngIf=\"!config?.countryID?.hidden\"\n      class=\"country-name\"\n      [class.invalid]=\"invalid.countryID\"\n      [class.focus]=\"focused.countryID\"\n      [class.disabled]=\"disabled.countryID\"\n    >\n      <i\n        *ngIf=\"config.countryID.required\"\n        class=\"required-indicator\"\n        [ngClass]=\"{ 'bhi-circle': !valid.countryID, 'bhi-check': valid.countryID }\"\n      >\n      </i>\n      <novo-picker\n        [config]=\"config?.countryID?.pickerConfig\"\n        [placeholder]=\"config.countryID.label\"\n        (changed)=\"onCountryChange($event)\"\n        autocomplete=\"shipping country\"\n        [(ngModel)]=\"model.countryID\"\n        [disablePickerInput]=\"disabled.countryID\"\n      ></novo-picker>\n    </span>\n  "
@@ -26910,19 +26910,19 @@
         { type: NovoLabelService }
     ]; };
     NovoAddressElement.propDecorators = {
-        config: [{ type: core.Input }],
-        readOnly: [{ type: core.Input }],
-        change: [{ type: core.Output }],
-        focus: [{ type: core.Output }],
-        blur: [{ type: core.Output }],
-        validityChange: [{ type: core.Output }]
+        config: [{ type: i0.Input }],
+        readOnly: [{ type: i0.Input }],
+        change: [{ type: i0.Output }],
+        focus: [{ type: i0.Output }],
+        blur: [{ type: i0.Output }],
+        validityChange: [{ type: i0.Output }]
     };
 
     // NG2
     // Value accessor for the component (supports ngModel)
     var CHECKBOX_VALUE_ACCESSOR = {
         provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return NovoCheckboxElement; }),
+        useExisting: i0.forwardRef(function () { return NovoCheckboxElement; }),
         multi: true,
     };
     var LAYOUT_DEFAULTS = { iconStyle: 'box' };
@@ -26931,7 +26931,7 @@
             this.ref = ref;
             this.indeterminate = false;
             this.disabled = false;
-            this.onSelect = new core.EventEmitter();
+            this.onSelect = new i0.EventEmitter();
             this.boxIcon = true;
             this.onModelChange = function () { };
             this.onModelTouched = function () { };
@@ -26964,34 +26964,34 @@
         return NovoCheckboxElement;
     }());
     NovoCheckboxElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-checkbox',
                     providers: [CHECKBOX_VALUE_ACCESSOR],
                     template: "\n    <div class=\"check-box-group\" [class.checked]=\"model\" [class.disabled]=\"disabled\">\n        <input [name]=\"name\" type=\"checkbox\" [(ngModel)]=\"model\" [attr.id]=\"name\" [disabled]=\"disabled\">\n        <label [attr.for]=\"name\" (click)=\"select($event)\" [class.disabled]=\"disabled\">\n          <i [class.bhi-checkbox-empty]=\"!model && !indeterminate && boxIcon\"\n              [class.bhi-checkbox-filled]=\"model && !indeterminate && boxIcon\"\n              [class.bhi-checkbox-indeterminate]=\"indeterminate && boxIcon\"\n              [class.bhi-circle-o]=\"!model && !indeterminate && !boxIcon\"\n              [class.bhi-check]=\"model && !indeterminate && !boxIcon\"\n              [class.bhi-circle]=\"indeterminate && !boxIcon\"></i>\n          <span *ngIf=\"label\">{{ label }}</span>\n        </label>\n    </div>\n  "
                 },] }
     ];
     NovoCheckboxElement.ctorParameters = function () { return [
-        { type: core.ChangeDetectorRef }
+        { type: i0.ChangeDetectorRef }
     ]; };
     NovoCheckboxElement.propDecorators = {
-        name: [{ type: core.Input }],
-        label: [{ type: core.Input }],
-        indeterminate: [{ type: core.Input }],
-        disabled: [{ type: core.Input }],
-        layoutOptions: [{ type: core.Input }],
-        onSelect: [{ type: core.Output }]
+        name: [{ type: i0.Input }],
+        label: [{ type: i0.Input }],
+        indeterminate: [{ type: i0.Input }],
+        disabled: [{ type: i0.Input }],
+        layoutOptions: [{ type: i0.Input }],
+        onSelect: [{ type: i0.Output }]
     };
 
     // NG2
     // Value accessor for the component (supports ngModel)
     var CHECKLIST_VALUE_ACCESSOR = {
         provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return NovoCheckListElement; }),
+        useExisting: i0.forwardRef(function () { return NovoCheckListElement; }),
         multi: true,
     };
     var NovoCheckListElement = /** @class */ (function () {
         function NovoCheckListElement() {
-            this.onSelect = new core.EventEmitter();
+            this.onSelect = new i0.EventEmitter();
             this.onModelChange = function () { };
             this.onModelTouched = function () { };
         }
@@ -27052,17 +27052,17 @@
         return NovoCheckListElement;
     }());
     NovoCheckListElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-check-list',
                     providers: [CHECKLIST_VALUE_ACCESSOR],
                     template: "\n    <div\n      class=\"check-box-group\"\n      *ngFor=\"let option of _options; let i = index\"\n      [ngClass]=\"{ checked: option.checked }\"\n      [class.disabled]=\"disabled\"\n      [attr.data-automation-id]=\"option.label\"\n    >\n      <input\n        [name]=\"name\"\n        type=\"checkbox\"\n        [ngModel]=\"option.checked\"\n        [attr.id]=\"name + i\"\n        [value]=\"option.checked\"\n        (change)=\"select($event, option)\"\n        [disabled]=\"disabled\"\n      />\n      <label [attr.for]=\"name + i\" (click)=\"select($event, option)\">\n        <i [ngClass]=\"{ 'bhi-checkbox-empty': !option.checked, 'bhi-checkbox-filled': option.checked }\"></i>\n        <span>{{ option.label }}</span>\n      </label>\n    </div>\n  "
                 },] }
     ];
     NovoCheckListElement.propDecorators = {
-        name: [{ type: core.Input }],
-        options: [{ type: core.Input }],
-        disabled: [{ type: core.Input }],
-        onSelect: [{ type: core.Output }]
+        name: [{ type: i0.Input }],
+        options: [{ type: i0.Input }],
+        disabled: [{ type: i0.Input }],
+        onSelect: [{ type: i0.Output }]
     };
 
     var NovoFile = /** @class */ (function () {
@@ -27111,7 +27111,7 @@
     // Value accessor for the component (supports ngModel)
     var FILE_VALUE_ACCESSOR = {
         provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return NovoFileInputElement; }),
+        useExisting: i0.forwardRef(function () { return NovoFileInputElement; }),
         multi: true,
     };
     var LAYOUT_DEFAULTS$1 = { order: 'default', download: true, removable: true, labelStyle: 'default', draggable: false };
@@ -27123,10 +27123,10 @@
             this.multiple = false;
             this.disabled = false;
             this.value = [];
-            this.edit = new core.EventEmitter();
-            this.save = new core.EventEmitter();
-            this.delete = new core.EventEmitter();
-            this.upload = new core.EventEmitter();
+            this.edit = new i0.EventEmitter();
+            this.save = new i0.EventEmitter();
+            this.delete = new i0.EventEmitter();
+            this.upload = new i0.EventEmitter();
             this.elements = [];
             this.files = [];
             this.active = false;
@@ -27295,32 +27295,32 @@
         return NovoFileInputElement;
     }());
     NovoFileInputElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-file-input',
                     providers: [FILE_VALUE_ACCESSOR],
                     template: "\n    <div #container></div>\n    <ng-template #fileInput>\n      <div class=\"file-input-group\" [class.disabled]=\"disabled\" [class.active]=\"active\">\n        <input\n          *ngIf=\"!layoutOptions.customActions\"\n          type=\"file\"\n          [name]=\"name\"\n          [attr.id]=\"name\"\n          (change)=\"check($event)\"\n          [attr.multiple]=\"multiple\"\n          tabindex=\"-1\"\n          [attr.data-feature-id]=\"dataFeatureId\"\n        />\n        <input\n          *ngIf=\"layoutOptions.customActions\"\n          type=\"file\"\n          [name]=\"name\"\n          [attr.id]=\"name\"\n          (change)=\"customCheck($event)\"\n          [attr.multiple]=\"multiple\"\n          tabindex=\"-1\"\n          [attr.data-feature-id]=\"dataFeatureId\"\n        />\n        <section [ngSwitch]=\"layoutOptions.labelStyle\">\n          <label *ngSwitchCase=\"'no-box'\" [attr.for]=\"name\" class=\"no-box\">\n            <div>\n              <i class=\"bhi-dropzone\"></i>{{ placeholder || labels.chooseAFile }} {{ labels.or }}\n              <strong class=\"link\">{{ labels.clickToBrowse }}</strong>\n            </div>\n          </label>\n          <label *ngSwitchDefault [attr.for]=\"name\" class=\"boxed\">\n            <span>{{ placeholder || labels.chooseAFile }}</span>\n            <small\n              >{{ labels.or }} <strong class=\"link\">{{ labels.clickToBrowse }}</strong></small\n            >\n          </label>\n        </section>\n      </div>\n    </ng-template>\n    <ng-template #fileOutput>\n      <div class=\"file-output-group\" [dragula]=\"fileOutputBag\" [dragulaModel]=\"files\">\n        <div class=\"file-item\" *ngFor=\"let file of files\" [class.disabled]=\"disabled\">\n          <i *ngIf=\"layoutOptions.draggable\" class=\"bhi-move\"></i>\n          <label *ngIf=\"file.link\"\n            ><span\n              ><a href=\"{{ file.link }}\" target=\"_blank\">{{ file.name | decodeURI }}</a></span\n            ><span *ngIf=\"file.description\">||</span><span>{{ file.description }}</span></label\n          >\n          <label *ngIf=\"!file.link\">{{ file.name | decodeURI }}</label>\n          <div class=\"actions\" [attr.data-automation-id]=\"'file-actions'\" *ngIf=\"file.loaded\">\n            <div *ngIf=\"!layoutOptions.customActions\">\n              <button\n                *ngIf=\"layoutOptions.download\"\n                type=\"button\"\n                theme=\"icon\"\n                icon=\"save\"\n                (click)=\"download(file)\"\n                [attr.data-automation-id]=\"'file-download'\"\n                tabindex=\"-1\"\n              ></button>\n              <button\n                *ngIf=\"!disabled && (layoutOptions.removable || (!layoutOptions.removable && layoutOptions.removableWhenNew && !file.link))\"\n                type=\"button\"\n                theme=\"icon\"\n                icon=\"close\"\n                (click)=\"remove(file)\"\n                [attr.data-automation-id]=\"'file-remove'\"\n                tabindex=\"-1\"\n              ></button>\n            </div>\n            <div *ngIf=\"layoutOptions.customActions\">\n              <button\n                *ngIf=\"layoutOptions.edit && !disabled\"\n                type=\"button\"\n                theme=\"icon\"\n                icon=\"edit\"\n                (click)=\"customEdit(file)\"\n                [attr.data-automation-id]=\"'file-edit'\"\n                tabindex=\"-1\"\n              ></button>\n              <button\n                *ngIf=\"layoutOptions.download\"\n                type=\"button\"\n                theme=\"icon\"\n                icon=\"save\"\n                (click)=\"customSave(file)\"\n                [attr.data-automation-id]=\"'file-download'\"\n                tabindex=\"-1\"\n              ></button>\n              <button\n                *ngIf=\"!disabled\"\n                type=\"button\"\n                theme=\"icon\"\n                icon=\"close\"\n                (click)=\"customDelete(file)\"\n                [attr.data-automation-id]=\"'file-remove'\"\n                tabindex=\"-1\"\n              ></button>\n            </div>\n          </div>\n          <novo-loading *ngIf=\"!file.loaded\"></novo-loading>\n        </div>\n      </div>\n    </ng-template>\n  "
                 },] }
     ];
     NovoFileInputElement.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: NovoLabelService },
         { type: NovoDragulaService }
     ]; };
     NovoFileInputElement.propDecorators = {
-        fileInput: [{ type: core.ViewChild, args: ['fileInput', { static: true },] }],
-        fileOutput: [{ type: core.ViewChild, args: ['fileOutput', { static: true },] }],
-        container: [{ type: core.ViewChild, args: ['container', { read: core.ViewContainerRef, static: true },] }],
-        name: [{ type: core.Input }],
-        multiple: [{ type: core.Input }],
-        disabled: [{ type: core.Input }],
-        placeholder: [{ type: core.Input }],
-        layoutOptions: [{ type: core.Input }],
-        value: [{ type: core.Input }],
-        dataFeatureId: [{ type: core.Input }],
-        edit: [{ type: core.Output }],
-        save: [{ type: core.Output }],
-        delete: [{ type: core.Output }],
-        upload: [{ type: core.Output }]
+        fileInput: [{ type: i0.ViewChild, args: ['fileInput', { static: true },] }],
+        fileOutput: [{ type: i0.ViewChild, args: ['fileOutput', { static: true },] }],
+        container: [{ type: i0.ViewChild, args: ['container', { read: i0.ViewContainerRef, static: true },] }],
+        name: [{ type: i0.Input }],
+        multiple: [{ type: i0.Input }],
+        disabled: [{ type: i0.Input }],
+        placeholder: [{ type: i0.Input }],
+        layoutOptions: [{ type: i0.Input }],
+        value: [{ type: i0.Input }],
+        dataFeatureId: [{ type: i0.Input }],
+        edit: [{ type: i0.Output }],
+        save: [{ type: i0.Output }],
+        delete: [{ type: i0.Output }],
+        upload: [{ type: i0.Output }]
     };
 
     // NG2
@@ -27330,7 +27330,7 @@
         return NovoFormExtrasModule;
     }());
     NovoFormExtrasModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [
                         common.CommonModule,
                         forms.FormsModule,
@@ -27350,7 +27350,7 @@
     // Value accessor for the component (supports ngModel)
     var TILES_VALUE_ACCESSOR = {
         provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return NovoTilesElement; }),
+        useExisting: i0.forwardRef(function () { return NovoTilesElement; }),
         multi: true,
     };
     var NovoTilesElement = /** @class */ (function () {
@@ -27359,9 +27359,9 @@
             this.ref = ref;
             this.name = new Date().getTime().toString();
             this.disabled = false;
-            this.onChange = new core.EventEmitter();
-            this.onSelectedOptionClick = new core.EventEmitter();
-            this.onDisabledOptionClick = new core.EventEmitter();
+            this.onChange = new i0.EventEmitter();
+            this.onSelectedOptionClick = new i0.EventEmitter();
+            this.onDisabledOptionClick = new i0.EventEmitter();
             this._options = [];
             this.activeTile = null;
             this.focused = false;
@@ -27463,25 +27463,25 @@
         return NovoTilesElement;
     }());
     NovoTilesElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-tiles',
                     providers: [TILES_VALUE_ACCESSOR],
                     template: "\n    <div class=\"tile-container\" [class.active]=\"focused\" [class.disabled]=\"disabled\">\n      <div\n        class=\"tile\"\n        *ngFor=\"let option of _options; let i = index\"\n        [ngClass]=\"{ active: option.checked, disabled: option.disabled }\"\n        (click)=\"select($event, option)\"\n        [attr.data-automation-id]=\"option.label || option\"\n      >\n        <input\n          class=\"tiles-input\"\n          [name]=\"name\"\n          type=\"radio\"\n          [value]=\"option.checked || option.value || option\"\n          [attr.id]=\"name + i\"\n          (change)=\"select($event, option)\"\n          (focus)=\"setFocus(true)\"\n          (blur)=\"setFocus(false)\"\n          [disabled]=\"disabled\"\n        />\n        <label [attr.for]=\"name + i\" [attr.data-automation-id]=\"option.label || option\">\n          {{ option.label || option }}\n        </label>\n      </div>\n    </div>\n  ",
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     NovoTilesElement.ctorParameters = function () { return [
-        { type: core.ElementRef },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ElementRef },
+        { type: i0.ChangeDetectorRef }
     ]; };
     NovoTilesElement.propDecorators = {
-        name: [{ type: core.Input }],
-        options: [{ type: core.Input }],
-        required: [{ type: core.Input }],
-        disabled: [{ type: core.Input, args: ['controlDisabled',] }],
-        onChange: [{ type: core.Output }],
-        onSelectedOptionClick: [{ type: core.Output }],
-        onDisabledOptionClick: [{ type: core.Output }]
+        name: [{ type: i0.Input }],
+        options: [{ type: i0.Input }],
+        required: [{ type: i0.Input }],
+        disabled: [{ type: i0.Input, args: ['controlDisabled',] }],
+        onChange: [{ type: i0.Output }],
+        onSelectedOptionClick: [{ type: i0.Output }],
+        onDisabledOptionClick: [{ type: i0.Output }]
     };
 
     // NG2
@@ -27491,7 +27491,7 @@
         return NovoTilesModule;
     }());
     NovoTilesModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, forms.ReactiveFormsModule],
                     declarations: [NovoTilesElement],
                     exports: [NovoTilesElement],
@@ -27502,7 +27502,7 @@
     // Value accessor for the component (supports ngModel)
     var SEARCH_VALUE_ACCESSOR = {
         provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return NovoSearchBoxElement; }),
+        useExisting: i0.forwardRef(function () { return NovoSearchBoxElement; }),
         multi: true,
     };
     var NovoSearchBoxElement = /** @class */ (function () {
@@ -27516,7 +27516,7 @@
             this.alwaysOpen = false;
             this.theme = 'positive';
             this.closeOnSelect = true;
-            this.searchChanged = new core.EventEmitter();
+            this.searchChanged = new i0.EventEmitter();
             this.focused = false;
             /** View -> model callback called when value changes */
             this._onChange = function () { };
@@ -27634,34 +27634,34 @@
         return NovoSearchBoxElement;
     }());
     NovoSearchBoxElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-search',
                     providers: [SEARCH_VALUE_ACCESSOR],
-                    changeDetection: core.ChangeDetectionStrategy.OnPush,
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush,
                     template: "\n    <!-- SEARCH ICON -->\n    <button\n      theme=\"fab\"\n      [color]=\"theme\"\n      [icon]=\"icon\"\n      (click)=\"showSearch()\"\n      [tooltip]=\"hint\"\n      tooltipPosition=\"bottom\"\n      data-automation-id=\"novo-search-fab\"\n    ></button>\n    <!-- SEARCH INPUT -->\n    <input\n      type=\"text\"\n      [attr.name]=\"name\"\n      [attr.value]=\"displayValue\"\n      [attr.placeholder]=\"placeholder\"\n      (focus)=\"onFocus()\"\n      (blur)=\"onBlur()\"\n      (keydown)=\"_handleKeydown($event)\"\n      (input)=\"_handleInput($event)\"\n      #input\n      data-automation-id=\"novo-search-input\"\n    />\n    <!-- SEARCH OVERLAY -->\n    <novo-overlay-template\n      [parent]=\"element\"\n      [closeOnSelect]=\"closeOnSelect\"\n      position=\"above-below\"\n      (select)=\"closePanel()\"\n      (closing)=\"onBlur()\"\n    >\n      <ng-content></ng-content>\n    </novo-overlay-template>\n  "
                 },] }
     ];
     NovoSearchBoxElement.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: NovoLabelService },
-        { type: core.ChangeDetectorRef },
-        { type: core.NgZone }
+        { type: i0.ChangeDetectorRef },
+        { type: i0.NgZone }
     ]; };
     NovoSearchBoxElement.propDecorators = {
-        name: [{ type: core.Input }],
-        icon: [{ type: core.Input }],
-        placeholder: [{ type: core.Input }],
-        alwaysOpen: [{ type: core.Input }],
-        theme: [{ type: core.Input }],
-        closeOnSelect: [{ type: core.Input }],
-        displayField: [{ type: core.Input }],
-        displayValue: [{ type: core.Input }],
-        hint: [{ type: core.Input }],
-        searchChanged: [{ type: core.Output }],
-        focused: [{ type: core.HostBinding, args: ['class.focused',] }],
-        overlay: [{ type: core.ViewChild, args: [NovoOverlayTemplateComponent,] }],
-        input: [{ type: core.ViewChild, args: ['input', { static: true },] }],
-        active: [{ type: core.HostBinding, args: ['class.active',] }]
+        name: [{ type: i0.Input }],
+        icon: [{ type: i0.Input }],
+        placeholder: [{ type: i0.Input }],
+        alwaysOpen: [{ type: i0.Input }],
+        theme: [{ type: i0.Input }],
+        closeOnSelect: [{ type: i0.Input }],
+        displayField: [{ type: i0.Input }],
+        displayValue: [{ type: i0.Input }],
+        hint: [{ type: i0.Input }],
+        searchChanged: [{ type: i0.Output }],
+        focused: [{ type: i0.HostBinding, args: ['class.focused',] }],
+        overlay: [{ type: i0.ViewChild, args: [NovoOverlayTemplateComponent,] }],
+        input: [{ type: i0.ViewChild, args: ['input', { static: true },] }],
+        active: [{ type: i0.HostBinding, args: ['class.active',] }]
     };
 
     // NG2
@@ -27671,7 +27671,7 @@
         return NovoSearchBoxModule;
     }());
     NovoSearchBoxModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, NovoButtonModule, NovoPickerModule, NovoTooltipModule, NovoOverlayModule],
                     declarations: [NovoSearchBoxElement],
                     exports: [NovoSearchBoxElement],
@@ -27681,7 +27681,7 @@
     // Value accessor for the component (supports ngModel)
     var DATE_PICKER_VALUE_ACCESSOR = {
         provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return NovoDatePickerElement; }),
+        useExisting: i0.forwardRef(function () { return NovoDatePickerElement; }),
         multi: true,
     };
     var NovoDatePickerElement = /** @class */ (function () {
@@ -27690,7 +27690,7 @@
             this.element = element;
             this.weekStart = 0;
             // Select callback for output
-            this.onSelect = new core.EventEmitter(false);
+            this.onSelect = new i0.EventEmitter(false);
             // List of all the weekdays
             this.weekdays = [];
             // List of all months
@@ -28056,7 +28056,7 @@
         return NovoDatePickerElement;
     }());
     NovoDatePickerElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-date-picker',
                     providers: [DATE_PICKER_VALUE_ACCESSOR],
                     animations: [
@@ -28093,18 +28093,18 @@
     ];
     NovoDatePickerElement.ctorParameters = function () { return [
         { type: NovoLabelService },
-        { type: core.ElementRef }
+        { type: i0.ElementRef }
     ]; };
     NovoDatePickerElement.propDecorators = {
-        minYear: [{ type: core.Input }],
-        maxYear: [{ type: core.Input }],
-        start: [{ type: core.Input }],
-        end: [{ type: core.Input }],
-        inline: [{ type: core.Input }],
-        range: [{ type: core.Input }],
-        weekRangeSelect: [{ type: core.Input }],
-        weekStart: [{ type: core.Input }],
-        onSelect: [{ type: core.Output }]
+        minYear: [{ type: i0.Input }],
+        maxYear: [{ type: i0.Input }],
+        start: [{ type: i0.Input }],
+        end: [{ type: i0.Input }],
+        inline: [{ type: i0.Input }],
+        range: [{ type: i0.Input }],
+        weekRangeSelect: [{ type: i0.Input }],
+        weekStart: [{ type: i0.Input }],
+        onSelect: [{ type: i0.Output }]
     };
 
     var DateFormatService = /** @class */ (function () {
@@ -28309,7 +28309,7 @@
         return DateFormatService;
     }());
     DateFormatService.decorators = [
-        { type: core.Injectable }
+        { type: i0.Injectable }
     ];
     DateFormatService.ctorParameters = function () { return [
         { type: NovoLabelService }
@@ -28318,7 +28318,7 @@
     // Value accessor for the component (supports ngModel)
     var DATE_VALUE_ACCESSOR = {
         provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return NovoDatePickerInputElement; }),
+        useExisting: i0.forwardRef(function () { return NovoDatePickerInputElement; }),
         multi: true,
     };
     var NovoDatePickerInputElement = /** @class */ (function () {
@@ -28336,9 +28336,9 @@
             this.allowInvalidDate = false;
             this.disabled = false;
             this.weekStart = 0;
-            this.blurEvent = new core.EventEmitter();
-            this.focusEvent = new core.EventEmitter();
-            this.changeEvent = new core.EventEmitter();
+            this.blurEvent = new i0.EventEmitter();
+            this.focusEvent = new i0.EventEmitter();
+            this.changeEvent = new i0.EventEmitter();
             this.placeholder = this.labels.dateFormatString().toUpperCase() || this.labels.dateFormatPlaceholder;
         }
         NovoDatePickerInputElement.prototype.ngOnInit = function () {
@@ -28514,33 +28514,33 @@
         return NovoDatePickerInputElement;
     }());
     NovoDatePickerInputElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-date-picker-input',
                     providers: [DATE_VALUE_ACCESSOR],
                     template: "\n    <input\n      type=\"text\"\n      [name]=\"name\"\n      [(ngModel)]=\"formattedValue\"\n      [textMask]=\"maskOptions\"\n      [placeholder]=\"placeholder\"\n      (focus)=\"_handleFocus($event)\"\n      (keydown)=\"_handleKeydown($event)\"\n      (input)=\"_handleInput($event)\"\n      (blur)=\"_handleBlur($event)\"\n      #input\n      data-automation-id=\"date-input\"\n      [disabled]=\"disabled\"\n    />\n    <i *ngIf=\"!hasValue\" (click)=\"openPanel()\" class=\"bhi-calendar\"></i>\n    <i *ngIf=\"hasValue\" (click)=\"clearValue()\" class=\"bhi-times\"></i>\n    <novo-overlay-template [parent]=\"element\" position=\"above-below\">\n      <novo-date-picker\n        [start]=\"start\"\n        [end]=\"end\"\n        inline=\"true\"\n        (onSelect)=\"setValueAndClose($event)\"\n        [ngModel]=\"value\"\n        [weekStart]=\"weekStart\"\n      ></novo-date-picker>\n    </novo-overlay-template>\n  "
                 },] }
     ];
     NovoDatePickerInputElement.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: NovoLabelService },
-        { type: core.ChangeDetectorRef },
+        { type: i0.ChangeDetectorRef },
         { type: DateFormatService }
     ]; };
     NovoDatePickerInputElement.propDecorators = {
-        name: [{ type: core.Input }],
-        start: [{ type: core.Input }],
-        end: [{ type: core.Input }],
-        placeholder: [{ type: core.Input }],
-        maskOptions: [{ type: core.Input }],
-        format: [{ type: core.Input }],
-        textMaskEnabled: [{ type: core.Input }],
-        allowInvalidDate: [{ type: core.Input }],
-        disabled: [{ type: core.HostBinding, args: ['class.disabled',] }, { type: core.Input }],
-        weekStart: [{ type: core.Input }],
-        blurEvent: [{ type: core.Output }],
-        focusEvent: [{ type: core.Output }],
-        changeEvent: [{ type: core.Output }],
-        overlay: [{ type: core.ViewChild, args: [NovoOverlayTemplateComponent,] }]
+        name: [{ type: i0.Input }],
+        start: [{ type: i0.Input }],
+        end: [{ type: i0.Input }],
+        placeholder: [{ type: i0.Input }],
+        maskOptions: [{ type: i0.Input }],
+        format: [{ type: i0.Input }],
+        textMaskEnabled: [{ type: i0.Input }],
+        allowInvalidDate: [{ type: i0.Input }],
+        disabled: [{ type: i0.HostBinding, args: ['class.disabled',] }, { type: i0.Input }],
+        weekStart: [{ type: i0.Input }],
+        blurEvent: [{ type: i0.Output }],
+        focusEvent: [{ type: i0.Output }],
+        changeEvent: [{ type: i0.Output }],
+        overlay: [{ type: i0.ViewChild, args: [NovoOverlayTemplateComponent,] }]
     };
 
     // NG2
@@ -28550,7 +28550,7 @@
         return NovoDatePickerModule;
     }());
     NovoDatePickerModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, forms.FormsModule, NovoOverlayModule, angular2TextMask.TextMaskModule],
                     declarations: [NovoDatePickerElement, NovoDatePickerInputElement],
                     exports: [NovoDatePickerElement, NovoDatePickerInputElement],
@@ -28600,23 +28600,23 @@
         return NovoDataTableCell;
     }(table.CdkCell));
     NovoDataTableCell.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-data-table-cell',
                     template: "\n    <ng-container *ngTemplateOutlet=\"template; context: {$implicit: row, col: column}\"></ng-container>\n  ",
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     NovoDataTableCell.ctorParameters = function () { return [
         { type: table.CdkColumnDef },
-        { type: core.ElementRef },
-        { type: core.Renderer2 }
+        { type: i0.ElementRef },
+        { type: i0.Renderer2 }
     ]; };
     NovoDataTableCell.propDecorators = {
-        role: [{ type: core.HostBinding, args: ['attr.role',] }],
-        row: [{ type: core.Input }],
-        template: [{ type: core.Input }],
-        column: [{ type: core.Input }],
-        resized: [{ type: core.Input }]
+        role: [{ type: i0.HostBinding, args: ['attr.role',] }],
+        row: [{ type: i0.Input }],
+        template: [{ type: i0.Input }],
+        column: [{ type: i0.Input }],
+        resized: [{ type: i0.Input }]
     };
 
     var NovoDataTableCheckboxCell = /** @class */ (function (_super) {
@@ -28658,22 +28658,22 @@
         return NovoDataTableCheckboxCell;
     }(table.CdkCell));
     NovoDataTableCheckboxCell.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-data-table-checkbox-cell',
                     template: "\n    <div class=\"data-table-checkbox\" (click)=\"onClick()\">\n      <input type=\"checkbox\" [checked]=\"checked\">\n      <label>\n        <i [class.bhi-checkbox-empty]=\"!checked\"\n          [class.bhi-checkbox-filled]=\"checked\"></i>\n      </label>\n    </div>\n    ",
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     NovoDataTableCheckboxCell.ctorParameters = function () { return [
         { type: table.CdkColumnDef },
-        { type: core.ElementRef },
-        { type: core.Renderer2 },
+        { type: i0.ElementRef },
+        { type: i0.Renderer2 },
         { type: NovoDataTable },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ChangeDetectorRef }
     ]; };
     NovoDataTableCheckboxCell.propDecorators = {
-        role: [{ type: core.HostBinding, args: ['attr.role',] }],
-        row: [{ type: core.Input }]
+        role: [{ type: i0.HostBinding, args: ['attr.role',] }],
+        row: [{ type: i0.Input }]
     };
 
     var NovoDataTableExpandCell = /** @class */ (function (_super) {
@@ -28708,22 +28708,22 @@
         return NovoDataTableExpandCell;
     }(table.CdkCell));
     NovoDataTableExpandCell.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-data-table-expand-cell',
                     template: "\n    <i class=\"bhi-next data-table-icon\" novo-data-table-expander=\"true\" [class.expanded]=\"expanded\"></i>\n  ",
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     NovoDataTableExpandCell.ctorParameters = function () { return [
         { type: table.CdkColumnDef },
-        { type: core.ElementRef },
-        { type: core.Renderer2 },
+        { type: i0.ElementRef },
+        { type: i0.Renderer2 },
         { type: NovoDataTable },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ChangeDetectorRef }
     ]; };
     NovoDataTableExpandCell.propDecorators = {
-        role: [{ type: core.HostBinding, args: ['attr.role',] }],
-        row: [{ type: core.Input }]
+        role: [{ type: i0.HostBinding, args: ['attr.role',] }],
+        row: [{ type: i0.Input }]
     };
 
     var NovoDataTableHeaderRow = /** @class */ (function (_super) {
@@ -28738,16 +28738,16 @@
         return NovoDataTableHeaderRow;
     }(table.CdkHeaderRow));
     NovoDataTableHeaderRow.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-data-table-header-row',
                     template: table.CDK_ROW_TEMPLATE,
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     NovoDataTableHeaderRow.propDecorators = {
-        rowClass: [{ type: core.HostBinding, args: ['class',] }],
-        fixedHeader: [{ type: core.HostBinding, args: ['class.fixed-header',] }, { type: core.Input }],
-        role: [{ type: core.HostBinding, args: ['attr.role',] }]
+        rowClass: [{ type: i0.HostBinding, args: ['class',] }],
+        fixedHeader: [{ type: i0.HostBinding, args: ['class.fixed-header',] }, { type: i0.Input }],
+        role: [{ type: i0.HostBinding, args: ['attr.role',] }]
     };
 
     var NovoDataTableRow = /** @class */ (function (_super) {
@@ -28761,17 +28761,17 @@
         return NovoDataTableRow;
     }(table.CdkRow));
     NovoDataTableRow.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-data-table-row',
                     template: table.CDK_ROW_TEMPLATE,
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     NovoDataTableRow.propDecorators = {
-        rowClass: [{ type: core.HostBinding, args: ['class',] }],
-        role: [{ type: core.HostBinding, args: ['attr.role',] }],
-        id: [{ type: core.HostBinding, args: ['attr.id',] }, { type: core.Input }],
-        dataAutomationId: [{ type: core.HostBinding, args: ['attr.data-automation-id',] }, { type: core.Input }]
+        rowClass: [{ type: i0.HostBinding, args: ['class',] }],
+        role: [{ type: i0.HostBinding, args: ['attr.role',] }],
+        id: [{ type: i0.HostBinding, args: ['attr.id',] }, { type: i0.Input }],
+        dataAutomationId: [{ type: i0.HostBinding, args: ['attr.data-automation-id',] }, { type: i0.Input }]
     };
 
     var NovoDataTableExpandHeaderCell = /** @class */ (function (_super) {
@@ -28802,21 +28802,21 @@
         return NovoDataTableExpandHeaderCell;
     }(table.CdkHeaderCell));
     NovoDataTableExpandHeaderCell.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-data-table-expand-header-cell',
                     template: "\n    <i class=\"bhi-next data-table-icon\" novo-data-table-expander=\"true\" (click)=\"expandAll()\" [class.expanded]=\"expanded\"></i>\n  ",
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     NovoDataTableExpandHeaderCell.ctorParameters = function () { return [
         { type: table.CdkColumnDef },
-        { type: core.ElementRef },
-        { type: core.Renderer2 },
+        { type: i0.ElementRef },
+        { type: i0.Renderer2 },
         { type: NovoDataTable },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ChangeDetectorRef }
     ]; };
     NovoDataTableExpandHeaderCell.propDecorators = {
-        role: [{ type: core.HostBinding, args: ['attr.role',] }]
+        role: [{ type: i0.HostBinding, args: ['attr.role',] }]
     };
 
     var NovoDataTableCheckboxHeaderCell = /** @class */ (function (_super) {
@@ -28867,21 +28867,21 @@
         return NovoDataTableCheckboxHeaderCell;
     }(table.CdkHeaderCell));
     NovoDataTableCheckboxHeaderCell.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-data-table-checkbox-header-cell',
                     template: "\n    <div class=\"data-table-checkbox\" (click)=\"onClick()\">\n      <input type=\"checkbox\" [checked]=\"checked\">\n      <label>\n        <i [class.bhi-checkbox-empty]=\"!checked\"\n          [class.bhi-checkbox-filled]=\"checked\"></i>\n      </label>\n    </div>\n  ",
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     NovoDataTableCheckboxHeaderCell.ctorParameters = function () { return [
         { type: table.CdkColumnDef },
-        { type: core.ElementRef },
-        { type: core.Renderer2 },
+        { type: i0.ElementRef },
+        { type: i0.Renderer2 },
         { type: NovoDataTable },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ChangeDetectorRef }
     ]; };
     NovoDataTableCheckboxHeaderCell.propDecorators = {
-        role: [{ type: core.HostBinding, args: ['attr.role',] }]
+        role: [{ type: i0.HostBinding, args: ['attr.role',] }]
     };
 
     var NovoDataTableHeaderCell = /** @class */ (function (_super) {
@@ -28906,18 +28906,18 @@
         return NovoDataTableHeaderCell;
     }(table.CdkHeaderCell));
     NovoDataTableHeaderCell.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: 'novo-data-table-header-cell',
                 },] }
     ];
     NovoDataTableHeaderCell.ctorParameters = function () { return [
         { type: table.CdkColumnDef },
-        { type: core.ElementRef },
-        { type: core.Renderer2 }
+        { type: i0.ElementRef },
+        { type: i0.Renderer2 }
     ]; };
     NovoDataTableHeaderCell.propDecorators = {
-        role: [{ type: core.HostBinding, args: ['attr.role',] }],
-        column: [{ type: core.Input }]
+        role: [{ type: i0.HostBinding, args: ['attr.role',] }],
+        column: [{ type: i0.Input }]
     };
 
     var MAX_PAGES_DISPLAYED = 5;
@@ -28931,7 +28931,7 @@
             this._page = 0;
             this._pageSizeOptions = [];
             this._length = 0;
-            this.pageChange = new core.EventEmitter();
+            this.pageChange = new i0.EventEmitter();
             this.resetSubscription = this.state.resetSource.subscribe(function () {
                 _this.page = 0;
                 _this.changeDetectorRef.markForCheck();
@@ -29110,25 +29110,25 @@
         return NovoDataTablePagination;
     }());
     NovoDataTablePagination.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-data-table-pagination',
                     template: "\n      <ng-container *ngIf=\"theme === 'basic' || theme === 'basic-wide'\">\n        <div class=\"novo-data-table-pagination-size\">\n            <novo-tiles *ngIf=\"displayedPageSizeOptions.length > 1\"\n                        [(ngModel)]=\"pageSize\"\n                        [options]=\"displayedPageSizeOptions\"\n                        (onChange)=\"changePageSize($event)\"\n                        data-automation-id=\"novo-data-table-pagination-tiles\">\n            </novo-tiles>\n            <div *ngIf=\"displayedPageSizeOptions.length <= 1\">{{ pageSize }}</div>\n        </div>\n\n        <div class=\"novo-data-table-range-label-long\" data-automation-id=\"novo-data-table-pagination-range-label-long\">\n            {{ longRangeLabel }}\n        </div>\n        <div class=\"novo-data-table-range-label-short\" data-automation-id=\"novo-data-table-pagination-range-label-short\">\n            {{ shortRangeLabel }}\n        </div>\n        <span class=\"spacer novo-data-table-spacer\" *ngIf=\"theme === 'basic-wide'\"></span>\n        <button theme=\"dialogue\" type=\"button\"\n                class=\"novo-data-table-pagination-navigation-previous\"\n                (click)=\"previousPage()\"\n                icon=\"previous\"\n                side=\"left\"\n                [disabled]=\"!hasPreviousPage()\"\n                data-automation-id=\"novo-data-table-pagination-previous\">\n            <span>{{ labels.previous }}</span>\n        </button>\n        <button theme=\"dialogue\" type=\"button\"\n                class=\"novo-data-table-pagination-navigation-next\"\n                (click)=\"nextPage()\"\n                icon=\"next\"\n                side=\"right\"\n                [disabled]=\"!hasNextPage()\"\n                data-automation-id=\"novo-data-table-pagination-next\">\n            <span>{{ labels.next }}</span>\n        </button>\n      </ng-container>\n      <ng-container *ngIf=\"theme === 'standard'\">\n        <h5 class=\"rows\">{{ labels.itemsPerPage }}</h5>\n        <novo-select\n          [options]=\"displayedPageSizeOptions\"\n          [placeholder]=\"labels.select\"\n          [(ngModel)]=\"pageSize\"\n          (onSelect)=\"changePageSize($event.selected)\"\n          data-automation-id=\"pager-select\"\n          [attr.data-feature-id]=\"dataFeatureId\">\n        </novo-select>\n        <span class=\"spacer\"></span>\n        <ul class=\"pager\" data-automation-id=\"pager\">\n            <li class=\"page\" (click)=\"selectPage(page - 1)\" [ngClass]=\"{ 'disabled': page === 0 }\"><i class=\"bhi-previous\" data-automation-id=\"pager-previous\"></i></li>\n            <li class=\"page\" [ngClass]=\"{active: p.number === page + 1}\" *ngFor=\"let p of pages\" (click)=\"selectPage(p.number - 1)\">{{ p.text }}</li>\n            <li class=\"page\" (click)=\"selectPage(page + 1)\" [ngClass]=\"{ 'disabled': page + 1 === totalPages }\"><i class=\"bhi-next\" data-automation-id=\"pager-next\"></i></li>\n        </ul>\n      </ng-container>\n  ",
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     NovoDataTablePagination.ctorParameters = function () { return [
-        { type: core.ChangeDetectorRef },
+        { type: i0.ChangeDetectorRef },
         { type: NovoLabelService },
         { type: DataTableState }
     ]; };
     NovoDataTablePagination.propDecorators = {
-        theme: [{ type: core.HostBinding, args: ['class',] }, { type: core.Input }],
-        page: [{ type: core.Input }],
-        pageSize: [{ type: core.Input }],
-        dataFeatureId: [{ type: core.Input }],
-        pageSizeOptions: [{ type: core.Input }],
-        length: [{ type: core.Input }],
-        pageChange: [{ type: core.Output }]
+        theme: [{ type: i0.HostBinding, args: ['class',] }, { type: i0.Input }],
+        page: [{ type: i0.Input }],
+        pageSize: [{ type: i0.Input }],
+        dataFeatureId: [{ type: i0.Input }],
+        pageSizeOptions: [{ type: i0.Input }],
+        length: [{ type: i0.Input }],
+        pageChange: [{ type: i0.Output }]
     };
 
     function interpolateCell(value, col) {
@@ -29149,7 +29149,7 @@
         return DataTableInterpolatePipe;
     }());
     DataTableInterpolatePipe.decorators = [
-        { type: core.Pipe, args: [{
+        { type: i0.Pipe, args: [{
                     name: 'dataTableInterpolate',
                     pure: true,
                 },] }
@@ -29167,7 +29167,7 @@
         return DateTableDateRendererPipe;
     }());
     DateTableDateRendererPipe.decorators = [
-        { type: core.Pipe, args: [{
+        { type: i0.Pipe, args: [{
                     name: 'dataTableDateRenderer',
                     pure: true,
                 },] }
@@ -29188,7 +29188,7 @@
         return DateTableDateTimeRendererPipe;
     }());
     DateTableDateTimeRendererPipe.decorators = [
-        { type: core.Pipe, args: [{
+        { type: i0.Pipe, args: [{
                     name: 'dataTableDateTimeRenderer',
                     pure: true,
                 },] }
@@ -29209,7 +29209,7 @@
         return DateTableTimeRendererPipe;
     }());
     DateTableTimeRendererPipe.decorators = [
-        { type: core.Pipe, args: [{
+        { type: i0.Pipe, args: [{
                     name: 'dataTableTimeRenderer',
                     pure: true,
                 },] }
@@ -29235,7 +29235,7 @@
         return DateTableNumberRendererPipe;
     }());
     DateTableNumberRendererPipe.decorators = [
-        { type: core.Pipe, args: [{
+        { type: i0.Pipe, args: [{
                     name: 'dataTableNumberRenderer',
                     pure: true,
                 },] }
@@ -29257,7 +29257,7 @@
         return DataTableBigDecimalRendererPipe;
     }());
     DataTableBigDecimalRendererPipe.decorators = [
-        { type: core.Pipe, args: [{
+        { type: i0.Pipe, args: [{
                     name: 'dataTableBigDecimalRenderer',
                     pure: true,
                 },] }
@@ -29279,7 +29279,7 @@
         return DateTableCurrencyRendererPipe;
     }());
     DateTableCurrencyRendererPipe.decorators = [
-        { type: core.Pipe, args: [{
+        { type: i0.Pipe, args: [{
                     name: 'dataTableCurrencyRenderer',
                     pure: true,
                 },] }
@@ -29328,19 +29328,19 @@
         return NovoDataTableExpandDirective;
     }());
     NovoDataTableExpandDirective.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[novoDataTableExpand]',
                 },] }
     ];
     NovoDataTableExpandDirective.ctorParameters = function () { return [
-        { type: core.ViewContainerRef },
+        { type: i0.ViewContainerRef },
         { type: DataTableState },
         { type: NovoDataTable }
     ]; };
     NovoDataTableExpandDirective.propDecorators = {
-        row: [{ type: core.Input }],
-        template: [{ type: core.Input, args: ['novoDataTableExpand',] }],
-        onClick: [{ type: core.HostListener, args: ['click', ['$event'],] }]
+        row: [{ type: i0.Input }],
+        template: [{ type: i0.Input, args: ['novoDataTableExpand',] }],
+        onClick: [{ type: i0.HostListener, args: ['click', ['$event'],] }]
     };
 
     var NovoDataTableModule = /** @class */ (function () {
@@ -29349,7 +29349,7 @@
         return NovoDataTableModule;
     }());
     NovoDataTableModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [
                         NovoDatePickerModule,
                         table.CdkTableModule,
@@ -29413,7 +29413,7 @@
     // Value accessor for the component (supports ngModel)
     var DATE_TIME_PICKER_VALUE_ACCESSOR = {
         provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return NovoDateTimePickerElement; }),
+        useExisting: i0.forwardRef(function () { return NovoDateTimePickerElement; }),
         multi: true,
     };
     var NovoDateTimePickerElement = /** @class */ (function () {
@@ -29422,7 +29422,7 @@
             this.element = element;
             this.weekStart = 0;
             // Select callback for output
-            this.onSelect = new core.EventEmitter(false);
+            this.onSelect = new i0.EventEmitter(false);
             this.componentTabState = 'date';
             this.datePickerValue = new Date();
             this.timePickerValue = new Date();
@@ -29499,7 +29499,7 @@
         return NovoDateTimePickerElement;
     }());
     NovoDateTimePickerElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-date-time-picker',
                     providers: [DATE_TIME_PICKER_VALUE_ACCESSOR],
                     animations: [
@@ -29545,23 +29545,23 @@
     ];
     NovoDateTimePickerElement.ctorParameters = function () { return [
         { type: NovoLabelService },
-        { type: core.ElementRef }
+        { type: i0.ElementRef }
     ]; };
     NovoDateTimePickerElement.propDecorators = {
-        minYear: [{ type: core.Input }],
-        maxYear: [{ type: core.Input }],
-        start: [{ type: core.Input }],
-        end: [{ type: core.Input }],
-        military: [{ type: core.Input }],
-        weekStart: [{ type: core.Input }],
-        onSelect: [{ type: core.Output }]
+        minYear: [{ type: i0.Input }],
+        maxYear: [{ type: i0.Input }],
+        start: [{ type: i0.Input }],
+        end: [{ type: i0.Input }],
+        military: [{ type: i0.Input }],
+        weekStart: [{ type: i0.Input }],
+        onSelect: [{ type: i0.Output }]
     };
 
     // NG
     // Value accessor for the component (supports ngModel)
     var DATE_VALUE_ACCESSOR$1 = {
         provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return NovoDateTimePickerInputElement; }),
+        useExisting: i0.forwardRef(function () { return NovoDateTimePickerInputElement; }),
         multi: true,
     };
     var NovoDateTimePickerInputElement = /** @class */ (function () {
@@ -29576,9 +29576,9 @@
             this.military = false;
             this.disabled = false;
             this.weekStart = 0;
-            this.blurEvent = new core.EventEmitter();
-            this.focusEvent = new core.EventEmitter();
-            this.changeEvent = new core.EventEmitter();
+            this.blurEvent = new i0.EventEmitter();
+            this.focusEvent = new i0.EventEmitter();
+            this.changeEvent = new i0.EventEmitter();
         }
         NovoDateTimePickerInputElement.prototype.writeValue = function (value) {
             var _this = this;
@@ -29662,36 +29662,36 @@
         return NovoDateTimePickerInputElement;
     }());
     NovoDateTimePickerInputElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-date-time-picker-input',
                     providers: [DATE_VALUE_ACCESSOR$1],
                     template: "\n    <novo-date-picker-input\n      [ngModel]=\"datePart\"\n      (ngModelChange)=\"updateDate($event)\"\n      [start]=\"start\"\n      [end]=\"end\"\n      [maskOptions]=\"maskOptions\"\n      (blurEvent)=\"handleBlur($event)\"\n      (focusEvent)=\"handleFocus($event)\"\n      [disabled]=\"disabled\"\n      [weekStart]=\"weekStart\"\n    ></novo-date-picker-input>\n    <novo-time-picker-input\n      [ngModel]=\"timePart\"\n      (ngModelChange)=\"updateTime($event)\"\n      [military]=\"military\"\n      (blurEvent)=\"handleBlur($event)\"\n      (focusEvent)=\"handleFocus($event)\"\n      [disabled]=\"disabled\"\n    ></novo-time-picker-input>\n  "
                 },] }
     ];
     NovoDateTimePickerInputElement.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: NovoLabelService },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ChangeDetectorRef }
     ]; };
     NovoDateTimePickerInputElement.propDecorators = {
-        name: [{ type: core.Input }],
-        start: [{ type: core.Input }],
-        end: [{ type: core.Input }],
-        placeholder: [{ type: core.Input }],
-        maskOptions: [{ type: core.Input }],
-        military: [{ type: core.Input }],
-        disabled: [{ type: core.Input }],
-        format: [{ type: core.Input }],
-        weekStart: [{ type: core.Input }],
-        blurEvent: [{ type: core.Output }],
-        focusEvent: [{ type: core.Output }],
-        changeEvent: [{ type: core.Output }]
+        name: [{ type: i0.Input }],
+        start: [{ type: i0.Input }],
+        end: [{ type: i0.Input }],
+        placeholder: [{ type: i0.Input }],
+        maskOptions: [{ type: i0.Input }],
+        military: [{ type: i0.Input }],
+        disabled: [{ type: i0.Input }],
+        format: [{ type: i0.Input }],
+        weekStart: [{ type: i0.Input }],
+        blurEvent: [{ type: i0.Output }],
+        focusEvent: [{ type: i0.Output }],
+        changeEvent: [{ type: i0.Output }]
     };
 
     // Value accessor for the component (supports ngModel)
     var TIME_PICKER_VALUE_ACCESSOR = {
         provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return NovoTimePickerElement; }),
+        useExisting: i0.forwardRef(function () { return NovoTimePickerElement; }),
         multi: true,
     };
     var NovoTimePickerElement = /** @class */ (function () {
@@ -29699,7 +29699,7 @@
             this.military = false;
             this.analog = false;
             this.inline = false;
-            this.onSelect = new core.EventEmitter();
+            this.onSelect = new i0.EventEmitter();
             this.hours = 12;
             this.minutes = 0;
             this.value = null;
@@ -29829,7 +29829,7 @@
         return NovoTimePickerElement;
     }());
     NovoTimePickerElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-time-picker',
                     providers: [TIME_PICKER_VALUE_ACCESSOR],
                     template: "\n        <div class=\"digital\" [class.inline]=\"inline\" [class.military]=\"military\">\n            <div class=\"digital--inner\">\n                <span class=\"digital--clock\" *ngIf=\"!inline\">\n                    <span class=\"hours\" data-automation-id=\"novo-time-picker-hours\">{{hours}}</span>:<span class=\"minutes\" data-automation-id=\"novo-time-picker-minutes\">{{minutes}}</span>\n                </span>\n                <div class=\"control-block\" *ngIf=\"!military\">\n                    <span *ngFor=\"let period of MERIDIANS\" class=\"digital--period\" [class.active]=\"meridian==period\" (click)=\"setPeriod($event, period, true)\" [attr.data-automation-id]=\"period\">{{period}}</span>\n                </div>\n            </div>\n        </div>\n        <div class=\"increments\" *ngIf=\"!analog\">\n            <novo-list direction=\"vertical\" data-automation-id=\"novo-time-picker-increments\">\n                <novo-list-item *ngFor=\"let increment of increments\" (click)=\"setValue($event, increment)\" [class.active]=\"increment==selected\" [attr.data-automation-id]=\"increment\">\n                    <item-content>{{increment}}</item-content>\n                    <i *ngIf=\"increment==selected\" class=\"bhi-check\"></i>\n                </novo-list-item>\n            </novo-list>\n        </div>\n        <div class=\"analog\" *ngIf=\"analog\">\n            <div class=\"analog--inner\">\n                <div class=\"analog--face\">\n                    <span class=\"analog--center\"></span>\n                    <span class=\"analog--hand--hours\" [ngClass]=\"hoursClass\">\n                        <span class=\"analog--ball\"></span>\n                    </span>\n                    <span class=\"analog--hand--minutes\" [ngClass]=\"minutesClass\">\n                        <span class=\"analog--ball\" [ngClass]=\"{between: inBetween}\"></span>\n                    </span>\n                </div>\n                <div class=\"analog--hours\">\n                    <span *ngFor=\"let hour of HOURS\" class=\"analog--hour\" [ngClass]=\"{active: activeHour == hour}\" (click)=\"setHours($event, hour, true)\" [attr.data-automation-id]=\"hour\">{{hour}}</span>\n                </div>\n                <div class=\"analog--minutes\">\n                    <span *ngFor=\"let minute of MINUTES\" class=\"analog--minute\" [ngClass]=\"{active: activeMinute == minute}\" (click)=\"setMinutes($event, minute, true)\" [attr.data-automation-id]=\"minute\">{{minute}}</span>\n                </div>\n            </div>\n        </div>\n    ",
@@ -29839,16 +29839,16 @@
                 },] }
     ];
     NovoTimePickerElement.propDecorators = {
-        military: [{ type: core.Input }],
-        analog: [{ type: core.Input }],
-        inline: [{ type: core.Input }],
-        onSelect: [{ type: core.Output }]
+        military: [{ type: i0.Input }],
+        analog: [{ type: i0.Input }],
+        inline: [{ type: i0.Input }],
+        onSelect: [{ type: i0.Output }]
     };
 
     // Value accessor for the component (supports ngModel)
     var DATE_VALUE_ACCESSOR$2 = {
         provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return NovoTimePickerInputElement; }),
+        useExisting: i0.forwardRef(function () { return NovoTimePickerInputElement; }),
         multi: true,
     };
     var NovoTimePickerInputElement = /** @class */ (function () {
@@ -29864,8 +29864,8 @@
             this._onTouched = function () { };
             this.military = false;
             this.disabled = false;
-            this.blurEvent = new core.EventEmitter();
-            this.focusEvent = new core.EventEmitter();
+            this.blurEvent = new i0.EventEmitter();
+            this.focusEvent = new i0.EventEmitter();
         }
         NovoTimePickerInputElement.prototype.ngOnInit = function () {
             this.placeholder = this.military ? this.labels.timeFormatPlaceholder24Hour : this.labels.timeFormatPlaceholderAM;
@@ -30005,27 +30005,27 @@
         return NovoTimePickerInputElement;
     }());
     NovoTimePickerInputElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-time-picker-input',
                     providers: [DATE_VALUE_ACCESSOR$2],
                     template: "\n    <input\n      type=\"text\"\n      [name]=\"name\"\n      [(ngModel)]=\"formattedValue\"\n      [textMask]=\"maskOptions\"\n      [placeholder]=\"placeholder\"\n      (focus)=\"_handleFocus($event)\"\n      (keydown)=\"_handleKeydown($event)\"\n      (input)=\"_handleInput($event)\"\n      (blur)=\"_handleBlur($event)\"\n      #input\n      data-automation-id=\"time-input\"\n      [disabled]=\"disabled\"\n    />\n    <i *ngIf=\"!hasValue\" (click)=\"openPanel()\" class=\"bhi-clock\"></i> <i *ngIf=\"hasValue\" (click)=\"clearValue()\" class=\"bhi-times\"></i>\n\n    <novo-overlay-template [parent]=\"element\" position=\"above-below\">\n      <novo-time-picker inline=\"true\" (onSelect)=\"setValue($event)\" [ngModel]=\"value\" [military]=\"military\"></novo-time-picker>\n    </novo-overlay-template>\n  "
                 },] }
     ];
     NovoTimePickerInputElement.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: NovoLabelService },
         { type: DateFormatService },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ChangeDetectorRef }
     ]; };
     NovoTimePickerInputElement.propDecorators = {
-        name: [{ type: core.Input }],
-        placeholder: [{ type: core.Input }],
-        military: [{ type: core.Input }],
-        maskOptions: [{ type: core.Input }],
-        disabled: [{ type: core.HostBinding, args: ['class.disabled',] }, { type: core.Input }],
-        blurEvent: [{ type: core.Output }],
-        focusEvent: [{ type: core.Output }],
-        overlay: [{ type: core.ViewChild, args: [NovoOverlayTemplateComponent,] }]
+        name: [{ type: i0.Input }],
+        placeholder: [{ type: i0.Input }],
+        military: [{ type: i0.Input }],
+        maskOptions: [{ type: i0.Input }],
+        disabled: [{ type: i0.HostBinding, args: ['class.disabled',] }, { type: i0.Input }],
+        blurEvent: [{ type: i0.Output }],
+        focusEvent: [{ type: i0.Output }],
+        overlay: [{ type: i0.ViewChild, args: [NovoOverlayTemplateComponent,] }]
     };
 
     // NG2
@@ -30035,7 +30035,7 @@
         return NovoTimePickerModule;
     }());
     NovoTimePickerModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, forms.FormsModule, angular2TextMask.TextMaskModule, NovoOverlayModule, NovoListModule],
                     declarations: [NovoTimePickerElement, NovoTimePickerInputElement],
                     exports: [NovoTimePickerElement, NovoTimePickerInputElement],
@@ -30049,7 +30049,7 @@
         return NovoDateTimePickerModule;
     }());
     NovoDateTimePickerModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, forms.FormsModule, NovoDatePickerModule, NovoTimePickerModule, angular2TextMask.TextMaskModule, NovoOverlayModule],
                     declarations: [NovoDateTimePickerElement, NovoDateTimePickerInputElement],
                     exports: [NovoDateTimePickerElement, NovoDateTimePickerInputElement],
@@ -30089,7 +30089,7 @@
         return NovoAccordion;
     }(accordion.CdkAccordion));
     NovoAccordion.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: 'novo-accordion',
                     exportAs: 'novoAccordion',
                     host: {
@@ -30098,8 +30098,8 @@
                 },] }
     ];
     NovoAccordion.propDecorators = {
-        hideToggle: [{ type: core.Input }],
-        displayMode: [{ type: core.Input }]
+        hideToggle: [{ type: i0.Input }],
+        displayMode: [{ type: i0.Input }]
     };
 
     /** Time and timing curve for expansion panel animations. */
@@ -30145,12 +30145,12 @@
         return NovoExpansionPanelContent;
     }());
     NovoExpansionPanelContent.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: 'ng-template[matExpansionPanelContent]',
                 },] }
     ];
     NovoExpansionPanelContent.ctorParameters = function () { return [
-        { type: core.TemplateRef }
+        { type: i0.TemplateRef }
     ]; };
 
     /** Counter for generating unique element ids. */
@@ -30168,9 +30168,9 @@
             _this._viewContainerRef = _viewContainerRef;
             _this._hideToggle = false;
             _this._padding = true;
-            _this.opened = new core.EventEmitter();
-            _this.closed = new core.EventEmitter();
-            _this.expandedChange = new core.EventEmitter();
+            _this.opened = new i0.EventEmitter();
+            _this.closed = new i0.EventEmitter();
+            _this.expandedChange = new i0.EventEmitter();
             /** Stream that emits for changes in `@Input` properties. */
             _this._inputChanges = new rxjs.Subject();
             /** ID for the associated header element. Used for a11y labelling. */
@@ -30253,12 +30253,12 @@
         return NovoExpansionPanel;
     }(accordion.CdkAccordionItem));
     NovoExpansionPanel.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-expansion-panel',
                     exportAs: 'novoExpansionPanel',
                     template: "<ng-content select=\"novo-expansion-panel-header\"></ng-content>\n<div class=\"novo-expansion-panel-content\"\n     role=\"region\"\n     [@bodyExpansion]=\"_getExpandedState()\"\n     (@bodyExpansion.done)=\"_bodyAnimation($event)\"\n     (@bodyExpansion.start)=\"_bodyAnimation($event)\"\n     [attr.aria-labelledby]=\"_headerId\"\n     [id]=\"id\"\n     #body>\n  <div class=\"novo-expansion-panel-body\">\n    <ng-content></ng-content>\n    <ng-template [cdkPortalOutlet]=\"_portal\"></ng-template>\n  </div>\n  <ng-content select=\"novo-action-row\"></ng-content>\n</div>\n",
-                    encapsulation: core.ViewEncapsulation.None,
-                    changeDetection: core.ChangeDetectionStrategy.OnPush,
+                    encapsulation: i0.ViewEncapsulation.None,
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush,
                     animations: [novoExpansionAnimations.bodyExpansion],
                     host: {
                         class: 'novo-expansion-panel',
@@ -30270,20 +30270,20 @@
                 },] }
     ];
     NovoExpansionPanel.ctorParameters = function () { return [
-        { type: NovoAccordion, decorators: [{ type: core.Optional }, { type: core.Host }] },
-        { type: core.ChangeDetectorRef },
+        { type: NovoAccordion, decorators: [{ type: i0.Optional }, { type: i0.Host }] },
+        { type: i0.ChangeDetectorRef },
         { type: collections.UniqueSelectionDispatcher },
-        { type: core.ViewContainerRef }
+        { type: i0.ViewContainerRef }
     ]; };
     NovoExpansionPanel.propDecorators = {
-        disabled: [{ type: core.Input }],
-        expanded: [{ type: core.Input }],
-        hideToggle: [{ type: core.Input }],
-        padding: [{ type: core.Input }],
-        opened: [{ type: core.Output }],
-        closed: [{ type: core.Output }],
-        expandedChange: [{ type: core.Output }],
-        _lazyContent: [{ type: core.ContentChild, args: [NovoExpansionPanelContent,] }]
+        disabled: [{ type: i0.Input }],
+        expanded: [{ type: i0.Input }],
+        hideToggle: [{ type: i0.Input }],
+        padding: [{ type: i0.Input }],
+        opened: [{ type: i0.Output }],
+        closed: [{ type: i0.Output }],
+        expandedChange: [{ type: i0.Output }],
+        _lazyContent: [{ type: i0.ContentChild, args: [NovoExpansionPanelContent,] }]
     };
     var NovoExpansionPanelActionRow = /** @class */ (function () {
         function NovoExpansionPanelActionRow() {
@@ -30291,7 +30291,7 @@
         return NovoExpansionPanelActionRow;
     }());
     NovoExpansionPanelActionRow.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: 'novo-action-row',
                     host: {
                         class: 'novo-action-row',
@@ -30358,11 +30358,11 @@
         return NovoExpansionPanelHeader;
     }());
     NovoExpansionPanelHeader.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-expansion-panel-header',
                     template: "<span class=\"novo-content\">\n  <ng-content select=\"novo-panel-title\"></ng-content>\n  <ng-content select=\"novo-panel-description\"></ng-content>\n  <ng-content></ng-content>\n</span>\n<span [@indicatorRotate]=\"_getExpandedState()\" *ngIf=\"_showToggle()\"\n      class=\"novo-expansion-indicator\"></span>\n",
-                    encapsulation: core.ViewEncapsulation.None,
-                    changeDetection: core.ChangeDetectionStrategy.OnPush,
+                    encapsulation: i0.ViewEncapsulation.None,
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush,
                     animations: [novoExpansionAnimations.indicatorRotate, novoExpansionAnimations.expansionHeaderHeight],
                     host: {
                         class: 'novo-expansion-panel-header',
@@ -30381,13 +30381,13 @@
                 },] }
     ];
     NovoExpansionPanelHeader.ctorParameters = function () { return [
-        { type: NovoExpansionPanel, decorators: [{ type: core.Host }] },
-        { type: core.ElementRef },
-        { type: core.ChangeDetectorRef }
+        { type: NovoExpansionPanel, decorators: [{ type: i0.Host }] },
+        { type: i0.ElementRef },
+        { type: i0.ChangeDetectorRef }
     ]; };
     NovoExpansionPanelHeader.propDecorators = {
-        expandedHeight: [{ type: core.Input }],
-        collapsedHeight: [{ type: core.Input }]
+        expandedHeight: [{ type: i0.Input }],
+        collapsedHeight: [{ type: i0.Input }]
     };
     /**
      * `<novo-panel-description>`
@@ -30400,7 +30400,7 @@
         return NovoExpansionPanelDescription;
     }());
     NovoExpansionPanelDescription.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: 'novo-panel-description',
                     host: {
                         class: 'novo-expansion-panel-header-description',
@@ -30418,7 +30418,7 @@
         return NovoExpansionPanelTitle;
     }());
     NovoExpansionPanelTitle.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: 'novo-panel-title',
                     host: {
                         class: 'novo-expansion-panel-header-title',
@@ -30432,7 +30432,7 @@
         return NovoExpansionModule;
     }());
     NovoExpansionModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, accordion.CdkAccordionModule, portal.PortalModule],
                     exports: [
                         NovoAccordion,
@@ -30495,7 +30495,7 @@
             _this.associatedEntity = config.associatedEntity || null;
             _this.optionsType = config.optionsType || null;
             _this.options = config.options || [];
-            _this.forceClear = new core.EventEmitter();
+            _this.forceClear = new i0.EventEmitter();
             _this.readOnly = !!config.readOnly || !!config.disabled;
             _this.disabled = !!config.disabled;
             _this.layoutOptions = config.layoutOptions || {};
@@ -30989,7 +30989,7 @@
         __extends(NovoFormControl, _super);
         function NovoFormControl(value, control) {
             var _this = _super.call(this, value, control.validators, control.asyncValidators) || this;
-            _this.displayValueChanges = new core.EventEmitter();
+            _this.displayValueChanges = new i0.EventEmitter();
             _this.valueHistory = [];
             _this.validators = control.validators;
             _this.initialValue = value;
@@ -31147,7 +31147,7 @@
         __extends(NovoFormGroup, _super);
         function NovoFormGroup() {
             var _this = _super.apply(this, __spread(arguments)) || this;
-            _this.fieldInteractionEvents = new core.EventEmitter();
+            _this.fieldInteractionEvents = new i0.EventEmitter();
             return _this;
         }
         Object.defineProperty(NovoFormGroup.prototype, "value", {
@@ -31202,7 +31202,7 @@
         return OptionsService;
     }());
     OptionsService.decorators = [
-        { type: core.Injectable }
+        { type: i0.Injectable }
     ];
     OptionsService.ctorParameters = function () { return []; };
 
@@ -31999,7 +31999,7 @@
         return FormUtils;
     }());
     FormUtils.decorators = [
-        { type: core.Injectable }
+        { type: i0.Injectable }
     ];
     FormUtils.ctorParameters = function () { return [
         { type: NovoLabelService },
@@ -32061,7 +32061,7 @@
         return NovoModalRef;
     }());
     NovoModalRef.decorators = [
-        { type: core.Injectable }
+        { type: i0.Injectable }
     ];
     var NovoModalContainerElement = /** @class */ (function () {
         function NovoModalContainerElement(modalRef, componentUtils) {
@@ -32077,7 +32077,7 @@
         return NovoModalContainerElement;
     }());
     NovoModalContainerElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-modal-container',
                     template: '<span #container></span>'
                 },] }
@@ -32087,7 +32087,7 @@
         { type: ComponentUtils }
     ]; };
     NovoModalContainerElement.propDecorators = {
-        container: [{ type: core.ViewChild, args: ['container', { read: core.ViewContainerRef },] }]
+        container: [{ type: i0.ViewChild, args: ['container', { read: i0.ViewContainerRef },] }]
     };
     var NovoModalElement = /** @class */ (function () {
         function NovoModalElement(modalRef) {
@@ -32099,7 +32099,7 @@
         return NovoModalElement;
     }());
     NovoModalElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-modal',
                     template: "\n    <ng-content select=\"header\"></ng-content>\n    <ng-content select=\"section\"></ng-content>\n    <footer><ng-content select=\"button\"></ng-content></footer>\n  "
                 },] }
@@ -32110,7 +32110,7 @@
     var NovoModalNotificationElement = /** @class */ (function () {
         function NovoModalNotificationElement(modalRef) {
             this.modalRef = modalRef;
-            this.cancel = new core.EventEmitter();
+            this.cancel = new i0.EventEmitter();
             this.modalRef = modalRef;
         }
         NovoModalNotificationElement.prototype.close = function () {
@@ -32138,7 +32138,7 @@
         return NovoModalNotificationElement;
     }());
     NovoModalNotificationElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-notification',
                     template: "\n    <button class=\"modal-close\" theme=\"icon\" icon=\"times\" (click)=\"close()\"></button>\n    <header><ng-content select=\"label\"></ng-content></header>\n    <section class=\"notification-body\">\n      <i class=\"indicator\" [ngClass]=\"iconType\" *ngIf=\"iconType\"></i>\n      <ng-content select=\"h1\"></ng-content>\n      <ng-content select=\"h2\"></ng-content>\n      <ng-content select=\"p\"></ng-content>\n    </section>\n    <footer><ng-content select=\"button\"></ng-content></footer>\n  "
                 },] }
@@ -32147,9 +32147,9 @@
         { type: NovoModalRef }
     ]; };
     NovoModalNotificationElement.propDecorators = {
-        type: [{ type: core.Input }],
-        icon: [{ type: core.Input }],
-        cancel: [{ type: core.Output }]
+        type: [{ type: i0.Input }],
+        icon: [{ type: i0.Input }],
+        cancel: [{ type: i0.Output }]
     };
 
     // NG2
@@ -32179,7 +32179,7 @@
         return NovoModalService;
     }());
     NovoModalService.decorators = [
-        { type: core.Injectable }
+        { type: i0.Injectable }
     ];
     NovoModalService.ctorParameters = function () { return [
         { type: ComponentUtils }
@@ -32193,7 +32193,7 @@
             this.icon = 'caution';
             this.hasDialogue = false;
             this.isCloseable = false;
-            this.closed = new core.EventEmitter();
+            this.closed = new i0.EventEmitter();
             this.show = false;
             this.animate = false;
             this.parent = null;
@@ -32256,7 +32256,7 @@
         return NovoToastElement;
     }());
     NovoToastElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-toast',
                     host: {
                         '[class]': 'alertTheme',
@@ -32272,14 +32272,14 @@
         { type: platformBrowser.DomSanitizer }
     ]; };
     NovoToastElement.propDecorators = {
-        theme: [{ type: core.Input }],
-        icon: [{ type: core.Input }],
-        title: [{ type: core.Input }],
-        hasDialogue: [{ type: core.Input }],
-        link: [{ type: core.Input }],
-        isCloseable: [{ type: core.Input }],
-        message: [{ type: core.Input }],
-        closed: [{ type: core.Output }]
+        theme: [{ type: i0.Input }],
+        icon: [{ type: i0.Input }],
+        title: [{ type: i0.Input }],
+        hasDialogue: [{ type: i0.Input }],
+        link: [{ type: i0.Input }],
+        isCloseable: [{ type: i0.Input }],
+        message: [{ type: i0.Input }],
+        closed: [{ type: i0.Output }]
     };
 
     // NG2
@@ -32374,7 +32374,7 @@
         return NovoToastService;
     }());
     NovoToastService.decorators = [
-        { type: core.Injectable }
+        { type: i0.Injectable }
     ];
     NovoToastService.ctorParameters = function () { return [
         { type: ComponentUtils }
@@ -32393,7 +32393,7 @@
         return ControlConfirmModal;
     }());
     ControlConfirmModal.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'control-confirm-modal',
                     template: "\n        <novo-notification type=\"warning\" [attr.data-automation-id]=\"'field-interaction-modal-' + params['key']\">\n            <h1>{{ labels.confirmChangesModalMessage }}</h1>\n            <h2 *ngIf=\"!params['message']\"><label>{{ params['label'] }}:</label> {{ params['oldValue'] }} <i class=\"bhi-arrow-right\"></i> {{ params['newValue'] }}</h2>\n            <h2 *ngIf=\"params['message']\">{{ params['message'] }}</h2>\n            <button theme=\"standard\" (click)=\"close(false)\" [attr.data-automation-id]=\"'field-interaction-modal-cancel' + params['key']\">{{ labels.cancel }}</button>\n            <button theme=\"primary\" icon=\"check\" (click)=\"close(true)\" autofocus [attr.data-automation-id]=\"'field-interaction-modal-save-' + params['key']\">{{ labels.save }}</button>\n        </novo-notification>\n    "
                 },] }
@@ -32415,7 +32415,7 @@
         return ControlPromptModal;
     }());
     ControlPromptModal.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'control-prompt-modal',
                     template: "\n        <novo-notification type=\"warning\" [attr.data-automation-id]=\"'field-interaction-modal-' + params['key']\">\n            <h1>{{ labels.promptModalMessage }}</h1>\n            <p *ngFor=\"let change of params['changes']\">{{ change }}</p>\n            <button theme=\"standard\" (click)=\"close(false)\" [attr.data-automation-id]=\"'field-interaction-modal-cancel' + params['key']\">{{ labels.cancel }}</button>\n            <button theme=\"primary\" icon=\"check\" (click)=\"close(true)\" autofocus [attr.data-automation-id]=\"'field-interaction-modal-yes-' + params['key']\">{{ labels.yes }}</button>\n        </novo-notification>\n    "
                 },] }
@@ -33123,7 +33123,7 @@
         BOTTOM_OF_FORM: 'BOTTOM_OF_FORM',
     };
     FieldInteractionApi.decorators = [
-        { type: core.Injectable }
+        { type: i0.Injectable }
     ];
     FieldInteractionApi.ctorParameters = function () { return [
         { type: NovoToastService },
@@ -33163,7 +33163,7 @@
         return NovoTemplateService;
     }());
     NovoTemplateService.decorators = [
-        { type: core.Injectable }
+        { type: i0.Injectable }
     ];
     NovoTemplateService.ctorParameters = function () { return []; };
 
@@ -33188,15 +33188,15 @@
         return NovoAutoSize;
     }());
     NovoAutoSize.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: 'textarea[autosize]',
                 },] }
     ];
     NovoAutoSize.ctorParameters = function () { return [
-        { type: core.ElementRef }
+        { type: i0.ElementRef }
     ]; };
     NovoAutoSize.propDecorators = {
-        onInput: [{ type: core.HostListener, args: ['input', ['$event.target'],] }]
+        onInput: [{ type: i0.HostListener, args: ['input', ['$event.target'],] }]
     };
     // undo all template context references!
     var NovoControlElement = /** @class */ (function (_super) {
@@ -33212,16 +33212,16 @@
             _this.locale = locale;
             _this.condensed = false;
             _this.autoFocus = false;
-            _this.change = new core.EventEmitter();
-            _this.edit = new core.EventEmitter();
-            _this.save = new core.EventEmitter();
-            _this.delete = new core.EventEmitter();
-            _this.upload = new core.EventEmitter();
+            _this.change = new i0.EventEmitter();
+            _this.edit = new i0.EventEmitter();
+            _this.save = new i0.EventEmitter();
+            _this.delete = new i0.EventEmitter();
+            _this.upload = new i0.EventEmitter();
             _this.formattedValue = '';
             _this.maxLengthMet = false;
             _this.itemCount = 0;
-            _this._blurEmitter = new core.EventEmitter();
-            _this._focusEmitter = new core.EventEmitter();
+            _this._blurEmitter = new i0.EventEmitter();
+            _this._focusEmitter = new i0.EventEmitter();
             _this._focused = false;
             _this._enteredText = '';
             _this._showCount = false;
@@ -33786,7 +33786,7 @@
         return NovoControlElement;
     }(OutsideClick));
     NovoControlElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-control',
                     template: "\n        <div class=\"novo-control-container\" [hidden]=\"form.controls[control.key].hidden || form.controls[control.key].type === 'hidden' || form.controls[control.key].controlType === 'hidden'\">\n            <!--Encrypted Field-->\n            <span [tooltip]=\"labels.encryptedFieldTooltip\" [tooltipPosition]=\"'right'\"><i [hidden]=\"!form.controls[control.key].encrypted\"\n            class=\"bhi-lock\"></i></span>\n            <!--Label (for horizontal)-->\n            <label [attr.for]=\"control.key\" *ngIf=\"form.layout !== 'vertical' && form.controls[control.key].label && !condensed\" [ngClass]=\"{'encrypted': form.controls[control.key].encrypted }\">\n                {{ form.controls[control.key].label }}\n            </label>\n            <div class=\"novo-control-outer-container\">\n                <!--Label (for vertical)-->\n                <label\n                    *ngIf=\"form.layout === 'vertical' && form.controls[control.key].label && !condensed\"\n                    class=\"novo-control-label\"\n                    [attr.for]=\"control.key\"\n                    [class.novo-control-empty]=\"!hasValue\"\n                    [class.novo-control-focused]=\"focused\"\n                    [class.novo-control-filled]=\"hasValue\"\n                    [class.novo-control-always-active]=\"alwaysActive || form.controls[control.key].placeholder\"\n                    [class.novo-control-extra-spacing]=\"requiresExtraSpacing\">\n                    {{ form.controls[control.key].label }}\n                </label>\n                <div class=\"novo-control-inner-container\" [class.required]=\"form.controls[control.key].required && !form.controls[control.key].readOnly\">\n                    <div class=\"novo-control-inner-input-container\" [class.novo-control-filled]=\"hasValue\" [class.novo-control-empty]=\"!hasValue\">\n                      <!--Required Indicator-->\n                        <i [hidden]=\"!form.controls[control.key].required || form.controls[control.key].readOnly\"\n                            class=\"required-indicator {{ form.controls[control.key].controlType }}\"\n                            [ngClass]=\"{'bhi-circle': !isValid, 'bhi-check': isValid}\" *ngIf=\"!condensed || form.controls[control.key].required\">\n                        </i>\n                        <!--Form Controls-->\n                        <div class=\"novo-control-input {{ form.controls[control.key].controlType }}\" [attr.data-automation-id]=\"control.key\" [class.control-disabled]=\"form.controls[control.key].disabled\">\n                            <!--TODO prefix/suffix on the control-->\n                            <ng-container *ngIf=\"templates\">\n                              <ng-container *ngTemplateOutlet=\"templates[form.controls[control.key].controlType]; context: templateContext\"></ng-container>\n                            </ng-container>\n                            <ng-container *ngIf=\"!templates || loading\">\n                                <div class=\"novo-control-input-container novo-control-input-with-label\">\n                                  <input type=\"text\"/>\n                                </div>\n                            </ng-container>\n                        </div>\n                    </div>\n                    <!--Error Message-->\n                    <div class=\"field-message {{ form.controls[control.key].controlType }}\" *ngIf=\"!condensed\" [class.has-tip]=\"form.controls[control.key].tipWell\" [ngClass]=\"showErrorState || showMaxLengthMetMessage ? 'error-shown' : 'error-hidden'\">\n                        <div class=\"messages\" [ngClass]=\"showMessages ? 'count-shown messages-shown' : 'count-hidden messages-hidden'\">\n                            <span class=\"error-text\" *ngIf=\"showFieldMessage\"></span>\n                            <span class=\"error-text\" *ngIf=\"isDirty && errors?.required && form.controls[control.key].controlType !== 'address'\">{{ form.controls[control.key].label | uppercase }} {{ labels.isRequired }}</span>\n                            <span class=\"error-text\" *ngIf=\"isDirty && errors?.minlength\">{{ form.controls[control.key].label | uppercase }} {{ labels.minLength }} {{ form.controls[control.key].minlength }}</span>\n                            <span class=\"error-text\" *ngIf=\"isDirty && maxLengthMet && focused && !errors?.maxlength && form.controls[control.key].controlType !== 'picker'\">{{ labels.maxlengthMet(form.controls[control.key].maxlength) }}</span>\n                            <span class=\"error-text\" *ngIf=\"errors?.maxlength && focused && !errors?.maxlengthFields\">{{ labels.invalidMaxlength(form.controls[control.key].maxlength) }}</span>\n                            <span class=\"error-text\" *ngIf=\"maxLengthMet && form.controls[control.key].controlType === 'picker'\">{{ labels.maxRecordsReached }}</span>\n                            <span class=\"error-text\" *ngIf=\"isDirty && errors?.invalidEmail\">{{ form.controls[control.key].label | uppercase }} {{ labels.invalidEmail }}</span>\n                            <span class=\"error-text\" *ngIf=\"isDirty && (errors?.integerTooLarge || errors?.doubleTooLarge)\">{{ form.controls[control.key].label | uppercase }} {{ labels.isTooLarge }}</span>\n                            <span *ngIf=\"isDirty && errors?.minYear\">{{ form.controls[control.key].label | uppercase }} {{ labels.notValidYear }}</span>\n                            <span class=\"error-text\" *ngIf=\"isDirty && (errors?.custom)\">{{ errors.custom }}</span>\n                            <span class=\"error-text\" *ngIf=\"errors?.maxlength && errors?.maxlengthFields && maxlengthErrorField && focused\">\n                                {{ labels.invalidMaxlengthWithField(control.config[maxlengthErrorField]?.label, control.config[maxlengthErrorField]?.maxlength) }}\n                            </span>\n                            <span class=\"error-text\" *ngIf=\"isDirty && maxlengthMetField && focused && !errors?.maxlengthFields?.includes(maxlengthMetField)\">\n                              {{ labels.maxlengthMetWithField(control.config[maxlengthMetField]?.label, control.config[maxlengthMetField]?.maxlength) }}\n                            </span>\n                            <span *ngIf=\"isDirty && errors?.invalidAddress\">\n                                <span class=\"error-text\" *ngFor=\"let invalidAddressField of errors?.invalidAddressFields\">{{ invalidAddressField | uppercase }} {{ labels.isRequired }} </span>\n                            </span>\n                            <!--Field Hint-->\n                            <span class=\"description\" *ngIf=\"form.controls[control.key].description\">\n                                {{ form.controls[control.key].description }}\n                            </span>\n                            <span class=\"warning-text\" *ngIf=\"form.controls[control.key].warning\">{{ form.controls[control.key].warning }}</span>\n\n                        </div>\n                        <span class=\"character-count\" [class.error]=\"((errors?.maxlength && !errors?.maxlengthFields) || (errors?.maxlength && errors?.maxlengthFields && errors.maxlengthFields.includes(focusedField)))\" *ngIf=\"showCount && form.controls[control.key].controlType !== 'picker'\">{{ itemCount }}/{{ maxLength || form.controls[control.key].maxlength }}</span>\n                        <span class=\"record-count\" [class.zero-count]=\"itemCount === 0\" [class.row-picker]=\"form.controls[this.control.key].config.columns\" *ngIf=\"showCount && form.controls[control.key].controlType === 'picker'\">{{ itemCount }}/{{ maxLength || form.controls[control.key].maxlength }}</span>\n                    </div>\n                    <!--Tip Wel-->\n                    <novo-tip-well *ngIf=\"form.controls[control.key].tipWell\" [name]=\"control.key\" [tip]=\"form.controls[control.key]?.tipWell?.tip\" [icon]=\"form.controls[control.key]?.tipWell?.icon\" [button]=\"form.controls[control.key]?.tipWell?.button\" [sanitize]=\"form.controls[control.key]?.tipWell?.sanitize\"></novo-tip-well>\n                </div>\n                <i *ngIf=\"form.controls[control.key].fieldInteractionloading\" class=\"loading\">\n                    <svg version=\"1.1\"\n                     xmlns=\"http://www.w3.org/2000/svg\" xmlns:xlink=\"http://www.w3.org/1999/xlink\" xmlns:a=\"http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/\"\n                     x=\"0px\" y=\"0px\" width=\"18.2px\" height=\"18.5px\" viewBox=\"0 0 18.2 18.5\" style=\"enable-background:new 0 0 18.2 18.5;\"\n                     xml:space=\"preserve\">\n                    <style type=\"text/css\">\n                        .spinner { fill:#FFFFFF; }\n                    </style>\n                        <path class=\"spinner\" d=\"M9.2,18.5C4.1,18.5,0,14.4,0,9.2S4.1,0,9.2,0c0.9,0,1.9,0.1,2.7,0.4c0.8,0.2,1.2,1.1,1,1.9\n                            c-0.2,0.8-1.1,1.2-1.9,1C10.5,3.1,9.9,3,9.2,3C5.8,3,3,5.8,3,9.2s2.8,6.2,6.2,6.2c2.8,0,5.3-1.9,6-4.7c0.2-0.8,1-1.3,1.8-1.1\n                            c0.8,0.2,1.3,1,1.1,1.8C17.1,15.7,13.4,18.5,9.2,18.5z\"/>\n                    </svg>\n                </i>\n            </div>\n        </div>\n    ",
                     host: {
@@ -33801,26 +33801,26 @@
                 },] }
     ];
     NovoControlElement.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: NovoLabelService },
         { type: DateFormatService },
         { type: FieldInteractionApi },
         { type: NovoTemplateService },
-        { type: core.ChangeDetectorRef },
-        { type: String, decorators: [{ type: core.Inject, args: [core.LOCALE_ID,] }] }
+        { type: i0.ChangeDetectorRef },
+        { type: String, decorators: [{ type: i0.Inject, args: [i0.LOCALE_ID,] }] }
     ]; };
     NovoControlElement.propDecorators = {
-        control: [{ type: core.Input }],
-        form: [{ type: core.Input }],
-        condensed: [{ type: core.Input }],
-        autoFocus: [{ type: core.Input }],
-        change: [{ type: core.Output }],
-        edit: [{ type: core.Output }],
-        save: [{ type: core.Output }],
-        delete: [{ type: core.Output }],
-        upload: [{ type: core.Output }],
-        onBlur: [{ type: core.Output, args: ['blur',] }],
-        onFocus: [{ type: core.Output, args: ['focus',] }]
+        control: [{ type: i0.Input }],
+        form: [{ type: i0.Input }],
+        condensed: [{ type: i0.Input }],
+        autoFocus: [{ type: i0.Input }],
+        change: [{ type: i0.Output }],
+        edit: [{ type: i0.Output }],
+        save: [{ type: i0.Output }],
+        delete: [{ type: i0.Output }],
+        upload: [{ type: i0.Output }],
+        onBlur: [{ type: i0.Output, args: ['blur',] }],
+        onFocus: [{ type: i0.Output, args: ['focus',] }]
     };
 
     // NG
@@ -33833,10 +33833,10 @@
             this._remove = false;
             this._edit = false;
             this._collapsible = false;
-            this.onRemove = new core.EventEmitter();
-            this.onEdit = new core.EventEmitter();
-            this.onAdd = new core.EventEmitter();
-            this.change = new core.EventEmitter();
+            this.onRemove = new i0.EventEmitter();
+            this.onEdit = new i0.EventEmitter();
+            this.onAdd = new i0.EventEmitter();
+            this.change = new i0.EventEmitter();
             this.controlLabels = [];
             this.toggled = false;
             this.disabledArray = [];
@@ -34051,39 +34051,39 @@
         return NovoControlGroup;
     }());
     NovoControlGroup.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-control-group',
                     template: "<h6 class=\"novo-section-header\" *ngIf=\"label\">\n  <span (click)=\"toggle($event)\" [class.clickable]=\"collapsible\">\n    <i *ngIf=\"icon && !collapsible\" [ngClass]=\"icon\" [attr.data-automation-id]=\"'novo-control-group-icon-' + key\"></i>\n    <i *ngIf=\"collapsible\" class=\"bhi-next\" [class.toggled]=\"toggled\" [attr.data-automation-id]=\"'novo-control-group-collapse-' + key\"></i>\n    <span [attr.data-automation-id]=\"'novo-control-group-label-' + key\">{{ label }}</span>\n  </span>\n  <label class=\"novo-control-group-description\" *ngIf=\"description\" [attr.data-automation-id]=\"'novo-control-group-description-' + key\">{{ description }}</label>\n</h6>\n<div class=\"novo-control-group-controls\" [class.vertical]=\"vertical\" [class.horizontal]=\"!vertical\" [class.hidden]=\"collapsible && !toggled\">\n  <ng-template #defaultTemplate let-index=\"index\" let-form=\"form\" let-key=\"key\">\n    <div class=\"novo-control-group-control\">\n      <div *ngFor=\"let c of controls\" class=\"novo-control-container {{c.key}}\" [class.is-label]=\"c.controlType === 'read-only'\" [style.max-width.px]=\"c.width\">\n        <novo-control (change)=\"onChange()\" [form]=\"(form?.controls)[key]['controls'][index]\" [control]=\"c\" [condensed]=\"!vertical || c.controlType === 'read-only'\"></novo-control>\n      </div>\n      <div class=\"novo-control-container last\" *ngIf=\"edit && !vertical\">\n        <button [disabled]=\"!disabledArray[index].edit\" type=\"button\" *ngIf=\"edit && !vertical\" theme=\"icon\" icon=\"edit\" (click)=\"editControl(index)\" [attr.data-automation-id]=\"'novo-control-group-edit-' + key\" index=\"-1\"></button>\n      </div>\n      <div class=\"novo-control-container last\" *ngIf=\"remove && !vertical\">\n        <button [disabled]=\"!disabledArray[index].remove\" type=\"button\" *ngIf=\"remove && !vertical\" theme=\"icon\" icon=\"delete-o\" (click)=\"removeControl(index)\" [attr.data-automation-id]=\"'novo-control-group-delete-' + key\" index=\"-1\"></button>\n      </div>\n    </div>\n    <button [disabled]=\"!disabledArray[index].edit\" type=\"button\" *ngIf=\"edit && vertical\" theme=\"icon\" icon=\"edit\" (click)=\"editControl(index)\" [attr.data-automation-id]=\"'novo-control-group-edit-' + key\" index=\"-1\"></button>\n    <button [disabled]=\"!disabledArray[index].remove\" type=\"button\" *ngIf=\"remove && vertical\" theme=\"icon\" icon=\"delete-o\" (click)=\"removeControl(index)\" [attr.data-automation-id]=\"'novo-control-group-delete-' + key\" index=\"-1\"></button>\n  </ng-template>\n  <ng-template #defaultColumnLabelTemplate let-form=\"form\" let-key=\"key\">\n      <div class=\"novo-control-group-control-label {{ label.key }}\" *ngFor=\"let label of controlLabels\" [style.max-width.px]=\"label.width\" [class.column-required]=\"label.required\">\n        <span [attr.data-automation-id]=\"'novo-control-group-label-' + label.value\">{{ label.value }}</span>\n      </div>\n      <div class=\"novo-control-group-control-label last\" *ngIf=\"edit\" [attr.data-automation-id]=\"'novo-control-group-edit-' + key\"></div>\n      <div class=\"novo-control-group-control-label last\" *ngIf=\"remove\" [attr.data-automation-id]=\"'novo-control-group-delete-' + key\"></div>\n  </ng-template>\n  <ng-container *ngIf=\"!vertical && (form?.controls)[key] && (form?.controls)[key]['controls'].length !== 0\">\n    <div class=\"novo-control-group-labels\" *ngIf=\"!vertical && (form?.controls)[key] && (form?.controls)[key]['controls'].length !== 0\">\n      <ng-template [ngTemplateOutlet]=\"columnLabelTemplate || defaultColumnLabelTemplate\" [ngTemplateOutletContext]=\"{ form: form, key: key, controlLabels: controlLabels }\">\n      </ng-template>\n    </div>\n  </ng-container>\n  <ng-container *ngIf=\"(form?.controls)[key]\">\n    <div class=\"novo-control-group-row\" *ngFor=\"let control of (form?.controls)[key]['controls']; let index = index\">\n      <ng-template [ngTemplateOutlet]=\"rowTemplate || defaultTemplate\" [ngTemplateOutletContext]=\"{ form: form, index: index, key: key, controls: controls }\">\n      </ng-template>\n    </div>\n  </ng-container>\n  <div class=\"novo-control-group-empty\" *ngIf=\"(form?.controls)[key] && (form?.controls)[key]['controls'].length === 0\" [attr.data-automation-id]=\"'novo-control-group-empty-' + key\">\n    {{ emptyMessage }}\n  </div>\n  <p *ngIf=\"add\">\n    <button type=\"button\" theme=\"dialogue\" icon=\"add-thin\" (click)=\"addNewControl()\" [attr.data-automation-id]=\"'novo-control-group-bottom-add-' + key\" index=\"-1\">\n      {{ add?.label }}\n    </button>\n  </p>\n</div>\n",
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     NovoControlGroup.ctorParameters = function () { return [
         { type: FormUtils },
         { type: forms.FormBuilder },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ChangeDetectorRef }
     ]; };
     NovoControlGroup.propDecorators = {
-        vertical: [{ type: core.Input }],
-        add: [{ type: core.Input }],
-        remove: [{ type: core.Input }],
-        edit: [{ type: core.Input }],
-        collapsible: [{ type: core.Input }],
-        form: [{ type: core.Input }],
-        controls: [{ type: core.Input }],
-        key: [{ type: core.Input }],
-        label: [{ type: core.Input }],
-        description: [{ type: core.Input }],
-        emptyMessage: [{ type: core.Input }],
-        icon: [{ type: core.Input }],
-        initialValue: [{ type: core.Input }],
-        canEdit: [{ type: core.Input }],
-        canRemove: [{ type: core.Input }],
-        rowTemplate: [{ type: core.Input }],
-        columnLabelTemplate: [{ type: core.Input }],
-        onRemove: [{ type: core.Output }],
-        onEdit: [{ type: core.Output }],
-        onAdd: [{ type: core.Output }],
-        change: [{ type: core.Output }]
+        vertical: [{ type: i0.Input }],
+        add: [{ type: i0.Input }],
+        remove: [{ type: i0.Input }],
+        edit: [{ type: i0.Input }],
+        collapsible: [{ type: i0.Input }],
+        form: [{ type: i0.Input }],
+        controls: [{ type: i0.Input }],
+        key: [{ type: i0.Input }],
+        label: [{ type: i0.Input }],
+        description: [{ type: i0.Input }],
+        emptyMessage: [{ type: i0.Input }],
+        icon: [{ type: i0.Input }],
+        initialValue: [{ type: i0.Input }],
+        canEdit: [{ type: i0.Input }],
+        canRemove: [{ type: i0.Input }],
+        rowTemplate: [{ type: i0.Input }],
+        columnLabelTemplate: [{ type: i0.Input }],
+        onRemove: [{ type: i0.Output }],
+        onEdit: [{ type: i0.Output }],
+        onAdd: [{ type: i0.Output }],
+        change: [{ type: i0.Output }]
     };
 
     var NovoControlTemplates = /** @class */ (function () {
@@ -34101,7 +34101,7 @@
         return NovoControlTemplates;
     }());
     NovoControlTemplates.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-control-templates',
                     template: "\n        <!---Readonly--->\n        <ng-template novoTemplate=\"read-only\" let-form=\"form\" let-control>\n          <div>{{ form.value[control.key] }}</div>\n        </ng-template>\n        <!--Textbox--->\n        <ng-template novoTemplate=\"textbox\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n          <div [formGroup]=\"form\" class=\"novo-control-input-container novo-control-input-with-label\" [tooltip]=\"control?.tooltip\" [tooltipPosition]=\"control?.tooltipPosition\"  [tooltipSize]=\"control?.tooltipSize\" [tooltipPreline]=\"control?.tooltipPreline\" [removeTooltipArrow]=\"control?.removeTooltipArrow\" [tooltipAutoPosition]=\"control?.tooltipAutoPosition\">\n            <input *ngIf=\"control?.type !== 'number' && control?.textMaskEnabled\" [textMask]=\"control.maskOptions\" [formControlName]=\"control.key\" [id]=\"control.key\" [type]=\"control?.type\" [placeholder]=\"control?.placeholder\" (input)=\"methods.emitChange($event)\" (focus)=\"methods.handleFocus($event)\" (blur)=\"methods.handleBlur($event)\" autocomplete>\n            <input *ngIf=\"control?.type !== 'number' && !control?.textMaskEnabled\" [class.maxlength-error]=\"errors?.maxlength\" [formControlName]=\"control.key\" [id]=\"control.key\" [type]=\"control?.type\" [placeholder]=\"control?.placeholder\" (input)=\"methods.emitChange($event)\" [maxlength]=\"control?.maxlength\" (focus)=\"methods.handleFocus($event)\" (blur)=\"methods.handleBlur($event)\" autocomplete>\n            <input *ngIf=\"control?.type === 'number' && control?.subType !== 'percentage'\" [class.maxlength-error]=\"errors?.maxlength\" [formControlName]=\"control.key\" [id]=\"control.key\" [type]=\"control?.type\" [placeholder]=\"control?.placeholder\" (keydown)=\"methods.restrictKeys($event)\" (input)=\"methods.emitChange($event)\" [maxlength]=\"control?.maxlength\" (focus)=\"methods.handleFocus($event)\" (blur)=\"methods.handleBlur($event)\" step=\"any\" (mousewheel)=\"numberInput.blur()\" #numberInput>\n            <input *ngIf=\"control?.type === 'number' && control?.subType === 'percentage'\" [type]=\"control?.type\" [placeholder]=\"control?.placeholder\" (keydown)=\"methods.restrictKeys($event)\" [value]=\"control?.percentValue\" (input)=\"methods.handlePercentChange($event)\" (focus)=\"methods.handleFocus($event)\" (blur)=\"methods.handleBlur($event)\" step=\"any\" (mousewheel)=\"percentInput.blur()\" #percentInput>\n            <label class=\"input-label\" *ngIf=\"control?.subType === 'currency'\">{{ control.currencyFormat }}</label>\n            <label class=\"input-label\" *ngIf=\"control?.subType === 'percentage'\">%</label>\n          </div>\n        </ng-template>\n\n        <!--Textarea--->\n        <ng-template novoTemplate=\"text-area\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n          <div class=\"textarea-container\" [formGroup]=\"form\" [tooltip]=\"control?.tooltip\" [tooltipPosition]=\"control?.tooltipPosition\"  [tooltipSize]=\"control?.tooltipSize\" [tooltipPreline]=\"control?.tooltipPreline\" [removeTooltipArrow]=\"control?.removeTooltipArrow\" [tooltipAutoPosition]=\"control?.tooltipAutoPosition\">\n            <textarea [class.maxlength-error]=\"errors?.maxlength\" [name]=\"control.key\" [attr.id]=\"control.key\" [placeholder]=\"control.placeholder\" [formControlName]=\"control.key\" autosize (input)=\"methods.handleTextAreaInput($event)\" (focus)=\"methods.handleFocus($event)\" (blur)=\"methods.handleBlur($event)\" [maxlength]=\"control?.maxlength\"></textarea>\n          </div>\n        </ng-template>\n\n        <!--Editor-->\n        <ng-template novoTemplate=\"editor\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n          <div [formGroup]=\"form\">\n            <novo-editor [name]=\"control.key\" [formControlName]=\"control.key\" [startupFocus]=\"control.startupFocus\" [minimal]=\"control.minimal\" [fileBrowserImageUploadUrl]=\"control.fileBrowserImageUploadUrl\" (focus)=\"methods.handleFocus($event)\" (blur)=\"methods.handleBlur($event)\" [config]=\"control.config\"></novo-editor>\n          </div>\n        </ng-template>\n\n        <!--AceEditor-->\n        <ng-template novoTemplate=\"ace-editor\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n          <div [formGroup]=\"form\">\n            <novo-ace-editor [name]=\"control.key\" [formControlName]=\"control.key\" (focus)=\"methods.handleFocus($event)\" (blur)=\"methods.handleBlur($event)\"></novo-ace-editor>\n          </div>\n        </ng-template>\n\n        <!--HTML5 Select-->\n        <ng-template novoTemplate=\"native-select\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n          <div [formGroup]=\"form\">\n            <select [id]=\"control.key\" [formControlName]=\"control.key\" [tooltip]=\"control.tooltip\" [tooltipPosition]=\"control.tooltipPosition\"  [tooltipSize]=\"control?.tooltipSize\" [tooltipPreline]=\"control?.tooltipPreline\" [removeTooltipArrow]=\"control?.removeTooltipArrow\" [tooltipAutoPosition]=\"control?.tooltipAutoPosition\">\n                <option *ngIf=\"control.placeholder\" value=\"\" disabled selected hidden>{{ control.placeholder }}</option>\n                <option *ngFor=\"let opt of control.options\" [value]=\"opt.key\">{{opt.value}}</option>\n            </select>\n          </div>\n        </ng-template>\n\n        <!--File-->\n        <ng-template novoTemplate=\"file\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n          <div [formGroup]=\"form\">\n            <novo-file-input [formControlName]=\"control.key\" [id]=\"control.key\" [name]=\"control.key\" [placeholder]=\"control.placeholder\" [value]=\"control.value\" [multiple]=\"control.multiple\" [layoutOptions]=\"control.layoutOptions\" [tooltip]=\"control.tooltip\" [tooltipPosition]=\"control.tooltipPosition\"  [tooltipSize]=\"control?.tooltipSize\" [tooltipPreline]=\"control?.tooltipPreline\" [removeTooltipArrow]=\"control?.removeTooltipArrow\" [tooltipAutoPosition]=\"control?.tooltipAutoPosition\" (edit)=\"methods.handleEdit($event)\" (save)=\"methods.handleSave($event)\" (delete)=\"methods.handleDelete($event)\" (upload)=\"methods.handleUpload($event)\"></novo-file-input>\n          </div>\n        </ng-template>\n\n        <!--Tiles-->\n        <ng-template novoTemplate=\"tiles\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n          <div [formGroup]=\"form\">\n            <novo-tiles [options]=\"control.options\" [formControlName]=\"control.key\" (onChange)=\"methods.modelChange($event)\" [tooltip]=\"control.tooltip\" [tooltipPosition]=\"control.tooltipPosition\"  [tooltipSize]=\"control?.tooltipSize\" [tooltipPreline]=\"control?.tooltipPreline\" [removeTooltipArrow]=\"control?.removeTooltipArrow\" [tooltipAutoPosition]=\"control?.tooltipAutoPosition\" [controlDisabled]=\"control.disabled\"></novo-tiles>\n          </div>\n        </ng-template>\n\n        <!--Picker-->\n        <ng-template novoTemplate=\"picker\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n          <div [formGroup]=\"form\" class=\"novo-control-input-container\">\n            <novo-picker [config]=\"control.config\" [formControlName]=\"control.key\" [placeholder]=\"control.placeholder\" [parentScrollSelector]=\"control.parentScrollSelector\" *ngIf=\"!control.multiple\" (select)=\"methods.modelChange($event);\" (changed)=\"methods.modelChangeWithRaw($event)\" (typing)=\"methods.handleTyping($event)\" (focus)=\"methods.handleFocus($event)\" (blur)=\"methods.handleBlur($event)\" [tooltip]=\"control.tooltip\" [tooltipPosition]=\"control.tooltipPosition\" [tooltipSize]=\"control?.tooltipSize\" [tooltipPreline]=\"control?.tooltipPreline\" [removeTooltipArrow]=\"control?.removeTooltipArrow\" [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"></novo-picker>\n            <novo-chips [source]=\"control.config\" [type]=\"control.config.type\" [formControlName]=\"control.key\" [placeholder]=\"control.placeholder\" [maxlength]=\"control?.maxlength\" *ngIf=\"control.multiple && !control.config.columns\" [closeOnSelect]=\"control.closeOnSelect\" (changed)=\"methods.modelChangeWithRaw($event)\" (typing)=\"methods.handleTyping($event)\" (focus)=\"methods.handleFocus($event)\" (blur)=\"methods.handleBlur($event)\" [tooltip]=\"control.tooltip\" [tooltipPosition]=\"control.tooltipPosition\" [tooltipSize]=\"control?.tooltipSize\" [tooltipPreline]=\"control?.tooltipPreline\" [removeTooltipArrow]=\"control?.removeTooltipArrow\" [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"></novo-chips>\n            <novo-row-chips [source]=\"control.config\" [type]=\"control.config.type\" [formControlName]=\"control.key\" [placeholder]=\"control.placeholder\" *ngIf=\"control.multiple && control.config.columns\" [closeOnSelect]=\"control.closeOnSelect\" (changed)=\"methods.modelChangeWithRaw($event)\" (typing)=\"methods.handleTyping($event)\" (focus)=\"methods.handleFocus($event)\" (blur)=\"methods.handleBlur($event)\" [tooltip]=\"control.tooltip\" [tooltipPosition]=\"control.tooltipPosition\" [tooltipSize]=\"control?.tooltipSize\" [tooltipPreline]=\"control?.tooltipPreline\" [removeTooltipArrow]=\"control?.removeTooltipArrow\" [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"></novo-row-chips>\n          </div>\n        </ng-template>\n\n        <!--Novo Select-->\n        <ng-template novoTemplate=\"select\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n          <div [formGroup]=\"form\">\n            <novo-select [options]=\"control.options\" [headerConfig]=\"control.headerConfig\" [placeholder]=\"control.placeholder\" [formControlName]=\"control.key\" [tooltip]=\"control.tooltip\" [tooltipPosition]=\"control.tooltipPosition\" [tooltipSize]=\"control?.tooltipSize\" [tooltipPreline]=\"control?.tooltipPreline\" [removeTooltipArrow]=\"control?.removeTooltipArrow\" [tooltipAutoPosition]=\"control?.tooltipAutoPosition\" (onSelect)=\"methods.modelChange($event)\"></novo-select>\n          </div>\n        </ng-template>\n\n        <!--Radio-->\n        <ng-template novoTemplate=\"radio\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n          <div [formGroup]=\"form\" class=\"novo-control-input-container\">\n            <novo-radio [name]=\"control.key\" [formControlName]=\"control.key\" *ngFor=\"let option of control.options\" [value]=\"option.value\" [label]=\"option.label\" [checked]=\"option.value === form.value[control.key] || (form.value[control.key] && option.value === form.value[control.key].id)\" [tooltip]=\"control.tooltip\" [tooltipPosition]=\"control.tooltipPosition\" [tooltipSize]=\"control?.tooltipSize\" [tooltipPreline]=\"control?.tooltipPreline\" [removeTooltipArrow]=\"control?.removeTooltipArrow\" [tooltipAutoPosition]=\"control?.tooltipAutoPosition\" [button]=\"!!option.icon\" [icon]=\"option.icon\" [attr.data-automation-id]=\"control.key + '-' + (option?.label || option?.value)\"></novo-radio>\n          </div>\n        </ng-template>\n\n        <!--Time-->\n        <ng-template novoTemplate=\"time\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n          <div [formGroup]=\"form\" class=\"novo-control-input-container\" [tooltip]=\"control?.tooltip\" [tooltipPosition]=\"control?.tooltipPosition\" [tooltipSize]=\"control?.tooltipSize\" [tooltipPreline]=\"control?.tooltipPreline\" [removeTooltipArrow]=\"control?.removeTooltipArrow\" [tooltipAutoPosition]=\"control?.tooltipAutoPosition\">\n            <novo-time-picker-input [attr.id]=\"control.key\" [name]=\"control.key\" [formControlName]=\"control.key\" [placeholder]=\"control.placeholder\" [military]=\"control.military\"></novo-time-picker-input>\n          </div>\n        </ng-template>\n\n        <!--Date-->\n        <ng-template novoTemplate=\"date\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n          <div [formGroup]=\"form\" class=\"novo-control-input-container\" [tooltip]=\"control.tooltip\" [tooltipPosition]=\"control.tooltipPosition\" [tooltipSize]=\"control?.tooltipSize\" [tooltipPreline]=\"control?.tooltipPreline\" [removeTooltipArrow]=\"control?.removeTooltipArrow\" [tooltipAutoPosition]=\"control?.tooltipAutoPosition\">\n            <novo-date-picker-input [attr.id]=\"control.key\" [name]=\"control.key\" [formControlName]=\"control.key\" [start]=\"control.startDate\" [end]=\"control.endDate\" [format]=\"control.dateFormat\" [allowInvalidDate]=\"control.allowInvalidDate\" [textMaskEnabled]=\"control.textMaskEnabled\" [placeholder]=\"control.placeholder\" [weekStart]=\"control.weekStart\" (focusEvent)=\"methods.handleFocus($event)\" (blurEvent)=\"methods.handleBlur($event)\" (changeEvent)=\"methods.emitChange($event)\"></novo-date-picker-input>\n          </div>\n        </ng-template>\n\n        <!--Date and Time-->\n        <ng-template novoTemplate=\"date-time\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n          <div [formGroup]=\"form\" class=\"novo-control-input-container\" [tooltip]=\"control.tooltip\" [tooltipPosition]=\"control.tooltipPosition\" [tooltipSize]=\"control?.tooltipSize\" [tooltipPreline]=\"control?.tooltipPreline\" [removeTooltipArrow]=\"control?.removeTooltipArrow\" [tooltipAutoPosition]=\"control?.tooltipAutoPosition\">\n            <novo-date-time-picker-input [attr.id]=\"control.key\" [name]=\"control.key\" [formControlName]=\"control.key\" [start]=\"control.startDate\" [end]=\"control.endDate\" [placeholder]=\"control.placeholder\" [military]=\"control.military\" [weekStart]=\"control.weekStart\" (focusEvent)=\"methods.handleFocus($event)\" (blurEvent)=\"methods.handleBlur($event)\" (changeEvent)=\"methods.emitChange($event)\" ></novo-date-time-picker-input>\n          </div>\n        </ng-template>\n\n        <!--Address-->\n        <ng-template novoTemplate=\"address\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n          <div [formGroup]=\"form\">\n            <novo-address [formControlName]=\"control.key\" [config]=\"control?.config\" [readOnly]=\"control?.readOnly\" (change)=\"methods.handleAddressChange($event)\" (focus)=\"methods.handleFocus($event.event, $event.field)\" (blur)=\"methods.handleBlur($event.event, $event.field)\"  (validityChange)=\"methods.updateValidity()\"></novo-address>\n          </div>\n        </ng-template>\n\n        <!--Checkbox-->\n        <ng-template novoTemplate=\"checkbox\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n          <div [formGroup]=\"form\">\n            <novo-checkbox [formControlName]=\"control?.key\" [name]=\"control?.key\" [label]=\"control?.checkboxLabel\" [tooltip]=\"control?.tooltip\" [tooltipPosition]=\"control?.tooltipPosition\" [tooltipSize]=\"control?.tooltipSize\" [tooltipPreline]=\"control?.tooltipPreline\" [removeTooltipArrow]=\"control?.removeTooltipArrow\" [tooltipAutoPosition]=\"control?.tooltipAutoPosition\" [layoutOptions]=\"control?.layoutOptions\"></novo-checkbox>\n          </div>\n        </ng-template>\n\n        <!--Checklist-->\n        <ng-template novoTemplate=\"checklist\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n          <div [formGroup]=\"form\">\n            <novo-check-list [formControlName]=\"control.key\" [name]=\"control.key\" [options]=\"control?.options\" [tooltip]=\"control?.tooltip\" [tooltipPosition]=\"control?.tooltipPosition\" [tooltipSize]=\"control?.tooltipSize\" [tooltipPreline]=\"control?.tooltipPreline\" [removeTooltipArrow]=\"control?.removeTooltipArrow\" [tooltipAutoPosition]=\"control?.tooltipAutoPosition\" (onSelect)=\"methods.modelChange($event)\"></novo-check-list>\n          </div>\n        </ng-template>\n\n        <!--QuickNote-->\n        <ng-template novoTemplate=\"quick-note\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n          <div [formGroup]=\"form\">\n            <novo-quick-note [formControlName]=\"control.key\" [startupFocus]=\"control?.startupFocus\" [placeholder]=\"control?.placeholder\" [config]=\"control?.config\" (change)=\"methods.modelChange($event)\" [tooltip]=\"control?.tooltip\" [tooltipPosition]=\"control?.tooltipPosition\" [tooltipSize]=\"control?.tooltipSize\" [removeTooltipArrow]=\"control?.removeTooltipArrow\" [tooltipAutoPosition]=\"control?.tooltipAutoPosition\" [tooltipPreline]=\"control?.tooltipPreline\"></novo-quick-note>\n          </div>\n        </ng-template>\n    "
                 },] }
@@ -34110,7 +34110,7 @@
         { type: NovoTemplateService }
     ]; };
     NovoControlTemplates.propDecorators = {
-        defaultTemplates: [{ type: core.ViewChildren, args: [NovoTemplate,] }]
+        defaultTemplates: [{ type: i0.ViewChildren, args: [NovoTemplate,] }]
     };
 
     var NovoFieldsetHeaderElement = /** @class */ (function () {
@@ -34119,14 +34119,14 @@
         return NovoFieldsetHeaderElement;
     }());
     NovoFieldsetHeaderElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-fieldset-header',
                     template: "\n        <h6><i [class]=\"icon || 'bhi-section'\"></i>{{title}}</h6>\n    "
                 },] }
     ];
     NovoFieldsetHeaderElement.propDecorators = {
-        title: [{ type: core.Input }],
-        icon: [{ type: core.Input }]
+        title: [{ type: i0.Input }],
+        icon: [{ type: i0.Input }]
     };
     var NovoFieldsetElement = /** @class */ (function () {
         function NovoFieldsetElement() {
@@ -34138,21 +34138,21 @@
         return NovoFieldsetElement;
     }());
     NovoFieldsetElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-fieldset',
                     template: "\n        <div class=\"novo-fieldset-container\">\n            <novo-fieldset-header [icon]=\"icon\" [title]=\"title\" *ngIf=\"title\" [class.embedded]=\"isEmbedded\" [class.inline-embedded]=\"isInlineEmbedded\" [class.hidden]=\"hidden\"></novo-fieldset-header>\n            <ng-container *ngFor=\"let control of controls;let controlIndex = index;\">\n                <div class=\"novo-form-row\" [class.disabled]=\"control.disabled\" *ngIf=\"control.__type !== 'GroupedControl'\">\n                    <novo-control [autoFocus]=\"autoFocus && index === 0 && controlIndex === 0\" [control]=\"control\" [form]=\"form\"></novo-control>\n                </div>\n                <div *ngIf=\"control.__type === 'GroupedControl'\">TODO - GroupedControl</div>\n            </ng-container>\n        </div>\n    "
                 },] }
     ];
     NovoFieldsetElement.propDecorators = {
-        controls: [{ type: core.Input }],
-        form: [{ type: core.Input }],
-        title: [{ type: core.Input }],
-        icon: [{ type: core.Input }],
-        index: [{ type: core.Input }],
-        autoFocus: [{ type: core.Input }],
-        isEmbedded: [{ type: core.Input }],
-        isInlineEmbedded: [{ type: core.Input }],
-        hidden: [{ type: core.Input }]
+        controls: [{ type: i0.Input }],
+        form: [{ type: i0.Input }],
+        title: [{ type: i0.Input }],
+        icon: [{ type: i0.Input }],
+        index: [{ type: i0.Input }],
+        autoFocus: [{ type: i0.Input }],
+        isEmbedded: [{ type: i0.Input }],
+        isInlineEmbedded: [{ type: i0.Input }],
+        hidden: [{ type: i0.Input }]
     };
     var NovoDynamicFormElement = /** @class */ (function () {
         function NovoDynamicFormElement(element, templates) {
@@ -34302,24 +34302,24 @@
         return NovoDynamicFormElement;
     }());
     NovoDynamicFormElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-dynamic-form',
                     template: "\n        <novo-control-templates></novo-control-templates>\n        <div class=\"novo-form-container\">\n            <header>\n                <ng-content select=\"form-title\"></ng-content>\n                <ng-content select=\"form-subtitle\"></ng-content>\n            </header>\n            <form class=\"novo-form\" [formGroup]=\"form\">\n                <ng-container *ngFor=\"let fieldset of form.fieldsets;let i = index\">\n                    <novo-fieldset *ngIf=\"fieldset.controls.length\" [index]=\"i\" [autoFocus]=\"autoFocusFirstField\" [icon]=\"fieldset.icon\" [controls]=\"fieldset.controls\" [title]=\"fieldset.title\" [form]=\"form\" [isEmbedded]=\"fieldset.isEmbedded\" [isInlineEmbedded]=\"fieldset.isInlineEmbedded\" [hidden]=\"fieldset.hidden\"></novo-fieldset>\n                </ng-container>\n            </form>\n        </div>\n    ",
                     providers: [NovoTemplateService]
                 },] }
     ];
     NovoDynamicFormElement.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: NovoTemplateService }
     ]; };
     NovoDynamicFormElement.propDecorators = {
-        controls: [{ type: core.Input }],
-        fieldsets: [{ type: core.Input }],
-        form: [{ type: core.Input }],
-        layout: [{ type: core.Input }],
-        hideNonRequiredFields: [{ type: core.Input }],
-        autoFocusFirstField: [{ type: core.Input }],
-        customTemplates: [{ type: core.ContentChildren, args: [NovoTemplate,] }]
+        controls: [{ type: i0.Input }],
+        fieldsets: [{ type: i0.Input }],
+        form: [{ type: i0.Input }],
+        layout: [{ type: i0.Input }],
+        hideNonRequiredFields: [{ type: i0.Input }],
+        autoFocusFirstField: [{ type: i0.Input }],
+        customTemplates: [{ type: i0.ContentChildren, args: [NovoTemplate,] }]
     };
 
     // NG
@@ -34396,7 +34396,7 @@
         return NovoFormElement;
     }());
     NovoFormElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-form',
                     template: "\n        <novo-control-templates></novo-control-templates>\n        <div class=\"novo-form-container\">\n            <header *ngIf=\"!hideHeader\">\n                <ng-content select=\"form-title\"></ng-content>\n                <ng-content select=\"form-subtitle\"></ng-content>\n            </header>\n            <form class=\"novo-form\" [formGroup]=\"form\">\n                <ng-content></ng-content>\n            </form>\n        </div>\n    ",
                     providers: [NovoTemplateService]
@@ -34406,17 +34406,17 @@
         { type: NovoTemplateService }
     ]; };
     NovoFormElement.propDecorators = {
-        form: [{ type: core.Input }],
-        layout: [{ type: core.Input }],
-        hideHeader: [{ type: core.Input }],
-        customTemplates: [{ type: core.ContentChildren, args: [NovoTemplate,] }]
+        form: [{ type: i0.Input }],
+        layout: [{ type: i0.Input }],
+        hideHeader: [{ type: i0.Input }],
+        customTemplates: [{ type: i0.ContentChildren, args: [NovoTemplate,] }]
     };
 
     // NG2
     // Value accessor for the component (supports ngModel)
     var RADIO_VALUE_ACCESSOR = {
         provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return NovoRadioElement; }),
+        useExisting: i0.forwardRef(function () { return NovoRadioElement; }),
         multi: true,
     };
     var NovoRadioGroup = /** @class */ (function () {
@@ -34425,7 +34425,7 @@
         return NovoRadioGroup;
     }());
     NovoRadioGroup.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-radio-group',
                     template: '<ng-content></ng-content>'
                 },] }
@@ -34436,7 +34436,7 @@
             this.button = false;
             this.theme = 'secondary';
             this.disabled = false;
-            this.change = new core.EventEmitter();
+            this.change = new i0.EventEmitter();
             this.onModelChange = function () { };
             this.onModelTouched = function () { };
         }
@@ -34466,7 +34466,7 @@
         return NovoRadioElement;
     }());
     NovoRadioElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-radio',
                     providers: [RADIO_VALUE_ACCESSOR],
                     template: "\n        <input [name]=\"name\" type=\"radio\" [checked]=\"checked\" [attr.id]=\"name\" (change)=\"select($event)\" [disabled]=\"disabled\">\n        <label [attr.for]=\"name\" (click)=\"select($event)\" [class.disabled]=\"disabled\">\n            <button *ngIf=\"button\" [ngClass]=\"{'unchecked': !checked, 'checked': checked, 'has-icon': !!icon}\" [theme]=\"theme\" [icon]=\"icon\">{{ label }}</button>\n            <div *ngIf=\"!button\">\n                <i [ngClass]=\"{'bhi-radio-empty': !checked, 'bhi-radio-filled': checked}\"></i>\n                {{ label }}\n                <ng-content></ng-content>\n            </div>\n        </label>\n    ",
@@ -34476,19 +34476,19 @@
                 },] }
     ];
     NovoRadioElement.ctorParameters = function () { return [
-        { type: core.ChangeDetectorRef }
+        { type: i0.ChangeDetectorRef }
     ]; };
     NovoRadioElement.propDecorators = {
-        name: [{ type: core.Input }],
-        value: [{ type: core.Input }],
-        checked: [{ type: core.Input }],
-        vertical: [{ type: core.Input }],
-        label: [{ type: core.Input }],
-        button: [{ type: core.Input }],
-        theme: [{ type: core.Input }],
-        icon: [{ type: core.Input }],
-        disabled: [{ type: core.Input }],
-        change: [{ type: core.Output }]
+        name: [{ type: i0.Input }],
+        value: [{ type: i0.Input }],
+        checked: [{ type: i0.Input }],
+        vertical: [{ type: i0.Input }],
+        label: [{ type: i0.Input }],
+        button: [{ type: i0.Input }],
+        theme: [{ type: i0.Input }],
+        icon: [{ type: i0.Input }],
+        disabled: [{ type: i0.Input }],
+        change: [{ type: i0.Output }]
     };
 
     // NG2
@@ -34498,7 +34498,7 @@
         return NovoRadioModule;
     }());
     NovoRadioModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, NovoButtonModule],
                     declarations: [NovoRadioElement, NovoRadioGroup],
                     exports: [NovoRadioElement, NovoRadioGroup],
@@ -34616,7 +34616,7 @@
         return QuickNoteResults;
     }(PickerResults));
     QuickNoteResults.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'quick-note-results',
                     host: {
                         class: 'active',
@@ -34625,15 +34625,15 @@
                 },] }
     ];
     QuickNoteResults.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: NovoLabelService },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ChangeDetectorRef }
     ]; };
 
     // Value accessor for the component (supports ngModel)
     var QUICK_NOTE_VALUE_ACCESSOR = {
         provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return QuickNoteElement; }),
+        useExisting: i0.forwardRef(function () { return QuickNoteElement; }),
         multi: true,
     };
     var QuickNoteElement = /** @class */ (function (_super) {
@@ -34644,9 +34644,9 @@
             _this.componentUtils = componentUtils;
             _this.startupFocus = false;
             // Emitter for selects
-            _this.focus = new core.EventEmitter();
-            _this.blur = new core.EventEmitter();
-            _this.change = new core.EventEmitter();
+            _this.focus = new i0.EventEmitter();
+            _this.blur = new i0.EventEmitter();
+            _this.change = new i0.EventEmitter();
             _this.placeholderVisible = false;
             _this._placeholderElement = null;
             _this.onModelChange = function () { };
@@ -35180,27 +35180,27 @@
     }(OutsideClick));
     QuickNoteElement.TOOLBAR_HEIGHT = 40; // in pixels - configured by stylesheet
     QuickNoteElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-quick-note',
                     providers: [QUICK_NOTE_VALUE_ACCESSOR],
                     template: "\n    <div class=\"quick-note-wrapper\" #wrapper><textarea #host></textarea> <span #results></span></div>\n  "
                 },] }
     ];
     QuickNoteElement.ctorParameters = function () { return [
-        { type: core.NgZone },
-        { type: core.ElementRef },
+        { type: i0.NgZone },
+        { type: i0.ElementRef },
         { type: ComponentUtils }
     ]; };
     QuickNoteElement.propDecorators = {
-        wrapper: [{ type: core.ViewChild, args: ['wrapper', { static: true },] }],
-        host: [{ type: core.ViewChild, args: ['host', { static: true },] }],
-        results: [{ type: core.ViewChild, args: ['results', { read: core.ViewContainerRef, static: true },] }],
-        config: [{ type: core.Input }],
-        startupFocus: [{ type: core.Input }],
-        placeholder: [{ type: core.Input }],
-        focus: [{ type: core.Output }],
-        blur: [{ type: core.Output }],
-        change: [{ type: core.Output }]
+        wrapper: [{ type: i0.ViewChild, args: ['wrapper', { static: true },] }],
+        host: [{ type: i0.ViewChild, args: ['host', { static: true },] }],
+        results: [{ type: i0.ViewChild, args: ['results', { read: i0.ViewContainerRef, static: true },] }],
+        config: [{ type: i0.Input }],
+        startupFocus: [{ type: i0.Input }],
+        placeholder: [{ type: i0.Input }],
+        focus: [{ type: i0.Output }],
+        blur: [{ type: i0.Output }],
+        change: [{ type: i0.Output }]
     };
 
     // NG2
@@ -35210,7 +35210,7 @@
         return NovoQuickNoteModule;
     }());
     NovoQuickNoteModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, forms.FormsModule, NovoLoadingModule, NovoListModule],
                     declarations: [QuickNoteElement, QuickNoteResults],
                     exports: [QuickNoteElement, QuickNoteResults],
@@ -35223,7 +35223,7 @@
         return NovoHeaderSpacer;
     }());
     NovoHeaderSpacer.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'header-spacer',
                     template: "\n    <ng-content></ng-content>\n  "
                 },] }
@@ -35234,7 +35234,7 @@
         return NovoUtilsComponent;
     }());
     NovoUtilsComponent.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'utils',
                     template: "\n    <ng-content></ng-content>\n  "
                 },] }
@@ -35245,15 +35245,15 @@
         return NovoUtilActionComponent;
     }());
     NovoUtilActionComponent.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'util-action, novo-action',
                     template: "\n    <button theme=\"icon\" [icon]=\"icon\" [attr.inverse]=\"inverse\" [disabled]=\"disabled\">\n      <ng-content></ng-content>\n    </button>\n  "
                 },] }
     ];
     NovoUtilActionComponent.propDecorators = {
-        icon: [{ type: core.Input }],
-        inverse: [{ type: core.Input }],
-        disabled: [{ type: core.Input }]
+        icon: [{ type: i0.Input }],
+        inverse: [{ type: i0.Input }],
+        disabled: [{ type: i0.Input }]
     };
     var NovoHeaderComponent = /** @class */ (function () {
         function NovoHeaderComponent() {
@@ -35285,18 +35285,18 @@
         return NovoHeaderComponent;
     }());
     NovoHeaderComponent.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'header[theme]',
                     template: "\n    <section>\n      <div class=\"header-title\">\n        <ng-container *ngIf=\"title\">\n          <i *ngIf=\"icon\" class=\"header-icon\" [ngClass]=\"icon\"></i>\n          <div class=\"header-titles\">\n            <h1>{{ title }}</h1>\n            <small *ngIf=\"subTitle\">{{ subTitle }}</small>\n          </div>\n        </ng-container>\n        <ng-container *ngIf=\"!title\">\n          <ng-content select=\"novo-icon, [novo-icon]\"></ng-content>\n          <div class=\"header-titles\">\n            <ng-content select=\"h1, h2, h3, h4, h5, h6, small, [novo-title], [novo-subtitle]\"></ng-content>\n          </div>\n        </ng-container>\n      </div>\n      <ng-content select=\"section\"></ng-content>\n      <span flex></span>\n      <ng-content select=\"utils\"></ng-content>\n      <ng-content select=\"novo-action\"></ng-content>\n    </section>\n    <ng-content></ng-content>\n  "
                 },] }
     ];
     NovoHeaderComponent.propDecorators = {
-        headerClass: [{ type: core.HostBinding, args: ['class',] }],
-        condensed: [{ type: core.HostBinding, args: ['class.condensed',] }, { type: core.Input }],
-        title: [{ type: core.Input }],
-        subTitle: [{ type: core.Input }],
-        theme: [{ type: core.HostBinding, args: ['attr.theme',] }, { type: core.Input }],
-        icon: [{ type: core.Input }]
+        headerClass: [{ type: i0.HostBinding, args: ['class',] }],
+        condensed: [{ type: i0.HostBinding, args: ['class.condensed',] }, { type: i0.Input }],
+        title: [{ type: i0.Input }],
+        subTitle: [{ type: i0.Input }],
+        theme: [{ type: i0.HostBinding, args: ['attr.theme',] }, { type: i0.Input }],
+        icon: [{ type: i0.Input }]
     };
 
     var NovoHeaderModule = /** @class */ (function () {
@@ -35305,7 +35305,7 @@
         return NovoHeaderModule;
     }());
     NovoHeaderModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, NovoButtonModule],
                     declarations: [NovoHeaderComponent, NovoUtilActionComponent, NovoUtilsComponent, NovoHeaderSpacer],
                     exports: [NovoHeaderComponent, NovoUtilActionComponent, NovoUtilsComponent, NovoHeaderSpacer],
@@ -35319,7 +35319,7 @@
             this.sanitizer = sanitizer;
             this.button = true;
             this.sanitize = true;
-            this.confirmed = new core.EventEmitter();
+            this.confirmed = new i0.EventEmitter();
             this.isActive = true;
             this.isActive = true;
             // Check if localStorage is enabled
@@ -35374,7 +35374,7 @@
         return NovoTipWellElement;
     }());
     NovoTipWellElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-tip-well',
                     template: "\n    <div *ngIf=\"isActive\">\n      <div>\n        <i class=\"bhi-{{ icon }}\" *ngIf=\"icon\" [attr.data-automation-id]=\"'novo-tip-well-icon-' + name\"></i>\n        <p *ngIf=\"sanitize\" [attr.data-automation-id]=\"'novo-tip-well-tip-' + name\">{{ tip }}</p>\n        <p *ngIf=\"!sanitize\" [attr.data-automation-id]=\"'novo-tip-well-tip-' + name\" [innerHTML]=\"tipWithStyles\"></p>\n      </div>\n      <button theme=\"dialogue\" (click)=\"hideTip()\" *ngIf=\"button\" [attr.data-automation-id]=\"'novo-tip-well-button-' + name\">\n        {{ buttonText }}\n      </button>\n    </div>\n  ",
                     host: {
@@ -35387,13 +35387,13 @@
         { type: platformBrowser.DomSanitizer }
     ]; };
     NovoTipWellElement.propDecorators = {
-        name: [{ type: core.Input }],
-        tip: [{ type: core.Input }],
-        buttonText: [{ type: core.Input }],
-        button: [{ type: core.Input }],
-        icon: [{ type: core.Input }],
-        sanitize: [{ type: core.Input }],
-        confirmed: [{ type: core.Output }]
+        name: [{ type: i0.Input }],
+        tip: [{ type: i0.Input }],
+        buttonText: [{ type: i0.Input }],
+        button: [{ type: i0.Input }],
+        icon: [{ type: i0.Input }],
+        sanitize: [{ type: i0.Input }],
+        confirmed: [{ type: i0.Output }]
     };
 
     // NG2
@@ -35403,7 +35403,7 @@
         return NovoTipWellModule;
     }());
     NovoTipWellModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, NovoButtonModule],
                     declarations: [NovoTipWellElement],
                     exports: [NovoTipWellElement],
@@ -35417,7 +35417,7 @@
         return NovoModalModule;
     }());
     NovoModalModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, NovoButtonModule],
                     declarations: [NovoModalContainerElement, NovoModalElement, NovoModalNotificationElement],
                     exports: [NovoModalElement, NovoModalNotificationElement],
@@ -35431,7 +35431,7 @@
         return NovoFormModule;
     }());
     NovoFormModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [
                         common.CommonModule,
                         forms.ReactiveFormsModule,
@@ -35520,25 +35520,25 @@
         return NovoIconComponent;
     }());
     NovoIconComponent.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-icon',
-                    changeDetection: core.ChangeDetectionStrategy.OnPush,
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush,
                     template: "\n        <i [class]=\"iconName\"><span><ng-content></ng-content></span></i>\n    "
                 },] }
     ];
     NovoIconComponent.ctorParameters = function () { return [
-        { type: core.ElementRef },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ElementRef },
+        { type: i0.ChangeDetectorRef }
     ]; };
     NovoIconComponent.propDecorators = {
-        raised: [{ type: core.HostBinding, args: ['attr.raised',] }, { type: core.Input }],
-        size: [{ type: core.HostBinding, args: ['attr.size',] }, { type: core.Input }],
-        theme: [{ type: core.HostBinding, args: ['attr.theme',] }, { type: core.Input }],
-        color: [{ type: core.HostBinding, args: ['attr.color',] }, { type: core.Input }],
-        role: [{ type: core.HostBinding, args: ['attr.role',] }],
-        ariaLabel: [{ type: core.HostBinding, args: ['attr.aria-label',] }],
-        alt: [{ type: core.Input }],
-        name: [{ type: core.Input }]
+        raised: [{ type: i0.HostBinding, args: ['attr.raised',] }, { type: i0.Input }],
+        size: [{ type: i0.HostBinding, args: ['attr.size',] }, { type: i0.Input }],
+        theme: [{ type: i0.HostBinding, args: ['attr.theme',] }, { type: i0.Input }],
+        color: [{ type: i0.HostBinding, args: ['attr.color',] }, { type: i0.Input }],
+        role: [{ type: i0.HostBinding, args: ['attr.role',] }],
+        ariaLabel: [{ type: i0.HostBinding, args: ['attr.aria-label',] }],
+        alt: [{ type: i0.Input }],
+        name: [{ type: i0.Input }]
     };
 
     var NovoIconModule = /** @class */ (function () {
@@ -35547,7 +35547,7 @@
         return NovoIconModule;
     }());
     NovoIconModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     exports: [NovoIconComponent],
                     declarations: [NovoIconComponent],
                 },] }
@@ -35556,7 +35556,7 @@
     // Value accessor for the component (supports ngModel)
     var CHIPS_VALUE_ACCESSOR$2 = {
         provide: forms.NG_VALUE_ACCESSOR,
-        useExisting: core.forwardRef(function () { return NovoMultiPickerElement; }),
+        useExisting: i0.forwardRef(function () { return NovoMultiPickerElement; }),
         multi: true,
     };
     var NovoMultiPickerElement = /** @class */ (function () {
@@ -35564,9 +35564,9 @@
             this.element = element;
             this.labels = labels;
             this.placeholder = '';
-            this.changed = new core.EventEmitter();
-            this.focus = new core.EventEmitter();
-            this.blur = new core.EventEmitter();
+            this.changed = new i0.EventEmitter();
+            this.focus = new i0.EventEmitter();
+            this.blur = new i0.EventEmitter();
             this.items = [];
             this._items = new rxjs.ReplaySubject(1);
             this.selected = null;
@@ -36108,7 +36108,7 @@
         return NovoMultiPickerElement;
     }());
     NovoMultiPickerElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'multi-picker',
                     providers: [CHIPS_VALUE_ACCESSOR$2],
                     template: "\n    <chip\n      *ngFor=\"let item of (_items | async | slice: 0:chipsCount)\"\n      [type]=\"item.type\"\n      [class.selected]=\"item == selected\"\n      (remove)=\"removeFromDisplay($event, item)\"\n      (select)=\"select($event, item)\"\n    >\n      {{ item.label }}\n    </chip>\n    <div *ngIf=\"items.length > chipsCount\">\n      <ul class=\"summary\">\n        <li *ngFor=\"let type of notShown\">+ {{ type.count }} {{ labels.more }} {{ type.type }}</li>\n      </ul>\n    </div>\n    <div class=\"chip-input-container\">\n      <novo-picker\n        clearValueOnSelect=\"true\"\n        [config]=\"source\"\n        [placeholder]=\"placeholder\"\n        (select)=\"clickOption($event)\"\n        (keydown)=\"onKeyDown($event)\"\n        (focus)=\"onFocus($event)\"\n        (blur)=\"onTouched($event)\"\n        [overrideElement]=\"element\"\n      >\n      </novo-picker>\n    </div>\n    <i class=\"bhi-search\" [class.has-value]=\"items.length\"></i>\n    <label class=\"clear-all\" *ngIf=\"items.length\" (click)=\"clearValue()\">{{ labels.clearAll }} <i class=\"bhi-times\"></i></label>\n  ",
@@ -36118,17 +36118,17 @@
                 },] }
     ];
     NovoMultiPickerElement.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: NovoLabelService }
     ]; };
     NovoMultiPickerElement.propDecorators = {
-        source: [{ type: core.Input }],
-        placeholder: [{ type: core.Input }],
-        types: [{ type: core.Input }],
-        changed: [{ type: core.Output }],
-        focus: [{ type: core.Output }],
-        blur: [{ type: core.Output }],
-        value: [{ type: core.Input }]
+        source: [{ type: i0.Input }],
+        placeholder: [{ type: i0.Input }],
+        types: [{ type: i0.Input }],
+        changed: [{ type: i0.Output }],
+        focus: [{ type: i0.Output }],
+        blur: [{ type: i0.Output }],
+        value: [{ type: i0.Input }]
     };
 
     // NG2
@@ -36138,7 +36138,7 @@
         return NovoMultiPickerModule;
     }());
     NovoMultiPickerModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, forms.FormsModule, NovoPickerModule, NovoChipsModule],
                     declarations: [NovoMultiPickerElement],
                     exports: [NovoMultiPickerElement],
@@ -36165,7 +36165,7 @@
         return BrowserGlobalRef;
     }(GlobalRef));
     BrowserGlobalRef.decorators = [
-        { type: core.Injectable }
+        { type: i0.Injectable }
     ];
     var NodeGlobalRef = /** @class */ (function (_super) {
         __extends(NodeGlobalRef, _super);
@@ -36198,7 +36198,7 @@
         return LocalStorageService;
     }());
     LocalStorageService.decorators = [
-        { type: core.Injectable }
+        { type: i0.Injectable }
     ];
 
     var GooglePlacesService = /** @class */ (function () {
@@ -36446,11 +36446,11 @@
         return GooglePlacesService;
     }());
     GooglePlacesService.decorators = [
-        { type: core.Injectable }
+        { type: i0.Injectable }
     ];
     GooglePlacesService.ctorParameters = function () { return [
         { type: http.HttpClient },
-        { type: Object, decorators: [{ type: core.Inject, args: [core.PLATFORM_ID,] }] },
+        { type: Object, decorators: [{ type: i0.Inject, args: [i0.PLATFORM_ID,] }] },
         { type: GlobalRef },
         { type: LocalStorageService }
     ]; };
@@ -36462,8 +36462,8 @@
             this._global = _global;
             this._googlePlacesService = _googlePlacesService;
             this.term = '';
-            this.termChange = new core.EventEmitter();
-            this.select = new core.EventEmitter();
+            this.termChange = new i0.EventEmitter();
+            this.select = new i0.EventEmitter();
             this.locationInput = '';
             this.gettingCurrentLocationFlag = false;
             this.dropdownOpen = false;
@@ -36820,22 +36820,22 @@
         return PlacesListComponent;
     }());
     PlacesListComponent.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'google-places-list',
                     template: "\n        <novo-list direction=\"vertical\">\n            <novo-list-item *ngFor=\"let data of queryItems;let $index = index\" (click)=\"selectedListNode($event, $index)\">\n                <item-header>\n                    <item-avatar icon=\"location\"></item-avatar>\n                    <item-title>{{data.structured_formatting?.main_text ? data.structured_formatting.main_text : data.description}}</item-title>\n                </item-header>\n                <item-content>{{data.structured_formatting?.secondary_text}}</item-content>\n            </novo-list-item>\n        </novo-list>\n    "
                 },] }
     ];
     PlacesListComponent.ctorParameters = function () { return [
-        { type: Object, decorators: [{ type: core.Inject, args: [core.PLATFORM_ID,] }] },
-        { type: core.ElementRef },
+        { type: Object, decorators: [{ type: i0.Inject, args: [i0.PLATFORM_ID,] }] },
+        { type: i0.ElementRef },
         { type: GlobalRef },
         { type: GooglePlacesService }
     ]; };
     PlacesListComponent.propDecorators = {
-        userSettings: [{ type: core.Input }],
-        term: [{ type: core.Input }],
-        termChange: [{ type: core.Output }],
-        select: [{ type: core.Output }]
+        userSettings: [{ type: i0.Input }],
+        term: [{ type: i0.Input }],
+        termChange: [{ type: i0.Output }],
+        select: [{ type: i0.Output }]
     };
 
     var GooglePlacesModule = /** @class */ (function () {
@@ -36844,7 +36844,7 @@
         return GooglePlacesModule;
     }());
     GooglePlacesModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     declarations: [PlacesListComponent],
                     imports: [common.CommonModule, http.HttpClientModule, forms.FormsModule, NovoListModule],
                     exports: [PlacesListComponent],
@@ -36858,7 +36858,7 @@
             this.cdr = cdr;
             this.placement = 'top';
             this.animation = true;
-            this.onCloseFromOutside = new core.EventEmitter();
+            this.onCloseFromOutside = new i0.EventEmitter();
             this.top = -10000;
             this.left = -10000;
             this.displayType = 'none';
@@ -37019,21 +37019,21 @@
         return PopOverContent;
     }());
     PopOverContent.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'popover-content',
                     template: "\n        <div #popoverDiv\n            class=\"popover {{ effectivePlacement }}\"\n            [style.top]=\"top + 'px'\"\n            [style.left]=\"left + 'px'\"\n            [class.fade]=\"animation\"\n            style=\"display: block\"\n            role=\"popover\">\n            <div class=\"arrow {{effectiveAlignment}}\"></div>\n            <h4 class=\"popover-title\" [hidden]=\"!title\">{{ title }}</h4>\n            <div class=\"popover-content\">\n                <ng-content></ng-content>\n                <div class=\"popover-content-text\">{{ content }}</div>\n            </div>\n        </div>\n    "
                 },] }
     ];
     PopOverContent.ctorParameters = function () { return [
-        { type: core.ElementRef },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ElementRef },
+        { type: i0.ChangeDetectorRef }
     ]; };
     PopOverContent.propDecorators = {
-        content: [{ type: core.Input }],
-        placement: [{ type: core.Input }],
-        title: [{ type: core.Input }],
-        animation: [{ type: core.Input }],
-        popoverDiv: [{ type: core.ViewChild, args: ['popoverDiv',] }]
+        content: [{ type: i0.Input }],
+        placement: [{ type: i0.Input }],
+        title: [{ type: i0.Input }],
+        animation: [{ type: i0.Input }],
+        popoverDiv: [{ type: i0.ViewChild, args: ['popoverDiv',] }]
     };
 
     // NG2
@@ -37044,8 +37044,8 @@
             this.PopoverComponent = PopOverContent;
             this.popoverOnHover = false;
             this.popoverDismissTimeout = 0;
-            this.onShown = new core.EventEmitter();
-            this.onHidden = new core.EventEmitter();
+            this.onShown = new i0.EventEmitter();
+            this.onHidden = new i0.EventEmitter();
         }
         // ---------------------------------------------------
         // Event listeners
@@ -37156,28 +37156,28 @@
         return PopOverDirective;
     }());
     PopOverDirective.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[popover]',
                 },] }
     ];
     PopOverDirective.ctorParameters = function () { return [
-        { type: core.ViewContainerRef },
-        { type: core.ComponentFactoryResolver }
+        { type: i0.ViewContainerRef },
+        { type: i0.ComponentFactoryResolver }
     ]; };
     PopOverDirective.propDecorators = {
-        content: [{ type: core.Input, args: ['popover',] }],
-        popoverDisabled: [{ type: core.Input }],
-        popoverAlways: [{ type: core.Input }],
-        popoverAnimation: [{ type: core.Input }],
-        popoverPlacement: [{ type: core.Input }],
-        popoverTitle: [{ type: core.Input }],
-        popoverOnHover: [{ type: core.Input }],
-        popoverDismissTimeout: [{ type: core.Input }],
-        onShown: [{ type: core.Output }],
-        onHidden: [{ type: core.Output }],
-        showOrHideOnClick: [{ type: core.HostListener, args: ['click',] }],
-        showOnHover: [{ type: core.HostListener, args: ['focusin',] }, { type: core.HostListener, args: ['mouseenter',] }],
-        hideOnHover: [{ type: core.HostListener, args: ['focusout',] }, { type: core.HostListener, args: ['mouseleave',] }]
+        content: [{ type: i0.Input, args: ['popover',] }],
+        popoverDisabled: [{ type: i0.Input }],
+        popoverAlways: [{ type: i0.Input }],
+        popoverAnimation: [{ type: i0.Input }],
+        popoverPlacement: [{ type: i0.Input }],
+        popoverTitle: [{ type: i0.Input }],
+        popoverOnHover: [{ type: i0.Input }],
+        popoverDismissTimeout: [{ type: i0.Input }],
+        onShown: [{ type: i0.Output }],
+        onHidden: [{ type: i0.Output }],
+        showOrHideOnClick: [{ type: i0.HostListener, args: ['click',] }],
+        showOnHover: [{ type: i0.HostListener, args: ['focusin',] }, { type: i0.HostListener, args: ['mouseenter',] }],
+        hideOnHover: [{ type: i0.HostListener, args: ['focusout',] }, { type: i0.HostListener, args: ['mouseleave',] }]
     };
 
     // NG2
@@ -37187,7 +37187,7 @@
         return NovoPopOverModule;
     }());
     NovoPopOverModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     declarations: [PopOverContent, PopOverDirective],
                     exports: [PopOverContent, PopOverDirective],
                 },] }
@@ -37221,8 +37221,8 @@
             this.pageSize = undefined;
             this.globalSearch = undefined;
             this.selectedRows = new Map();
-            this.updates = new core.EventEmitter();
-            this.onReset = new core.EventEmitter();
+            this.updates = new i0.EventEmitter();
+            this.onReset = new i0.EventEmitter();
         }
         Object.defineProperty(NovoActivityTableState.prototype, "userFiltered", {
             get: function () {
@@ -37252,7 +37252,7 @@
         return NovoActivityTableState;
     }());
     NovoActivityTableState.decorators = [
-        { type: core.Injectable }
+        { type: i0.Injectable }
     ];
 
     var NovoSortFilter = /** @class */ (function () {
@@ -37280,7 +37280,7 @@
         return NovoSortFilter;
     }());
     NovoSortFilter.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[novoSortFilter]',
                 },] }
     ];
@@ -37290,7 +37290,7 @@
     var NovoSelection = /** @class */ (function () {
         function NovoSelection(state) {
             this.state = state;
-            this.novoSelectAllToggle = new core.EventEmitter();
+            this.novoSelectAllToggle = new i0.EventEmitter();
             this.allRows = new Map();
         }
         NovoSelection.prototype.register = function (id, row) {
@@ -37331,7 +37331,7 @@
         return NovoSelection;
     }());
     NovoSelection.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[novoSelection]',
                 },] }
     ];
@@ -37339,7 +37339,7 @@
         { type: NovoActivityTableState }
     ]; };
     NovoSelection.propDecorators = {
-        novoSelectAllToggle: [{ type: core.Output }]
+        novoSelectAllToggle: [{ type: i0.Output }]
     };
 
     /** Workaround for https://github.com/angular/angular/issues/17849 */
@@ -37356,7 +37356,7 @@
         return NovoSimpleCellDef;
     }(_NovoCellDef));
     NovoSimpleCellDef.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[novoSimpleCellDef]',
                     providers: [{ provide: table.CdkCellDef, useExisting: NovoSimpleCellDef }],
                 },] }
@@ -37369,7 +37369,7 @@
         return NovoSimpleHeaderCellDef;
     }(_NovoHeaderCellDef));
     NovoSimpleHeaderCellDef.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[novoSimpleHeaderCellDef]',
                     providers: [{ provide: table.CdkHeaderCellDef, useExisting: NovoSimpleHeaderCellDef }],
                 },] }
@@ -37382,13 +37382,13 @@
         return NovoSimpleColumnDef;
     }(_NovoColumnDef));
     NovoSimpleColumnDef.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[novoSimpleColumnDef]',
                     providers: [{ provide: table.CdkColumnDef, useExisting: NovoSimpleColumnDef }],
                 },] }
     ];
     NovoSimpleColumnDef.propDecorators = {
-        name: [{ type: core.Input, args: ['novoSimpleColumnDef',] }]
+        name: [{ type: i0.Input, args: ['novoSimpleColumnDef',] }]
     };
     var NovoSimpleHeaderCell = /** @class */ (function (_super) {
         __extends(NovoSimpleHeaderCell, _super);
@@ -37412,18 +37412,18 @@
         return NovoSimpleHeaderCell;
     }(_NovoHeaderCell));
     NovoSimpleHeaderCell.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: 'novo-simple-header-cell',
                 },] }
     ];
     NovoSimpleHeaderCell.ctorParameters = function () { return [
         { type: table.CdkColumnDef },
-        { type: core.ElementRef },
-        { type: core.Renderer2 }
+        { type: i0.ElementRef },
+        { type: i0.Renderer2 }
     ]; };
     NovoSimpleHeaderCell.propDecorators = {
-        role: [{ type: core.HostBinding, args: ['attr.role',] }],
-        column: [{ type: core.Input }]
+        role: [{ type: i0.HostBinding, args: ['attr.role',] }],
+        column: [{ type: i0.Input }]
     };
     var NovoSimpleEmptyHeaderCell = /** @class */ (function (_super) {
         __extends(NovoSimpleEmptyHeaderCell, _super);
@@ -37438,17 +37438,17 @@
         return NovoSimpleEmptyHeaderCell;
     }(_NovoHeaderCell));
     NovoSimpleEmptyHeaderCell.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: 'novo-simple-empty-header-cell',
                 },] }
     ];
     NovoSimpleEmptyHeaderCell.ctorParameters = function () { return [
         { type: table.CdkColumnDef },
-        { type: core.ElementRef },
-        { type: core.Renderer2 }
+        { type: i0.ElementRef },
+        { type: i0.Renderer2 }
     ]; };
     NovoSimpleEmptyHeaderCell.propDecorators = {
-        role: [{ type: core.HostBinding, args: ['attr.role',] }]
+        role: [{ type: i0.HostBinding, args: ['attr.role',] }]
     };
     var NovoSimpleCheckboxHeaderCell = /** @class */ (function (_super) {
         __extends(NovoSimpleCheckboxHeaderCell, _super);
@@ -37475,20 +37475,20 @@
         return NovoSimpleCheckboxHeaderCell;
     }(_NovoHeaderCell));
     NovoSimpleCheckboxHeaderCell.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-simple-checkbox-header-cell',
                     template: "<novo-checkbox [(ngModel)]=\"selectAll\" (ngModelChange)=\"toggle($event)\"></novo-checkbox>"
                 },] }
     ];
     NovoSimpleCheckboxHeaderCell.ctorParameters = function () { return [
         { type: table.CdkColumnDef },
-        { type: core.ElementRef },
-        { type: core.Renderer2 },
-        { type: core.ChangeDetectorRef },
-        { type: NovoSelection, decorators: [{ type: core.Optional }] }
+        { type: i0.ElementRef },
+        { type: i0.Renderer2 },
+        { type: i0.ChangeDetectorRef },
+        { type: NovoSelection, decorators: [{ type: i0.Optional }] }
     ]; };
     NovoSimpleCheckboxHeaderCell.propDecorators = {
-        role: [{ type: core.HostBinding, args: ['attr.role',] }]
+        role: [{ type: i0.HostBinding, args: ['attr.role',] }]
     };
     var NovoSimpleCell = /** @class */ (function (_super) {
         __extends(NovoSimpleCell, _super);
@@ -37532,21 +37532,21 @@
         return NovoSimpleCell;
     }(_NovoCell));
     NovoSimpleCell.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-simple-cell',
                     template: "\n    <span [class.clickable]=\"!!column.onClick\" (click)=\"onClick($event)\" #span>{{ column.renderer(row) }}</span>\n  ",
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     NovoSimpleCell.ctorParameters = function () { return [
         { type: table.CdkColumnDef },
-        { type: core.ElementRef },
-        { type: core.Renderer2 }
+        { type: i0.ElementRef },
+        { type: i0.Renderer2 }
     ]; };
     NovoSimpleCell.propDecorators = {
-        role: [{ type: core.HostBinding, args: ['attr.role',] }],
-        row: [{ type: core.Input }],
-        column: [{ type: core.Input }]
+        role: [{ type: i0.HostBinding, args: ['attr.role',] }],
+        row: [{ type: i0.Input }],
+        column: [{ type: i0.Input }]
     };
     var NovoSimpleCheckboxCell = /** @class */ (function (_super) {
         __extends(NovoSimpleCheckboxCell, _super);
@@ -37578,21 +37578,21 @@
         return NovoSimpleCheckboxCell;
     }(_NovoCell));
     NovoSimpleCheckboxCell.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-simple-checkbox-cell',
                     template: "\n    <novo-checkbox [ngModel]=\"selected\" (ngModelChange)=\"toggle($event)\"></novo-checkbox>\n  "
                 },] }
     ];
     NovoSimpleCheckboxCell.ctorParameters = function () { return [
         { type: table.CdkColumnDef },
-        { type: core.ElementRef },
-        { type: core.Renderer2 },
-        { type: NovoSelection, decorators: [{ type: core.Optional }] }
+        { type: i0.ElementRef },
+        { type: i0.Renderer2 },
+        { type: NovoSelection, decorators: [{ type: i0.Optional }] }
     ]; };
     NovoSimpleCheckboxCell.propDecorators = {
-        role: [{ type: core.HostBinding, args: ['attr.role',] }],
-        row: [{ type: core.Input }],
-        index: [{ type: core.Input }]
+        role: [{ type: i0.HostBinding, args: ['attr.role',] }],
+        row: [{ type: i0.Input }],
+        index: [{ type: i0.Input }]
     };
     var NovoSimpleActionCell = /** @class */ (function (_super) {
         __extends(NovoSimpleActionCell, _super);
@@ -37625,22 +37625,22 @@
         return NovoSimpleActionCell;
     }(_NovoCell));
     NovoSimpleActionCell.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-simple-action-cell',
                     template: "\n    <ng-container *ngIf=\"!column.options\">\n      <button theme=\"icon\" [icon]=\"column.icon\" (click)=\"column.onClick(row)\" [disabled]=\"isDisabled(column, row)\"></button>\n    </ng-container>\n    <ng-container *ngIf=\"column.options\">\n      <novo-dropdown parentScrollSelector=\".novo-simple-table\" containerClass=\"novo-table-dropdown-cell\">\n        <button type=\"button\" theme=\"dialogue\" icon=\"collapse\" inverse>{{ column.label || labels.actions }}</button>\n        <list>\n          <item *ngFor=\"let option of column.options\" (action)=\"option.onClick(row)\" [disabled]=\"isDisabled(option, row)\">\n            <span [attr.data-automation-id]=\"option.label\">{{ option.label }}</span>\n          </item>\n        </list>\n      </novo-dropdown>\n    </ng-container>\n  ",
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     NovoSimpleActionCell.ctorParameters = function () { return [
         { type: table.CdkColumnDef },
-        { type: core.ElementRef },
-        { type: core.Renderer2 },
+        { type: i0.ElementRef },
+        { type: i0.Renderer2 },
         { type: NovoLabelService }
     ]; };
     NovoSimpleActionCell.propDecorators = {
-        role: [{ type: core.HostBinding, args: ['attr.role',] }],
-        row: [{ type: core.Input }],
-        column: [{ type: core.Input }]
+        role: [{ type: i0.HostBinding, args: ['attr.role',] }],
+        row: [{ type: i0.Input }],
+        column: [{ type: i0.Input }]
     };
 
     var NovoSimpleFilterFocus = /** @class */ (function () {
@@ -37653,12 +37653,12 @@
         return NovoSimpleFilterFocus;
     }());
     NovoSimpleFilterFocus.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[novoSimpleFilterFocus]',
                 },] }
     ];
     NovoSimpleFilterFocus.ctorParameters = function () { return [
-        { type: core.ElementRef }
+        { type: i0.ElementRef }
     ]; };
     var NovoSimpleCellHeader = /** @class */ (function () {
         function NovoSimpleCellHeader(changeDetectorRef, labels, state, _sort, _cdkColumnDef) {
@@ -37817,24 +37817,24 @@
         return NovoSimpleCellHeader;
     }());
     NovoSimpleCellHeader.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: '[novo-simple-cell-config]',
                     template: "\n    <label (click)=\"sort()\" data-automation-id=\"novo-activity-table-label\" [class.sort-disabled]=\"!config.sortable\">\n      <ng-content></ng-content>\n    </label>\n    <div>\n      <button\n        *ngIf=\"config.sortable\"\n        theme=\"icon\"\n        [icon]=\"icon\"\n        (click)=\"sort()\"\n        [class.active]=\"sortActive\"\n        data-automation-id=\"novo-activity-table-sort\"\n      ></button>\n      <novo-dropdown\n        *ngIf=\"config.filterable\"\n        side=\"right\"\n        parentScrollSelector=\".novo-simple-table\"\n        containerClass=\"simple-table-dropdown\"\n        data-automation-id=\"novo-activity-table-filter\"\n      >\n        <button type=\"button\" theme=\"icon\" icon=\"filter\" [class.active]=\"filterActive\"></button>\n        <div class=\"header\">\n          <span>{{ labels.filters }}</span>\n          <button\n            theme=\"dialogue\"\n            color=\"negative\"\n            icon=\"times\"\n            (click)=\"clearFilter()\"\n            *ngIf=\"filter\"\n            data-automation-id=\"novo-activity-table-filter-clear\"\n          >\n            {{ labels.clear }}\n          </button>\n        </div>\n        <ng-container [ngSwitch]=\"config.filterConfig.type\">\n          <list *ngSwitchCase=\"'date'\">\n            <ng-container *ngIf=\"!showCustomRange\">\n              <item\n                [class.active]=\"activeDateFilter === option.label\"\n                *ngFor=\"let option of config.filterConfig.options\"\n                (click)=\"filterData(option)\"\n                [attr.data-automation-id]=\"'novo-activity-table-filter-' + option.label\"\n              >\n                {{ option.label }} <i class=\"bhi-check\" *ngIf=\"activeDateFilter === option.label\"></i>\n              </item>\n            </ng-container>\n            <item\n              [class.active]=\"labels.customDateRange === activeDateFilter\"\n              (click)=\"toggleCustomRange($event, true)\"\n              *ngIf=\"config.filterConfig.allowCustomRange && !showCustomRange\"\n              [keepOpen]=\"true\"\n            >\n              {{ labels.customDateRange }} <i class=\"bhi-check\" *ngIf=\"labels.customDateRange === activeDateFilter\"></i>\n            </item>\n            <div class=\"calendar-container\" *ngIf=\"showCustomRange\">\n              <div (click)=\"toggleCustomRange($event, false)\"><i class=\"bhi-previous\"></i>{{ labels.backToPresetFilters }}</div>\n              <novo-date-picker (onSelect)=\"filterData($event)\" [(ngModel)]=\"filter\" range=\"true\"></novo-date-picker>\n            </div>\n          </list>\n          <list *ngSwitchCase=\"'select'\">\n            <item\n              [class.active]=\"filter === option\"\n              *ngFor=\"let option of config.filterConfig.options\"\n              (click)=\"filterData(option)\"\n              [attr.data-automation-id]=\"'novo-activity-table-filter-' + (option?.label || option)\"\n            >\n              <span>{{ option?.label || option }}</span>\n              <i class=\"bhi-check\" *ngIf=\"option.hasOwnProperty('value') ? filter === option.value : filter === option\"></i>\n            </item>\n          </list>\n          <list *ngSwitchDefault>\n            <item class=\"filter-search\" keepOpen=\"true\">\n              <input\n                type=\"text\"\n                [(ngModel)]=\"filter\"\n                (ngModelChange)=\"filterData($event)\"\n                novoSimpleFilterFocus\n                data-automation-id=\"novo-activity-table-filter-input\"\n              />\n            </item>\n          </list>\n        </ng-container>\n      </novo-dropdown>\n    </div>\n  ",
-                    encapsulation: core.ViewEncapsulation.None,
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    encapsulation: i0.ViewEncapsulation.None,
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     NovoSimpleCellHeader.ctorParameters = function () { return [
-        { type: core.ChangeDetectorRef },
+        { type: i0.ChangeDetectorRef },
         { type: NovoLabelService },
         { type: NovoActivityTableState },
-        { type: NovoSortFilter, decorators: [{ type: core.Optional }] },
-        { type: table.CdkColumnDef, decorators: [{ type: core.Optional }] }
+        { type: NovoSortFilter, decorators: [{ type: i0.Optional }] },
+        { type: table.CdkColumnDef, decorators: [{ type: i0.Optional }] }
     ]; };
     NovoSimpleCellHeader.propDecorators = {
-        dropdown: [{ type: core.ViewChild, args: [NovoDropdownElement,] }],
-        defaultSort: [{ type: core.Input }],
-        config: [{ type: core.Input, args: ['novo-simple-cell-config',] }]
+        dropdown: [{ type: i0.ViewChild, args: [NovoDropdownElement,] }],
+        defaultSort: [{ type: i0.Input }],
+        config: [{ type: i0.Input, args: ['novo-simple-cell-config',] }]
     };
 
     var DEFAULT_PAGE_SIZE = 50;
@@ -37847,7 +37847,7 @@
             this._page = 0;
             this._length = 0;
             this._pageSizeOptions = [];
-            this.pageChange = new core.EventEmitter();
+            this.pageChange = new i0.EventEmitter();
             if (state && state.onReset) {
                 this.resetSubscription = this.state.onReset.subscribe(function (clear) {
                     if (clear) {
@@ -37972,23 +37972,23 @@
         return NovoSimpleTablePagination;
     }());
     NovoSimpleTablePagination.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-simple-table-pagination',
                     template: "\n        <div class=\"novo-simple-table-pagination-size\">\n            <novo-tiles *ngIf=\"displayedPageSizeOptions.length > 1\"\n                        [(ngModel)]=\"pageSize\"\n                        [options]=\"displayedPageSizeOptions\"\n                        (onChange)=\"changePageSize($event)\"\n                        data-automation-id=\"novo-simple-table-pagination-tiles\">\n            </novo-tiles>\n            <div *ngIf=\"displayedPageSizeOptions.length <= 1\">{{ pageSize }}</div>\n        </div>\n\n        <div class=\"novo-simple-table-range-label-long\"data-automation-id=\"novo-simple-table-pagination-range-label-long\">\n            {{ longRangeLabel }}\n        </div>\n        <div class=\"novo-simple-table-range-label-short\"data-automation-id=\"novo-simple-table-pagination-range-label-short\">\n            {{ shortRangeLabel }}\n        </div>\n\n        <button theme=\"dialogue\" type=\"button\"\n                class=\"novo-simple-table-pagination-navigation-previous\"\n                (click)=\"previousPage()\"\n                icon=\"previous\"\n                side=\"left\"\n                [disabled]=\"!hasPreviousPage()\"\n                data-automation-id=\"novo-simple-table-pagination-previous\">\n            <span>{{ labels.previous }}</span>\n        </button>\n        <button theme=\"dialogue\" type=\"button\"\n                class=\"novo-simple-table-pagination-navigation-next\"\n                (click)=\"nextPage()\"\n                icon=\"next\"\n                side=\"right\"\n                [disabled]=\"!hasNextPage()\"\n                data-automation-id=\"novo-simple-table-pagination-next\">\n            <span>{{ labels.next }}</span>\n        </button>\n    ",
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     NovoSimpleTablePagination.ctorParameters = function () { return [
-        { type: core.ChangeDetectorRef },
+        { type: i0.ChangeDetectorRef },
         { type: NovoLabelService },
         { type: NovoActivityTableState }
     ]; };
     NovoSimpleTablePagination.propDecorators = {
-        page: [{ type: core.Input }],
-        length: [{ type: core.Input }],
-        pageSize: [{ type: core.Input }],
-        pageSizeOptions: [{ type: core.Input }],
-        pageChange: [{ type: core.Output }]
+        page: [{ type: i0.Input }],
+        length: [{ type: i0.Input }],
+        pageSize: [{ type: i0.Input }],
+        pageSizeOptions: [{ type: i0.Input }],
+        pageChange: [{ type: i0.Output }]
     };
 
     /** Workaround for https://github.com/angular/angular/issues/17849 */
@@ -38004,13 +38004,13 @@
         return NovoSimpleHeaderRowDef;
     }(_NovoHeaderRowDef));
     NovoSimpleHeaderRowDef.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[novoSimpleHeaderRowDef]',
                     providers: [{ provide: table.CdkHeaderRowDef, useExisting: NovoSimpleHeaderRowDef }],
                 },] }
     ];
     NovoSimpleHeaderRowDef.propDecorators = {
-        columns: [{ type: core.Input, args: ['novoSimpleHeaderRowDef',] }]
+        columns: [{ type: i0.Input, args: ['novoSimpleHeaderRowDef',] }]
     };
     var NovoSimpleRowDef = /** @class */ (function (_super) {
         __extends(NovoSimpleRowDef, _super);
@@ -38020,13 +38020,13 @@
         return NovoSimpleRowDef;
     }(_NovoCdkRowDef));
     NovoSimpleRowDef.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[novoSimpleRowDef]',
                     providers: [{ provide: table.CdkRowDef, useExisting: NovoSimpleRowDef }],
                 },] }
     ];
     NovoSimpleRowDef.propDecorators = {
-        columns: [{ type: core.Input, args: ['novoSimpleRowDefColumns',] }]
+        columns: [{ type: i0.Input, args: ['novoSimpleRowDefColumns',] }]
     };
     var NovoSimpleHeaderRow = /** @class */ (function (_super) {
         __extends(NovoSimpleHeaderRow, _super);
@@ -38039,15 +38039,15 @@
         return NovoSimpleHeaderRow;
     }(_NovoHeaderRow));
     NovoSimpleHeaderRow.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-simple-header-row',
                     template: table.CDK_ROW_TEMPLATE,
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     NovoSimpleHeaderRow.propDecorators = {
-        rowClass: [{ type: core.HostBinding, args: ['class',] }],
-        role: [{ type: core.HostBinding, args: ['attr.role',] }]
+        rowClass: [{ type: i0.HostBinding, args: ['class',] }],
+        role: [{ type: i0.HostBinding, args: ['attr.role',] }]
     };
     var NovoSimpleRow = /** @class */ (function (_super) {
         __extends(NovoSimpleRow, _super);
@@ -38060,15 +38060,15 @@
         return NovoSimpleRow;
     }(_NovoRow));
     NovoSimpleRow.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-simple-row',
                     template: table.CDK_ROW_TEMPLATE,
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     NovoSimpleRow.propDecorators = {
-        rowClass: [{ type: core.HostBinding, args: ['class',] }],
-        role: [{ type: core.HostBinding, args: ['attr.role',] }]
+        rowClass: [{ type: i0.HostBinding, args: ['class',] }],
+        role: [{ type: i0.HostBinding, args: ['attr.role',] }]
     };
 
     var RemoteActivityTableService = /** @class */ (function () {
@@ -38165,11 +38165,11 @@
         return NovoTable;
     }(_NovoTable));
     NovoTable.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-simple-table',
                     template: table.CDK_TABLE_TEMPLATE,
-                    encapsulation: core.ViewEncapsulation.None,
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    encapsulation: i0.ViewEncapsulation.None,
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     var NovoActivityTableActions = /** @class */ (function () {
@@ -38178,7 +38178,7 @@
         return NovoActivityTableActions;
     }());
     NovoActivityTableActions.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: 'novo-activity-table-actions',
                 },] }
     ];
@@ -38188,7 +38188,7 @@
         return NovoActivityTableCustomHeader;
     }());
     NovoActivityTableCustomHeader.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: 'novo-activity-table-custom-header',
                 },] }
     ];
@@ -38198,7 +38198,7 @@
         return NovoActivityTableCustomFilter;
     }());
     NovoActivityTableCustomFilter.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: 'novo-activity-table-custom-filter',
                 },] }
     ];
@@ -38208,7 +38208,7 @@
         return NovoActivityTableEmptyMessage;
     }());
     NovoActivityTableEmptyMessage.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: 'novo-activity-table-empty-message',
                 },] }
     ];
@@ -38218,7 +38218,7 @@
         return NovoActivityTableNoResultsMessage;
     }());
     NovoActivityTableNoResultsMessage.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: 'novo-activity-table-no-results-message',
                 },] }
     ];
@@ -38332,34 +38332,34 @@
         return NovoActivityTable;
     }());
     NovoActivityTable.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-activity-table',
                     template: "\n        <div *ngIf=\"debug\">\n            <p>Total: {{ dataSource?.total }}</p>\n            <p>Current: {{ dataSource?.current }}</p>\n            <p>Totally Empty: {{ dataSource?.totallyEmpty }}</p>\n            <p>Currently Empty: {{ dataSource?.currentlyEmpty }}</p>\n            <p>Loading (DataSource): {{ dataSource?.loading }}</p>\n            <p>User Filtered: {{ state.userFiltered }}</p>\n            <p>Loading (Table): {{ loading }}</p>\n        </div>\n        <header *ngIf=\"(!(dataSource?.totallyEmpty && !state.userFiltered) && !loading) || forceShowHeader\">\n            <ng-content select=\"[novo-activity-table-custom-header]\"></ng-content>\n            <novo-search\n                alwaysOpen=\"true\"\n                (searchChanged)=\"onSearchChange($event)\"\n                [(ngModel)]=\"state.globalSearch\"\n                *ngIf=\"!hideGlobalSearch\"\n                [placeholder]=\"searchOptions?.placeholder\"\n                [hint]=\"searchOptions?.tooltip\">\n            </novo-search>\n            <novo-simple-table-pagination\n                *ngIf=\"paginationOptions\"\n                [length]=\"dataSource?.total\"\n                [page]=\"paginationOptions.page\"\n                [pageSize]=\"paginationOptions.pageSize\"\n                [pageSizeOptions]=\"paginationOptions.pageSizeOptions\">\n            </novo-simple-table-pagination>\n            <div class=\"novo-activity-table-actions\">\n                <ng-content select=\"[novo-activity-table-actions]\"></ng-content>\n            </div>\n        </header>\n        <div class=\"novo-activity-table-loading-mask\" *ngIf=\"dataSource?.loading || loading\" data-automation-id=\"novo-activity-table-loading\">\n            <novo-loading></novo-loading>\n        </div>\n        <div class=\"novo-activity-table-filter-container\">\n            <div class=\"novo-activity-table-custom-filter\" *ngIf=\"customFilter\">\n                <ng-content select=\"[novo-activity-table-custom-filter]\"></ng-content>\n            </div>\n            <div class=\"novo-activity-table-container\">\n                <novo-simple-table *ngIf=\"(columns?.length > 0)\" [dataSource]=\"dataSource\" novoSortFilter novoSelection [class.empty]=\"dataSource?.currentlyEmpty && state.userFiltered\" [hidden]=\"dataSource?.totallyEmpty && !state.userFiltered\">\n                    <ng-content></ng-content>\n                    <ng-container novoSimpleColumnDef=\"selection\">\n                        <novo-simple-checkbox-header-cell *novoSimpleHeaderCellDef></novo-simple-checkbox-header-cell>\n                        <novo-simple-checkbox-cell *novoSimpleCellDef=\"let row; let i = index\" [row]=\"row\" [index]=\"i\"></novo-simple-checkbox-cell>\n                    </ng-container>\n                    <ng-container *ngFor=\"let column of actionColumns\" [novoSimpleColumnDef]=\"column.id\">\n                        <novo-simple-empty-header-cell [class.button-header-cell]=\"!column.options\" [class.dropdown-header-cell]=\"column.options\" *novoSimpleHeaderCellDef></novo-simple-empty-header-cell>\n                        <novo-simple-action-cell *novoSimpleCellDef=\"let row; let i = index\" [row]=\"row\" [column]=\"column\"></novo-simple-action-cell>\n                    </ng-container>\n                    <ng-container *ngFor=\"let column of columns\" [novoSimpleColumnDef]=\"column.id\">\n                        <novo-simple-header-cell *novoSimpleHeaderCellDef [column]=\"column\" [novo-simple-cell-config]=\"column.config\" [defaultSort]=\"defaultSort\">{{ column.label }}</novo-simple-header-cell>\n                        <novo-simple-cell *novoSimpleCellDef=\"let row\" [column]=\"column\" [row]=\"row\"></novo-simple-cell>\n                    </ng-container>\n                    <novo-simple-header-row *novoSimpleHeaderRowDef=\"displayedColumns\"></novo-simple-header-row>\n                    <novo-simple-row *novoSimpleRowDef=\"let row; columns: displayedColumns;\"></novo-simple-row>\n                </novo-simple-table>\n                <div class=\"novo-activity-table-no-results-container\" *ngIf=\"dataSource?.currentlyEmpty && state.userFiltered && !dataSource?.loading && !loading && !dataSource.pristine\">\n                    <div #filtered><ng-content select=\"[novo-activity-table-no-results-message]\"></ng-content></div>\n                    <div class=\"novo-activity-table-empty-message\" *ngIf=\"filtered.childNodes.length == 0\">\n                        <h4><i class=\"bhi-search-question\"></i> {{ labels.noMatchingRecordsMessage }}</h4>\n                    </div>\n                </div>\n                <div class=\"novo-activity-table-empty-container\" *ngIf=\"dataSource?.totallyEmpty && !dataSource?.loading && !loading && !state.userFiltered && !dataSource.pristine\">\n                    <div #empty><ng-content select=\"[novo-activity-table-empty-message]\"></ng-content></div>\n                    <div class=\"novo-activity-table-empty-message\" *ngIf=\"empty.childNodes.length == 0\">\n                        <h4><i class=\"bhi-search-question\"></i> {{ labels.emptyTableMessage }}</h4>\n                    </div>\n                </div>\n            </div>\n        </div>\n    ",
-                    changeDetection: core.ChangeDetectionStrategy.OnPush,
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush,
                     providers: [NovoActivityTableState]
                 },] }
     ];
     NovoActivityTable.ctorParameters = function () { return [
         { type: NovoLabelService },
-        { type: core.ChangeDetectorRef },
+        { type: i0.ChangeDetectorRef },
         { type: NovoActivityTableState }
     ]; };
     NovoActivityTable.propDecorators = {
-        globalSearchHiddenClassToggle: [{ type: core.HostBinding, args: ['class.global-search-hidden',] }],
-        activityService: [{ type: core.Input }],
-        columns: [{ type: core.Input }],
-        displayedColumns: [{ type: core.Input }],
-        actionColumns: [{ type: core.Input }],
-        paginationOptions: [{ type: core.Input }],
-        searchOptions: [{ type: core.Input }],
-        defaultSort: [{ type: core.Input }],
-        outsideFilter: [{ type: core.Input }],
-        customFilter: [{ type: core.Input }],
-        forceShowHeader: [{ type: core.Input }],
-        hideGlobalSearch: [{ type: core.Input }],
-        debug: [{ type: core.Input }],
-        empty: [{ type: core.HostBinding, args: ['class.empty',] }],
-        loadingClass: [{ type: core.HostBinding, args: ['class.loading',] }]
+        globalSearchHiddenClassToggle: [{ type: i0.HostBinding, args: ['class.global-search-hidden',] }],
+        activityService: [{ type: i0.Input }],
+        columns: [{ type: i0.Input }],
+        displayedColumns: [{ type: i0.Input }],
+        actionColumns: [{ type: i0.Input }],
+        paginationOptions: [{ type: i0.Input }],
+        searchOptions: [{ type: i0.Input }],
+        defaultSort: [{ type: i0.Input }],
+        outsideFilter: [{ type: i0.Input }],
+        customFilter: [{ type: i0.Input }],
+        forceShowHeader: [{ type: i0.Input }],
+        hideGlobalSearch: [{ type: i0.Input }],
+        debug: [{ type: i0.Input }],
+        empty: [{ type: i0.HostBinding, args: ['class.empty',] }],
+        loadingClass: [{ type: i0.HostBinding, args: ['class.loading',] }]
     };
 
     var NovoSimpleTableModule = /** @class */ (function () {
@@ -38368,7 +38368,7 @@
         return NovoSimpleTableModule;
     }());
     NovoSimpleTableModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [
                         NovoDatePickerModule,
                         table.CdkTableModule,
@@ -38490,7 +38490,7 @@
         return NovoSliderElement;
     }());
     NovoSliderElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-slider',
                     template: "\n        <section class=\"slides\">\n            <ng-content select=\"div[slide]\"></ng-content>\n        </section>\n        <div class=\"controls\">\n            <button *ngIf=\"!start\" theme=\"icon\" icon=\"previous\" (click)=\"changeSlide('back')\"></button>\n            <div class=\"indicators\">\n                <div class=\"indicator-circle\" *ngFor=\"let indicator of currSlides; let i = index\" [ngClass]=\"indicator\"></div>\n            </div>\n            <button *ngIf=\"!end\" theme=\"primary\" icon=\"next\" (click)=\"changeSlide('next')\">{{ labels.next }}</button>\n            <ng-content select=\"button\" *ngIf=\"end\"></ng-content>\n        </div>\n    ",
                     host: {
@@ -38499,11 +38499,11 @@
                 },] }
     ];
     NovoSliderElement.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: NovoLabelService }
     ]; };
     NovoSliderElement.propDecorators = {
-        slides: [{ type: core.Input }]
+        slides: [{ type: i0.Input }]
     };
 
     // NG2
@@ -38513,7 +38513,7 @@
         return NovoSliderModule;
     }());
     NovoSliderModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, NovoButtonModule],
                     declarations: [NovoSliderElement],
                     exports: [NovoSliderElement],
@@ -38528,12 +38528,12 @@
         return NovoStepLabel;
     }(stepper.CdkStepLabel));
     NovoStepLabel.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[novoStepLabel]',
                 },] }
     ];
     NovoStepLabel.ctorParameters = function () { return [
-        { type: core.TemplateRef }
+        { type: i0.TemplateRef }
     ]; };
 
     var NovoStepHeader = /** @class */ (function (_super) {
@@ -38615,7 +38615,7 @@
         return NovoStepHeader;
     }(stepper.CdkStepHeader));
     NovoStepHeader.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-step-header',
                     template: "<div [class.novo-step-icon]=\"touched\"\n     [class.novo-step-icon-not-touched]=\"!touched\">\n  <ng-container *ngIf=\"icon\">\n    <novo-icon size=\"small\" raised=\"true\" [theme]=\"theme\">{{icon}}</novo-icon>\n  </ng-container>\n  <ng-container *ngIf=\"!icon\">\n    <span class=\"novo-step-number\">{{index + 1}}</span>\n  </ng-container>\n</div>\n<div class=\"novo-step-label\"\n     [class.novo-step-label-active]=\"active\"\n     [class.novo-step-label-selected]=\"selected\">\n  <!-- If there is a label template, use it. -->\n  <ng-container *ngIf=\"_templateLabel()\" [ngTemplateOutlet]=\"_templateLabel()!.template\">\n  </ng-container>\n  <!-- It there is no label template, fall back to the text label. -->\n  <div class=\"novo-step-text-label\" *ngIf=\"_stringLabel()\">{{label}}</div>\n</div>\n<novo-step-status [state]=\"state\"></novo-step-status>\n",
                     host: {
@@ -38623,25 +38623,25 @@
                         role: 'tab',
                     },
                     preserveWhitespaces: false,
-                    changeDetection: core.ChangeDetectionStrategy.OnPush,
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush,
                     styles: ["@-webkit-keyframes rotate{0%{transform:rotate(0deg)}75%{transform:rotate(200deg)}to{transform:rotate(180deg)}}@keyframes rotate{0%{transform:rotate(0deg)}75%{transform:rotate(200deg)}to{transform:rotate(180deg)}}@-webkit-keyframes half-rotate{0%{transform:rotate(45deg)}75%{transform:rotate(100deg)}to{transform:rotate(90deg)}}@keyframes half-rotate{0%{transform:rotate(45deg)}75%{transform:rotate(100deg)}to{transform:rotate(90deg)}}@-webkit-keyframes rotateBack{0%{transform:rotate(90deg)}to{transform:rotate(0deg)}}@keyframes rotateBack{0%{transform:rotate(90deg)}to{transform:rotate(0deg)}}@-webkit-keyframes show{0%{opacity:0;transform:translateX(-100%)}75%{transform:translateX(0)}to{opacity:1;transform:translateX(0)}}@keyframes show{0%{opacity:0;transform:translateX(-100%)}75%{transform:translateX(0)}to{opacity:1;transform:translateX(0)}}.novo-step-header{cursor:pointer;outline:none;overflow:visible;position:relative}.novo-step-optional{font-size:12px}.novo-step-icon,.novo-step-icon-not-touched{align-items:center;border-radius:50%;display:flex;height:24px;justify-content:center;width:24px}.novo-step-icon-not-touched .novo-step-number,.novo-step-icon .novo-step-number{align-items:center;border-radius:4px;box-shadow:2px 2px 0 rgba(0,0,0,.2);display:flex;font-size:1em;height:1.6em;justify-content:center;min-width:1.6em}.novo-step-icon .novo-step-number{background:#4a89dc;color:#fff}.novo-step-icon-not-touched .novo-step-number{background:#a9adbb;color:#fff}.novo-step-label{display:inline-block;min-width:50px;padding:4px 0;vertical-align:middle;white-space:nowrap}.novo-step-label,.novo-step-text-label{overflow:hidden;text-align:center;text-overflow:ellipsis}"]
                 },] }
     ];
     NovoStepHeader.ctorParameters = function () { return [
         { type: a11y.FocusMonitor },
-        { type: core.ElementRef }
+        { type: i0.ElementRef }
     ]; };
     NovoStepHeader.propDecorators = {
-        theme: [{ type: core.Input }],
-        color: [{ type: core.Input }],
-        icon: [{ type: core.Input }],
-        state: [{ type: core.Input }],
-        label: [{ type: core.Input }],
-        iconOverrides: [{ type: core.Input }],
-        index: [{ type: core.Input }],
-        selected: [{ type: core.Input }],
-        active: [{ type: core.Input }],
-        optional: [{ type: core.Input }]
+        theme: [{ type: i0.Input }],
+        color: [{ type: i0.Input }],
+        icon: [{ type: i0.Input }],
+        state: [{ type: i0.Input }],
+        label: [{ type: i0.Input }],
+        iconOverrides: [{ type: i0.Input }],
+        index: [{ type: i0.Input }],
+        selected: [{ type: i0.Input }],
+        active: [{ type: i0.Input }],
+        optional: [{ type: i0.Input }]
     };
 
     /** Animations used by the Novo steppers. */
@@ -38672,21 +38672,21 @@
         return NovoStep;
     }(stepper.CdkStep));
     NovoStep.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-step',
                     template: "<ng-template><ng-content></ng-content></ng-template>\n",
                     preserveWhitespaces: false,
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     NovoStep.ctorParameters = function () { return [
-        { type: stepper.CdkStepper, decorators: [{ type: core.Inject, args: [core.forwardRef(function () { return NovoStepper; }),] }] }
+        { type: stepper.CdkStepper, decorators: [{ type: i0.Inject, args: [i0.forwardRef(function () { return NovoStepper; }),] }] }
     ]; };
     NovoStep.propDecorators = {
-        stepLabel: [{ type: core.ContentChild, args: [NovoStepLabel,] }],
-        theme: [{ type: core.Input }],
-        color: [{ type: core.Input }],
-        icon: [{ type: core.Input }]
+        stepLabel: [{ type: i0.ContentChild, args: [NovoStepLabel,] }],
+        theme: [{ type: i0.Input }],
+        color: [{ type: i0.Input }],
+        icon: [{ type: i0.Input }]
     };
     var NovoStepper = /** @class */ (function (_super) {
         __extends(NovoStepper, _super);
@@ -38742,14 +38742,14 @@
         return NovoStepper;
     }(stepper.CdkStepper));
     NovoStepper.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[novoStepper]',
                 },] }
     ];
     NovoStepper.propDecorators = {
-        _stepHeader: [{ type: core.ViewChildren, args: [NovoStepHeader,] }],
-        _steps: [{ type: core.ContentChildren, args: [NovoStep,] }],
-        _icons: [{ type: core.ContentChildren, args: [NovoIconComponent,] }]
+        _stepHeader: [{ type: i0.ViewChildren, args: [NovoStepHeader,] }],
+        _steps: [{ type: i0.ContentChildren, args: [NovoStep,] }],
+        _icons: [{ type: i0.ContentChildren, args: [NovoIconComponent,] }]
     };
     var NovoHorizontalStepper = /** @class */ (function (_super) {
         __extends(NovoHorizontalStepper, _super);
@@ -38759,7 +38759,7 @@
         return NovoHorizontalStepper;
     }(NovoStepper));
     NovoHorizontalStepper.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-horizontal-stepper',
                     template: "<div class=\"novo-horizontal-stepper-header-container\">\n    <div class=\"novo-stepper-horizontal-line complete\"></div>\n  <ng-container *ngFor=\"let step of _steps; let i = index; let isLast = last\">\n    <novo-step-header  class=\"novo-horizontal-stepper-header\"\n                     (click)=\"step.select()\"\n                     (keydown)=\"_onKeydown($event)\"\n                     [tabIndex]=\"_getFocusIndex() === i ? 0 : -1\"\n                     [id]=\"_getStepLabelId(i)\"\n                     [attr.aria-controls]=\"_getStepContentId(i)\"\n                     [attr.aria-selected]=\"selectedIndex == i\"\n                     [index]=\"i\"\n                     [theme]=\"step.theme\"\n                     [color]=\"step.color\"\n                     [icon]=\"step.icon\"\n                     [state]=\"getIndicatorType(i)\"\n                     [label]=\"step.stepLabel || step.label\"\n                     [selected]=\"selectedIndex === i\"\n                     [active]=\"step.completed || selectedIndex === i || !linear\"\n                     [optional]=\"step.optional\"\n                     [iconOverrides]=\"_iconOverrides\">\n    </novo-step-header>\n  </ng-container>\n  <div class=\"novo-stepper-horizontal-line\" [class.complete]=\"completed\"></div>\n</div>\n\n<div class=\"novo-horizontal-content-container\">\n  <div *ngFor=\"let step of _steps; let i = index\"\n       class=\"novo-horizontal-stepper-content\" role=\"tabpanel\"\n       [@stepTransition]=\"_getAnimationDirection(i)\"\n       [id]=\"_getStepContentId(i)\"\n       [attr.aria-labelledby]=\"_getStepLabelId(i)\"\n       [attr.aria-expanded]=\"selectedIndex === i\">\n    <ng-container [ngTemplateOutlet]=\"step.content\"></ng-container>\n  </div>\n</div>\n",
                     host: {
@@ -38771,12 +38771,12 @@
                     providers: [{ provide: NovoStepper, useExisting: NovoHorizontalStepper }],
                     // encapsulation: ViewEncapsulation.None,
                     preserveWhitespaces: false,
-                    changeDetection: core.ChangeDetectionStrategy.OnPush,
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush,
                     styles: ["@-webkit-keyframes rotate{0%{transform:rotate(0deg)}75%{transform:rotate(200deg)}to{transform:rotate(180deg)}}@keyframes rotate{0%{transform:rotate(0deg)}75%{transform:rotate(200deg)}to{transform:rotate(180deg)}}@-webkit-keyframes half-rotate{0%{transform:rotate(45deg)}75%{transform:rotate(100deg)}to{transform:rotate(90deg)}}@keyframes half-rotate{0%{transform:rotate(45deg)}75%{transform:rotate(100deg)}to{transform:rotate(90deg)}}@-webkit-keyframes rotateBack{0%{transform:rotate(90deg)}to{transform:rotate(0deg)}}@keyframes rotateBack{0%{transform:rotate(90deg)}to{transform:rotate(0deg)}}@-webkit-keyframes show{0%{opacity:0;transform:translateX(-100%)}75%{transform:translateX(0)}to{opacity:1;transform:translateX(0)}}@keyframes show{0%{opacity:0;transform:translateX(-100%)}75%{transform:translateX(0)}to{opacity:1;transform:translateX(0)}}.novo-stepper-horizontal,.novo-stepper-vertical{display:block}.novo-horizontal-stepper-header-container{align-items:center;background:#f4f4f4;display:flex;justify-content:center;margin-bottom:1em;white-space:nowrap}.novo-stepper-horizontal-line{border-bottom:1px solid #d9dadc;flex:auto;height:80px;min-width:0}.novo-stepper-horizontal-line.complete{border-bottom:1px solid #4a89dc}.novo-horizontal-stepper-header{align-items:center;display:flex;flex-flow:column;height:80px;justify-content:center;overflow:visible;padding:0 24px}.novo-horizontal-stepper-header .novo-step-status{align-items:center;bottom:0;display:flex;height:1px;justify-content:center;position:absolute;width:100%}.novo-horizontal-stepper-header .novo-step-status .novo-stepper-status-line{position:absolute;width:100%}.novo-horizontal-stepper-header .novo-step-status .novo-stepper-status-line:before{border-bottom:1px solid #d9dadc;content:\"\";display:block;margin-right:8px;width:calc(50% - 8px)}.novo-horizontal-stepper-header .novo-step-status .novo-stepper-status-line:after{border-top:1px solid #d9dadc;content:\"\";display:block;margin-left:calc(50% + 8px);margin-top:-1px;width:calc(50% - 8px)}.novo-horizontal-stepper-header .novo-step-status .novo-stepper-status-line.done:before,.novo-horizontal-stepper-header .novo-step-status .novo-stepper-status-line.edit:before{border-bottom:1px solid #4a89dc}.novo-horizontal-stepper-header .novo-step-status .novo-stepper-status-line.done:after{border-top:1px solid #4a89dc}.novo-horizontal-stepper-header .novo-step-status .novo-stepper-status-icon{position:relative}.novo-horizontal-stepper-header .novo-step-status .novo-stepper-status-icon:before{background:#fff;border-radius:50%;bottom:1px;content:\"\";display:block;left:1px;position:absolute;right:1px;top:1px;z-index:0}.novo-horizontal-stepper-header .novo-step-status .novo-stepper-status-icon>*{position:relative;z-index:1}.novo-vertical-stepper-header{align-items:center;display:flex;max-height:24px;padding:24px}.novo-vertical-stepper-header .novo-step-icon,.novo-vertical-stepper-header .novo-step-icon-not-touched{margin-right:12px}[dir=rtl] .novo-vertical-stepper-header .novo-step-icon,[dir=rtl] .novo-vertical-stepper-header .novo-step-icon-not-touched{margin-left:12px;margin-right:0}.novo-horizontal-stepper-content{overflow:hidden}.novo-horizontal-stepper-content[aria-expanded=false]{height:0}.novo-horizontal-content-container{overflow:hidden;padding:0 24px 24px}.novo-vertical-content-container{border:0;margin-left:36px;position:relative}[dir=rtl] .novo-vertical-content-container{margin-left:0;margin-right:36px}.novo-stepper-vertical-line:before{border-left:1px solid #d9dadc;bottom:-16px;content:\"\";left:0;position:absolute;top:-16px;z-index:-1}[dir=rtl] .novo-stepper-vertical-line:before{left:auto;right:0}.novo-stepper-vertical-line.done:after,.novo-stepper-vertical-line.done:before,.novo-stepper-vertical-line.edit:before{border-left-color:1px solid #4a89dc}.novo-stepper-vertical novo-step-status{left:35px;position:absolute;top:25px;transform:scale(.8)}.novo-vertical-stepper-content{overflow:hidden}.novo-vertical-content{padding:0 24px 24px}.novo-step:last-child .novo-vertical-content-container{border:none}"]
                 },] }
     ];
     NovoHorizontalStepper.propDecorators = {
-        selectedIndex: [{ type: core.Input }]
+        selectedIndex: [{ type: i0.Input }]
     };
     var NovoVerticalStepper = /** @class */ (function (_super) {
         __extends(NovoVerticalStepper, _super);
@@ -38788,7 +38788,7 @@
         return NovoVerticalStepper;
     }(NovoStepper));
     NovoVerticalStepper.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-vertical-stepper',
                     template: "<div class=\"novo-step\" *ngFor=\"let step of _steps; let i = index; let isLast = last\">\n    <novo-step-header  class=\"novo-vertical-stepper-header\"\n                     (click)=\"step.select()\"\n                     (keydown)=\"_onKeydown($event)\"\n                     [tabIndex]=\"_getFocusIndex() == i ? 0 : -1\"\n                     [id]=\"_getStepLabelId(i)\"\n                     [attr.aria-controls]=\"_getStepContentId(i)\"\n                     [attr.aria-selected]=\"selectedIndex === i\"\n                     [index]=\"i\"\n                     [theme]=\"step.theme\"\n                     [color]=\"step.color\"\n                     [icon]=\"step.icon\"\n                     [state]=\"getIndicatorType(i)\"\n                     [label]=\"step.stepLabel || step.label\"\n                     [selected]=\"selectedIndex === i\"\n                     [active]=\"step.completed || selectedIndex === i || !linear\"\n                     [optional]=\"step.optional\"\n                     [iconOverrides]=\"_iconOverrides\">\n    </novo-step-header>\n\n    <div class=\"novo-vertical-content-container\" [class.novo-stepper-vertical-line]=\"!isLast\" [ngClass]=\"getIndicatorType(i)\">\n      <div class=\"novo-vertical-stepper-content\" role=\"tabpanel\"\n           [@stepTransition]=\"_getAnimationDirection(i)\"\n           [id]=\"_getStepContentId(i)\"\n           [attr.aria-labelledby]=\"_getStepLabelId(i)\"\n           [attr.aria-expanded]=\"selectedIndex === i\">\n        <div class=\"novo-vertical-content\">\n          <ng-container [ngTemplateOutlet]=\"step.content\"></ng-container>\n        </div>\n      </div>\n    </div>\n  </div>\n",
                     host: {
@@ -38799,16 +38799,16 @@
                     animations: [novoStepperAnimations.verticalStepTransition],
                     providers: [{ provide: NovoStepper, useExisting: NovoVerticalStepper }],
                     preserveWhitespaces: false,
-                    changeDetection: core.ChangeDetectionStrategy.OnPush,
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush,
                     styles: ["@-webkit-keyframes rotate{0%{transform:rotate(0deg)}75%{transform:rotate(200deg)}to{transform:rotate(180deg)}}@keyframes rotate{0%{transform:rotate(0deg)}75%{transform:rotate(200deg)}to{transform:rotate(180deg)}}@-webkit-keyframes half-rotate{0%{transform:rotate(45deg)}75%{transform:rotate(100deg)}to{transform:rotate(90deg)}}@keyframes half-rotate{0%{transform:rotate(45deg)}75%{transform:rotate(100deg)}to{transform:rotate(90deg)}}@-webkit-keyframes rotateBack{0%{transform:rotate(90deg)}to{transform:rotate(0deg)}}@keyframes rotateBack{0%{transform:rotate(90deg)}to{transform:rotate(0deg)}}@-webkit-keyframes show{0%{opacity:0;transform:translateX(-100%)}75%{transform:translateX(0)}to{opacity:1;transform:translateX(0)}}@keyframes show{0%{opacity:0;transform:translateX(-100%)}75%{transform:translateX(0)}to{opacity:1;transform:translateX(0)}}.novo-stepper-horizontal,.novo-stepper-vertical{display:block}.novo-horizontal-stepper-header-container{align-items:center;background:#f4f4f4;display:flex;justify-content:center;margin-bottom:1em;white-space:nowrap}.novo-stepper-horizontal-line{border-bottom:1px solid #d9dadc;flex:auto;height:80px;min-width:0}.novo-stepper-horizontal-line.complete{border-bottom:1px solid #4a89dc}.novo-horizontal-stepper-header{align-items:center;display:flex;flex-flow:column;height:80px;justify-content:center;overflow:visible;padding:0 24px}.novo-horizontal-stepper-header .novo-step-status{align-items:center;bottom:0;display:flex;height:1px;justify-content:center;position:absolute;width:100%}.novo-horizontal-stepper-header .novo-step-status .novo-stepper-status-line{position:absolute;width:100%}.novo-horizontal-stepper-header .novo-step-status .novo-stepper-status-line:before{border-bottom:1px solid #d9dadc;content:\"\";display:block;margin-right:8px;width:calc(50% - 8px)}.novo-horizontal-stepper-header .novo-step-status .novo-stepper-status-line:after{border-top:1px solid #d9dadc;content:\"\";display:block;margin-left:calc(50% + 8px);margin-top:-1px;width:calc(50% - 8px)}.novo-horizontal-stepper-header .novo-step-status .novo-stepper-status-line.done:before,.novo-horizontal-stepper-header .novo-step-status .novo-stepper-status-line.edit:before{border-bottom:1px solid #4a89dc}.novo-horizontal-stepper-header .novo-step-status .novo-stepper-status-line.done:after{border-top:1px solid #4a89dc}.novo-horizontal-stepper-header .novo-step-status .novo-stepper-status-icon{position:relative}.novo-horizontal-stepper-header .novo-step-status .novo-stepper-status-icon:before{background:#fff;border-radius:50%;bottom:1px;content:\"\";display:block;left:1px;position:absolute;right:1px;top:1px;z-index:0}.novo-horizontal-stepper-header .novo-step-status .novo-stepper-status-icon>*{position:relative;z-index:1}.novo-vertical-stepper-header{align-items:center;display:flex;max-height:24px;padding:24px}.novo-vertical-stepper-header .novo-step-icon,.novo-vertical-stepper-header .novo-step-icon-not-touched{margin-right:12px}[dir=rtl] .novo-vertical-stepper-header .novo-step-icon,[dir=rtl] .novo-vertical-stepper-header .novo-step-icon-not-touched{margin-left:12px;margin-right:0}.novo-horizontal-stepper-content{overflow:hidden}.novo-horizontal-stepper-content[aria-expanded=false]{height:0}.novo-horizontal-content-container{overflow:hidden;padding:0 24px 24px}.novo-vertical-content-container{border:0;margin-left:36px;position:relative}[dir=rtl] .novo-vertical-content-container{margin-left:0;margin-right:36px}.novo-stepper-vertical-line:before{border-left:1px solid #d9dadc;bottom:-16px;content:\"\";left:0;position:absolute;top:-16px;z-index:-1}[dir=rtl] .novo-stepper-vertical-line:before{left:auto;right:0}.novo-stepper-vertical-line.done:after,.novo-stepper-vertical-line.done:before,.novo-stepper-vertical-line.edit:before{border-left-color:1px solid #4a89dc}.novo-stepper-vertical novo-step-status{left:35px;position:absolute;top:25px;transform:scale(.8)}.novo-vertical-stepper-content{overflow:hidden}.novo-vertical-content{padding:0 24px 24px}.novo-step:last-child .novo-vertical-content-container{border:none}"]
                 },] }
     ];
     NovoVerticalStepper.ctorParameters = function () { return [
-        { type: bidi.Directionality, decorators: [{ type: core.Optional }] },
-        { type: core.ChangeDetectorRef }
+        { type: bidi.Directionality, decorators: [{ type: i0.Optional }] },
+        { type: i0.ChangeDetectorRef }
     ]; };
     NovoVerticalStepper.propDecorators = {
-        selectedIndex: [{ type: core.Input }]
+        selectedIndex: [{ type: i0.Input }]
     };
 
     var NovoStepStatus = /** @class */ (function () {
@@ -38817,23 +38817,23 @@
         return NovoStepStatus;
     }());
     NovoStepStatus.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-step-status',
                     template: "<div class=\"novo-stepper-status-line\" [ngClass]=\"state\"></div>\n<div [ngSwitch]=\"state\" class=\"novo-stepper-status-icon\">\n  <novo-icon size=\"small\" color=\"positive\" *ngSwitchCase=\"'edit'\">check-circle</novo-icon>\n  <novo-icon size=\"small\" color=\"positive\" *ngSwitchCase=\"'done'\">check-circle-filled</novo-icon>\n  <novo-icon size=\"small\" color=\"positive\" *ngSwitchDefault>circle-o</novo-icon>\n</div>\n",
                     // encapsulation: ViewEncapsulation.None,
                     preserveWhitespaces: false,
-                    changeDetection: core.ChangeDetectionStrategy.OnPush,
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush,
                     host: {
                         class: 'novo-step-status',
                     }
                 },] }
     ];
     NovoStepStatus.ctorParameters = function () { return [
-        { type: NovoStepper, decorators: [{ type: core.Inject, args: [core.forwardRef(function () { return NovoStepper; }),] }] },
-        { type: NovoStepHeader, decorators: [{ type: core.Inject, args: [core.forwardRef(function () { return NovoStepHeader; }),] }] }
+        { type: NovoStepper, decorators: [{ type: i0.Inject, args: [i0.forwardRef(function () { return NovoStepper; }),] }] },
+        { type: NovoStepHeader, decorators: [{ type: i0.Inject, args: [i0.forwardRef(function () { return NovoStepHeader; }),] }] }
     ]; };
     NovoStepStatus.propDecorators = {
-        state: [{ type: core.Input }]
+        state: [{ type: i0.Input }]
     };
 
     var NovoStepperModule = /** @class */ (function () {
@@ -38842,7 +38842,7 @@
         return NovoStepperModule;
     }());
     NovoStepperModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, portal.PortalModule, NovoButtonModule, stepper.CdkStepperModule, NovoIconModule, a11y.A11yModule],
                     exports: [NovoHorizontalStepper, NovoVerticalStepper, NovoStep, NovoStepLabel, NovoStepper, NovoStepHeader, NovoStepStatus],
                     declarations: [NovoHorizontalStepper, NovoVerticalStepper, NovoStep, NovoStepLabel, NovoStepper, NovoStepHeader, NovoStepStatus],
@@ -38854,7 +38854,7 @@
             var _this = this;
             this.labelService = labelService;
             this.ref = ref;
-            this.selectionChange = new core.EventEmitter();
+            this.selectionChange = new i0.EventEmitter();
             this.displayTabIndex = 0;
             this.filterText = new rxjs.BehaviorSubject('');
             this.loading = true;
@@ -39133,22 +39133,22 @@
         return NovoTabbedGroupPickerElement;
     }());
     NovoTabbedGroupPickerElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-tabbed-group-picker',
                     template: "<novo-dropdown (toggled)=\"onDropdownToggle($event)\">\n  <button\n    class=\"tabbed-group-picker-button\"\n    [theme]=\"buttonConfig.theme\"\n    [side]=\"buttonConfig.side\"\n    [icon]=\"buttonConfig.icon\"\n    [loading]=\"loading\"\n  >\n    <div class=\"tabbed-group-picker-button-label\">{{ buttonConfig.label }}</div>\n  </button>\n  <div class=\"tabbed-group-picker-search\" data-automation-id=\"tabbed-group-picker-search\">\n    <input type=\"text\" [placeholder]=\"labelService.search\" [value]=\"filterText | async\" (input)=\"onFilter($event)\" />\n    <i class=\"bhi-search\" *ngIf=\"!(filterText | async)\"></i>\n    <i class=\"bhi-times\" *ngIf=\"(filterText | async)\" (click)=\"onClearFilter($event)\"></i>\n  </div>\n  <div class=\"tabbed-group-picker-column-container\">\n    <div class=\"tabbed-group-picker-column left\">\n      <novo-nav theme=\"white\" direction=\"vertical\">\n        <novo-tab *ngFor=\"let tab of displayTabs\" [attr.data-automation-id]=\"tab.typeName\" (activeChange)=\"changeTab(tab)\">\n          <span>{{ tab.typeLabel }} ({{ tab.data.length }})</span><i class=\"bhi-next\"></i>\n        </novo-tab>\n      </novo-nav>\n      <button *ngIf=\"showClearAll\" class=\"clear-all-button\" theme=\"dialogue\" icon=\"times\" side=\"right\" color=\"grapefruit\" (click)=\"deselectEverything($event)\">{{ labelService.clear }}</button>\n    </div>\n    <div class=\"tabbed-group-picker-column right\">\n      <div class=\"quick-select\" *ngIf=\"quickSelectConfig && !(filterText | async)\">\n        <div class=\"quick-select-label\">{{ quickSelectConfig.label }}</div>\n        <novo-list class=\"quick-select-list\" direction=\"vertical\">\n          <novo-list-item\n            class=\"quick-select-item\"\n            *ngFor=\"let quickSelect of quickSelectConfig.items\"\n            [attr.data-automation-id]=\"quickSelect.label\"\n            (click)=\"quickSelect.selected = !quickSelect.selected; onItemToggled(quickSelect)\"\n          >\n            <item-content>\n              <novo-checkbox\n                [label]=\"quickSelect.label\"\n                [name]=\"'selected'\"\n                [(ngModel)]=\"quickSelect.selected\"\n                (ngModelChange)=\"onItemToggled(quickSelect)\"\n              ></novo-checkbox>\n            </item-content>\n          </novo-list-item>\n        </novo-list>\n      </div>\n      <novo-list *ngIf=\"displayTab.data.length\" direction=\"vertical\">\n        <cdk-virtual-scroll-viewport\n          [itemSize]=\"virtualScrollItemSize\"\n          [maxBufferPx]=\"maxBufferPx\"\n          [minBufferPx]=\"minBufferPx\"\n          #tabbedGroupPickerVirtualScrollViewport\n        >\n          <novo-list-item\n            *cdkVirtualFor=\"let item of displayTab.data\"\n            [attr.data-automation-id]=\"item[displayTab.labelField]\"\n            (click)=\"item.selected = !item.selected; onItemToggled(item)\"\n          >\n            <item-content>\n              <novo-checkbox\n                [label]=\"item[displayTab.labelField]\"\n                [name]=\"'selected'\"\n                [indeterminate]=\"item.indeterminate\"\n                [(ngModel)]=\"item.selected\"\n                (ngModelChange)=\"onItemToggled(item)\"\n              >\n              </novo-checkbox>\n            </item-content>\n          </novo-list-item>\n        </cdk-virtual-scroll-viewport>\n      </novo-list>\n      <div class=\"tabbed-group-picker-empty-item\" *ngIf=\"!displayTab.data.length && (filterText | async)\">\n        <i class=\"{{ displayTab.icon || 'bhi-search' }}\"></i>\n        <div class=\"empty-item-main-message\">{{ labelService.tabbedGroupPickerEmpty }}</div>\n        <div class=\"empty-item-sub-message\">{{ labelService.tabbedGroupClearSuggestion(displayTab.typeLabel) }}</div>\n      </div>\n    </div>\n  </div>\n</novo-dropdown>\n",
-                    changeDetection: core.ChangeDetectionStrategy.OnPush
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush
                 },] }
     ];
     NovoTabbedGroupPickerElement.ctorParameters = function () { return [
         { type: NovoLabelService },
-        { type: core.ChangeDetectorRef }
+        { type: i0.ChangeDetectorRef }
     ]; };
     NovoTabbedGroupPickerElement.propDecorators = {
-        scrollableInstance: [{ type: core.ViewChild, args: ['tabbedGroupPickerVirtualScrollViewport',] }],
-        buttonConfig: [{ type: core.Input }],
-        tabs: [{ type: core.Input }],
-        quickSelectConfig: [{ type: core.Input }],
-        selectionChange: [{ type: core.Output }]
+        scrollableInstance: [{ type: i0.ViewChild, args: ['tabbedGroupPickerVirtualScrollViewport',] }],
+        buttonConfig: [{ type: i0.Input }],
+        tabs: [{ type: i0.Input }],
+        quickSelectConfig: [{ type: i0.Input }],
+        selectionChange: [{ type: i0.Output }]
     };
 
     // NG2
@@ -39158,7 +39158,7 @@
         return NovoTabbedGroupPickerModule;
     }());
     NovoTabbedGroupPickerModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [
                         common.CommonModule,
                         forms.FormsModule,
@@ -39197,7 +39197,7 @@
         return DateCell;
     }(BaseRenderer));
     DateCell.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'date-cell',
                     template: "\n        <div class=\"date-cell\">\n            <label>{{ getFormattedDate() }}</label>\n        </div>\n    "
                 },] }
@@ -39206,7 +39206,7 @@
         { type: NovoLabelService }
     ]; };
     DateCell.propDecorators = {
-        value: [{ type: core.Input }]
+        value: [{ type: i0.Input }]
     };
 
     var NovoDropdownCell = /** @class */ (function (_super) {
@@ -39227,14 +39227,14 @@
         return NovoDropdownCell;
     }(BaseRenderer));
     NovoDropdownCell.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-dropdown-cell',
                     template: "\n    <novo-dropdown parentScrollSelector=\".table-container\" containerClass=\"novo-table-dropdown-cell\">\n      <button type=\"button\" theme=\"secondary\" icon=\"collapse\" inverse>\n        <span data-automation-id=\"novo-dropdown-cell-value\">{{ value }}</span>\n      </button>\n      <list>\n        <ng-container *ngFor=\"let config of meta.dropdownCellConfig; let i = index\">\n          <dropdown-item-header *ngIf=\"config.category\">{{ config.category }}</dropdown-item-header>\n          <item *ngFor=\"let option of config.options\" (action)=\"onClick(config, option, option.value)\"\n                [class.active]=\"(option || option.value) === value\">\n            <span [attr.data-automation-id]=\"option.label || option\">{{ option.label || option }}</span>\n            <i *ngIf=\"(option || option.value) === value\" class=\"bhi-check\"></i>\n          </item>\n          <hr *ngIf=\"i < meta.dropdownCellConfig.length - 1\"/>\n        </ng-container>\n      </list>\n    </novo-dropdown>\n  "
                 },] }
     ];
     NovoDropdownCell.propDecorators = {
-        meta: [{ type: core.Input }],
-        value: [{ type: core.Input }]
+        meta: [{ type: i0.Input }],
+        value: [{ type: i0.Input }]
     };
 
     // NG2
@@ -39248,12 +39248,12 @@
         return NovoTableKeepFilterFocus;
     }());
     NovoTableKeepFilterFocus.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[keepFilterFocused]',
                 },] }
     ];
     NovoTableKeepFilterFocus.ctorParameters = function () { return [
-        { type: core.ElementRef }
+        { type: i0.ElementRef }
     ]; };
 
     // NG2
@@ -39261,9 +39261,9 @@
         function Pagination(labels) {
             this.labels = labels;
             this.itemsPerPage = 10;
-            this.pageChange = new core.EventEmitter();
-            this.itemsPerPageChange = new core.EventEmitter();
-            this.onPageChange = new core.EventEmitter();
+            this.pageChange = new i0.EventEmitter();
+            this.itemsPerPageChange = new i0.EventEmitter();
+            this.onPageChange = new i0.EventEmitter();
             this.maxPagesDisplayed = 5;
         }
         Object.defineProperty(Pagination.prototype, "disablePageSelection", {
@@ -39353,7 +39353,7 @@
         return Pagination;
     }());
     Pagination.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-pagination',
                     template: "\n        <h5 class=\"rows\">{{label}}</h5>\n        <novo-select [options]=\"rowOptions\" [placeholder]=\"labels.select\" [(ngModel)]=\"itemsPerPage\" (onSelect)=\"onPageSizeChanged($event)\" data-automation-id=\"pager-select\"></novo-select>\n        <span class=\"spacer\"></span>\n        <ul class=\"pager\" data-automation-id=\"pager\">\n            <li class=\"page\" (click)=\"selectPage(page-1)\" [ngClass]=\"{'disabled': noPrevious()}\"><i class=\"bhi-previous\" data-automation-id=\"pager-previous\"></i></li>\n            <li class=\"page\" [ngClass]=\"{active: p.active}\" [class.disabled]=\"disablePageSelection\" *ngFor=\"let p of pages\" (click)=\"selectPage(p.num, $event)\">{{p.text}}</li>\n            <li class=\"page\" (click)=\"selectPage(page+1)\" [ngClass]=\"{'disabled': noNext()}\"><i class=\"bhi-next\" data-automation-id=\"pager-next\"></i></li>\n        </ul>\n  "
                 },] }
@@ -39362,15 +39362,15 @@
         { type: NovoLabelService }
     ]; };
     Pagination.propDecorators = {
-        page: [{ type: core.Input }],
-        totalItems: [{ type: core.Input }],
-        itemsPerPage: [{ type: core.Input }],
-        rowOptions: [{ type: core.Input }],
-        label: [{ type: core.Input }],
-        disablePageSelection: [{ type: core.Input }],
-        pageChange: [{ type: core.Output }],
-        itemsPerPageChange: [{ type: core.Output }],
-        onPageChange: [{ type: core.Output }]
+        page: [{ type: i0.Input }],
+        totalItems: [{ type: i0.Input }],
+        itemsPerPage: [{ type: i0.Input }],
+        rowOptions: [{ type: i0.Input }],
+        label: [{ type: i0.Input }],
+        disablePageSelection: [{ type: i0.Input }],
+        pageChange: [{ type: i0.Output }],
+        itemsPerPageChange: [{ type: i0.Output }],
+        onPageChange: [{ type: i0.Output }]
     };
 
     var PercentageCell = /** @class */ (function (_super) {
@@ -39381,7 +39381,7 @@
         return PercentageCell;
     }(BaseRenderer));
     PercentageCell.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'percentage-cell',
                     template: "\n        <div class=\"percentage\" *ngIf=\"value || value === 0\">{{ value | percent:'1.0-2' }}</div>\n    "
                 },] }
@@ -39411,19 +39411,19 @@
         return RowDetails;
     }());
     RowDetails.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-row-details',
                     template: "\n    <span #container></span> <span>{{ value }}</span>\n  "
                 },] }
     ];
     RowDetails.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: ComponentUtils }
     ]; };
     RowDetails.propDecorators = {
-        container: [{ type: core.ViewChild, args: ['container', { read: core.ViewContainerRef, static: true },] }],
-        data: [{ type: core.Input }],
-        renderer: [{ type: core.Input }]
+        container: [{ type: i0.ViewChild, args: ['container', { read: i0.ViewContainerRef, static: true },] }],
+        data: [{ type: i0.Input }],
+        renderer: [{ type: i0.Input }]
     };
 
     // NG2
@@ -39433,7 +39433,7 @@
         return NovoTableActionsElement;
     }());
     NovoTableActionsElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-table-actions',
                     template: '<ng-content></ng-content>'
                 },] }
@@ -39493,21 +39493,21 @@
         return TableCell;
     }());
     TableCell.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-table-cell',
                     template: "\n    <div [ngSwitch]=\"column._type\">\n      <span #container></span>\n      <date-cell *ngSwitchCase=\"'date'\" [value]=\"value\"></date-cell>\n      <a *ngSwitchCase=\"'link'\" (click)=\"onClick($event)\">{{ value }}</a> <span *ngSwitchDefault>{{ value }}</span>\n    </div>\n  "
                 },] }
     ];
     TableCell.ctorParameters = function () { return [
-        { type: core.ElementRef },
+        { type: i0.ElementRef },
         { type: ComponentUtils }
     ]; };
     TableCell.propDecorators = {
-        container: [{ type: core.ViewChild, args: ['container', { read: core.ViewContainerRef, static: true },] }],
-        column: [{ type: core.Input }],
-        row: [{ type: core.Input }],
-        form: [{ type: core.Input }],
-        hasEditor: [{ type: core.Input }]
+        container: [{ type: i0.ViewChild, args: ['container', { read: i0.ViewContainerRef, static: true },] }],
+        column: [{ type: i0.Input }],
+        row: [{ type: i0.Input }],
+        form: [{ type: i0.Input }],
+        hasEditor: [{ type: i0.Input }]
     };
 
     // NG2
@@ -39515,7 +39515,7 @@
         function TableFilter(element, renderer) {
             this.element = element;
             this.renderer = renderer;
-            this.onFilterChange = new core.EventEmitter();
+            this.onFilterChange = new i0.EventEmitter();
             this.element = element;
             this.renderer = renderer;
         }
@@ -39552,19 +39552,19 @@
         return TableFilter;
     }());
     TableFilter.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[novoTableFilter]',
                 },] }
     ];
     TableFilter.ctorParameters = function () { return [
-        { type: core.ElementRef },
-        { type: core.Renderer2 }
+        { type: i0.ElementRef },
+        { type: i0.Renderer2 }
     ]; };
     TableFilter.propDecorators = {
-        config: [{ type: core.Input, args: ['novoTableFilter',] }],
-        onFilterChange: [{ type: core.Output }],
-        onChangeFilter: [{ type: core.HostListener, args: ['keydown', ['$event'],] }],
-        onClick: [{ type: core.HostListener, args: ['click', ['$event'],] }]
+        config: [{ type: i0.Input, args: ['novoTableFilter',] }],
+        onFilterChange: [{ type: i0.Output }],
+        onChangeFilter: [{ type: i0.HostListener, args: ['keydown', ['$event'],] }],
+        onClick: [{ type: i0.HostListener, args: ['click', ['$event'],] }]
     };
 
     // NG2
@@ -39574,7 +39574,7 @@
         return NovoTableFooterElement;
     }());
     NovoTableFooterElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-table-footer',
                     template: '<ng-content></ng-content>'
                 },] }
@@ -39587,7 +39587,7 @@
         return NovoTableHeaderElement;
     }());
     NovoTableHeaderElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-table-header',
                     template: '<ng-content></ng-content>'
                 },] }
@@ -39597,7 +39597,7 @@
     var ThOrderable = /** @class */ (function () {
         function ThOrderable(element) {
             this.element = element;
-            this.onOrderChange = new core.EventEmitter();
+            this.onOrderChange = new i0.EventEmitter();
             this.element = element;
         }
         Object.defineProperty(ThOrderable.prototype, "index", {
@@ -39700,7 +39700,7 @@
         return ThOrderable;
     }());
     ThOrderable.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[novoThOrderable]',
                     host: {
                         '(dragstart)': 'onDragStart($event)',
@@ -39713,17 +39713,17 @@
                 },] }
     ];
     ThOrderable.ctorParameters = function () { return [
-        { type: core.ElementRef }
+        { type: i0.ElementRef }
     ]; };
     ThOrderable.propDecorators = {
-        column: [{ type: core.Input, args: ['novoThOrderable',] }],
-        onOrderChange: [{ type: core.Output }]
+        column: [{ type: i0.Input, args: ['novoThOrderable',] }],
+        onOrderChange: [{ type: i0.Output }]
     };
 
     // NG2
     var ThSortable = /** @class */ (function () {
         function ThSortable() {
-            this.onSortChange = new core.EventEmitter();
+            this.onSortChange = new i0.EventEmitter();
         }
         ThSortable.prototype.onToggleSort = function (event) {
             if (event) {
@@ -39744,7 +39744,7 @@
         return ThSortable;
     }());
     ThSortable.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[novoThSortable]',
                     host: {
                         '(click)': 'onToggleSort($event)',
@@ -39752,9 +39752,9 @@
                 },] }
     ];
     ThSortable.propDecorators = {
-        config: [{ type: core.Input, args: ['novoThSortable',] }],
-        column: [{ type: core.Input }],
-        onSortChange: [{ type: core.Output }]
+        config: [{ type: i0.Input, args: ['novoThSortable',] }],
+        column: [{ type: i0.Input }],
+        onSortChange: [{ type: i0.Output }]
     };
 
     // NG2
@@ -39764,7 +39764,7 @@
         return NovoTableExtrasModule;
     }());
     NovoTableExtrasModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule, forms.FormsModule, NovoSelectModule, NovoDropdownModule, NovoButtonModule],
                     declarations: [
                         NovoTableHeaderElement,
@@ -39839,7 +39839,7 @@
     var ArrayCollection = /** @class */ (function () {
         function ArrayCollection(source) {
             if (source === void 0) { source = []; }
-            this.dataChange = new core.EventEmitter();
+            this.dataChange = new i0.EventEmitter();
             this.source = [];
             this.editData = [];
             this.isEditing = false;
@@ -40287,9 +40287,9 @@
             this.editable = false;
             this.rowIdentifier = 'id';
             this.name = 'table';
-            this.onRowClick = new core.EventEmitter();
-            this.onRowSelect = new core.EventEmitter();
-            this.onTableChange = new core.EventEmitter();
+            this.onRowClick = new i0.EventEmitter();
+            this.onRowSelect = new i0.EventEmitter();
+            this.onTableChange = new i0.EventEmitter();
             this._rows = [];
             this.selected = [];
             this.activeId = 0;
@@ -41080,7 +41080,7 @@
         return NovoTableElement;
     }());
     NovoTableElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-table',
                     host: {
                         '[attr.theme]': 'theme',
@@ -41097,20 +41097,20 @@
         { type: forms.FormBuilder }
     ]; };
     NovoTableElement.propDecorators = {
-        filterInputs: [{ type: core.ViewChildren, args: ['filterInput', { read: core.ElementRef },] }],
-        config: [{ type: core.Input }],
-        columns: [{ type: core.Input }],
-        theme: [{ type: core.Input }],
-        skipSortAndFilterClear: [{ type: core.Input }],
-        mode: [{ type: core.Input }],
-        editable: [{ type: core.Input }],
-        rowIdentifier: [{ type: core.Input }],
-        name: [{ type: core.Input }],
-        onRowClick: [{ type: core.Output }],
-        onRowSelect: [{ type: core.Output }],
-        onTableChange: [{ type: core.Output }],
-        rows: [{ type: core.Input }],
-        dataProvider: [{ type: core.Input }]
+        filterInputs: [{ type: i0.ViewChildren, args: ['filterInput', { read: i0.ElementRef },] }],
+        config: [{ type: i0.Input }],
+        columns: [{ type: i0.Input }],
+        theme: [{ type: i0.Input }],
+        skipSortAndFilterClear: [{ type: i0.Input }],
+        mode: [{ type: i0.Input }],
+        editable: [{ type: i0.Input }],
+        rowIdentifier: [{ type: i0.Input }],
+        name: [{ type: i0.Input }],
+        onRowClick: [{ type: i0.Output }],
+        onRowSelect: [{ type: i0.Output }],
+        onTableChange: [{ type: i0.Output }],
+        rows: [{ type: i0.Input }],
+        dataProvider: [{ type: i0.Input }]
     };
 
     // NG2
@@ -41120,7 +41120,7 @@
         return NovoToastModule;
     }());
     NovoToastModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule],
                     declarations: [NovoToastElement],
                     exports: [NovoToastElement],
@@ -41134,7 +41134,7 @@
         return NovoTableModule;
     }());
     NovoTableModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [
                         common.CommonModule,
                         forms.FormsModule,
@@ -41157,7 +41157,7 @@
     var Security = /** @class */ (function () {
         function Security() {
             this.credentials = [];
-            this.change = new core.EventEmitter();
+            this.change = new i0.EventEmitter();
         }
         Security.prototype.grant = function (data) {
             var e_1, _a, e_2, _b;
@@ -41249,8 +41249,11 @@
         };
         return Security;
     }());
+    Security.ɵprov = i0.ɵɵdefineInjectable({ factory: function Security_Factory() { return new Security(); }, token: Security, providedIn: "root" });
     Security.decorators = [
-        { type: core.Injectable }
+        { type: i0.Injectable, args: [{
+                    providedIn: 'root',
+                },] }
     ];
 
     var Unless = /** @class */ (function () {
@@ -41309,17 +41312,17 @@
         return Unless;
     }());
     Unless.decorators = [
-        { type: core.Directive, args: [{
+        { type: i0.Directive, args: [{
                     selector: '[bhUnless]',
                 },] }
     ];
     Unless.ctorParameters = function () { return [
-        { type: core.TemplateRef },
-        { type: core.ViewContainerRef },
+        { type: i0.TemplateRef },
+        { type: i0.ViewContainerRef },
         { type: Security }
     ]; };
     Unless.propDecorators = {
-        bhUnless: [{ type: core.Input }]
+        bhUnless: [{ type: i0.Input }]
     };
 
     // NG2
@@ -41329,7 +41332,7 @@
         return UnlessModule;
     }());
     UnlessModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule],
                     declarations: [Unless],
                     exports: [Unless],
@@ -41405,16 +41408,16 @@
         return EntityList;
     }());
     EntityList.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-entity-list',
-                    changeDetection: core.ChangeDetectionStrategy.OnPush,
+                    changeDetection: i0.ChangeDetectionStrategy.OnPush,
                     template: "\n        <div *ngFor=\"let entity of data.data\" class=\"entity\">\n            <a *ngIf=\"entity.isLinkable\" (click)=\"openLink(entity)\">\n                <i class=\"bhi-circle {{ entity.class }}\"></i>{{ entity | render : metaDisplay }}\n            </a>\n            <span *ngIf=\"!entity.isLinkable && entity.personSubtype\">\n                <i class=\"bhi-circle {{ entity.class }}\"></i>{{ entity | render : metaDisplay }}\n            </span>\n            <span *ngIf=\"!entity.isLinkable && !entity.personSubtype\">\n                {{ entity | render : metaDisplay }}\n            </span>\n        </div>\n    "
                 },] }
     ];
     EntityList.ctorParameters = function () { return []; };
     EntityList.propDecorators = {
-        data: [{ type: core.Input }],
-        meta: [{ type: core.Input }]
+        data: [{ type: i0.Input }],
+        meta: [{ type: i0.Input }]
     };
 
     /**
@@ -41851,14 +41854,14 @@
         return RenderPipe;
     }());
     RenderPipe.decorators = [
-        { type: core.Pipe, args: [{
+        { type: i0.Pipe, args: [{
                     name: 'render',
                     pure: false,
                 },] },
-        { type: core.Injectable }
+        { type: i0.Injectable }
     ];
     RenderPipe.ctorParameters = function () { return [
-        { type: core.ChangeDetectorRef },
+        { type: i0.ChangeDetectorRef },
         { type: platformBrowser.DomSanitizer },
         { type: NovoLabelService }
     ]; };
@@ -42010,18 +42013,18 @@
         return NovoValueElement;
     }());
     NovoValueElement.decorators = [
-        { type: core.Component, args: [{
+        { type: i0.Component, args: [{
                     selector: 'novo-value',
                     template: "\n      <ng-container [ngSwitch]=\"_type\">\n          <div class=\"value-outer\" *ngIf=\"showLabel\">\n              <label>{{ meta.label }}</label>\n              <span class=\"value\">\n                <i *ngIf=\"meta.showEntityIcon\" class=\"bhi-circle {{meta.entityIconClass}}\"></i>\n                <a *ngSwitchCase=\"NOVO_VALUE_TYPE.INTERNAL_LINK\" (click)=\"openLink()\" [innerHTML]=\"data | render : meta\"></a>\n                <a *ngSwitchCase=\"NOVO_VALUE_TYPE.LINK\" class=\"value\" [href]=\"url\" target=\"_blank\" [innerHTML]=\"data | render : meta\"></a>\n              </span>\n              <novo-entity-list *ngSwitchCase=\"NOVO_VALUE_TYPE.ENTITY_LIST\" [data]='data' [meta]=\"meta\"></novo-entity-list>\n          </div>\n          <div *ngSwitchDefault class=\"value-outer\" [ngClass]=\"customClass\">\n              <label>{{ meta.label }}</label>\n              <div *ngIf=\"isDefault\" class=\"value\" [innerHTML]=\"data | render : meta\"></div>\n          </div>\n          <div class=\"actions\" *ngIf=\"showIcon\">\n              <i *ngFor=\"let icon of meta.icons\" [class]=\"iconClass(icon)\" (click)=\"onValueClick(icon)\"></i>\n          </div>\n      </ng-container>\n    "
                 },] }
     ];
     NovoValueElement.propDecorators = {
-        data: [{ type: core.Input }],
-        meta: [{ type: core.Input }],
-        theme: [{ type: core.Input }],
-        label: [{ type: core.Input }],
-        type: [{ type: core.Input }],
-        isMobile: [{ type: core.HostBinding, args: ['class.mobile',] }]
+        data: [{ type: i0.Input }],
+        meta: [{ type: i0.Input }],
+        theme: [{ type: i0.Input }],
+        label: [{ type: i0.Input }],
+        type: [{ type: i0.Input }],
+        isMobile: [{ type: i0.HostBinding, args: ['class.mobile',] }]
     };
 
     // NG2
@@ -42031,7 +42034,7 @@
         return NovoValueModule;
     }());
     NovoValueModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [common.CommonModule],
                     declarations: [NovoValueElement, RenderPipe, EntityList],
                     exports: [NovoValueElement, RenderPipe, EntityList],
@@ -42045,7 +42048,7 @@
         return NovoElementsModule;
     }());
     NovoElementsModule.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [forms.ReactiveFormsModule],
                     exports: [
                         NovoPipesModule,
@@ -42142,7 +42145,7 @@
         return NovoElementProviders;
     }());
     NovoElementProviders.decorators = [
-        { type: core.NgModule, args: [{
+        { type: i0.NgModule, args: [{
                     imports: [],
                 },] }
     ];
