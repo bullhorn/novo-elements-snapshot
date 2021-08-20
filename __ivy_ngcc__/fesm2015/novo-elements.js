@@ -4220,37 +4220,47 @@ function NovoControlTemplates_ng_template_7_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵproperty("options", control_r110.options)("formControlName", control_r110.key)("tooltip", control_r110.tooltip)("tooltipPosition", control_r110.tooltipPosition)("tooltipSize", control_r110 == null ? null : control_r110.tooltipSize)("tooltipPreline", control_r110 == null ? null : control_r110.tooltipPreline)("removeTooltipArrow", control_r110 == null ? null : control_r110.removeTooltipArrow)("tooltipAutoPosition", control_r110 == null ? null : control_r110.tooltipAutoPosition)("controlDisabled", control_r110.disabled);
 } }
 function NovoControlTemplates_ng_template_8_novo_picker_1_Template(rf, ctx) { if (rf & 1) {
-    const _r124 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "novo-picker", 47);
-    ɵngcc0.ɵɵlistener("select", function NovoControlTemplates_ng_template_8_novo_picker_1_Template_novo_picker_select_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r124); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.modelChange($event); })("changed", function NovoControlTemplates_ng_template_8_novo_picker_1_Template_novo_picker_changed_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r124); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.modelChangeWithRaw($event); })("typing", function NovoControlTemplates_ng_template_8_novo_picker_1_Template_novo_picker_typing_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r124); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.handleTyping($event); })("focus", function NovoControlTemplates_ng_template_8_novo_picker_1_Template_novo_picker_focus_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r124); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.handleFocus($event); })("blur", function NovoControlTemplates_ng_template_8_novo_picker_1_Template_novo_picker_blur_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r124); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.handleBlur($event); });
+    const _r125 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "novo-picker", 48);
+    ɵngcc0.ɵɵlistener("select", function NovoControlTemplates_ng_template_8_novo_picker_1_Template_novo_picker_select_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r125); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.modelChange($event); })("changed", function NovoControlTemplates_ng_template_8_novo_picker_1_Template_novo_picker_changed_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r125); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.modelChangeWithRaw($event); })("typing", function NovoControlTemplates_ng_template_8_novo_picker_1_Template_novo_picker_typing_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r125); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.handleTyping($event); })("focus", function NovoControlTemplates_ng_template_8_novo_picker_1_Template_novo_picker_focus_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r125); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.handleFocus($event); })("blur", function NovoControlTemplates_ng_template_8_novo_picker_1_Template_novo_picker_blur_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r125); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.handleBlur($event); });
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
     const control_r116 = ɵngcc0.ɵɵnextContext().$implicit;
     ɵngcc0.ɵɵproperty("config", control_r116.config)("formControlName", control_r116.key)("placeholder", control_r116.placeholder)("parentScrollSelector", control_r116.parentScrollSelector)("tooltip", control_r116.tooltip)("tooltipPosition", control_r116.tooltipPosition)("tooltipSize", control_r116 == null ? null : control_r116.tooltipSize)("tooltipPreline", control_r116 == null ? null : control_r116.tooltipPreline)("removeTooltipArrow", control_r116 == null ? null : control_r116.removeTooltipArrow)("tooltipAutoPosition", control_r116 == null ? null : control_r116.tooltipAutoPosition);
 } }
 function NovoControlTemplates_ng_template_8_novo_chips_2_Template(rf, ctx) { if (rf & 1) {
-    const _r136 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "novo-chips", 48);
-    ɵngcc0.ɵɵlistener("changed", function NovoControlTemplates_ng_template_8_novo_chips_2_Template_novo_chips_changed_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r136); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.modelChangeWithRaw($event); })("typing", function NovoControlTemplates_ng_template_8_novo_chips_2_Template_novo_chips_typing_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r136); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.handleTyping($event); })("focus", function NovoControlTemplates_ng_template_8_novo_chips_2_Template_novo_chips_focus_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r136); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.handleFocus($event); })("blur", function NovoControlTemplates_ng_template_8_novo_chips_2_Template_novo_chips_blur_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r136); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.handleBlur($event); });
+    const _r137 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "novo-chips", 49);
+    ɵngcc0.ɵɵlistener("changed", function NovoControlTemplates_ng_template_8_novo_chips_2_Template_novo_chips_changed_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r137); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.modelChangeWithRaw($event); })("typing", function NovoControlTemplates_ng_template_8_novo_chips_2_Template_novo_chips_typing_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r137); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.handleTyping($event); })("focus", function NovoControlTemplates_ng_template_8_novo_chips_2_Template_novo_chips_focus_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r137); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.handleFocus($event); })("blur", function NovoControlTemplates_ng_template_8_novo_chips_2_Template_novo_chips_blur_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r137); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.handleBlur($event); });
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
     const control_r116 = ɵngcc0.ɵɵnextContext().$implicit;
     ɵngcc0.ɵɵproperty("source", control_r116.config)("type", control_r116.config.type)("formControlName", control_r116.key)("placeholder", control_r116.placeholder)("maxlength", control_r116 == null ? null : control_r116.maxlength)("closeOnSelect", control_r116.closeOnSelect)("tooltip", control_r116.tooltip)("tooltipPosition", control_r116.tooltipPosition)("tooltipSize", control_r116 == null ? null : control_r116.tooltipSize)("tooltipPreline", control_r116 == null ? null : control_r116.tooltipPreline)("removeTooltipArrow", control_r116 == null ? null : control_r116.removeTooltipArrow)("tooltipAutoPosition", control_r116 == null ? null : control_r116.tooltipAutoPosition);
 } }
 function NovoControlTemplates_ng_template_8_novo_row_chips_3_Template(rf, ctx) { if (rf & 1) {
-    const _r146 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "novo-row-chips", 49);
-    ɵngcc0.ɵɵlistener("changed", function NovoControlTemplates_ng_template_8_novo_row_chips_3_Template_novo_row_chips_changed_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r146); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.modelChangeWithRaw($event); })("typing", function NovoControlTemplates_ng_template_8_novo_row_chips_3_Template_novo_row_chips_typing_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r146); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.handleTyping($event); })("focus", function NovoControlTemplates_ng_template_8_novo_row_chips_3_Template_novo_row_chips_focus_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r146); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.handleFocus($event); })("blur", function NovoControlTemplates_ng_template_8_novo_row_chips_3_Template_novo_row_chips_blur_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r146); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.handleBlur($event); });
+    const _r147 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "novo-row-chips", 50);
+    ɵngcc0.ɵɵlistener("changed", function NovoControlTemplates_ng_template_8_novo_row_chips_3_Template_novo_row_chips_changed_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r147); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.modelChangeWithRaw($event); })("typing", function NovoControlTemplates_ng_template_8_novo_row_chips_3_Template_novo_row_chips_typing_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r147); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.handleTyping($event); })("focus", function NovoControlTemplates_ng_template_8_novo_row_chips_3_Template_novo_row_chips_focus_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r147); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.handleFocus($event); })("blur", function NovoControlTemplates_ng_template_8_novo_row_chips_3_Template_novo_row_chips_blur_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r147); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.handleBlur($event); });
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
     const control_r116 = ɵngcc0.ɵɵnextContext().$implicit;
     ɵngcc0.ɵɵproperty("source", control_r116.config)("type", control_r116.config.type)("formControlName", control_r116.key)("placeholder", control_r116.placeholder)("closeOnSelect", control_r116.closeOnSelect)("tooltip", control_r116.tooltip)("tooltipPosition", control_r116.tooltipPosition)("tooltipSize", control_r116 == null ? null : control_r116.tooltipSize)("tooltipPreline", control_r116 == null ? null : control_r116.tooltipPreline)("removeTooltipArrow", control_r116 == null ? null : control_r116.removeTooltipArrow)("tooltipAutoPosition", control_r116 == null ? null : control_r116.tooltipAutoPosition);
+} }
+function NovoControlTemplates_ng_template_8_multi_picker_4_Template(rf, ctx) { if (rf & 1) {
+    const _r157 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "multi-picker", 51);
+    ɵngcc0.ɵɵlistener("changed", function NovoControlTemplates_ng_template_8_multi_picker_4_Template_multi_picker_changed_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r157); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.modelChangeWithRaw($event); })("typing", function NovoControlTemplates_ng_template_8_multi_picker_4_Template_multi_picker_typing_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r157); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.handleTyping($event); })("focus", function NovoControlTemplates_ng_template_8_multi_picker_4_Template_multi_picker_focus_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r157); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.handleFocus($event); })("blur", function NovoControlTemplates_ng_template_8_multi_picker_4_Template_multi_picker_blur_0_listener($event) { ɵngcc0.ɵɵrestoreView(_r157); const methods_r119 = ɵngcc0.ɵɵnextContext().methods; return methods_r119.handleBlur($event); });
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const control_r116 = ɵngcc0.ɵɵnextContext().$implicit;
+    ɵngcc0.ɵɵproperty("source", control_r116.config)("formControlName", control_r116.key)("placeholder", control_r116.placeholder)("tooltip", control_r116.tooltip)("tooltipPosition", control_r116.tooltipPosition)("tooltipSize", control_r116 == null ? null : control_r116.tooltipSize)("tooltipPreline", control_r116 == null ? null : control_r116.tooltipPreline)("removeTooltipArrow", control_r116 == null ? null : control_r116.removeTooltipArrow)("tooltipAutoPosition", control_r116 == null ? null : control_r116.tooltipAutoPosition);
 } }
 function NovoControlTemplates_ng_template_8_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelementStart(0, "div", 43);
     ɵngcc0.ɵɵtemplate(1, NovoControlTemplates_ng_template_8_novo_picker_1_Template, 1, 10, "novo-picker", 44);
     ɵngcc0.ɵɵtemplate(2, NovoControlTemplates_ng_template_8_novo_chips_2_Template, 1, 12, "novo-chips", 45);
     ɵngcc0.ɵɵtemplate(3, NovoControlTemplates_ng_template_8_novo_row_chips_3_Template, 1, 11, "novo-row-chips", 46);
+    ɵngcc0.ɵɵtemplate(4, NovoControlTemplates_ng_template_8_multi_picker_4_Template, 1, 9, "multi-picker", 47);
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
     const control_r116 = ctx.$implicit;
@@ -4259,139 +4269,141 @@ function NovoControlTemplates_ng_template_8_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵadvance(1);
     ɵngcc0.ɵɵproperty("ngIf", !control_r116.multiple);
     ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", control_r116.multiple && !control_r116.config.columns);
+    ɵngcc0.ɵɵproperty("ngIf", control_r116.multiple && !control_r116.config.columns && !control_r116.config.selectAllOption);
     ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngIf", control_r116.multiple && control_r116.config.columns);
+    ɵngcc0.ɵɵproperty("ngIf", control_r116.multiple && control_r116.config.columns && !control_r116.config.selectAllOption);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("ngIf", control_r116.multiple && control_r116.config.selectAllOption && !control_r116.config.columns);
 } }
 function NovoControlTemplates_ng_template_9_Template(rf, ctx) { if (rf & 1) {
-    const _r160 = ɵngcc0.ɵɵgetCurrentView();
+    const _r171 = ɵngcc0.ɵɵgetCurrentView();
     ɵngcc0.ɵɵelementStart(0, "div", 33);
-    ɵngcc0.ɵɵelementStart(1, "novo-select", 50);
-    ɵngcc0.ɵɵlistener("onSelect", function NovoControlTemplates_ng_template_9_Template_novo_select_onSelect_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r160); const methods_r158 = ctx.methods; return methods_r158.modelChange($event); });
+    ɵngcc0.ɵɵelementStart(1, "novo-select", 52);
+    ɵngcc0.ɵɵlistener("onSelect", function NovoControlTemplates_ng_template_9_Template_novo_select_onSelect_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r171); const methods_r169 = ctx.methods; return methods_r169.modelChange($event); });
     ɵngcc0.ɵɵelementEnd();
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
-    const control_r155 = ctx.$implicit;
-    const form_r156 = ctx.form;
-    ɵngcc0.ɵɵproperty("formGroup", form_r156);
+    const control_r166 = ctx.$implicit;
+    const form_r167 = ctx.form;
+    ɵngcc0.ɵɵproperty("formGroup", form_r167);
     ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("options", control_r155.options)("headerConfig", control_r155.headerConfig)("placeholder", control_r155.placeholder)("formControlName", control_r155.key)("tooltip", control_r155.tooltip)("tooltipPosition", control_r155.tooltipPosition)("tooltipSize", control_r155 == null ? null : control_r155.tooltipSize)("tooltipPreline", control_r155 == null ? null : control_r155.tooltipPreline)("removeTooltipArrow", control_r155 == null ? null : control_r155.removeTooltipArrow)("tooltipAutoPosition", control_r155 == null ? null : control_r155.tooltipAutoPosition);
+    ɵngcc0.ɵɵproperty("options", control_r166.options)("headerConfig", control_r166.headerConfig)("placeholder", control_r166.placeholder)("formControlName", control_r166.key)("tooltip", control_r166.tooltip)("tooltipPosition", control_r166.tooltipPosition)("tooltipSize", control_r166 == null ? null : control_r166.tooltipSize)("tooltipPreline", control_r166 == null ? null : control_r166.tooltipPreline)("removeTooltipArrow", control_r166 == null ? null : control_r166.removeTooltipArrow)("tooltipAutoPosition", control_r166 == null ? null : control_r166.tooltipAutoPosition);
 } }
 function NovoControlTemplates_ng_template_10_novo_radio_1_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelement(0, "novo-radio", 52);
+    ɵngcc0.ɵɵelement(0, "novo-radio", 54);
 } if (rf & 2) {
-    const option_r166 = ctx.$implicit;
-    const ctx_r167 = ɵngcc0.ɵɵnextContext();
-    const control_r161 = ctx_r167.$implicit;
-    const form_r162 = ctx_r167.form;
-    ɵngcc0.ɵɵproperty("name", control_r161.key)("formControlName", control_r161.key)("value", option_r166.value)("label", option_r166.label)("checked", option_r166.value === form_r162.value[control_r161.key] || form_r162.value[control_r161.key] && option_r166.value === form_r162.value[control_r161.key].id)("tooltip", control_r161.tooltip)("tooltipPosition", control_r161.tooltipPosition)("tooltipSize", control_r161 == null ? null : control_r161.tooltipSize)("tooltipPreline", control_r161 == null ? null : control_r161.tooltipPreline)("removeTooltipArrow", control_r161 == null ? null : control_r161.removeTooltipArrow)("tooltipAutoPosition", control_r161 == null ? null : control_r161.tooltipAutoPosition)("button", !!option_r166.icon)("icon", option_r166.icon);
-    ɵngcc0.ɵɵattribute("data-automation-id", control_r161.key + "-" + ((option_r166 == null ? null : option_r166.label) || (option_r166 == null ? null : option_r166.value)));
+    const option_r177 = ctx.$implicit;
+    const ctx_r178 = ɵngcc0.ɵɵnextContext();
+    const control_r172 = ctx_r178.$implicit;
+    const form_r173 = ctx_r178.form;
+    ɵngcc0.ɵɵproperty("name", control_r172.key)("formControlName", control_r172.key)("value", option_r177.value)("label", option_r177.label)("checked", option_r177.value === form_r173.value[control_r172.key] || form_r173.value[control_r172.key] && option_r177.value === form_r173.value[control_r172.key].id)("tooltip", control_r172.tooltip)("tooltipPosition", control_r172.tooltipPosition)("tooltipSize", control_r172 == null ? null : control_r172.tooltipSize)("tooltipPreline", control_r172 == null ? null : control_r172.tooltipPreline)("removeTooltipArrow", control_r172 == null ? null : control_r172.removeTooltipArrow)("tooltipAutoPosition", control_r172 == null ? null : control_r172.tooltipAutoPosition)("button", !!option_r177.icon)("icon", option_r177.icon);
+    ɵngcc0.ɵɵattribute("data-automation-id", control_r172.key + "-" + ((option_r177 == null ? null : option_r177.label) || (option_r177 == null ? null : option_r177.value)));
 } }
 function NovoControlTemplates_ng_template_10_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelementStart(0, "div", 43);
-    ɵngcc0.ɵɵtemplate(1, NovoControlTemplates_ng_template_10_novo_radio_1_Template, 1, 14, "novo-radio", 51);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const control_r161 = ctx.$implicit;
-    const form_r162 = ctx.form;
-    ɵngcc0.ɵɵproperty("formGroup", form_r162);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("ngForOf", control_r161.options);
-} }
-function NovoControlTemplates_ng_template_11_Template(rf, ctx) { if (rf & 1) {
-    ɵngcc0.ɵɵelementStart(0, "div", 53);
-    ɵngcc0.ɵɵelement(1, "novo-time-picker-input", 54);
-    ɵngcc0.ɵɵelementEnd();
-} if (rf & 2) {
-    const control_r168 = ctx.$implicit;
-    const form_r169 = ctx.form;
-    ɵngcc0.ɵɵproperty("formGroup", form_r169)("tooltip", control_r168 == null ? null : control_r168.tooltip)("tooltipPosition", control_r168 == null ? null : control_r168.tooltipPosition)("tooltipSize", control_r168 == null ? null : control_r168.tooltipSize)("tooltipPreline", control_r168 == null ? null : control_r168.tooltipPreline)("removeTooltipArrow", control_r168 == null ? null : control_r168.removeTooltipArrow)("tooltipAutoPosition", control_r168 == null ? null : control_r168.tooltipAutoPosition);
-    ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("name", control_r168.key)("formControlName", control_r168.key)("placeholder", control_r168.placeholder)("military", control_r168.military);
-    ɵngcc0.ɵɵattribute("id", control_r168.key);
-} }
-function NovoControlTemplates_ng_template_12_Template(rf, ctx) { if (rf & 1) {
-    const _r177 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "div", 53);
-    ɵngcc0.ɵɵelementStart(1, "novo-date-picker-input", 55);
-    ɵngcc0.ɵɵlistener("focusEvent", function NovoControlTemplates_ng_template_12_Template_novo_date_picker_input_focusEvent_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r177); const methods_r175 = ctx.methods; return methods_r175.handleFocus($event); })("blurEvent", function NovoControlTemplates_ng_template_12_Template_novo_date_picker_input_blurEvent_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r177); const methods_r175 = ctx.methods; return methods_r175.handleBlur($event); })("changeEvent", function NovoControlTemplates_ng_template_12_Template_novo_date_picker_input_changeEvent_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r177); const methods_r175 = ctx.methods; return methods_r175.emitChange($event); });
-    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵtemplate(1, NovoControlTemplates_ng_template_10_novo_radio_1_Template, 1, 14, "novo-radio", 53);
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
     const control_r172 = ctx.$implicit;
     const form_r173 = ctx.form;
-    ɵngcc0.ɵɵproperty("formGroup", form_r173)("tooltip", control_r172.tooltip)("tooltipPosition", control_r172.tooltipPosition)("tooltipSize", control_r172 == null ? null : control_r172.tooltipSize)("tooltipPreline", control_r172 == null ? null : control_r172.tooltipPreline)("removeTooltipArrow", control_r172 == null ? null : control_r172.removeTooltipArrow)("tooltipAutoPosition", control_r172 == null ? null : control_r172.tooltipAutoPosition);
+    ɵngcc0.ɵɵproperty("formGroup", form_r173);
     ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("name", control_r172.key)("formControlName", control_r172.key)("start", control_r172.startDate)("end", control_r172.endDate)("format", control_r172.dateFormat)("allowInvalidDate", control_r172.allowInvalidDate)("textMaskEnabled", control_r172.textMaskEnabled)("placeholder", control_r172.placeholder)("weekStart", control_r172.weekStart);
-    ɵngcc0.ɵɵattribute("id", control_r172.key);
+    ɵngcc0.ɵɵproperty("ngForOf", control_r172.options);
+} }
+function NovoControlTemplates_ng_template_11_Template(rf, ctx) { if (rf & 1) {
+    ɵngcc0.ɵɵelementStart(0, "div", 55);
+    ɵngcc0.ɵɵelement(1, "novo-time-picker-input", 56);
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const control_r179 = ctx.$implicit;
+    const form_r180 = ctx.form;
+    ɵngcc0.ɵɵproperty("formGroup", form_r180)("tooltip", control_r179 == null ? null : control_r179.tooltip)("tooltipPosition", control_r179 == null ? null : control_r179.tooltipPosition)("tooltipSize", control_r179 == null ? null : control_r179.tooltipSize)("tooltipPreline", control_r179 == null ? null : control_r179.tooltipPreline)("removeTooltipArrow", control_r179 == null ? null : control_r179.removeTooltipArrow)("tooltipAutoPosition", control_r179 == null ? null : control_r179.tooltipAutoPosition);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("name", control_r179.key)("formControlName", control_r179.key)("placeholder", control_r179.placeholder)("military", control_r179.military);
+    ɵngcc0.ɵɵattribute("id", control_r179.key);
+} }
+function NovoControlTemplates_ng_template_12_Template(rf, ctx) { if (rf & 1) {
+    const _r188 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "div", 55);
+    ɵngcc0.ɵɵelementStart(1, "novo-date-picker-input", 57);
+    ɵngcc0.ɵɵlistener("focusEvent", function NovoControlTemplates_ng_template_12_Template_novo_date_picker_input_focusEvent_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r188); const methods_r186 = ctx.methods; return methods_r186.handleFocus($event); })("blurEvent", function NovoControlTemplates_ng_template_12_Template_novo_date_picker_input_blurEvent_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r188); const methods_r186 = ctx.methods; return methods_r186.handleBlur($event); })("changeEvent", function NovoControlTemplates_ng_template_12_Template_novo_date_picker_input_changeEvent_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r188); const methods_r186 = ctx.methods; return methods_r186.emitChange($event); });
+    ɵngcc0.ɵɵelementEnd();
+    ɵngcc0.ɵɵelementEnd();
+} if (rf & 2) {
+    const control_r183 = ctx.$implicit;
+    const form_r184 = ctx.form;
+    ɵngcc0.ɵɵproperty("formGroup", form_r184)("tooltip", control_r183.tooltip)("tooltipPosition", control_r183.tooltipPosition)("tooltipSize", control_r183 == null ? null : control_r183.tooltipSize)("tooltipPreline", control_r183 == null ? null : control_r183.tooltipPreline)("removeTooltipArrow", control_r183 == null ? null : control_r183.removeTooltipArrow)("tooltipAutoPosition", control_r183 == null ? null : control_r183.tooltipAutoPosition);
+    ɵngcc0.ɵɵadvance(1);
+    ɵngcc0.ɵɵproperty("name", control_r183.key)("formControlName", control_r183.key)("start", control_r183.startDate)("end", control_r183.endDate)("format", control_r183.dateFormat)("allowInvalidDate", control_r183.allowInvalidDate)("textMaskEnabled", control_r183.textMaskEnabled)("placeholder", control_r183.placeholder)("weekStart", control_r183.weekStart);
+    ɵngcc0.ɵɵattribute("id", control_r183.key);
 } }
 function NovoControlTemplates_ng_template_13_Template(rf, ctx) { if (rf & 1) {
-    const _r185 = ɵngcc0.ɵɵgetCurrentView();
-    ɵngcc0.ɵɵelementStart(0, "div", 53);
-    ɵngcc0.ɵɵelementStart(1, "novo-date-time-picker-input", 56);
-    ɵngcc0.ɵɵlistener("focusEvent", function NovoControlTemplates_ng_template_13_Template_novo_date_time_picker_input_focusEvent_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r185); const methods_r183 = ctx.methods; return methods_r183.handleFocus($event); })("blurEvent", function NovoControlTemplates_ng_template_13_Template_novo_date_time_picker_input_blurEvent_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r185); const methods_r183 = ctx.methods; return methods_r183.handleBlur($event); })("changeEvent", function NovoControlTemplates_ng_template_13_Template_novo_date_time_picker_input_changeEvent_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r185); const methods_r183 = ctx.methods; return methods_r183.emitChange($event); });
+    const _r196 = ɵngcc0.ɵɵgetCurrentView();
+    ɵngcc0.ɵɵelementStart(0, "div", 55);
+    ɵngcc0.ɵɵelementStart(1, "novo-date-time-picker-input", 58);
+    ɵngcc0.ɵɵlistener("focusEvent", function NovoControlTemplates_ng_template_13_Template_novo_date_time_picker_input_focusEvent_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r196); const methods_r194 = ctx.methods; return methods_r194.handleFocus($event); })("blurEvent", function NovoControlTemplates_ng_template_13_Template_novo_date_time_picker_input_blurEvent_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r196); const methods_r194 = ctx.methods; return methods_r194.handleBlur($event); })("changeEvent", function NovoControlTemplates_ng_template_13_Template_novo_date_time_picker_input_changeEvent_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r196); const methods_r194 = ctx.methods; return methods_r194.emitChange($event); });
     ɵngcc0.ɵɵelementEnd();
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
-    const control_r180 = ctx.$implicit;
-    const form_r181 = ctx.form;
-    ɵngcc0.ɵɵproperty("formGroup", form_r181)("tooltip", control_r180.tooltip)("tooltipPosition", control_r180.tooltipPosition)("tooltipSize", control_r180 == null ? null : control_r180.tooltipSize)("tooltipPreline", control_r180 == null ? null : control_r180.tooltipPreline)("removeTooltipArrow", control_r180 == null ? null : control_r180.removeTooltipArrow)("tooltipAutoPosition", control_r180 == null ? null : control_r180.tooltipAutoPosition);
+    const control_r191 = ctx.$implicit;
+    const form_r192 = ctx.form;
+    ɵngcc0.ɵɵproperty("formGroup", form_r192)("tooltip", control_r191.tooltip)("tooltipPosition", control_r191.tooltipPosition)("tooltipSize", control_r191 == null ? null : control_r191.tooltipSize)("tooltipPreline", control_r191 == null ? null : control_r191.tooltipPreline)("removeTooltipArrow", control_r191 == null ? null : control_r191.removeTooltipArrow)("tooltipAutoPosition", control_r191 == null ? null : control_r191.tooltipAutoPosition);
     ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("name", control_r180.key)("formControlName", control_r180.key)("start", control_r180.startDate)("end", control_r180.endDate)("placeholder", control_r180.placeholder)("military", control_r180.military)("weekStart", control_r180.weekStart);
-    ɵngcc0.ɵɵattribute("id", control_r180.key);
+    ɵngcc0.ɵɵproperty("name", control_r191.key)("formControlName", control_r191.key)("start", control_r191.startDate)("end", control_r191.endDate)("placeholder", control_r191.placeholder)("military", control_r191.military)("weekStart", control_r191.weekStart);
+    ɵngcc0.ɵɵattribute("id", control_r191.key);
 } }
 function NovoControlTemplates_ng_template_14_Template(rf, ctx) { if (rf & 1) {
-    const _r193 = ɵngcc0.ɵɵgetCurrentView();
+    const _r204 = ɵngcc0.ɵɵgetCurrentView();
     ɵngcc0.ɵɵelementStart(0, "div", 33);
-    ɵngcc0.ɵɵelementStart(1, "novo-address", 57);
-    ɵngcc0.ɵɵlistener("change", function NovoControlTemplates_ng_template_14_Template_novo_address_change_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r193); const methods_r191 = ctx.methods; return methods_r191.handleAddressChange($event); })("focus", function NovoControlTemplates_ng_template_14_Template_novo_address_focus_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r193); const methods_r191 = ctx.methods; return methods_r191.handleFocus($event.event, $event.field); })("blur", function NovoControlTemplates_ng_template_14_Template_novo_address_blur_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r193); const methods_r191 = ctx.methods; return methods_r191.handleBlur($event.event, $event.field); })("validityChange", function NovoControlTemplates_ng_template_14_Template_novo_address_validityChange_1_listener() { const methods_r191 = ctx.methods; return methods_r191.updateValidity(); });
+    ɵngcc0.ɵɵelementStart(1, "novo-address", 59);
+    ɵngcc0.ɵɵlistener("change", function NovoControlTemplates_ng_template_14_Template_novo_address_change_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r204); const methods_r202 = ctx.methods; return methods_r202.handleAddressChange($event); })("focus", function NovoControlTemplates_ng_template_14_Template_novo_address_focus_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r204); const methods_r202 = ctx.methods; return methods_r202.handleFocus($event.event, $event.field); })("blur", function NovoControlTemplates_ng_template_14_Template_novo_address_blur_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r204); const methods_r202 = ctx.methods; return methods_r202.handleBlur($event.event, $event.field); })("validityChange", function NovoControlTemplates_ng_template_14_Template_novo_address_validityChange_1_listener() { const methods_r202 = ctx.methods; return methods_r202.updateValidity(); });
     ɵngcc0.ɵɵelementEnd();
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
-    const control_r188 = ctx.$implicit;
-    const form_r189 = ctx.form;
-    ɵngcc0.ɵɵproperty("formGroup", form_r189);
+    const control_r199 = ctx.$implicit;
+    const form_r200 = ctx.form;
+    ɵngcc0.ɵɵproperty("formGroup", form_r200);
     ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("formControlName", control_r188.key)("config", control_r188 == null ? null : control_r188.config)("readOnly", control_r188 == null ? null : control_r188.readOnly);
+    ɵngcc0.ɵɵproperty("formControlName", control_r199.key)("config", control_r199 == null ? null : control_r199.config)("readOnly", control_r199 == null ? null : control_r199.readOnly);
 } }
 function NovoControlTemplates_ng_template_15_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelementStart(0, "div", 33);
-    ɵngcc0.ɵɵelement(1, "novo-checkbox", 58);
+    ɵngcc0.ɵɵelement(1, "novo-checkbox", 60);
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
-    const control_r197 = ctx.$implicit;
-    const form_r198 = ctx.form;
-    ɵngcc0.ɵɵproperty("formGroup", form_r198);
+    const control_r208 = ctx.$implicit;
+    const form_r209 = ctx.form;
+    ɵngcc0.ɵɵproperty("formGroup", form_r209);
     ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("formControlName", control_r197 == null ? null : control_r197.key)("name", control_r197 == null ? null : control_r197.key)("label", control_r197 == null ? null : control_r197.checkboxLabel)("tooltip", control_r197 == null ? null : control_r197.tooltip)("tooltipPosition", control_r197 == null ? null : control_r197.tooltipPosition)("tooltipSize", control_r197 == null ? null : control_r197.tooltipSize)("tooltipPreline", control_r197 == null ? null : control_r197.tooltipPreline)("removeTooltipArrow", control_r197 == null ? null : control_r197.removeTooltipArrow)("tooltipAutoPosition", control_r197 == null ? null : control_r197.tooltipAutoPosition)("layoutOptions", control_r197 == null ? null : control_r197.layoutOptions);
+    ɵngcc0.ɵɵproperty("formControlName", control_r208 == null ? null : control_r208.key)("name", control_r208 == null ? null : control_r208.key)("label", control_r208 == null ? null : control_r208.checkboxLabel)("tooltip", control_r208 == null ? null : control_r208.tooltip)("tooltipPosition", control_r208 == null ? null : control_r208.tooltipPosition)("tooltipSize", control_r208 == null ? null : control_r208.tooltipSize)("tooltipPreline", control_r208 == null ? null : control_r208.tooltipPreline)("removeTooltipArrow", control_r208 == null ? null : control_r208.removeTooltipArrow)("tooltipAutoPosition", control_r208 == null ? null : control_r208.tooltipAutoPosition)("layoutOptions", control_r208 == null ? null : control_r208.layoutOptions);
 } }
 function NovoControlTemplates_ng_template_16_Template(rf, ctx) { if (rf & 1) {
-    const _r206 = ɵngcc0.ɵɵgetCurrentView();
+    const _r217 = ɵngcc0.ɵɵgetCurrentView();
     ɵngcc0.ɵɵelementStart(0, "div", 33);
-    ɵngcc0.ɵɵelementStart(1, "novo-check-list", 59);
-    ɵngcc0.ɵɵlistener("onSelect", function NovoControlTemplates_ng_template_16_Template_novo_check_list_onSelect_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r206); const methods_r204 = ctx.methods; return methods_r204.modelChange($event); });
+    ɵngcc0.ɵɵelementStart(1, "novo-check-list", 61);
+    ɵngcc0.ɵɵlistener("onSelect", function NovoControlTemplates_ng_template_16_Template_novo_check_list_onSelect_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r217); const methods_r215 = ctx.methods; return methods_r215.modelChange($event); });
     ɵngcc0.ɵɵelementEnd();
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
-    const control_r201 = ctx.$implicit;
-    const form_r202 = ctx.form;
-    ɵngcc0.ɵɵproperty("formGroup", form_r202);
+    const control_r212 = ctx.$implicit;
+    const form_r213 = ctx.form;
+    ɵngcc0.ɵɵproperty("formGroup", form_r213);
     ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("formControlName", control_r201.key)("name", control_r201.key)("options", control_r201 == null ? null : control_r201.options)("tooltip", control_r201 == null ? null : control_r201.tooltip)("tooltipPosition", control_r201 == null ? null : control_r201.tooltipPosition)("tooltipSize", control_r201 == null ? null : control_r201.tooltipSize)("tooltipPreline", control_r201 == null ? null : control_r201.tooltipPreline)("removeTooltipArrow", control_r201 == null ? null : control_r201.removeTooltipArrow)("tooltipAutoPosition", control_r201 == null ? null : control_r201.tooltipAutoPosition);
+    ɵngcc0.ɵɵproperty("formControlName", control_r212.key)("name", control_r212.key)("options", control_r212 == null ? null : control_r212.options)("tooltip", control_r212 == null ? null : control_r212.tooltip)("tooltipPosition", control_r212 == null ? null : control_r212.tooltipPosition)("tooltipSize", control_r212 == null ? null : control_r212.tooltipSize)("tooltipPreline", control_r212 == null ? null : control_r212.tooltipPreline)("removeTooltipArrow", control_r212 == null ? null : control_r212.removeTooltipArrow)("tooltipAutoPosition", control_r212 == null ? null : control_r212.tooltipAutoPosition);
 } }
 function NovoControlTemplates_ng_template_17_Template(rf, ctx) { if (rf & 1) {
-    const _r212 = ɵngcc0.ɵɵgetCurrentView();
+    const _r223 = ɵngcc0.ɵɵgetCurrentView();
     ɵngcc0.ɵɵelementStart(0, "div", 33);
-    ɵngcc0.ɵɵelementStart(1, "novo-quick-note", 60);
-    ɵngcc0.ɵɵlistener("change", function NovoControlTemplates_ng_template_17_Template_novo_quick_note_change_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r212); const methods_r210 = ctx.methods; return methods_r210.modelChange($event); });
+    ɵngcc0.ɵɵelementStart(1, "novo-quick-note", 62);
+    ɵngcc0.ɵɵlistener("change", function NovoControlTemplates_ng_template_17_Template_novo_quick_note_change_1_listener($event) { ɵngcc0.ɵɵrestoreView(_r223); const methods_r221 = ctx.methods; return methods_r221.modelChange($event); });
     ɵngcc0.ɵɵelementEnd();
     ɵngcc0.ɵɵelementEnd();
 } if (rf & 2) {
-    const control_r207 = ctx.$implicit;
-    const form_r208 = ctx.form;
-    ɵngcc0.ɵɵproperty("formGroup", form_r208);
+    const control_r218 = ctx.$implicit;
+    const form_r219 = ctx.form;
+    ɵngcc0.ɵɵproperty("formGroup", form_r219);
     ɵngcc0.ɵɵadvance(1);
-    ɵngcc0.ɵɵproperty("formControlName", control_r207.key)("startupFocus", control_r207 == null ? null : control_r207.startupFocus)("placeholder", control_r207 == null ? null : control_r207.placeholder)("config", control_r207 == null ? null : control_r207.config)("tooltip", control_r207 == null ? null : control_r207.tooltip)("tooltipPosition", control_r207 == null ? null : control_r207.tooltipPosition)("tooltipSize", control_r207 == null ? null : control_r207.tooltipSize)("removeTooltipArrow", control_r207 == null ? null : control_r207.removeTooltipArrow)("tooltipAutoPosition", control_r207 == null ? null : control_r207.tooltipAutoPosition)("tooltipPreline", control_r207 == null ? null : control_r207.tooltipPreline);
+    ɵngcc0.ɵɵproperty("formControlName", control_r218.key)("startupFocus", control_r218 == null ? null : control_r218.startupFocus)("placeholder", control_r218 == null ? null : control_r218.placeholder)("config", control_r218 == null ? null : control_r218.config)("tooltip", control_r218 == null ? null : control_r218.tooltip)("tooltipPosition", control_r218 == null ? null : control_r218.tooltipPosition)("tooltipSize", control_r218 == null ? null : control_r218.tooltipSize)("removeTooltipArrow", control_r218 == null ? null : control_r218.removeTooltipArrow)("tooltipAutoPosition", control_r218 == null ? null : control_r218.tooltipAutoPosition)("tooltipPreline", control_r218 == null ? null : control_r218.tooltipPreline);
 } }
 function NovoFieldsetElement_novo_fieldset_header_1_Template(rf, ctx) { if (rf & 1) {
     ɵngcc0.ɵɵelement(0, "novo-fieldset-header", 3);
@@ -44423,7 +44435,7 @@ NovoControlTemplates.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoControlTemp
     } if (rf & 2) {
         var _t;
         ɵngcc0.ɵɵqueryRefresh(_t = ɵngcc0.ɵɵloadQuery()) && (ctx.defaultTemplates = _t);
-    } }, decls: 18, vars: 0, consts: [["novoTemplate", "read-only"], ["novoTemplate", "textbox"], ["novoTemplate", "text-area"], ["novoTemplate", "editor"], ["novoTemplate", "ace-editor"], ["novoTemplate", "native-select"], ["novoTemplate", "file"], ["novoTemplate", "tiles"], ["novoTemplate", "picker"], ["novoTemplate", "select"], ["novoTemplate", "radio"], ["novoTemplate", "time"], ["novoTemplate", "date"], ["novoTemplate", "date-time"], ["novoTemplate", "address"], ["novoTemplate", "checkbox"], ["novoTemplate", "checklist"], ["novoTemplate", "quick-note"], [1, "novo-control-input-container", "novo-control-input-with-label", 3, "formGroup", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition"], ["autocomplete", "", 3, "textMask", "formControlName", "id", "type", "placeholder", "input", "focus", "blur", 4, "ngIf"], ["autocomplete", "", 3, "maxlength-error", "formControlName", "id", "type", "placeholder", "maxlength", "input", "focus", "blur", 4, "ngIf"], ["step", "any", 3, "maxlength-error", "formControlName", "id", "type", "placeholder", "maxlength", "keydown", "input", "focus", "blur", "mousewheel", 4, "ngIf"], ["step", "any", 3, "type", "placeholder", "value", "keydown", "input", "focus", "blur", "mousewheel", 4, "ngIf"], ["class", "input-label", 4, "ngIf"], ["autocomplete", "", 3, "textMask", "formControlName", "id", "type", "placeholder", "input", "focus", "blur"], ["autocomplete", "", 3, "formControlName", "id", "type", "placeholder", "maxlength", "input", "focus", "blur"], ["step", "any", 3, "formControlName", "id", "type", "placeholder", "maxlength", "keydown", "input", "focus", "blur", "mousewheel"], ["numberInput", ""], ["step", "any", 3, "type", "placeholder", "value", "keydown", "input", "focus", "blur", "mousewheel"], ["percentInput", ""], [1, "input-label"], [1, "textarea-container", 3, "formGroup", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition"], ["autosize", "", 3, "name", "placeholder", "formControlName", "maxlength", "input", "focus", "blur"], [3, "formGroup"], [3, "name", "formControlName", "startupFocus", "minimal", "fileBrowserImageUploadUrl", "config", "focus", "blur"], [3, "name", "formControlName", "focus", "blur"], [3, "id", "formControlName", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition"], ["value", "", "disabled", "", "selected", "", "hidden", "", 4, "ngIf"], [3, "value", 4, "ngFor", "ngForOf"], ["value", "", "disabled", "", "selected", "", "hidden", ""], [3, "value"], [3, "formControlName", "id", "name", "placeholder", "value", "multiple", "layoutOptions", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "edit", "save", "delete", "upload"], [3, "options", "formControlName", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "controlDisabled", "onChange"], [1, "novo-control-input-container", 3, "formGroup"], [3, "config", "formControlName", "placeholder", "parentScrollSelector", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "select", "changed", "typing", "focus", "blur", 4, "ngIf"], [3, "source", "type", "formControlName", "placeholder", "maxlength", "closeOnSelect", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "changed", "typing", "focus", "blur", 4, "ngIf"], [3, "source", "type", "formControlName", "placeholder", "closeOnSelect", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "changed", "typing", "focus", "blur", 4, "ngIf"], [3, "config", "formControlName", "placeholder", "parentScrollSelector", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "select", "changed", "typing", "focus", "blur"], [3, "source", "type", "formControlName", "placeholder", "maxlength", "closeOnSelect", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "changed", "typing", "focus", "blur"], [3, "source", "type", "formControlName", "placeholder", "closeOnSelect", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "changed", "typing", "focus", "blur"], [3, "options", "headerConfig", "placeholder", "formControlName", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "onSelect"], [3, "name", "formControlName", "value", "label", "checked", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "button", "icon", 4, "ngFor", "ngForOf"], [3, "name", "formControlName", "value", "label", "checked", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "button", "icon"], [1, "novo-control-input-container", 3, "formGroup", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition"], [3, "name", "formControlName", "placeholder", "military"], [3, "name", "formControlName", "start", "end", "format", "allowInvalidDate", "textMaskEnabled", "placeholder", "weekStart", "focusEvent", "blurEvent", "changeEvent"], [3, "name", "formControlName", "start", "end", "placeholder", "military", "weekStart", "focusEvent", "blurEvent", "changeEvent"], [3, "formControlName", "config", "readOnly", "change", "focus", "blur", "validityChange"], [3, "formControlName", "name", "label", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "layoutOptions"], [3, "formControlName", "name", "options", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "onSelect"], [3, "formControlName", "startupFocus", "placeholder", "config", "tooltip", "tooltipPosition", "tooltipSize", "removeTooltipArrow", "tooltipAutoPosition", "tooltipPreline", "change"]], template: function NovoControlTemplates_Template(rf, ctx) { if (rf & 1) {
+    } }, decls: 18, vars: 0, consts: [["novoTemplate", "read-only"], ["novoTemplate", "textbox"], ["novoTemplate", "text-area"], ["novoTemplate", "editor"], ["novoTemplate", "ace-editor"], ["novoTemplate", "native-select"], ["novoTemplate", "file"], ["novoTemplate", "tiles"], ["novoTemplate", "picker"], ["novoTemplate", "select"], ["novoTemplate", "radio"], ["novoTemplate", "time"], ["novoTemplate", "date"], ["novoTemplate", "date-time"], ["novoTemplate", "address"], ["novoTemplate", "checkbox"], ["novoTemplate", "checklist"], ["novoTemplate", "quick-note"], [1, "novo-control-input-container", "novo-control-input-with-label", 3, "formGroup", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition"], ["autocomplete", "", 3, "textMask", "formControlName", "id", "type", "placeholder", "input", "focus", "blur", 4, "ngIf"], ["autocomplete", "", 3, "maxlength-error", "formControlName", "id", "type", "placeholder", "maxlength", "input", "focus", "blur", 4, "ngIf"], ["step", "any", 3, "maxlength-error", "formControlName", "id", "type", "placeholder", "maxlength", "keydown", "input", "focus", "blur", "mousewheel", 4, "ngIf"], ["step", "any", 3, "type", "placeholder", "value", "keydown", "input", "focus", "blur", "mousewheel", 4, "ngIf"], ["class", "input-label", 4, "ngIf"], ["autocomplete", "", 3, "textMask", "formControlName", "id", "type", "placeholder", "input", "focus", "blur"], ["autocomplete", "", 3, "formControlName", "id", "type", "placeholder", "maxlength", "input", "focus", "blur"], ["step", "any", 3, "formControlName", "id", "type", "placeholder", "maxlength", "keydown", "input", "focus", "blur", "mousewheel"], ["numberInput", ""], ["step", "any", 3, "type", "placeholder", "value", "keydown", "input", "focus", "blur", "mousewheel"], ["percentInput", ""], [1, "input-label"], [1, "textarea-container", 3, "formGroup", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition"], ["autosize", "", 3, "name", "placeholder", "formControlName", "maxlength", "input", "focus", "blur"], [3, "formGroup"], [3, "name", "formControlName", "startupFocus", "minimal", "fileBrowserImageUploadUrl", "config", "focus", "blur"], [3, "name", "formControlName", "focus", "blur"], [3, "id", "formControlName", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition"], ["value", "", "disabled", "", "selected", "", "hidden", "", 4, "ngIf"], [3, "value", 4, "ngFor", "ngForOf"], ["value", "", "disabled", "", "selected", "", "hidden", ""], [3, "value"], [3, "formControlName", "id", "name", "placeholder", "value", "multiple", "layoutOptions", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "edit", "save", "delete", "upload"], [3, "options", "formControlName", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "controlDisabled", "onChange"], [1, "novo-control-input-container", 3, "formGroup"], [3, "config", "formControlName", "placeholder", "parentScrollSelector", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "select", "changed", "typing", "focus", "blur", 4, "ngIf"], [3, "source", "type", "formControlName", "placeholder", "maxlength", "closeOnSelect", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "changed", "typing", "focus", "blur", 4, "ngIf"], [3, "source", "type", "formControlName", "placeholder", "closeOnSelect", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "changed", "typing", "focus", "blur", 4, "ngIf"], [3, "source", "formControlName", "placeholder", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "changed", "typing", "focus", "blur", 4, "ngIf"], [3, "config", "formControlName", "placeholder", "parentScrollSelector", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "select", "changed", "typing", "focus", "blur"], [3, "source", "type", "formControlName", "placeholder", "maxlength", "closeOnSelect", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "changed", "typing", "focus", "blur"], [3, "source", "type", "formControlName", "placeholder", "closeOnSelect", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "changed", "typing", "focus", "blur"], [3, "source", "formControlName", "placeholder", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "changed", "typing", "focus", "blur"], [3, "options", "headerConfig", "placeholder", "formControlName", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "onSelect"], [3, "name", "formControlName", "value", "label", "checked", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "button", "icon", 4, "ngFor", "ngForOf"], [3, "name", "formControlName", "value", "label", "checked", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "button", "icon"], [1, "novo-control-input-container", 3, "formGroup", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition"], [3, "name", "formControlName", "placeholder", "military"], [3, "name", "formControlName", "start", "end", "format", "allowInvalidDate", "textMaskEnabled", "placeholder", "weekStart", "focusEvent", "blurEvent", "changeEvent"], [3, "name", "formControlName", "start", "end", "placeholder", "military", "weekStart", "focusEvent", "blurEvent", "changeEvent"], [3, "formControlName", "config", "readOnly", "change", "focus", "blur", "validityChange"], [3, "formControlName", "name", "label", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "layoutOptions"], [3, "formControlName", "name", "options", "tooltip", "tooltipPosition", "tooltipSize", "tooltipPreline", "removeTooltipArrow", "tooltipAutoPosition", "onSelect"], [3, "formControlName", "startupFocus", "placeholder", "config", "tooltip", "tooltipPosition", "tooltipSize", "removeTooltipArrow", "tooltipAutoPosition", "tooltipPreline", "change"]], template: function NovoControlTemplates_Template(rf, ctx) { if (rf & 1) {
         ɵngcc0.ɵɵtemplate(0, NovoControlTemplates_ng_template_0_Template, 2, 1, "ng-template", 0);
         ɵngcc0.ɵɵtemplate(1, NovoControlTemplates_ng_template_1_Template, 7, 13, "ng-template", 1);
         ɵngcc0.ɵɵtemplate(2, NovoControlTemplates_ng_template_2_Template, 2, 14, "ng-template", 2);
@@ -44432,7 +44444,7 @@ NovoControlTemplates.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoControlTemp
         ɵngcc0.ɵɵtemplate(5, NovoControlTemplates_ng_template_5_Template, 4, 11, "ng-template", 5);
         ɵngcc0.ɵɵtemplate(6, NovoControlTemplates_ng_template_6_Template, 2, 14, "ng-template", 6);
         ɵngcc0.ɵɵtemplate(7, NovoControlTemplates_ng_template_7_Template, 2, 10, "ng-template", 7);
-        ɵngcc0.ɵɵtemplate(8, NovoControlTemplates_ng_template_8_Template, 4, 4, "ng-template", 8);
+        ɵngcc0.ɵɵtemplate(8, NovoControlTemplates_ng_template_8_Template, 5, 5, "ng-template", 8);
         ɵngcc0.ɵɵtemplate(9, NovoControlTemplates_ng_template_9_Template, 2, 11, "ng-template", 9);
         ɵngcc0.ɵɵtemplate(10, NovoControlTemplates_ng_template_10_Template, 2, 2, "ng-template", 10);
         ɵngcc0.ɵɵtemplate(11, NovoControlTemplates_ng_template_11_Template, 2, 12, "ng-template", 11);
@@ -44442,7 +44454,7 @@ NovoControlTemplates.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoControlTemp
         ɵngcc0.ɵɵtemplate(15, NovoControlTemplates_ng_template_15_Template, 2, 11, "ng-template", 15);
         ɵngcc0.ɵɵtemplate(16, NovoControlTemplates_ng_template_16_Template, 2, 10, "ng-template", 16);
         ɵngcc0.ɵɵtemplate(17, NovoControlTemplates_ng_template_17_Template, 2, 11, "ng-template", 17);
-    } }, directives: function () { return [NovoTemplate, ɵngcc3.NgControlStatusGroup, ɵngcc3.FormGroupDirective, TooltipDirective, ɵngcc1.NgIf, ɵngcc3.DefaultValueAccessor, ɵngcc7.MaskedInputDirective, ɵngcc3.NgControlStatus, ɵngcc3.FormControlName, ɵngcc3.MaxLengthValidator, NovoAutoSize, NovoCKEditorElement, NovoAceEditor, ɵngcc3.SelectControlValueAccessor, ɵngcc1.NgForOf, ɵngcc3.NgSelectOption, ɵngcc3.ɵangular_packages_forms_forms_x, NovoFileInputElement, NovoTilesElement, NovoPickerElement, NovoChipsElement, NovoRowChipsElement, NovoSelectElement, NovoRadioElement, NovoTimePickerInputElement, NovoDatePickerInputElement, NovoDateTimePickerInputElement, NovoAddressElement, NovoCheckboxElement, NovoCheckListElement, QuickNoteElement]; }, encapsulation: 2 });
+    } }, directives: function () { return [NovoTemplate, ɵngcc3.NgControlStatusGroup, ɵngcc3.FormGroupDirective, TooltipDirective, ɵngcc1.NgIf, ɵngcc3.DefaultValueAccessor, ɵngcc7.MaskedInputDirective, ɵngcc3.NgControlStatus, ɵngcc3.FormControlName, ɵngcc3.MaxLengthValidator, NovoAutoSize, NovoCKEditorElement, NovoAceEditor, ɵngcc3.SelectControlValueAccessor, ɵngcc1.NgForOf, ɵngcc3.NgSelectOption, ɵngcc3.ɵangular_packages_forms_forms_x, NovoFileInputElement, NovoTilesElement, NovoPickerElement, NovoChipsElement, NovoRowChipsElement, NovoMultiPickerElement, NovoSelectElement, NovoRadioElement, NovoTimePickerInputElement, NovoDatePickerInputElement, NovoDateTimePickerInputElement, NovoAddressElement, NovoCheckboxElement, NovoCheckListElement, QuickNoteElement]; }, encapsulation: 2 });
 NovoControlTemplates.ctorParameters = () => [
     { type: NovoTemplateService }
 ];
@@ -44519,8 +44531,9 @@ NovoControlTemplates.propDecorators = {
         <ng-template novoTemplate="picker" let-control let-form="form" let-errors="errors" let-methods="methods">
           <div [formGroup]="form" class="novo-control-input-container">
             <novo-picker [config]="control.config" [formControlName]="control.key" [placeholder]="control.placeholder" [parentScrollSelector]="control.parentScrollSelector" *ngIf="!control.multiple" (select)="methods.modelChange($event);" (changed)="methods.modelChangeWithRaw($event)" (typing)="methods.handleTyping($event)" (focus)="methods.handleFocus($event)" (blur)="methods.handleBlur($event)" [tooltip]="control.tooltip" [tooltipPosition]="control.tooltipPosition" [tooltipSize]="control?.tooltipSize" [tooltipPreline]="control?.tooltipPreline" [removeTooltipArrow]="control?.removeTooltipArrow" [tooltipAutoPosition]="control?.tooltipAutoPosition"></novo-picker>
-            <novo-chips [source]="control.config" [type]="control.config.type" [formControlName]="control.key" [placeholder]="control.placeholder" [maxlength]="control?.maxlength" *ngIf="control.multiple && !control.config.columns" [closeOnSelect]="control.closeOnSelect" (changed)="methods.modelChangeWithRaw($event)" (typing)="methods.handleTyping($event)" (focus)="methods.handleFocus($event)" (blur)="methods.handleBlur($event)" [tooltip]="control.tooltip" [tooltipPosition]="control.tooltipPosition" [tooltipSize]="control?.tooltipSize" [tooltipPreline]="control?.tooltipPreline" [removeTooltipArrow]="control?.removeTooltipArrow" [tooltipAutoPosition]="control?.tooltipAutoPosition"></novo-chips>
-            <novo-row-chips [source]="control.config" [type]="control.config.type" [formControlName]="control.key" [placeholder]="control.placeholder" *ngIf="control.multiple && control.config.columns" [closeOnSelect]="control.closeOnSelect" (changed)="methods.modelChangeWithRaw($event)" (typing)="methods.handleTyping($event)" (focus)="methods.handleFocus($event)" (blur)="methods.handleBlur($event)" [tooltip]="control.tooltip" [tooltipPosition]="control.tooltipPosition" [tooltipSize]="control?.tooltipSize" [tooltipPreline]="control?.tooltipPreline" [removeTooltipArrow]="control?.removeTooltipArrow" [tooltipAutoPosition]="control?.tooltipAutoPosition"></novo-row-chips>
+            <novo-chips [source]="control.config" [type]="control.config.type" [formControlName]="control.key" [placeholder]="control.placeholder" [maxlength]="control?.maxlength" *ngIf="control.multiple && !control.config.columns && !control.config.selectAllOption" [closeOnSelect]="control.closeOnSelect" (changed)="methods.modelChangeWithRaw($event)" (typing)="methods.handleTyping($event)" (focus)="methods.handleFocus($event)" (blur)="methods.handleBlur($event)" [tooltip]="control.tooltip" [tooltipPosition]="control.tooltipPosition" [tooltipSize]="control?.tooltipSize" [tooltipPreline]="control?.tooltipPreline" [removeTooltipArrow]="control?.removeTooltipArrow" [tooltipAutoPosition]="control?.tooltipAutoPosition"></novo-chips>
+            <novo-row-chips [source]="control.config" [type]="control.config.type" [formControlName]="control.key" [placeholder]="control.placeholder" *ngIf="control.multiple && control.config.columns && !control.config.selectAllOption" [closeOnSelect]="control.closeOnSelect" (changed)="methods.modelChangeWithRaw($event)" (typing)="methods.handleTyping($event)" (focus)="methods.handleFocus($event)" (blur)="methods.handleBlur($event)" [tooltip]="control.tooltip" [tooltipPosition]="control.tooltipPosition" [tooltipSize]="control?.tooltipSize" [tooltipPreline]="control?.tooltipPreline" [removeTooltipArrow]="control?.removeTooltipArrow" [tooltipAutoPosition]="control?.tooltipAutoPosition"></novo-row-chips>
+            <multi-picker [source]="control.config" [formControlName]="control.key" [placeholder]="control.placeholder" *ngIf="control.multiple && control.config.selectAllOption && !control.config.columns" (changed)="methods.modelChangeWithRaw($event)" (typing)="methods.handleTyping($event)" (focus)="methods.handleFocus($event)" (blur)="methods.handleBlur($event)" [tooltip]="control.tooltip" [tooltipPosition]="control.tooltipPosition" [tooltipSize]="control?.tooltipSize" [tooltipPreline]="control?.tooltipPreline" [removeTooltipArrow]="control?.removeTooltipArrow" [tooltipAutoPosition]="control?.tooltipAutoPosition"></multi-picker>
           </div>
         </ng-template>
 
@@ -46258,197 +46271,6 @@ NovoModalModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoModal
     }], null, null); })();
 
 // NG2
-class NovoFormModule {
-}
-NovoFormModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoFormModule });
-NovoFormModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoFormModule_Factory(t) { return new (t || NovoFormModule)(); }, providers: [NovoTemplateService], imports: [[
-            CommonModule,
-            ReactiveFormsModule,
-            NovoRadioModule,
-            NovoTilesModule,
-            NovoSelectModule,
-            NovoPickerModule,
-            NovoChipsModule,
-            NovoDatePickerModule,
-            NovoTimePickerModule,
-            NovoNovoCKEditorModule,
-            NovoFormExtrasModule,
-            NovoQuickNoteModule,
-            NovoDateTimePickerModule,
-            NovoHeaderModule,
-            NovoTooltipModule,
-            NovoDragulaModule,
-            TextMaskModule,
-            NovoTipWellModule,
-            NovoModalModule,
-            NovoButtonModule,
-            NovoAceEditorModule,
-            NovoCommonModule,
-        ]] });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoFormModule, { declarations: function () { return [NovoAutoSize, NovoControlElement, NovoDynamicFormElement, NovoFormElement, NovoFieldsetElement, NovoFieldsetHeaderElement, ControlConfirmModal, ControlPromptModal, NovoControlGroup, NovoControlTemplates]; }, imports: function () { return [CommonModule,
-        ReactiveFormsModule, NovoRadioModule, NovoTilesModule, NovoSelectModule, NovoPickerModule, NovoChipsModule, NovoDatePickerModule, NovoTimePickerModule, NovoNovoCKEditorModule, NovoFormExtrasModule, NovoQuickNoteModule, NovoDateTimePickerModule, NovoHeaderModule, NovoTooltipModule, NovoDragulaModule, TextMaskModule, NovoTipWellModule, NovoModalModule, NovoButtonModule, NovoAceEditorModule, NovoCommonModule]; }, exports: function () { return [NovoAutoSize, NovoDynamicFormElement, NovoControlElement, NovoFormElement, NovoFieldsetHeaderElement, NovoControlGroup, NovoControlTemplates]; } }); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoFormModule, [{
-        type: NgModule,
-        args: [{
-                imports: [
-                    CommonModule,
-                    ReactiveFormsModule,
-                    NovoRadioModule,
-                    NovoTilesModule,
-                    NovoSelectModule,
-                    NovoPickerModule,
-                    NovoChipsModule,
-                    NovoDatePickerModule,
-                    NovoTimePickerModule,
-                    NovoNovoCKEditorModule,
-                    NovoFormExtrasModule,
-                    NovoQuickNoteModule,
-                    NovoDateTimePickerModule,
-                    NovoHeaderModule,
-                    NovoTooltipModule,
-                    NovoDragulaModule,
-                    TextMaskModule,
-                    NovoTipWellModule,
-                    NovoModalModule,
-                    NovoButtonModule,
-                    NovoAceEditorModule,
-                    NovoCommonModule,
-                ],
-                declarations: [
-                    NovoAutoSize,
-                    NovoControlElement,
-                    NovoDynamicFormElement,
-                    NovoFormElement,
-                    NovoFieldsetElement,
-                    NovoFieldsetHeaderElement,
-                    ControlConfirmModal,
-                    ControlPromptModal,
-                    NovoControlGroup,
-                    NovoControlTemplates,
-                ],
-                exports: [
-                    NovoAutoSize,
-                    NovoDynamicFormElement,
-                    NovoControlElement,
-                    NovoFormElement,
-                    NovoFieldsetHeaderElement,
-                    NovoControlGroup,
-                    NovoControlTemplates,
-                ],
-                providers: [NovoTemplateService]
-            }]
-    }], null, null); })();
-
-class NovoIconComponent {
-    constructor(element, cdr) {
-        this.element = element;
-        this.cdr = cdr;
-        this.size = 'medium';
-        this.role = 'img';
-    }
-    set alt(value) {
-        this.ariaLabel = value;
-    }
-    get alt() {
-        return this.ariaLabel;
-    }
-    set name(iconName) {
-        this.iconName = `bhi-${iconName}`;
-    }
-    get name() {
-        return this.iconName;
-    }
-    ngAfterViewInit() {
-        if (this.element.nativeElement.textContent.trim()) {
-            Promise.resolve().then(() => {
-                this.name = this.element.nativeElement.textContent.trim();
-                this.cdr.markForCheck();
-            });
-        }
-    }
-}
-NovoIconComponent.ɵfac = function NovoIconComponent_Factory(t) { return new (t || NovoIconComponent)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef)); };
-NovoIconComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoIconComponent, selectors: [["novo-icon"]], hostVars: 6, hostBindings: function NovoIconComponent_HostBindings(rf, ctx) { if (rf & 2) {
-        ɵngcc0.ɵɵattribute("size", ctx.size)("role", ctx.role)("aria-label", ctx.ariaLabel)("raised", ctx.raised)("theme", ctx.theme)("color", ctx.color);
-    } }, inputs: { size: "size", alt: "alt", name: "name", raised: "raised", theme: "theme", color: "color" }, ngContentSelectors: _c1, decls: 3, vars: 2, template: function NovoIconComponent_Template(rf, ctx) { if (rf & 1) {
-        ɵngcc0.ɵɵprojectionDef();
-        ɵngcc0.ɵɵelementStart(0, "i");
-        ɵngcc0.ɵɵelementStart(1, "span");
-        ɵngcc0.ɵɵprojection(2);
-        ɵngcc0.ɵɵelementEnd();
-        ɵngcc0.ɵɵelementEnd();
-    } if (rf & 2) {
-        ɵngcc0.ɵɵclassMap(ctx.iconName);
-    } }, encapsulation: 2, changeDetection: 0 });
-NovoIconComponent.ctorParameters = () => [
-    { type: ElementRef },
-    { type: ChangeDetectorRef }
-];
-NovoIconComponent.propDecorators = {
-    raised: [{ type: HostBinding, args: ['attr.raised',] }, { type: Input }],
-    size: [{ type: HostBinding, args: ['attr.size',] }, { type: Input }],
-    theme: [{ type: HostBinding, args: ['attr.theme',] }, { type: Input }],
-    color: [{ type: HostBinding, args: ['attr.color',] }, { type: Input }],
-    role: [{ type: HostBinding, args: ['attr.role',] }],
-    ariaLabel: [{ type: HostBinding, args: ['attr.aria-label',] }],
-    alt: [{ type: Input }],
-    name: [{ type: Input }]
-};
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoIconComponent, [{
-        type: Component,
-        args: [{
-                selector: 'novo-icon',
-                changeDetection: ChangeDetectionStrategy.OnPush,
-                template: `
-        <i [class]="iconName"><span><ng-content></ng-content></span></i>
-    `
-            }]
-    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: ɵngcc0.ChangeDetectorRef }]; }, { size: [{
-            type: HostBinding,
-            args: ['attr.size']
-        }, {
-            type: Input
-        }], role: [{
-            type: HostBinding,
-            args: ['attr.role']
-        }], alt: [{
-            type: Input
-        }], ariaLabel: [{
-            type: HostBinding,
-            args: ['attr.aria-label']
-        }], name: [{
-            type: Input
-        }], raised: [{
-            type: HostBinding,
-            args: ['attr.raised']
-        }, {
-            type: Input
-        }], theme: [{
-            type: HostBinding,
-            args: ['attr.theme']
-        }, {
-            type: Input
-        }], color: [{
-            type: HostBinding,
-            args: ['attr.color']
-        }, {
-            type: Input
-        }] }); })();
-
-class NovoIconModule {
-}
-NovoIconModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoIconModule });
-NovoIconModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoIconModule_Factory(t) { return new (t || NovoIconModule)(); } });
-(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoIconModule, { declarations: [NovoIconComponent], exports: [NovoIconComponent] }); })();
-/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoIconModule, [{
-        type: NgModule,
-        args: [{
-                exports: [NovoIconComponent],
-                declarations: [NovoIconComponent]
-            }]
-    }], null, null); })();
-
-// NG2
 // Value accessor for the component (supports ngModel)
 const CHIPS_VALUE_ACCESSOR$2 = {
     provide: NG_VALUE_ACCESSOR,
@@ -47094,6 +46916,199 @@ NovoMultiPickerModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function Nov
                 imports: [CommonModule, FormsModule, NovoPickerModule, NovoChipsModule],
                 declarations: [NovoMultiPickerElement],
                 exports: [NovoMultiPickerElement]
+            }]
+    }], null, null); })();
+
+// NG2
+class NovoFormModule {
+}
+NovoFormModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoFormModule });
+NovoFormModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoFormModule_Factory(t) { return new (t || NovoFormModule)(); }, providers: [NovoTemplateService], imports: [[
+            CommonModule,
+            ReactiveFormsModule,
+            NovoRadioModule,
+            NovoTilesModule,
+            NovoSelectModule,
+            NovoPickerModule,
+            NovoChipsModule,
+            NovoDatePickerModule,
+            NovoTimePickerModule,
+            NovoNovoCKEditorModule,
+            NovoFormExtrasModule,
+            NovoQuickNoteModule,
+            NovoDateTimePickerModule,
+            NovoHeaderModule,
+            NovoTooltipModule,
+            NovoDragulaModule,
+            TextMaskModule,
+            NovoTipWellModule,
+            NovoModalModule,
+            NovoButtonModule,
+            NovoAceEditorModule,
+            NovoCommonModule,
+            NovoMultiPickerModule,
+        ]] });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoFormModule, { declarations: function () { return [NovoAutoSize, NovoControlElement, NovoDynamicFormElement, NovoFormElement, NovoFieldsetElement, NovoFieldsetHeaderElement, ControlConfirmModal, ControlPromptModal, NovoControlGroup, NovoControlTemplates]; }, imports: function () { return [CommonModule,
+        ReactiveFormsModule, NovoRadioModule, NovoTilesModule, NovoSelectModule, NovoPickerModule, NovoChipsModule, NovoDatePickerModule, NovoTimePickerModule, NovoNovoCKEditorModule, NovoFormExtrasModule, NovoQuickNoteModule, NovoDateTimePickerModule, NovoHeaderModule, NovoTooltipModule, NovoDragulaModule, TextMaskModule, NovoTipWellModule, NovoModalModule, NovoButtonModule, NovoAceEditorModule, NovoCommonModule, NovoMultiPickerModule]; }, exports: function () { return [NovoAutoSize, NovoDynamicFormElement, NovoControlElement, NovoFormElement, NovoFieldsetHeaderElement, NovoControlGroup, NovoControlTemplates]; } }); })();
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoFormModule, [{
+        type: NgModule,
+        args: [{
+                imports: [
+                    CommonModule,
+                    ReactiveFormsModule,
+                    NovoRadioModule,
+                    NovoTilesModule,
+                    NovoSelectModule,
+                    NovoPickerModule,
+                    NovoChipsModule,
+                    NovoDatePickerModule,
+                    NovoTimePickerModule,
+                    NovoNovoCKEditorModule,
+                    NovoFormExtrasModule,
+                    NovoQuickNoteModule,
+                    NovoDateTimePickerModule,
+                    NovoHeaderModule,
+                    NovoTooltipModule,
+                    NovoDragulaModule,
+                    TextMaskModule,
+                    NovoTipWellModule,
+                    NovoModalModule,
+                    NovoButtonModule,
+                    NovoAceEditorModule,
+                    NovoCommonModule,
+                    NovoMultiPickerModule,
+                ],
+                declarations: [
+                    NovoAutoSize,
+                    NovoControlElement,
+                    NovoDynamicFormElement,
+                    NovoFormElement,
+                    NovoFieldsetElement,
+                    NovoFieldsetHeaderElement,
+                    ControlConfirmModal,
+                    ControlPromptModal,
+                    NovoControlGroup,
+                    NovoControlTemplates,
+                ],
+                exports: [
+                    NovoAutoSize,
+                    NovoDynamicFormElement,
+                    NovoControlElement,
+                    NovoFormElement,
+                    NovoFieldsetHeaderElement,
+                    NovoControlGroup,
+                    NovoControlTemplates,
+                ],
+                providers: [NovoTemplateService]
+            }]
+    }], null, null); })();
+
+class NovoIconComponent {
+    constructor(element, cdr) {
+        this.element = element;
+        this.cdr = cdr;
+        this.size = 'medium';
+        this.role = 'img';
+    }
+    set alt(value) {
+        this.ariaLabel = value;
+    }
+    get alt() {
+        return this.ariaLabel;
+    }
+    set name(iconName) {
+        this.iconName = `bhi-${iconName}`;
+    }
+    get name() {
+        return this.iconName;
+    }
+    ngAfterViewInit() {
+        if (this.element.nativeElement.textContent.trim()) {
+            Promise.resolve().then(() => {
+                this.name = this.element.nativeElement.textContent.trim();
+                this.cdr.markForCheck();
+            });
+        }
+    }
+}
+NovoIconComponent.ɵfac = function NovoIconComponent_Factory(t) { return new (t || NovoIconComponent)(ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ElementRef), ɵngcc0.ɵɵdirectiveInject(ɵngcc0.ChangeDetectorRef)); };
+NovoIconComponent.ɵcmp = ɵngcc0.ɵɵdefineComponent({ type: NovoIconComponent, selectors: [["novo-icon"]], hostVars: 6, hostBindings: function NovoIconComponent_HostBindings(rf, ctx) { if (rf & 2) {
+        ɵngcc0.ɵɵattribute("size", ctx.size)("role", ctx.role)("aria-label", ctx.ariaLabel)("raised", ctx.raised)("theme", ctx.theme)("color", ctx.color);
+    } }, inputs: { size: "size", alt: "alt", name: "name", raised: "raised", theme: "theme", color: "color" }, ngContentSelectors: _c1, decls: 3, vars: 2, template: function NovoIconComponent_Template(rf, ctx) { if (rf & 1) {
+        ɵngcc0.ɵɵprojectionDef();
+        ɵngcc0.ɵɵelementStart(0, "i");
+        ɵngcc0.ɵɵelementStart(1, "span");
+        ɵngcc0.ɵɵprojection(2);
+        ɵngcc0.ɵɵelementEnd();
+        ɵngcc0.ɵɵelementEnd();
+    } if (rf & 2) {
+        ɵngcc0.ɵɵclassMap(ctx.iconName);
+    } }, encapsulation: 2, changeDetection: 0 });
+NovoIconComponent.ctorParameters = () => [
+    { type: ElementRef },
+    { type: ChangeDetectorRef }
+];
+NovoIconComponent.propDecorators = {
+    raised: [{ type: HostBinding, args: ['attr.raised',] }, { type: Input }],
+    size: [{ type: HostBinding, args: ['attr.size',] }, { type: Input }],
+    theme: [{ type: HostBinding, args: ['attr.theme',] }, { type: Input }],
+    color: [{ type: HostBinding, args: ['attr.color',] }, { type: Input }],
+    role: [{ type: HostBinding, args: ['attr.role',] }],
+    ariaLabel: [{ type: HostBinding, args: ['attr.aria-label',] }],
+    alt: [{ type: Input }],
+    name: [{ type: Input }]
+};
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoIconComponent, [{
+        type: Component,
+        args: [{
+                selector: 'novo-icon',
+                changeDetection: ChangeDetectionStrategy.OnPush,
+                template: `
+        <i [class]="iconName"><span><ng-content></ng-content></span></i>
+    `
+            }]
+    }], function () { return [{ type: ɵngcc0.ElementRef }, { type: ɵngcc0.ChangeDetectorRef }]; }, { size: [{
+            type: HostBinding,
+            args: ['attr.size']
+        }, {
+            type: Input
+        }], role: [{
+            type: HostBinding,
+            args: ['attr.role']
+        }], alt: [{
+            type: Input
+        }], ariaLabel: [{
+            type: HostBinding,
+            args: ['attr.aria-label']
+        }], name: [{
+            type: Input
+        }], raised: [{
+            type: HostBinding,
+            args: ['attr.raised']
+        }, {
+            type: Input
+        }], theme: [{
+            type: HostBinding,
+            args: ['attr.theme']
+        }, {
+            type: Input
+        }], color: [{
+            type: HostBinding,
+            args: ['attr.color']
+        }, {
+            type: Input
+        }] }); })();
+
+class NovoIconModule {
+}
+NovoIconModule.ɵmod = ɵngcc0.ɵɵdefineNgModule({ type: NovoIconModule });
+NovoIconModule.ɵinj = ɵngcc0.ɵɵdefineInjector({ factory: function NovoIconModule_Factory(t) { return new (t || NovoIconModule)(); } });
+(function () { (typeof ngJitMode === "undefined" || ngJitMode) && ɵngcc0.ɵɵsetNgModuleScope(NovoIconModule, { declarations: [NovoIconComponent], exports: [NovoIconComponent] }); })();
+/*@__PURE__*/ (function () { ɵngcc0.ɵsetClassMetadata(NovoIconModule, [{
+        type: NgModule,
+        args: [{
+                exports: [NovoIconComponent],
+                declarations: [NovoIconComponent]
             }]
     }], null, null); })();
 

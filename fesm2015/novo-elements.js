@@ -34841,8 +34841,9 @@ NovoControlTemplates.decorators = [
         <ng-template novoTemplate="picker" let-control let-form="form" let-errors="errors" let-methods="methods">
           <div [formGroup]="form" class="novo-control-input-container">
             <novo-picker [config]="control.config" [formControlName]="control.key" [placeholder]="control.placeholder" [parentScrollSelector]="control.parentScrollSelector" *ngIf="!control.multiple" (select)="methods.modelChange($event);" (changed)="methods.modelChangeWithRaw($event)" (typing)="methods.handleTyping($event)" (focus)="methods.handleFocus($event)" (blur)="methods.handleBlur($event)" [tooltip]="control.tooltip" [tooltipPosition]="control.tooltipPosition" [tooltipSize]="control?.tooltipSize" [tooltipPreline]="control?.tooltipPreline" [removeTooltipArrow]="control?.removeTooltipArrow" [tooltipAutoPosition]="control?.tooltipAutoPosition"></novo-picker>
-            <novo-chips [source]="control.config" [type]="control.config.type" [formControlName]="control.key" [placeholder]="control.placeholder" [maxlength]="control?.maxlength" *ngIf="control.multiple && !control.config.columns" [closeOnSelect]="control.closeOnSelect" (changed)="methods.modelChangeWithRaw($event)" (typing)="methods.handleTyping($event)" (focus)="methods.handleFocus($event)" (blur)="methods.handleBlur($event)" [tooltip]="control.tooltip" [tooltipPosition]="control.tooltipPosition" [tooltipSize]="control?.tooltipSize" [tooltipPreline]="control?.tooltipPreline" [removeTooltipArrow]="control?.removeTooltipArrow" [tooltipAutoPosition]="control?.tooltipAutoPosition"></novo-chips>
-            <novo-row-chips [source]="control.config" [type]="control.config.type" [formControlName]="control.key" [placeholder]="control.placeholder" *ngIf="control.multiple && control.config.columns" [closeOnSelect]="control.closeOnSelect" (changed)="methods.modelChangeWithRaw($event)" (typing)="methods.handleTyping($event)" (focus)="methods.handleFocus($event)" (blur)="methods.handleBlur($event)" [tooltip]="control.tooltip" [tooltipPosition]="control.tooltipPosition" [tooltipSize]="control?.tooltipSize" [tooltipPreline]="control?.tooltipPreline" [removeTooltipArrow]="control?.removeTooltipArrow" [tooltipAutoPosition]="control?.tooltipAutoPosition"></novo-row-chips>
+            <novo-chips [source]="control.config" [type]="control.config.type" [formControlName]="control.key" [placeholder]="control.placeholder" [maxlength]="control?.maxlength" *ngIf="control.multiple && !control.config.columns && !control.config.selectAllOption" [closeOnSelect]="control.closeOnSelect" (changed)="methods.modelChangeWithRaw($event)" (typing)="methods.handleTyping($event)" (focus)="methods.handleFocus($event)" (blur)="methods.handleBlur($event)" [tooltip]="control.tooltip" [tooltipPosition]="control.tooltipPosition" [tooltipSize]="control?.tooltipSize" [tooltipPreline]="control?.tooltipPreline" [removeTooltipArrow]="control?.removeTooltipArrow" [tooltipAutoPosition]="control?.tooltipAutoPosition"></novo-chips>
+            <novo-row-chips [source]="control.config" [type]="control.config.type" [formControlName]="control.key" [placeholder]="control.placeholder" *ngIf="control.multiple && control.config.columns && !control.config.selectAllOption" [closeOnSelect]="control.closeOnSelect" (changed)="methods.modelChangeWithRaw($event)" (typing)="methods.handleTyping($event)" (focus)="methods.handleFocus($event)" (blur)="methods.handleBlur($event)" [tooltip]="control.tooltip" [tooltipPosition]="control.tooltipPosition" [tooltipSize]="control?.tooltipSize" [tooltipPreline]="control?.tooltipPreline" [removeTooltipArrow]="control?.removeTooltipArrow" [tooltipAutoPosition]="control?.tooltipAutoPosition"></novo-row-chips>
+            <multi-picker [source]="control.config" [formControlName]="control.key" [placeholder]="control.placeholder" *ngIf="control.multiple && control.config.selectAllOption && !control.config.columns" (changed)="methods.modelChangeWithRaw($event)" (typing)="methods.handleTyping($event)" (focus)="methods.handleFocus($event)" (blur)="methods.handleBlur($event)" [tooltip]="control.tooltip" [tooltipPosition]="control.tooltipPosition" [tooltipSize]="control?.tooltipSize" [tooltipPreline]="control?.tooltipPreline" [removeTooltipArrow]="control?.removeTooltipArrow" [tooltipAutoPosition]="control?.tooltipAutoPosition"></multi-picker>
           </div>
         </ng-template>
 
@@ -36243,121 +36244,6 @@ NovoModalModule.decorators = [
 ];
 
 // NG2
-class NovoFormModule {
-}
-NovoFormModule.decorators = [
-    { type: NgModule, args: [{
-                imports: [
-                    CommonModule,
-                    ReactiveFormsModule,
-                    NovoRadioModule,
-                    NovoTilesModule,
-                    NovoSelectModule,
-                    NovoPickerModule,
-                    NovoChipsModule,
-                    NovoDatePickerModule,
-                    NovoTimePickerModule,
-                    NovoNovoCKEditorModule,
-                    NovoFormExtrasModule,
-                    NovoQuickNoteModule,
-                    NovoDateTimePickerModule,
-                    NovoHeaderModule,
-                    NovoTooltipModule,
-                    NovoDragulaModule,
-                    TextMaskModule,
-                    NovoTipWellModule,
-                    NovoModalModule,
-                    NovoButtonModule,
-                    NovoAceEditorModule,
-                    NovoCommonModule,
-                ],
-                declarations: [
-                    NovoAutoSize,
-                    NovoControlElement,
-                    NovoDynamicFormElement,
-                    NovoFormElement,
-                    NovoFieldsetElement,
-                    NovoFieldsetHeaderElement,
-                    ControlConfirmModal,
-                    ControlPromptModal,
-                    NovoControlGroup,
-                    NovoControlTemplates,
-                ],
-                exports: [
-                    NovoAutoSize,
-                    NovoDynamicFormElement,
-                    NovoControlElement,
-                    NovoFormElement,
-                    NovoFieldsetHeaderElement,
-                    NovoControlGroup,
-                    NovoControlTemplates,
-                ],
-                providers: [NovoTemplateService],
-            },] }
-];
-
-class NovoIconComponent {
-    constructor(element, cdr) {
-        this.element = element;
-        this.cdr = cdr;
-        this.size = 'medium';
-        this.role = 'img';
-    }
-    set alt(value) {
-        this.ariaLabel = value;
-    }
-    get alt() {
-        return this.ariaLabel;
-    }
-    set name(iconName) {
-        this.iconName = `bhi-${iconName}`;
-    }
-    get name() {
-        return this.iconName;
-    }
-    ngAfterViewInit() {
-        if (this.element.nativeElement.textContent.trim()) {
-            Promise.resolve().then(() => {
-                this.name = this.element.nativeElement.textContent.trim();
-                this.cdr.markForCheck();
-            });
-        }
-    }
-}
-NovoIconComponent.decorators = [
-    { type: Component, args: [{
-                selector: 'novo-icon',
-                changeDetection: ChangeDetectionStrategy.OnPush,
-                template: `
-        <i [class]="iconName"><span><ng-content></ng-content></span></i>
-    `
-            },] }
-];
-NovoIconComponent.ctorParameters = () => [
-    { type: ElementRef },
-    { type: ChangeDetectorRef }
-];
-NovoIconComponent.propDecorators = {
-    raised: [{ type: HostBinding, args: ['attr.raised',] }, { type: Input }],
-    size: [{ type: HostBinding, args: ['attr.size',] }, { type: Input }],
-    theme: [{ type: HostBinding, args: ['attr.theme',] }, { type: Input }],
-    color: [{ type: HostBinding, args: ['attr.color',] }, { type: Input }],
-    role: [{ type: HostBinding, args: ['attr.role',] }],
-    ariaLabel: [{ type: HostBinding, args: ['attr.aria-label',] }],
-    alt: [{ type: Input }],
-    name: [{ type: Input }]
-};
-
-class NovoIconModule {
-}
-NovoIconModule.decorators = [
-    { type: NgModule, args: [{
-                exports: [NovoIconComponent],
-                declarations: [NovoIconComponent],
-            },] }
-];
-
-// NG2
 // Value accessor for the component (supports ngModel)
 const CHIPS_VALUE_ACCESSOR$2 = {
     provide: NG_VALUE_ACCESSOR,
@@ -36958,6 +36844,122 @@ NovoMultiPickerModule.decorators = [
                 imports: [CommonModule, FormsModule, NovoPickerModule, NovoChipsModule],
                 declarations: [NovoMultiPickerElement],
                 exports: [NovoMultiPickerElement],
+            },] }
+];
+
+// NG2
+class NovoFormModule {
+}
+NovoFormModule.decorators = [
+    { type: NgModule, args: [{
+                imports: [
+                    CommonModule,
+                    ReactiveFormsModule,
+                    NovoRadioModule,
+                    NovoTilesModule,
+                    NovoSelectModule,
+                    NovoPickerModule,
+                    NovoChipsModule,
+                    NovoDatePickerModule,
+                    NovoTimePickerModule,
+                    NovoNovoCKEditorModule,
+                    NovoFormExtrasModule,
+                    NovoQuickNoteModule,
+                    NovoDateTimePickerModule,
+                    NovoHeaderModule,
+                    NovoTooltipModule,
+                    NovoDragulaModule,
+                    TextMaskModule,
+                    NovoTipWellModule,
+                    NovoModalModule,
+                    NovoButtonModule,
+                    NovoAceEditorModule,
+                    NovoCommonModule,
+                    NovoMultiPickerModule,
+                ],
+                declarations: [
+                    NovoAutoSize,
+                    NovoControlElement,
+                    NovoDynamicFormElement,
+                    NovoFormElement,
+                    NovoFieldsetElement,
+                    NovoFieldsetHeaderElement,
+                    ControlConfirmModal,
+                    ControlPromptModal,
+                    NovoControlGroup,
+                    NovoControlTemplates,
+                ],
+                exports: [
+                    NovoAutoSize,
+                    NovoDynamicFormElement,
+                    NovoControlElement,
+                    NovoFormElement,
+                    NovoFieldsetHeaderElement,
+                    NovoControlGroup,
+                    NovoControlTemplates,
+                ],
+                providers: [NovoTemplateService],
+            },] }
+];
+
+class NovoIconComponent {
+    constructor(element, cdr) {
+        this.element = element;
+        this.cdr = cdr;
+        this.size = 'medium';
+        this.role = 'img';
+    }
+    set alt(value) {
+        this.ariaLabel = value;
+    }
+    get alt() {
+        return this.ariaLabel;
+    }
+    set name(iconName) {
+        this.iconName = `bhi-${iconName}`;
+    }
+    get name() {
+        return this.iconName;
+    }
+    ngAfterViewInit() {
+        if (this.element.nativeElement.textContent.trim()) {
+            Promise.resolve().then(() => {
+                this.name = this.element.nativeElement.textContent.trim();
+                this.cdr.markForCheck();
+            });
+        }
+    }
+}
+NovoIconComponent.decorators = [
+    { type: Component, args: [{
+                selector: 'novo-icon',
+                changeDetection: ChangeDetectionStrategy.OnPush,
+                template: `
+        <i [class]="iconName"><span><ng-content></ng-content></span></i>
+    `
+            },] }
+];
+NovoIconComponent.ctorParameters = () => [
+    { type: ElementRef },
+    { type: ChangeDetectorRef }
+];
+NovoIconComponent.propDecorators = {
+    raised: [{ type: HostBinding, args: ['attr.raised',] }, { type: Input }],
+    size: [{ type: HostBinding, args: ['attr.size',] }, { type: Input }],
+    theme: [{ type: HostBinding, args: ['attr.theme',] }, { type: Input }],
+    color: [{ type: HostBinding, args: ['attr.color',] }, { type: Input }],
+    role: [{ type: HostBinding, args: ['attr.role',] }],
+    ariaLabel: [{ type: HostBinding, args: ['attr.aria-label',] }],
+    alt: [{ type: Input }],
+    name: [{ type: Input }]
+};
+
+class NovoIconModule {
+}
+NovoIconModule.decorators = [
+    { type: NgModule, args: [{
+                exports: [NovoIconComponent],
+                declarations: [NovoIconComponent],
             },] }
 ];
 
