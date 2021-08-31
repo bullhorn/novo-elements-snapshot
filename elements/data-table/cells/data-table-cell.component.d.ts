@@ -1,7 +1,6 @@
 import { ElementRef, Renderer2, OnInit, TemplateRef, EventEmitter, OnDestroy } from '@angular/core';
 import { CdkCell, CdkColumnDef } from '@angular/cdk/table';
 import { IDataTableColumn } from '../interfaces';
-import * as ɵngcc0 from '@angular/core';
 export declare class NovoDataTableCell<T> extends CdkCell implements OnInit, OnDestroy {
     private elementRef;
     private renderer;
@@ -15,8 +14,4 @@ export declare class NovoDataTableCell<T> extends CdkCell implements OnInit, OnD
     ngOnInit(): void;
     ngOnDestroy(): void;
     private calculateWidths;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoDataTableCell<any>, never>;
-    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<NovoDataTableCell<any>, "novo-data-table-cell", never, { "row": "row"; "template": "template"; "column": "column"; "resized": "resized"; }, {}, never, never>;
 }
-
-//# sourceMappingURL=data-table-cell.component.d.ts.map

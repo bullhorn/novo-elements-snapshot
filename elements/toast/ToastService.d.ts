@@ -1,5 +1,4 @@
 import { ComponentUtils } from '../../utils/component-utils/ComponentUtils';
-import * as ɵngcc0 from '@angular/core';
 export declare type ToastThemes = 'default' | 'success' | 'info' | 'warning' | 'danger' | 'positive' | string;
 export declare type ToastIcons = 'bell' | 'check' | 'info' | 'warning' | 'remove' | 'caution' | 'times' | 'coffee' | 'danger' | string;
 export declare type ToastPositions = 'fixedTop' | 'fixedBottom' | 'growlTopRight' | 'growlTopLeft' | 'growlBottomRight' | 'growlBottomLeft';
@@ -38,8 +37,4 @@ export declare class NovoToastService {
     setToastOnSession(toast: any, opts: any): void;
     show(toast: any): void;
     toastTimer(toast: any): void;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoToastService, never>;
-    static ɵprov: ɵngcc0.ɵɵInjectableDef<NovoToastService>;
 }
-
-//# sourceMappingURL=ToastService.d.ts.map

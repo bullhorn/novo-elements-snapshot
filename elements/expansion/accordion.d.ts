@@ -1,6 +1,5 @@
 import { CdkAccordion } from '@angular/cdk/accordion';
 /** NovoAccordion's display modes. */
-import * as ɵngcc0 from '@angular/core';
 export declare type NovoAccordionDisplayMode = 'default' | 'flat';
 /**
  * Directive for a Material Design Accordion.
@@ -19,8 +18,4 @@ export declare class NovoAccordion extends CdkAccordion {
      *     elevation.
      */
     displayMode: NovoAccordionDisplayMode;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoAccordion, never>;
-    static ɵdir: ɵngcc0.ɵɵDirectiveDefWithMeta<NovoAccordion, "novo-accordion", ["novoAccordion"], { "displayMode": "displayMode"; "hideToggle": "hideToggle"; }, {}, never>;
 }
-
-//# sourceMappingURL=accordion.d.ts.map

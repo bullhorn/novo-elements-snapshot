@@ -1,7 +1,6 @@
 import { ElementRef, ChangeDetectorRef } from '@angular/core';
 import { BasePickerResults } from '../base-picker-results/BasePickerResults';
 import { NovoLabelService } from '../../../../services/novo-label-service';
-import * as ɵngcc0 from '@angular/core';
 export declare class SkillsSpecialtyPickerResults extends BasePickerResults {
     element: ElementRef;
     labels: NovoLabelService;
@@ -19,8 +18,4 @@ export declare class SkillsSpecialtyPickerResults extends BasePickerResults {
      * 'name' field by default.
      */
     structureArray(collection: any): any;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<SkillsSpecialtyPickerResults, never>;
-    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<SkillsSpecialtyPickerResults, "skill-specialty-picker-results", never, {}, {}, never, never>;
 }
-
-//# sourceMappingURL=SkillsSpecialtyPickerResults.d.ts.map

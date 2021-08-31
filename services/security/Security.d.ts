@@ -1,5 +1,4 @@
 import { EventEmitter } from '@angular/core';
-import * as ɵngcc0 from '@angular/core';
 export declare class Security {
     credentials: string[];
     change: EventEmitter<any>;
@@ -17,8 +16,4 @@ export declare class Security {
     }[], options: {
         entityType?: string;
     }): any;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<Security, never>;
-    static ɵprov: ɵngcc0.ɵɵInjectableDef<Security>;
 }
-
-//# sourceMappingURL=Security.d.ts.map

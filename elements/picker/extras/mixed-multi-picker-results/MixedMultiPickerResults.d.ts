@@ -1,7 +1,6 @@
 import { ChangeDetectorRef, ElementRef, OnDestroy, Renderer2 } from '@angular/core';
 import { BasePickerResults } from '../base-picker-results/BasePickerResults';
 import { NovoLabelService } from '../../../../services/novo-label-service';
-import * as ɵngcc0 from '@angular/core';
 export interface IMixedMultiPickerOption {
     value: string;
     label: string;
@@ -41,8 +40,4 @@ export declare class MixedMultiPickerResults extends BasePickerResults implement
     }[];
     private filter;
     private getNewMatches;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<MixedMultiPickerResults, never>;
-    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<MixedMultiPickerResults, "mixed-multi-picker-results", never, {}, {}, never, never>;
 }
-
-//# sourceMappingURL=MixedMultiPickerResults.d.ts.map

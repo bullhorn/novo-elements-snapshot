@@ -1,5 +1,4 @@
 import { OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import * as ɵngcc0 from '@angular/core';
 export declare enum NOVO_VALUE_TYPE {
     DEFAULT = 0,
     ENTITY_LIST = 1,
@@ -38,8 +37,4 @@ export declare class NovoValueElement implements OnInit, OnChanges {
     }, data: any): boolean;
     isEntityList(type: string): boolean;
     isHTMLField(meta: any): boolean;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoValueElement, never>;
-    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<NovoValueElement, "novo-value", never, { "meta": "meta"; "theme": "theme"; "label": "label"; "type": "type"; "data": "data"; }, {}, never, never>;
 }
-
-//# sourceMappingURL=Value.d.ts.map

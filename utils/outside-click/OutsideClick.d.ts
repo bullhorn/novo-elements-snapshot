@@ -2,7 +2,6 @@ import { EventEmitter, ElementRef, OnDestroy } from '@angular/core';
 /**
  * Outside click helper, makes to set the element as inactive when clicking outside of it
  */
-import * as ɵngcc0 from '@angular/core';
 export declare class OutsideClick implements OnDestroy {
     element: ElementRef;
     otherElement: ElementRef;
@@ -22,8 +21,4 @@ export declare class OutsideClick implements OnDestroy {
      * When clicking outside, checks the element and closes if outside
      */
     handleOutsideClick(event: MouseEvent): void;
-    static ɵfac: ɵngcc0.ɵɵFactoryDef<OutsideClick, never>;
-    static ɵprov: ɵngcc0.ɵɵInjectableDef<OutsideClick>;
 }
-
-//# sourceMappingURL=OutsideClick.d.ts.map

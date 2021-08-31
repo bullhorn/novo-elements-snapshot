@@ -640,10 +640,7 @@ NovoTooltip.decorators = [
     { type: Component, args: [{
                 selector: 'novo-tooltip',
                 template: `
-    <div *ngIf="this.isHTML" [@state]="noAnimate ? 'no-animation' : 'visible'"
-         [ngClass]="[tooltipType, this.rounded ? 'rounded' : '', size ? size : '', this.preline? 'preline' : '', position]"
-         [innerHTML]="message"></div>
-    <div *ngIf="!this.isHTML" [@state]="noAnimate ? 'no-animation' : 'visible'"
+    <div [@state]="noAnimate ? 'no-animation' : 'visible'"
          [ngClass]="[tooltipType, this.rounded ? 'rounded' : '', size ? size : '', this.preline? 'preline' : '', position]">{{message}}</div>`,
                 animations: [
                     trigger('state', [
@@ -732,7 +729,6 @@ class TooltipDirective {
         tooltipInstance.preline = this.preline;
         tooltipInstance.noAnimate = this.noAnimate;
         tooltipInstance.position = this.removeArrow ? 'no-arrow' : this.position;
-        tooltipInstance.isHTML = this.isHTML;
     }
     hide() {
         if (this.overlayRef) {
@@ -847,7 +843,6 @@ TooltipDirective.propDecorators = {
     preline: [{ type: Input, args: ['tooltipPreline',] }],
     removeArrow: [{ type: Input, args: ['removeTooltipArrow',] }],
     autoPosition: [{ type: Input, args: ['tooltipAutoPosition',] }],
-    isHTML: [{ type: Input, args: ['tooltipIsHTML',] }],
     onMouseEnter: [{ type: HostListener, args: ['mouseenter',] }],
     onMouseLeave: [{ type: HostListener, args: ['mouseleave',] }]
 };
@@ -32058,11 +32053,9 @@ class FormUtils {
             YEAR: 'year',
             WORKFLOW_OPTIONS: 'select',
             SPECIALIZED_OPTIONS: 'select',
-            ALL_WORKFLOW_OPTIONS: 'select',
             WorkflowOptionsLookup: 'select',
             SpecializedOptionsLookup: 'select',
             SimplifiedOptionsLookup: 'select',
-            AllWorkflowOptionsLookup: 'select',
         };
         const dataTypeToTypeMap = {
             Timestamp: 'date',
@@ -32108,10 +32101,10 @@ class FormUtils {
             }
         }
         else if (field.type === 'TO_ONE') {
-            if ('SYSTEM' === field.dataSpecialization && ['WorkflowOptionsLookup', 'SpecializedOptionsLookup', 'AllWorkflowOptionsLookup'].includes(field.dataType)) {
+            if ('SYSTEM' === field.dataSpecialization && ['WorkflowOptionsLookup', 'SpecializedOptionsLookup'].includes(field.dataType)) {
                 type = dataSpecializationTypeMap[field.dataType];
             }
-            else if (['WORKFLOW_OPTIONS', 'SPECIALIZED_OPTIONS', 'ALL_WORKFLOW_OPTIONS'].includes(field.dataSpecialization)) {
+            else if (['WORKFLOW_OPTIONS', 'SPECIALIZED_OPTIONS'].includes(field.dataSpecialization)) {
                 type = dataSpecializationTypeMap[field.dataSpecialization];
             }
             else if (['SimplifiedOptionsLookup', 'SpecializedOptionsLookup'].includes(field.dataType)) {
@@ -32586,9 +32579,6 @@ class FormUtils {
             // TODO: dataType should only be determined by `determineInputType` which doesn't ever return 'Boolean' it
             // TODO: (cont.) returns `tiles`
             return [{ value: false, label: this.labels.no }, { value: true, label: this.labels.yes }];
-        }
-        else if (field.dataSpecialization === 'ALL_WORKFLOW_OPTIONS' && field.options) {
-            return field.options;
         }
         else if (field.workflowOptions && fieldData) {
             return this.getWorkflowOptions(field.workflowOptions, fieldData);
@@ -34786,8 +34776,7 @@ NovoControlTemplates.decorators = [
             <input *ngIf="control?.type !== 'number' && control?.textMaskEnabled" [textMask]="control.maskOptions" [formControlName]="control.key" [id]="control.key" [type]="control?.type" [placeholder]="control?.placeholder" (input)="methods.emitChange($event)" (focus)="methods.handleFocus($event)" (blur)="methods.handleBlur($event)" autocomplete>
             <input *ngIf="control?.type !== 'number' && !control?.textMaskEnabled" [class.maxlength-error]="errors?.maxlength" [formControlName]="control.key" [id]="control.key" [type]="control?.type" [placeholder]="control?.placeholder" (input)="methods.emitChange($event)" [maxlength]="control?.maxlength" (focus)="methods.handleFocus($event)" (blur)="methods.handleBlur($event)" autocomplete>
             <input *ngIf="control?.type === 'number' && control?.subType !== 'percentage'" [class.maxlength-error]="errors?.maxlength" [formControlName]="control.key" [id]="control.key" [type]="control?.type" [placeholder]="control?.placeholder" (keydown)="methods.restrictKeys($event)" (input)="methods.emitChange($event)" [maxlength]="control?.maxlength" (focus)="methods.handleFocus($event)" (blur)="methods.handleBlur($event)" step="any" (mousewheel)="numberInput.blur()" #numberInput>
-            <!-- the percentage input does not use formControlName like a normal reactive input because instead of setting the floating point value directly, it is multiplied by 100 into a percentage value -->
-            <input *ngIf="control?.type === 'number' && control?.subType === 'percentage'" [id]="control.key" [type]="control?.type" [placeholder]="control?.placeholder" (keydown)="methods.restrictKeys($event)" [value]="control?.percentValue" [disabled]="control?.readOnly" (input)="methods.handlePercentChange($event)" (focus)="methods.handleFocus($event)" (blur)="methods.handleBlur($event)" step="any" (mousewheel)="percentInput.blur()" #percentInput>
+            <input *ngIf="control?.type === 'number' && control?.subType === 'percentage'" [type]="control?.type" [placeholder]="control?.placeholder" (keydown)="methods.restrictKeys($event)" [value]="control?.percentValue" (input)="methods.handlePercentChange($event)" (focus)="methods.handleFocus($event)" (blur)="methods.handleBlur($event)" step="any" (mousewheel)="percentInput.blur()" #percentInput>
             <label class="input-label" *ngIf="control?.subType === 'currency'">{{ control.currencyFormat }}</label>
             <label class="input-label" *ngIf="control?.subType === 'percentage'">%</label>
           </div>
