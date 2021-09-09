@@ -39,7 +39,6 @@ export declare class NovoControlGroup implements AfterContentInit, OnChanges, On
     initialValue: {}[];
     canEdit: Function;
     canRemove: Function;
-    shouldRemove: (number: any) => Promise<boolean>;
     rowTemplate: TemplateRef<any>;
     columnLabelTemplate: TemplateRef<any>;
     onRemove: EventEmitter<{
@@ -71,12 +70,7 @@ export declare class NovoControlGroup implements AfterContentInit, OnChanges, On
     onChange(): void;
     resetAddRemove(): void;
     addNewControl(value?: {}): void;
-    /**
-     * Will remove the control, and optionally, if the event is to be publicized (emitEvent = true) and there is a
-     * shouldRemove callback, then call the shouldRemove() callback to determine if the doRemoveControl should be called.
-     */
     removeControl(index: number, emitEvent?: boolean): void;
-    private doRemoveControl;
     editControl(index: number): void;
     toggle(event: MouseEvent): void;
     private buildNestedFormGroup;

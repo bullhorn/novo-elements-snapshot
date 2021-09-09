@@ -33970,25 +33970,8 @@
             this.assignIndexes();
             this.ref.markForCheck();
         };
-        /**
-         * Will remove the control, and optionally, if the event is to be publicized (emitEvent = true) and there is a
-         * shouldRemove callback, then call the shouldRemove() callback to determine if the doRemoveControl should be called.
-         */
         NovoControlGroup.prototype.removeControl = function (index, emitEvent) {
-            var _this = this;
             if (emitEvent === void 0) { emitEvent = true; }
-            if (emitEvent && Helpers.isFunction(this.shouldRemove)) {
-                this.shouldRemove(index).then(function (shouldRemove) {
-                    if (shouldRemove) {
-                        _this.doRemoveControl(index, emitEvent);
-                    }
-                });
-            }
-            else {
-                this.doRemoveControl(index, emitEvent);
-            }
-        };
-        NovoControlGroup.prototype.doRemoveControl = function (index, emitEvent) {
             var controlsArray = this.form.controls[this.key];
             var nestedFormGroup = controlsArray.at(index);
             nestedFormGroup.fieldInteractionEvents.unsubscribe();
@@ -34095,7 +34078,6 @@
         initialValue: [{ type: core.Input }],
         canEdit: [{ type: core.Input }],
         canRemove: [{ type: core.Input }],
-        shouldRemove: [{ type: core.Input }],
         rowTemplate: [{ type: core.Input }],
         columnLabelTemplate: [{ type: core.Input }],
         onRemove: [{ type: core.Output }],
