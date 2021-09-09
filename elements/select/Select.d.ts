@@ -41,9 +41,9 @@ export declare class NovoSelectElement implements OnInit, OnChanges, OnDestroy, 
     get panelOpen(): boolean;
     /** END: Convenient Panel Methods. */
     /**
-     * This method closes the panel, and if a value is specified, also sets the associated
-     * control to that value. It will also mark the control as dirty if this interaction
-     * stemmed from the user.
+     * If the item is not disabled, this method closes the panel, and if a value is specified,
+     * also sets the associated control to that value. It will also mark the control as dirty
+     * if this interaction stemmed from the user.
      */
     setValueAndClose(event: any | null): void;
     select(option: any, i: any, fireEvents?: boolean): void;

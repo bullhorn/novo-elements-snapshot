@@ -8573,15 +8573,18 @@
         });
         /** END: Convenient Panel Methods. */
         /**
-         * This method closes the panel, and if a value is specified, also sets the associated
-         * control to that value. It will also mark the control as dirty if this interaction
-         * stemmed from the user.
+         * If the item is not disabled, this method closes the panel, and if a value is specified,
+         * also sets the associated control to that value. It will also mark the control as dirty
+         * if this interaction stemmed from the user.
          */
         NovoSelectElement.prototype.setValueAndClose = function (event) {
-            if (event.value && event.index >= 0) {
-                this.select(event.value, event.index);
+            var _a;
+            if (!((_a = event.value) === null || _a === void 0 ? void 0 : _a.disabled)) {
+                if (event.value && event.index >= 0) {
+                    this.select(event.value, event.index);
+                }
+                this.closePanel();
             }
-            this.closePanel();
         };
         NovoSelectElement.prototype.select = function (option, i, fireEvents) {
             if (fireEvents === void 0) { fireEvents = true; }
@@ -8772,7 +8775,7 @@
         { type: core.Component, args: [{
                     selector: 'novo-select',
                     providers: [SELECT_VALUE_ACCESSOR],
-                    template: "\n    <div #dropdownElement (click)=\"togglePanel(); (false)\" tabIndex=\"{{ disabled ? -1 : 0 }}\" type=\"button\" [class.empty]=\"empty\">\n      {{ selected.label }}<i class=\"bhi-collapse\"></i>\n    </div>\n    <novo-overlay-template [parent]=\"element\" position=\"center\" (closing)=\"dropdown.nativeElement.focus()\">\n      <ul class=\"novo-select-list\" tabIndex=\"-1\" [class.header]=\"headerConfig\" [class.active]=\"panelOpen\">\n        <ng-content></ng-content>\n        <li *ngIf=\"headerConfig\" class=\"select-header\" [class.open]=\"header.open\">\n          <button *ngIf=\"!header.open\" (click)=\"toggleHeader($event); (false)\" tabIndex=\"-1\" type=\"button\" class=\"header\">\n            <i class=\"bhi-add-thin\"></i>&nbsp;{{ headerConfig.label }}\n          </button>\n          <div *ngIf=\"header.open\" [ngClass]=\"{ active: header.open }\">\n            <input\n              autofocus\n              type=\"text\"\n              [placeholder]=\"headerConfig.placeholder\"\n              [attr.id]=\"name\"\n              autocomplete=\"false\"\n              [(ngModel)]=\"header.value\"\n              [ngClass]=\"{ invalid: !header.valid }\"\n            />\n            <footer>\n              <button (click)=\"toggleHeader($event, false)\">{{ labels.cancel }}</button>\n              <button (click)=\"saveHeader()\" class=\"primary\">{{ labels.save }}</button>\n            </footer>\n          </div>\n        </li>\n        <li\n          *ngFor=\"let option of filteredOptions; let i = index\"\n          [ngClass]=\"{ active: option.active }\"\n          (click)=\"setValueAndClose({ value: option, index: i })\"\n          [attr.data-automation-value]=\"option.label\"\n        >\n          <span [innerHtml]=\"highlight(option.label, filterTerm)\"></span> <i *ngIf=\"option.active\" class=\"bhi-check\"></i>\n        </li>\n      </ul>\n    </novo-overlay-template>\n  ",
+                    template: "\n    <div #dropdownElement (click)=\"togglePanel(); (false)\" tabIndex=\"{{ disabled ? -1 : 0 }}\" type=\"button\" [class.empty]=\"empty\">\n      {{ selected.label }}<i class=\"bhi-collapse\"></i>\n    </div>\n    <novo-overlay-template [parent]=\"element\" position=\"center\" (closing)=\"dropdown.nativeElement.focus()\">\n      <ul class=\"novo-select-list\" tabIndex=\"-1\" [class.header]=\"headerConfig\" [class.active]=\"panelOpen\">\n        <ng-content></ng-content>\n        <li *ngIf=\"headerConfig\" class=\"select-header\" [class.open]=\"header.open\">\n          <button *ngIf=\"!header.open\" (click)=\"toggleHeader($event); (false)\" tabIndex=\"-1\" type=\"button\" class=\"header\">\n            <i class=\"bhi-add-thin\"></i>&nbsp;{{ headerConfig.label }}\n          </button>\n          <div *ngIf=\"header.open\" [ngClass]=\"{ active: header.open }\">\n            <input\n              autofocus\n              type=\"text\"\n              [placeholder]=\"headerConfig.placeholder\"\n              [attr.id]=\"name\"\n              autocomplete=\"false\"\n              [(ngModel)]=\"header.value\"\n              [ngClass]=\"{ invalid: !header.valid }\"\n            />\n            <footer>\n              <button (click)=\"toggleHeader($event, false)\">{{ labels.cancel }}</button>\n              <button (click)=\"saveHeader()\" class=\"primary\">{{ labels.save }}</button>\n            </footer>\n          </div>\n        </li>\n        <li\n          *ngFor=\"let option of filteredOptions; let i = index\"\n          [ngClass]=\"{ active: option.active, disabled: option.disabled }\"\n          (click)=\"setValueAndClose({ value: option, index: i })\"\n          [attr.data-automation-value]=\"option.label\"\n          [tooltip]=\"option.tooltip\"\n          [tooltipPosition]=\"option.tooltipPosition || 'right'\"\n        >\n          <span [innerHtml]=\"highlight(option.label, filterTerm)\"></span> <i *ngIf=\"option.active\" class=\"bhi-check\"></i>\n        </li>\n      </ul>\n    </novo-overlay-template>\n  ",
                     host: {
                         '(keydown)': 'onKeyDown($event)',
                     }
@@ -8805,7 +8808,7 @@
     }());
     NovoSelectModule.decorators = [
         { type: core.NgModule, args: [{
-                    imports: [common.CommonModule, forms.FormsModule, a11y.A11yModule, NovoOverlayModule],
+                    imports: [common.CommonModule, forms.FormsModule, a11y.A11yModule, NovoOverlayModule, NovoTooltipModule],
                     declarations: [NovoSelectElement],
                     exports: [NovoSelectElement],
                 },] }

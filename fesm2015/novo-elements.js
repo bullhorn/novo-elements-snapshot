@@ -8977,15 +8977,18 @@ class NovoSelectElement {
     }
     /** END: Convenient Panel Methods. */
     /**
-     * This method closes the panel, and if a value is specified, also sets the associated
-     * control to that value. It will also mark the control as dirty if this interaction
-     * stemmed from the user.
+     * If the item is not disabled, this method closes the panel, and if a value is specified,
+     * also sets the associated control to that value. It will also mark the control as dirty
+     * if this interaction stemmed from the user.
      */
     setValueAndClose(event) {
-        if (event.value && event.index >= 0) {
-            this.select(event.value, event.index);
+        var _a;
+        if (!((_a = event.value) === null || _a === void 0 ? void 0 : _a.disabled)) {
+            if (event.value && event.index >= 0) {
+                this.select(event.value, event.index);
+            }
+            this.closePanel();
         }
-        this.closePanel();
     }
     select(option, i, fireEvents = true) {
         if (this.selected) {
@@ -9201,9 +9204,11 @@ NovoSelectElement.decorators = [
         </li>
         <li
           *ngFor="let option of filteredOptions; let i = index"
-          [ngClass]="{ active: option.active }"
+          [ngClass]="{ active: option.active, disabled: option.disabled }"
           (click)="setValueAndClose({ value: option, index: i })"
           [attr.data-automation-value]="option.label"
+          [tooltip]="option.tooltip"
+          [tooltipPosition]="option.tooltipPosition || 'right'"
         >
           <span [innerHtml]="highlight(option.label, filterTerm)"></span> <i *ngIf="option.active" class="bhi-check"></i>
         </li>
@@ -9239,7 +9244,7 @@ class NovoSelectModule {
 }
 NovoSelectModule.decorators = [
     { type: NgModule, args: [{
-                imports: [CommonModule, FormsModule, A11yModule, NovoOverlayModule],
+                imports: [CommonModule, FormsModule, A11yModule, NovoOverlayModule, NovoTooltipModule],
                 declarations: [NovoSelectElement],
                 exports: [NovoSelectElement],
             },] }
