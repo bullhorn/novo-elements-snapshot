@@ -6229,6 +6229,7 @@
             _this.renderer = renderer;
             _this.labels = labels;
             _this.placeholder = '';
+            _this.emptyOptionsLabel = '';
             _this.internalMap = new Map();
             return _this;
         }
@@ -6257,6 +6258,13 @@
             // Cleanup
             if (this.keyboardSubscription) {
                 this.keyboardSubscription.unsubscribe();
+            }
+            if (this.config.options) {
+                this.config.options.forEach(function (option) {
+                    if (option.clearSecondaryOptions) {
+                        option.clearSecondaryOptions.unsubscribe();
+                    }
+                });
             }
         };
         MixedMultiPickerResults.prototype.selectPrimaryOption = function (primaryOption, event) {
@@ -6307,6 +6315,18 @@
         MixedMultiPickerResults.prototype.shouldShowSearchBox = function (primaryOption) {
             return !!(primaryOption && primaryOption.showSearchOnSecondaryOptions);
         };
+        MixedMultiPickerResults.prototype.clearPrimaryOption = function (primaryOption) {
+            var _a;
+            if (this.internalMap.get(primaryOption.value)) {
+                if (primaryOption.value === ((_a = this.selectedPrimaryOption) === null || _a === void 0 ? void 0 : _a.value)) {
+                    this.activeMatch = null;
+                    this.matches = [];
+                    this.selectedPrimaryOption = null;
+                }
+                this.internalMap.delete(primaryOption.value);
+                this.ref.markForCheck();
+            }
+        };
         MixedMultiPickerResults.prototype.filterData = function () {
             if (this.selectedPrimaryOption) {
                 if (this.selectedPrimaryOption.secondaryOptions) {
@@ -6351,6 +6371,11 @@
                             _this.inputElement.nativeElement.focus();
                         });
                     });
+                    if (primaryOption.clearSecondaryOptions) {
+                        primaryOption.clearSecondaryOptions.subscribe(function () {
+                            _this.clearPrimaryOption(primaryOption);
+                        });
+                    }
                 }
                 else {
                     this.matches = this.filter(this.internalMap.get(primaryOption.value).items);
@@ -6363,7 +6388,7 @@
     MixedMultiPickerResults.decorators = [
         { type: core.Component, args: [{
                     selector: 'mixed-multi-picker-results',
-                    template: "\n    <div class=\"mixed-multi-picker-groups\">\n        <novo-list direction=\"vertical\">\n            <novo-list-item\n                *ngFor=\"let option of options\"\n                (click)=\"selectPrimaryOption(option, $event)\"\n                [class.active]=\"selectedPrimaryOption?.value === option.value\"\n                [attr.data-automation-id]=\"option.label\"\n                [class.disabled]=\"isLoading\">\n                <item-content>\n                    <i *ngIf=\"option.iconClass\" [class]=\"option.iconClass\"></i>\n                    <span data-automation-id=\"label\">{{ option.label }}</span>\n                </item-content>\n                <item-end *ngIf=\"optionHasSecondaryOptions(option)\">\n                    <i class=\"bhi-next\"></i>\n                </item-end>\n            </novo-list-item>\n        </novo-list>\n    </div>\n    <div class=\"mixed-multi-picker-matches\" [hidden]=\"!optionHasSecondaryOptions(selectedPrimaryOption)\">\n        <div class=\"mixed-multi-picker-input-container\" [hidden]=\"!shouldShowSearchBox(selectedPrimaryOption)\" data-automation-id=\"input-container\">\n            <input autofocus #input [(ngModel)]=\"searchTerm\" [disabled]=\"isLoading\" data-automation-id=\"input\" [placeholder]=\"placeholder\"/>\n            <i class=\"bhi-search\" *ngIf=\"!searchTerm\" [class.disabled]=\"isLoading\" data-automation-id=\"seach-icon\"></i>\n            <i class=\"bhi-times\" *ngIf=\"searchTerm\" (click)=\"clearSearchTerm($event)\" [class.disabled]=\"isLoading\" data-automation-id=\"remove-icon\"></i>\n        </div>\n        <div class=\"mixed-multi-picker-list-container\">\n            <novo-list direction=\"vertical\" #list>\n                <novo-list-item\n                    *ngFor=\"let match of matches\"\n                    (click)=\"selectMatch($event)\"\n                    [class.active]=\"match === activeMatch\"\n                    (mouseenter)=\"selectActive(match)\"\n                    [class.disabled]=\"preselected(match) || isLoading\"\n                    [attr.data-automation-id]=\"match.label\">\n                    <item-content>\n                        <span>{{ match.label }}</span>\n                    </item-content>\n                </novo-list-item>\n            </novo-list>\n            <div class=\"mixed-multi-picker-no-results\" *ngIf=\"matches.length === 0 && !isLoading && selectedPrimaryOption\" data-automation-id=\"empty-message\">\n                {{ labels.groupedMultiPickerEmpty }}\n            </div>\n            <div class=\"mixed-multi-picker-loading\" *ngIf=\"isLoading\" data-automation-id=\"loading-message\">\n                <novo-loading theme=\"line\"></novo-loading>\n            </div>\n        </div>\n    </div>"
+                    template: "\n    <div class=\"mixed-multi-picker-groups\">\n        <novo-list direction=\"vertical\">\n            <novo-list-item\n                *ngFor=\"let option of options\"\n                (click)=\"selectPrimaryOption(option, $event)\"\n                [class.active]=\"selectedPrimaryOption?.value === option.value\"\n                [attr.data-automation-id]=\"option.label\"\n                [class.disabled]=\"isLoading\">\n                <item-content>\n                    <i *ngIf=\"option.iconClass\" [class]=\"option.iconClass\"></i>\n                    <span data-automation-id=\"label\">{{ option.label }}</span>\n                </item-content>\n                <item-end *ngIf=\"optionHasSecondaryOptions(option)\">\n                    <i class=\"bhi-next\"></i>\n                </item-end>\n            </novo-list-item>\n        </novo-list>\n    </div>\n    <div class=\"mixed-multi-picker-matches\" [hidden]=\"!optionHasSecondaryOptions(selectedPrimaryOption)\">\n        <div class=\"mixed-multi-picker-input-container\" [hidden]=\"!shouldShowSearchBox(selectedPrimaryOption)\" data-automation-id=\"input-container\">\n            <input autofocus #input [(ngModel)]=\"searchTerm\" [disabled]=\"isLoading\" data-automation-id=\"input\" [placeholder]=\"placeholder\"/>\n            <i class=\"bhi-search\" *ngIf=\"!searchTerm\" [class.disabled]=\"isLoading\" data-automation-id=\"seach-icon\"></i>\n            <i class=\"bhi-times\" *ngIf=\"searchTerm\" (click)=\"clearSearchTerm($event)\" [class.disabled]=\"isLoading\" data-automation-id=\"remove-icon\"></i>\n        </div>\n        <div class=\"mixed-multi-picker-list-container\">\n            <novo-list direction=\"vertical\" #list>\n                <novo-list-item\n                    *ngFor=\"let match of matches\"\n                    (click)=\"selectMatch($event)\"\n                    [class.active]=\"match === activeMatch\"\n                    (mouseenter)=\"selectActive(match)\"\n                    [class.disabled]=\"preselected(match) || isLoading\"\n                    [attr.data-automation-id]=\"match.label\">\n                    <item-content>\n                        <span>{{ match.label }}</span>\n                    </item-content>\n                </novo-list-item>\n            </novo-list>\n            <div class=\"mixed-multi-picker-no-results\" *ngIf=\"matches.length === 0 && !isLoading && selectedPrimaryOption\" data-automation-id=\"empty-message\">\n                {{ config.emptyOptionsLabel ? config.emptyOptionsLabel : labels.groupedMultiPickerEmpty }}\n            </div>\n            <div class=\"mixed-multi-picker-loading\" *ngIf=\"isLoading\" data-automation-id=\"loading-message\">\n                <novo-loading theme=\"line\"></novo-loading>\n            </div>\n        </div>\n    </div>"
                 },] }
     ];
     MixedMultiPickerResults.ctorParameters = function () { return [

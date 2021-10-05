@@ -6305,6 +6305,7 @@ class MixedMultiPickerResults extends BasePickerResults {
         this.renderer = renderer;
         this.labels = labels;
         this.placeholder = '';
+        this.emptyOptionsLabel = '';
         this.internalMap = new Map();
     }
     set term(value) {
@@ -6323,6 +6324,13 @@ class MixedMultiPickerResults extends BasePickerResults {
         // Cleanup
         if (this.keyboardSubscription) {
             this.keyboardSubscription.unsubscribe();
+        }
+        if (this.config.options) {
+            this.config.options.forEach(option => {
+                if (option.clearSecondaryOptions) {
+                    option.clearSecondaryOptions.unsubscribe();
+                }
+            });
         }
     }
     selectPrimaryOption(primaryOption, event) {
@@ -6372,6 +6380,18 @@ class MixedMultiPickerResults extends BasePickerResults {
     shouldShowSearchBox(primaryOption) {
         return !!(primaryOption && primaryOption.showSearchOnSecondaryOptions);
     }
+    clearPrimaryOption(primaryOption) {
+        var _a;
+        if (this.internalMap.get(primaryOption.value)) {
+            if (primaryOption.value === ((_a = this.selectedPrimaryOption) === null || _a === void 0 ? void 0 : _a.value)) {
+                this.activeMatch = null;
+                this.matches = [];
+                this.selectedPrimaryOption = null;
+            }
+            this.internalMap.delete(primaryOption.value);
+            this.ref.markForCheck();
+        }
+    }
     filterData() {
         if (this.selectedPrimaryOption) {
             if (this.selectedPrimaryOption.secondaryOptions) {
@@ -6414,6 +6434,11 @@ class MixedMultiPickerResults extends BasePickerResults {
                         this.inputElement.nativeElement.focus();
                     });
                 });
+                if (primaryOption.clearSecondaryOptions) {
+                    primaryOption.clearSecondaryOptions.subscribe(() => {
+                        this.clearPrimaryOption(primaryOption);
+                    });
+                }
             }
             else {
                 this.matches = this.filter(this.internalMap.get(primaryOption.value).items);
@@ -6465,7 +6490,7 @@ MixedMultiPickerResults.decorators = [
                 </novo-list-item>
             </novo-list>
             <div class="mixed-multi-picker-no-results" *ngIf="matches.length === 0 && !isLoading && selectedPrimaryOption" data-automation-id="empty-message">
-                {{ labels.groupedMultiPickerEmpty }}
+                {{ config.emptyOptionsLabel ? config.emptyOptionsLabel : labels.groupedMultiPickerEmpty }}
             </div>
             <div class="mixed-multi-picker-loading" *ngIf="isLoading" data-automation-id="loading-message">
                 <novo-loading theme="line"></novo-loading>
