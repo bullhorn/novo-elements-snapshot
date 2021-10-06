@@ -29199,6 +29199,9 @@ class NovoDatePickerInputElement {
             const test = this.formatDateValue(this.value);
             this.formattedValue = test;
         }
+        else {
+            this.formattedValue = '';
+        }
     }
     /**
      * This method closes the panel, and if a value is specified, also sets the associated
