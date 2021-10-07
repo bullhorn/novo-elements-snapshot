@@ -213,7 +213,7 @@ export { OptionsService } from './services/options/OptionsService';
 export { Security } from './services/security/Security';
 export { LocalStorageService } from './services/storage/storage.service';
 export { NovoTemplateService } from './services/template/NovoTemplateService';
-export { AppBridge, AppBridgeHandler, AppBridgeService, DevAppBridge, DevAppBridgeService, IAppBridgeOpenEvent, } from './utils/app-bridge/AppBridge';
+export { DevAppBridge, DevAppBridgeService, } from './utils/app-bridge/DevAppBridge';
 export { CalendarEvent, CalendarEventResponse, CalendarEventTimesChangedEvent, DayView, DayViewEvent, DayViewHour, DayViewHourSegment, EventAction, EventColor, GetDayViewArgs, GetEventsInPeriodArgs, IsEventInPeriodArgs, MonthView, MonthViewDay, WeekDay, WeekViewEvent, WeekViewEventRow, } from './utils/calendar-utils/CalendarUtils';
 export { ComponentUtils } from './utils/component-utils/ComponentUtils';
 export { COUNTRIES, findByCountryCode, findByCountryId, findByCountryName, getCountries, getStateObjects, getStates, } from './utils/countries/Countries';

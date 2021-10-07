@@ -1,7 +1,6 @@
 import { ChangeDetectorRef, ElementRef, OnDestroy, Renderer2 } from '@angular/core';
 import { BasePickerResults } from '../base-picker-results/BasePickerResults';
 import { NovoLabelService } from '../../../../services/novo-label-service';
-import { Subject } from 'rxjs';
 export interface IMixedMultiPickerOption {
     value: string;
     label: string;
@@ -14,7 +13,6 @@ export interface IMixedMultiPickerOption {
         value: string;
         label: string;
     }[]>;
-    clearSecondaryOptions?: Subject<any>;
     showSearchOnSecondaryOptions?: boolean;
 }
 export declare class MixedMultiPickerResults extends BasePickerResults implements OnDestroy {
@@ -25,7 +23,6 @@ export declare class MixedMultiPickerResults extends BasePickerResults implement
     selectedPrimaryOption: IMixedMultiPickerOption;
     searchTerm: string;
     placeholder: string;
-    emptyOptionsLabel: string;
     private keyboardSubscription;
     private internalMap;
     set term(value: any);
@@ -37,7 +34,6 @@ export declare class MixedMultiPickerResults extends BasePickerResults implement
     clearSearchTerm(event: MouseEvent): void;
     optionHasSecondaryOptions(primaryOption: IMixedMultiPickerOption): boolean;
     shouldShowSearchBox(primaryOption: IMixedMultiPickerOption): boolean;
-    clearPrimaryOption(primaryOption: IMixedMultiPickerOption): void;
     filterData(): {
         value: string;
         label: string;
