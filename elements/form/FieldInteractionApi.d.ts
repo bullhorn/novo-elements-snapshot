@@ -26,7 +26,7 @@ export declare class FieldInteractionApi {
         BOTTOM_OF_FORM: string;
     };
     constructor(toaster: NovoToastService, modalService: NovoModalService, formUtils: FormUtils, http: HttpClient, labels: NovoLabelService);
-    get associations(): any;
+    get associations(): object;
     get currentEntity(): string;
     get currentEntityId(): string;
     get isEdit(): boolean;
@@ -62,6 +62,7 @@ export declare class FieldInteractionApi {
     }, otherForm?: NovoFormGroup): void;
     setReadOnly(key: string, isReadOnly: boolean, otherForm?: NovoFormGroup): void;
     setRequired(key: string, required: boolean, otherForm?: NovoFormGroup): void;
+    highlight(key: string, isHighlighted: boolean, otherForm?: NovoFormGroup): void;
     hide(key: string, clearValue?: boolean, otherForm?: NovoFormGroup): NovoFormControl;
     show(key: string, otherForm?: NovoFormGroup): void;
     hideFieldSetHeader(key: string): void;

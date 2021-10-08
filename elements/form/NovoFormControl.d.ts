@@ -66,6 +66,7 @@ export declare class NovoFormControl extends FormControl {
     checkboxLabel?: string;
     restrictFieldInteractions?: boolean;
     warning?: string;
+    highlighted?: boolean;
     private historyTimeout;
     constructor(value: any, control: NovoControlConfig);
     /**
