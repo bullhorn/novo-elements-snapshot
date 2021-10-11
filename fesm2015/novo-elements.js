@@ -29224,6 +29224,9 @@ class NovoDatePickerInputElement {
             const test = this.formatDateValue(this.value);
             this.formattedValue = test;
         }
+        else {
+            this.formattedValue = '';
+        }
     }
     /**
      * This method closes the panel, and if a value is specified, also sets the associated
@@ -30833,14 +30836,24 @@ class NovoTimePickerInputElement {
         }
     }
     _setTriggerValue(value) {
+        this._setCalendarValue(value);
+        this._setFormValue(value);
+        this._changeDetectorRef.markForCheck();
+    }
+    _setCalendarValue(value) {
         if (value instanceof Date && this.value instanceof Date) {
             value = new Date(value.setFullYear(this.value.getFullYear(), this.value.getMonth(), this.value.getDate()));
         }
         this.value = value;
+    }
+    _setFormValue(value) {
         if (this.value) {
-            this.formattedValue = this.formatDateValue(this.value);
+            const test = this.formatDateValue(this.value);
+            this.formattedValue = test;
         }
-        this._changeDetectorRef.markForCheck();
+        else {
+            this.formattedValue = '';
+        }
     }
     setValue(event) {
         if (event && event.date) {
@@ -31327,7 +31340,6 @@ class ControlConfig {
     constructor() {
         this.isEmbedded = false;
         this.isInlineEmbedded = false;
-        this.highlighted = false;
     }
 }
 class BaseControl extends ControlConfig {
@@ -31372,7 +31384,6 @@ class BaseControl extends ControlConfig {
         this.startDate = config.startDate;
         this.endDate = config.endDate;
         this.restrictFieldInteractions = !!config.restrictFieldInteractions;
-        this.highlighted = !!config.highlighted;
         if (!Helpers.isEmpty(config.warning)) {
             this.warning = config.warning;
         }
@@ -33430,13 +33441,6 @@ class FieldInteractionApi {
             this.triggerEvent({ controlKey: key, prop: 'required', value: required }, otherForm);
         }
     }
-    highlight(key, isHighlighted, otherForm) {
-        const control = this.getControl(key, otherForm);
-        if (control && !control.restrictFieldInteractions) {
-            control.highlighted = isHighlighted;
-            this.triggerEvent({ controlKey: key, prop: 'highlight', value: isHighlighted }, otherForm);
-        }
-    }
     hide(key, clearValue = true, otherForm) {
         const control = this.getControl(key, otherForm);
         if (control && !control.restrictFieldInteractions) {
@@ -34465,7 +34469,7 @@ NovoControlElement.decorators = [
                             [ngClass]="{'bhi-circle': !isValid, 'bhi-check': isValid}" *ngIf="!condensed || form.controls[control.key].required">
                         </i>
                         <!--Form Controls-->
-                        <div class="novo-control-input {{ form.controls[control.key].controlType }}" [attr.data-automation-id]="control.key" [class.control-disabled]="form.controls[control.key].disabled" [class.highlighted]="form.controls[control.key].highlighted">
+                        <div class="novo-control-input {{ form.controls[control.key].controlType }}" [attr.data-automation-id]="control.key" [class.control-disabled]="form.controls[control.key].disabled">
                             <!--TODO prefix/suffix on the control-->
                             <ng-container *ngIf="templates">
                               <ng-container *ngTemplateOutlet="templates[form.controls[control.key].controlType]; context: templateContext"></ng-container>
@@ -34672,6 +34676,8 @@ class NovoControlGroup {
         }
         else {
             this.form.addControl(this.key, this.fb.array([nestedFormGroup]));
+            // Ensure that field interaction changes for nested forms originating from outside the form will be reflected in the nested elements
+            nestedFormGroup.fieldInteractionEvents.subscribe(this.onFieldInteractionEvent.bind(this));
         }
         this.disabledArray.push({
             edit: true,
@@ -34683,8 +34689,6 @@ class NovoControlGroup {
         }
         this.currentIndex++;
         this.assignIndexes();
-        // Ensure that field interaction changes for nested forms originating from outside the form will be reflected in the nested elements
-        nestedFormGroup.fieldInteractionEvents.subscribe(this.onFieldInteractionEvent.bind(this));
         this.ref.markForCheck();
     }
     /**

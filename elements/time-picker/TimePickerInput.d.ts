@@ -40,6 +40,8 @@ export declare class NovoTimePickerInputElement implements OnInit, ControlValueA
     setDisabledState(disabled: boolean): void;
     dispatchOnChange(newValue?: any, skip?: boolean): void;
     private _setTriggerValue;
+    private _setCalendarValue;
+    private _setFormValue;
     setValue(event: any | null): void;
     setValueAndClose(event: any | null): void;
     /**
