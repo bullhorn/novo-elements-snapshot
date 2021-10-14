@@ -9,7 +9,8 @@ export declare enum AppBridgeHandler {
     REGISTER = 6,
     UPDATE = 7,
     REQUEST_DATA = 8,
-    CALLBACK = 9
+    CALLBACK = 9,
+    PING = 10
 }
 export declare type NovoApps = 'record' | 'add' | 'fast-add' | 'custom' | 'preview';
 export declare type AlleyLinkColors = 'purple' | 'green' | 'blue' | 'lead' | 'candidate' | 'contact' | 'company' | 'opportunity' | 'job' | 'billable-charge' | 'earn-code' | 'invoice-statement' | 'job-code' | 'payable-charge' | 'sales-tax-rate' | 'tax-rules' | 'submission' | 'placement' | 'navigation' | 'canvas' | 'neutral' | 'neutral-italic' | 'initial' | 'distributionList' | 'contract';
@@ -81,6 +82,7 @@ export declare class AppBridge {
      * Fires or responds to an close event
      */
     refresh(packet?: object): Promise<boolean>;
+    ping(): Promise<boolean>;
     /**
      * Fires or responds to a pin event
      */
@@ -142,6 +144,13 @@ export declare class AppBridge {
      * @param data any - data to be sent along with the event
      */
     fireEventToChildren(event: string, data: any): void;
+    /**
+     * Fires a custom event to specified frames
+     * @param source Window - specific iframe contentWindow
+     * @param event string - event name to fire
+     * @param data any - data to be sent along with the event
+     */
+    fireEventToChild(source: Window | HTMLIFrameElement, event: string, data: any): void;
     /**
      * Adds an event listener to a custom event
      * @param event string - event name to listen to
