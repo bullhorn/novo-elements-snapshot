@@ -42228,6 +42228,7 @@
         AppBridgeHandler[AppBridgeHandler["UPDATE"] = 7] = "UPDATE";
         AppBridgeHandler[AppBridgeHandler["REQUEST_DATA"] = 8] = "REQUEST_DATA";
         AppBridgeHandler[AppBridgeHandler["CALLBACK"] = 9] = "CALLBACK";
+        AppBridgeHandler[AppBridgeHandler["PING"] = 10] = "PING";
     })(exports.AppBridgeHandler || (exports.AppBridgeHandler = {}));
     var HTTP_VERBS = {
         GET: 'get',
@@ -42242,6 +42243,7 @@
         CLOSE: 'close',
         REFRESH: 'refresh',
         PIN: 'pin',
+        PING: 'ping',
         UPDATE: 'update',
         HTTP_GET: 'httpGET',
         HTTP_POST: 'httpPOST',
@@ -42356,6 +42358,13 @@
                 _this._trace(MESSAGE_TYPES.PIN, event);
                 return _this.pin(event.data).then(function (success) {
                     return { success: success };
+                });
+            });
+            // PING
+            postRobot.on(MESSAGE_TYPES.PING, function (event) {
+                _this._trace(MESSAGE_TYPES.PING, event);
+                return _this.httpGET('ping').then(function (result) {
+                    return { data: result.data, error: result.error };
                 });
             });
             // REQUEST_DATA
@@ -42596,6 +42605,23 @@
                     })
                         .catch(function (err) {
                         reject(false);
+                    });
+                }
+            });
+        };
+        AppBridge.prototype.ping = function () {
+            var _this = this;
+            return new Promise(function (resolve, reject) {
+                if (_this._handlers[exports.AppBridgeHandler.PING]) {
+                    _this._handlers[exports.AppBridgeHandler.PING]({}, function (data, error) {
+                        resolve({ data: data, error: error });
+                    });
+                }
+                else {
+                    postRobot.sendToParent(MESSAGE_TYPES.PING, {}).then(function (event) {
+                        resolve({ data: event.data.data, error: event.data.error });
+                    }).catch(function (err) {
+                        reject(null);
                     });
                 }
             });
@@ -42875,11 +42901,24 @@
             if (this._registeredFrames.length > 0) {
                 this._registeredFrames.forEach(function (frame) {
                     postRobot.send(frame.source, MESSAGE_TYPES.CUSTOM_EVENT, {
+                        event: event,
                         eventType: event,
                         data: data,
                     });
                 });
             }
+        };
+        /**
+         * Fires a custom event to specified frames
+         * @param source Window - specific iframe contentWindow
+         * @param event string - event name to fire
+         * @param data any - data to be sent along with the event
+         */
+        AppBridge.prototype.fireEventToChild = function (source, event, data) {
+            if (source instanceof HTMLIFrameElement) {
+                source = source.contentWindow;
+            }
+            postRobot.send(source, MESSAGE_TYPES.CUSTOM_EVENT, { event: event, data: data });
         };
         /**
          * Adds an event listener to a custom event
