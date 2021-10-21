@@ -3,10 +3,12 @@ import { ChangeDetectorRef, ElementRef, EventEmitter, OnDestroy, OnInit, Rendere
 import { NovoLabelService } from '../../../services/novo-label-service';
 import { NovoDropdownElement } from '../../dropdown/Dropdown';
 import { IDataTableChangeEvent, IDataTableColumn, IDataTableColumnFilterConfig, IDataTableColumnFilterOption, IDataTableSortFilter } from '../interfaces';
+import { SortDirection } from '../sort-filter';
 import { NovoDataTableSortFilter } from '../sort-filter/sort-filter.directive';
 import { DataTableState } from '../state/data-table-state.service';
+import * as i0 from "@angular/core";
 export declare class NovoDataTableCellHeader<T> implements IDataTableSortFilter, OnInit, OnDestroy {
-    changeDetectorRef: ChangeDetectorRef;
+    private changeDetectorRef;
     labels: NovoLabelService;
     private state;
     private renderer;
@@ -35,6 +37,7 @@ export declare class NovoDataTableCellHeader<T> implements IDataTableSortFilter,
     direction: string;
     filterActive: boolean;
     sortActive: boolean;
+    sortValue: SortDirection;
     showCustomRange: boolean;
     activeDateFilter: string;
     config: {
@@ -56,7 +59,6 @@ export declare class NovoDataTableCellHeader<T> implements IDataTableSortFilter,
     private _column;
     constructor(changeDetectorRef: ChangeDetectorRef, labels: NovoLabelService, state: DataTableState<T>, renderer: Renderer2, elementRef: ElementRef, _sort: NovoDataTableSortFilter<T>, _cdkColumnDef: CdkColumnDef);
     ngOnInit(): void;
-    setupFilterOptions(): void;
     ngOnDestroy(): void;
     checkSortFilterState(sortFilterState: IDataTableChangeEvent, initialConfig?: boolean): void;
     isSelected(option: any, optionsList: any): boolean;
@@ -78,4 +80,6 @@ export declare class NovoDataTableCellHeader<T> implements IDataTableSortFilter,
     clearFilter(): void;
     private getNextSortDirection;
     private getDefaultDateFilterOptions;
+    static ɵfac: i0.ɵɵFactoryDef<NovoDataTableCellHeader<any>, [null, null, null, null, null, { optional: true; }, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoDataTableCellHeader<any>, "[novo-data-table-cell-config]", never, { "defaultSort": "defaultSort"; "allowMultipleFilters": "allowMultipleFilters"; "resized": "resized"; "filterTemplate": "filterTemplate"; "column": "novo-data-table-cell-config"; }, {}, never, never>;
 }

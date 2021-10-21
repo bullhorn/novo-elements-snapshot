@@ -1,4 +1,4 @@
-@import '../../styles/global/variables';
+@import "../../styles/global/variables";
 
 .tabbed-group-picker-button {
   .tabbed-group-picker-button-label {
@@ -16,7 +16,7 @@
   border-bottom: 0.1em solid #ccc;
   position: relative;
   input {
-    font-size: 1em;
+    font-size: 1.2em;
     background: transparent;
     border: none;
     border-radius: 0;
@@ -62,7 +62,7 @@
       justify-content: space-between;
 
       .clear-all-button {
-        margin-bottom: .5em;
+        margin-bottom: 0.5em;
       }
 
       novo-nav {
@@ -127,7 +127,6 @@
         }
       }
       novo-list {
-
         cdk-virtual-scroll-viewport {
           height: 27em;
           overflow-x: hidden;
@@ -136,6 +135,7 @@
           }
 
           novo-list-item {
+            font-size: 1.2em;
             padding: 0.75em 1.75em;
             cursor: pointer;
             border-bottom: none;

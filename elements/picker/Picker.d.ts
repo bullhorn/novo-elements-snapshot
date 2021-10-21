@@ -1,7 +1,8 @@
 import { ChangeDetectorRef, ComponentRef, ElementRef, EventEmitter, OnInit, ViewContainerRef } from '@angular/core';
 import { ComponentUtils } from '../../utils/component-utils/ComponentUtils';
-import { NovoOverlayTemplateComponent } from '../overlay/Overlay';
+import { NovoOverlayTemplateComponent } from '../common/overlay/Overlay';
 import { NovoControlConfig } from '../form/FormControls';
+import * as i0 from "@angular/core";
 /**
  * @description This class is the directive definition of the Picker. If you add and attribute of `picker` to an input,
  * it will create an instance of the picker which wraps the input in all of the picker HTML elements and functionality.
@@ -66,4 +67,6 @@ export declare class NovoPickerElement implements OnInit {
     registerOnChange(fn: Function): void;
     registerOnTouched(fn: Function): void;
     setDisabledState(disabled: boolean): void;
+    static ɵfac: i0.ɵɵFactoryDef<NovoPickerElement, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoPickerElement, "novo-picker", never, { "config": "config"; "placeholder": "placeholder"; "clearValueOnSelect": "clearValueOnSelect"; "closeOnSelect": "closeOnSelect"; "selected": "selected"; "appendToBody": "appendToBody"; "parentScrollSelector": "parentScrollSelector"; "parentScrollAction": "parentScrollAction"; "containerClass": "containerClass"; "side": "side"; "autoSelectFirstOption": "autoSelectFirstOption"; "overrideElement": "overrideElement"; "disablePickerInput": "disablePickerInput"; }, { "changed": "changed"; "select": "select"; "focus": "focus"; "blur": "blur"; "typing": "typing"; }, never, ["*"]>;
 }

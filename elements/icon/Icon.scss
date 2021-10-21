@@ -1,44 +1,48 @@
 $small-themed-icon-size: 1.6em;
 $medium-themed-icon-size: 2em;
 $large-themed-icon-size: 2.4em;
-$small-icon-size: 1em;
-$medium-icon-size: 1.4em;
-$large-icon-size: 1.8em;
+$small-icon-size: 1.2em;
+$medium-icon-size: 1.8em;
+$large-icon-size: 2.1em;
 $icon-border-radius: 0.3em;
 novo-icon {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2em;
   i {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: inherit;
+    line-height: inherit;
     * {
       display: none;
     }
   }
   @each $basic, $color in $all-colors {
-    &[theme='#{$basic}'] {
+    &[theme="#{$basic}"] {
       i {
         color: $white;
         background: $color;
         border-radius: $icon-border-radius;
+        width: $medium-themed-icon-size;
+        height: $medium-themed-icon-size;
       }
-      &[size='small'] {
+      &[size="small"] {
         i {
-          font-size: 1em;
           width: $small-themed-icon-size;
           height: $small-themed-icon-size;
         }
       }
-      &[size='medium'] {
+      &[size="medium"] {
         i {
-          font-size: 1.2em;
           width: $medium-themed-icon-size;
           height: $medium-themed-icon-size;
         }
       }
-      &[size='large'] {
+      &[size="large"] {
         i {
-          font-size: 1.4em;
           width: $large-themed-icon-size;
           height: $large-themed-icon-size;
         }
@@ -46,7 +50,7 @@ novo-icon {
     }
   }
   @each $basic, $color in $all-colors {
-    &[color='#{$basic}'] {
+    &[color="#{$basic}"] {
       i {
         color: $color;
         &:before {
@@ -55,25 +59,28 @@ novo-icon {
       }
     }
   }
-  &[size='small'] {
+  &[size="small"] {
+    font-size: 1.5em;
     i {
       width: $small-icon-size;
       height: $small-icon-size;
     }
   }
-  &[size='medium'] {
+  &[size="medium"] {
+    font-size: 1.8em;
     i {
       width: $medium-icon-size;
       height: $medium-icon-size;
     }
   }
-  &[size='large'] {
+  &[size="large"] {
+    font-size: 2.1em;
     i {
       width: $large-icon-size;
       height: $large-icon-size;
     }
   }
-  &[raised='true'] {
+  &[raised="true"] {
     i {
       // background-color: rgba(0, 0, 0, .25);
       box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);

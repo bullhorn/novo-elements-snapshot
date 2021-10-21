@@ -9,11 +9,9 @@ export declare enum AppBridgeHandler {
     REGISTER = 6,
     UPDATE = 7,
     REQUEST_DATA = 8,
-    CALLBACK = 9,
-    PING = 10
+    CALLBACK = 9
 }
-export declare type NovoApps = 'record' | 'add' | 'fast-add' | 'custom' | 'preview';
-export declare type AlleyLinkColors = 'purple' | 'green' | 'blue' | 'lead' | 'candidate' | 'contact' | 'company' | 'opportunity' | 'job' | 'billable-charge' | 'earn-code' | 'invoice-statement' | 'job-code' | 'payable-charge' | 'sales-tax-rate' | 'tax-rules' | 'submission' | 'placement' | 'navigation' | 'canvas' | 'neutral' | 'neutral-italic' | 'initial' | 'distributionList' | 'contract';
+export declare type NovoApps = 'record' | 'add' | 'fast-add' | 'slide-out-add' | 'custom' | 'preview';
 export interface IAppBridgeOpenEvent {
     type: NovoApps;
     entityType: string;
@@ -72,7 +70,7 @@ export declare class AppBridge {
         entityId: string;
         title: string;
         titleKey: string;
-        color: AlleyLinkColors;
+        color: string;
     }>): Promise<boolean>;
     /**
      * Fires or responds to an close event
@@ -82,7 +80,6 @@ export declare class AppBridge {
      * Fires or responds to an close event
      */
     refresh(packet?: object): Promise<boolean>;
-    ping(): Promise<boolean>;
     /**
      * Fires or responds to a pin event
      */
@@ -110,28 +107,28 @@ export declare class AppBridge {
     register(packet?: Partial<{
         title: string;
         url: string;
-        color: AlleyLinkColors;
+        color: string;
     }>): Promise<string>;
     /**
      * Fires or responds to an HTTP_GET event
      * @param packet any - packet of data to send with the event
      */
-    httpGET(relativeURL: string, timeout?: number): Promise<any>;
+    httpGET(relativeURL: string): Promise<any>;
     /**
      * Fires or responds to an HTTP_POST event
      * @param packet any - packet of data to send with the event
      */
-    httpPOST(relativeURL: string, postData: any, timeout?: number): Promise<any>;
+    httpPOST(relativeURL: string, postData: any): Promise<any>;
     /**
      * Fires or responds to an HTTP_PUT event
      * @param packet any - packet of data to send with the event
      */
-    httpPUT(relativeURL: string, putData: any, timeout?: number): Promise<any>;
+    httpPUT(relativeURL: string, putData: any): Promise<any>;
     /**
      * Fires or responds to an HTTP_DELETE event
      * @param packet any - packet of data to send with the event
      */
-    httpDELETE(relativeURL: string, timeout?: number): Promise<any>;
+    httpDELETE(relativeURL: string): Promise<any>;
     /**
      * Fires a custom event to anywhere in the application
      * @param event string - event name to fire
@@ -144,13 +141,6 @@ export declare class AppBridge {
      * @param data any - data to be sent along with the event
      */
     fireEventToChildren(event: string, data: any): void;
-    /**
-     * Fires a custom event to specified frames
-     * @param source Window - specific iframe contentWindow
-     * @param event string - event name to fire
-     * @param data any - data to be sent along with the event
-     */
-    fireEventToChild(source: Window | HTMLIFrameElement, event: string, data: any): void;
     /**
      * Adds an event listener to a custom event
      * @param event string - event name to listen to

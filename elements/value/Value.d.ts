@@ -1,4 +1,5 @@
-import { OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import * as i0 from "@angular/core";
 export declare enum NOVO_VALUE_TYPE {
     DEFAULT = 0,
     ENTITY_LIST = 1,
@@ -13,6 +14,7 @@ export declare class NovoValueElement implements OnInit, OnChanges {
     data: any;
     meta: any;
     theme: NOVO_VALUE_THEME;
+    row: Boolean;
     _type: NOVO_VALUE_TYPE;
     NOVO_VALUE_TYPE: typeof NOVO_VALUE_TYPE;
     NOVO_VALUE_THEME: typeof NOVO_VALUE_THEME;
@@ -37,4 +39,6 @@ export declare class NovoValueElement implements OnInit, OnChanges {
     }, data: any): boolean;
     isEntityList(type: string): boolean;
     isHTMLField(meta: any): boolean;
+    static ɵfac: i0.ɵɵFactoryDef<NovoValueElement, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoValueElement, "novo-value", never, { "data": "data"; "meta": "meta"; "theme": "theme"; "row": "row"; "label": "label"; "type": "type"; }, {}, never, never>;
 }

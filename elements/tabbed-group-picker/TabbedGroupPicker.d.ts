@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, EventEmitter, OnDestroy, OnInit } from '@angular/core';
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { NovoLabelService } from '../../services/novo-label-service';
+import * as i0 from "@angular/core";
 export declare type TabbedGroupPickerTab = {
     typeName: string;
     typeLabel: string;
@@ -37,7 +38,7 @@ export declare type TabbedGroupPickerQuickSelect = {
         selected?: boolean;
     } & {
         [key: string]: any;
-    }) | (number))[];
+    }) | number)[];
     all?: boolean;
 };
 export declare type QuickSelectConfig = {
@@ -118,5 +119,7 @@ export declare class NovoTabbedGroupPickerElement implements OnDestroy, OnInit {
         };
     }): void;
     filter: (searchTerm: string) => void;
+    static ɵfac: i0.ɵɵFactoryDef<NovoTabbedGroupPickerElement, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoTabbedGroupPickerElement, "novo-tabbed-group-picker", never, { "buttonConfig": "buttonConfig"; "tabs": "tabs"; "quickSelectConfig": "quickSelectConfig"; }, { "selectionChange": "selectionChange"; }, never, never>;
 }
 export {};

@@ -1,3 +1,4 @@
+import * as i0 from "@angular/core";
 export declare class NovoTooltip {
     message: string;
     hidden: boolean;
@@ -8,5 +9,6 @@ export declare class NovoTooltip {
     preline: boolean;
     noAnimate: boolean;
     position: string;
-    isHTML: boolean;
+    static ɵfac: i0.ɵɵFactoryDef<NovoTooltip, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoTooltip, "novo-tooltip", never, {}, {}, never, never>;
 }

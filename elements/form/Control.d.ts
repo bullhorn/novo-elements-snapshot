@@ -1,10 +1,11 @@
-import { ChangeDetectorRef, ElementRef, EventEmitter, OnInit, OnDestroy, AfterContentInit, AfterViewInit } from '@angular/core';
+import { AfterContentInit, AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, OnDestroy, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { OutsideClick } from '../../utils/outside-click/OutsideClick';
-import { NovoLabelService } from '../../services/novo-label-service';
 import { DateFormatService } from '../../services/date-format/DateFormat';
-import { FieldInteractionApi } from './FieldInteractionApi';
+import { NovoLabelService } from '../../services/novo-label-service';
 import { NovoTemplateService } from '../../services/template/NovoTemplateService';
+import { OutsideClick } from '../../utils/outside-click/OutsideClick';
+import { FieldInteractionApi } from './FieldInteractionApi';
+import * as i0 from "@angular/core";
 export interface IMaskOptions {
     mask: any;
     keepCharPositions: boolean;
@@ -16,6 +17,8 @@ export declare class NovoAutoSize implements AfterContentInit {
     constructor(element: ElementRef);
     ngAfterContentInit(): void;
     adjust(): void;
+    static ɵfac: i0.ɵɵFactoryDef<NovoAutoSize, never>;
+    static ɵdir: i0.ɵɵDirectiveDefWithMeta<NovoAutoSize, "textarea[autosize]", never, {}, {}, never>;
 }
 export declare class NovoControlElement extends OutsideClick implements OnInit, OnDestroy, AfterViewInit, AfterContentInit {
     labels: NovoLabelService;
@@ -23,7 +26,7 @@ export declare class NovoControlElement extends OutsideClick implements OnInit, 
     private fieldInteractionApi;
     private templateService;
     private changeDetectorRef;
-    private locale;
+    locale: string;
     control: any;
     form: any;
     condensed: boolean;
@@ -83,7 +86,7 @@ export declare class NovoControlElement extends OutsideClick implements OnInit, 
     get removeTooltipArrow(): any;
     get alwaysActive(): boolean;
     get requiresExtraSpacing(): boolean;
-    executeInteraction(interaction: any, isInvokedOnInit?: boolean): void;
+    executeInteraction(interaction: any): void;
     handleTyping(event: any): void;
     handleFocus(event: FocusEvent, field?: any): void;
     handleBlur(event: FocusEvent): void;
@@ -104,4 +107,6 @@ export declare class NovoControlElement extends OutsideClick implements OnInit, 
     handleUpload(value: any): void;
     handleAddressChange(data: any): void;
     updateValidity(shouldEventBeEmitted: any): void;
+    static ɵfac: i0.ɵɵFactoryDef<NovoControlElement, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoControlElement, "novo-control", never, { "control": "control"; "form": "form"; "condensed": "condensed"; "autoFocus": "autoFocus"; }, { "change": "change"; "edit": "edit"; "save": "save"; "delete": "delete"; "upload": "upload"; "onBlur": "blur"; "onFocus": "focus"; }, never, never>;
 }

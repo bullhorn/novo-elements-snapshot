@@ -1,7 +1,8 @@
-import { ElementRef, ChangeDetectorRef } from '@angular/core';
-import { BasePickerResults } from '../base-picker-results/BasePickerResults';
-import { NovoLabelService } from '../../../../services/novo-label-service';
+import { ChangeDetectorRef, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs';
+import { NovoLabelService } from '../../../../services/novo-label-service';
+import { BasePickerResults } from '../base-picker-results/BasePickerResults';
+import * as i0 from "@angular/core";
 /**
  * @description This is the actual list of matches that gets injected into the DOM.
  */
@@ -18,4 +19,6 @@ export declare class ChecklistPickerResults extends BasePickerResults {
      */
     filterData(matches: any): any;
     selectMatch(event: any, item: any): boolean;
+    static ɵfac: i0.ɵɵFactoryDef<ChecklistPickerResults, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<ChecklistPickerResults, "checklist-picker-results", never, {}, {}, never, never>;
 }

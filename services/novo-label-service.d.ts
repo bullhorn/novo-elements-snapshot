@@ -1,6 +1,4 @@
-export interface BigDecimalFormatOptions extends Intl.NumberFormatOptions {
-    useAccountingFormat?: boolean;
-}
+import * as i0 from "@angular/core";
 export declare class NovoLabelService {
     userLocale: string;
     filters: string;
@@ -113,28 +111,18 @@ export declare class NovoLabelService {
     formatToTimeOnly(param: any): void;
     formatToDateOnly(param: any): void;
     formatTimeWithFormat(value: any, format: Intl.DateTimeFormatOptions): string;
-    getWeekdays(): string[];
+    getWeekdays(weekStartsOn?: number): string[];
     getMonths(): string[];
     getProperty(value: string): any;
     getRangeText(page: number, pageSize: number, length: number, short: boolean): string;
     formatCurrency(value: number): string;
-    /**
-     * Extends the Intl.numberFormat capability with two extra features:
-     *  - Does NOT round values, but instead truncates to maximumFractionDigits
-     *  - By default uses accounting format for negative numbers: (3.14) instead of -3.14.
-     *
-     * @param value           The number value to convert to string
-     * @param overrideOptions Allows for overriding options used and passed to Intl.NumberFormat()
-     */
-    formatBigDecimal(value: number, overrideOptions?: BigDecimalFormatOptions): string;
-    /**
-     * Performs a string-based truncating of a number with no rounding
-     */
-    truncateToPrecision(value: number, precision: number): number;
+    formatBigDecimal(value: number): string;
     formatNumber(value: any, options?: Intl.NumberFormatOptions): string;
     formatDateShort(value: string | number | Date): string;
     formatTime(value: string | number | Date): string;
     formatDate(value: string | number | Date): string;
+    static ɵfac: i0.ɵɵFactoryDef<NovoLabelService, [{ optional: true; }]>;
+    static ɵprov: i0.ɵɵInjectableDef<NovoLabelService>;
 }
 export declare const NOVO_ELEMENTS_LABELS_PROVIDERS: {
     provide: typeof NovoLabelService;

@@ -1,7 +1,7 @@
-import { FormControl } from '@angular/forms';
 import { EventEmitter } from '@angular/core';
-import { NovoControlConfig } from './FormControls';
+import { FormControl } from '@angular/forms';
 import { IMaskOptions } from './Control';
+import { NovoControlConfig } from './FormControls';
 export declare class NovoFormControl extends FormControl {
     displayValueChanges: EventEmitter<any>;
     hidden: boolean;
@@ -66,7 +66,6 @@ export declare class NovoFormControl extends FormControl {
     checkboxLabel?: string;
     restrictFieldInteractions?: boolean;
     warning?: string;
-    highlighted?: boolean;
     private historyTimeout;
     constructor(value: any, control: NovoControlConfig);
     /**
@@ -97,5 +96,4 @@ export declare class NovoFormControl extends FormControl {
         emitEvent?: boolean;
     }): void;
     markAsInvalid(message: string): void;
-    markAsValid(): void;
 }

@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, EventEmitter, OnChanges, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { CalendarEvent, CalendarEventTimesChangedEvent, DayViewHour, WeekDay, WeekViewEventRow } from '../../../utils/calendar-utils/CalendarUtils';
+import * as i0 from "@angular/core";
 /**
  * Shows all events on a given week. Example usage:
  *
@@ -153,4 +154,6 @@ export declare class NovoCalendarWeekViewElement implements OnChanges, OnInit, O
     private refreshBody;
     private refreshHourGrid;
     private refreshAll;
+    static ɵfac: i0.ɵɵFactoryDef<NovoCalendarWeekViewElement, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoCalendarWeekViewElement, "novo-calendar-week", never, { "viewDate": "viewDate"; "events": "events"; "excludeDays": "excludeDays"; "refresh": "refresh"; "locale": "locale"; "tooltipPosition": "tooltipPosition"; "weekStartsOn": "weekStartsOn"; "headerTemplate": "headerTemplate"; "eventTemplate": "eventTemplate"; "precision": "precision"; "hourSegments": "hourSegments"; "dayStartHour": "dayStartHour"; "dayStartMinute": "dayStartMinute"; "dayEndHour": "dayEndHour"; "dayEndMinute": "dayEndMinute"; "hourSegmentTemplate": "hourSegmentTemplate"; }, { "hourSegmentClicked": "hourSegmentClicked"; "dayClicked": "dayClicked"; "eventClicked": "eventClicked"; "eventTimesChanged": "eventTimesChanged"; }, never, never>;
 }

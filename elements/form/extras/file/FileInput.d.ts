@@ -1,7 +1,8 @@
-import { ElementRef, OnInit, OnDestroy, OnChanges, ViewContainerRef, TemplateRef, SimpleChanges, EventEmitter } from '@angular/core';
+import { ElementRef, EventEmitter, OnChanges, OnDestroy, OnInit, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
-import { NovoLabelService } from '../../../../services/novo-label-service';
 import { NovoDragulaService } from '../../../../elements/dragula/DragulaService';
+import { NovoLabelService } from '../../../../services/novo-label-service';
+import * as i0 from "@angular/core";
 export declare class NovoFileInputElement implements ControlValueAccessor, OnInit, OnDestroy, OnChanges {
     private element;
     labels: NovoLabelService;
@@ -69,4 +70,6 @@ export declare class NovoFileInputElement implements ControlValueAccessor, OnIni
     customDelete(file: any): void;
     customCheck(event: any): void;
     setDisabledState(disabled: boolean): void;
+    static ɵfac: i0.ɵɵFactoryDef<NovoFileInputElement, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoFileInputElement, "novo-file-input", never, { "name": "name"; "multiple": "multiple"; "disabled": "disabled"; "placeholder": "placeholder"; "layoutOptions": "layoutOptions"; "value": "value"; "dataFeatureId": "dataFeatureId"; }, { "edit": "edit"; "save": "save"; "delete": "delete"; "upload": "upload"; }, never, never>;
 }

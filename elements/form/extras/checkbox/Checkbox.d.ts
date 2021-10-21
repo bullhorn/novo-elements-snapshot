@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, EventEmitter, OnInit } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
+import * as i0 from "@angular/core";
 export declare class NovoCheckboxElement implements ControlValueAccessor, OnInit {
     private ref;
     name: string;
@@ -21,4 +22,6 @@ export declare class NovoCheckboxElement implements ControlValueAccessor, OnInit
     registerOnChange(fn: Function): void;
     registerOnTouched(fn: Function): void;
     setDisabledState(disabled: boolean): void;
+    static ɵfac: i0.ɵɵFactoryDef<NovoCheckboxElement, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoCheckboxElement, "novo-checkbox", never, { "name": "name"; "label": "label"; "indeterminate": "indeterminate"; "disabled": "disabled"; "layoutOptions": "layoutOptions"; }, { "onSelect": "onSelect"; }, never, ["*"]>;
 }

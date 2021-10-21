@@ -1,4 +1,5 @@
-import { CdkHeaderRow, CdkRow, CdkRowDef, CdkHeaderRowDef } from '@angular/cdk/table';
+import { CdkHeaderRow, CdkHeaderRowDef, CdkRow, CdkRowDef } from '@angular/cdk/table';
+import * as i0 from "@angular/core";
 /** Workaround for https://github.com/angular/angular/issues/17849 */
 export declare const _NovoHeaderRowDef: typeof CdkHeaderRowDef;
 export declare const _NovoCdkRowDef: typeof CdkRowDef;
@@ -6,15 +7,23 @@ export declare const _NovoHeaderRow: typeof CdkHeaderRow;
 export declare const _NovoRow: typeof CdkRow;
 export declare class NovoSimpleHeaderRowDef extends _NovoHeaderRowDef {
     columns: any;
+    static ɵfac: i0.ɵɵFactoryDef<NovoSimpleHeaderRowDef, never>;
+    static ɵdir: i0.ɵɵDirectiveDefWithMeta<NovoSimpleHeaderRowDef, "[novoSimpleHeaderRowDef]", never, { "columns": "novoSimpleHeaderRowDef"; }, {}, never>;
 }
 export declare class NovoSimpleRowDef<T> extends _NovoCdkRowDef<T> {
     columns: any;
+    static ɵfac: i0.ɵɵFactoryDef<NovoSimpleRowDef<any>, never>;
+    static ɵdir: i0.ɵɵDirectiveDefWithMeta<NovoSimpleRowDef<any>, "[novoSimpleRowDef]", never, { "columns": "novoSimpleRowDefColumns"; }, {}, never>;
 }
 export declare class NovoSimpleHeaderRow extends _NovoHeaderRow {
     rowClass: string;
     role: string;
+    static ɵfac: i0.ɵɵFactoryDef<NovoSimpleHeaderRow, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoSimpleHeaderRow, "novo-simple-header-row", never, {}, {}, never, never>;
 }
 export declare class NovoSimpleRow extends _NovoRow {
     rowClass: string;
     role: string;
+    static ɵfac: i0.ɵɵFactoryDef<NovoSimpleRow, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoSimpleRow, "novo-simple-row", never, {}, {}, never, never>;
 }

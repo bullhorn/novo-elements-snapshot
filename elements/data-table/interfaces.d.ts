@@ -51,7 +51,6 @@ export interface IDataTableColumn<T> {
         width: number;
     };
     rightAlignCellContent?: boolean;
-    configuration?: object;
 }
 export interface IDataTablePaginationOptions {
     theme: 'basic' | 'standard' | 'basic-wide';

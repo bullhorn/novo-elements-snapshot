@@ -3,6 +3,7 @@ import { ChangeDetectorRef, ElementRef, OnDestroy, OnInit, Renderer2 } from '@an
 import { NovoLabelService } from '../../services/novo-label-service';
 import { SimpleTableActionColumn, SimpleTableActionColumnOption, SimpleTableColumn } from './interfaces';
 import { NovoSelection } from './sort';
+import * as i0 from "@angular/core";
 /** Workaround for https://github.com/angular/angular/issues/17849 */
 export declare const _NovoCellDef: typeof CdkCellDef;
 export declare const _NovoHeaderCellDef: typeof CdkHeaderCellDef;
@@ -10,11 +11,25 @@ export declare const _NovoColumnDef: typeof CdkColumnDef;
 export declare const _NovoHeaderCell: typeof CdkHeaderCell;
 export declare const _NovoCell: typeof CdkCell;
 export declare class NovoSimpleCellDef extends _NovoCellDef {
+    static ɵfac: i0.ɵɵFactoryDef<NovoSimpleCellDef, never>;
+    static ɵdir: i0.ɵɵDirectiveDefWithMeta<NovoSimpleCellDef, "[novoSimpleCellDef]", never, {}, {}, never>;
 }
 export declare class NovoSimpleHeaderCellDef extends _NovoHeaderCellDef {
+    static ɵfac: i0.ɵɵFactoryDef<NovoSimpleHeaderCellDef, never>;
+    static ɵdir: i0.ɵɵDirectiveDefWithMeta<NovoSimpleHeaderCellDef, "[novoSimpleHeaderCellDef]", never, {}, {}, never>;
 }
 export declare class NovoSimpleColumnDef extends _NovoColumnDef {
-    name: string;
+    get name(): string;
+    set name(name: string);
+    /**
+     * This has been extracted to a util because of TS 4 and VE.
+     * View Engine doesn't support property rename inheritance.
+     * TS 4.0 doesn't allow properties to override accessors or vice-versa.
+     * @docs-private
+     */
+    protected _setNameInput(value: string): void;
+    static ɵfac: i0.ɵɵFactoryDef<NovoSimpleColumnDef, never>;
+    static ɵdir: i0.ɵɵDirectiveDefWithMeta<NovoSimpleColumnDef, "[novoSimpleColumnDef]", never, { "name": "novoSimpleColumnDef"; }, {}, never>;
 }
 export declare class NovoSimpleHeaderCell<T> extends _NovoHeaderCell implements OnInit {
     private elementRef;
@@ -23,10 +38,14 @@ export declare class NovoSimpleHeaderCell<T> extends _NovoHeaderCell implements 
     column: SimpleTableColumn<T>;
     constructor(columnDef: CdkColumnDef, elementRef: ElementRef, renderer: Renderer2);
     ngOnInit(): void;
+    static ɵfac: i0.ɵɵFactoryDef<NovoSimpleHeaderCell<any>, never>;
+    static ɵdir: i0.ɵɵDirectiveDefWithMeta<NovoSimpleHeaderCell<any>, "novo-simple-header-cell", never, { "column": "column"; }, {}, never>;
 }
 export declare class NovoSimpleEmptyHeaderCell extends _NovoHeaderCell {
     role: string;
     constructor(columnDef: CdkColumnDef, elementRef: ElementRef, renderer: Renderer2);
+    static ɵfac: i0.ɵɵFactoryDef<NovoSimpleEmptyHeaderCell, never>;
+    static ɵdir: i0.ɵɵDirectiveDefWithMeta<NovoSimpleEmptyHeaderCell, "novo-simple-empty-header-cell", never, {}, {}, never>;
 }
 export declare class NovoSimpleCheckboxHeaderCell extends _NovoHeaderCell implements OnDestroy {
     private _selection;
@@ -36,6 +55,8 @@ export declare class NovoSimpleCheckboxHeaderCell extends _NovoHeaderCell implem
     constructor(columnDef: CdkColumnDef, elementRef: ElementRef, renderer: Renderer2, ref: ChangeDetectorRef, _selection: NovoSelection);
     ngOnDestroy(): void;
     toggle(value: boolean): void;
+    static ɵfac: i0.ɵɵFactoryDef<NovoSimpleCheckboxHeaderCell, [null, null, null, null, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoSimpleCheckboxHeaderCell, "novo-simple-checkbox-header-cell", never, {}, {}, never, never>;
 }
 export declare class NovoSimpleCell<T> extends _NovoCell implements OnInit {
     private elementRef;
@@ -46,6 +67,8 @@ export declare class NovoSimpleCell<T> extends _NovoCell implements OnInit {
     constructor(columnDef: CdkColumnDef, elementRef: ElementRef, renderer: Renderer2);
     ngOnInit(): void;
     onClick(event: MouseEvent): void;
+    static ɵfac: i0.ɵɵFactoryDef<NovoSimpleCell<any>, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoSimpleCell<any>, "novo-simple-cell", never, { "row": "row"; "column": "column"; }, {}, never, never>;
 }
 export declare class NovoSimpleCheckboxCell extends _NovoCell implements OnDestroy, OnInit {
     columnDef: CdkColumnDef;
@@ -59,6 +82,8 @@ export declare class NovoSimpleCheckboxCell extends _NovoCell implements OnDestr
     ngOnInit(): void;
     ngOnDestroy(): void;
     toggle(value: boolean): void;
+    static ɵfac: i0.ɵɵFactoryDef<NovoSimpleCheckboxCell, [null, null, null, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoSimpleCheckboxCell, "novo-simple-checkbox-cell", never, { "row": "row"; "index": "index"; }, {}, never, never>;
 }
 export declare class NovoSimpleActionCell<T> extends _NovoCell implements OnInit {
     private elementRef;
@@ -70,4 +95,6 @@ export declare class NovoSimpleActionCell<T> extends _NovoCell implements OnInit
     constructor(columnDef: CdkColumnDef, elementRef: ElementRef, renderer: Renderer2, labels: NovoLabelService);
     ngOnInit(): void;
     isDisabled(check: SimpleTableActionColumn<T> | SimpleTableActionColumnOption<T>, row: T): boolean;
+    static ɵfac: i0.ɵɵFactoryDef<NovoSimpleActionCell<any>, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoSimpleActionCell<any>, "novo-simple-action-cell", never, { "row": "row"; "column": "column"; }, {}, never, never>;
 }
