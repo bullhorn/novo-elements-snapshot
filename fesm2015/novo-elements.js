@@ -32662,7 +32662,7 @@ class FormUtils {
         let currentValue = null;
         let currentWorkflowOption = 'initial';
         if (fieldData === null || fieldData === void 0 ? void 0 : fieldData.id) {
-            currentValue = { value: fieldData.id, label: fieldData.label ? fieldData.label : fieldData.id };
+            currentValue = Object.assign(Object.assign({}, fieldData), { value: fieldData.id, label: fieldData.label || fieldData.id });
             currentWorkflowOption = fieldData.id;
         }
         const updateWorkflowOptions = workflowOptions[currentWorkflowOption] || [];
