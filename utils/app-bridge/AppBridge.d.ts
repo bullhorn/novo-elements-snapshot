@@ -12,7 +12,7 @@ export declare enum AppBridgeHandler {
     CALLBACK = 9,
     PING = 10
 }
-export declare type NovoApps = 'record' | 'add' | 'fast-add' | 'custom' | 'preview';
+export declare type NovoApps = 'record' | 'add' | 'fast-add' | 'slide-out-add' | 'custom' | 'preview';
 export declare type AlleyLinkColors = 'purple' | 'green' | 'blue' | 'lead' | 'candidate' | 'contact' | 'company' | 'opportunity' | 'job' | 'billable-charge' | 'earn-code' | 'invoice-statement' | 'job-code' | 'payable-charge' | 'sales-tax-rate' | 'tax-rules' | 'submission' | 'placement' | 'navigation' | 'canvas' | 'neutral' | 'neutral-italic' | 'initial' | 'distributionList' | 'contract';
 export interface IAppBridgeOpenEvent {
     type: NovoApps;

@@ -17,6 +17,7 @@ export declare class EntityPickerResult {
     highlight(match: any, query: any): any;
     getIconForResult(result?: any): string;
     renderTimestamp(date?: any): string;
+    renderTimeNoOffset(dateStr?: string): string;
     getNameForResult(result?: any): string;
 }
 export declare class EntityPickerResults extends BasePickerResults {
