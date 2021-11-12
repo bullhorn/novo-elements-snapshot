@@ -12,7 +12,7 @@ novo-category-dropdown {
       max-width: 400px;
       min-width: 400px;
       display: block;
-      z-index: 1000;
+      z-index: z("max");
       border-radius: 2px;
       top: 100%;
       margin-top: 5px;
@@ -141,12 +141,12 @@ novo-category-dropdown {
       }
     }
   }
-  &[side='left'] {
+  &[side="left"] {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
   }
-  &[side='right'] {
+  &[side="right"] {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
