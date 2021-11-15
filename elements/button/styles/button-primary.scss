@@ -1,0 +1,34 @@
+@import "../../../styles/variables.scss";
+
+:host {
+  // Primary theme
+  &[theme="primary"] {
+    @include theme-backgrounds("color", false);
+    background: $positive;
+    color: #fff;
+    text-align: left;
+
+    &:hover,
+    &:focus {
+      background: lighten($positive, 10%);
+    }
+    &:active {
+      background: darken($positive, 5%);
+    }
+
+    &[color="white"] {
+      background: $white;
+      color: $ocean;
+      &:hover,
+      &:focus {
+        background: $background;
+      }
+      &:active {
+        background: darken($background, 5%);
+      }
+      i {
+        background: rgba(0, 0, 0, 0.05);
+      }
+    }
+  }
+}
