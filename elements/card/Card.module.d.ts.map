@@ -1,0 +1,1 @@
+{"version":3,"file":"Card.module.d.ts","sources":["Card.module.d.ts"],"names":[],"mappings":";;;;;;AAAA;;;AACA","sourcesContent":["export declare class NovoCardModule {\n}\n"]}

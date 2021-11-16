@@ -1,0 +1,1 @@
+{"version":3,"file":"Header.module.d.ts","sources":["Header.module.d.ts"],"names":[],"mappings":";;;;AAAA;;;AACA","sourcesContent":["export declare class NovoHeaderModule {\n}\n"]}

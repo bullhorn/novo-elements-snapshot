@@ -1,0 +1,1 @@
+{"version":3,"file":"SearchBox.module.d.ts","sources":["SearchBox.module.d.ts"],"names":[],"mappings":";;;;;;;AAAA;;;AACA","sourcesContent":["export declare class NovoSearchBoxModule {\n}\n"]}

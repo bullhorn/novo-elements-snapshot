@@ -1,0 +1,1 @@
+{"version":3,"file":"ThSortable.d.ts","sources":["ThSortable.d.ts"],"names":[],"mappings":"AAAA;;AACA;AACA;AACA;AACA;AACA;;;AACA","sourcesContent":["import { EventEmitter } from '@angular/core';\nexport declare class ThSortable {\n    config: any;\n    column: any;\n    onSortChange: EventEmitter<any>;\n    onToggleSort(event: any): void;\n}\n"]}

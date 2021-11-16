@@ -1,0 +1,35 @@
+import { OnDestroy, ViewContainerRef, ElementRef, OnInit } from '@angular/core';
+import { Overlay } from '@angular/cdk/overlay';
+export declare class TooltipDirective implements OnDestroy, OnInit {
+    protected overlay: Overlay;
+    private viewContainerRef;
+    private elementRef;
+    tooltip: string;
+    position: string;
+    type: string;
+    size: string;
+    bounce: string;
+    noAnimate: boolean;
+    rounded: boolean;
+    always: boolean;
+    active: boolean;
+    preline: boolean;
+    removeArrow: boolean;
+    autoPosition: boolean;
+    isHTML: boolean;
+    private tooltipInstance;
+    private portal;
+    private overlayRef;
+    constructor(overlay: Overlay, viewContainerRef: ViewContainerRef, elementRef: ElementRef);
+    isPosition(position: string): boolean;
+    isType(type: string): boolean;
+    isSize(size: string): boolean;
+    onMouseEnter(): void;
+    onMouseLeave(): void;
+    ngOnInit(): void;
+    ngOnDestroy(): void;
+    private show;
+    private hide;
+    private getPosition;
+    private withFallbackStrategy;
+}

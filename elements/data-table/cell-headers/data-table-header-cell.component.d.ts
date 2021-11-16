@@ -5,6 +5,7 @@ import { NovoDropdownElement } from '../../dropdown/Dropdown';
 import { IDataTableChangeEvent, IDataTableColumn, IDataTableColumnFilterConfig, IDataTableColumnFilterOption, IDataTableSortFilter } from '../interfaces';
 import { NovoDataTableSortFilter } from '../sort-filter/sort-filter.directive';
 import { DataTableState } from '../state/data-table-state.service';
+import * as ɵngcc0 from '@angular/core';
 export declare class NovoDataTableCellHeader<T> implements IDataTableSortFilter, OnInit, OnDestroy {
     changeDetectorRef: ChangeDetectorRef;
     labels: NovoLabelService;
@@ -78,4 +79,8 @@ export declare class NovoDataTableCellHeader<T> implements IDataTableSortFilter,
     clearFilter(): void;
     private getNextSortDirection;
     private getDefaultDateFilterOptions;
+    static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoDataTableCellHeader<any>, [null, null, null, null, null, { optional: true; }, { optional: true; }]>;
+    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<NovoDataTableCellHeader<any>, "[novo-data-table-cell-config]", never, { "allowMultipleFilters": "allowMultipleFilters"; "column": "novo-data-table-cell-config"; "defaultSort": "defaultSort"; "resized": "resized"; "filterTemplate": "filterTemplate"; }, {}, never, never>;
 }
+
+//# sourceMappingURL=data-table-header-cell.component.d.ts.map

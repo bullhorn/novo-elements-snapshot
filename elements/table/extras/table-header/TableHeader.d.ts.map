@@ -1,0 +1,1 @@
+{"version":3,"file":"TableHeader.d.ts","sources":["TableHeader.d.ts"],"names":[],"mappings":";AAAA;;;AACA","sourcesContent":["export declare class NovoTableHeaderElement {\n}\n"]}

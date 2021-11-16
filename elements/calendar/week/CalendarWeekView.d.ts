@@ -11,6 +11,7 @@ import { CalendarEvent, CalendarEventTimesChangedEvent, DayViewHour, WeekDay, We
  * &lt;/novo-calendar-week&gt;
  * ```
  */
+import * as ɵngcc0 from '@angular/core';
 export declare class NovoCalendarWeekViewElement implements OnChanges, OnInit, OnDestroy {
     private cdr;
     /**
@@ -153,4 +154,8 @@ export declare class NovoCalendarWeekViewElement implements OnChanges, OnInit, O
     private refreshBody;
     private refreshHourGrid;
     private refreshAll;
+    static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoCalendarWeekViewElement, never>;
+    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<NovoCalendarWeekViewElement, "novo-calendar-week", never, { "events": "events"; "excludeDays": "excludeDays"; "tooltipPosition": "tooltipPosition"; "precision": "precision"; "hourSegments": "hourSegments"; "dayStartHour": "dayStartHour"; "dayStartMinute": "dayStartMinute"; "dayEndHour": "dayEndHour"; "dayEndMinute": "dayEndMinute"; "locale": "locale"; "viewDate": "viewDate"; "refresh": "refresh"; "weekStartsOn": "weekStartsOn"; "headerTemplate": "headerTemplate"; "eventTemplate": "eventTemplate"; "hourSegmentTemplate": "hourSegmentTemplate"; }, { "hourSegmentClicked": "hourSegmentClicked"; "dayClicked": "dayClicked"; "eventClicked": "eventClicked"; "eventTimesChanged": "eventTimesChanged"; }, never, never>;
 }
+
+//# sourceMappingURL=CalendarWeekView.d.ts.map

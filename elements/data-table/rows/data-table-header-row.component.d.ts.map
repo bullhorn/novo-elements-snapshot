@@ -1,0 +1,1 @@
+{"version":3,"file":"data-table-header-row.component.d.ts","sources":["data-table-header-row.component.d.ts"],"names":[],"mappings":"AAAA;;AACA;AACA;AACA;AACA;;;AACA","sourcesContent":["import { CdkHeaderRow } from '@angular/cdk/table';\nexport declare class NovoDataTableHeaderRow extends CdkHeaderRow {\n    rowClass: string;\n    fixedHeader: boolean;\n    role: string;\n}\n"]}

@@ -1,0 +1,1 @@
+{"version":3,"file":"Overlay.module.d.ts","sources":["Overlay.module.d.ts"],"names":[],"mappings":";;;;;;AAAA;;;AACA","sourcesContent":["export declare class NovoOverlayModule {\n}\n"]}

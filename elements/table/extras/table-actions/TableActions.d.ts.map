@@ -1,0 +1,1 @@
+{"version":3,"file":"TableActions.d.ts","sources":["TableActions.d.ts"],"names":[],"mappings":";AAAA;;;AACA","sourcesContent":["export declare class NovoTableActionsElement {\n}\n"]}

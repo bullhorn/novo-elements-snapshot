@@ -1,0 +1,1 @@
+{"version":3,"file":"NovoTemplateService.d.ts","sources":["NovoTemplateService.d.ts"],"names":[],"mappings":";AAAA;AACA;AACA;AACA;AACA;AACA;;;AACA","sourcesContent":["export declare class NovoTemplateService {\n    templates: any;\n    constructor();\n    getAll(): any;\n    addDefault(key: string, template: any): void;\n    addCustom(key: string, template: any): void;\n}\n"]}

@@ -1,0 +1,1 @@
+{"version":3,"file":"Button.d.ts","sources":["Button.d.ts"],"names":[],"mappings":";AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;;;AACA","sourcesContent":["export declare class NovoButtonElement {\n    color: string;\n    side: string;\n    theme: string;\n    loading: boolean;\n    set icon(icon: string);\n    get icon(): string;\n    private _icon;\n}\n"]}

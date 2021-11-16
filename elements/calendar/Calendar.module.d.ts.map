@@ -1,0 +1,1 @@
+{"version":3,"file":"Calendar.module.d.ts","sources":["Calendar.module.d.ts"],"names":[],"mappings":";;;;;;;;;;;;;;;;;;;;;;;;AAAA;;;AACA","sourcesContent":["export declare class NovoCalendarModule {\n}\n"]}

@@ -1,0 +1,1 @@
+{"version":3,"file":"step-label.component.d.ts","sources":["step-label.component.d.ts"],"names":[],"mappings":"AAAA;AACA;;AACA;AACA;;;AACA","sourcesContent":["import { TemplateRef } from '@angular/core';\nimport { CdkStepLabel } from '@angular/cdk/stepper';\nexport declare class NovoStepLabel extends CdkStepLabel {\n    constructor(template: TemplateRef<any>);\n}\n"]}

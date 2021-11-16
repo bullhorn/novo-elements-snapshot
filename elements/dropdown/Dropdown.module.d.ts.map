@@ -1,0 +1,1 @@
+{"version":3,"file":"Dropdown.module.d.ts","sources":["Dropdown.module.d.ts"],"names":[],"mappings":";;;AAAA;;;AACA","sourcesContent":["export declare class NovoDropdownModule {\n}\n"]}

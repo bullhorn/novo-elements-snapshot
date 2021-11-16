@@ -1,0 +1,1 @@
+{"version":3,"file":"Button.module.d.ts","sources":["Button.module.d.ts"],"names":[],"mappings":";;;AAAA;;;AACA","sourcesContent":["export declare class NovoButtonModule {\n}\n"]}

@@ -1,0 +1,1 @@
+{"version":3,"file":"Value.module.d.ts","sources":["Value.module.d.ts"],"names":[],"mappings":";;;;;AAAA;;;AACA","sourcesContent":["export declare class NovoValueModule {\n}\n"]}

@@ -3,6 +3,7 @@ import { ChangeDetectorRef, ElementRef, EventEmitter, NgZone, OnChanges, OnDestr
 import { ControlValueAccessor } from '@angular/forms';
 import { NovoLabelService } from '../../services/novo-label-service';
 import { NovoOverlayTemplateComponent } from '../overlay/Overlay';
+import * as ɵngcc0 from '@angular/core';
 export declare class NovoSelectElement implements OnInit, OnChanges, OnDestroy, ControlValueAccessor {
     element: ElementRef;
     labels: NovoLabelService;
@@ -59,4 +60,8 @@ export declare class NovoSelectElement implements OnInit, OnChanges, OnDestroy, 
     registerOnChange(fn: Function): void;
     registerOnTouched(fn: Function): void;
     setDisabledState(disabled: boolean): void;
+    static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoSelectElement, never>;
+    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<NovoSelectElement, "novo-select", never, { "placeholder": "placeholder"; "readonly": "readonly"; "name": "name"; "options": "options"; "headerConfig": "headerConfig"; }, { "onSelect": "onSelect"; }, never, ["*"]>;
 }
+
+//# sourceMappingURL=Select.d.ts.map

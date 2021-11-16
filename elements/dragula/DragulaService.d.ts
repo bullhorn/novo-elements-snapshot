@@ -1,4 +1,5 @@
 import { EventEmitter } from '@angular/core';
+import * as ɵngcc0 from '@angular/core';
 export declare class NovoDragulaService {
     cancel: EventEmitter<any>;
     cloned: EventEmitter<any>;
@@ -20,4 +21,8 @@ export declare class NovoDragulaService {
     handleModels(name: any, drake: any): void;
     setupEvents(bag: any): void;
     domIndexOf(child: any, parent: any): any;
+    static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoDragulaService, never>;
+    static ɵprov: ɵngcc0.ɵɵInjectableDef<NovoDragulaService>;
 }
+
+//# sourceMappingURL=DragulaService.d.ts.map

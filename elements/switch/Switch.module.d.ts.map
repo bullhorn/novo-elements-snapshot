@@ -1,0 +1,1 @@
+{"version":3,"file":"Switch.module.d.ts","sources":["Switch.module.d.ts"],"names":[],"mappings":";;;;AAAA;;;AACA","sourcesContent":["export declare class NovoSwitchModule {\n}\n"]}

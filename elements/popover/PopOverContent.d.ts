@@ -1,5 +1,6 @@
 import { AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter } from '@angular/core';
 import { PopOverDirective } from './PopOver';
+import * as ɵngcc0 from '@angular/core';
 export declare class PopOverContent implements AfterViewInit {
     protected element: ElementRef;
     protected cdr: ChangeDetectorRef;
@@ -42,4 +43,8 @@ export declare class PopOverContent implements AfterViewInit {
     protected isStaticPositioned(nativeEl: HTMLElement): boolean;
     protected parentOffsetEl(nativeEl: HTMLElement): any;
     protected getEffectivePlacement(desiredPlacement: string, hostElement: HTMLElement, targetElement: HTMLElement): string;
+    static ɵfac: ɵngcc0.ɵɵFactoryDef<PopOverContent, never>;
+    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<PopOverContent, "popover-content", never, { "placement": "placement"; "animation": "animation"; "content": "content"; "title": "title"; }, {}, never, ["*"]>;
 }
+
+//# sourceMappingURL=PopOverContent.d.ts.map

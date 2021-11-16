@@ -1,0 +1,1 @@
+{"version":3,"file":"data-table-row.component.d.ts","sources":["data-table-row.component.d.ts"],"names":[],"mappings":"AAAA;;AACA;AACA;AACA;AACA;AACA;;;AACA","sourcesContent":["import { CdkRow } from '@angular/cdk/table';\nexport declare class NovoDataTableRow extends CdkRow {\n    rowClass: string;\n    role: string;\n    id: any;\n    dataAutomationId: any;\n}\n"]}

@@ -1,0 +1,1 @@
+{"version":3,"file":"Year.pipe.d.ts","sources":["Year.pipe.d.ts"],"names":[],"mappings":"AAAA;;AACA;AACA;AACA;AACA;;;AACA","sourcesContent":["import { PipeTransform } from '@angular/core';\nexport declare class YearPipe implements PipeTransform {\n    private locale;\n    constructor(locale?: string);\n    transform(date: Date, locale?: string, method?: string): string;\n}\n"]}

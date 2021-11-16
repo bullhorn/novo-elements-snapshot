@@ -1,0 +1,1 @@
+{"version":3,"file":"GroupBy.d.ts","sources":["GroupBy.d.ts"],"names":[],"mappings":"AAAA;;AACA;AACA;;;AACA","sourcesContent":["import { PipeTransform } from '@angular/core';\nexport declare class GroupByPipe implements PipeTransform {\n    transform(input: any, prop: string): Array<any>;\n}\n"]}

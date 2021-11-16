@@ -3,6 +3,7 @@ import { ControlValueAccessor } from '@angular/forms';
 import { NovoOverlayTemplateComponent } from '../overlay/Overlay';
 import { NovoLabelService } from '../../services/novo-label-service';
 import { DateFormatService } from '../../services/date-format/DateFormat';
+import * as ɵngcc0 from '@angular/core';
 export declare class NovoDatePickerInputElement implements OnInit, ControlValueAccessor {
     element: ElementRef;
     labels: NovoLabelService;
@@ -63,4 +64,8 @@ export declare class NovoDatePickerInputElement implements OnInit, ControlValueA
     clearValue(): void;
     formatDateValue(value: any): any;
     get hasValue(): boolean;
+    static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoDatePickerInputElement, never>;
+    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<NovoDatePickerInputElement, "novo-date-picker-input", never, { "textMaskEnabled": "textMaskEnabled"; "allowInvalidDate": "allowInvalidDate"; "disabled": "disabled"; "weekStart": "weekStart"; "placeholder": "placeholder"; "maskOptions": "maskOptions"; "name": "name"; "start": "start"; "end": "end"; "format": "format"; }, { "blurEvent": "blurEvent"; "focusEvent": "focusEvent"; "changeEvent": "changeEvent"; }, never, never>;
 }
+
+//# sourceMappingURL=DatePickerInput.d.ts.map

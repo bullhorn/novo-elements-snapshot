@@ -1,0 +1,1 @@
+{"version":3,"file":"Plural.d.ts","sources":["Plural.d.ts"],"names":[],"mappings":"AAAA;;AACA;AACA;;;;AACA","sourcesContent":["import { PipeTransform } from '@angular/core';\nexport declare class PluralPipe implements PipeTransform {\n    transform(value: any): string;\n}\n"]}

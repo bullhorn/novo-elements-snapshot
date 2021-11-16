@@ -1,0 +1,1 @@
+{"version":3,"file":"Slider.module.d.ts","sources":["Slider.module.d.ts"],"names":[],"mappings":";;;;AAAA;;;AACA","sourcesContent":["export declare class NovoSliderModule {\n}\n"]}

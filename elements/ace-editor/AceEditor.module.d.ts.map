@@ -1,0 +1,1 @@
+{"version":3,"file":"AceEditor.module.d.ts","sources":["AceEditor.module.d.ts"],"names":[],"mappings":";;;AAAA;;;AACA","sourcesContent":["export declare class NovoAceEditorModule {\n}\n"]}

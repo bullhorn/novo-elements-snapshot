@@ -8,6 +8,7 @@ import { NovoControlConfig } from '../form/FormControls';
  * Picker should be added as a two-way bound ngModel instance `[(picker)]=""` in order to have the picker options
  * dynamically populate.
  */
+import * as ɵngcc0 from '@angular/core';
 export declare class NovoPickerElement implements OnInit {
     element: ElementRef;
     private componentUtils;
@@ -66,4 +67,8 @@ export declare class NovoPickerElement implements OnInit {
     registerOnChange(fn: Function): void;
     registerOnTouched(fn: Function): void;
     setDisabledState(disabled: boolean): void;
+    static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoPickerElement, never>;
+    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<NovoPickerElement, "novo-picker", never, { "closeOnSelect": "closeOnSelect"; "selected": "selected"; "appendToBody": "appendToBody"; "parentScrollAction": "parentScrollAction"; "side": "side"; "autoSelectFirstOption": "autoSelectFirstOption"; "disablePickerInput": "disablePickerInput"; "config": "config"; "placeholder": "placeholder"; "clearValueOnSelect": "clearValueOnSelect"; "parentScrollSelector": "parentScrollSelector"; "containerClass": "containerClass"; "overrideElement": "overrideElement"; }, { "changed": "changed"; "select": "select"; "focus": "focus"; "blur": "blur"; "typing": "typing"; }, never, ["*"]>;
 }
+
+//# sourceMappingURL=Picker.d.ts.map

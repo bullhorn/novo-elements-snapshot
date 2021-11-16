@@ -1,0 +1,1 @@
+{"version":3,"file":"Loading.module.d.ts","sources":["Loading.module.d.ts"],"names":[],"mappings":";;;AAAA;;;AACA","sourcesContent":["export declare class NovoLoadingModule {\n}\n"]}

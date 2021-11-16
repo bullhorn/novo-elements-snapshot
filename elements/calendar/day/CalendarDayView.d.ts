@@ -11,6 +11,7 @@ import { CalendarEvent, CalendarEventTimesChangedEvent, DayView, DayViewHour } f
  * &lt;/novo-calendar-day&gt;
  * ```
  */
+import * as ɵngcc0 from '@angular/core';
 export declare class NovoCalendarDayViewElement implements OnChanges, OnInit, OnDestroy {
     private cdr;
     /**
@@ -145,4 +146,8 @@ export declare class NovoCalendarDayViewElement implements OnChanges, OnInit, On
     private refreshHourGrid;
     private refreshView;
     private refreshAll;
+    static ɵfac: ɵngcc0.ɵɵFactoryDef<NovoCalendarDayViewElement, never>;
+    static ɵcmp: ɵngcc0.ɵɵComponentDefWithMeta<NovoCalendarDayViewElement, "novo-calendar-day", never, { "events": "events"; "hourSegments": "hourSegments"; "dayStartHour": "dayStartHour"; "dayStartMinute": "dayStartMinute"; "dayEndHour": "dayEndHour"; "dayEndMinute": "dayEndMinute"; "eventWidth": "eventWidth"; "eventSnapSize": "eventSnapSize"; "tooltipPosition": "tooltipPosition"; "locale": "locale"; "viewDate": "viewDate"; "refresh": "refresh"; "hourSegmentModifier": "hourSegmentModifier"; "hourSegmentTemplate": "hourSegmentTemplate"; "allDayEventTemplate": "allDayEventTemplate"; "eventTemplate": "eventTemplate"; }, { "eventClicked": "eventClicked"; "hourSegmentClicked": "hourSegmentClicked"; "eventTimesChanged": "eventTimesChanged"; }, never, never>;
 }
+
+//# sourceMappingURL=CalendarDayView.d.ts.map
