@@ -3311,8 +3311,20 @@ CardElement.propDecorators = {
     onRefresh: [{ type: Output }]
 };
 
-// NG2
 class NovoLoadingElement {
+    constructor() {
+        this.size = 'medium';
+    }
+    set count(value) {
+        if (!value) {
+            value = 5;
+        }
+        if (value > 5) {
+            console.warn('Only 5 loading dots are allowed');
+            value = 5;
+        }
+        this.countArray = new Array(value);
+    }
 }
 NovoLoadingElement.decorators = [
     { type: Component, args: [{
@@ -3320,17 +3332,13 @@ NovoLoadingElement.decorators = [
                 host: {
                     '[class]': 'theme || ""',
                 },
-                template: `
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-        <span class="dot"></span>
-    `
+                template: `<span class="dot" *ngFor="let dot of countArray"></span>`
             },] }
 ];
 NovoLoadingElement.propDecorators = {
-    theme: [{ type: Input }]
+    theme: [{ type: Input }],
+    size: [{ type: Input }],
+    count: [{ type: Input }]
 };
 class NovoSpinnerElement {
 }

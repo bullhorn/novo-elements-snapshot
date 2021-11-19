@@ -3447,7 +3447,22 @@
 
     var NovoLoadingElement = /** @class */ (function () {
         function NovoLoadingElement() {
+            this.size = 'medium';
         }
+        Object.defineProperty(NovoLoadingElement.prototype, "count", {
+            set: function (value) {
+                if (!value) {
+                    value = 5;
+                }
+                if (value > 5) {
+                    console.warn('Only 5 loading dots are allowed');
+                    value = 5;
+                }
+                this.countArray = new Array(value);
+            },
+            enumerable: false,
+            configurable: true
+        });
         return NovoLoadingElement;
     }());
     NovoLoadingElement.decorators = [
@@ -3456,11 +3471,13 @@
                     host: {
                         '[class]': 'theme || ""',
                     },
-                    template: "\n        <span class=\"dot\"></span>\n        <span class=\"dot\"></span>\n        <span class=\"dot\"></span>\n        <span class=\"dot\"></span>\n        <span class=\"dot\"></span>\n    "
+                    template: "<span class=\"dot\" *ngFor=\"let dot of countArray\"></span>"
                 },] }
     ];
     NovoLoadingElement.propDecorators = {
-        theme: [{ type: core.Input }]
+        theme: [{ type: core.Input }],
+        size: [{ type: core.Input }],
+        count: [{ type: core.Input }]
     };
     var NovoSpinnerElement = /** @class */ (function () {
         function NovoSpinnerElement() {

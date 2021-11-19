@@ -1,6 +1,9 @@
 import { EmbeddedViewRef, QueryList, TemplateRef, ViewContainerRef } from '@angular/core';
 export declare class NovoLoadingElement {
     theme: string;
+    size: 'small' | 'medium';
+    countArray: number[];
+    set count(value: number);
 }
 export declare class NovoSpinnerElement {
     theme: string;
