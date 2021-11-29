@@ -2971,6 +2971,7 @@ class NovoLabelService {
         this.clearAllNormalCase = 'Clear All';
         this.clearSort = 'Clear Sort';
         this.clearFilter = 'Clear Filter';
+        this.clearSelected = 'Clear Selected';
         this.today = 'Today';
         this.now = 'Now';
         this.isRequired = 'is required';
@@ -7199,6 +7200,7 @@ class DataTableState {
         this.expandedRows = new Set();
         this.isForceRefresh = false;
         this.updates = new EventEmitter();
+        this.retainSelected = false;
     }
     get userFiltered() {
         return !!(this.filter || this.sort || this.globalSearch || this.outsideFilter);
@@ -7216,9 +7218,12 @@ class DataTableState {
             this.filter = undefined;
         }
         this.page = 0;
-        this.selectedRows.clear();
-        this.resetSource.next();
+        if (!this.retainSelected) {
+            this.selectedRows.clear();
+            this.resetSource.next();
+        }
         this.onSortFilterChange();
+        this.retainSelected = false;
         if (fireUpdate) {
             this.updates.emit({
                 sort: this.sort,
@@ -7230,8 +7235,8 @@ class DataTableState {
     clearSort(fireUpdate = true) {
         this.sort = undefined;
         this.page = 0;
-        this.selectedRows.clear();
-        this.resetSource.next();
+        this.checkRetainment('sort');
+        this.reset(fireUpdate, true);
         this.onSortFilterChange();
         if (fireUpdate) {
             this.updates.emit({
@@ -7245,9 +7250,22 @@ class DataTableState {
         this.filter = undefined;
         this.globalSearch = undefined;
         this.page = 0;
-        this.selectedRows.clear();
-        this.resetSource.next();
+        this.checkRetainment('filter');
+        this.reset(fireUpdate, true);
         this.onSortFilterChange();
+        if (fireUpdate) {
+            this.updates.emit({
+                sort: this.sort,
+                filter: this.filter,
+                globalSearch: this.globalSearch,
+            });
+        }
+    }
+    clearSelected(fireUpdate = true) {
+        this.globalSearch = undefined;
+        this.page = 0;
+        this.reset(fireUpdate, true);
+        this.onSelectionChange();
         if (fireUpdate) {
             this.updates.emit({
                 sort: this.sort,
@@ -7263,9 +7281,12 @@ class DataTableState {
         this.expandSource.next(targetId);
     }
     onPaginationChange(isPageSizeChange, pageSize) {
+        this.checkRetainment('page');
         this.paginationSource.next({ isPageSizeChange, pageSize });
     }
     onSortFilterChange() {
+        this.checkRetainment('sort');
+        this.checkRetainment('filter');
         this.sortFilterSource.next({
             sort: this.sort,
             filter: this.filter,
@@ -7289,6 +7310,10 @@ class DataTableState {
             }
         }
     }
+    checkRetainment(caller) {
+        var _a;
+        this.retainSelected = ((_a = this.selectionOptions) === null || _a === void 0 ? void 0 : _a.some(option => option.label === caller)) || this.retainSelected;
+    }
 }
 DataTableState.decorators = [
     { type: Injectable }
@@ -7299,6 +7324,7 @@ class NovoDataTableClearButton {
         this.state = state;
         this.ref = ref;
         this.labels = labels;
+        this.selectedClear = new EventEmitter();
         this.sortClear = new EventEmitter();
         this.filterClear = new EventEmitter();
         this.allClear = new EventEmitter();
@@ -7311,9 +7337,14 @@ class NovoDataTableClearButton {
         this.state.clearFilter();
         this.filterClear.emit(true);
     }
+    clearSelected() {
+        this.state.clearSelected();
+        this.selectedClear.emit(true);
+    }
     clearAll() {
         this.state.reset();
         this.allClear.emit(true);
+        this.selectedClear.emit(true);
         this.sortClear.emit(true);
         this.filterClear.emit(true);
     }
@@ -7325,6 +7356,7 @@ NovoDataTableClearButton.decorators = [
     <novo-dropdown side="bottom-right" class="novo-data-table-clear-button" data-automation-id="novo-data-table-clear-dropdown">
       <button type="button" theme="primary" color="negative" icon="collapse" data-automation-id="novo-data-table-clear-dropdown-btn">{{ labels.clear }}</button>
       <list>
+          <item *ngIf="state.selected.length > 0" (click)="clearSelected()" data-automation-id="novo-data-table-clear-dropdown-clear-selected">{{ labels.clearSelected }}</item>
           <item *ngIf="state.sort" (click)="clearSort()" data-automation-id="novo-data-table-clear-dropdown-clear-sort">{{ labels.clearSort }}</item>
           <item *ngIf="state.filter" (click)="clearFilter()" data-automation-id="novo-data-table-clear-dropdown-clear-filter">{{ labels.clearFilter }}</item>
           <item *ngIf="state.sort && state.filter" (click)="clearAll()" data-automation-id="novo-data-table-clear-dropdown-clear-all">{{ labels.clearAllNormalCase }}</item>
@@ -7340,6 +7372,7 @@ NovoDataTableClearButton.ctorParameters = () => [
     { type: NovoLabelService }
 ];
 NovoDataTableClearButton.propDecorators = {
+    selectedClear: [{ type: Output }],
     sortClear: [{ type: Output }],
     filterClear: [{ type: Output }],
     allClear: [{ type: Output }]
@@ -7383,7 +7416,10 @@ class DataTableSource extends DataSource {
             this.current = data.results.length;
             this.data = data.results;
             // Clear selection
-            this.state.selectedRows.clear();
+            if (!this.state.retainSelected) {
+                this.state.selectedRows.clear();
+            }
+            this.state.retainSelected = false;
             this.state.onSelectionChange();
             // Mark changes
             setTimeout(() => {
@@ -7746,6 +7782,7 @@ class NovoDataTableSortFilter {
             }
         }
         this.state.filter = filter;
+        this.state.checkRetainment('filter');
         this.state.reset(false, true);
         this.state.updates.next({ filter, sort: this.state.sort });
         this.state.onSortFilterChange();
@@ -7753,6 +7790,7 @@ class NovoDataTableSortFilter {
     sort(id, value, transform) {
         const sort = { id, value, transform };
         this.state.sort = sort;
+        this.state.checkRetainment('sort');
         this.state.reset(false, true);
         this.state.updates.next({ sort, filter: this.state.filter });
         this.state.onSortFilterChange();
@@ -8288,6 +8326,7 @@ class NovoDataTable {
         this.trackByFn = (index, item) => item.id;
         this.templates = {};
         this.fixedHeader = false;
+        this.maxSelected = undefined;
         this._hideGlobalSearch = true;
         this.preferencesChanged = new EventEmitter();
         this.loading = true;
@@ -8459,6 +8498,7 @@ class NovoDataTable {
         }
     }
     ngAfterContentInit() {
+        var _a;
         if (this.displayedColumns && this.displayedColumns.length) {
             this.expandable = this.displayedColumns.includes('expand');
         }
@@ -8488,6 +8528,7 @@ class NovoDataTable {
         }
         this.state.page = this.paginationOptions ? this.paginationOptions.page : undefined;
         this.state.pageSize = this.paginationOptions ? this.paginationOptions.pageSize : undefined;
+        this.state.selectionOptions = (_a = this.selectionOptions) !== null && _a !== void 0 ? _a : undefined;
         // Scrolling inside table
         this.novoDataTableContainer.nativeElement.addEventListener('scroll', this.scrollListenerHandler);
         this.initialized = true;
@@ -8732,8 +8773,8 @@ NovoDataTable.decorators = [
           [hidden]="dataSource?.totallyEmpty && !state.userFiltered"
         >
           <ng-container cdkColumnDef="selection">
-            <novo-data-table-checkbox-header-cell *cdkHeaderCellDef></novo-data-table-checkbox-header-cell>
-            <novo-data-table-checkbox-cell *cdkCellDef="let row; let i = index" [row]="row"></novo-data-table-checkbox-cell>
+            <novo-data-table-checkbox-header-cell *cdkHeaderCellDef [maxSelected]="maxSelected"></novo-data-table-checkbox-header-cell>
+            <novo-data-table-checkbox-cell *cdkCellDef="let row; let i = index" [row]="row" [maxSelected]="maxSelected"></novo-data-table-checkbox-cell>
           </ng-container>
           <ng-container cdkColumnDef="expand">
             <novo-data-table-expand-header-cell *cdkHeaderCellDef></novo-data-table-expand-header-cell>
@@ -8904,6 +8945,7 @@ NovoDataTable.propDecorators = {
     displayedColumns: [{ type: Input }],
     paginationOptions: [{ type: Input }],
     searchOptions: [{ type: Input }],
+    selectionOptions: [{ type: Input }],
     defaultSort: [{ type: Input }],
     name: [{ type: Input }],
     allowMultipleFilters: [{ type: Input }],
@@ -8913,6 +8955,7 @@ NovoDataTable.propDecorators = {
     templates: [{ type: Input }],
     fixedHeader: [{ type: Input }],
     paginatorDataFeatureId: [{ type: Input }],
+    maxSelected: [{ type: Input }],
     dataTableService: [{ type: Input }],
     rows: [{ type: Input }],
     outsideFilter: [{ type: Input }],
@@ -29442,6 +29485,7 @@ class NovoDataTableCheckboxCell extends CdkCell {
         this.dataTable = dataTable;
         this.ref = ref;
         this.role = 'gridcell';
+        this.maxSelected = undefined;
         this.checked = false;
         renderer.setAttribute(elementRef.nativeElement, 'data-automation-id', `novo-checkbox-column-${columnDef.cssClassFriendlyName}`);
         renderer.addClass(elementRef.nativeElement, `novo-checkbox-column-${columnDef.cssClassFriendlyName}`);
@@ -29455,11 +29499,19 @@ class NovoDataTableCheckboxCell extends CdkCell {
             this.ref.markForCheck();
         });
     }
+    get isAtLimit() {
+        return this.maxSelected && this.dataTable.state.selectedRows.size >= this.maxSelected && !this.checked;
+    }
     ngOnInit() {
         this.checked = this.dataTable.isSelected(this.row);
     }
     onClick() {
-        this.dataTable.selectRow(this.row);
+        if (!this.isAtLimit) {
+            this.dataTable.selectRow(this.row);
+        }
+    }
+    getTooltip() {
+        return (this.isAtLimit) ? 'More than ' + this.maxSelected + ' items are not able to be selected at one time' : '';
     }
     ngOnDestroy() {
         if (this.selectionSubscription) {
@@ -29474,10 +29526,11 @@ NovoDataTableCheckboxCell.decorators = [
     { type: Component, args: [{
                 selector: 'novo-data-table-checkbox-cell',
                 template: `
-    <div class="data-table-checkbox" (click)="onClick()">
+    <div class="data-table-checkbox" (click)="onClick()" [tooltip]="getTooltip()" tooltipPosition="right">
       <input type="checkbox" [checked]="checked">
       <label>
-        <i [class.bhi-checkbox-empty]="!checked"
+        <i [class.bhi-checkbox-disabled]="isAtLimit"
+          [class.bhi-checkbox-empty]="!checked"
           [class.bhi-checkbox-filled]="checked"></i>
       </label>
     </div>
@@ -29494,7 +29547,8 @@ NovoDataTableCheckboxCell.ctorParameters = () => [
 ];
 NovoDataTableCheckboxCell.propDecorators = {
     role: [{ type: HostBinding, args: ['attr.role',] }],
-    row: [{ type: Input }]
+    row: [{ type: Input }],
+    maxSelected: [{ type: Input }]
 };
 
 class NovoDataTableExpandCell extends CdkCell {
@@ -29632,12 +29686,211 @@ NovoDataTableExpandHeaderCell.propDecorators = {
     role: [{ type: HostBinding, args: ['attr.role',] }]
 };
 
+// NG2
+class NovoToastElement {
+    constructor(sanitizer) {
+        this.sanitizer = sanitizer;
+        this.theme = 'danger';
+        this.icon = 'caution';
+        this.hasDialogue = false;
+        this.isCloseable = false;
+        this.closed = new EventEmitter();
+        this.show = false;
+        this.animate = false;
+        this.parent = null;
+        this.launched = false;
+    }
+    set message(m) {
+        this._message = this.sanitizer.bypassSecurityTrustHtml(m);
+    }
+    ngOnInit() {
+        if (!this.launched) {
+            // clear position and time
+            this.position = null;
+            this.time = null;
+            // set icon and styling
+            this.iconClass = `bhi-${this.icon}`;
+            this.alertTheme = `${this.theme} toast-container embedded`;
+            if (this.hasDialogue) {
+                this.alertTheme += ' dialogue';
+            }
+        }
+    }
+    ngOnChanges(changes) {
+        // set icon and styling
+        this.iconClass = `bhi-${this.icon}`;
+        this.alertTheme = `${this.theme} toast-container embedded`;
+        if (this.hasDialogue) {
+            this.alertTheme += ' dialogue';
+        }
+    }
+    clickHandler(event) {
+        if (!this.isCloseable) {
+            if (event) {
+                event.stopPropagation();
+                event.preventDefault();
+            }
+            if (this.parent) {
+                this.parent.hide(this);
+            }
+            else {
+                this.closed.emit({ closed: true });
+            }
+        }
+    }
+    close(event) {
+        if (event) {
+            event.stopPropagation();
+            event.preventDefault();
+        }
+        if (this.parent) {
+            this.parent.hide(this);
+        }
+        else {
+            this.closed.emit({ closed: true });
+        }
+    }
+}
+NovoToastElement.decorators = [
+    { type: Component, args: [{
+                selector: 'novo-toast',
+                host: {
+                    '[class]': 'alertTheme',
+                    '[class.show]': 'show',
+                    '[class.animate]': 'animate',
+                    '[class.embedded]': 'embedded',
+                    '(click)': '!isCloseable && clickHandler($event)',
+                },
+                template: `
+        <div class="toast-icon">
+            <i [ngClass]="iconClass"></i>
+        </div>
+        <div class="toast-content">
+            <h5 *ngIf="title">{{title}}</h5>
+            <p *ngIf="_message" [class.message-only]="!title" [innerHtml]="_message"></p>
+            <div *ngIf="link" class="link-generated">
+                <input type="text" [value]="link" onfocus="this.select();"/>
+            </div>
+            <div class="dialogue">
+                <ng-content></ng-content>
+            </div>
+        </div>
+        <div class="close-icon" *ngIf="isCloseable" (click)="close($event)">
+            <i class="bhi-times"></i>
+        </div>
+    `
+            },] }
+];
+NovoToastElement.ctorParameters = () => [
+    { type: DomSanitizer }
+];
+NovoToastElement.propDecorators = {
+    theme: [{ type: Input }],
+    icon: [{ type: Input }],
+    title: [{ type: Input }],
+    hasDialogue: [{ type: Input }],
+    link: [{ type: Input }],
+    isCloseable: [{ type: Input }],
+    message: [{ type: Input }],
+    closed: [{ type: Output }]
+};
+
+// NG2
+class NovoToastService {
+    constructor(componentUtils) {
+        this.componentUtils = componentUtils;
+        this.references = [];
+        this.icons = { default: 'bell', success: 'check', info: 'info', warning: 'warning', danger: 'remove' };
+        this.defaults = { hideDelay: 3500, position: 'growlTopRight', theme: 'default' };
+    }
+    set parentViewContainer(view) {
+        this._parentViewContainer = view;
+    }
+    alert(options, toastElement = NovoToastElement) {
+        return new Promise((resolve) => {
+            if (!this._parentViewContainer) {
+                console.error('No parent view container specified for the ToastService. Set it inside your main application. \nthis.toastService.parentViewContainer = view (ViewContainerRef)');
+                return;
+            }
+            const toast = this.componentUtils.append(toastElement, this._parentViewContainer);
+            this.references.push(toast);
+            this.handleAlert(toast.instance, options);
+            resolve(toast);
+        });
+    }
+    isVisible(toast) {
+        return toast.show;
+    }
+    hide(toast) {
+        toast.animate = false;
+        setTimeout(() => {
+            toast.show = false;
+            const REF = this.references.filter((x) => x.instance === toast)[0];
+            if (REF) {
+                this.references.splice(this.references.indexOf(REF), 1);
+                REF.destroy();
+            }
+        }, 300);
+    }
+    handleAlert(toast, options) {
+        this.setToastOnSession(toast, options);
+        setTimeout(() => {
+            this.show(toast);
+        }, 20);
+        if (!toast.isCloseable) {
+            this.toastTimer(toast);
+        }
+    }
+    setToastOnSession(toast, opts) {
+        const OPTIONS = typeof opts === 'object' ? opts : {};
+        toast.parent = this;
+        toast.title = OPTIONS.title || '';
+        toast.message = OPTIONS.message || '';
+        toast.hideDelay = OPTIONS.hideDelay || this.defaults.hideDelay;
+        toast.link = OPTIONS.link || '';
+        toast.isCloseable = OPTIONS.isCloseable || false;
+        const CUSTOM_CLASS = OPTIONS.customClass || '';
+        const ALERT_STYLE = OPTIONS.theme || this.defaults.theme;
+        const ALERT_POSITION = OPTIONS.position || this.defaults.position;
+        const ALERT_ICON = OPTIONS.icon || this.icons.default;
+        toast.iconClass = `bhi-${ALERT_ICON}`;
+        toast.launched = true;
+        toast.alertTheme = `${ALERT_STYLE} ${ALERT_POSITION} ${CUSTOM_CLASS} toast-container launched`;
+    }
+    show(toast) {
+        toast.show = true;
+        setTimeout(addClass, 25);
+        /**
+         * Adds animate class to be called after a timeout
+         **/
+        function addClass() {
+            toast.animate = true;
+        }
+    }
+    toastTimer(toast) {
+        if (toast.hideDelay < 0) {
+            return;
+        }
+        setTimeout(() => {
+            this.hide(toast);
+        }, toast.hideDelay);
+    }
+}
+NovoToastService.decorators = [
+    { type: Injectable }
+];
+NovoToastService.ctorParameters = () => [
+    { type: ComponentUtils }
+];
+
 class NovoDataTableCheckboxHeaderCell extends CdkHeaderCell {
-    constructor(columnDef, elementRef, renderer, dataTable, ref) {
+    constructor(columnDef, elementRef, renderer, dataTable, ref, toaster) {
         super(columnDef, elementRef);
         this.dataTable = dataTable;
         this.ref = ref;
+        this.toaster = toaster;
         this.role = 'columnheader';
+        this.maxSelected = undefined;
         this.checked = false;
         renderer.setAttribute(elementRef.nativeElement, 'data-automation-id', `novo-checkbox-column-header-${columnDef.cssClassFriendlyName}`);
         renderer.addClass(elementRef.nativeElement, `novo-checkbox-column-${columnDef.cssClassFriendlyName}`);
@@ -29650,6 +29903,8 @@ class NovoDataTableCheckboxHeaderCell extends CdkHeaderCell {
             if (event.isPageSizeChange) {
                 this.checked = false;
                 this.dataTable.selectRows(false);
+                this.dataTable.state.checkRetainment('pageSize');
+                this.dataTable.state.reset(false, true);
             }
             else {
                 this.checked = this.dataTable.allCurrentRowsSelected();
@@ -29660,6 +29915,9 @@ class NovoDataTableCheckboxHeaderCell extends CdkHeaderCell {
             this.checked = false;
             this.ref.markForCheck();
         });
+    }
+    get isAtLimit() {
+        return this.maxSelected && this.dataTable.state.selectedRows.size + this.dataTable.dataSource.data.length > this.maxSelected && !this.checked;
     }
     ngOnDestroy() {
         if (this.selectionSubscription) {
@@ -29673,7 +29931,17 @@ class NovoDataTableCheckboxHeaderCell extends CdkHeaderCell {
         }
     }
     onClick() {
-        this.dataTable.selectRows(!this.checked);
+        if (this.isAtLimit) {
+            this.toaster.alert({
+                theme: 'danger',
+                position: 'fixedTop',
+                message: 'Error, more than 500 items are not able to be selected at one time',
+                icon: 'caution',
+            });
+        }
+        else {
+            this.dataTable.selectRows(!this.checked);
+        }
     }
 }
 NovoDataTableCheckboxHeaderCell.decorators = [
@@ -29696,10 +29964,12 @@ NovoDataTableCheckboxHeaderCell.ctorParameters = () => [
     { type: ElementRef },
     { type: Renderer2 },
     { type: NovoDataTable },
-    { type: ChangeDetectorRef }
+    { type: ChangeDetectorRef },
+    { type: NovoToastService }
 ];
 NovoDataTableCheckboxHeaderCell.propDecorators = {
-    role: [{ type: HostBinding, args: ['attr.role',] }]
+    role: [{ type: HostBinding, args: ['attr.role',] }],
+    maxSelected: [{ type: Input }]
 };
 
 class NovoDataTableHeaderCell extends CdkHeaderCell {
@@ -29795,10 +30065,12 @@ class NovoDataTablePagination {
         this.resetSubscription.unsubscribe();
     }
     selectPage(page) {
+        this.state.checkRetainment('page');
         this.page = page;
         this.emitPageEvent();
     }
     nextPage() {
+        this.state.checkRetainment('page');
         if (!this.hasNextPage()) {
             return;
         }
@@ -29807,6 +30079,7 @@ class NovoDataTablePagination {
         this.emitPageEvent();
     }
     previousPage() {
+        this.state.checkRetainment('page');
         if (!this.hasPreviousPage()) {
             return;
         }
@@ -33006,203 +33279,6 @@ NovoModalService.decorators = [
     { type: Injectable }
 ];
 NovoModalService.ctorParameters = () => [
-    { type: ComponentUtils }
-];
-
-// NG2
-class NovoToastElement {
-    constructor(sanitizer) {
-        this.sanitizer = sanitizer;
-        this.theme = 'danger';
-        this.icon = 'caution';
-        this.hasDialogue = false;
-        this.isCloseable = false;
-        this.closed = new EventEmitter();
-        this.show = false;
-        this.animate = false;
-        this.parent = null;
-        this.launched = false;
-    }
-    set message(m) {
-        this._message = this.sanitizer.bypassSecurityTrustHtml(m);
-    }
-    ngOnInit() {
-        if (!this.launched) {
-            // clear position and time
-            this.position = null;
-            this.time = null;
-            // set icon and styling
-            this.iconClass = `bhi-${this.icon}`;
-            this.alertTheme = `${this.theme} toast-container embedded`;
-            if (this.hasDialogue) {
-                this.alertTheme += ' dialogue';
-            }
-        }
-    }
-    ngOnChanges(changes) {
-        // set icon and styling
-        this.iconClass = `bhi-${this.icon}`;
-        this.alertTheme = `${this.theme} toast-container embedded`;
-        if (this.hasDialogue) {
-            this.alertTheme += ' dialogue';
-        }
-    }
-    clickHandler(event) {
-        if (!this.isCloseable) {
-            if (event) {
-                event.stopPropagation();
-                event.preventDefault();
-            }
-            if (this.parent) {
-                this.parent.hide(this);
-            }
-            else {
-                this.closed.emit({ closed: true });
-            }
-        }
-    }
-    close(event) {
-        if (event) {
-            event.stopPropagation();
-            event.preventDefault();
-        }
-        if (this.parent) {
-            this.parent.hide(this);
-        }
-        else {
-            this.closed.emit({ closed: true });
-        }
-    }
-}
-NovoToastElement.decorators = [
-    { type: Component, args: [{
-                selector: 'novo-toast',
-                host: {
-                    '[class]': 'alertTheme',
-                    '[class.show]': 'show',
-                    '[class.animate]': 'animate',
-                    '[class.embedded]': 'embedded',
-                    '(click)': '!isCloseable && clickHandler($event)',
-                },
-                template: `
-        <div class="toast-icon">
-            <i [ngClass]="iconClass"></i>
-        </div>
-        <div class="toast-content">
-            <h5 *ngIf="title">{{title}}</h5>
-            <p *ngIf="_message" [class.message-only]="!title" [innerHtml]="_message"></p>
-            <div *ngIf="link" class="link-generated">
-                <input type="text" [value]="link" onfocus="this.select();"/>
-            </div>
-            <div class="dialogue">
-                <ng-content></ng-content>
-            </div>
-        </div>
-        <div class="close-icon" *ngIf="isCloseable" (click)="close($event)">
-            <i class="bhi-times"></i>
-        </div>
-    `
-            },] }
-];
-NovoToastElement.ctorParameters = () => [
-    { type: DomSanitizer }
-];
-NovoToastElement.propDecorators = {
-    theme: [{ type: Input }],
-    icon: [{ type: Input }],
-    title: [{ type: Input }],
-    hasDialogue: [{ type: Input }],
-    link: [{ type: Input }],
-    isCloseable: [{ type: Input }],
-    message: [{ type: Input }],
-    closed: [{ type: Output }]
-};
-
-// NG2
-class NovoToastService {
-    constructor(componentUtils) {
-        this.componentUtils = componentUtils;
-        this.references = [];
-        this.icons = { default: 'bell', success: 'check', info: 'info', warning: 'warning', danger: 'remove' };
-        this.defaults = { hideDelay: 3500, position: 'growlTopRight', theme: 'default' };
-    }
-    set parentViewContainer(view) {
-        this._parentViewContainer = view;
-    }
-    alert(options, toastElement = NovoToastElement) {
-        return new Promise((resolve) => {
-            if (!this._parentViewContainer) {
-                console.error('No parent view container specified for the ToastService. Set it inside your main application. \nthis.toastService.parentViewContainer = view (ViewContainerRef)');
-                return;
-            }
-            const toast = this.componentUtils.append(toastElement, this._parentViewContainer);
-            this.references.push(toast);
-            this.handleAlert(toast.instance, options);
-            resolve(toast);
-        });
-    }
-    isVisible(toast) {
-        return toast.show;
-    }
-    hide(toast) {
-        toast.animate = false;
-        setTimeout(() => {
-            toast.show = false;
-            const REF = this.references.filter((x) => x.instance === toast)[0];
-            if (REF) {
-                this.references.splice(this.references.indexOf(REF), 1);
-                REF.destroy();
-            }
-        }, 300);
-    }
-    handleAlert(toast, options) {
-        this.setToastOnSession(toast, options);
-        setTimeout(() => {
-            this.show(toast);
-        }, 20);
-        if (!toast.isCloseable) {
-            this.toastTimer(toast);
-        }
-    }
-    setToastOnSession(toast, opts) {
-        const OPTIONS = typeof opts === 'object' ? opts : {};
-        toast.parent = this;
-        toast.title = OPTIONS.title || '';
-        toast.message = OPTIONS.message || '';
-        toast.hideDelay = OPTIONS.hideDelay || this.defaults.hideDelay;
-        toast.link = OPTIONS.link || '';
-        toast.isCloseable = OPTIONS.isCloseable || false;
-        const CUSTOM_CLASS = OPTIONS.customClass || '';
-        const ALERT_STYLE = OPTIONS.theme || this.defaults.theme;
-        const ALERT_POSITION = OPTIONS.position || this.defaults.position;
-        const ALERT_ICON = OPTIONS.icon || this.icons.default;
-        toast.iconClass = `bhi-${ALERT_ICON}`;
-        toast.launched = true;
-        toast.alertTheme = `${ALERT_STYLE} ${ALERT_POSITION} ${CUSTOM_CLASS} toast-container launched`;
-    }
-    show(toast) {
-        toast.show = true;
-        setTimeout(addClass, 25);
-        /**
-         * Adds animate class to be called after a timeout
-         **/
-        function addClass() {
-            toast.animate = true;
-        }
-    }
-    toastTimer(toast) {
-        if (toast.hideDelay < 0) {
-            return;
-        }
-        setTimeout(() => {
-            this.hide(toast);
-        }, toast.hideDelay);
-    }
-}
-NovoToastService.decorators = [
-    { type: Injectable }
-];
-NovoToastService.ctorParameters = () => [
     { type: ComponentUtils }
 ];
 

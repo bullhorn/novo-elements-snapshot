@@ -38,6 +38,7 @@ export declare class NovoLabelService {
     clearAllNormalCase: string;
     clearSort: string;
     clearFilter: string;
+    clearSelected: string;
     today: string;
     now: string;
     isRequired: string;

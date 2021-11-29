@@ -2,7 +2,7 @@ import { AfterContentInit, ChangeDetectorRef, ElementRef, EventEmitter, OnDestro
 import { NovoLabelService } from '../../services/novo-label-service';
 import { NovoTemplate } from '../common/novo-template/novo-template.directive';
 import { DataTableSource } from './data-table.source';
-import { IDataTableColumn, IDataTablePaginationOptions, IDataTablePreferences, IDataTableSearchOptions, IDataTableService } from './interfaces';
+import { IDataTableColumn, IDataTablePaginationOptions, IDataTablePreferences, IDataTableSearchOptions, IDataTableSelectionOption, IDataTableService } from './interfaces';
 import { DataTableState } from './state/data-table-state.service';
 import { NovoDataTableCellHeader } from './cell-headers/data-table-header-cell.component';
 import { ListInteractionDictionary, ListInteractionEvent } from './ListInteractionTypes';
@@ -21,6 +21,7 @@ export declare class NovoDataTable<T> implements AfterContentInit, OnDestroy {
     private _disabledColumns;
     paginationOptions: IDataTablePaginationOptions;
     searchOptions: IDataTableSearchOptions;
+    selectionOptions: IDataTableSelectionOption[];
     defaultSort: {
         id: string;
         value: string;
@@ -35,6 +36,7 @@ export declare class NovoDataTable<T> implements AfterContentInit, OnDestroy {
     };
     fixedHeader: boolean;
     paginatorDataFeatureId: string;
+    maxSelected: number;
     set dataTableService(service: IDataTableService<T>);
     set rows(rows: T[]);
     set outsideFilter(outsideFilter: EventEmitter<any>);

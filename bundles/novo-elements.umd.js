@@ -3128,6 +3128,7 @@
             this.clearAllNormalCase = 'Clear All';
             this.clearSort = 'Clear Sort';
             this.clearFilter = 'Clear Filter';
+            this.clearSelected = 'Clear Selected';
             this.today = 'Today';
             this.now = 'Now';
             this.isRequired = 'is required';
@@ -6997,6 +6998,7 @@
             this.expandedRows = new Set();
             this.isForceRefresh = false;
             this.updates = new core.EventEmitter();
+            this.retainSelected = false;
         }
         Object.defineProperty(DataTableState.prototype, "userFiltered", {
             get: function () {
@@ -7027,9 +7029,12 @@
                 this.filter = undefined;
             }
             this.page = 0;
-            this.selectedRows.clear();
-            this.resetSource.next();
+            if (!this.retainSelected) {
+                this.selectedRows.clear();
+                this.resetSource.next();
+            }
             this.onSortFilterChange();
+            this.retainSelected = false;
             if (fireUpdate) {
                 this.updates.emit({
                     sort: this.sort,
@@ -7042,8 +7047,8 @@
             if (fireUpdate === void 0) { fireUpdate = true; }
             this.sort = undefined;
             this.page = 0;
-            this.selectedRows.clear();
-            this.resetSource.next();
+            this.checkRetainment('sort');
+            this.reset(fireUpdate, true);
             this.onSortFilterChange();
             if (fireUpdate) {
                 this.updates.emit({
@@ -7058,9 +7063,23 @@
             this.filter = undefined;
             this.globalSearch = undefined;
             this.page = 0;
-            this.selectedRows.clear();
-            this.resetSource.next();
+            this.checkRetainment('filter');
+            this.reset(fireUpdate, true);
             this.onSortFilterChange();
+            if (fireUpdate) {
+                this.updates.emit({
+                    sort: this.sort,
+                    filter: this.filter,
+                    globalSearch: this.globalSearch,
+                });
+            }
+        };
+        DataTableState.prototype.clearSelected = function (fireUpdate) {
+            if (fireUpdate === void 0) { fireUpdate = true; }
+            this.globalSearch = undefined;
+            this.page = 0;
+            this.reset(fireUpdate, true);
+            this.onSelectionChange();
             if (fireUpdate) {
                 this.updates.emit({
                     sort: this.sort,
@@ -7076,9 +7095,12 @@
             this.expandSource.next(targetId);
         };
         DataTableState.prototype.onPaginationChange = function (isPageSizeChange, pageSize) {
+            this.checkRetainment('page');
             this.paginationSource.next({ isPageSizeChange: isPageSizeChange, pageSize: pageSize });
         };
         DataTableState.prototype.onSortFilterChange = function () {
+            this.checkRetainment('sort');
+            this.checkRetainment('filter');
             this.sortFilterSource.next({
                 sort: this.sort,
                 filter: this.filter,
@@ -7102,6 +7124,10 @@
                 }
             }
         };
+        DataTableState.prototype.checkRetainment = function (caller) {
+            var _a;
+            this.retainSelected = ((_a = this.selectionOptions) === null || _a === void 0 ? void 0 : _a.some(function (option) { return option.label === caller; })) || this.retainSelected;
+        };
         return DataTableState;
     }());
     DataTableState.decorators = [
@@ -7113,6 +7139,7 @@
             this.state = state;
             this.ref = ref;
             this.labels = labels;
+            this.selectedClear = new core.EventEmitter();
             this.sortClear = new core.EventEmitter();
             this.filterClear = new core.EventEmitter();
             this.allClear = new core.EventEmitter();
@@ -7125,9 +7152,14 @@
             this.state.clearFilter();
             this.filterClear.emit(true);
         };
+        NovoDataTableClearButton.prototype.clearSelected = function () {
+            this.state.clearSelected();
+            this.selectedClear.emit(true);
+        };
         NovoDataTableClearButton.prototype.clearAll = function () {
             this.state.reset();
             this.allClear.emit(true);
+            this.selectedClear.emit(true);
             this.sortClear.emit(true);
             this.filterClear.emit(true);
         };
@@ -7136,7 +7168,7 @@
     NovoDataTableClearButton.decorators = [
         { type: core.Component, args: [{
                     selector: 'novo-data-table-clear-button',
-                    template: "\n    <novo-dropdown side=\"bottom-right\" class=\"novo-data-table-clear-button\" data-automation-id=\"novo-data-table-clear-dropdown\">\n      <button type=\"button\" theme=\"primary\" color=\"negative\" icon=\"collapse\" data-automation-id=\"novo-data-table-clear-dropdown-btn\">{{ labels.clear }}</button>\n      <list>\n          <item *ngIf=\"state.sort\" (click)=\"clearSort()\" data-automation-id=\"novo-data-table-clear-dropdown-clear-sort\">{{ labels.clearSort }}</item>\n          <item *ngIf=\"state.filter\" (click)=\"clearFilter()\" data-automation-id=\"novo-data-table-clear-dropdown-clear-filter\">{{ labels.clearFilter }}</item>\n          <item *ngIf=\"state.sort && state.filter\" (click)=\"clearAll()\" data-automation-id=\"novo-data-table-clear-dropdown-clear-all\">{{ labels.clearAllNormalCase }}</item>\n      </list>\n    </novo-dropdown>\n  ",
+                    template: "\n    <novo-dropdown side=\"bottom-right\" class=\"novo-data-table-clear-button\" data-automation-id=\"novo-data-table-clear-dropdown\">\n      <button type=\"button\" theme=\"primary\" color=\"negative\" icon=\"collapse\" data-automation-id=\"novo-data-table-clear-dropdown-btn\">{{ labels.clear }}</button>\n      <list>\n          <item *ngIf=\"state.selected.length > 0\" (click)=\"clearSelected()\" data-automation-id=\"novo-data-table-clear-dropdown-clear-selected\">{{ labels.clearSelected }}</item>\n          <item *ngIf=\"state.sort\" (click)=\"clearSort()\" data-automation-id=\"novo-data-table-clear-dropdown-clear-sort\">{{ labels.clearSort }}</item>\n          <item *ngIf=\"state.filter\" (click)=\"clearFilter()\" data-automation-id=\"novo-data-table-clear-dropdown-clear-filter\">{{ labels.clearFilter }}</item>\n          <item *ngIf=\"state.sort && state.filter\" (click)=\"clearAll()\" data-automation-id=\"novo-data-table-clear-dropdown-clear-all\">{{ labels.clearAllNormalCase }}</item>\n      </list>\n    </novo-dropdown>\n  ",
                     changeDetection: core.ChangeDetectionStrategy.OnPush
                 },] }
     ];
@@ -7146,6 +7178,7 @@
         { type: NovoLabelService }
     ]; };
     NovoDataTableClearButton.propDecorators = {
+        selectedClear: [{ type: core.Output }],
         sortClear: [{ type: core.Output }],
         filterClear: [{ type: core.Output }],
         allClear: [{ type: core.Output }]
@@ -7200,7 +7233,10 @@
                 _this.current = data.results.length;
                 _this.data = data.results;
                 // Clear selection
-                _this.state.selectedRows.clear();
+                if (!_this.state.retainSelected) {
+                    _this.state.selectedRows.clear();
+                }
+                _this.state.retainSelected = false;
                 _this.state.onSelectionChange();
                 // Mark changes
                 setTimeout(function () {
@@ -7572,6 +7608,7 @@
                 }
             }
             this.state.filter = filter;
+            this.state.checkRetainment('filter');
             this.state.reset(false, true);
             this.state.updates.next({ filter: filter, sort: this.state.sort });
             this.state.onSortFilterChange();
@@ -7579,6 +7616,7 @@
         NovoDataTableSortFilter.prototype.sort = function (id, value, transform) {
             var sort = { id: id, value: value, transform: transform };
             this.state.sort = sort;
+            this.state.checkRetainment('sort');
             this.state.reset(false, true);
             this.state.updates.next({ sort: sort, filter: this.state.filter });
             this.state.onSortFilterChange();
@@ -7991,6 +8029,7 @@
             this.trackByFn = function (index, item) { return item.id; };
             this.templates = {};
             this.fixedHeader = false;
+            this.maxSelected = undefined;
             this._hideGlobalSearch = true;
             this.preferencesChanged = new core.EventEmitter();
             this.loading = true;
@@ -8214,6 +8253,7 @@
         };
         NovoDataTable.prototype.ngAfterContentInit = function () {
             var _this = this;
+            var _a;
             if (this.displayedColumns && this.displayedColumns.length) {
                 this.expandable = this.displayedColumns.includes('expand');
             }
@@ -8243,6 +8283,7 @@
             }
             this.state.page = this.paginationOptions ? this.paginationOptions.page : undefined;
             this.state.pageSize = this.paginationOptions ? this.paginationOptions.pageSize : undefined;
+            this.state.selectionOptions = (_a = this.selectionOptions) !== null && _a !== void 0 ? _a : undefined;
             // Scrolling inside table
             this.novoDataTableContainer.nativeElement.addEventListener('scroll', this.scrollListenerHandler);
             this.initialized = true;
@@ -8417,11 +8458,11 @@
             this.ref.markForCheck();
         };
         NovoDataTable.prototype.performInteractions = function (event) {
-            var e_1, _a;
+            var e_1, _b;
             if (this.listInteractions) {
                 try {
-                    for (var _b = __values(this.columns), _c = _b.next(); !_c.done; _c = _b.next()) {
-                        var column = _c.value;
+                    for (var _c = __values(this.columns), _d = _c.next(); !_d.done; _d = _c.next()) {
+                        var column = _d.value;
                         var allListColumnInteractions = this.listInteractions[column.id];
                         var listColumnInteraction = allListColumnInteractions && allListColumnInteractions.find(function (int) { return int.event.includes(event); });
                         if (listColumnInteraction) {
@@ -8432,7 +8473,7 @@
                 catch (e_1_1) { e_1 = { error: e_1_1 }; }
                 finally {
                     try {
-                        if (_c && !_c.done && (_a = _b.return)) _a.call(_b);
+                        if (_d && !_d.done && (_b = _c.return)) _b.call(_c);
                     }
                     finally { if (e_1) throw e_1.error; }
                 }
@@ -8450,7 +8491,7 @@
                             animations.transition('void <=> *', animations.animate('70ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
                         ]),
                     ],
-                    template: "\n    <header\n      *ngIf=\"(!(dataSource?.totallyEmpty && !state.userFiltered) && !loading) || forceShowHeader\"\n      [class.empty]=\"hideGlobalSearch && !paginationOptions && !templates['customActions']\"\n    >\n      <ng-container *ngTemplateOutlet=\"templates['customHeader']\"></ng-container>\n      <novo-search\n        alwaysOpen=\"true\"\n        (searchChanged)=\"onSearchChange($event)\"\n        [(ngModel)]=\"state.globalSearch\"\n        *ngIf=\"!hideGlobalSearch\"\n        [placeholder]=\"searchOptions?.placeholder\"\n        [hint]=\"searchOptions?.tooltip\"\n      >\n      </novo-search>\n      <novo-data-table-pagination\n        *ngIf=\"paginationOptions\"\n        [theme]=\"paginationOptions.theme\"\n        [length]=\"dataSource?.currentTotal\"\n        [page]=\"paginationOptions.page\"\n        [pageSize]=\"paginationOptions.pageSize\"\n        [pageSizeOptions]=\"paginationOptions.pageSizeOptions\"\n        [dataFeatureId]=\"paginatorDataFeatureId\"\n      >\n      </novo-data-table-pagination>\n      <div class=\"novo-data-table-actions\" *ngIf=\"templates['customActions']\">\n        <ng-container *ngTemplateOutlet=\"templates['customActions']\"></ng-container>\n      </div>\n    </header>\n    <div class=\"novo-data-table-loading-mask\" *ngIf=\"dataSource?.loading || loading\" data-automation-id=\"novo-data-table-loading\">\n      <novo-loading></novo-loading>\n    </div>\n    <div class=\"novo-data-table-outside-container\" [ngClass]=\"{ 'novo-data-table-outside-container-fixed': fixedHeader }\">\n      <div class=\"novo-data-table-custom-filter\" *ngIf=\"customFilter\">\n        <ng-container *ngTemplateOutlet=\"templates['customFilter']\"></ng-container>\n      </div>\n      <div\n        #novoDataTableContainer\n        class=\"novo-data-table-container\"\n        [ngClass]=\"{ 'novo-data-table-container-fixed': fixedHeader }\"\n        [class.empty-user-filtered]=\"dataSource?.currentlyEmpty && state.userFiltered\"\n        [class.empty]=\"dataSource?.totallyEmpty && !dataSource?.loading && !loading && !state.userFiltered && !dataSource.pristine\"\n      >\n        <cdk-table\n          *ngIf=\"columns?.length > 0 && columnsLoaded && dataSource\"\n          [dataSource]=\"dataSource\"\n          [trackBy]=\"trackByFn\"\n          novoDataTableSortFilter\n          [class.expandable]=\"expandable\"\n          [class.empty]=\"dataSource?.currentlyEmpty && state.userFiltered\"\n          [hidden]=\"dataSource?.totallyEmpty && !state.userFiltered\"\n        >\n          <ng-container cdkColumnDef=\"selection\">\n            <novo-data-table-checkbox-header-cell *cdkHeaderCellDef></novo-data-table-checkbox-header-cell>\n            <novo-data-table-checkbox-cell *cdkCellDef=\"let row; let i = index\" [row]=\"row\"></novo-data-table-checkbox-cell>\n          </ng-container>\n          <ng-container cdkColumnDef=\"expand\">\n            <novo-data-table-expand-header-cell *cdkHeaderCellDef></novo-data-table-expand-header-cell>\n            <novo-data-table-expand-cell *cdkCellDef=\"let row; let i = index\" [row]=\"row\"></novo-data-table-expand-cell>\n          </ng-container>\n          <ng-container *ngFor=\"let column of columns; trackBy: trackColumnsBy\" [cdkColumnDef]=\"column.id\">\n            <novo-data-table-header-cell\n              *cdkHeaderCellDef\n              [column]=\"column\"\n              [filterTemplate]=\"templates['column-filter-' + column.id]\"\n              [novo-data-table-cell-config]=\"column\"\n              [resized]=\"resized\"\n              [defaultSort]=\"defaultSort\"\n              [allowMultipleFilters]=\"allowMultipleFilters\"\n              [class.empty]=\"column?.type === 'action' && !column?.label\"\n              [class.button-header-cell]=\"column?.type === 'expand' || (column?.type === 'action' && !column?.action?.options)\"\n              [class.dropdown-header-cell]=\"column?.type === 'action' && column?.action?.options\"\n              [class.fixed-header]=\"fixedHeader\"\n            ></novo-data-table-header-cell>\n            <novo-data-table-cell\n              *cdkCellDef=\"let row\"\n              [resized]=\"resized\"\n              [column]=\"column\"\n              [row]=\"row\"\n              [template]=\"columnToTemplate[column.id]\"\n              [class.empty]=\"column?.type === 'action' && !column?.label\"\n              [class.button-cell]=\"column?.type === 'expand' || (column?.type === 'action' && !column?.action?.options)\"\n              [class.dropdown-cell]=\"column?.type === 'action' && column?.action?.options\"\n            ></novo-data-table-cell>\n          </ng-container>\n          <novo-data-table-header-row\n            *cdkHeaderRowDef=\"displayedColumns\"\n            [fixedHeader]=\"fixedHeader\"\n            data-automation-id=\"novo-data-table-header-row\"\n          ></novo-data-table-header-row>\n          <novo-data-table-row\n            *cdkRowDef=\"let row; columns: displayedColumns\"\n            [ngClass]=\"{ active: row[rowIdentifier] == activeRowIdentifier }\"\n            [novoDataTableExpand]=\"detailRowTemplate\"\n            [row]=\"row\"\n            [id]=\"name + '-' + row[rowIdentifier]\"\n            [dataAutomationId]=\"row[rowIdentifier]\"\n          ></novo-data-table-row>\n        </cdk-table>\n        <div class=\"novo-data-table-footer\" *ngIf=\"templates['footer']\">\n          <ng-container *ngTemplateOutlet=\"templates['footer']; context: { $implicit: columns, data: dataSource.data }\"></ng-container>\n        </div>\n        <div\n          class=\"novo-data-table-no-results-container\"\n          [style.left.px]=\"scrollLeft\"\n          *ngIf=\"dataSource?.currentlyEmpty && state.userFiltered && !dataSource?.loading && !loading && !dataSource.pristine\"\n        >\n          <div class=\"novo-data-table-empty-message\">\n            <ng-container *ngTemplateOutlet=\"templates['noResultsMessage'] || templates['defaultNoResultsMessage']\"></ng-container>\n          </div>\n        </div>\n      </div>\n      <div\n        class=\"novo-data-table-empty-container\"\n        *ngIf=\"dataSource?.totallyEmpty && !dataSource?.loading && !loading && !state.userFiltered && !dataSource.pristine\"\n      >\n        <div class=\"novo-data-table-empty-message\">\n          <ng-container *ngTemplateOutlet=\"templates['emptyMessage'] || templates['defaultNoResultsMessage']\"></ng-container>\n        </div>\n      </div>\n    </div>\n    <!-- DEFAULT CELL TEMPLATE -->\n    <ng-template novoTemplate=\"textCellTemplate\" let-row let-col=\"col\">\n      <span [style.width.px]=\"col?.width\" [style.min-width.px]=\"col?.width\" [style.max-width.px]=\"col?.width\">{{\n        row[col.id] | dataTableInterpolate: col\n      }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"dateCellTemplate\" let-row let-col=\"col\">\n      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableDateRenderer: col }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"datetimeCellTemplate\" let-row let-col=\"col\">\n      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableDateTimeRenderer: col }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"timeCellTemplate\" let-row let-col=\"col\">\n      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableTimeRenderer: col }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"currencyCellTemplate\" let-row let-col=\"col\">\n      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableCurrencyRenderer: col }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"bigdecimalCellTemplate\" let-row let-col=\"col\">\n      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableBigDecimalRenderer: col }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"numberCellTemplate\" let-row let-col=\"col\">\n      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"percentCellTemplate\" let-row let-col=\"col\">\n      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col:true }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"linkCellTemplate\" let-row let-col=\"col\">\n      <a\n        [attr.data-feature-id]=\"col?.attributes?.dataFeatureId\"\n        (click)=\"col.handlers?.click({ originalEvent: $event, row: row })\"\n        [style.width.px]=\"col?.width\"\n        [style.min-width.px]=\"col?.width\"\n        [style.max-width.px]=\"col?.width\"\n        >{{ row[col.id] | dataTableInterpolate: col }}</a\n      >\n    </ng-template>\n    <ng-template novoTemplate=\"telCellTemplate\" let-row let-col=\"col\">\n      <a href=\"tel:{{ row[col.id] | dataTableInterpolate: col }}\" [target]=\"col?.attributes?.target\">{{\n        row[col.id] | dataTableInterpolate: col\n      }}</a>\n    </ng-template>\n    <ng-template novoTemplate=\"mailtoCellTemplate\" let-row let-col=\"col\">\n      <a href=\"mailto:{{ row[col.id] | dataTableInterpolate: col }}\" [target]=\"col?.attributes?.target\">{{\n        row[col.id] | dataTableInterpolate: col\n      }}</a>\n    </ng-template>\n    <ng-template novoTemplate=\"buttonCellTemplate\" let-row let-col=\"col\">\n      <p [tooltip]=\"col?.action?.tooltip\" tooltipPosition=\"right\" [attr.data-feature-id]=\"col?.attributes?.dataFeatureId\">\n        <i\n          class=\"bhi-{{ col?.action?.icon }} data-table-icon\"\n          (click)=\"col.handlers?.click({ originalEvent: $event, row: row })\"\n          [class.disabled]=\"isDisabled(col, row)\"\n        ></i>\n      </p>\n    </ng-template>\n    <ng-template novoTemplate=\"dropdownCellTemplate\" let-row let-col=\"col\">\n      <novo-dropdown parentScrollSelector=\".novo-data-table-container\" containerClass=\"novo-data-table-dropdown\">\n        <button type=\"button\" theme=\"dialogue\" [icon]=\"col.action.icon\" inverse>{{ col.label }}</button>\n        <list>\n          <item\n            *ngFor=\"let option of col?.action?.options\"\n            (action)=\"option.handlers.click({ originalEvent: $event?.originalEvent, row: row })\"\n            [disabled]=\"isDisabled(option, row)\"\n          >\n            <span [attr.data-automation-id]=\"option.label\">{{ option.label }}</span>\n          </item>\n        </list>\n      </novo-dropdown>\n    </ng-template>\n    <ng-template novoTemplate=\"defaultNoResultsMessage\">\n      <h4><i class=\"bhi-search-question\"></i> {{ labels.noMatchingRecordsMessage }}</h4>\n    </ng-template>\n    <ng-template novoTemplate=\"defaultEmptyMessage\">\n      <h4><i class=\"bhi-search-question\"></i> {{ labels.emptyTableMessage }}</h4>\n    </ng-template>\n    <ng-template novoTemplate=\"expandedRow\"> You did not provide an \"expandedRow\" template! </ng-template>\n    <ng-template #detailRowTemplate let-row>\n      <div class=\"novo-data-table-detail-row\" [@expand] style=\"overflow: hidden\">\n        <ng-container *ngTemplateOutlet=\"templates['expandedRow']; context: { $implicit: row }\"></ng-container>\n      </div>\n    </ng-template>\n    <!-- CUSTOM CELLS PASSED IN -->\n    <ng-content></ng-content>\n  ",
+                    template: "\n    <header\n      *ngIf=\"(!(dataSource?.totallyEmpty && !state.userFiltered) && !loading) || forceShowHeader\"\n      [class.empty]=\"hideGlobalSearch && !paginationOptions && !templates['customActions']\"\n    >\n      <ng-container *ngTemplateOutlet=\"templates['customHeader']\"></ng-container>\n      <novo-search\n        alwaysOpen=\"true\"\n        (searchChanged)=\"onSearchChange($event)\"\n        [(ngModel)]=\"state.globalSearch\"\n        *ngIf=\"!hideGlobalSearch\"\n        [placeholder]=\"searchOptions?.placeholder\"\n        [hint]=\"searchOptions?.tooltip\"\n      >\n      </novo-search>\n      <novo-data-table-pagination\n        *ngIf=\"paginationOptions\"\n        [theme]=\"paginationOptions.theme\"\n        [length]=\"dataSource?.currentTotal\"\n        [page]=\"paginationOptions.page\"\n        [pageSize]=\"paginationOptions.pageSize\"\n        [pageSizeOptions]=\"paginationOptions.pageSizeOptions\"\n        [dataFeatureId]=\"paginatorDataFeatureId\"\n      >\n      </novo-data-table-pagination>\n      <div class=\"novo-data-table-actions\" *ngIf=\"templates['customActions']\">\n        <ng-container *ngTemplateOutlet=\"templates['customActions']\"></ng-container>\n      </div>\n    </header>\n    <div class=\"novo-data-table-loading-mask\" *ngIf=\"dataSource?.loading || loading\" data-automation-id=\"novo-data-table-loading\">\n      <novo-loading></novo-loading>\n    </div>\n    <div class=\"novo-data-table-outside-container\" [ngClass]=\"{ 'novo-data-table-outside-container-fixed': fixedHeader }\">\n      <div class=\"novo-data-table-custom-filter\" *ngIf=\"customFilter\">\n        <ng-container *ngTemplateOutlet=\"templates['customFilter']\"></ng-container>\n      </div>\n      <div\n        #novoDataTableContainer\n        class=\"novo-data-table-container\"\n        [ngClass]=\"{ 'novo-data-table-container-fixed': fixedHeader }\"\n        [class.empty-user-filtered]=\"dataSource?.currentlyEmpty && state.userFiltered\"\n        [class.empty]=\"dataSource?.totallyEmpty && !dataSource?.loading && !loading && !state.userFiltered && !dataSource.pristine\"\n      >\n        <cdk-table\n          *ngIf=\"columns?.length > 0 && columnsLoaded && dataSource\"\n          [dataSource]=\"dataSource\"\n          [trackBy]=\"trackByFn\"\n          novoDataTableSortFilter\n          [class.expandable]=\"expandable\"\n          [class.empty]=\"dataSource?.currentlyEmpty && state.userFiltered\"\n          [hidden]=\"dataSource?.totallyEmpty && !state.userFiltered\"\n        >\n          <ng-container cdkColumnDef=\"selection\">\n            <novo-data-table-checkbox-header-cell *cdkHeaderCellDef [maxSelected]=\"maxSelected\"></novo-data-table-checkbox-header-cell>\n            <novo-data-table-checkbox-cell *cdkCellDef=\"let row; let i = index\" [row]=\"row\" [maxSelected]=\"maxSelected\"></novo-data-table-checkbox-cell>\n          </ng-container>\n          <ng-container cdkColumnDef=\"expand\">\n            <novo-data-table-expand-header-cell *cdkHeaderCellDef></novo-data-table-expand-header-cell>\n            <novo-data-table-expand-cell *cdkCellDef=\"let row; let i = index\" [row]=\"row\"></novo-data-table-expand-cell>\n          </ng-container>\n          <ng-container *ngFor=\"let column of columns; trackBy: trackColumnsBy\" [cdkColumnDef]=\"column.id\">\n            <novo-data-table-header-cell\n              *cdkHeaderCellDef\n              [column]=\"column\"\n              [filterTemplate]=\"templates['column-filter-' + column.id]\"\n              [novo-data-table-cell-config]=\"column\"\n              [resized]=\"resized\"\n              [defaultSort]=\"defaultSort\"\n              [allowMultipleFilters]=\"allowMultipleFilters\"\n              [class.empty]=\"column?.type === 'action' && !column?.label\"\n              [class.button-header-cell]=\"column?.type === 'expand' || (column?.type === 'action' && !column?.action?.options)\"\n              [class.dropdown-header-cell]=\"column?.type === 'action' && column?.action?.options\"\n              [class.fixed-header]=\"fixedHeader\"\n            ></novo-data-table-header-cell>\n            <novo-data-table-cell\n              *cdkCellDef=\"let row\"\n              [resized]=\"resized\"\n              [column]=\"column\"\n              [row]=\"row\"\n              [template]=\"columnToTemplate[column.id]\"\n              [class.empty]=\"column?.type === 'action' && !column?.label\"\n              [class.button-cell]=\"column?.type === 'expand' || (column?.type === 'action' && !column?.action?.options)\"\n              [class.dropdown-cell]=\"column?.type === 'action' && column?.action?.options\"\n            ></novo-data-table-cell>\n          </ng-container>\n          <novo-data-table-header-row\n            *cdkHeaderRowDef=\"displayedColumns\"\n            [fixedHeader]=\"fixedHeader\"\n            data-automation-id=\"novo-data-table-header-row\"\n          ></novo-data-table-header-row>\n          <novo-data-table-row\n            *cdkRowDef=\"let row; columns: displayedColumns\"\n            [ngClass]=\"{ active: row[rowIdentifier] == activeRowIdentifier }\"\n            [novoDataTableExpand]=\"detailRowTemplate\"\n            [row]=\"row\"\n            [id]=\"name + '-' + row[rowIdentifier]\"\n            [dataAutomationId]=\"row[rowIdentifier]\"\n          ></novo-data-table-row>\n        </cdk-table>\n        <div class=\"novo-data-table-footer\" *ngIf=\"templates['footer']\">\n          <ng-container *ngTemplateOutlet=\"templates['footer']; context: { $implicit: columns, data: dataSource.data }\"></ng-container>\n        </div>\n        <div\n          class=\"novo-data-table-no-results-container\"\n          [style.left.px]=\"scrollLeft\"\n          *ngIf=\"dataSource?.currentlyEmpty && state.userFiltered && !dataSource?.loading && !loading && !dataSource.pristine\"\n        >\n          <div class=\"novo-data-table-empty-message\">\n            <ng-container *ngTemplateOutlet=\"templates['noResultsMessage'] || templates['defaultNoResultsMessage']\"></ng-container>\n          </div>\n        </div>\n      </div>\n      <div\n        class=\"novo-data-table-empty-container\"\n        *ngIf=\"dataSource?.totallyEmpty && !dataSource?.loading && !loading && !state.userFiltered && !dataSource.pristine\"\n      >\n        <div class=\"novo-data-table-empty-message\">\n          <ng-container *ngTemplateOutlet=\"templates['emptyMessage'] || templates['defaultNoResultsMessage']\"></ng-container>\n        </div>\n      </div>\n    </div>\n    <!-- DEFAULT CELL TEMPLATE -->\n    <ng-template novoTemplate=\"textCellTemplate\" let-row let-col=\"col\">\n      <span [style.width.px]=\"col?.width\" [style.min-width.px]=\"col?.width\" [style.max-width.px]=\"col?.width\">{{\n        row[col.id] | dataTableInterpolate: col\n      }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"dateCellTemplate\" let-row let-col=\"col\">\n      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableDateRenderer: col }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"datetimeCellTemplate\" let-row let-col=\"col\">\n      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableDateTimeRenderer: col }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"timeCellTemplate\" let-row let-col=\"col\">\n      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableTimeRenderer: col }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"currencyCellTemplate\" let-row let-col=\"col\">\n      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableCurrencyRenderer: col }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"bigdecimalCellTemplate\" let-row let-col=\"col\">\n      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableBigDecimalRenderer: col }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"numberCellTemplate\" let-row let-col=\"col\">\n      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"percentCellTemplate\" let-row let-col=\"col\">\n      <span>{{ row[col.id] | dataTableInterpolate: col | dataTableNumberRenderer: col:true }}</span>\n    </ng-template>\n    <ng-template novoTemplate=\"linkCellTemplate\" let-row let-col=\"col\">\n      <a\n        [attr.data-feature-id]=\"col?.attributes?.dataFeatureId\"\n        (click)=\"col.handlers?.click({ originalEvent: $event, row: row })\"\n        [style.width.px]=\"col?.width\"\n        [style.min-width.px]=\"col?.width\"\n        [style.max-width.px]=\"col?.width\"\n        >{{ row[col.id] | dataTableInterpolate: col }}</a\n      >\n    </ng-template>\n    <ng-template novoTemplate=\"telCellTemplate\" let-row let-col=\"col\">\n      <a href=\"tel:{{ row[col.id] | dataTableInterpolate: col }}\" [target]=\"col?.attributes?.target\">{{\n        row[col.id] | dataTableInterpolate: col\n      }}</a>\n    </ng-template>\n    <ng-template novoTemplate=\"mailtoCellTemplate\" let-row let-col=\"col\">\n      <a href=\"mailto:{{ row[col.id] | dataTableInterpolate: col }}\" [target]=\"col?.attributes?.target\">{{\n        row[col.id] | dataTableInterpolate: col\n      }}</a>\n    </ng-template>\n    <ng-template novoTemplate=\"buttonCellTemplate\" let-row let-col=\"col\">\n      <p [tooltip]=\"col?.action?.tooltip\" tooltipPosition=\"right\" [attr.data-feature-id]=\"col?.attributes?.dataFeatureId\">\n        <i\n          class=\"bhi-{{ col?.action?.icon }} data-table-icon\"\n          (click)=\"col.handlers?.click({ originalEvent: $event, row: row })\"\n          [class.disabled]=\"isDisabled(col, row)\"\n        ></i>\n      </p>\n    </ng-template>\n    <ng-template novoTemplate=\"dropdownCellTemplate\" let-row let-col=\"col\">\n      <novo-dropdown parentScrollSelector=\".novo-data-table-container\" containerClass=\"novo-data-table-dropdown\">\n        <button type=\"button\" theme=\"dialogue\" [icon]=\"col.action.icon\" inverse>{{ col.label }}</button>\n        <list>\n          <item\n            *ngFor=\"let option of col?.action?.options\"\n            (action)=\"option.handlers.click({ originalEvent: $event?.originalEvent, row: row })\"\n            [disabled]=\"isDisabled(option, row)\"\n          >\n            <span [attr.data-automation-id]=\"option.label\">{{ option.label }}</span>\n          </item>\n        </list>\n      </novo-dropdown>\n    </ng-template>\n    <ng-template novoTemplate=\"defaultNoResultsMessage\">\n      <h4><i class=\"bhi-search-question\"></i> {{ labels.noMatchingRecordsMessage }}</h4>\n    </ng-template>\n    <ng-template novoTemplate=\"defaultEmptyMessage\">\n      <h4><i class=\"bhi-search-question\"></i> {{ labels.emptyTableMessage }}</h4>\n    </ng-template>\n    <ng-template novoTemplate=\"expandedRow\"> You did not provide an \"expandedRow\" template! </ng-template>\n    <ng-template #detailRowTemplate let-row>\n      <div class=\"novo-data-table-detail-row\" [@expand] style=\"overflow: hidden\">\n        <ng-container *ngTemplateOutlet=\"templates['expandedRow']; context: { $implicit: row }\"></ng-container>\n      </div>\n    </ng-template>\n    <!-- CUSTOM CELLS PASSED IN -->\n    <ng-content></ng-content>\n  ",
                     changeDetection: core.ChangeDetectionStrategy.OnPush,
                     providers: [DataTableState]
                 },] }
@@ -8470,6 +8511,7 @@
         displayedColumns: [{ type: core.Input }],
         paginationOptions: [{ type: core.Input }],
         searchOptions: [{ type: core.Input }],
+        selectionOptions: [{ type: core.Input }],
         defaultSort: [{ type: core.Input }],
         name: [{ type: core.Input }],
         allowMultipleFilters: [{ type: core.Input }],
@@ -8479,6 +8521,7 @@
         templates: [{ type: core.Input }],
         fixedHeader: [{ type: core.Input }],
         paginatorDataFeatureId: [{ type: core.Input }],
+        maxSelected: [{ type: core.Input }],
         dataTableService: [{ type: core.Input }],
         rows: [{ type: core.Input }],
         outsideFilter: [{ type: core.Input }],
@@ -28668,6 +28711,7 @@
             _this.dataTable = dataTable;
             _this.ref = ref;
             _this.role = 'gridcell';
+            _this.maxSelected = undefined;
             _this.checked = false;
             renderer.setAttribute(elementRef.nativeElement, 'data-automation-id', "novo-checkbox-column-" + columnDef.cssClassFriendlyName);
             renderer.addClass(elementRef.nativeElement, "novo-checkbox-column-" + columnDef.cssClassFriendlyName);
@@ -28682,11 +28726,23 @@
             });
             return _this;
         }
+        Object.defineProperty(NovoDataTableCheckboxCell.prototype, "isAtLimit", {
+            get: function () {
+                return this.maxSelected && this.dataTable.state.selectedRows.size >= this.maxSelected && !this.checked;
+            },
+            enumerable: false,
+            configurable: true
+        });
         NovoDataTableCheckboxCell.prototype.ngOnInit = function () {
             this.checked = this.dataTable.isSelected(this.row);
         };
         NovoDataTableCheckboxCell.prototype.onClick = function () {
-            this.dataTable.selectRow(this.row);
+            if (!this.isAtLimit) {
+                this.dataTable.selectRow(this.row);
+            }
+        };
+        NovoDataTableCheckboxCell.prototype.getTooltip = function () {
+            return (this.isAtLimit) ? 'More than ' + this.maxSelected + ' items are not able to be selected at one time' : '';
         };
         NovoDataTableCheckboxCell.prototype.ngOnDestroy = function () {
             if (this.selectionSubscription) {
@@ -28701,7 +28757,7 @@
     NovoDataTableCheckboxCell.decorators = [
         { type: core.Component, args: [{
                     selector: 'novo-data-table-checkbox-cell',
-                    template: "\n    <div class=\"data-table-checkbox\" (click)=\"onClick()\">\n      <input type=\"checkbox\" [checked]=\"checked\">\n      <label>\n        <i [class.bhi-checkbox-empty]=\"!checked\"\n          [class.bhi-checkbox-filled]=\"checked\"></i>\n      </label>\n    </div>\n    ",
+                    template: "\n    <div class=\"data-table-checkbox\" (click)=\"onClick()\" [tooltip]=\"getTooltip()\" tooltipPosition=\"right\">\n      <input type=\"checkbox\" [checked]=\"checked\">\n      <label>\n        <i [class.bhi-checkbox-disabled]=\"isAtLimit\"\n          [class.bhi-checkbox-empty]=\"!checked\"\n          [class.bhi-checkbox-filled]=\"checked\"></i>\n      </label>\n    </div>\n    ",
                     changeDetection: core.ChangeDetectionStrategy.OnPush
                 },] }
     ];
@@ -28714,7 +28770,8 @@
     ]; };
     NovoDataTableCheckboxCell.propDecorators = {
         role: [{ type: core.HostBinding, args: ['attr.role',] }],
-        row: [{ type: core.Input }]
+        row: [{ type: core.Input }],
+        maxSelected: [{ type: core.Input }]
     };
 
     var NovoDataTableExpandCell = /** @class */ (function (_super) {
@@ -28860,13 +28917,210 @@
         role: [{ type: core.HostBinding, args: ['attr.role',] }]
     };
 
+    // NG2
+    var NovoToastElement = /** @class */ (function () {
+        function NovoToastElement(sanitizer) {
+            this.sanitizer = sanitizer;
+            this.theme = 'danger';
+            this.icon = 'caution';
+            this.hasDialogue = false;
+            this.isCloseable = false;
+            this.closed = new core.EventEmitter();
+            this.show = false;
+            this.animate = false;
+            this.parent = null;
+            this.launched = false;
+        }
+        Object.defineProperty(NovoToastElement.prototype, "message", {
+            set: function (m) {
+                this._message = this.sanitizer.bypassSecurityTrustHtml(m);
+            },
+            enumerable: false,
+            configurable: true
+        });
+        NovoToastElement.prototype.ngOnInit = function () {
+            if (!this.launched) {
+                // clear position and time
+                this.position = null;
+                this.time = null;
+                // set icon and styling
+                this.iconClass = "bhi-" + this.icon;
+                this.alertTheme = this.theme + " toast-container embedded";
+                if (this.hasDialogue) {
+                    this.alertTheme += ' dialogue';
+                }
+            }
+        };
+        NovoToastElement.prototype.ngOnChanges = function (changes) {
+            // set icon and styling
+            this.iconClass = "bhi-" + this.icon;
+            this.alertTheme = this.theme + " toast-container embedded";
+            if (this.hasDialogue) {
+                this.alertTheme += ' dialogue';
+            }
+        };
+        NovoToastElement.prototype.clickHandler = function (event) {
+            if (!this.isCloseable) {
+                if (event) {
+                    event.stopPropagation();
+                    event.preventDefault();
+                }
+                if (this.parent) {
+                    this.parent.hide(this);
+                }
+                else {
+                    this.closed.emit({ closed: true });
+                }
+            }
+        };
+        NovoToastElement.prototype.close = function (event) {
+            if (event) {
+                event.stopPropagation();
+                event.preventDefault();
+            }
+            if (this.parent) {
+                this.parent.hide(this);
+            }
+            else {
+                this.closed.emit({ closed: true });
+            }
+        };
+        return NovoToastElement;
+    }());
+    NovoToastElement.decorators = [
+        { type: core.Component, args: [{
+                    selector: 'novo-toast',
+                    host: {
+                        '[class]': 'alertTheme',
+                        '[class.show]': 'show',
+                        '[class.animate]': 'animate',
+                        '[class.embedded]': 'embedded',
+                        '(click)': '!isCloseable && clickHandler($event)',
+                    },
+                    template: "\n        <div class=\"toast-icon\">\n            <i [ngClass]=\"iconClass\"></i>\n        </div>\n        <div class=\"toast-content\">\n            <h5 *ngIf=\"title\">{{title}}</h5>\n            <p *ngIf=\"_message\" [class.message-only]=\"!title\" [innerHtml]=\"_message\"></p>\n            <div *ngIf=\"link\" class=\"link-generated\">\n                <input type=\"text\" [value]=\"link\" onfocus=\"this.select();\"/>\n            </div>\n            <div class=\"dialogue\">\n                <ng-content></ng-content>\n            </div>\n        </div>\n        <div class=\"close-icon\" *ngIf=\"isCloseable\" (click)=\"close($event)\">\n            <i class=\"bhi-times\"></i>\n        </div>\n    "
+                },] }
+    ];
+    NovoToastElement.ctorParameters = function () { return [
+        { type: platformBrowser.DomSanitizer }
+    ]; };
+    NovoToastElement.propDecorators = {
+        theme: [{ type: core.Input }],
+        icon: [{ type: core.Input }],
+        title: [{ type: core.Input }],
+        hasDialogue: [{ type: core.Input }],
+        link: [{ type: core.Input }],
+        isCloseable: [{ type: core.Input }],
+        message: [{ type: core.Input }],
+        closed: [{ type: core.Output }]
+    };
+
+    // NG2
+    var NovoToastService = /** @class */ (function () {
+        function NovoToastService(componentUtils) {
+            this.componentUtils = componentUtils;
+            this.references = [];
+            this.icons = { default: 'bell', success: 'check', info: 'info', warning: 'warning', danger: 'remove' };
+            this.defaults = { hideDelay: 3500, position: 'growlTopRight', theme: 'default' };
+        }
+        Object.defineProperty(NovoToastService.prototype, "parentViewContainer", {
+            set: function (view) {
+                this._parentViewContainer = view;
+            },
+            enumerable: false,
+            configurable: true
+        });
+        NovoToastService.prototype.alert = function (options, toastElement) {
+            var _this = this;
+            if (toastElement === void 0) { toastElement = NovoToastElement; }
+            return new Promise(function (resolve) {
+                if (!_this._parentViewContainer) {
+                    console.error('No parent view container specified for the ToastService. Set it inside your main application. \nthis.toastService.parentViewContainer = view (ViewContainerRef)');
+                    return;
+                }
+                var toast = _this.componentUtils.append(toastElement, _this._parentViewContainer);
+                _this.references.push(toast);
+                _this.handleAlert(toast.instance, options);
+                resolve(toast);
+            });
+        };
+        NovoToastService.prototype.isVisible = function (toast) {
+            return toast.show;
+        };
+        NovoToastService.prototype.hide = function (toast) {
+            var _this = this;
+            toast.animate = false;
+            setTimeout(function () {
+                toast.show = false;
+                var REF = _this.references.filter(function (x) { return x.instance === toast; })[0];
+                if (REF) {
+                    _this.references.splice(_this.references.indexOf(REF), 1);
+                    REF.destroy();
+                }
+            }, 300);
+        };
+        NovoToastService.prototype.handleAlert = function (toast, options) {
+            var _this = this;
+            this.setToastOnSession(toast, options);
+            setTimeout(function () {
+                _this.show(toast);
+            }, 20);
+            if (!toast.isCloseable) {
+                this.toastTimer(toast);
+            }
+        };
+        NovoToastService.prototype.setToastOnSession = function (toast, opts) {
+            var OPTIONS = typeof opts === 'object' ? opts : {};
+            toast.parent = this;
+            toast.title = OPTIONS.title || '';
+            toast.message = OPTIONS.message || '';
+            toast.hideDelay = OPTIONS.hideDelay || this.defaults.hideDelay;
+            toast.link = OPTIONS.link || '';
+            toast.isCloseable = OPTIONS.isCloseable || false;
+            var CUSTOM_CLASS = OPTIONS.customClass || '';
+            var ALERT_STYLE = OPTIONS.theme || this.defaults.theme;
+            var ALERT_POSITION = OPTIONS.position || this.defaults.position;
+            var ALERT_ICON = OPTIONS.icon || this.icons.default;
+            toast.iconClass = "bhi-" + ALERT_ICON;
+            toast.launched = true;
+            toast.alertTheme = ALERT_STYLE + " " + ALERT_POSITION + " " + CUSTOM_CLASS + " toast-container launched";
+        };
+        NovoToastService.prototype.show = function (toast) {
+            toast.show = true;
+            setTimeout(addClass, 25);
+            /**
+             * Adds animate class to be called after a timeout
+             **/
+            function addClass() {
+                toast.animate = true;
+            }
+        };
+        NovoToastService.prototype.toastTimer = function (toast) {
+            var _this = this;
+            if (toast.hideDelay < 0) {
+                return;
+            }
+            setTimeout(function () {
+                _this.hide(toast);
+            }, toast.hideDelay);
+        };
+        return NovoToastService;
+    }());
+    NovoToastService.decorators = [
+        { type: core.Injectable }
+    ];
+    NovoToastService.ctorParameters = function () { return [
+        { type: ComponentUtils }
+    ]; };
+
     var NovoDataTableCheckboxHeaderCell = /** @class */ (function (_super) {
         __extends(NovoDataTableCheckboxHeaderCell, _super);
-        function NovoDataTableCheckboxHeaderCell(columnDef, elementRef, renderer, dataTable, ref) {
+        function NovoDataTableCheckboxHeaderCell(columnDef, elementRef, renderer, dataTable, ref, toaster) {
             var _this = _super.call(this, columnDef, elementRef) || this;
             _this.dataTable = dataTable;
             _this.ref = ref;
+            _this.toaster = toaster;
             _this.role = 'columnheader';
+            _this.maxSelected = undefined;
             _this.checked = false;
             renderer.setAttribute(elementRef.nativeElement, 'data-automation-id', "novo-checkbox-column-header-" + columnDef.cssClassFriendlyName);
             renderer.addClass(elementRef.nativeElement, "novo-checkbox-column-" + columnDef.cssClassFriendlyName);
@@ -28879,6 +29133,8 @@
                 if (event.isPageSizeChange) {
                     _this.checked = false;
                     _this.dataTable.selectRows(false);
+                    _this.dataTable.state.checkRetainment('pageSize');
+                    _this.dataTable.state.reset(false, true);
                 }
                 else {
                     _this.checked = _this.dataTable.allCurrentRowsSelected();
@@ -28891,6 +29147,13 @@
             });
             return _this;
         }
+        Object.defineProperty(NovoDataTableCheckboxHeaderCell.prototype, "isAtLimit", {
+            get: function () {
+                return this.maxSelected && this.dataTable.state.selectedRows.size + this.dataTable.dataSource.data.length > this.maxSelected && !this.checked;
+            },
+            enumerable: false,
+            configurable: true
+        });
         NovoDataTableCheckboxHeaderCell.prototype.ngOnDestroy = function () {
             if (this.selectionSubscription) {
                 this.selectionSubscription.unsubscribe();
@@ -28903,7 +29166,17 @@
             }
         };
         NovoDataTableCheckboxHeaderCell.prototype.onClick = function () {
-            this.dataTable.selectRows(!this.checked);
+            if (this.isAtLimit) {
+                this.toaster.alert({
+                    theme: 'danger',
+                    position: 'fixedTop',
+                    message: 'Error, more than 500 items are not able to be selected at one time',
+                    icon: 'caution',
+                });
+            }
+            else {
+                this.dataTable.selectRows(!this.checked);
+            }
         };
         return NovoDataTableCheckboxHeaderCell;
     }(table.CdkHeaderCell));
@@ -28919,10 +29192,12 @@
         { type: core.ElementRef },
         { type: core.Renderer2 },
         { type: NovoDataTable },
-        { type: core.ChangeDetectorRef }
+        { type: core.ChangeDetectorRef },
+        { type: NovoToastService }
     ]; };
     NovoDataTableCheckboxHeaderCell.propDecorators = {
-        role: [{ type: core.HostBinding, args: ['attr.role',] }]
+        role: [{ type: core.HostBinding, args: ['attr.role',] }],
+        maxSelected: [{ type: core.Input }]
     };
 
     var NovoDataTableHeaderCell = /** @class */ (function (_super) {
@@ -29038,10 +29313,12 @@
             this.resetSubscription.unsubscribe();
         };
         NovoDataTablePagination.prototype.selectPage = function (page) {
+            this.state.checkRetainment('page');
             this.page = page;
             this.emitPageEvent();
         };
         NovoDataTablePagination.prototype.nextPage = function () {
+            this.state.checkRetainment('page');
             if (!this.hasNextPage()) {
                 return;
             }
@@ -29050,6 +29327,7 @@
             this.emitPageEvent();
         };
         NovoDataTablePagination.prototype.previousPage = function () {
+            this.state.checkRetainment('page');
             if (!this.hasPreviousPage()) {
                 return;
             }
@@ -32237,201 +32515,6 @@
         { type: core.Injectable }
     ];
     NovoModalService.ctorParameters = function () { return [
-        { type: ComponentUtils }
-    ]; };
-
-    // NG2
-    var NovoToastElement = /** @class */ (function () {
-        function NovoToastElement(sanitizer) {
-            this.sanitizer = sanitizer;
-            this.theme = 'danger';
-            this.icon = 'caution';
-            this.hasDialogue = false;
-            this.isCloseable = false;
-            this.closed = new core.EventEmitter();
-            this.show = false;
-            this.animate = false;
-            this.parent = null;
-            this.launched = false;
-        }
-        Object.defineProperty(NovoToastElement.prototype, "message", {
-            set: function (m) {
-                this._message = this.sanitizer.bypassSecurityTrustHtml(m);
-            },
-            enumerable: false,
-            configurable: true
-        });
-        NovoToastElement.prototype.ngOnInit = function () {
-            if (!this.launched) {
-                // clear position and time
-                this.position = null;
-                this.time = null;
-                // set icon and styling
-                this.iconClass = "bhi-" + this.icon;
-                this.alertTheme = this.theme + " toast-container embedded";
-                if (this.hasDialogue) {
-                    this.alertTheme += ' dialogue';
-                }
-            }
-        };
-        NovoToastElement.prototype.ngOnChanges = function (changes) {
-            // set icon and styling
-            this.iconClass = "bhi-" + this.icon;
-            this.alertTheme = this.theme + " toast-container embedded";
-            if (this.hasDialogue) {
-                this.alertTheme += ' dialogue';
-            }
-        };
-        NovoToastElement.prototype.clickHandler = function (event) {
-            if (!this.isCloseable) {
-                if (event) {
-                    event.stopPropagation();
-                    event.preventDefault();
-                }
-                if (this.parent) {
-                    this.parent.hide(this);
-                }
-                else {
-                    this.closed.emit({ closed: true });
-                }
-            }
-        };
-        NovoToastElement.prototype.close = function (event) {
-            if (event) {
-                event.stopPropagation();
-                event.preventDefault();
-            }
-            if (this.parent) {
-                this.parent.hide(this);
-            }
-            else {
-                this.closed.emit({ closed: true });
-            }
-        };
-        return NovoToastElement;
-    }());
-    NovoToastElement.decorators = [
-        { type: core.Component, args: [{
-                    selector: 'novo-toast',
-                    host: {
-                        '[class]': 'alertTheme',
-                        '[class.show]': 'show',
-                        '[class.animate]': 'animate',
-                        '[class.embedded]': 'embedded',
-                        '(click)': '!isCloseable && clickHandler($event)',
-                    },
-                    template: "\n        <div class=\"toast-icon\">\n            <i [ngClass]=\"iconClass\"></i>\n        </div>\n        <div class=\"toast-content\">\n            <h5 *ngIf=\"title\">{{title}}</h5>\n            <p *ngIf=\"_message\" [class.message-only]=\"!title\" [innerHtml]=\"_message\"></p>\n            <div *ngIf=\"link\" class=\"link-generated\">\n                <input type=\"text\" [value]=\"link\" onfocus=\"this.select();\"/>\n            </div>\n            <div class=\"dialogue\">\n                <ng-content></ng-content>\n            </div>\n        </div>\n        <div class=\"close-icon\" *ngIf=\"isCloseable\" (click)=\"close($event)\">\n            <i class=\"bhi-times\"></i>\n        </div>\n    "
-                },] }
-    ];
-    NovoToastElement.ctorParameters = function () { return [
-        { type: platformBrowser.DomSanitizer }
-    ]; };
-    NovoToastElement.propDecorators = {
-        theme: [{ type: core.Input }],
-        icon: [{ type: core.Input }],
-        title: [{ type: core.Input }],
-        hasDialogue: [{ type: core.Input }],
-        link: [{ type: core.Input }],
-        isCloseable: [{ type: core.Input }],
-        message: [{ type: core.Input }],
-        closed: [{ type: core.Output }]
-    };
-
-    // NG2
-    var NovoToastService = /** @class */ (function () {
-        function NovoToastService(componentUtils) {
-            this.componentUtils = componentUtils;
-            this.references = [];
-            this.icons = { default: 'bell', success: 'check', info: 'info', warning: 'warning', danger: 'remove' };
-            this.defaults = { hideDelay: 3500, position: 'growlTopRight', theme: 'default' };
-        }
-        Object.defineProperty(NovoToastService.prototype, "parentViewContainer", {
-            set: function (view) {
-                this._parentViewContainer = view;
-            },
-            enumerable: false,
-            configurable: true
-        });
-        NovoToastService.prototype.alert = function (options, toastElement) {
-            var _this = this;
-            if (toastElement === void 0) { toastElement = NovoToastElement; }
-            return new Promise(function (resolve) {
-                if (!_this._parentViewContainer) {
-                    console.error('No parent view container specified for the ToastService. Set it inside your main application. \nthis.toastService.parentViewContainer = view (ViewContainerRef)');
-                    return;
-                }
-                var toast = _this.componentUtils.append(toastElement, _this._parentViewContainer);
-                _this.references.push(toast);
-                _this.handleAlert(toast.instance, options);
-                resolve(toast);
-            });
-        };
-        NovoToastService.prototype.isVisible = function (toast) {
-            return toast.show;
-        };
-        NovoToastService.prototype.hide = function (toast) {
-            var _this = this;
-            toast.animate = false;
-            setTimeout(function () {
-                toast.show = false;
-                var REF = _this.references.filter(function (x) { return x.instance === toast; })[0];
-                if (REF) {
-                    _this.references.splice(_this.references.indexOf(REF), 1);
-                    REF.destroy();
-                }
-            }, 300);
-        };
-        NovoToastService.prototype.handleAlert = function (toast, options) {
-            var _this = this;
-            this.setToastOnSession(toast, options);
-            setTimeout(function () {
-                _this.show(toast);
-            }, 20);
-            if (!toast.isCloseable) {
-                this.toastTimer(toast);
-            }
-        };
-        NovoToastService.prototype.setToastOnSession = function (toast, opts) {
-            var OPTIONS = typeof opts === 'object' ? opts : {};
-            toast.parent = this;
-            toast.title = OPTIONS.title || '';
-            toast.message = OPTIONS.message || '';
-            toast.hideDelay = OPTIONS.hideDelay || this.defaults.hideDelay;
-            toast.link = OPTIONS.link || '';
-            toast.isCloseable = OPTIONS.isCloseable || false;
-            var CUSTOM_CLASS = OPTIONS.customClass || '';
-            var ALERT_STYLE = OPTIONS.theme || this.defaults.theme;
-            var ALERT_POSITION = OPTIONS.position || this.defaults.position;
-            var ALERT_ICON = OPTIONS.icon || this.icons.default;
-            toast.iconClass = "bhi-" + ALERT_ICON;
-            toast.launched = true;
-            toast.alertTheme = ALERT_STYLE + " " + ALERT_POSITION + " " + CUSTOM_CLASS + " toast-container launched";
-        };
-        NovoToastService.prototype.show = function (toast) {
-            toast.show = true;
-            setTimeout(addClass, 25);
-            /**
-             * Adds animate class to be called after a timeout
-             **/
-            function addClass() {
-                toast.animate = true;
-            }
-        };
-        NovoToastService.prototype.toastTimer = function (toast) {
-            var _this = this;
-            if (toast.hideDelay < 0) {
-                return;
-            }
-            setTimeout(function () {
-                _this.hide(toast);
-            }, toast.hideDelay);
-        };
-        return NovoToastService;
-    }());
-    NovoToastService.decorators = [
-        { type: core.Injectable }
-    ];
-    NovoToastService.ctorParameters = function () { return [
         { type: ComponentUtils }
     ]; };
 
