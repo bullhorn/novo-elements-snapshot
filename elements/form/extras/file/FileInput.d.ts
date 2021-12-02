@@ -1,11 +1,9 @@
 import { ElementRef, OnInit, OnDestroy, OnChanges, ViewContainerRef, TemplateRef, SimpleChanges, EventEmitter } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { NovoLabelService } from '../../../../services/novo-label-service';
-import { NovoDragulaService } from '../../../../elements/dragula/DragulaService';
 export declare class NovoFileInputElement implements ControlValueAccessor, OnInit, OnDestroy, OnChanges {
     private element;
     labels: NovoLabelService;
-    private dragula;
     fileInput: TemplateRef<any>;
     fileOutput: TemplateRef<any>;
     container: ViewContainerRef;
@@ -43,13 +41,12 @@ export declare class NovoFileInputElement implements ControlValueAccessor, OnIni
     fileOutputBag: string;
     onModelChange: Function;
     onModelTouched: Function;
-    constructor(element: ElementRef, labels: NovoLabelService, dragula: NovoDragulaService);
+    constructor(element: ElementRef, labels: NovoLabelService);
     ngOnInit(): void;
     ngOnDestroy(): void;
     ngOnChanges(changes?: SimpleChanges): void;
     updateLayout(): void;
     insertTemplatesBasedOnLayout(): any;
-    initializeDragula(): void;
     setInitialFileList(): void;
     dragEnterHandler(event: any): void;
     dragLeaveHandler(event: any): void;

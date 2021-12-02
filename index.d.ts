@@ -1,5 +1,3 @@
-export { NovoAceEditor } from './elements/ace-editor/AceEditor';
-export { NovoAceEditorModule } from './elements/ace-editor/AceEditor.module';
 export { NovoButtonElement } from './elements/button/Button';
 export { NovoButtonModule } from './elements/button/Button.module';
 export { NovoCalendarModule } from './elements/calendar/Calendar.module';
@@ -47,9 +45,6 @@ export { NovoDatePickerInputElement } from './elements/date-picker/DatePickerInp
 export { NovoDateTimePickerElement } from './elements/date-time-picker/DateTimePicker';
 export { NovoDateTimePickerModule } from './elements/date-time-picker/DateTimePicker.module';
 export { NovoDateTimePickerInputElement } from './elements/date-time-picker/DateTimePickerInput';
-export { NovoDragulaElement } from './elements/dragula/Dragula';
-export { NovoDragulaModule } from './elements/dragula/Dragula.module';
-export { NovoDragulaService } from './elements/dragula/DragulaService';
 export { NovoDropdownElement, NovoDropDownItemHeaderElement, NovoDropdownListElement, NovoItemElement } from './elements/dropdown/Dropdown';
 export { NovoDropdownModule } from './elements/dropdown/Dropdown.module';
 export { NovoAccordion } from './elements/expansion/accordion';
@@ -59,7 +54,6 @@ export { NovoExpansionPanelDescription, NovoExpansionPanelHeader, NovoExpansionP
 export { NovoExpansionModule } from './elements/expansion/expansion.module';
 export { NovoAutoSize, NovoControlElement } from './elements/form/Control';
 export { NovoControlGroup, NovoControlGroupAddConfig } from './elements/form/ControlGroup';
-export { AceEditorControl } from './elements/form/controls/ace-editor/AceEditorControl';
 export { AddressControl } from './elements/form/controls/address/AddressControl';
 export { BaseControl, NovoControlConfig, NovoGroupedControlConfig } from './elements/form/controls/BaseControl';
 export { CheckListControl } from './elements/form/controls/check-list/CheckListControl';
