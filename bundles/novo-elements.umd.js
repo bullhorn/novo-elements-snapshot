@@ -7039,6 +7039,7 @@
                 this.updates.emit({
                     sort: this.sort,
                     filter: this.filter,
+                    pageSize: this.pageSize,
                     globalSearch: this.globalSearch,
                 });
             }
@@ -7054,6 +7055,7 @@
                 this.updates.emit({
                     sort: this.sort,
                     filter: this.filter,
+                    pageSize: this.pageSize,
                     globalSearch: this.globalSearch,
                 });
             }
@@ -7070,6 +7072,7 @@
                 this.updates.emit({
                     sort: this.sort,
                     filter: this.filter,
+                    pageSize: this.pageSize,
                     globalSearch: this.globalSearch,
                 });
             }
@@ -7084,6 +7087,7 @@
                 this.updates.emit({
                     sort: this.sort,
                     filter: this.filter,
+                    pageSize: this.pageSize,
                     globalSearch: this.globalSearch,
                 });
             }
@@ -7104,6 +7108,7 @@
             this.sortFilterSource.next({
                 sort: this.sort,
                 filter: this.filter,
+                pageSize: this.pageSize,
                 globalSearch: this.globalSearch,
             });
         };
@@ -8042,7 +8047,7 @@
             this.scrollListenerHandler = this.scrollListener.bind(this);
             this.sortFilterSubscription = this.state.sortFilterSource.subscribe(function (event) {
                 if (_this.name !== 'novo-data-table') {
-                    _this.preferencesChanged.emit({ name: _this.name, sort: event.sort, filter: event.filter, globalSearch: event.globalSearch });
+                    _this.preferencesChanged.emit({ name: _this.name, sort: event.sort, filter: event.filter, globalSearch: event.globalSearch, pageSize: event.page.pageSize });
                     _this.performInteractions('change');
                 }
                 else {
@@ -29343,6 +29348,7 @@
             return this.page < numberOfPages && this.pageSize !== 0;
         };
         NovoDataTablePagination.prototype.changePageSize = function (pageSize) {
+            this.state.checkRetainment('pageSize');
             this.page = 0;
             this.pageSize = pageSize;
             this.emitPageEvent(true);
@@ -37389,7 +37395,7 @@
         }
         Object.defineProperty(NovoActivityTableState.prototype, "userFiltered", {
             get: function () {
-                return !!(this.filter || this.sort || this.globalSearch || this.outsideFilter);
+                return !!(this.filter || this.sort || this.globalSearch || this.outsideFilter || this.pageSize || this.page);
             },
             enumerable: false,
             configurable: true
@@ -37408,6 +37414,7 @@
                 this.updates.emit({
                     sort: this.sort,
                     filter: this.filter,
+                    pageSize: this.pageSize,
                     globalSearch: this.globalSearch,
                 });
             }

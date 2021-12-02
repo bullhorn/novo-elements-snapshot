@@ -7228,6 +7228,7 @@ class DataTableState {
             this.updates.emit({
                 sort: this.sort,
                 filter: this.filter,
+                pageSize: this.pageSize,
                 globalSearch: this.globalSearch,
             });
         }
@@ -7242,6 +7243,7 @@ class DataTableState {
             this.updates.emit({
                 sort: this.sort,
                 filter: this.filter,
+                pageSize: this.pageSize,
                 globalSearch: this.globalSearch,
             });
         }
@@ -7257,6 +7259,7 @@ class DataTableState {
             this.updates.emit({
                 sort: this.sort,
                 filter: this.filter,
+                pageSize: this.pageSize,
                 globalSearch: this.globalSearch,
             });
         }
@@ -7270,6 +7273,7 @@ class DataTableState {
             this.updates.emit({
                 sort: this.sort,
                 filter: this.filter,
+                pageSize: this.pageSize,
                 globalSearch: this.globalSearch,
             });
         }
@@ -7290,6 +7294,7 @@ class DataTableState {
         this.sortFilterSource.next({
             sort: this.sort,
             filter: this.filter,
+            pageSize: this.pageSize,
             globalSearch: this.globalSearch,
         });
     }
@@ -8339,7 +8344,7 @@ class NovoDataTable {
         this.scrollListenerHandler = this.scrollListener.bind(this);
         this.sortFilterSubscription = this.state.sortFilterSource.subscribe((event) => {
             if (this.name !== 'novo-data-table') {
-                this.preferencesChanged.emit({ name: this.name, sort: event.sort, filter: event.filter, globalSearch: event.globalSearch });
+                this.preferencesChanged.emit({ name: this.name, sort: event.sort, filter: event.filter, globalSearch: event.globalSearch, pageSize: event.page.pageSize });
                 this.performInteractions('change');
             }
             else {
@@ -30095,6 +30100,7 @@ class NovoDataTablePagination {
         return this.page < numberOfPages && this.pageSize !== 0;
     }
     changePageSize(pageSize) {
+        this.state.checkRetainment('pageSize');
         this.page = 0;
         this.pageSize = pageSize;
         this.emitPageEvent(true);
@@ -38168,7 +38174,7 @@ class NovoActivityTableState {
         this.onReset = new EventEmitter();
     }
     get userFiltered() {
-        return !!(this.filter || this.sort || this.globalSearch || this.outsideFilter);
+        return !!(this.filter || this.sort || this.globalSearch || this.outsideFilter || this.pageSize || this.page);
     }
     reset(fireUpdate = true, persistUserFilters) {
         if (!persistUserFilters) {
@@ -38183,6 +38189,7 @@ class NovoActivityTableState {
             this.updates.emit({
                 sort: this.sort,
                 filter: this.filter,
+                pageSize: this.pageSize,
                 globalSearch: this.globalSearch,
             });
         }
