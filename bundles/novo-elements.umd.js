@@ -32088,6 +32088,7 @@
                 })
                 : [];
             var fields = meta.fields.map(function (field) {
+                field.parentEntity = meta.entity;
                 if (!field.hasOwnProperty('sortOrder')) {
                     field.sortOrder = Number.MAX_SAFE_INTEGER - 1;
                 }
