@@ -21,6 +21,7 @@ export declare class NovoDateTimePickerInputElement implements ControlValueAcces
     disabled: boolean;
     format: string;
     weekStart: number;
+    disabledDateMessage: string;
     blurEvent: EventEmitter<FocusEvent>;
     focusEvent: EventEmitter<FocusEvent>;
     changeEvent: EventEmitter<FocusEvent>;

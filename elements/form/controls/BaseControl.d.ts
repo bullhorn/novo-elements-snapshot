@@ -97,6 +97,7 @@ declare class ControlConfig {
     isInlineEmbedded: boolean;
     weekStart?: number;
     highlighted: boolean;
+    disabledDateMessage?: string;
 }
 export declare type NovoControlConfig = Partial<ControlConfig>;
 export declare class BaseControl extends ControlConfig {

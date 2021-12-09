@@ -25,6 +25,7 @@ export declare class NovoDatePickerElement implements ControlValueAccessor, OnIn
     range: boolean;
     weekRangeSelect: boolean;
     weekStart: number;
+    disabledDateMessage: string;
     onSelect: EventEmitter<any>;
     weekdays: string[];
     months: string[];
