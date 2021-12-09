@@ -68,10 +68,10 @@ export declare class FormUtils {
     forceValidation(form: NovoFormGroup): void;
     isAddressEmpty(control: any): boolean;
     private getStartDateFromRange;
+    private getEndDateFromRange;
     /**
-     * Get the min start date of a Date base on field data.
+     * Get the min start date and max end date of a Date base on field data.
      */
-    private getStartDate;
-    private inferStartDate;
+    private inferDateRange;
     inflateEmbeddedProperties(data: object): object;
 }

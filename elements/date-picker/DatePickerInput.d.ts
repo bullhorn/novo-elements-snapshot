@@ -23,6 +23,7 @@ export declare class NovoDatePickerInputElement implements OnInit, ControlValueA
     format: string;
     textMaskEnabled: boolean;
     allowInvalidDate: boolean;
+    disabledDateMessage: string;
     disabled: boolean;
     weekStart: number;
     blurEvent: EventEmitter<FocusEvent>;

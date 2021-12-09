@@ -67,6 +67,7 @@ export declare class NovoFormControl extends FormControl {
     restrictFieldInteractions?: boolean;
     warning?: string;
     highlighted?: boolean;
+    disabledDateMessage?: string;
     private historyTimeout;
     constructor(value: any, control: NovoControlConfig);
     /**

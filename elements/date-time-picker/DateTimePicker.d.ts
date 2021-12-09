@@ -10,6 +10,7 @@ export declare class NovoDateTimePickerElement implements ControlValueAccessor {
     end: any;
     military: any;
     weekStart: number;
+    disabledDateMessage: string;
     onSelect: EventEmitter<any>;
     componentTabState: string;
     selectedLabel: string;

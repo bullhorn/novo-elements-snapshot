@@ -28941,7 +28941,7 @@ NovoDatePickerElement.decorators = [
                             endfill: isEndFill(range, day.date, selected, selected2),
                             'selecting-range': isSelectingRange(range, day.date, selected, selected2, hoverDay, rangeSelectMode, weekRangeSelect)
                            }" (mouseover)="rangeHover($event, day)" [attr.data-automation-id]="day.number">
-                            <button class="day" [attr.data-automation-id]="day.number" [disabled]="isDisabled(day.date, start, end)" (click)="select($event, day, true)">{{day.number}}</button>
+                            <button [title]="isDisabled(day.date, start, end) ? disabledDateMessage : ''" class="day" [attr.data-automation-id]="day.number" [disabled]="isDisabled(day.date, start, end)" (click)="select($event, day, true)">{{day.number}}</button>
                         </td>
                     </tr>
                 </tbody>
@@ -28976,6 +28976,7 @@ NovoDatePickerElement.propDecorators = {
     range: [{ type: Input }],
     weekRangeSelect: [{ type: Input }],
     weekStart: [{ type: Input }],
+    disabledDateMessage: [{ type: Input }],
     onSelect: [{ type: Output }]
 };
 
@@ -29381,6 +29382,7 @@ NovoDatePickerInputElement.decorators = [
         [end]="end"
         inline="true"
         (onSelect)="setValueAndClose($event)"
+        [disabledDateMessage]="disabledDateMessage"
         [ngModel]="value"
         [weekStart]="weekStart"
       ></novo-date-picker>
@@ -29403,6 +29405,7 @@ NovoDatePickerInputElement.propDecorators = {
     format: [{ type: Input }],
     textMaskEnabled: [{ type: Input }],
     allowInvalidDate: [{ type: Input }],
+    disabledDateMessage: [{ type: Input }],
     disabled: [{ type: HostBinding, args: ['class.disabled',] }, { type: Input }],
     weekStart: [{ type: Input }],
     blurEvent: [{ type: Output }],
@@ -30680,6 +30683,7 @@ NovoDateTimePickerElement.decorators = [
             [maxYear]="maxYear"
             [start]="start"
             [end]="end"
+            [disabledDateMessage]="disabledDateMessage"
             [weekStart]="weekStart"
           ></novo-date-picker>
         </div>
@@ -30702,6 +30706,7 @@ NovoDateTimePickerElement.propDecorators = {
     end: [{ type: Input }],
     military: [{ type: Input }],
     weekStart: [{ type: Input }],
+    disabledDateMessage: [{ type: Input }],
     onSelect: [{ type: Output }]
 };
 
@@ -30813,6 +30818,7 @@ NovoDateTimePickerInputElement.decorators = [
       (ngModelChange)="updateDate($event)"
       [start]="start"
       [end]="end"
+      [disabledDateMessage]="disabledDateMessage"
       [maskOptions]="maskOptions"
       (blurEvent)="handleBlur($event)"
       (focusEvent)="handleFocus($event)"
@@ -30845,6 +30851,7 @@ NovoDateTimePickerInputElement.propDecorators = {
     disabled: [{ type: Input }],
     format: [{ type: Input }],
     weekStart: [{ type: Input }],
+    disabledDateMessage: [{ type: Input }],
     blurEvent: [{ type: Output }],
     focusEvent: [{ type: Output }],
     changeEvent: [{ type: Output }]
@@ -31737,6 +31744,7 @@ class BaseControl extends ControlConfig {
             this.isEmpty = config.isEmpty;
         }
         this.weekStart = config.weekStart || 0;
+        this.disabledDateMessage = config.disabledDateMessage;
     }
 }
 
@@ -32183,6 +32191,7 @@ class NovoFormControl extends FormControl {
         this.tipWell = control.tipWell;
         this.customControlConfig = control.customControlConfig;
         this.warning = control.warning;
+        this.disabledDateMessage = control.disabledDateMessage;
         // Reactive Form, need to enable/disable, can't bind to [disabled]
         if (this.readOnly) {
             this.disable();
@@ -32558,7 +32567,7 @@ class FormUtils {
             closeOnSelect: field.closeOnSelect,
             layoutOptions: field.layoutOptions,
         };
-        this.inferStartDate(controlConfig, field);
+        this.inferDateRange(controlConfig, field);
         // TODO: getControlOptions should always return the correct format
         const optionsConfig = this.getControlOptions(field, http, config, fieldData);
         if (Array.isArray(optionsConfig) && !(type === 'chips' || type === 'picker')) {
@@ -33069,23 +33078,23 @@ class FormUtils {
             return addDays(startOfToday(), dateRange.minOffset);
         }
     }
-    /**
-     * Get the min start date of a Date base on field data.
-     */
-    getStartDate(field) {
-        if (field.allowedDateRange) {
-            return this.getStartDateFromRange(field.allowedDateRange);
+    getEndDateFromRange(dateRange) {
+        if (dateRange.maxDate) {
+            return parse(dateRange.maxDate);
         }
-        // there is no restriction on the start date
-        return null;
+        else if (dateRange.minOffset) {
+            return addDays(startOfToday(), dateRange.minOffset);
+        }
     }
-    inferStartDate(controlConfig, field) {
-        if (field.dataType === 'Date') {
-            const startDate = this.getStartDate(field);
-            if (startDate) {
-                controlConfig.startDate = startDate;
-            }
-            return startDate;
+    /**
+     * Get the min start date and max end date of a Date base on field data.
+     */
+    inferDateRange(controlConfig, field) {
+        var _a;
+        if (field.dataType === 'Date' && field.allowedDateRange) {
+            controlConfig.startDate = this.getStartDateFromRange(field.allowedDateRange);
+            controlConfig.endDate = this.getEndDateFromRange(field.allowedDateRange);
+            controlConfig.disabledDateMessage = (_a = field.allowedDateRange) === null || _a === void 0 ? void 0 : _a.disabledDateMessage;
         }
     }
     inflateEmbeddedProperties(data) {
@@ -35053,7 +35062,7 @@ NovoControlTemplates.decorators = [
         <!--Date-->
         <ng-template novoTemplate="date" let-control let-form="form" let-errors="errors" let-methods="methods">
           <div [formGroup]="form" class="novo-control-input-container" [tooltip]="control.tooltip" [tooltipPosition]="control.tooltipPosition" [tooltipSize]="control?.tooltipSize" [tooltipPreline]="control?.tooltipPreline" [removeTooltipArrow]="control?.removeTooltipArrow" [tooltipAutoPosition]="control?.tooltipAutoPosition">
-            <novo-date-picker-input [attr.id]="control.key" [name]="control.key" [formControlName]="control.key" [start]="control.startDate" [end]="control.endDate" [format]="control.dateFormat" [allowInvalidDate]="control.allowInvalidDate" [textMaskEnabled]="control.textMaskEnabled" [placeholder]="control.placeholder" [weekStart]="control.weekStart" (focusEvent)="methods.handleFocus($event)" (blurEvent)="methods.handleBlur($event)" (changeEvent)="methods.emitChange($event)"></novo-date-picker-input>
+            <novo-date-picker-input [attr.id]="control.key" [name]="control.key" [formControlName]="control.key" [start]="control.startDate" [end]="control.endDate" [disabledDateMessage]="control.disabledDateMessage" [format]="control.dateFormat" [allowInvalidDate]="control.allowInvalidDate" [textMaskEnabled]="control.textMaskEnabled" [placeholder]="control.placeholder" [weekStart]="control.weekStart" (focusEvent)="methods.handleFocus($event)" (blurEvent)="methods.handleBlur($event)" (changeEvent)="methods.emitChange($event)"></novo-date-picker-input>
           </div>
         </ng-template>
 
