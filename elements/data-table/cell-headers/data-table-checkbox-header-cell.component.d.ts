@@ -8,6 +8,7 @@ export declare class NovoDataTableCheckboxHeaderCell<T> extends CdkHeaderCell im
     private toaster;
     role: string;
     maxSelected: number;
+    canSelectAll: boolean;
     checked: boolean;
     private selectionSubscription;
     private paginationSubscription;
@@ -16,4 +17,5 @@ export declare class NovoDataTableCheckboxHeaderCell<T> extends CdkHeaderCell im
     constructor(columnDef: CdkColumnDef, elementRef: ElementRef, renderer: Renderer2, dataTable: NovoDataTable<T>, ref: ChangeDetectorRef, toaster: NovoToastService);
     ngOnDestroy(): void;
     onClick(): void;
+    selectAllChanged(): void;
 }
