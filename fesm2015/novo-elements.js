@@ -29040,6 +29040,7 @@ class DateFormatService {
         let month;
         let day;
         let date = new Date();
+        let isInvalidDate = true;
         if (Helpers.isEmpty(dateFormat)) {
             // Default to MM/dd/yyyy
             dateFormat = 'mm/dd/yyyy';
@@ -29063,6 +29064,7 @@ class DateFormatService {
             }
             if (month >= 0 && month <= 11 && year > 1900 && day > 0 && day <= 31) {
                 date = new Date(year, month, day);
+                isInvalidDate = false;
             }
         }
         else if (dateFormatTokens && dateFormatTokens.length === 4 && dateString.length >= 1) {
@@ -29077,7 +29079,7 @@ class DateFormatService {
                 dateString = `${dateString}${delimiter[1]}`;
             }
         }
-        return [date, dateString];
+        return [date, dateString, isInvalidDate];
     }
     parseTimeString(timeString, militaryTime) {
         const value = new Date();
@@ -29187,6 +29189,7 @@ class NovoDatePickerInputElement {
         this._changeDetectorRef = _changeDetectorRef;
         this.dateFormatService = dateFormatService;
         this.formattedValue = '';
+        this.invalidDateErrorMessage = '';
         /** View -> model callback called when value changes */
         this._onChange = () => { };
         /** View -> model callback called when autocomplete has been touched */
@@ -29213,6 +29216,7 @@ class NovoDatePickerInputElement {
         else {
             this.maskOptions = { mask: false };
         }
+        this.setupInvalidDateErrorMessage();
     }
     /** BEGIN: Convenient Panel Methods. */
     openPanel() {
@@ -29240,9 +29244,11 @@ class NovoDatePickerInputElement {
         }
     }
     _handleBlur(event) {
+        this.handleInvalidDate();
         this.blurEvent.emit(event);
     }
     _handleFocus(event) {
+        this.showInvalidDateError = false;
         this.openPanel();
         this.focusEvent.emit(event);
     }
@@ -29259,7 +29265,8 @@ class NovoDatePickerInputElement {
     }
     formatDate(value, blur) {
         try {
-            const [dateTimeValue, formatted] = this.dateFormatService.parseString(value, false, 'date');
+            const [dateTimeValue, formatted, isInvalidDate] = this.dateFormatService.parseString(value, false, 'date');
+            this.isInvalidDate = isInvalidDate;
             if (!isNaN(dateTimeValue.getUTCDate())) {
                 const dt = new Date(dateTimeValue);
                 this.dispatchOnChange(dt, blur);
@@ -29281,6 +29288,24 @@ class NovoDatePickerInputElement {
     }
     setDisabledState(disabled) {
         this.disabled = disabled;
+    }
+    handleInvalidDate() {
+        if (this.isInvalidDate && this.value) {
+            this.showInvalidDateError = true;
+            this.clearValue();
+            this.closePanel();
+        }
+    }
+    setupInvalidDateErrorMessage() {
+        let dateFormat = this.labels.dateFormatString();
+        if (Helpers.isEmpty(dateFormat)) {
+            // Default to mm/dd/yyyy
+            dateFormat = 'mm/dd/yyyy';
+        }
+        else {
+            dateFormat = dateFormat.toLowerCase();
+        }
+        this.invalidDateErrorMessage = `Invalid date field entered. Date format of ${dateFormat} is required.`;
     }
     dispatchOnChange(newValue, blur = false, skip = false) {
         if (newValue !== this.value) {
@@ -29382,6 +29407,7 @@ NovoDatePickerInputElement.decorators = [
       data-automation-id="date-input"
       [disabled]="disabled"
     />
+    <span class="error-text" *ngIf="showInvalidDateError">{{invalidDateErrorMessage}}</span>
     <i *ngIf="!hasValue" (click)="openPanel()" class="bhi-calendar"></i>
     <i *ngIf="hasValue" (click)="clearValue()" class="bhi-times"></i>
     <novo-overlay-template [parent]="element" position="above-below">
