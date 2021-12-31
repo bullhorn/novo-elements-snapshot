@@ -37,6 +37,7 @@ export declare class NovoDataTable<T> implements AfterContentInit, OnDestroy {
     fixedHeader: boolean;
     paginatorDataFeatureId: string;
     maxSelected: number;
+    canSelectAll: boolean;
     set dataTableService(service: IDataTableService<T>);
     set rows(rows: T[]);
     set outsideFilter(outsideFilter: EventEmitter<any>);
@@ -56,6 +57,10 @@ export declare class NovoDataTable<T> implements AfterContentInit, OnDestroy {
     get hideGlobalSearch(): boolean;
     private _hideGlobalSearch;
     preferencesChanged: EventEmitter<IDataTablePreferences>;
+    allSelected: EventEmitter<{
+        allSelected: boolean;
+        selectedCount: number;
+    }>;
     dataSource: DataTableSource<T>;
     loading: boolean;
     columnToTemplate: {

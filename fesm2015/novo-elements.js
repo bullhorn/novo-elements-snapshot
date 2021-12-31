@@ -8327,8 +8327,10 @@ class NovoDataTable {
         this.templates = {};
         this.fixedHeader = false;
         this.maxSelected = undefined;
+        this.canSelectAll = false;
         this._hideGlobalSearch = true;
         this.preferencesChanged = new EventEmitter();
+        this.allSelected = new EventEmitter();
         this.loading = true;
         this.columnToTemplate = {};
         this.columnsLoaded = false;
@@ -8614,6 +8616,10 @@ class NovoDataTable {
         this.state.onSelectionChange();
     }
     allCurrentRowsSelected() {
+        var _a, _b;
+        if (!((_b = (_a = this.dataSource) === null || _a === void 0 ? void 0 : _a.data) === null || _b === void 0 ? void 0 : _b.length)) {
+            return false;
+        }
         for (let i = 0; i < (this.dataSource.data || []).length; i++) {
             if (!this.isSelected((this.dataSource.data || [])[i])) {
                 return false;
@@ -8773,7 +8779,7 @@ NovoDataTable.decorators = [
           [hidden]="dataSource?.totallyEmpty && !state.userFiltered"
         >
           <ng-container cdkColumnDef="selection">
-            <novo-data-table-checkbox-header-cell *cdkHeaderCellDef [maxSelected]="maxSelected"></novo-data-table-checkbox-header-cell>
+            <novo-data-table-checkbox-header-cell *cdkHeaderCellDef [maxSelected]="maxSelected" [canSelectAll]="canSelectAll"></novo-data-table-checkbox-header-cell>
             <novo-data-table-checkbox-cell *cdkCellDef="let row; let i = index" [row]="row" [maxSelected]="maxSelected"></novo-data-table-checkbox-cell>
           </ng-container>
           <ng-container cdkColumnDef="expand">
@@ -8956,6 +8962,7 @@ NovoDataTable.propDecorators = {
     fixedHeader: [{ type: Input }],
     paginatorDataFeatureId: [{ type: Input }],
     maxSelected: [{ type: Input }],
+    canSelectAll: [{ type: Input }],
     dataTableService: [{ type: Input }],
     rows: [{ type: Input }],
     outsideFilter: [{ type: Input }],
@@ -8966,6 +8973,7 @@ NovoDataTable.propDecorators = {
     forceShowHeader: [{ type: Input }],
     hideGlobalSearch: [{ type: Input }],
     preferencesChanged: [{ type: Output }],
+    allSelected: [{ type: Output }],
     empty: [{ type: HostBinding, args: ['class.empty',] }],
     loadingClass: [{ type: HostBinding, args: ['class.loading',] }],
     listInteractions: [{ type: Input }]
@@ -29898,28 +29906,41 @@ class NovoDataTableCheckboxHeaderCell extends CdkHeaderCell {
         this.toaster = toaster;
         this.role = 'columnheader';
         this.maxSelected = undefined;
+        this.canSelectAll = false;
         this.checked = false;
         renderer.setAttribute(elementRef.nativeElement, 'data-automation-id', `novo-checkbox-column-header-${columnDef.cssClassFriendlyName}`);
         renderer.addClass(elementRef.nativeElement, `novo-checkbox-column-${columnDef.cssClassFriendlyName}`);
         renderer.addClass(elementRef.nativeElement, 'novo-data-table-checkbox-header-cell');
         this.selectionSubscription = this.dataTable.state.selectionSource.subscribe(() => {
             this.checked = this.dataTable.allCurrentRowsSelected();
+            if (this.canSelectAll) {
+                this.selectAllChanged();
+            }
             this.ref.markForCheck();
         });
         this.paginationSubscription = this.dataTable.state.paginationSource.subscribe((event) => {
             if (event.isPageSizeChange) {
                 this.checked = false;
+                if (this.canSelectAll) {
+                    this.selectAllChanged();
+                }
                 this.dataTable.selectRows(false);
                 this.dataTable.state.checkRetainment('pageSize');
                 this.dataTable.state.reset(false, true);
             }
             else {
                 this.checked = this.dataTable.allCurrentRowsSelected();
+                if (this.canSelectAll) {
+                    this.selectAllChanged();
+                }
             }
             this.ref.markForCheck();
         });
         this.resetSubscription = this.dataTable.state.resetSource.subscribe(() => {
             this.checked = false;
+            if (this.canSelectAll) {
+                this.selectAllChanged();
+            }
             this.ref.markForCheck();
         });
     }
@@ -29949,6 +29970,17 @@ class NovoDataTableCheckboxHeaderCell extends CdkHeaderCell {
         else {
             this.dataTable.selectRows(!this.checked);
         }
+        if (this.canSelectAll) {
+            this.selectAllChanged();
+        }
+    }
+    selectAllChanged() {
+        var _a, _b, _c;
+        const allSelectedEvent = {
+            allSelected: this.checked,
+            selectedCount: (_c = (_b = (_a = this.dataTable) === null || _a === void 0 ? void 0 : _a.state) === null || _b === void 0 ? void 0 : _b.selected) === null || _c === void 0 ? void 0 : _c.length,
+        };
+        this.dataTable.allSelected.emit(allSelectedEvent);
     }
 }
 NovoDataTableCheckboxHeaderCell.decorators = [
@@ -29976,7 +30008,8 @@ NovoDataTableCheckboxHeaderCell.ctorParameters = () => [
 ];
 NovoDataTableCheckboxHeaderCell.propDecorators = {
     role: [{ type: HostBinding, args: ['attr.role',] }],
-    maxSelected: [{ type: Input }]
+    maxSelected: [{ type: Input }],
+    canSelectAll: [{ type: Input }]
 };
 
 class NovoDataTableHeaderCell extends CdkHeaderCell {
