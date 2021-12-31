@@ -10,7 +10,10 @@ export declare class NovoDatePickerInputElement implements OnInit, ControlValueA
     dateFormatService: DateFormatService;
     value: any;
     formattedValue: string;
+    showInvalidDateError: boolean;
+    invalidDateErrorMessage: string;
     private userDefinedFormat;
+    private isInvalidDate;
     /** View -> model callback called when value changes */
     _onChange: (value: any) => void;
     /** View -> model callback called when autocomplete has been touched */
@@ -48,6 +51,8 @@ export declare class NovoDatePickerInputElement implements OnInit, ControlValueA
     registerOnChange(fn: (value: any) => {}): void;
     registerOnTouched(fn: () => {}): void;
     setDisabledState(disabled: boolean): void;
+    handleInvalidDate(): void;
+    setupInvalidDateErrorMessage(): void;
     dispatchOnChange(newValue?: any, blur?: boolean, skip?: boolean): void;
     private _setTriggerValue;
     private _setCalendarValue;

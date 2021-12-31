@@ -28260,6 +28260,7 @@
             var month;
             var day;
             var date = new Date();
+            var isInvalidDate = true;
             if (Helpers.isEmpty(dateFormat)) {
                 // Default to MM/dd/yyyy
                 dateFormat = 'mm/dd/yyyy';
@@ -28283,6 +28284,7 @@
                 }
                 if (month >= 0 && month <= 11 && year > 1900 && day > 0 && day <= 31) {
                     date = new Date(year, month, day);
+                    isInvalidDate = false;
                 }
             }
             else if (dateFormatTokens && dateFormatTokens.length === 4 && dateString.length >= 1) {
@@ -28297,7 +28299,7 @@
                     dateString = "" + dateString + delimiter[1];
                 }
             }
-            return [date, dateString];
+            return [date, dateString, isInvalidDate];
         };
         DateFormatService.prototype.parseTimeString = function (timeString, militaryTime) {
             var e_2, _a;
@@ -28418,6 +28420,7 @@
             this._changeDetectorRef = _changeDetectorRef;
             this.dateFormatService = dateFormatService;
             this.formattedValue = '';
+            this.invalidDateErrorMessage = '';
             /** View -> model callback called when value changes */
             this._onChange = function () { };
             /** View -> model callback called when autocomplete has been touched */
@@ -28444,6 +28447,7 @@
             else {
                 this.maskOptions = { mask: false };
             }
+            this.setupInvalidDateErrorMessage();
         };
         /** BEGIN: Convenient Panel Methods. */
         NovoDatePickerInputElement.prototype.openPanel = function () {
@@ -28475,9 +28479,11 @@
             }
         };
         NovoDatePickerInputElement.prototype._handleBlur = function (event) {
+            this.handleInvalidDate();
             this.blurEvent.emit(event);
         };
         NovoDatePickerInputElement.prototype._handleFocus = function (event) {
+            this.showInvalidDateError = false;
             this.openPanel();
             this.focusEvent.emit(event);
         };
@@ -28494,7 +28500,8 @@
         };
         NovoDatePickerInputElement.prototype.formatDate = function (value, blur) {
             try {
-                var _a = __read(this.dateFormatService.parseString(value, false, 'date'), 2), dateTimeValue = _a[0], formatted = _a[1];
+                var _a = __read(this.dateFormatService.parseString(value, false, 'date'), 3), dateTimeValue = _a[0], formatted = _a[1], isInvalidDate = _a[2];
+                this.isInvalidDate = isInvalidDate;
                 if (!isNaN(dateTimeValue.getUTCDate())) {
                     var dt = new Date(dateTimeValue);
                     this.dispatchOnChange(dt, blur);
@@ -28517,6 +28524,24 @@
         };
         NovoDatePickerInputElement.prototype.setDisabledState = function (disabled) {
             this.disabled = disabled;
+        };
+        NovoDatePickerInputElement.prototype.handleInvalidDate = function () {
+            if (this.isInvalidDate && this.value) {
+                this.showInvalidDateError = true;
+                this.clearValue();
+                this.closePanel();
+            }
+        };
+        NovoDatePickerInputElement.prototype.setupInvalidDateErrorMessage = function () {
+            var dateFormat = this.labels.dateFormatString();
+            if (Helpers.isEmpty(dateFormat)) {
+                // Default to mm/dd/yyyy
+                dateFormat = 'mm/dd/yyyy';
+            }
+            else {
+                dateFormat = dateFormat.toLowerCase();
+            }
+            this.invalidDateErrorMessage = "Invalid date field entered. Date format of " + dateFormat + " is required.";
         };
         NovoDatePickerInputElement.prototype.dispatchOnChange = function (newValue, blur, skip) {
             if (blur === void 0) { blur = false; }
@@ -28610,7 +28635,7 @@
         { type: core.Component, args: [{
                     selector: 'novo-date-picker-input',
                     providers: [DATE_VALUE_ACCESSOR],
-                    template: "\n    <input\n      type=\"text\"\n      [name]=\"name\"\n      [(ngModel)]=\"formattedValue\"\n      [textMask]=\"maskOptions\"\n      [placeholder]=\"placeholder\"\n      (focus)=\"_handleFocus($event)\"\n      (keydown)=\"_handleKeydown($event)\"\n      (input)=\"_handleInput($event)\"\n      (blur)=\"_handleBlur($event)\"\n      #input\n      data-automation-id=\"date-input\"\n      [disabled]=\"disabled\"\n    />\n    <i *ngIf=\"!hasValue\" (click)=\"openPanel()\" class=\"bhi-calendar\"></i>\n    <i *ngIf=\"hasValue\" (click)=\"clearValue()\" class=\"bhi-times\"></i>\n    <novo-overlay-template [parent]=\"element\" position=\"above-below\">\n      <novo-date-picker\n        [start]=\"start\"\n        [end]=\"end\"\n        inline=\"true\"\n        (onSelect)=\"setValueAndClose($event)\"\n        [disabledDateMessage]=\"disabledDateMessage\"\n        [ngModel]=\"value\"\n        [weekStart]=\"weekStart\"\n      ></novo-date-picker>\n    </novo-overlay-template>\n  "
+                    template: "\n    <input\n      type=\"text\"\n      [name]=\"name\"\n      [(ngModel)]=\"formattedValue\"\n      [textMask]=\"maskOptions\"\n      [placeholder]=\"placeholder\"\n      (focus)=\"_handleFocus($event)\"\n      (keydown)=\"_handleKeydown($event)\"\n      (input)=\"_handleInput($event)\"\n      (blur)=\"_handleBlur($event)\"\n      #input\n      data-automation-id=\"date-input\"\n      [disabled]=\"disabled\"\n    />\n    <span class=\"error-text\" *ngIf=\"showInvalidDateError\">{{invalidDateErrorMessage}}</span>\n    <i *ngIf=\"!hasValue\" (click)=\"openPanel()\" class=\"bhi-calendar\"></i>\n    <i *ngIf=\"hasValue\" (click)=\"clearValue()\" class=\"bhi-times\"></i>\n    <novo-overlay-template [parent]=\"element\" position=\"above-below\">\n      <novo-date-picker\n        [start]=\"start\"\n        [end]=\"end\"\n        inline=\"true\"\n        (onSelect)=\"setValueAndClose($event)\"\n        [disabledDateMessage]=\"disabledDateMessage\"\n        [ngModel]=\"value\"\n        [weekStart]=\"weekStart\"\n      ></novo-date-picker>\n    </novo-overlay-template>\n  "
                 },] }
     ];
     NovoDatePickerInputElement.ctorParameters = function () { return [
