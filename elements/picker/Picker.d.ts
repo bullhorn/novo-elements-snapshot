@@ -25,6 +25,7 @@ export declare class NovoPickerElement implements OnInit {
     side: string;
     autoSelectFirstOption: boolean;
     overrideElement: ElementRef;
+    customNavbarColors: any;
     set disablePickerInput(v: boolean);
     get disablePickerInput(): boolean;
     private _disablePickerInput;
@@ -66,4 +67,6 @@ export declare class NovoPickerElement implements OnInit {
     registerOnChange(fn: Function): void;
     registerOnTouched(fn: Function): void;
     setDisabledState(disabled: boolean): void;
+    private iconBackgroundColorExist;
+    getIconBackgroundColor(): string;
 }

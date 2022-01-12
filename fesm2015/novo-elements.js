@@ -5640,6 +5640,16 @@ class NovoPickerElement {
     setDisabledState(disabled) {
         this._disablePickerInput = disabled;
     }
+    iconBackgroundColorExist() {
+        return this.customNavbarColors &&
+            typeof this.customNavbarColors === 'object' &&
+            this.customNavbarColors.addAndFindIcon &&
+            this.customNavbarColors.addAndFindIcon.color;
+    }
+    getIconBackgroundColor() {
+        return this.iconBackgroundColorExist() ?
+            `background-color: ${this.customNavbarColors.addAndFindIcon.color} !important` : null;
+    }
 }
 NovoPickerElement.decorators = [
     { type: Component, args: [{
@@ -5663,6 +5673,7 @@ NovoPickerElement.decorators = [
       autocomplete="off"
       #input
       [disabled]="disablePickerInput"
+      [attr.style]="getIconBackgroundColor()"
     />
     <i class="bhi-search" *ngIf="(!_value || clearValueOnSelect) && !disablePickerInput"></i>
     <i
@@ -5697,6 +5708,7 @@ NovoPickerElement.propDecorators = {
     side: [{ type: Input }],
     autoSelectFirstOption: [{ type: Input }],
     overrideElement: [{ type: Input }],
+    customNavbarColors: [{ type: Input }],
     disablePickerInput: [{ type: Input }],
     changed: [{ type: Output }],
     select: [{ type: Output }],

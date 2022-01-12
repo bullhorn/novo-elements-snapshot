@@ -5737,13 +5737,23 @@
         NovoPickerElement.prototype.setDisabledState = function (disabled) {
             this._disablePickerInput = disabled;
         };
+        NovoPickerElement.prototype.iconBackgroundColorExist = function () {
+            return this.customNavbarColors &&
+                typeof this.customNavbarColors === 'object' &&
+                this.customNavbarColors.addAndFindIcon &&
+                this.customNavbarColors.addAndFindIcon.color;
+        };
+        NovoPickerElement.prototype.getIconBackgroundColor = function () {
+            return this.iconBackgroundColorExist() ?
+                "background-color: " + this.customNavbarColors.addAndFindIcon.color + " !important" : null;
+        };
         return NovoPickerElement;
     }());
     NovoPickerElement.decorators = [
         { type: core.Component, args: [{
                     selector: 'novo-picker',
                     providers: [PICKER_VALUE_ACCESSOR],
-                    template: "\n    <i class=\"bhi-more\" *ngIf=\"config?.entityIcon && !_value\"></i>\n    <i class=\"bhi-{{ config?.entityIcon }} entity-icon {{ config?.entityIcon }}\" *ngIf=\"config?.entityIcon && _value\"></i>\n    <input\n      type=\"text\"\n      class=\"picker-input\"\n      [(ngModel)]=\"term\"\n      [class.entity-picker]=\"config?.entityIcon\"\n      [class.entity-selected]=\"config?.entityIcon && _value\"\n      (ngModelChange)=\"checkTerm($event)\"\n      [placeholder]=\"placeholder\"\n      (keydown)=\"onKeyDown($event)\"\n      (focus)=\"onFocus($event)\"\n      (click)=\"onFocus($event)\"\n      (blur)=\"onTouched($event)\"\n      autocomplete=\"off\"\n      #input\n      [disabled]=\"disablePickerInput\"\n    />\n    <i class=\"bhi-search\" *ngIf=\"(!_value || clearValueOnSelect) && !disablePickerInput\"></i>\n    <i\n      class=\"bhi-times\"\n      [class.entity-selected]=\"config?.entityIcon && _value\"\n      *ngIf=\"_value && !clearValueOnSelect && !disablePickerInput\"\n      (click)=\"clearValue(true)\"\n    ></i>\n    <novo-overlay-template class=\"picker-results-container\" [parent]=\"element\" position=\"above-below\" (closing)=\"onOverlayClosed()\">\n      <span #results></span>\n      <ng-content></ng-content>\n    </novo-overlay-template>\n  "
+                    template: "\n    <i class=\"bhi-more\" *ngIf=\"config?.entityIcon && !_value\"></i>\n    <i class=\"bhi-{{ config?.entityIcon }} entity-icon {{ config?.entityIcon }}\" *ngIf=\"config?.entityIcon && _value\"></i>\n    <input\n      type=\"text\"\n      class=\"picker-input\"\n      [(ngModel)]=\"term\"\n      [class.entity-picker]=\"config?.entityIcon\"\n      [class.entity-selected]=\"config?.entityIcon && _value\"\n      (ngModelChange)=\"checkTerm($event)\"\n      [placeholder]=\"placeholder\"\n      (keydown)=\"onKeyDown($event)\"\n      (focus)=\"onFocus($event)\"\n      (click)=\"onFocus($event)\"\n      (blur)=\"onTouched($event)\"\n      autocomplete=\"off\"\n      #input\n      [disabled]=\"disablePickerInput\"\n      [attr.style]=\"getIconBackgroundColor()\"\n    />\n    <i class=\"bhi-search\" *ngIf=\"(!_value || clearValueOnSelect) && !disablePickerInput\"></i>\n    <i\n      class=\"bhi-times\"\n      [class.entity-selected]=\"config?.entityIcon && _value\"\n      *ngIf=\"_value && !clearValueOnSelect && !disablePickerInput\"\n      (click)=\"clearValue(true)\"\n    ></i>\n    <novo-overlay-template class=\"picker-results-container\" [parent]=\"element\" position=\"above-below\" (closing)=\"onOverlayClosed()\">\n      <span #results></span>\n      <ng-content></ng-content>\n    </novo-overlay-template>\n  "
                 },] }
     ];
     NovoPickerElement.ctorParameters = function () { return [
@@ -5765,6 +5775,7 @@
         side: [{ type: core.Input }],
         autoSelectFirstOption: [{ type: core.Input }],
         overrideElement: [{ type: core.Input }],
+        customNavbarColors: [{ type: core.Input }],
         disablePickerInput: [{ type: core.Input }],
         changed: [{ type: core.Output }],
         select: [{ type: core.Output }],
