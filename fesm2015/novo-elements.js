@@ -3011,6 +3011,7 @@ class NovoLabelService {
         this.noItems = 'There are no items';
         this.dateFormat = 'MM/dd/yyyy';
         this.dateFormatPlaceholder = 'MM/DD/YYYY';
+        this.localDatePlaceholder = 'mm/dd/yyyy';
         this.timeFormatPlaceholderAM = 'hh:mm AM';
         this.timeFormatPlaceholder24Hour = 'HH:mm';
         this.timeFormatAM = 'AM';
@@ -3057,6 +3058,9 @@ class NovoLabelService {
     }
     dateFormatString() {
         return this.dateFormat;
+    }
+    localizedDatePlaceholder() {
+        return this.localDatePlaceholder;
     }
     tabbedGroupClearSuggestion(tabLabelPlural) {
         return `Clear your search to see all ${tabLabelPlural}.`;
@@ -29201,7 +29205,7 @@ class NovoDatePickerInputElement {
         this.blurEvent = new EventEmitter();
         this.focusEvent = new EventEmitter();
         this.changeEvent = new EventEmitter();
-        this.placeholder = this.labels.dateFormatString().toUpperCase() || this.labels.dateFormatPlaceholder;
+        this.placeholder = this.labels.localizedDatePlaceholder();
     }
     ngOnInit() {
         this.userDefinedFormat = this.format ? !this.format.match(/^(DD\/MM\/YYYY|MM\/DD\/YYYY)$/g) : false;
