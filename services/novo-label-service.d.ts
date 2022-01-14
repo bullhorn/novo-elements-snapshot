@@ -78,6 +78,7 @@ export declare class NovoLabelService {
     noItems: string;
     dateFormat: string;
     dateFormatPlaceholder: string;
+    localDatePlaceholder: string;
     timeFormatPlaceholderAM: string;
     timeFormatPlaceholder24Hour: string;
     timeFormatAM: string;
@@ -109,6 +110,7 @@ export declare class NovoLabelService {
     showingXofXResults(shown: number, total: number): string;
     totalRecords(total: number, select?: boolean): string;
     dateFormatString(): string;
+    localizedDatePlaceholder(): string;
     tabbedGroupClearSuggestion(tabLabelPlural: string): string;
     formatDateWithFormat(value: any, format: Intl.DateTimeFormatOptions): any;
     formatToTimeOnly(param: any): void;
