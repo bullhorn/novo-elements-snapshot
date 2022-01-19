@@ -1,4 +1,4 @@
-import { forwardRef, EventEmitter, Component, ElementRef, Input, Output, NgModule, ChangeDetectionStrategy, Directive, ViewContainerRef, HostListener, Pipe, Injectable, Inject, LOCALE_ID, ChangeDetectorRef, Optional, HostBinding, ContentChildren, TemplateRef, Injector, ComponentFactoryResolver, ViewChild, NgZone, isDevMode, Renderer2, ViewChildren, ViewEncapsulation, Host, ContentChild, PLATFORM_ID } from '@angular/core';
+import { forwardRef, EventEmitter, Component, ChangeDetectionStrategy, ElementRef, Input, Output, NgModule, Directive, ViewContainerRef, HostListener, Pipe, Injectable, Inject, LOCALE_ID, ChangeDetectorRef, Optional, HostBinding, ContentChildren, TemplateRef, Injector, ComponentFactoryResolver, ViewChild, NgZone, isDevMode, Renderer2, ViewChildren, ViewEncapsulation, Host, ContentChild, PLATFORM_ID } from '@angular/core';
 import { NG_VALUE_ACCESSOR, FormsModule, ReactiveFormsModule, Validators, FormControl, FormGroup, FormBuilder } from '@angular/forms';
 import 'brace/index';
 import 'brace/theme/chrome';
@@ -523,7 +523,8 @@ NovoAceEditor.decorators = [
     { type: Component, args: [{
                 selector: 'novo-ace-editor',
                 template: '',
-                providers: [ACE_VALUE_ACCESSOR]
+                providers: [ACE_VALUE_ACCESSOR],
+                changeDetection: ChangeDetectionStrategy.OnPush
             },] }
 ];
 NovoAceEditor.ctorParameters = () => [
@@ -7087,7 +7088,8 @@ NovoCKEditorElement.decorators = [
     { type: Component, args: [{
                 selector: 'novo-editor',
                 providers: [CKEDITOR_CONTROL_VALUE_ACCESSOR],
-                template: '<textarea [name]="name" [id]="name" #host></textarea>'
+                template: '<textarea [name]="name" [id]="name" #host></textarea>',
+                changeDetection: ChangeDetectionStrategy.OnPush
             },] }
 ];
 NovoCKEditorElement.ctorParameters = () => [
@@ -9327,7 +9329,8 @@ NovoSelectElement.decorators = [
   `,
                 host: {
                     '(keydown)': 'onKeyDown($event)',
-                }
+                },
+                changeDetection: ChangeDetectionStrategy.OnPush
             },] }
 ];
 NovoSelectElement.ctorParameters = () => [
@@ -27578,7 +27581,8 @@ NovoAddressElement.decorators = [
         [disablePickerInput]="disabled.countryID"
       ></novo-picker>
     </span>
-  `
+  `,
+                changeDetection: ChangeDetectionStrategy.OnPush
             },] }
 ];
 NovoAddressElement.ctorParameters = () => [
@@ -27654,7 +27658,8 @@ NovoCheckboxElement.decorators = [
           <span *ngIf="label">{{ label }}</span>
         </label>
     </div>
-  `
+  `,
+                changeDetection: ChangeDetectionStrategy.OnPush
             },] }
 ];
 NovoCheckboxElement.ctorParameters = () => [
@@ -28101,7 +28106,8 @@ NovoFileInputElement.decorators = [
         </div>
       </div>
     </ng-template>
-  `
+  `,
+                changeDetection: ChangeDetectionStrategy.OnPush
             },] }
 ];
 NovoFileInputElement.ctorParameters = () => [
@@ -29425,7 +29431,8 @@ NovoDatePickerInputElement.decorators = [
         [weekStart]="weekStart"
       ></novo-date-picker>
     </novo-overlay-template>
-  `
+  `,
+                changeDetection: ChangeDetectionStrategy.OnPush
             },] }
 ];
 NovoDatePickerInputElement.ctorParameters = () => [
@@ -30755,7 +30762,8 @@ NovoDateTimePickerElement.decorators = [
         </div>
       </div>
     </div>
-  `
+  `,
+                changeDetection: ChangeDetectionStrategy.OnPush
             },] }
 ];
 NovoDateTimePickerElement.ctorParameters = () => [
@@ -30896,7 +30904,8 @@ NovoDateTimePickerInputElement.decorators = [
       (focusEvent)="handleFocus($event)"
       [disabled]="disabled"
     ></novo-time-picker-input>
-  `
+  `,
+                changeDetection: ChangeDetectionStrategy.OnPush
             },] }
 ];
 NovoDateTimePickerInputElement.ctorParameters = () => [
@@ -35163,7 +35172,8 @@ NovoControlTemplates.decorators = [
             <novo-quick-note [formControlName]="control.key" [startupFocus]="control?.startupFocus" [placeholder]="control?.placeholder" [config]="control?.config" (change)="methods.modelChange($event)" [tooltip]="control?.tooltip" [tooltipPosition]="control?.tooltipPosition" [tooltipSize]="control?.tooltipSize" [removeTooltipArrow]="control?.removeTooltipArrow" [tooltipAutoPosition]="control?.tooltipAutoPosition" [tooltipPreline]="control?.tooltipPreline"></novo-quick-note>
           </div>
         </ng-template>
-    `
+    `,
+                changeDetection: ChangeDetectionStrategy.OnPush
             },] }
 ];
 NovoControlTemplates.ctorParameters = () => [
@@ -35464,7 +35474,8 @@ NovoFormElement.decorators = [
             </form>
         </div>
     `,
-                providers: [NovoTemplateService]
+                providers: [NovoTemplateService],
+                changeDetection: ChangeDetectionStrategy.OnPush
             },] }
 ];
 NovoFormElement.ctorParameters = () => [
@@ -35489,7 +35500,8 @@ class NovoRadioGroup {
 NovoRadioGroup.decorators = [
     { type: Component, args: [{
                 selector: 'novo-radio-group',
-                template: '<ng-content></ng-content>'
+                template: '<ng-content></ng-content>',
+                changeDetection: ChangeDetectionStrategy.OnPush
             },] }
 ];
 class NovoRadioElement {
@@ -35543,7 +35555,8 @@ NovoRadioElement.decorators = [
     `,
                 host: {
                     '[class.vertical]': 'vertical',
-                }
+                },
+                changeDetection: ChangeDetectionStrategy.OnPush
             },] }
 ];
 NovoRadioElement.ctorParameters = () => [
