@@ -36,6 +36,8 @@ export declare class NovoControlGroup implements AfterContentInit, OnChanges, On
     set icon(v: string);
     get icon(): string;
     private _icon;
+    editIcon: string;
+    removeIcon: string;
     initialValue: {}[];
     canEdit: Function;
     canRemove: Function;
