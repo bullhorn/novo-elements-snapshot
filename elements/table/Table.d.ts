@@ -3,6 +3,7 @@ import { AbstractControl, FormBuilder, FormGroup } from '@angular/forms';
 import { PagedArrayCollection } from '../../services/data-provider/PagedArrayCollection';
 import { NovoLabelService } from '../../services/novo-label-service';
 import { FormUtils } from '../../utils/form-utils/FormUtils';
+import * as i0 from "@angular/core";
 export interface NovoTableConfig {
     paging?: {
         current: number;
@@ -181,4 +182,6 @@ export declare class NovoTableElement implements DoCheck {
      * @memberOf NovoTableElement
      */
     isColumnHidden(column: any): boolean;
+    static ɵfac: i0.ɵɵFactoryDef<NovoTableElement, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoTableElement, "novo-table", never, { "config": "config"; "columns": "columns"; "theme": "theme"; "skipSortAndFilterClear": "skipSortAndFilterClear"; "mode": "mode"; "editable": "editable"; "rowIdentifier": "rowIdentifier"; "name": "name"; "rows": "rows"; "dataProvider": "dataProvider"; }, { "onRowClick": "onRowClick"; "onRowSelect": "onRowSelect"; "onTableChange": "onTableChange"; }, never, ["novo-table-header", "novo-table-actions", "[table-empty-message]", "[table-no-matching-records-message]", "[table-error-message]", "novo-table-footer"]>;
 }

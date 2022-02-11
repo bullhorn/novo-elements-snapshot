@@ -1,8 +1,9 @@
-import { ChangeDetectorRef, ElementRef, OnInit, EventEmitter } from '@angular/core';
+import { ChangeDetectorRef, ElementRef, EventEmitter, OnInit } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
-import { NovoOverlayTemplateComponent } from '../overlay/Overlay';
-import { NovoLabelService } from '../../services/novo-label-service';
 import { DateFormatService } from '../../services/date-format/DateFormat';
+import { NovoLabelService } from '../../services/novo-label-service';
+import { NovoOverlayTemplateComponent } from '../common/overlay/Overlay';
+import * as i0 from "@angular/core";
 export declare class NovoDatePickerInputElement implements OnInit, ControlValueAccessor {
     element: ElementRef;
     labels: NovoLabelService;
@@ -10,10 +11,7 @@ export declare class NovoDatePickerInputElement implements OnInit, ControlValueA
     dateFormatService: DateFormatService;
     value: any;
     formattedValue: string;
-    showInvalidDateError: boolean;
-    invalidDateErrorMessage: string;
     private userDefinedFormat;
-    private isInvalidDate;
     /** View -> model callback called when value changes */
     _onChange: (value: any) => void;
     /** View -> model callback called when autocomplete has been touched */
@@ -26,12 +24,10 @@ export declare class NovoDatePickerInputElement implements OnInit, ControlValueA
     format: string;
     textMaskEnabled: boolean;
     allowInvalidDate: boolean;
-    disabledDateMessage: string;
     disabled: boolean;
     weekStart: number;
     blurEvent: EventEmitter<FocusEvent>;
     focusEvent: EventEmitter<FocusEvent>;
-    changeEvent: EventEmitter<FocusEvent>;
     /** Element for the panel containing the autocomplete options. */
     overlay: NovoOverlayTemplateComponent;
     constructor(element: ElementRef, labels: NovoLabelService, _changeDetectorRef: ChangeDetectorRef, dateFormatService: DateFormatService);
@@ -51,8 +47,6 @@ export declare class NovoDatePickerInputElement implements OnInit, ControlValueA
     registerOnChange(fn: (value: any) => {}): void;
     registerOnTouched(fn: () => {}): void;
     setDisabledState(disabled: boolean): void;
-    handleInvalidDate(): void;
-    setupInvalidDateErrorMessage(): void;
     dispatchOnChange(newValue?: any, blur?: boolean, skip?: boolean): void;
     private _setTriggerValue;
     private _setCalendarValue;
@@ -69,4 +63,6 @@ export declare class NovoDatePickerInputElement implements OnInit, ControlValueA
     clearValue(): void;
     formatDateValue(value: any): any;
     get hasValue(): boolean;
+    static ɵfac: i0.ɵɵFactoryDef<NovoDatePickerInputElement, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoDatePickerInputElement, "novo-date-picker-input", never, { "name": "name"; "start": "start"; "end": "end"; "placeholder": "placeholder"; "maskOptions": "maskOptions"; "format": "format"; "textMaskEnabled": "textMaskEnabled"; "allowInvalidDate": "allowInvalidDate"; "disabled": "disabled"; "weekStart": "weekStart"; }, { "blurEvent": "blurEvent"; "focusEvent": "focusEvent"; }, never, never>;
 }

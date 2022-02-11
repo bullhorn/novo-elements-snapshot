@@ -1,5 +1,5 @@
-import { FormGroup } from '@angular/forms';
 import { EventEmitter } from '@angular/core';
+import { FormGroup } from '@angular/forms';
 import { IFieldInteractionEvent } from './FormInterfaces';
 export declare class NovoFormGroup extends FormGroup {
     fieldInteractionEvents: EventEmitter<IFieldInteractionEvent>;
@@ -8,10 +8,12 @@ export declare class NovoFormGroup extends FormGroup {
     currentEntity: string;
     currentEntityId: string;
     associations: object;
-    fieldsets: any[];
     _value: any;
-    get value(): any;
-    set value(v: any);
+    controls: {
+        [key: string]: any;
+    };
+    novoControls: any[];
+    fieldsets: any[];
     enableAllControls(): void;
     disableAllControls(): void;
 }

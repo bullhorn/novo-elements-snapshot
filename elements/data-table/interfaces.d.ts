@@ -51,7 +51,6 @@ export interface IDataTableColumn<T> {
         width: number;
     };
     rightAlignCellContent?: boolean;
-    configuration?: object;
 }
 export interface IDataTablePaginationOptions {
     theme: 'basic' | 'standard' | 'basic-wide';
@@ -96,9 +95,6 @@ export interface IDataTableChangeEvent {
 }
 export interface IDataTableSelectionChangeEvent {
     selected: any[];
-}
-export interface IDataTableSelectionOption {
-    label: 'none' | 'page' | 'pageSize' | 'sort' | 'filter' | 'globalSearch';
 }
 export interface IDataTablePaginationEvent {
     page: number;

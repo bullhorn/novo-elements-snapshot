@@ -1,8 +1,8 @@
-import { ChangeDetectorRef } from '@angular/core';
 import { DataSource } from '@angular/cdk/table';
+import { ChangeDetectorRef } from '@angular/core';
 import { Observable } from 'rxjs';
-import { DataTableState } from './state/data-table-state.service';
 import { IDataTableService } from './interfaces';
+import { DataTableState } from './state/data-table-state.service';
 export declare class DataTableSource<T> extends DataSource<T> {
     private tableService;
     private state;

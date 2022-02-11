@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, EventEmitter, OnChanges, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { CalendarEvent, CalendarEventTimesChangedEvent, DayView, DayViewHour } from '../../../utils/calendar-utils/CalendarUtils';
+import * as i0 from "@angular/core";
 /**
  * Shows all events on a given day. Example usage:
  *
@@ -145,4 +146,6 @@ export declare class NovoCalendarDayViewElement implements OnChanges, OnInit, On
     private refreshHourGrid;
     private refreshView;
     private refreshAll;
+    static ɵfac: i0.ɵɵFactoryDef<NovoCalendarDayViewElement, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoCalendarDayViewElement, "novo-calendar-day", never, { "viewDate": "viewDate"; "events": "events"; "hourSegments": "hourSegments"; "dayStartHour": "dayStartHour"; "dayStartMinute": "dayStartMinute"; "dayEndHour": "dayEndHour"; "dayEndMinute": "dayEndMinute"; "eventWidth": "eventWidth"; "refresh": "refresh"; "locale": "locale"; "hourSegmentModifier": "hourSegmentModifier"; "eventSnapSize": "eventSnapSize"; "tooltipPosition": "tooltipPosition"; "hourSegmentTemplate": "hourSegmentTemplate"; "allDayEventTemplate": "allDayEventTemplate"; "eventTemplate": "eventTemplate"; }, { "eventClicked": "eventClicked"; "hourSegmentClicked": "hourSegmentClicked"; "eventTimesChanged": "eventTimesChanged"; }, never, never>;
 }

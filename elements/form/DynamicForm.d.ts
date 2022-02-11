@@ -1,10 +1,14 @@
 import { AfterContentInit, ElementRef, OnChanges, OnInit, QueryList, SimpleChanges } from '@angular/core';
 import { NovoTemplateService } from '../../services/template/NovoTemplateService';
 import { NovoTemplate } from '../common/novo-template/novo-template.directive';
-import { NovoFieldset, NovoFormGroup } from './FormInterfaces';
+import { NovoFieldset } from './FormInterfaces';
+import { NovoFormGroup } from './NovoFormGroup';
+import * as i0 from "@angular/core";
 export declare class NovoFieldsetHeaderElement {
     title: string;
     icon: string;
+    static ɵfac: i0.ɵɵFactoryDef<NovoFieldsetHeaderElement, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoFieldsetHeaderElement, "novo-fieldset-header", never, { "title": "title"; "icon": "icon"; }, {}, never, never>;
 }
 export declare class NovoFieldsetElement {
     controls: Array<any>;
@@ -16,6 +20,8 @@ export declare class NovoFieldsetElement {
     isEmbedded: boolean;
     isInlineEmbedded: boolean;
     hidden: boolean;
+    static ɵfac: i0.ɵɵFactoryDef<NovoFieldsetElement, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoFieldsetElement, "novo-fieldset", never, { "controls": "controls"; "form": "form"; "title": "title"; "icon": "icon"; "index": "index"; "autoFocus": "autoFocus"; "isEmbedded": "isEmbedded"; "isInlineEmbedded": "isInlineEmbedded"; "hidden": "hidden"; }, {}, never, never>;
 }
 export declare class NovoDynamicFormElement implements OnChanges, OnInit, AfterContentInit {
     private element;
@@ -43,4 +49,6 @@ export declare class NovoDynamicFormElement implements OnChanges, OnInit, AfterC
     get isValid(): boolean;
     updatedValues(): any;
     forceValidation(): void;
+    static ɵfac: i0.ɵɵFactoryDef<NovoDynamicFormElement, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoDynamicFormElement, "novo-dynamic-form", never, { "controls": "controls"; "fieldsets": "fieldsets"; "form": "form"; "layout": "layout"; "hideNonRequiredFields": "hideNonRequiredFields"; "autoFocusFirstField": "autoFocusFirstField"; }, {}, ["customTemplates"], ["form-title", "form-subtitle"]>;
 }

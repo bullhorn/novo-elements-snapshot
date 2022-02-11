@@ -1,5 +1,11 @@
-import { EventEmitter, NgZone, AfterViewInit, OnDestroy } from '@angular/core';
+import { AfterViewInit, EventEmitter, NgZone, OnDestroy } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
+import * as i0 from "@angular/core";
+declare global {
+    interface Window {
+        CKEDITOR: any;
+    }
+}
 /**
  * CKEditor component
  * Usage :
@@ -41,4 +47,6 @@ export declare class NovoCKEditorElement implements OnDestroy, AfterViewInit, Co
     registerOnTouched(fn: any): void;
     setDisabledState(disabled: boolean): void;
     insertText(text: any): void;
+    static ɵfac: i0.ɵɵFactoryDef<NovoCKEditorElement, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoCKEditorElement, "novo-editor", never, { "config": "config"; "debounce": "debounce"; "name": "name"; "minimal": "minimal"; "startupFocus": "startupFocus"; "fileBrowserImageUploadUrl": "fileBrowserImageUploadUrl"; "disabled": "disabled"; "value": "value"; }, { "change": "change"; "ready": "ready"; "blur": "blur"; "focus": "focus"; "paste": "paste"; "loaded": "loaded"; }, never, never>;
 }
