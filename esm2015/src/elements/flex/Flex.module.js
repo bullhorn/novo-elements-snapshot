@@ -1,0 +1,15 @@
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { NovoBoxElement } from './Box';
+import { NovoFlexElement, NovoStackElement } from './Flex';
+import { NovoGridElement } from './Grid';
+export class NovoFlexModule {
+}
+NovoFlexModule.decorators = [
+    { type: NgModule, args: [{
+                imports: [CommonModule],
+                declarations: [NovoFlexElement, NovoStackElement, NovoGridElement, NovoBoxElement],
+                exports: [NovoFlexElement, NovoStackElement, NovoGridElement, NovoBoxElement],
+            },] }
+];
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRmxleC5tb2R1bGUuanMiLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvbm92by1lbGVtZW50cy9ub3ZvLWVsZW1lbnRzL3Byb2plY3RzL25vdm8tZWxlbWVudHMvIiwic291cmNlcyI6WyJzcmMvZWxlbWVudHMvZmxleC9GbGV4Lm1vZHVsZS50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsWUFBWSxFQUFFLE1BQU0saUJBQWlCLENBQUM7QUFDL0MsT0FBTyxFQUFFLFFBQVEsRUFBRSxNQUFNLGVBQWUsQ0FBQztBQUN6QyxPQUFPLEVBQUUsY0FBYyxFQUFFLE1BQU0sT0FBTyxDQUFDO0FBQ3ZDLE9BQU8sRUFBRSxlQUFlLEVBQUUsZ0JBQWdCLEVBQUUsTUFBTSxRQUFRLENBQUM7QUFDM0QsT0FBTyxFQUFFLGVBQWUsRUFBRSxNQUFNLFFBQVEsQ0FBQztBQU96QyxNQUFNLE9BQU8sY0FBYzs7O1lBTDFCLFFBQVEsU0FBQztnQkFDUixPQUFPLEVBQUUsQ0FBQyxZQUFZLENBQUM7Z0JBQ3ZCLFlBQVksRUFBRSxDQUFDLGVBQWUsRUFBRSxnQkFBZ0IsRUFBRSxlQUFlLEVBQUUsY0FBYyxDQUFDO2dCQUNsRixPQUFPLEVBQUUsQ0FBQyxlQUFlLEVBQUUsZ0JBQWdCLEVBQUUsZUFBZSxFQUFFLGNBQWMsQ0FBQzthQUM5RSIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IENvbW1vbk1vZHVsZSB9IGZyb20gJ0Bhbmd1bGFyL2NvbW1vbic7XG5pbXBvcnQgeyBOZ01vZHVsZSB9IGZyb20gJ0Bhbmd1bGFyL2NvcmUnO1xuaW1wb3J0IHsgTm92b0JveEVsZW1lbnQgfSBmcm9tICcuL0JveCc7XG5pbXBvcnQgeyBOb3ZvRmxleEVsZW1lbnQsIE5vdm9TdGFja0VsZW1lbnQgfSBmcm9tICcuL0ZsZXgnO1xuaW1wb3J0IHsgTm92b0dyaWRFbGVtZW50IH0gZnJvbSAnLi9HcmlkJztcblxuQE5nTW9kdWxlKHtcbiAgaW1wb3J0czogW0NvbW1vbk1vZHVsZV0sXG4gIGRlY2xhcmF0aW9uczogW05vdm9GbGV4RWxlbWVudCwgTm92b1N0YWNrRWxlbWVudCwgTm92b0dyaWRFbGVtZW50LCBOb3ZvQm94RWxlbWVudF0sXG4gIGV4cG9ydHM6IFtOb3ZvRmxleEVsZW1lbnQsIE5vdm9TdGFja0VsZW1lbnQsIE5vdm9HcmlkRWxlbWVudCwgTm92b0JveEVsZW1lbnRdLFxufSlcbmV4cG9ydCBjbGFzcyBOb3ZvRmxleE1vZHVsZSB7fVxuIl19
