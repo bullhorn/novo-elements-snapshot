@@ -1,5 +1,6 @@
-import { SimpleChanges, EventEmitter, ElementRef, AfterContentInit, OnChanges, ChangeDetectorRef } from '@angular/core';
+import { AfterContentInit, ChangeDetectorRef, ElementRef, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
+import * as i0 from "@angular/core";
 export declare class NovoTilesElement implements ControlValueAccessor, AfterContentInit, OnChanges {
     private element;
     private ref;
@@ -27,4 +28,6 @@ export declare class NovoTilesElement implements ControlValueAccessor, AfterCont
     registerOnChange(fn: Function): void;
     registerOnTouched(fn: Function): void;
     setDisabledState(disabled: boolean): void;
+    static ɵfac: i0.ɵɵFactoryDef<NovoTilesElement, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoTilesElement, "novo-tiles", never, { "name": "name"; "options": "options"; "required": "required"; "disabled": "controlDisabled"; }, { "onChange": "onChange"; "onSelectedOptionClick": "onSelectedOptionClick"; "onDisabledOptionClick": "onDisabledOptionClick"; }, never, never>;
 }

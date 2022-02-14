@@ -1,14 +1,17 @@
-import { AfterViewInit, ChangeDetectorRef, ElementRef, OnDestroy, OnInit } from '@angular/core';
 import { CdkColumnDef } from '@angular/cdk/table';
+import { AfterViewInit, ChangeDetectorRef, ElementRef, OnDestroy, OnInit } from '@angular/core';
+import { NovoLabelService } from '../../services/novo-label-service';
 import { NovoDropdownElement } from '../dropdown/Dropdown';
 import { NovoSimpleSortFilter, SimpleTableColumnFilterConfig } from './interfaces';
 import { NovoSortFilter } from './sort';
-import { NovoLabelService } from '../../services/novo-label-service';
 import { NovoActivityTableState } from './state';
+import * as i0 from "@angular/core";
 export declare class NovoSimpleFilterFocus implements AfterViewInit {
     private element;
     constructor(element: ElementRef);
     ngAfterViewInit(): void;
+    static ɵfac: i0.ɵɵFactoryDef<NovoSimpleFilterFocus, never>;
+    static ɵdir: i0.ɵɵDirectiveDefWithMeta<NovoSimpleFilterFocus, "[novoSimpleFilterFocus]", never, {}, {}, never>;
 }
 export declare class NovoSimpleCellHeader implements NovoSimpleSortFilter, OnInit, OnDestroy {
     private changeDetectorRef;
@@ -59,4 +62,6 @@ export declare class NovoSimpleCellHeader implements NovoSimpleSortFilter, OnIni
     clearFilter(): void;
     private getNextSortDirection;
     private getDefaultDateFilterOptions;
+    static ɵfac: i0.ɵɵFactoryDef<NovoSimpleCellHeader, [null, null, null, { optional: true; }, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoSimpleCellHeader, "[novo-simple-cell-config]", never, { "defaultSort": "defaultSort"; "config": "novo-simple-cell-config"; }, {}, never, ["*"]>;
 }

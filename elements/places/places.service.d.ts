@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { GlobalRef } from '../../services/global/global.service';
 import { LocalStorageService } from '../../services/storage/storage.service';
+import * as i0 from "@angular/core";
 export declare class GooglePlacesService {
     private _http;
     private platformId;
@@ -19,4 +20,6 @@ export declare class GooglePlacesService {
     getRecentList(localStorageName: string): Promise<any>;
     private getUniqueResults;
     private geoPredictionCall;
+    static ɵfac: i0.ɵɵFactoryDef<GooglePlacesService, never>;
+    static ɵprov: i0.ɵɵInjectableDef<GooglePlacesService>;
 }

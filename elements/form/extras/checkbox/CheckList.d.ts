@@ -1,5 +1,6 @@
 import { EventEmitter, OnInit } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
+import * as i0 from "@angular/core";
 export declare class NovoCheckListElement implements ControlValueAccessor, OnInit {
     name: string;
     options: Array<any>;
@@ -17,4 +18,6 @@ export declare class NovoCheckListElement implements ControlValueAccessor, OnIni
     registerOnChange(fn: Function): void;
     registerOnTouched(fn: Function): void;
     setDisabledState(disabled: boolean): void;
+    static ɵfac: i0.ɵɵFactoryDef<NovoCheckListElement, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoCheckListElement, "novo-check-list", never, { "name": "name"; "options": "options"; "disabled": "disabled"; }, { "onSelect": "onSelect"; }, never, never>;
 }

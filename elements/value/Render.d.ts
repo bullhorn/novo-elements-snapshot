@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, PipeTransform } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NovoLabelService } from '../../services/novo-label-service';
+import * as i0 from "@angular/core";
 /**
  * @classdesc
  * Renders data appropriately based on the data type found in Meta
@@ -63,4 +64,7 @@ export declare class RenderPipe implements PipeTransform {
      * Capitalizes the first letter
      */
     capitalize(value: any): string;
+    static ɵfac: i0.ɵɵFactoryDef<RenderPipe, never>;
+    static ɵpipe: i0.ɵɵPipeDefWithMeta<RenderPipe, "render">;
+    static ɵprov: i0.ɵɵInjectableDef<RenderPipe>;
 }

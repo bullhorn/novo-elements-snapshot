@@ -1,4 +1,8 @@
 /**
  * A Promise that uses the deferred anti-pattern
  */
-export declare function Deferred(): any;
+export interface DeferredPromise<T = any> extends Promise<T> {
+    resolve: (value?: unknown) => void;
+    reject: (reason?: any) => void;
+}
+export declare function Deferred(): DeferredPromise;

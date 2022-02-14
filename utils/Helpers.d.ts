@@ -1,16 +1,17 @@
 export declare class Helpers {
+    static isTemplateRef(value: any): boolean;
     /**
      * Swallows an event to stop further execution
      */
     static swallowEvent(event: any): void;
-    static interpolate(str: string, props: any): string;
+    static interpolate(str: string | Function, props: any): string;
     static interpolateWithFallback(formatString: string | string[], data: any): string;
     /**
      * Verifies that an object has every property expected by a string to interpolate
      * @param str   The string to interpolate
      * @param props The params to replace in string.
      */
-    static validateInterpolationProps(str: string, props: any): boolean;
+    static validateInterpolationProps(str: string | Function, props: any): boolean;
     static isObject(item: any): boolean;
     /**
      * Checks to see if the object is a string
@@ -34,6 +35,7 @@ export declare class Helpers {
      * Checks to see if the object is a Date
      */
     static isDate(obj: any): boolean;
+    static isIsoDate(str: string): boolean;
     static convertToArray(obj: unknown): any[];
     static sortByField(fields: any, reverse?: boolean): (previous: any, current: any) => any;
     static filterByField(key: any, value: any): (item: any) => boolean;

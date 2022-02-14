@@ -1,10 +1,12 @@
 import { ComponentUtils } from '../../utils/component-utils/ComponentUtils';
+import * as i0 from "@angular/core";
 export declare type ToastThemes = 'default' | 'success' | 'info' | 'warning' | 'danger' | 'positive' | string;
 export declare type ToastIcons = 'bell' | 'check' | 'info' | 'warning' | 'remove' | 'caution' | 'times' | 'coffee' | 'danger' | string;
 export declare type ToastPositions = 'fixedTop' | 'fixedBottom' | 'growlTopRight' | 'growlTopLeft' | 'growlBottomRight' | 'growlBottomLeft';
 export interface ToastOptions {
     title?: string;
     message?: string;
+    action?: string;
     icon?: ToastIcons;
     theme?: ToastThemes;
     hideDelay?: number;
@@ -37,4 +39,6 @@ export declare class NovoToastService {
     setToastOnSession(toast: any, opts: any): void;
     show(toast: any): void;
     toastTimer(toast: any): void;
+    static ɵfac: i0.ɵɵFactoryDef<NovoToastService, never>;
+    static ɵprov: i0.ɵɵInjectableDef<NovoToastService>;
 }

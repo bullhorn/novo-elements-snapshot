@@ -1,5 +1,5 @@
-import { ChangeDetectorRef } from '@angular/core';
 import { DataSource } from '@angular/cdk/table';
+import { ChangeDetectorRef } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NovoActivityTableState } from './state';
 export interface ActivityTableService<T> {

@@ -1,9 +1,20 @@
-import { EventEmitter, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { ChangeDetectorRef, ElementRef, EventEmitter, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
+import { DateFormatService, NovoLabelService } from '../../services';
+import * as i0 from "@angular/core";
+export declare enum TIME_VALUE_FORMATS {
+    iso8601 = "iso8601",
+    Date = "Date"
+}
 export declare class NovoTimePickerElement implements ControlValueAccessor, OnInit, OnChanges {
+    element: ElementRef;
+    labels: NovoLabelService;
+    dateFormatService: DateFormatService;
+    protected cdr: ChangeDetectorRef;
     military: boolean;
     analog: boolean;
     inline: boolean;
+    step: number;
     onSelect: EventEmitter<any>;
     hours: number;
     minutes: number;
@@ -23,6 +34,7 @@ export declare class NovoTimePickerElement implements ControlValueAccessor, OnIn
     _onChange: Function;
     _onTouched: Function;
     flatten(arr: any): any[];
+    constructor(element: ElementRef, labels: NovoLabelService, dateFormatService: DateFormatService, cdr: ChangeDetectorRef);
     ngOnInit(): void;
     ngOnChanges(changes?: SimpleChanges): void;
     init(value: any, dispatch: any): void;
@@ -35,4 +47,7 @@ export declare class NovoTimePickerElement implements ControlValueAccessor, OnIn
     writeValue(model: any): void;
     registerOnChange(fn: Function): void;
     registerOnTouched(fn: Function): void;
+    convertTime12to24(time12h: string): string;
+    static ɵfac: i0.ɵɵFactoryDef<NovoTimePickerElement, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoTimePickerElement, "novo-time-picker", never, { "military": "military"; "analog": "analog"; "inline": "inline"; "step": "step"; }, { "onSelect": "onSelect"; }, never, never>;
 }

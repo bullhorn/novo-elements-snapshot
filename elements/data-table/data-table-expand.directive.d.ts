@@ -1,6 +1,7 @@
-import { TemplateRef, ViewContainerRef, OnDestroy } from '@angular/core';
-import { DataTableState } from './state/data-table-state.service';
+import { OnDestroy, TemplateRef, ViewContainerRef } from '@angular/core';
 import { NovoDataTable } from './data-table.component';
+import { DataTableState } from './state/data-table-state.service';
+import * as i0 from "@angular/core";
 export declare class NovoDataTableExpandDirective<T> implements OnDestroy {
     vcRef: ViewContainerRef;
     private state;
@@ -15,4 +16,6 @@ export declare class NovoDataTableExpandDirective<T> implements OnDestroy {
     onClick(event: MouseEvent): void;
     private clear;
     private render;
+    static ɵfac: i0.ɵɵFactoryDef<NovoDataTableExpandDirective<any>, never>;
+    static ɵdir: i0.ɵɵDirectiveDefWithMeta<NovoDataTableExpandDirective<any>, "[novoDataTableExpand]", never, { "row": "row"; "template": "novoDataTableExpand"; }, {}, never>;
 }

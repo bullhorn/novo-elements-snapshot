@@ -1,6 +1,7 @@
 import { ElementRef, EventEmitter } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { NovoLabelService } from '../../services/novo-label-service';
+import * as i0 from "@angular/core";
 export declare class NovoDateTimePickerElement implements ControlValueAccessor {
     labels: NovoLabelService;
     private element;
@@ -10,7 +11,6 @@ export declare class NovoDateTimePickerElement implements ControlValueAccessor {
     end: any;
     military: any;
     weekStart: number;
-    disabledDateMessage: string;
     onSelect: EventEmitter<any>;
     componentTabState: string;
     selectedLabel: string;
@@ -43,4 +43,6 @@ export declare class NovoDateTimePickerElement implements ControlValueAccessor {
     writeValue(model: any): void;
     registerOnChange(fn: Function): void;
     registerOnTouched(fn: Function): void;
+    static ɵfac: i0.ɵɵFactoryDef<NovoDateTimePickerElement, never>;
+    static ɵcmp: i0.ɵɵComponentDefWithMeta<NovoDateTimePickerElement, "novo-date-time-picker", never, { "minYear": "minYear"; "maxYear": "maxYear"; "start": "start"; "end": "end"; "military": "military"; "weekStart": "weekStart"; }, { "onSelect": "onSelect"; }, never, never>;
 }
