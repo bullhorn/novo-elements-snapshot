@@ -1,0 +1,18 @@
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { NovoPseudoCheckboxModule } from '../selection/index';
+import { NovoOptgroup } from './optgroup.component';
+import { NovoOption } from './option.component';
+export class NovoOptionModule {
+}
+NovoOptionModule.decorators = [
+    { type: NgModule, args: [{
+                imports: [CommonModule, NovoPseudoCheckboxModule],
+                exports: [NovoOption, NovoOptgroup],
+                declarations: [NovoOption, NovoOptgroup],
+            },] }
+];
+export * from './optgroup.component';
+export * from './option-parent';
+export * from './option.component';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiL2hvbWUvcnVubmVyL3dvcmsvbm92by1lbGVtZW50cy9ub3ZvLWVsZW1lbnRzL3Byb2plY3RzL25vdm8tZWxlbWVudHMvIiwic291cmNlcyI6WyJzcmMvZWxlbWVudHMvY29tbW9uL29wdGlvbi9pbmRleC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQSxPQUFPLEVBQUUsWUFBWSxFQUFFLE1BQU0saUJBQWlCLENBQUM7QUFDL0MsT0FBTyxFQUFFLFFBQVEsRUFBRSxNQUFNLGVBQWUsQ0FBQztBQUN6QyxPQUFPLEVBQUUsd0JBQXdCLEVBQUUsTUFBTSxvQkFBb0IsQ0FBQztBQUM5RCxPQUFPLEVBQUUsWUFBWSxFQUFFLE1BQU0sc0JBQXNCLENBQUM7QUFDcEQsT0FBTyxFQUFFLFVBQVUsRUFBRSxNQUFNLG9CQUFvQixDQUFDO0FBT2hELE1BQU0sT0FBTyxnQkFBZ0I7OztZQUw1QixRQUFRLFNBQUM7Z0JBQ1IsT0FBTyxFQUFFLENBQUMsWUFBWSxFQUFFLHdCQUF3QixDQUFDO2dCQUNqRCxPQUFPLEVBQUUsQ0FBQyxVQUFVLEVBQUUsWUFBWSxDQUFDO2dCQUNuQyxZQUFZLEVBQUUsQ0FBQyxVQUFVLEVBQUUsWUFBWSxDQUFDO2FBQ3pDOztBQUdELGNBQWMsc0JBQXNCLENBQUM7QUFDckMsY0FBYyxpQkFBaUIsQ0FBQztBQUNoQyxjQUFjLG9CQUFvQixDQUFDIiwic291cmNlc0NvbnRlbnQiOlsiaW1wb3J0IHsgQ29tbW9uTW9kdWxlIH0gZnJvbSAnQGFuZ3VsYXIvY29tbW9uJztcbmltcG9ydCB7IE5nTW9kdWxlIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5pbXBvcnQgeyBOb3ZvUHNldWRvQ2hlY2tib3hNb2R1bGUgfSBmcm9tICcuLi9zZWxlY3Rpb24vaW5kZXgnO1xuaW1wb3J0IHsgTm92b09wdGdyb3VwIH0gZnJvbSAnLi9vcHRncm91cC5jb21wb25lbnQnO1xuaW1wb3J0IHsgTm92b09wdGlvbiB9IGZyb20gJy4vb3B0aW9uLmNvbXBvbmVudCc7XG5cbkBOZ01vZHVsZSh7XG4gIGltcG9ydHM6IFtDb21tb25Nb2R1bGUsIE5vdm9Qc2V1ZG9DaGVja2JveE1vZHVsZV0sXG4gIGV4cG9ydHM6IFtOb3ZvT3B0aW9uLCBOb3ZvT3B0Z3JvdXBdLFxuICBkZWNsYXJhdGlvbnM6IFtOb3ZvT3B0aW9uLCBOb3ZvT3B0Z3JvdXBdLFxufSlcbmV4cG9ydCBjbGFzcyBOb3ZvT3B0aW9uTW9kdWxlIHt9XG5cbmV4cG9ydCAqIGZyb20gJy4vb3B0Z3JvdXAuY29tcG9uZW50JztcbmV4cG9ydCAqIGZyb20gJy4vb3B0aW9uLXBhcmVudCc7XG5leHBvcnQgKiBmcm9tICcuL29wdGlvbi5jb21wb25lbnQnO1xuIl19
