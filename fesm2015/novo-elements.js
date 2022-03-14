@@ -20423,12 +20423,6 @@ class NovoFormGroup extends FormGroup {
         super(...arguments);
         this.fieldInteractionEvents = new EventEmitter();
     }
-    get value() {
-        return this.getRawValue(); // The value property on Angular form groups do not include disabled form control values.  Find way to address this.
-    }
-    set value(v) {
-        this._value = v;
-    }
     enableAllControls() {
         for (const key in this.controls) {
             if (this.controls[key].readOnly) {
@@ -20744,7 +20738,6 @@ class BasePickerResults {
     constructor(element, ref) {
         this._term = '';
         this.selected = [];
-        this.matches = [];
         this.hasError = false;
         this.isLoading = false;
         this.isStatic = true;
@@ -20753,9 +20746,16 @@ class BasePickerResults {
         this.autoSelectFirstOption = true;
         this.optionsFunctionHasChanged = false;
         this.selectingMatches = false;
+        this._matches = [];
         this.element = element;
         this.ref = ref;
         this.scrollHandler = this.onScrollDown.bind(this);
+    }
+    set matches(m) {
+        this._matches = m;
+    }
+    get matches() {
+        return this._matches;
     }
     cleanUp() {
         const element = this.getListElement();
@@ -22113,7 +22113,7 @@ class FormUtils {
     forceValidation(form) {
         Object.keys(form.controls).forEach((key) => {
             const control = form.controls[key];
-            if (control.required && Helpers.isBlank(form.value[control.key])) {
+            if (control.required && Helpers.isBlank(form.getRawValue()[control.key])) {
                 control.markAsDirty();
                 control.markAsTouched();
             }
@@ -44133,7 +44133,7 @@ class NovoControlGroup {
         const nestedFormGroup = controlsArray.at(index);
         nestedFormGroup.fieldInteractionEvents.unsubscribe();
         if (emitEvent) {
-            this.onRemove.emit({ value: nestedFormGroup.value, index });
+            this.onRemove.emit({ value: nestedFormGroup.getRawValue(), index });
         }
         controlsArray.removeAt(index);
         this.disabledArray = this.disabledArray.filter((value, idx) => idx !== index);
@@ -44943,7 +44943,7 @@ class NovoDynamicFormElement {
                 }
                 // Hide required fields that have been successfully filled out
                 if (hideRequiredWithValue &&
-                    !Helpers.isBlank(this.form.value[control.key]) &&
+                    !Helpers.isBlank(this.form.getRawValue()[control.key]) &&
                     (!control.isEmpty || (control.isEmpty && control.isEmpty(ctl)))) {
                     ctl.hidden = true;
                 }
@@ -44958,7 +44958,7 @@ class NovoDynamicFormElement {
         this.forceValidation();
     }
     get values() {
-        return this.form ? this.form.value : null;
+        return this.form ? this.form.getRawValue() : null;
     }
     get isValid() {
         return this.form ? this.form.valid : false;
@@ -44971,7 +44971,7 @@ class NovoDynamicFormElement {
                     if (!ret) {
                         ret = {};
                     }
-                    ret[control.key] = this.form.value[control.key];
+                    ret[control.key] = this.form.getRawValue()[control.key];
                 }
             });
         });
@@ -44980,7 +44980,7 @@ class NovoDynamicFormElement {
     forceValidation() {
         Object.keys(this.form.controls).forEach((key) => {
             const control = this.form.controls[key];
-            if (control.required && Helpers.isBlank(this.form.value[control.key])) {
+            if (control.required && Helpers.isBlank(this.form.getRawValue()[control.key])) {
                 control.markAsDirty();
                 control.markAsTouched();
             }
@@ -45070,7 +45070,7 @@ class NovoFormElement {
                 this.form.controls[key].hidden = true;
             }
             // Hide required fields that have been successfully filled out
-            if (hideRequiredWithValue && !Helpers.isBlank(this.form.value[key])) {
+            if (hideRequiredWithValue && !Helpers.isBlank(this.form.getRawValue()[key])) {
                 this.form.controls[key].hidden = true;
             }
             // Don't hide fields with errors
@@ -45085,7 +45085,7 @@ class NovoFormElement {
     forceValidation() {
         Object.keys(this.form.controls).forEach((key) => {
             const control = this.form.controls[key];
-            if (control.required && Helpers.isBlank(this.form.value[control.key])) {
+            if (control.required && Helpers.isBlank(this.form.getRawValue()[control.key])) {
                 control.markAsDirty();
                 control.markAsTouched();
             }
@@ -51971,16 +51971,9 @@ class NovoStepper extends CdkStepper {
         /** Consumer-specified template-refs to be used to override the header icons. */
         this._iconOverrides = {};
     }
-    /** Steps that belong to the current stepper, excluding ones from nested steppers. */
-    get steps() {
-        return this._steps;
-    }
-    set steps(value) {
-        this._steps = value;
-    }
     get completed() {
         try {
-            const steps = this._steps.toArray();
+            const steps = this.steps.toArray();
             const length = steps.length - 1;
             return steps[length].completed && length === this.selectedIndex;
         }
@@ -51990,11 +51983,11 @@ class NovoStepper extends CdkStepper {
     }
     ngAfterContentInit() {
         // Mark the component for change detection whenever the content children query changes
-        this._steps.changes.pipe(takeUntil(this._destroyed)).subscribe(() => this._stateChanged());
+        this.steps.changes.pipe(takeUntil(this._destroyed)).subscribe(() => this._stateChanged());
     }
     complete() {
         try {
-            const steps = this._steps.toArray();
+            const steps = this.steps.toArray();
             steps[this.selectedIndex].completed = true;
             this.next();
             this._stateChanged();
@@ -52004,7 +51997,7 @@ class NovoStepper extends CdkStepper {
         }
     }
     getIndicatorType(index) {
-        const steps = this._steps.toArray();
+        const steps = this.steps.toArray();
         if (index === this.selectedIndex) {
             if (steps[index] && index === steps.length - 1 && steps[index].completed) {
                 return 'done';
@@ -52028,7 +52021,7 @@ NovoStepper.decorators = [
 ];
 NovoStepper.propDecorators = {
     _stepHeader: [{ type: ViewChildren, args: [NovoStepHeader,] }],
-    _steps: [{ type: ContentChildren, args: [NovoStep, { descendants: true },] }],
+    steps: [{ type: ContentChildren, args: [NovoStep, { descendants: true },] }],
     _icons: [{ type: ContentChildren, args: [NovoIconComponent,] }]
 };
 class NovoHorizontalStepper extends NovoStepper {
@@ -52447,9 +52440,21 @@ NovoTabbedGroupPickerModule.decorators = [
 
 class BaseRenderer {
     constructor() {
-        this.data = {};
-        this.value = '';
+        this._data = {};
+        this._value = '';
         this.meta = {};
+    }
+    get data() {
+        return this._data;
+    }
+    set data(d) {
+        this._data = d;
+    }
+    get value() {
+        return this._value;
+    }
+    set value(v) {
+        this._value = v;
     }
 }
 
@@ -52458,6 +52463,9 @@ class DateCell extends BaseRenderer {
     constructor(labels) {
         super();
         this.labels = labels;
+    }
+    set value(v) {
+        this._value = v;
     }
     getFormattedDate() {
         return this.labels.formatDate(this.value);
@@ -52482,6 +52490,9 @@ DateCell.propDecorators = {
 
 // NG2
 class NovoDropdownCell extends BaseRenderer {
+    set value(v) {
+        this._value = v;
+    }
     ngOnInit() {
         // Check for and fix bad config
         if (!this.meta.dropdownCellConfig) {
