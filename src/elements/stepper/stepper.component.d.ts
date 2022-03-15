@@ -16,10 +16,7 @@ export declare class NovoStepper extends CdkStepper implements AfterContentInit 
     /** The list of step headers of the steps in the stepper. */
     _stepHeader: QueryList<FocusableOption>;
     /** Steps that the stepper holds. */
-    _steps: QueryList<NovoStep>;
-    /** Steps that belong to the current stepper, excluding ones from nested steppers. */
-    get steps(): QueryList<NovoStep>;
-    set steps(value: QueryList<NovoStep>);
+    steps: QueryList<NovoStep>;
     /** Custom icon overrides passed in by the consumer. */
     _icons: QueryList<NovoIconComponent>;
     /** Consumer-specified template-refs to be used to override the header icons. */

@@ -20923,16 +20923,6 @@
             _this.fieldInteractionEvents = new i0.EventEmitter();
             return _this;
         }
-        Object.defineProperty(NovoFormGroup.prototype, "value", {
-            get: function () {
-                return this.getRawValue(); // The value property on Angular form groups do not include disabled form control values.  Find way to address this.
-            },
-            set: function (v) {
-                this._value = v;
-            },
-            enumerable: false,
-            configurable: true
-        });
         NovoFormGroup.prototype.enableAllControls = function () {
             for (var key in this.controls) {
                 if (this.controls[key].readOnly) {
@@ -21254,7 +21244,6 @@
         function BasePickerResults(element, ref) {
             this._term = '';
             this.selected = [];
-            this.matches = [];
             this.hasError = false;
             this.isLoading = false;
             this.isStatic = true;
@@ -21263,10 +21252,21 @@
             this.autoSelectFirstOption = true;
             this.optionsFunctionHasChanged = false;
             this.selectingMatches = false;
+            this._matches = [];
             this.element = element;
             this.ref = ref;
             this.scrollHandler = this.onScrollDown.bind(this);
         }
+        Object.defineProperty(BasePickerResults.prototype, "matches", {
+            get: function () {
+                return this._matches;
+            },
+            set: function (m) {
+                this._matches = m;
+            },
+            enumerable: false,
+            configurable: true
+        });
         BasePickerResults.prototype.cleanUp = function () {
             var element = this.getListElement();
             if (element && element.hasAttribute('scrollListener')) {
@@ -22561,7 +22561,7 @@
         FormUtils.prototype.forceValidation = function (form) {
             Object.keys(form.controls).forEach(function (key) {
                 var control = form.controls[key];
-                if (control.required && Helpers.isBlank(form.value[control.key])) {
+                if (control.required && Helpers.isBlank(form.getRawValue()[control.key])) {
                     control.markAsDirty();
                     control.markAsTouched();
                 }
@@ -44083,7 +44083,7 @@
             var nestedFormGroup = controlsArray.at(index);
             nestedFormGroup.fieldInteractionEvents.unsubscribe();
             if (emitEvent) {
-                this.onRemove.emit({ value: nestedFormGroup.value, index: index });
+                this.onRemove.emit({ value: nestedFormGroup.getRawValue(), index: index });
             }
             controlsArray.removeAt(index);
             this.disabledArray = this.disabledArray.filter(function (value, idx) { return idx !== index; });
@@ -44368,7 +44368,7 @@
                     }
                     // Hide required fields that have been successfully filled out
                     if (hideRequiredWithValue &&
-                        !Helpers.isBlank(_this.form.value[control.key]) &&
+                        !Helpers.isBlank(_this.form.getRawValue()[control.key]) &&
                         (!control.isEmpty || (control.isEmpty && control.isEmpty(ctl)))) {
                         ctl.hidden = true;
                     }
@@ -44384,7 +44384,7 @@
         };
         Object.defineProperty(NovoDynamicFormElement.prototype, "values", {
             get: function () {
-                return this.form ? this.form.value : null;
+                return this.form ? this.form.getRawValue() : null;
             },
             enumerable: false,
             configurable: true
@@ -44405,7 +44405,7 @@
                         if (!ret) {
                             ret = {};
                         }
-                        ret[control.key] = _this.form.value[control.key];
+                        ret[control.key] = _this.form.getRawValue()[control.key];
                     }
                 });
             });
@@ -44415,7 +44415,7 @@
             var _this = this;
             Object.keys(this.form.controls).forEach(function (key) {
                 var control = _this.form.controls[key];
-                if (control.required && Helpers.isBlank(_this.form.value[control.key])) {
+                if (control.required && Helpers.isBlank(_this.form.getRawValue()[control.key])) {
                     control.markAsDirty();
                     control.markAsTouched();
                 }
@@ -44493,7 +44493,7 @@
                     _this.form.controls[key].hidden = true;
                 }
                 // Hide required fields that have been successfully filled out
-                if (hideRequiredWithValue && !Helpers.isBlank(_this.form.value[key])) {
+                if (hideRequiredWithValue && !Helpers.isBlank(_this.form.getRawValue()[key])) {
                     _this.form.controls[key].hidden = true;
                 }
                 // Don't hide fields with errors
@@ -44509,7 +44509,7 @@
             var _this = this;
             Object.keys(this.form.controls).forEach(function (key) {
                 var control = _this.form.controls[key];
-                if (control.required && Helpers.isBlank(_this.form.value[control.key])) {
+                if (control.required && Helpers.isBlank(_this.form.getRawValue()[control.key])) {
                     control.markAsDirty();
                     control.markAsTouched();
                 }
@@ -51479,21 +51479,10 @@
             _this._iconOverrides = {};
             return _this;
         }
-        Object.defineProperty(NovoStepper.prototype, "steps", {
-            /** Steps that belong to the current stepper, excluding ones from nested steppers. */
-            get: function () {
-                return this._steps;
-            },
-            set: function (value) {
-                this._steps = value;
-            },
-            enumerable: false,
-            configurable: true
-        });
         Object.defineProperty(NovoStepper.prototype, "completed", {
             get: function () {
                 try {
-                    var steps = this._steps.toArray();
+                    var steps = this.steps.toArray();
                     var length = steps.length - 1;
                     return steps[length].completed && length === this.selectedIndex;
                 }
@@ -51507,11 +51496,11 @@
         NovoStepper.prototype.ngAfterContentInit = function () {
             var _this = this;
             // Mark the component for change detection whenever the content children query changes
-            this._steps.changes.pipe(operators.takeUntil(this._destroyed)).subscribe(function () { return _this._stateChanged(); });
+            this.steps.changes.pipe(operators.takeUntil(this._destroyed)).subscribe(function () { return _this._stateChanged(); });
         };
         NovoStepper.prototype.complete = function () {
             try {
-                var steps = this._steps.toArray();
+                var steps = this.steps.toArray();
                 steps[this.selectedIndex].completed = true;
                 this.next();
                 this._stateChanged();
@@ -51521,7 +51510,7 @@
             }
         };
         NovoStepper.prototype.getIndicatorType = function (index) {
-            var steps = this._steps.toArray();
+            var steps = this.steps.toArray();
             if (index === this.selectedIndex) {
                 if (steps[index] && index === steps.length - 1 && steps[index].completed) {
                     return 'done';
@@ -51546,7 +51535,7 @@
     ];
     NovoStepper.propDecorators = {
         _stepHeader: [{ type: i0.ViewChildren, args: [NovoStepHeader,] }],
-        _steps: [{ type: i0.ContentChildren, args: [NovoStep, { descendants: true },] }],
+        steps: [{ type: i0.ContentChildren, args: [NovoStep, { descendants: true },] }],
         _icons: [{ type: i0.ContentChildren, args: [NovoIconComponent,] }]
     };
     var NovoHorizontalStepper = /** @class */ (function (_super) {
@@ -52038,10 +52027,30 @@
 
     var BaseRenderer = /** @class */ (function () {
         function BaseRenderer() {
-            this.data = {};
-            this.value = '';
+            this._data = {};
+            this._value = '';
             this.meta = {};
         }
+        Object.defineProperty(BaseRenderer.prototype, "data", {
+            get: function () {
+                return this._data;
+            },
+            set: function (d) {
+                this._data = d;
+            },
+            enumerable: false,
+            configurable: true
+        });
+        Object.defineProperty(BaseRenderer.prototype, "value", {
+            get: function () {
+                return this._value;
+            },
+            set: function (v) {
+                this._value = v;
+            },
+            enumerable: false,
+            configurable: true
+        });
         return BaseRenderer;
     }());
 
@@ -52052,6 +52061,13 @@
             _this.labels = labels;
             return _this;
         }
+        Object.defineProperty(DateCell.prototype, "value", {
+            set: function (v) {
+                this._value = v;
+            },
+            enumerable: false,
+            configurable: true
+        });
         DateCell.prototype.getFormattedDate = function () {
             return this.labels.formatDate(this.value);
         };
@@ -52075,6 +52091,13 @@
         function NovoDropdownCell() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
+        Object.defineProperty(NovoDropdownCell.prototype, "value", {
+            set: function (v) {
+                this._value = v;
+            },
+            enumerable: false,
+            configurable: true
+        });
         NovoDropdownCell.prototype.ngOnInit = function () {
             // Check for and fix bad config
             if (!this.meta.dropdownCellConfig) {

@@ -9,7 +9,6 @@ import { NovoControlConfig } from '../../../form/controls/BaseControl';
 export declare class BasePickerResults {
     _term: string;
     selected: Array<any>;
-    matches: any;
     hasError: boolean;
     isLoading: boolean;
     isStatic: boolean;
@@ -25,6 +24,9 @@ export declare class BasePickerResults {
     optionsFunctionHasChanged: boolean;
     private selectingMatches;
     private scrollHandler;
+    _matches: Array<any>;
+    set matches(m: Array<any>);
+    get matches(): Array<any>;
     constructor(element: ElementRef, ref: ChangeDetectorRef);
     cleanUp(): void;
     onScrollDown(event: WheelEvent): void;
