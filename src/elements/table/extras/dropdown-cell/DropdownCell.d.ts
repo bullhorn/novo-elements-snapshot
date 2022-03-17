@@ -11,7 +11,8 @@ export interface INovoDropdownCellConfig {
 }
 export declare class NovoDropdownCell extends BaseRenderer implements OnInit {
     meta: any;
-    value: any;
+    set value(v: any);
+    get value(): any;
     ngOnInit(): void;
     onClick(config: any, option: any, value: any): void;
 }

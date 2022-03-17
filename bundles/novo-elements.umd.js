@@ -20923,16 +20923,6 @@
             _this.fieldInteractionEvents = new i0.EventEmitter();
             return _this;
         }
-        Object.defineProperty(NovoFormGroup.prototype, "value", {
-            get: function () {
-                return this.getRawValue(); // The value property on Angular form groups do not include disabled form control values.  Find way to address this.
-            },
-            set: function (v) {
-                this._value = v;
-            },
-            enumerable: false,
-            configurable: true
-        });
         NovoFormGroup.prototype.enableAllControls = function () {
             for (var key in this.controls) {
                 if (this.controls[key].readOnly) {
@@ -21254,7 +21244,6 @@
         function BasePickerResults(element, ref) {
             this._term = '';
             this.selected = [];
-            this.matches = [];
             this.hasError = false;
             this.isLoading = false;
             this.isStatic = true;
@@ -21263,10 +21252,21 @@
             this.autoSelectFirstOption = true;
             this.optionsFunctionHasChanged = false;
             this.selectingMatches = false;
+            this._matches = [];
             this.element = element;
             this.ref = ref;
             this.scrollHandler = this.onScrollDown.bind(this);
         }
+        Object.defineProperty(BasePickerResults.prototype, "matches", {
+            get: function () {
+                return this._matches;
+            },
+            set: function (m) {
+                this._matches = m;
+            },
+            enumerable: false,
+            configurable: true
+        });
         BasePickerResults.prototype.cleanUp = function () {
             var element = this.getListElement();
             if (element && element.hasAttribute('scrollListener')) {
@@ -22561,7 +22561,7 @@
         FormUtils.prototype.forceValidation = function (form) {
             Object.keys(form.controls).forEach(function (key) {
                 var control = form.controls[key];
-                if (control.required && Helpers.isBlank(form.value[control.key])) {
+                if (control.required && Helpers.isBlank(form.getRawValue()[control.key])) {
                     control.markAsDirty();
                     control.markAsTouched();
                 }
@@ -43549,7 +43549,7 @@
         });
         Object.defineProperty(NovoControlElement.prototype, "hasValue", {
             get: function () {
-                return !Helpers.isEmpty(this.form.value[this.control.key]);
+                return !Helpers.isEmpty(this.form.getRawValue()[this.control.key]);
             },
             enumerable: false,
             configurable: true
@@ -43683,9 +43683,9 @@
             }
             else if (this.form.controls[this.control.key].controlType === 'address' &&
                 field &&
-                !Helpers.isEmpty(this.form.value[this.control.key]) &&
-                !Helpers.isBlank(this.form.value[this.control.key][field])) {
-                this.handleAddressChange({ value: this.form.value[this.control.key][field], field: field });
+                !Helpers.isEmpty(this.form.getRawValue()[this.control.key]) &&
+                !Helpers.isBlank(this.form.getRawValue()[this.control.key][field])) {
+                this.handleAddressChange({ value: this.form.getRawValue()[this.control.key][field], field: field });
             }
             this._focusEmitter.emit(event);
         };
@@ -44083,7 +44083,7 @@
             var nestedFormGroup = controlsArray.at(index);
             nestedFormGroup.fieldInteractionEvents.unsubscribe();
             if (emitEvent) {
-                this.onRemove.emit({ value: nestedFormGroup.value, index: index });
+                this.onRemove.emit({ value: nestedFormGroup.getRawValue(), index: index });
             }
             controlsArray.removeAt(index);
             this.disabledArray = this.disabledArray.filter(function (value, idx) { return idx !== index; });
@@ -44221,7 +44221,7 @@
     NovoControlTemplates.decorators = [
         { type: i0.Component, args: [{
                     selector: 'novo-control-templates',
-                    template: "\n    <!---Readonly--->\n    <ng-template novoTemplate=\"read-only\" let-form=\"form\" let-control>\n      <div>{{ form.value[control.key] }}</div>\n    </ng-template>\n    <!--Textbox--->\n    <ng-template novoTemplate=\"textbox\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div\n        [formGroup]=\"form\"\n        class=\"novo-control-input-container novo-control-input-with-label\"\n        [tooltip]=\"control?.tooltip\"\n        [tooltipPosition]=\"control?.tooltipPosition\"\n        [tooltipSize]=\"control?.tooltipSize\"\n        [tooltipPreline]=\"control?.tooltipPreline\"\n        [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n        [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n      >\n        <input\n          *ngIf=\"control?.type !== 'number' && control?.textMaskEnabled\"\n          [textMask]=\"control.maskOptions\"\n          [formControlName]=\"control.key\"\n          [id]=\"control.key\"\n          [type]=\"control?.type\"\n          [placeholder]=\"control?.placeholder\"\n          (input)=\"methods.emitChange($event)\"\n          (focus)=\"methods.handleFocus($event)\"\n          (blur)=\"methods.handleBlur($event)\"\n          autocomplete\n        />\n        <input\n          *ngIf=\"control?.type !== 'number' && !control?.textMaskEnabled\"\n          [class.maxlength-error]=\"errors?.maxlength\"\n          [formControlName]=\"control.key\"\n          [id]=\"control.key\"\n          [type]=\"control?.type\"\n          [placeholder]=\"control?.placeholder\"\n          (input)=\"methods.emitChange($event)\"\n          [maxlength]=\"control?.maxlength\"\n          (focus)=\"methods.handleFocus($event)\"\n          (blur)=\"methods.handleBlur($event)\"\n          autocomplete\n        />\n        <input\n          *ngIf=\"control?.type === 'number' && control?.subType !== 'percentage'\"\n          [class.maxlength-error]=\"errors?.maxlength\"\n          [formControlName]=\"control.key\"\n          [id]=\"control.key\"\n          [type]=\"control?.type\"\n          [placeholder]=\"control?.placeholder\"\n          (keydown)=\"methods.restrictKeys($event)\"\n          (input)=\"methods.emitChange($event)\"\n          [maxlength]=\"control?.maxlength\"\n          (focus)=\"methods.handleFocus($event)\"\n          (blur)=\"methods.handleBlur($event)\"\n          step=\"any\"\n          (mousewheel)=\"numberInput.blur()\"\n          #numberInput\n        />\n        <!-- the percentage input does not use formControlName like a normal reactive input because instead of\n          setting the floating point value directly, it is multiplied by 100 into a percentage value -->\n        <input\n          *ngIf=\"control?.type === 'number' && control?.subType === 'percentage'\"\n          [id]=\"control.key\"\n          [type]=\"control?.type\"\n          [placeholder]=\"control?.placeholder\"\n          (keydown)=\"methods.restrictKeys($event)\"\n          [value]=\"control?.percentValue\"\n          [disabled]=\"control?.readOnly\"\n          (input)=\"methods.handlePercentChange($event)\"\n          (focus)=\"methods.handleFocus($event)\"\n          (blur)=\"methods.handleBlur($event)\"\n          step=\"any\"\n          (mousewheel)=\"percentInput.blur()\"\n          #percentInput\n        />\n        <label class=\"input-label\" *ngIf=\"control?.subType === 'currency'\">{{ control.currencyFormat }}</label>\n        <label class=\"input-label\" *ngIf=\"control?.subType === 'percentage'\">%</label>\n      </div>\n    </ng-template>\n\n    <!--Textarea--->\n    <ng-template novoTemplate=\"text-area\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div\n        class=\"textarea-container\"\n        [formGroup]=\"form\"\n        [tooltip]=\"control?.tooltip\"\n        [tooltipPosition]=\"control?.tooltipPosition\"\n        [tooltipSize]=\"control?.tooltipSize\"\n        [tooltipPreline]=\"control?.tooltipPreline\"\n        [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n        [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n      >\n        <textarea\n          [class.maxlength-error]=\"errors?.maxlength\"\n          [name]=\"control.key\"\n          [attr.id]=\"control.key\"\n          [placeholder]=\"control.placeholder\"\n          [formControlName]=\"control.key\"\n          autosize\n          (input)=\"methods.handleTextAreaInput($event)\"\n          (focus)=\"methods.handleFocus($event)\"\n          (blur)=\"methods.handleBlur($event)\"\n          [maxlength]=\"control?.maxlength\"\n        ></textarea>\n      </div>\n    </ng-template>\n\n    <!--Editor-->\n    <ng-template novoTemplate=\"editor\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <novo-editor\n          [name]=\"control.key\"\n          [formControlName]=\"control.key\"\n          [startupFocus]=\"control.startupFocus\"\n          [minimal]=\"control.minimal\"\n          [fileBrowserImageUploadUrl]=\"control.fileBrowserImageUploadUrl\"\n          (focus)=\"methods.handleFocus($event)\"\n          (blur)=\"methods.handleBlur($event)\"\n          [config]=\"control.config\"\n        ></novo-editor>\n      </div>\n    </ng-template>\n\n    <!--AceEditor-->\n    <ng-template novoTemplate=\"ace-editor\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <novo-ace-editor\n          [name]=\"control.key\"\n          [formControlName]=\"control.key\"\n          (focus)=\"methods.handleFocus($event)\"\n          (blur)=\"methods.handleBlur($event)\"\n        ></novo-ace-editor>\n      </div>\n    </ng-template>\n\n    <!--HTML5 Select-->\n    <ng-template novoTemplate=\"native-select\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <select\n          [id]=\"control.key\"\n          [formControlName]=\"control.key\"\n          [tooltip]=\"control.tooltip\"\n          [tooltipPosition]=\"control.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n        >\n          <option *ngIf=\"control.placeholder\" value=\"\" disabled selected hidden>{{ control.placeholder }}</option>\n          <option *ngFor=\"let opt of control.options\" [value]=\"opt.key\">{{ opt.value }}</option>\n        </select>\n      </div>\n    </ng-template>\n\n    <!--File-->\n    <ng-template novoTemplate=\"file\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <novo-file-input\n          [formControlName]=\"control.key\"\n          [id]=\"control.key\"\n          [name]=\"control.key\"\n          [placeholder]=\"control.placeholder\"\n          [value]=\"control.value\"\n          [multiple]=\"control.multiple\"\n          [layoutOptions]=\"control.layoutOptions\"\n          [tooltip]=\"control.tooltip\"\n          [tooltipPosition]=\"control.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n          (edit)=\"methods.handleEdit($event)\"\n          (save)=\"methods.handleSave($event)\"\n          (delete)=\"methods.handleDelete($event)\"\n          (upload)=\"methods.handleUpload($event)\"\n        ></novo-file-input>\n      </div>\n    </ng-template>\n\n    <!--Tiles-->\n    <ng-template novoTemplate=\"tiles\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <novo-tiles\n          [options]=\"control.options\"\n          [formControlName]=\"control.key\"\n          (onChange)=\"methods.modelChange($event)\"\n          [tooltip]=\"control.tooltip\"\n          [tooltipPosition]=\"control.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n          [controlDisabled]=\"control.disabled\"\n        ></novo-tiles>\n      </div>\n    </ng-template>\n\n    <!--Picker-->\n    <ng-template novoTemplate=\"picker\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\" class=\"novo-control-input-container\">\n        <novo-picker\n          [config]=\"control.config\"\n          [formControlName]=\"control.key\"\n          [placeholder]=\"control.placeholder\"\n          [parentScrollSelector]=\"control.parentScrollSelector\"\n          *ngIf=\"!control.multiple\"\n          (select)=\"methods.modelChange($event)\"\n          (changed)=\"methods.modelChangeWithRaw($event)\"\n          (typing)=\"methods.handleTyping($event)\"\n          (focus)=\"methods.handleFocus($event)\"\n          (blur)=\"methods.handleBlur($event)\"\n          [tooltip]=\"control.tooltip\"\n          [tooltipPosition]=\"control.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n        ></novo-picker>\n        <novo-chips\n          [source]=\"control.config\"\n          [type]=\"control.config.type\"\n          [formControlName]=\"control.key\"\n          [placeholder]=\"control.placeholder\"\n          [maxlength]=\"control?.maxlength\"\n          *ngIf=\"control.multiple && !control.config.columns\"\n          [closeOnSelect]=\"control.closeOnSelect\"\n          (changed)=\"methods.modelChangeWithRaw($event)\"\n          (typing)=\"methods.handleTyping($event)\"\n          (focus)=\"methods.handleFocus($event)\"\n          (blur)=\"methods.handleBlur($event)\"\n          [tooltip]=\"control.tooltip\"\n          [tooltipPosition]=\"control.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n        ></novo-chips>\n        <novo-row-chips\n          [source]=\"control.config\"\n          [type]=\"control.config.type\"\n          [formControlName]=\"control.key\"\n          [placeholder]=\"control.placeholder\"\n          *ngIf=\"control.multiple && control.config.columns\"\n          [closeOnSelect]=\"control.closeOnSelect\"\n          (changed)=\"methods.modelChangeWithRaw($event)\"\n          (typing)=\"methods.handleTyping($event)\"\n          (focus)=\"methods.handleFocus($event)\"\n          (blur)=\"methods.handleBlur($event)\"\n          [tooltip]=\"control.tooltip\"\n          [tooltipPosition]=\"control.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n        ></novo-row-chips>\n      </div>\n    </ng-template>\n\n    <!--Novo Select-->\n    <ng-template novoTemplate=\"select\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <novo-select\n          [options]=\"control.options\"\n          [headerConfig]=\"control.headerConfig\"\n          [placeholder]=\"control.placeholder\"\n          [formControlName]=\"control.key\"\n          [tooltip]=\"control.tooltip\"\n          [tooltipPosition]=\"control.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n          (onSelect)=\"methods.modelChange($event)\"\n        ></novo-select>\n      </div>\n    </ng-template>\n\n    <!--Timezone -->\n    <ng-template novoTemplate=\"timezone\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <novo-select\n          [options]=\"control.options\"\n          [headerConfig]=\"control.headerConfig\"\n          [placeholder]=\"control.placeholder\"\n          [formControlName]=\"control.key\"\n          [tooltip]=\"control.tooltip\"\n          [tooltipPosition]=\"control.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n          position=\"bottom\"\n          (onSelect)=\"methods.modelChange($event)\"\n        ></novo-select>\n      </div>\n    </ng-template>\n\n    <!--Radio-->\n    <ng-template novoTemplate=\"radio\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\" class=\"novo-control-input-container\">\n        <novo-radio-group [name]=\"control.key\" [formControlName]=\"control.key\">\n          <novo-radio\n            *ngFor=\"let option of control.options\"\n            [value]=\"option.value\"\n            [label]=\"option.label\"\n            [checked]=\"option.value === form.value[control.key] || (form.value[control.key] && option.value === form.value[control.key].id)\"\n            [tooltip]=\"control.tooltip\"\n            [tooltipPosition]=\"control.tooltipPosition\"\n            [tooltipSize]=\"control?.tooltipSize\"\n            [tooltipPreline]=\"control?.tooltipPreline\"\n            [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n            [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n            [button]=\"!!option.icon\"\n            [icon]=\"option.icon\"\n            [color]=\"option.color\"\n            [theme]=\"!!option.icon && !option.label ? 'icon' : 'secondary'\"\n            [attr.data-automation-id]=\"control.key + '-' + (option?.label || option?.value)\"\n          ></novo-radio>\n        </novo-radio-group>\n      </div>\n    </ng-template>\n\n    <!--Time-->\n    <ng-template novoTemplate=\"time\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div\n        [formGroup]=\"form\"\n        class=\"novo-control-input-container\"\n        [tooltip]=\"control?.tooltip\"\n        [tooltipPosition]=\"control?.tooltipPosition\"\n        [tooltipSize]=\"control?.tooltipSize\"\n        [tooltipPreline]=\"control?.tooltipPreline\"\n        [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n        [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n      >\n        <novo-time-picker-input\n          [attr.id]=\"control.key\"\n          [name]=\"control.key\"\n          [formControlName]=\"control.key\"\n          [placeholder]=\"control.placeholder\"\n          [military]=\"control.military\"\n        ></novo-time-picker-input>\n      </div>\n    </ng-template>\n\n    <!--Native Input--->\n    <ng-template novoTemplate=\"native-input\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div\n        [formGroup]=\"form\"\n        class=\"novo-control-input-container novo-control-input-with-label\"\n        [tooltip]=\"control?.tooltip\"\n        [tooltipPosition]=\"control?.tooltipPosition\"\n        [tooltipSize]=\"control?.tooltipSize\"\n        [tooltipPreline]=\"control?.tooltipPreline\"\n        [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n        [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n      >\n        <input\n          [formControlName]=\"control.key\"\n          [id]=\"control.key\"\n          [type]=\"control.type\"\n          [placeholder]=\"control?.placeholder\"\n          (input)=\"methods.emitChange($event)\"\n          (focus)=\"methods.handleFocus($event)\"\n          (blur)=\"methods.handleBlur($event)\"\n        />\n      </div>\n    </ng-template>\n\n    <!--Date-->\n    <ng-template novoTemplate=\"date\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div\n        [formGroup]=\"form\"\n        class=\"novo-control-input-container\"\n        [tooltip]=\"control.tooltip\"\n        [tooltipPosition]=\"control.tooltipPosition\"\n        [tooltipSize]=\"control?.tooltipSize\"\n        [tooltipPreline]=\"control?.tooltipPreline\"\n        [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n        [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n      >\n        <novo-date-picker-input\n          [attr.id]=\"control.key\"\n          [name]=\"control.key\"\n          [formControlName]=\"control.key\"\n          [start]=\"control.startDate\"\n          [end]=\"control.endDate\"\n          [format]=\"control.dateFormat\"\n          [allowInvalidDate]=\"control.allowInvalidDate\"\n          [textMaskEnabled]=\"control.textMaskEnabled\"\n          [placeholder]=\"control.placeholder\"\n          [weekStart]=\"control.weekStart\"\n          [disabledDateMessage]=\"control.disabledDateMessage\"\n          (focusEvent)=\"methods.handleFocus($event)\"\n          (blurEvent)=\"methods.handleBlur($event)\"\n          (changeEvent)=\"methods.emitChange($event)\"\n        ></novo-date-picker-input>\n      </div>\n    </ng-template>\n\n    <!--Date and Time-->\n    <ng-template novoTemplate=\"date-time\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div\n        [formGroup]=\"form\"\n        class=\"novo-control-input-container\"\n        [tooltip]=\"control.tooltip\"\n        [tooltipPosition]=\"control.tooltipPosition\"\n        [tooltipSize]=\"control?.tooltipSize\"\n        [tooltipPreline]=\"control?.tooltipPreline\"\n        [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n        [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n      >\n        <novo-date-time-picker-input\n          [attr.id]=\"control.key\"\n          [name]=\"control.key\"\n          [formControlName]=\"control.key\"\n          [start]=\"control.startDate\"\n          [end]=\"control.endDate\"\n          [placeholder]=\"control.placeholder\"\n          [military]=\"control.military\"\n          [weekStart]=\"control.weekStart\"\n          (focusEvent)=\"methods.handleFocus($event)\"\n          (blurEvent)=\"methods.handleBlur($event)\"\n          (changeEvent)=\"methods.emitChange($event)\"\n        ></novo-date-time-picker-input>\n      </div>\n    </ng-template>\n\n    <!--Address-->\n    <ng-template novoTemplate=\"address\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <novo-address\n          [formControlName]=\"control.key\"\n          [config]=\"control?.config\"\n          [readOnly]=\"control?.readOnly\"\n          (change)=\"methods.handleAddressChange($event)\"\n          (focus)=\"methods.handleFocus($event.event, $event.field)\"\n          (blur)=\"methods.handleBlur($event.event, $event.field)\"\n          (validityChange)=\"methods.updateValidity()\"\n        ></novo-address>\n      </div>\n    </ng-template>\n\n    <!--Checkbox-->\n    <ng-template novoTemplate=\"checkbox\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <novo-checkbox\n          [formControlName]=\"control?.key\"\n          [name]=\"control?.key\"\n          [label]=\"control?.checkboxLabel\"\n          [tooltip]=\"control?.tooltip\"\n          [tooltipPosition]=\"control?.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n          [layoutOptions]=\"control?.layoutOptions\"\n        ></novo-checkbox>\n      </div>\n    </ng-template>\n\n    <!--Switch-->\n    <ng-template novoTemplate=\"switch\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <novo-switch\n          [formControlName]=\"control?.key\"\n          [tooltip]=\"control?.tooltip\"\n          [tooltipPosition]=\"control?.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n        ></novo-switch>\n      </div>\n    </ng-template>\n\n    <!--Checklist-->\n    <ng-template novoTemplate=\"checklist\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <novo-check-list\n          [formControlName]=\"control.key\"\n          [name]=\"control.key\"\n          [options]=\"control?.options\"\n          [tooltip]=\"control?.tooltip\"\n          [tooltipPosition]=\"control?.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n          (onSelect)=\"methods.modelChange($event)\"\n        ></novo-check-list>\n      </div>\n    </ng-template>\n\n    <!--QuickNote-->\n    <ng-template novoTemplate=\"quick-note\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <novo-quick-note\n          [formControlName]=\"control.key\"\n          [startupFocus]=\"control?.startupFocus\"\n          [placeholder]=\"control?.placeholder\"\n          [config]=\"control?.config\"\n          (change)=\"methods.modelChange($event)\"\n          [tooltip]=\"control?.tooltip\"\n          [tooltipPosition]=\"control?.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n        ></novo-quick-note>\n      </div>\n    </ng-template>\n  "
+                    template: "\n    <!---Readonly--->\n    <ng-template novoTemplate=\"read-only\" let-form=\"form\" let-control>\n      <div>{{ form.getRawValue()[control.key] }}</div>\n    </ng-template>\n    <!--Textbox--->\n    <ng-template novoTemplate=\"textbox\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div\n        [formGroup]=\"form\"\n        class=\"novo-control-input-container novo-control-input-with-label\"\n        [tooltip]=\"control?.tooltip\"\n        [tooltipPosition]=\"control?.tooltipPosition\"\n        [tooltipSize]=\"control?.tooltipSize\"\n        [tooltipPreline]=\"control?.tooltipPreline\"\n        [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n        [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n      >\n        <input\n          *ngIf=\"control?.type !== 'number' && control?.textMaskEnabled\"\n          [textMask]=\"control.maskOptions\"\n          [formControlName]=\"control.key\"\n          [id]=\"control.key\"\n          [type]=\"control?.type\"\n          [placeholder]=\"control?.placeholder\"\n          (input)=\"methods.emitChange($event)\"\n          (focus)=\"methods.handleFocus($event)\"\n          (blur)=\"methods.handleBlur($event)\"\n          autocomplete\n        />\n        <input\n          *ngIf=\"control?.type !== 'number' && !control?.textMaskEnabled\"\n          [class.maxlength-error]=\"errors?.maxlength\"\n          [formControlName]=\"control.key\"\n          [id]=\"control.key\"\n          [type]=\"control?.type\"\n          [placeholder]=\"control?.placeholder\"\n          (input)=\"methods.emitChange($event)\"\n          [maxlength]=\"control?.maxlength\"\n          (focus)=\"methods.handleFocus($event)\"\n          (blur)=\"methods.handleBlur($event)\"\n          autocomplete\n        />\n        <input\n          *ngIf=\"control?.type === 'number' && control?.subType !== 'percentage'\"\n          [class.maxlength-error]=\"errors?.maxlength\"\n          [formControlName]=\"control.key\"\n          [id]=\"control.key\"\n          [type]=\"control?.type\"\n          [placeholder]=\"control?.placeholder\"\n          (keydown)=\"methods.restrictKeys($event)\"\n          (input)=\"methods.emitChange($event)\"\n          [maxlength]=\"control?.maxlength\"\n          (focus)=\"methods.handleFocus($event)\"\n          (blur)=\"methods.handleBlur($event)\"\n          step=\"any\"\n          (mousewheel)=\"numberInput.blur()\"\n          #numberInput\n        />\n        <!-- the percentage input does not use formControlName like a normal reactive input because instead of\n          setting the floating point value directly, it is multiplied by 100 into a percentage value -->\n        <input\n          *ngIf=\"control?.type === 'number' && control?.subType === 'percentage'\"\n          [id]=\"control.key\"\n          [type]=\"control?.type\"\n          [placeholder]=\"control?.placeholder\"\n          (keydown)=\"methods.restrictKeys($event)\"\n          [value]=\"control?.percentValue\"\n          [disabled]=\"control?.readOnly\"\n          (input)=\"methods.handlePercentChange($event)\"\n          (focus)=\"methods.handleFocus($event)\"\n          (blur)=\"methods.handleBlur($event)\"\n          step=\"any\"\n          (mousewheel)=\"percentInput.blur()\"\n          #percentInput\n        />\n        <label class=\"input-label\" *ngIf=\"control?.subType === 'currency'\">{{ control.currencyFormat }}</label>\n        <label class=\"input-label\" *ngIf=\"control?.subType === 'percentage'\">%</label>\n      </div>\n    </ng-template>\n\n    <!--Textarea--->\n    <ng-template novoTemplate=\"text-area\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div\n        class=\"textarea-container\"\n        [formGroup]=\"form\"\n        [tooltip]=\"control?.tooltip\"\n        [tooltipPosition]=\"control?.tooltipPosition\"\n        [tooltipSize]=\"control?.tooltipSize\"\n        [tooltipPreline]=\"control?.tooltipPreline\"\n        [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n        [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n      >\n        <textarea\n          [class.maxlength-error]=\"errors?.maxlength\"\n          [name]=\"control.key\"\n          [attr.id]=\"control.key\"\n          [placeholder]=\"control.placeholder\"\n          [formControlName]=\"control.key\"\n          autosize\n          (input)=\"methods.handleTextAreaInput($event)\"\n          (focus)=\"methods.handleFocus($event)\"\n          (blur)=\"methods.handleBlur($event)\"\n          [maxlength]=\"control?.maxlength\"\n        ></textarea>\n      </div>\n    </ng-template>\n\n    <!--Editor-->\n    <ng-template novoTemplate=\"editor\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <novo-editor\n          [name]=\"control.key\"\n          [formControlName]=\"control.key\"\n          [startupFocus]=\"control.startupFocus\"\n          [minimal]=\"control.minimal\"\n          [fileBrowserImageUploadUrl]=\"control.fileBrowserImageUploadUrl\"\n          (focus)=\"methods.handleFocus($event)\"\n          (blur)=\"methods.handleBlur($event)\"\n          [config]=\"control.config\"\n        ></novo-editor>\n      </div>\n    </ng-template>\n\n    <!--AceEditor-->\n    <ng-template novoTemplate=\"ace-editor\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <novo-ace-editor\n          [name]=\"control.key\"\n          [formControlName]=\"control.key\"\n          (focus)=\"methods.handleFocus($event)\"\n          (blur)=\"methods.handleBlur($event)\"\n        ></novo-ace-editor>\n      </div>\n    </ng-template>\n\n    <!--HTML5 Select-->\n    <ng-template novoTemplate=\"native-select\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <select\n          [id]=\"control.key\"\n          [formControlName]=\"control.key\"\n          [tooltip]=\"control.tooltip\"\n          [tooltipPosition]=\"control.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n        >\n          <option *ngIf=\"control.placeholder\" value=\"\" disabled selected hidden>{{ control.placeholder }}</option>\n          <option *ngFor=\"let opt of control.options\" [value]=\"opt.key\">{{ opt.value }}</option>\n        </select>\n      </div>\n    </ng-template>\n\n    <!--File-->\n    <ng-template novoTemplate=\"file\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <novo-file-input\n          [formControlName]=\"control.key\"\n          [id]=\"control.key\"\n          [name]=\"control.key\"\n          [placeholder]=\"control.placeholder\"\n          [value]=\"control.value\"\n          [multiple]=\"control.multiple\"\n          [layoutOptions]=\"control.layoutOptions\"\n          [tooltip]=\"control.tooltip\"\n          [tooltipPosition]=\"control.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n          (edit)=\"methods.handleEdit($event)\"\n          (save)=\"methods.handleSave($event)\"\n          (delete)=\"methods.handleDelete($event)\"\n          (upload)=\"methods.handleUpload($event)\"\n        ></novo-file-input>\n      </div>\n    </ng-template>\n\n    <!--Tiles-->\n    <ng-template novoTemplate=\"tiles\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <novo-tiles\n          [options]=\"control.options\"\n          [formControlName]=\"control.key\"\n          (onChange)=\"methods.modelChange($event)\"\n          [tooltip]=\"control.tooltip\"\n          [tooltipPosition]=\"control.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n          [controlDisabled]=\"control.disabled\"\n        ></novo-tiles>\n      </div>\n    </ng-template>\n\n    <!--Picker-->\n    <ng-template novoTemplate=\"picker\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\" class=\"novo-control-input-container\">\n        <novo-picker\n          [config]=\"control.config\"\n          [formControlName]=\"control.key\"\n          [placeholder]=\"control.placeholder\"\n          [parentScrollSelector]=\"control.parentScrollSelector\"\n          *ngIf=\"!control.multiple\"\n          (select)=\"methods.modelChange($event)\"\n          (changed)=\"methods.modelChangeWithRaw($event)\"\n          (typing)=\"methods.handleTyping($event)\"\n          (focus)=\"methods.handleFocus($event)\"\n          (blur)=\"methods.handleBlur($event)\"\n          [tooltip]=\"control.tooltip\"\n          [tooltipPosition]=\"control.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n        ></novo-picker>\n        <novo-chips\n          [source]=\"control.config\"\n          [type]=\"control.config.type\"\n          [formControlName]=\"control.key\"\n          [placeholder]=\"control.placeholder\"\n          [maxlength]=\"control?.maxlength\"\n          *ngIf=\"control.multiple && !control.config.columns\"\n          [closeOnSelect]=\"control.closeOnSelect\"\n          (changed)=\"methods.modelChangeWithRaw($event)\"\n          (typing)=\"methods.handleTyping($event)\"\n          (focus)=\"methods.handleFocus($event)\"\n          (blur)=\"methods.handleBlur($event)\"\n          [tooltip]=\"control.tooltip\"\n          [tooltipPosition]=\"control.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n        ></novo-chips>\n        <novo-row-chips\n          [source]=\"control.config\"\n          [type]=\"control.config.type\"\n          [formControlName]=\"control.key\"\n          [placeholder]=\"control.placeholder\"\n          *ngIf=\"control.multiple && control.config.columns\"\n          [closeOnSelect]=\"control.closeOnSelect\"\n          (changed)=\"methods.modelChangeWithRaw($event)\"\n          (typing)=\"methods.handleTyping($event)\"\n          (focus)=\"methods.handleFocus($event)\"\n          (blur)=\"methods.handleBlur($event)\"\n          [tooltip]=\"control.tooltip\"\n          [tooltipPosition]=\"control.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n        ></novo-row-chips>\n      </div>\n    </ng-template>\n\n    <!--Novo Select-->\n    <ng-template novoTemplate=\"select\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <novo-select\n          [options]=\"control.options\"\n          [headerConfig]=\"control.headerConfig\"\n          [placeholder]=\"control.placeholder\"\n          [formControlName]=\"control.key\"\n          [tooltip]=\"control.tooltip\"\n          [tooltipPosition]=\"control.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n          (onSelect)=\"methods.modelChange($event)\"\n        ></novo-select>\n      </div>\n    </ng-template>\n\n    <!--Timezone -->\n    <ng-template novoTemplate=\"timezone\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <novo-select\n          [options]=\"control.options\"\n          [headerConfig]=\"control.headerConfig\"\n          [placeholder]=\"control.placeholder\"\n          [formControlName]=\"control.key\"\n          [tooltip]=\"control.tooltip\"\n          [tooltipPosition]=\"control.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n          position=\"bottom\"\n          (onSelect)=\"methods.modelChange($event)\"\n        ></novo-select>\n      </div>\n    </ng-template>\n\n    <!--Radio-->\n    <ng-template novoTemplate=\"radio\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\" class=\"novo-control-input-container\">\n        <novo-radio-group [name]=\"control.key\" [formControlName]=\"control.key\">\n          <novo-radio\n            *ngFor=\"let option of control.options\"\n            [value]=\"option.value\"\n            [label]=\"option.label\"\n            [checked]=\"\n              option.value === form.getRawValue()[control.key] ||\n              (form.getRawValue()[control.key] && option.value === form.getRawValue()[control.key].id)\n            \"\n            [tooltip]=\"control.tooltip\"\n            [tooltipPosition]=\"control.tooltipPosition\"\n            [tooltipSize]=\"control?.tooltipSize\"\n            [tooltipPreline]=\"control?.tooltipPreline\"\n            [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n            [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n            [button]=\"!!option.icon\"\n            [icon]=\"option.icon\"\n            [color]=\"option.color\"\n            [theme]=\"!!option.icon && !option.label ? 'icon' : 'secondary'\"\n            [attr.data-automation-id]=\"control.key + '-' + (option?.label || option?.value)\"\n          ></novo-radio>\n        </novo-radio-group>\n      </div>\n    </ng-template>\n\n    <!--Time-->\n    <ng-template novoTemplate=\"time\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div\n        [formGroup]=\"form\"\n        class=\"novo-control-input-container\"\n        [tooltip]=\"control?.tooltip\"\n        [tooltipPosition]=\"control?.tooltipPosition\"\n        [tooltipSize]=\"control?.tooltipSize\"\n        [tooltipPreline]=\"control?.tooltipPreline\"\n        [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n        [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n      >\n        <novo-time-picker-input\n          [attr.id]=\"control.key\"\n          [name]=\"control.key\"\n          [formControlName]=\"control.key\"\n          [placeholder]=\"control.placeholder\"\n          [military]=\"control.military\"\n        ></novo-time-picker-input>\n      </div>\n    </ng-template>\n\n    <!--Native Input--->\n    <ng-template novoTemplate=\"native-input\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div\n        [formGroup]=\"form\"\n        class=\"novo-control-input-container novo-control-input-with-label\"\n        [tooltip]=\"control?.tooltip\"\n        [tooltipPosition]=\"control?.tooltipPosition\"\n        [tooltipSize]=\"control?.tooltipSize\"\n        [tooltipPreline]=\"control?.tooltipPreline\"\n        [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n        [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n      >\n        <input\n          [formControlName]=\"control.key\"\n          [id]=\"control.key\"\n          [type]=\"control.type\"\n          [placeholder]=\"control?.placeholder\"\n          (input)=\"methods.emitChange($event)\"\n          (focus)=\"methods.handleFocus($event)\"\n          (blur)=\"methods.handleBlur($event)\"\n        />\n      </div>\n    </ng-template>\n\n    <!--Date-->\n    <ng-template novoTemplate=\"date\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div\n        [formGroup]=\"form\"\n        class=\"novo-control-input-container\"\n        [tooltip]=\"control.tooltip\"\n        [tooltipPosition]=\"control.tooltipPosition\"\n        [tooltipSize]=\"control?.tooltipSize\"\n        [tooltipPreline]=\"control?.tooltipPreline\"\n        [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n        [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n      >\n        <novo-date-picker-input\n          [attr.id]=\"control.key\"\n          [name]=\"control.key\"\n          [formControlName]=\"control.key\"\n          [start]=\"control.startDate\"\n          [end]=\"control.endDate\"\n          [format]=\"control.dateFormat\"\n          [allowInvalidDate]=\"control.allowInvalidDate\"\n          [textMaskEnabled]=\"control.textMaskEnabled\"\n          [placeholder]=\"control.placeholder\"\n          [weekStart]=\"control.weekStart\"\n          [disabledDateMessage]=\"control.disabledDateMessage\"\n          (focusEvent)=\"methods.handleFocus($event)\"\n          (blurEvent)=\"methods.handleBlur($event)\"\n          (changeEvent)=\"methods.emitChange($event)\"\n        ></novo-date-picker-input>\n      </div>\n    </ng-template>\n\n    <!--Date and Time-->\n    <ng-template novoTemplate=\"date-time\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div\n        [formGroup]=\"form\"\n        class=\"novo-control-input-container\"\n        [tooltip]=\"control.tooltip\"\n        [tooltipPosition]=\"control.tooltipPosition\"\n        [tooltipSize]=\"control?.tooltipSize\"\n        [tooltipPreline]=\"control?.tooltipPreline\"\n        [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n        [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n      >\n        <novo-date-time-picker-input\n          [attr.id]=\"control.key\"\n          [name]=\"control.key\"\n          [formControlName]=\"control.key\"\n          [start]=\"control.startDate\"\n          [end]=\"control.endDate\"\n          [placeholder]=\"control.placeholder\"\n          [military]=\"control.military\"\n          [weekStart]=\"control.weekStart\"\n          (focusEvent)=\"methods.handleFocus($event)\"\n          (blurEvent)=\"methods.handleBlur($event)\"\n          (changeEvent)=\"methods.emitChange($event)\"\n        ></novo-date-time-picker-input>\n      </div>\n    </ng-template>\n\n    <!--Address-->\n    <ng-template novoTemplate=\"address\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <novo-address\n          [formControlName]=\"control.key\"\n          [config]=\"control?.config\"\n          [readOnly]=\"control?.readOnly\"\n          (change)=\"methods.handleAddressChange($event)\"\n          (focus)=\"methods.handleFocus($event.event, $event.field)\"\n          (blur)=\"methods.handleBlur($event.event, $event.field)\"\n          (validityChange)=\"methods.updateValidity()\"\n        ></novo-address>\n      </div>\n    </ng-template>\n\n    <!--Checkbox-->\n    <ng-template novoTemplate=\"checkbox\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <novo-checkbox\n          [formControlName]=\"control?.key\"\n          [name]=\"control?.key\"\n          [label]=\"control?.checkboxLabel\"\n          [tooltip]=\"control?.tooltip\"\n          [tooltipPosition]=\"control?.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n          [layoutOptions]=\"control?.layoutOptions\"\n        ></novo-checkbox>\n      </div>\n    </ng-template>\n\n    <!--Switch-->\n    <ng-template novoTemplate=\"switch\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <novo-switch\n          [formControlName]=\"control?.key\"\n          [tooltip]=\"control?.tooltip\"\n          [tooltipPosition]=\"control?.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n        ></novo-switch>\n      </div>\n    </ng-template>\n\n    <!--Checklist-->\n    <ng-template novoTemplate=\"checklist\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <novo-check-list\n          [formControlName]=\"control.key\"\n          [name]=\"control.key\"\n          [options]=\"control?.options\"\n          [tooltip]=\"control?.tooltip\"\n          [tooltipPosition]=\"control?.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n          (onSelect)=\"methods.modelChange($event)\"\n        ></novo-check-list>\n      </div>\n    </ng-template>\n\n    <!--QuickNote-->\n    <ng-template novoTemplate=\"quick-note\" let-control let-form=\"form\" let-errors=\"errors\" let-methods=\"methods\">\n      <div [formGroup]=\"form\">\n        <novo-quick-note\n          [formControlName]=\"control.key\"\n          [startupFocus]=\"control?.startupFocus\"\n          [placeholder]=\"control?.placeholder\"\n          [config]=\"control?.config\"\n          (change)=\"methods.modelChange($event)\"\n          [tooltip]=\"control?.tooltip\"\n          [tooltipPosition]=\"control?.tooltipPosition\"\n          [tooltipSize]=\"control?.tooltipSize\"\n          [removeTooltipArrow]=\"control?.removeTooltipArrow\"\n          [tooltipAutoPosition]=\"control?.tooltipAutoPosition\"\n          [tooltipPreline]=\"control?.tooltipPreline\"\n        ></novo-quick-note>\n      </div>\n    </ng-template>\n  "
                 },] }
     ];
     NovoControlTemplates.ctorParameters = function () { return [
@@ -44368,7 +44368,7 @@
                     }
                     // Hide required fields that have been successfully filled out
                     if (hideRequiredWithValue &&
-                        !Helpers.isBlank(_this.form.value[control.key]) &&
+                        !Helpers.isBlank(_this.form.getRawValue()[control.key]) &&
                         (!control.isEmpty || (control.isEmpty && control.isEmpty(ctl)))) {
                         ctl.hidden = true;
                     }
@@ -44384,7 +44384,7 @@
         };
         Object.defineProperty(NovoDynamicFormElement.prototype, "values", {
             get: function () {
-                return this.form ? this.form.value : null;
+                return this.form ? this.form.getRawValue() : null;
             },
             enumerable: false,
             configurable: true
@@ -44405,7 +44405,7 @@
                         if (!ret) {
                             ret = {};
                         }
-                        ret[control.key] = _this.form.value[control.key];
+                        ret[control.key] = _this.form.getRawValue()[control.key];
                     }
                 });
             });
@@ -44415,7 +44415,7 @@
             var _this = this;
             Object.keys(this.form.controls).forEach(function (key) {
                 var control = _this.form.controls[key];
-                if (control.required && Helpers.isBlank(_this.form.value[control.key])) {
+                if (control.required && Helpers.isBlank(_this.form.getRawValue()[control.key])) {
                     control.markAsDirty();
                     control.markAsTouched();
                 }
@@ -44493,7 +44493,7 @@
                     _this.form.controls[key].hidden = true;
                 }
                 // Hide required fields that have been successfully filled out
-                if (hideRequiredWithValue && !Helpers.isBlank(_this.form.value[key])) {
+                if (hideRequiredWithValue && !Helpers.isBlank(_this.form.getRawValue()[key])) {
                     _this.form.controls[key].hidden = true;
                 }
                 // Don't hide fields with errors
@@ -44509,7 +44509,7 @@
             var _this = this;
             Object.keys(this.form.controls).forEach(function (key) {
                 var control = _this.form.controls[key];
-                if (control.required && Helpers.isBlank(_this.form.value[control.key])) {
+                if (control.required && Helpers.isBlank(_this.form.getRawValue()[control.key])) {
                     control.markAsDirty();
                     control.markAsTouched();
                 }
@@ -51479,21 +51479,10 @@
             _this._iconOverrides = {};
             return _this;
         }
-        Object.defineProperty(NovoStepper.prototype, "steps", {
-            /** Steps that belong to the current stepper, excluding ones from nested steppers. */
-            get: function () {
-                return this._steps;
-            },
-            set: function (value) {
-                this._steps = value;
-            },
-            enumerable: false,
-            configurable: true
-        });
         Object.defineProperty(NovoStepper.prototype, "completed", {
             get: function () {
                 try {
-                    var steps = this._steps.toArray();
+                    var steps = this.steps.toArray();
                     var length = steps.length - 1;
                     return steps[length].completed && length === this.selectedIndex;
                 }
@@ -51507,11 +51496,11 @@
         NovoStepper.prototype.ngAfterContentInit = function () {
             var _this = this;
             // Mark the component for change detection whenever the content children query changes
-            this._steps.changes.pipe(operators.takeUntil(this._destroyed)).subscribe(function () { return _this._stateChanged(); });
+            this.steps.changes.pipe(operators.takeUntil(this._destroyed)).subscribe(function () { return _this._stateChanged(); });
         };
         NovoStepper.prototype.complete = function () {
             try {
-                var steps = this._steps.toArray();
+                var steps = this.steps.toArray();
                 steps[this.selectedIndex].completed = true;
                 this.next();
                 this._stateChanged();
@@ -51521,7 +51510,7 @@
             }
         };
         NovoStepper.prototype.getIndicatorType = function (index) {
-            var steps = this._steps.toArray();
+            var steps = this.steps.toArray();
             if (index === this.selectedIndex) {
                 if (steps[index] && index === steps.length - 1 && steps[index].completed) {
                     return 'done';
@@ -51546,7 +51535,7 @@
     ];
     NovoStepper.propDecorators = {
         _stepHeader: [{ type: i0.ViewChildren, args: [NovoStepHeader,] }],
-        _steps: [{ type: i0.ContentChildren, args: [NovoStep, { descendants: true },] }],
+        steps: [{ type: i0.ContentChildren, args: [NovoStep, { descendants: true },] }],
         _icons: [{ type: i0.ContentChildren, args: [NovoIconComponent,] }]
     };
     var NovoHorizontalStepper = /** @class */ (function (_super) {
@@ -52038,10 +52027,30 @@
 
     var BaseRenderer = /** @class */ (function () {
         function BaseRenderer() {
-            this.data = {};
-            this.value = '';
+            this._data = {};
+            this._value = '';
             this.meta = {};
         }
+        Object.defineProperty(BaseRenderer.prototype, "data", {
+            get: function () {
+                return this._data;
+            },
+            set: function (d) {
+                this._data = d;
+            },
+            enumerable: false,
+            configurable: true
+        });
+        Object.defineProperty(BaseRenderer.prototype, "value", {
+            get: function () {
+                return this._value;
+            },
+            set: function (v) {
+                this._value = v;
+            },
+            enumerable: false,
+            configurable: true
+        });
         return BaseRenderer;
     }());
 
@@ -52052,6 +52061,16 @@
             _this.labels = labels;
             return _this;
         }
+        Object.defineProperty(DateCell.prototype, "value", {
+            get: function () {
+                return this._value;
+            },
+            set: function (v) {
+                this._value = v;
+            },
+            enumerable: false,
+            configurable: true
+        });
         DateCell.prototype.getFormattedDate = function () {
             return this.labels.formatDate(this.value);
         };
@@ -52075,6 +52094,16 @@
         function NovoDropdownCell() {
             return _super !== null && _super.apply(this, arguments) || this;
         }
+        Object.defineProperty(NovoDropdownCell.prototype, "value", {
+            get: function () {
+                return this._value;
+            },
+            set: function (v) {
+                this._value = v;
+            },
+            enumerable: false,
+            configurable: true
+        });
         NovoDropdownCell.prototype.ngOnInit = function () {
             // Check for and fix bad config
             if (!this.meta.dropdownCellConfig) {
@@ -52323,7 +52352,7 @@
                     var componentRef = this.componentUtils.append(this.column.renderer, this.container);
                     componentRef.instance.meta = this.column;
                     componentRef.instance.data = this.row;
-                    componentRef.instance.value = this.form && this.hasEditor ? this.form.value[this.column.name] : this.row[this.column.name];
+                    componentRef.instance.value = this.form && this.hasEditor ? this.form.getRawValue()[this.column.name] : this.row[this.column.name];
                     // TODO - save ref to this and update in the valueChanges below!!
                 }
                 else {
@@ -52332,7 +52361,7 @@
                 }
             }
             else {
-                this.value = this.form && this.hasEditor ? this.form.value[this.column.name] : this.row[this.column.name];
+                this.value = this.form && this.hasEditor ? this.form.getRawValue()[this.column.name] : this.row[this.column.name];
             }
             if (this.form && this.hasEditor) {
                 this.valueChangeSubscription = this.form.valueChanges.pipe(operators.debounceTime(300), operators.distinctUntilChanged()).subscribe(function (value) {
@@ -52832,7 +52861,7 @@
         });
         Object.defineProperty(NovoTableElement.prototype, "formValue", {
             get: function () {
-                return this.tableForm.value;
+                return this.tableForm.getRawValue();
             },
             enumerable: false,
             configurable: true
@@ -53391,7 +53420,7 @@
                                 }
                             }
                             // If dirty, grab value off the form
-                            changedRow[key] = _this.tableForm.value.rows[index][key];
+                            changedRow[key] = _this.tableForm.getRawValue().rows[index][key];
                             // Set value back to row (should be already done via the server call, but do it anyway)
                             _this._rows[index][key] = changedRow[key];
                         }
