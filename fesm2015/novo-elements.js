@@ -32820,8 +32820,11 @@ class NovoChipsElement {
             }
         }
         this._items.next(this.items);
-        this.value = this.source && this.source.valueFormatter ? this.source.valueFormatter(this.items) : this.items.map((i) => i.value);
-        this._propagateChanges();
+        const valueToSet = this.source && this.source.valueFormatter ? this.source.valueFormatter(this.items) : this.items.map((i) => i.value);
+        if (Helpers.isBlank(this.value) !== Helpers.isBlank(valueToSet) || JSON.stringify(this.value) !== JSON.stringify(valueToSet)) {
+            this.value = valueToSet;
+            this._propagateChanges();
+        }
     }
     getLabelFromOptions(value) {
         let id = value;
@@ -38133,7 +38136,7 @@ class NovoSelectElement extends NovoSelectMixins {
         this.id = this._uniqueId;
         this.name = this._uniqueId;
         this.placeholder = 'Select...';
-        this.position = 'bottom';
+        this.position = 'above-below';
         this.onSelect = new EventEmitter();
         /** Event emitted when the selected value has been changed by the user. */
         this.selectionChange = new EventEmitter();

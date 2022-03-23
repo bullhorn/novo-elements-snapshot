@@ -33373,8 +33373,11 @@
                 }
             }
             this._items.next(this.items);
-            this.value = this.source && this.source.valueFormatter ? this.source.valueFormatter(this.items) : this.items.map(function (i) { return i.value; });
-            this._propagateChanges();
+            var valueToSet = this.source && this.source.valueFormatter ? this.source.valueFormatter(this.items) : this.items.map(function (i) { return i.value; });
+            if (Helpers.isBlank(this.value) !== Helpers.isBlank(valueToSet) || JSON.stringify(this.value) !== JSON.stringify(valueToSet)) {
+                this.value = valueToSet;
+                this._propagateChanges();
+            }
         };
         NovoChipsElement.prototype.getLabelFromOptions = function (value) {
             var id = value;
@@ -38335,7 +38338,7 @@
             _this.id = _this._uniqueId;
             _this.name = _this._uniqueId;
             _this.placeholder = 'Select...';
-            _this.position = 'bottom';
+            _this.position = 'above-below';
             _this.onSelect = new i0.EventEmitter();
             /** Event emitted when the selected value has been changed by the user. */
             _this.selectionChange = new i0.EventEmitter();
