@@ -32820,8 +32820,11 @@ class NovoChipsElement {
             }
         }
         this._items.next(this.items);
-        this.value = this.source && this.source.valueFormatter ? this.source.valueFormatter(this.items) : this.items.map((i) => i.value);
-        this._propagateChanges();
+        const valueToSet = this.source && this.source.valueFormatter ? this.source.valueFormatter(this.items) : this.items.map((i) => i.value);
+        if (Helpers.isBlank(this.value) !== Helpers.isBlank(valueToSet) || JSON.stringify(this.value) !== JSON.stringify(valueToSet)) {
+            this.value = valueToSet;
+            this._propagateChanges();
+        }
     }
     getLabelFromOptions(value) {
         let id = value;
@@ -35930,7 +35933,7 @@ class NovoDataTableCheckboxHeaderCell extends CdkHeaderCell {
             var _a;
             this.checked = false;
             if ((_a = this.dataTable) === null || _a === void 0 ? void 0 : _a.canSelectAll) {
-                this.selectAllChanged();
+                this.resetAllMatchingSelected();
             }
             this.ref.markForCheck();
         });
@@ -35963,8 +35966,18 @@ class NovoDataTableCheckboxHeaderCell extends CdkHeaderCell {
             this.dataTable.selectRows(!this.checked);
         }
         if ((_a = this.dataTable) === null || _a === void 0 ? void 0 : _a.canSelectAll) {
-            this.selectAllChanged();
+            if (this.checked) {
+                this.resetAllMatchingSelected();
+            }
+            else {
+                this.selectAllChanged();
+            }
         }
+    }
+    resetAllMatchingSelected() {
+        var _a, _b, _c;
+        (_b = (_a = this.dataTable.state) === null || _a === void 0 ? void 0 : _a.allMatchingSelectedSource) === null || _b === void 0 ? void 0 : _b.next(false);
+        (_c = this.dataTable.state) === null || _c === void 0 ? void 0 : _c.onSelectionChange();
     }
     selectAllChanged() {
         var _a, _b, _c, _d;
@@ -38133,7 +38146,7 @@ class NovoSelectElement extends NovoSelectMixins {
         this.id = this._uniqueId;
         this.name = this._uniqueId;
         this.placeholder = 'Select...';
-        this.position = 'bottom';
+        this.position = 'above-below';
         this.onSelect = new EventEmitter();
         /** Event emitted when the selected value has been changed by the user. */
         this.selectionChange = new EventEmitter();
