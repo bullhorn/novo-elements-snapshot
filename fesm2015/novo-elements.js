@@ -20458,6 +20458,7 @@ class NovoLabelService {
         this.dateAdded = 'Date Added';
         this.emptyTableMessage = 'No Records to display...';
         this.noMatchingRecordsMessage = 'No Matching Records';
+        this.noMoreRecordsMessage = 'No more records. Click "Previous" to go back.';
         this.erroredTableMessage = 'Oops! An error occurred.';
         this.pickerError = 'Oops! An error occurred.';
         this.pickerTextFieldEmpty = 'Begin typing to see results.';
@@ -20646,6 +20647,9 @@ class NovoLabelService {
         return this[value];
     }
     getRangeText(page, pageSize, length, short) {
+        if (length === null) {
+            return null;
+        }
         if (length === 0 || pageSize === 0) {
             return `Displaying 0 of ${length}`;
         }
@@ -30416,6 +30420,7 @@ class NovoChipElement extends NovoChipMixinBase {
         else {
             event.stopPropagation();
         }
+        this.toggleSelected(true);
     }
     /** Handle custom key presses. */
     _handleKeydown(event) {
@@ -32820,8 +32825,11 @@ class NovoChipsElement {
             }
         }
         this._items.next(this.items);
-        this.value = this.source && this.source.valueFormatter ? this.source.valueFormatter(this.items) : this.items.map((i) => i.value);
-        this._propagateChanges();
+        const valueToSet = this.source && this.source.valueFormatter ? this.source.valueFormatter(this.items) : this.items.map((i) => i.value);
+        if (Helpers.isBlank(this.value) !== Helpers.isBlank(valueToSet) || JSON.stringify(this.value) !== JSON.stringify(valueToSet)) {
+            this.value = valueToSet;
+            this._propagateChanges();
+        }
     }
     getLabelFromOptions(value) {
         let id = value;
@@ -32930,11 +32938,12 @@ class NovoChipsElement {
      * a previewTemplate given in the config.
      */
     showPreview() {
+        var _a;
         if (this.source.previewTemplate) {
             if (!this.popup) {
                 this.popup = this.componentUtils.append(this.source.previewTemplate, this.preview);
             }
-            this.popup.instance.match = this.selected;
+            this.popup.instance.match = { data: (_a = this.selected.data) !== null && _a !== void 0 ? _a : this.selected.value };
         }
     }
     /**
@@ -35094,7 +35103,7 @@ class DataTableSource extends DataSource {
         this.totalSet = false;
     }
     get totallyEmpty() {
-        return this.total === 0;
+        return this.total === 0 && this.current === 0;
     }
     get currentlyEmpty() {
         return this.current === 0;
@@ -35106,6 +35115,9 @@ class DataTableSource extends DataSource {
             this.loading = true;
             return this.tableService.getTableResults(this.state.sort, this.state.filter, this.state.page, this.state.pageSize, this.state.globalSearch, this.state.outsideFilter);
         }), map((data) => {
+            if (data.total === undefined) {
+                data.total = null;
+            }
             if (!this.totalSet || this.state.isForceRefresh) {
                 this.total = data.total;
                 this.totalSet = true;
@@ -35648,6 +35660,7 @@ NovoDataTable.decorators = [
         [dataFeatureId]="paginatorDataFeatureId"
         [canSelectAll]="canSelectAll"
         [allMatchingSelected]="allMatchingSelected"
+        [currentlyEmpty]="dataSource?.currentlyEmpty"
       >
       </novo-data-table-pagination>
       <div class="novo-data-table-actions" *ngIf="templates['customActions']">
@@ -35734,10 +35747,21 @@ NovoDataTable.decorators = [
         <div
           class="novo-data-table-no-results-container"
           [style.left.px]="scrollLeft"
-          *ngIf="dataSource?.currentlyEmpty && state.userFiltered && !dataSource?.loading && !loading && !dataSource.pristine"
+          *ngIf="
+            dataSource?.currentlyEmpty && state.userFiltered && state.page === 0 && !dataSource?.loading && !loading && !dataSource.pristine
+          "
         >
           <div class="novo-data-table-empty-message">
             <ng-container *ngTemplateOutlet="templates['noResultsMessage'] || templates['defaultNoResultsMessage']"></ng-container>
+          </div>
+        </div>
+        <div
+          class="novo-data-table-no-more-results-container"
+          [style.left.px]="scrollLeft"
+          *ngIf="dataSource?.currentlyEmpty && state.page > 0 && !dataSource?.loading && !loading && !dataSource.pristine"
+        >
+          <div class="novo-data-table-empty-message">
+            <ng-container *ngTemplateOutlet="templates['noMoreResultsMessage'] || templates['defaultNoMoreResultsMessage']"></ng-container>
           </div>
         </div>
       </div>
@@ -35826,6 +35850,9 @@ NovoDataTable.decorators = [
     </ng-template>
     <ng-template novoTemplate="defaultNoResultsMessage">
       <h4><i class="bhi-search-question"></i> {{ labels.noMatchingRecordsMessage }}</h4>
+    </ng-template>
+    <ng-template novoTemplate="defaultNoMoreResultsMessage">
+      <h4><i class="bhi-search-question"></i> {{ labels.noMoreRecordsMessage }}</h4>
     </ng-template>
     <ng-template novoTemplate="defaultEmptyMessage">
       <h4><i class="bhi-search-question"></i> {{ labels.emptyTableMessage }}</h4>
@@ -35930,7 +35957,7 @@ class NovoDataTableCheckboxHeaderCell extends CdkHeaderCell {
             var _a;
             this.checked = false;
             if ((_a = this.dataTable) === null || _a === void 0 ? void 0 : _a.canSelectAll) {
-                this.selectAllChanged();
+                this.resetAllMatchingSelected();
             }
             this.ref.markForCheck();
         });
@@ -35963,8 +35990,18 @@ class NovoDataTableCheckboxHeaderCell extends CdkHeaderCell {
             this.dataTable.selectRows(!this.checked);
         }
         if ((_a = this.dataTable) === null || _a === void 0 ? void 0 : _a.canSelectAll) {
-            this.selectAllChanged();
+            if (this.checked) {
+                this.resetAllMatchingSelected();
+            }
+            else {
+                this.selectAllChanged();
+            }
         }
+    }
+    resetAllMatchingSelected() {
+        var _a, _b, _c;
+        (_b = (_a = this.dataTable.state) === null || _a === void 0 ? void 0 : _a.allMatchingSelectedSource) === null || _b === void 0 ? void 0 : _b.next(false);
+        (_c = this.dataTable.state) === null || _c === void 0 ? void 0 : _c.onSelectionChange();
     }
     selectAllChanged() {
         var _a, _b, _c, _d;
@@ -38133,7 +38170,7 @@ class NovoSelectElement extends NovoSelectMixins {
         this.id = this._uniqueId;
         this.name = this._uniqueId;
         this.placeholder = 'Select...';
-        this.position = 'bottom';
+        this.position = 'above-below';
         this.onSelect = new EventEmitter();
         /** Event emitted when the selected value has been changed by the user. */
         this.selectionChange = new EventEmitter();
@@ -39464,7 +39501,8 @@ class NovoFileInputElement extends NovoFileInputMixins {
         }
     }
     ngOnChanges(changes) {
-        this.onModelChange(this.model);
+        // Removed 6.0.5, not sure why this was here
+        // this.onModelChange(this.model);}
     }
     updateLayout() {
         this.layoutOptions = Object.assign({}, LAYOUT_DEFAULTS$1, this.layoutOptions);
@@ -40107,6 +40145,7 @@ class NovoDataTablePagination {
         this._pageSizeOptions = [];
         this.canSelectAll = false;
         this.allMatchingSelected = false;
+        this.currentlyEmpty = false;
         this._length = 0;
         this.pageChange = new EventEmitter();
         this.resetSubscription = this.state.resetSource.subscribe(() => {
@@ -40184,6 +40223,9 @@ class NovoDataTablePagination {
         return this.page >= 1 && this.pageSize !== 0;
     }
     hasNextPage() {
+        if (this.length === null) {
+            return !(this.currentlyEmpty && (this.state.page > 0 || (this.state.page === 0 && this.state.userFiltered)));
+        }
         const numberOfPages = Math.ceil(this.length / this.pageSize) - 1;
         return this.page < numberOfPages && this.pageSize !== 0;
     }
@@ -40235,6 +40277,9 @@ class NovoDataTablePagination {
         this.state.onPaginationChange(isPageSizeChange, this.pageSize);
     }
     calculateTotalPages() {
+        if (this.length === null) {
+            return null;
+        }
         const totalPages = this.pageSize < 1 ? 1 : Math.ceil(this.length / this.pageSize);
         return Math.max(totalPages || 0, 1);
     }
@@ -40247,6 +40292,9 @@ class NovoDataTablePagination {
     }
     getPages(currentPage, totalPages) {
         const pages = [];
+        if (totalPages === null) {
+            return pages;
+        }
         // Default page limits
         let startPage = 1;
         let endPage = totalPages;
@@ -40286,7 +40334,6 @@ NovoDataTablePagination.decorators = [
         </novo-tiles>
         <div *ngIf="displayedPageSizeOptions.length <= 1">{{ pageSize }}</div>
       </div>
-
       <div class="novo-data-table-range-label-long" data-automation-id="novo-data-table-pagination-range-label-long">
         {{ longRangeLabel }}
       </div>
@@ -40294,6 +40341,21 @@ NovoDataTablePagination.decorators = [
         {{ shortRangeLabel }}
       </div>
       <span class="spacer novo-data-table-spacer" *ngIf="theme === 'basic-wide'"></span>
+    </ng-container>
+    <ng-container *ngIf="theme === 'standard' || theme === 'bare'">
+      <h5 class="rows">{{ labels.itemsPerPage }}</h5>
+      <novo-select
+        [options]="displayedPageSizeOptions"
+        [placeholder]="labels.select"
+        [(ngModel)]="pageSize"
+        (onSelect)="changePageSize($event.selected)"
+        data-automation-id="pager-select"
+        [attr.data-feature-id]="dataFeatureId"
+      >
+      </novo-select>
+      <span class="spacer"></span>
+    </ng-container>
+    <ng-container *ngIf="theme === 'basic' || theme === 'basic-wide' || theme === 'bare'">
       <novo-button
         theme="dialogue"
         type="button"
@@ -40320,17 +40382,6 @@ NovoDataTablePagination.decorators = [
       </novo-button>
     </ng-container>
     <ng-container *ngIf="theme === 'standard'">
-      <h5 class="rows">{{ labels.itemsPerPage }}</h5>
-      <novo-select
-        [options]="displayedPageSizeOptions"
-        [placeholder]="labels.select"
-        [(ngModel)]="pageSize"
-        (onSelect)="changePageSize($event.selected)"
-        data-automation-id="pager-select"
-        [attr.data-feature-id]="dataFeatureId"
-      >
-      </novo-select>
-      <span class="spacer"></span>
       <ul class="pager" data-automation-id="pager">
         <li class="page" (click)="selectPage(page - 1)" [ngClass]="{ disabled: page === 0 }">
           <i class="bhi-previous" data-automation-id="pager-previous"></i>
@@ -40360,6 +40411,7 @@ NovoDataTablePagination.propDecorators = {
     pageSizeOptions: [{ type: Input }],
     canSelectAll: [{ type: Input }],
     allMatchingSelected: [{ type: Input }],
+    currentlyEmpty: [{ type: Input }],
     length: [{ type: Input }],
     pageChange: [{ type: Output }]
 };

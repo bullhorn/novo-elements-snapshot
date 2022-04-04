@@ -54,7 +54,7 @@ export interface IDataTableColumn<T> {
     configuration?: object;
 }
 export interface IDataTablePaginationOptions {
-    theme: 'basic' | 'standard' | 'basic-wide';
+    theme: 'basic' | 'standard' | 'basic-wide' | 'bare';
     page?: number;
     pageSize: number;
     pageSizeOptions: number[] | {

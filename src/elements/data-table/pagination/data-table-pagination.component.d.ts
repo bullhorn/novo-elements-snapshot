@@ -19,6 +19,7 @@ export declare class NovoDataTablePagination<T> implements OnInit, OnDestroy {
     private _pageSizeOptions;
     canSelectAll: boolean;
     allMatchingSelected: boolean;
+    currentlyEmpty: boolean;
     get length(): number;
     set length(length: number);
     _length: number;
