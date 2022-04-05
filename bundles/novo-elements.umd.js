@@ -30727,6 +30727,7 @@
             else {
                 event.stopPropagation();
             }
+            this.toggleSelected(true);
         };
         /** Handle custom key presses. */
         NovoChipElement.prototype._handleKeydown = function (event) {
@@ -33373,8 +33374,11 @@
                 }
             }
             this._items.next(this.items);
-            this.value = this.source && this.source.valueFormatter ? this.source.valueFormatter(this.items) : this.items.map(function (i) { return i.value; });
-            this._propagateChanges();
+            var valueToSet = this.source && this.source.valueFormatter ? this.source.valueFormatter(this.items) : this.items.map(function (i) { return i.value; });
+            if (Helpers.isBlank(this.value) !== Helpers.isBlank(valueToSet) || JSON.stringify(this.value) !== JSON.stringify(valueToSet)) {
+                this.value = valueToSet;
+                this._propagateChanges();
+            }
         };
         NovoChipsElement.prototype.getLabelFromOptions = function (value) {
             var id = value;
@@ -33483,11 +33487,12 @@
          * a previewTemplate given in the config.
          */
         NovoChipsElement.prototype.showPreview = function () {
+            var _a;
             if (this.source.previewTemplate) {
                 if (!this.popup) {
                     this.popup = this.componentUtils.append(this.source.previewTemplate, this.preview);
                 }
-                this.popup.instance.match = this.selected;
+                this.popup.instance.match = { data: (_a = this.selected.data) !== null && _a !== void 0 ? _a : this.selected.value };
             }
         };
         /**
@@ -36143,7 +36148,7 @@
                 var _a;
                 _this.checked = false;
                 if ((_a = _this.dataTable) === null || _a === void 0 ? void 0 : _a.canSelectAll) {
-                    _this.selectAllChanged();
+                    _this.resetAllMatchingSelected();
                 }
                 _this.ref.markForCheck();
             });
@@ -36181,8 +36186,18 @@
                 this.dataTable.selectRows(!this.checked);
             }
             if ((_a = this.dataTable) === null || _a === void 0 ? void 0 : _a.canSelectAll) {
-                this.selectAllChanged();
+                if (this.checked) {
+                    this.resetAllMatchingSelected();
+                }
+                else {
+                    this.selectAllChanged();
+                }
             }
+        };
+        NovoDataTableCheckboxHeaderCell.prototype.resetAllMatchingSelected = function () {
+            var _a, _b, _c;
+            (_b = (_a = this.dataTable.state) === null || _a === void 0 ? void 0 : _a.allMatchingSelectedSource) === null || _b === void 0 ? void 0 : _b.next(false);
+            (_c = this.dataTable.state) === null || _c === void 0 ? void 0 : _c.onSelectionChange();
         };
         NovoDataTableCheckboxHeaderCell.prototype.selectAllChanged = function () {
             var _a, _b, _c, _d;
@@ -38335,7 +38350,7 @@
             _this.id = _this._uniqueId;
             _this.name = _this._uniqueId;
             _this.placeholder = 'Select...';
-            _this.position = 'bottom';
+            _this.position = 'above-below';
             _this.onSelect = new i0.EventEmitter();
             /** Event emitted when the selected value has been changed by the user. */
             _this.selectionChange = new i0.EventEmitter();
@@ -39084,7 +39099,7 @@
                     _this.stateOptions = _this.config[field].pickerConfig.options;
                     _this.config[field].pickerConfig.options = function (query) {
                         if (query === void 0) { query = ''; }
-                        return _this.stateOptions(query, _this.model.countryID);
+                        return _this.stateOptions(query, undefined, _this.model.countryID);
                     };
                     _this.config[field].pickerConfig.defaultOptions = _this.stateOptions;
                 }
@@ -39212,9 +39227,9 @@
             if (this.config.state.pickerConfig.options && !Helpers.isBlank(this.model.countryID)) {
                 this.config.state.pickerConfig.options = function (query) {
                     if (query === void 0) { query = ''; }
-                    return _this.stateOptions(query, _this.model.countryID);
+                    return _this.stateOptions(query, undefined, _this.model.countryID);
                 };
-                this.stateOptions('', this.model.countryID).then(function (results) {
+                this.stateOptions('', undefined, this.model.countryID).then(function (results) {
                     _this.config.state.pickerConfig.defaultOptions = results;
                     if (results.length) {
                         _this.tooltip.state = undefined;
@@ -39311,7 +39326,7 @@
             return {
                 field: 'value',
                 format: '$label',
-                options: function (query, countryID) {
+                options: function (query, page, countryID) {
                     if (query === void 0) { query = ''; }
                     return Promise.resolve(_this.getStateOptions(query, countryID));
                 },
@@ -39540,7 +39555,8 @@
             }
         };
         NovoFileInputElement.prototype.ngOnChanges = function (changes) {
-            this.onModelChange(this.model);
+            // Removed 6.0.5, not sure why this was here
+            // this.onModelChange(this.model);}
         };
         NovoFileInputElement.prototype.updateLayout = function () {
             this.layoutOptions = Object.assign({}, LAYOUT_DEFAULTS$1, this.layoutOptions);

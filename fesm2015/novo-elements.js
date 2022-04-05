@@ -30416,6 +30416,7 @@ class NovoChipElement extends NovoChipMixinBase {
         else {
             event.stopPropagation();
         }
+        this.toggleSelected(true);
     }
     /** Handle custom key presses. */
     _handleKeydown(event) {
@@ -32820,8 +32821,11 @@ class NovoChipsElement {
             }
         }
         this._items.next(this.items);
-        this.value = this.source && this.source.valueFormatter ? this.source.valueFormatter(this.items) : this.items.map((i) => i.value);
-        this._propagateChanges();
+        const valueToSet = this.source && this.source.valueFormatter ? this.source.valueFormatter(this.items) : this.items.map((i) => i.value);
+        if (Helpers.isBlank(this.value) !== Helpers.isBlank(valueToSet) || JSON.stringify(this.value) !== JSON.stringify(valueToSet)) {
+            this.value = valueToSet;
+            this._propagateChanges();
+        }
     }
     getLabelFromOptions(value) {
         let id = value;
@@ -32930,11 +32934,12 @@ class NovoChipsElement {
      * a previewTemplate given in the config.
      */
     showPreview() {
+        var _a;
         if (this.source.previewTemplate) {
             if (!this.popup) {
                 this.popup = this.componentUtils.append(this.source.previewTemplate, this.preview);
             }
-            this.popup.instance.match = this.selected;
+            this.popup.instance.match = { data: (_a = this.selected.data) !== null && _a !== void 0 ? _a : this.selected.value };
         }
     }
     /**
@@ -35930,7 +35935,7 @@ class NovoDataTableCheckboxHeaderCell extends CdkHeaderCell {
             var _a;
             this.checked = false;
             if ((_a = this.dataTable) === null || _a === void 0 ? void 0 : _a.canSelectAll) {
-                this.selectAllChanged();
+                this.resetAllMatchingSelected();
             }
             this.ref.markForCheck();
         });
@@ -35963,8 +35968,18 @@ class NovoDataTableCheckboxHeaderCell extends CdkHeaderCell {
             this.dataTable.selectRows(!this.checked);
         }
         if ((_a = this.dataTable) === null || _a === void 0 ? void 0 : _a.canSelectAll) {
-            this.selectAllChanged();
+            if (this.checked) {
+                this.resetAllMatchingSelected();
+            }
+            else {
+                this.selectAllChanged();
+            }
         }
+    }
+    resetAllMatchingSelected() {
+        var _a, _b, _c;
+        (_b = (_a = this.dataTable.state) === null || _a === void 0 ? void 0 : _a.allMatchingSelectedSource) === null || _b === void 0 ? void 0 : _b.next(false);
+        (_c = this.dataTable.state) === null || _c === void 0 ? void 0 : _c.onSelectionChange();
     }
     selectAllChanged() {
         var _a, _b, _c, _d;
@@ -38133,7 +38148,7 @@ class NovoSelectElement extends NovoSelectMixins {
         this.id = this._uniqueId;
         this.name = this._uniqueId;
         this.placeholder = 'Select...';
-        this.position = 'bottom';
+        this.position = 'above-below';
         this.onSelect = new EventEmitter();
         /** Event emitted when the selected value has been changed by the user. */
         this.selectionChange = new EventEmitter();
@@ -38893,7 +38908,7 @@ class NovoAddressElement {
                 }
                 this.stateOptions = this.config[field].pickerConfig.options;
                 this.config[field].pickerConfig.options = (query = '') => {
-                    return this.stateOptions(query, this.model.countryID);
+                    return this.stateOptions(query, undefined, this.model.countryID);
                 };
                 this.config[field].pickerConfig.defaultOptions = this.stateOptions;
             }
@@ -39019,9 +39034,9 @@ class NovoAddressElement {
     updateStates() {
         if (this.config.state.pickerConfig.options && !Helpers.isBlank(this.model.countryID)) {
             this.config.state.pickerConfig.options = (query = '') => {
-                return this.stateOptions(query, this.model.countryID);
+                return this.stateOptions(query, undefined, this.model.countryID);
             };
-            this.stateOptions('', this.model.countryID).then((results) => {
+            this.stateOptions('', undefined, this.model.countryID).then((results) => {
                 this.config.state.pickerConfig.defaultOptions = results;
                 if (results.length) {
                     this.tooltip.state = undefined;
@@ -39115,7 +39130,7 @@ class NovoAddressElement {
         return {
             field: 'value',
             format: '$label',
-            options: (query = '', countryID) => {
+            options: (query = '', page, countryID) => {
                 return Promise.resolve(this.getStateOptions(query, countryID));
             },
             getLabels: (state) => {
@@ -39464,7 +39479,8 @@ class NovoFileInputElement extends NovoFileInputMixins {
         }
     }
     ngOnChanges(changes) {
-        this.onModelChange(this.model);
+        // Removed 6.0.5, not sure why this was here
+        // this.onModelChange(this.model);}
     }
     updateLayout() {
         this.layoutOptions = Object.assign({}, LAYOUT_DEFAULTS$1, this.layoutOptions);
