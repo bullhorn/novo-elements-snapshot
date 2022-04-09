@@ -532,15 +532,19 @@ novo-data-table-pagination {
         display: block;
       }
     }
-    > .novo-data-table-spacer {
-      width: 100%;
-    }
     > .novo-data-table-range-label-short {
       display: block;
       @media (min-width: $breakpoint) {
         display: none;
       }
     }
+    > .novo-data-table-spacer {
+      width: 100%;
+    }
+  }
+  &.basic,
+  &.basic-wide,
+  &.bare {
     > button:first-of-type {
       margin-right: 5px;
     }
@@ -565,7 +569,8 @@ novo-data-table-pagination {
       }
     }
   }
-  &.standard {
+  &.standard,
+  &.bare {
     display: flex;
     flex-flow: row nowrap;
     flex: 1;
@@ -577,9 +582,6 @@ novo-data-table-pagination {
       font-size: 12px;
       opacity: 0.75;
       letter-spacing: 0.1px;
-    }
-    span.spacer {
-      flex: 1;
     }
     novo-select {
       max-width: 100px;
@@ -601,6 +603,11 @@ novo-data-table-pagination {
         }
       }
     }
+    span.spacer {
+      flex: 1;
+    }
+  }
+  &.standard {
     .pager {
       list-style-type: none;
       user-select: none;
