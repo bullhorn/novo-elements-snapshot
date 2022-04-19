@@ -16,5 +16,6 @@ export declare class NovoDataTableCheckboxHeaderCell<T> extends CdkHeaderCell im
     constructor(columnDef: CdkColumnDef, elementRef: ElementRef, renderer: Renderer2, dataTable: NovoDataTable<T>, ref: ChangeDetectorRef, toaster: NovoToastService);
     ngOnDestroy(): void;
     onClick(): void;
+    private resetAllMatchingSelected;
     selectAllChanged(): void;
 }
