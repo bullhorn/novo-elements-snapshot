@@ -9,7 +9,7 @@ export interface ModalParams {
 }
 export declare class NovoModalParams implements ModalParams {
 }
-export declare class NovoModalRef<T = any> {
+export declare class NovoModalRef<T = any, R = any> {
     component: any;
     params: T;
     private overlayRef;
@@ -18,8 +18,8 @@ export declare class NovoModalRef<T = any> {
     private _afterClosed;
     componentInstance: NovoModalContainerComponent;
     isClosed: boolean;
-    get onClosed(): Promise<any>;
-    afterClosed(): Observable<any>;
-    beforeClose(): Observable<any>;
-    close(result?: any): void;
+    get onClosed(): Promise<R>;
+    afterClosed(): Observable<R>;
+    beforeClose(): Observable<R>;
+    close(result?: R): void;
 }

@@ -7,7 +7,7 @@ export declare class NovoModalService {
     _parentViewContainer: ViewContainerRef;
     set parentViewContainer(view: ViewContainerRef);
     constructor(injector: Injector, overlay: Overlay);
-    open<T extends Record<string, any>>(component: any, params?: Partial<T>): NovoModalRef<Partial<T>>;
+    open<T extends Record<string, any>>(component: any, params?: Partial<T>): NovoModalRef<Partial<T>, any>;
     private createOverlay;
     private attachModalContainer;
     private createInjector;
