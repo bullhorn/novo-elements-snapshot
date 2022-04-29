@@ -1,4 +1,5 @@
 import { NovoBaseTextElement } from '../base/base-text.component';
+import * as i0 from "@angular/core";
 /**
  * Tag Example
  * <novo-label size="sm" disabled>Label</novo-label
@@ -10,4 +11,6 @@ import { NovoBaseTextElement } from '../base/base-text.component';
  * <novo-label color="grapefruit">Label</novo-label>
  */
 export declare class NovoLabel extends NovoBaseTextElement {
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoLabel, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoLabel, "novo-label,[novo-label]", never, {}, {}, never, ["*"]>;
 }
