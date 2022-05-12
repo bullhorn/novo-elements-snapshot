@@ -14,10 +14,15 @@ const novoElementMigrations = [
     rewrite_dropdown_template_1.RewriteDropdownMigration,
     direct_imports_1.DirectImportsMigration,
     class_names_1.ClassNamesMigration,
+    // MiscClassInheritanceMigration,
+    // MiscClassNamesMigration,
+    // MiscImportsMigration,
+    // MiscPropertyNamesMigration,
+    // MiscTemplateMigration,
 ];
 /** Entry point for the migration schematics with target of Novo Elements v6 */
 function updateToV6() {
-    return schematics_1.createMigrationSchematicRule(schematics_1.TargetVersion.V6, novoElementMigrations, upgrade_data_1.elementsUpgradeData, onMigrationComplete);
+    return (0, schematics_1.createMigrationSchematicRule)(schematics_1.TargetVersion.V6, novoElementMigrations, upgrade_data_1.elementsUpgradeData, onMigrationComplete);
 }
 exports.updateToV6 = updateToV6;
 /** Function that will be called when the migration completed. */

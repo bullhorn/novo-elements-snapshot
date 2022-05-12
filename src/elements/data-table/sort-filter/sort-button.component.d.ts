@@ -2,6 +2,7 @@ import { ChangeDetectorRef, EventEmitter } from '@angular/core';
 import { NovoLabelService } from '../../../services/novo-label-service';
 import { DataTableState } from '../state/data-table-state.service';
 import { SortDirection } from './sort-direction';
+import * as i0 from "@angular/core";
 export declare class NovoDataTableSortButton<T> {
     state: DataTableState<T>;
     private ref;
@@ -15,4 +16,6 @@ export declare class NovoDataTableSortButton<T> {
     constructor(state: DataTableState<T>, ref: ChangeDetectorRef, labels: NovoLabelService);
     changeSort(dir: SortDirection): void;
     clearSort(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoDataTableSortButton<any>, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoDataTableSortButton<any>, "novo-sort-button", never, { "value": "value"; }, { "sortChange": "sortChange"; }, never, never>;
 }
