@@ -1,0 +1,35 @@
+import * as i0 from "@angular/core";
+import * as i1 from "./expression-builder/expression-builder.component";
+import * as i2 from "./query-builder.component";
+import * as i3 from "./filter-builder/filter-builder.component";
+import * as i4 from "./filter-builder/default-condition-defs/date-filter-field.definition";
+import * as i5 from "./filter-builder/base-filter-field.definition";
+import * as i6 from "./filter-builder/default-condition-defs/string-filter-field.definition";
+import * as i7 from "./filter-builder/default-condition-defs/number-filter-field.definition";
+import * as i8 from "./filter-builder/default-condition-defs/id-filter-field.definition";
+import * as i9 from "./filter-builder/default-condition-defs/picker-filter-field.definition";
+import * as i10 from "@angular/common";
+import * as i11 from "@angular/forms";
+import * as i12 from "@angular/cdk/drag-drop";
+import * as i13 from "@angular/cdk/table";
+import * as i14 from "../button/Button.module";
+import * as i15 from "../common/common.module";
+import * as i16 from "../form/Form.module";
+import * as i17 from "../select/Select.module";
+import * as i18 from "../non-ideal-state/NonIdealState.module";
+import * as i19 from "../field/field.module";
+import * as i20 from "../common/option/index";
+import * as i21 from "../flex/Flex.module";
+import * as i22 from "../tabs/Tabs.module";
+import * as i23 from "../loading/Loading.module";
+import * as i24 from "../card/Card.module";
+import * as i25 from "../date-picker/DatePicker.module";
+import * as i26 from "../icon/Icon.module";
+import * as i27 from "../search/SearchBox.module";
+import * as i28 from "../switch/Switch.module";
+import * as i29 from "../chips/Chips.module";
+export declare class NovoQueryBuilderModule {
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoQueryBuilderModule, never>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<NovoQueryBuilderModule, [typeof i1.ExpressionBuilderComponent, typeof i2.QueryBuilderComponent, typeof i3.FilterBuilderComponent, typeof i3.QueryFilterInputOutlet, typeof i3.QueryFilterOperatorOutlet, typeof i4.NovoDefaultDateFilterFieldDef, typeof i5.NovoFilterFieldOperatorsDef, typeof i5.NovoFilterFieldInputDef, typeof i5.NovoFilterFieldTypeDef, typeof i5.NovoFilterFieldDef, typeof i6.NovoDefaultStringFilterFieldDef, typeof i7.NovoDefaultNumberFilterFieldDef, typeof i8.NovoDefaultIdFilterFieldDef, typeof i9.NovoDefaultPickerFilterFieldDef], [typeof i10.CommonModule, typeof i11.FormsModule, typeof i11.ReactiveFormsModule, typeof i12.DragDropModule, typeof i13.CdkTableModule, typeof i14.NovoButtonModule, typeof i15.NovoCommonModule, typeof i16.NovoFormModule, typeof i17.NovoSelectModule, typeof i18.NovoNonIdealStateModule, typeof i19.NovoFieldModule, typeof i20.NovoOptionModule, typeof i21.NovoFlexModule, typeof i22.NovoTabModule, typeof i23.NovoLoadingModule, typeof i24.NovoCardModule, typeof i25.NovoDatePickerModule, typeof i26.NovoIconModule, typeof i27.NovoSearchBoxModule, typeof i28.NovoSwitchModule, typeof i29.NovoChipsModule], [typeof i1.ExpressionBuilderComponent, typeof i2.QueryBuilderComponent, typeof i3.FilterBuilderComponent, typeof i4.NovoDefaultDateFilterFieldDef, typeof i5.NovoFilterFieldOperatorsDef, typeof i5.NovoFilterFieldInputDef, typeof i5.NovoFilterFieldTypeDef, typeof i5.NovoFilterFieldDef, typeof i6.NovoDefaultStringFilterFieldDef, typeof i7.NovoDefaultNumberFilterFieldDef, typeof i8.NovoDefaultIdFilterFieldDef, typeof i9.NovoDefaultPickerFilterFieldDef]>;
+    static ɵinj: i0.ɵɵInjectorDeclaration<NovoQueryBuilderModule>;
+}

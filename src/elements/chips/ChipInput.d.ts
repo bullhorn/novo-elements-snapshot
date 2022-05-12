@@ -3,6 +3,7 @@ import { ElementRef, EventEmitter, OnChanges } from '@angular/core';
 import { NovoChipsDefaultOptions } from './ChipDefaults';
 import { NovoChipList } from './ChipList';
 import { NovoChipTextControl } from './ChipTextControl';
+import * as i0 from "@angular/core";
 /** Represents an input event on a `novoChipInput`. */
 export interface NovoChipInputEvent {
     /** The native `<input>` element that the event is being fired for. */
@@ -17,7 +18,7 @@ export interface NovoChipInputEvent {
 export declare class NovoChipInput implements NovoChipTextControl, OnChanges {
     protected _elementRef: ElementRef<HTMLInputElement>;
     private _defaultOptions;
-    private _chipList;
+    _chipList: NovoChipList;
     /** Whether the control is focused. */
     focused: boolean;
     /**
@@ -62,4 +63,6 @@ export declare class NovoChipInput implements NovoChipTextControl, OnChanges {
     private _isSeparatorKey;
     static ngAcceptInputType_addOnBlur: BooleanInput;
     static ngAcceptInputType_disabled: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoChipInput, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NovoChipInput, "input[novoChipInput]", ["novoChipInput", "novoChipInputFor"], { "addOnBlur": "novoChipInputAddOnBlur"; "separatorKeyCodes": "novoChipInputSeparatorKeyCodes"; "placeholder": "placeholder"; "id": "id"; "disabled": "disabled"; }, { "chipEnd": "novoChipInputTokenEnd"; }, never>;
 }

@@ -1,6 +1,7 @@
 import { EventEmitter } from '@angular/core';
 import { Subject } from 'rxjs';
 import { IDataTableChangeEvent, IDataTableFilter, IDataTableSelectionOption, IDataTableSort } from '../interfaces';
+import * as i0 from "@angular/core";
 export declare class DataTableState<T> {
     selectionSource: Subject<unknown>;
     paginationSource: Subject<unknown>;
@@ -17,6 +18,7 @@ export declare class DataTableState<T> {
     selectedRows: Map<string, T>;
     expandedRows: Set<string>;
     outsideFilter: any;
+    advancedFilter: IDataTableFilter[];
     isForceRefresh: boolean;
     selectionOptions: IDataTableSelectionOption[];
     updates: EventEmitter<IDataTableChangeEvent>;
@@ -34,4 +36,6 @@ export declare class DataTableState<T> {
     onSortFilterChange(): void;
     setInitialSortFilter(preferences: any): void;
     checkRetainment(caller: string, allMatchingSelected?: boolean): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<DataTableState<any>, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<DataTableState<any>>;
 }

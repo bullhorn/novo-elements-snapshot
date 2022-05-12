@@ -42,6 +42,11 @@ novo-icon {
         width: 1.6em;
         height: 1.6em;
       }
+      &[shape='circle'] {
+        i {
+          border-radius: 50%;
+        }
+      }
     }
   }
 
@@ -49,6 +54,11 @@ novo-icon {
     i {
       // background-color: rgba(0, 0, 0, .25);
       box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
+    }
+  }
+  &[shape='circle'] {
+    i {
+      border-radius: 50%;
     }
   }
 }
