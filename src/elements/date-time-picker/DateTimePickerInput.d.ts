@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, ElementRef, EventEmitter } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { NovoLabelService } from '../../services/novo-label-service';
+import * as i0 from "@angular/core";
 export declare class NovoDateTimePickerInputElement implements ControlValueAccessor {
     element: ElementRef;
     labels: NovoLabelService;
@@ -44,4 +45,6 @@ export declare class NovoDateTimePickerInputElement implements ControlValueAcces
      */
     clearValue(): void;
     get hasValue(): boolean;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoDateTimePickerInputElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoDateTimePickerInputElement, "novo-date-time-picker-input", never, { "name": "name"; "start": "start"; "end": "end"; "placeholder": "placeholder"; "maskOptions": "maskOptions"; "military": "military"; "disabled": "disabled"; "format": "format"; "weekStart": "weekStart"; "disabledDateMessage": "disabledDateMessage"; }, { "blurEvent": "blurEvent"; "focusEvent": "focusEvent"; "changeEvent": "changeEvent"; }, never, never>;
 }

@@ -2,6 +2,7 @@ import { BooleanInput } from '@angular/cdk/coercion';
 import { InjectionToken } from '@angular/core';
 import { CanDisable, CanDisableCtor } from '../mixins/disabled.mixin';
 import { NovoOptionParentComponent } from './option-parent';
+import * as i0 from "@angular/core";
 export declare class NovoOptgroupBase implements CanDisable {
     disabled: boolean;
     /** Label for the option group. */
@@ -10,6 +11,8 @@ export declare class NovoOptgroupBase implements CanDisable {
     _labelId: string;
     /** Whether the group is in inert a11y mode. */
     _inert: boolean;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoOptgroupBase, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NovoOptgroupBase, never, never, {}, {}, never>;
 }
 export declare const NovoOptgroupMixinBase: CanDisableCtor & typeof NovoOptgroupBase;
 /**
@@ -24,4 +27,6 @@ export declare const NOVO_OPTGROUP: InjectionToken<NovoOptgroup>;
 export declare class NovoOptgroup extends NovoOptgroupMixinBase {
     constructor(parent?: NovoOptionParentComponent);
     static ngAcceptInputType_disabled: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoOptgroup, [{ optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoOptgroup, "novo-optgroup", ["novoOptgroup"], { "disabled": "disabled"; "label": "label"; }, {}, never, ["novo-option, ng-container, novo-divider, cdk-virtual-scroll-viewport"]>;
 }
