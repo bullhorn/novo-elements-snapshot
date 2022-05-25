@@ -8,8 +8,8 @@ export declare class NovoOptgroupBase implements CanDisable {
     label: string;
     /** Unique id for the underlying label. */
     _labelId: string;
-    /** Whether the group is in inert a11y mode. */
-    _inert: boolean;
+    /** Whether the group is in novoInert a11y mode. */
+    _novoInert: boolean;
 }
 export declare const NovoOptgroupMixinBase: CanDisableCtor & typeof NovoOptgroupBase;
 /**
