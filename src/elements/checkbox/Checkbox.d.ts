@@ -1,6 +1,7 @@
 import { FocusMonitor, FocusOrigin } from '@angular/cdk/a11y';
 import { ChangeDetectorRef, ElementRef, EventEmitter, OnInit } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
+import * as i0 from "@angular/core";
 /** Change event object emitted by NovoCheckbox. */
 export declare class NovoCheckboxChange {
     /** The source NovoCheckbox of the event. */
@@ -78,4 +79,6 @@ export declare class NovoCheckboxElement implements ControlValueAccessor, OnInit
     focus(origin?: FocusOrigin, options?: FocusOptions): void;
     _onInteractionEvent(event: Event): void;
     private _syncIndeterminate;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoCheckboxElement, [null, null, { attribute: "tabindex"; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoCheckboxElement, "novo-checkbox", never, { "ariaLabel": "aria-label"; "ariaLabelledby": "aria-labelledby"; "ariaDescribedby": "aria-describedby"; "id": "id"; "name": "name"; "label": "label"; "disabled": "disabled"; "layoutOptions": "layoutOptions"; "color": "color"; "value": "value"; "tabIndex": "tabIndex"; "required": "required"; "checked": "checked"; "indeterminate": "indeterminate"; }, { "change": "change"; "indeterminateChange": "indeterminateChange"; "onSelect": "onSelect"; }, never, ["*"]>;
 }

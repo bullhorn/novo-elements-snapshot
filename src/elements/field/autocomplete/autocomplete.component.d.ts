@@ -4,6 +4,7 @@ import { CanDisable, CanDisableCtor, HasOverlayCtor, NovoOptgroup, NovoOption } 
 import { NovoOverlayTemplateComponent } from '../../common/overlay';
 import { NovoFieldElement } from '../field';
 import { NovoFieldControl } from '../field-control';
+import * as i0 from "@angular/core";
 /** Event object that is emitted when an autocomplete option is selected. */
 export declare class NovoOptionSelectedEvent {
     /** Reference to the autocomplete panel that emitted the event. */
@@ -82,5 +83,7 @@ export declare class NovoAutocompleteElement extends NovoAutocompleteMixins impl
     get activeOption(): NovoOption | null;
     _handleKeydown(event: KeyboardEvent): void;
     static ngAcceptInputType_disabled: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoAutocompleteElement, [null, null, { attribute: "tabindex"; }, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoAutocompleteElement, "novo-autocomplete", ["novoAutocomplete"], { "tabIndex": "tabIndex"; "triggerOn": "triggerOn"; "displayWith": "displayWith"; "ariaLabel": "aria-label"; "multiple": "multiple"; "disabled": "disabled"; }, { "optionSelected": "optionSelected"; "optionActivated": "optionActivated"; }, ["optionGroups", "options"], ["*"]>;
 }
 export {};
