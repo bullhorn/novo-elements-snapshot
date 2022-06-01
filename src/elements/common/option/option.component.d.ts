@@ -28,7 +28,7 @@ export declare class NovoOptionBase implements FocusableOption, AfterViewChecked
     private _clickPassive;
     /** TODO: deprecate maybe, check support for table headers */
     keepOpen: boolean;
-    inert: boolean;
+    novoInert: boolean;
     /** If there is no parent then nothing is managing the selection. */
     get selectable(): NovoOptionParentComponent;
     /** Whether the wrapping component is in multiple selection mode. */
