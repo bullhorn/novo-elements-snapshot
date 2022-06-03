@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, ElementRef, EventEmitter, NgZone } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { NovoLabelService } from '../../services/novo-label-service';
+import * as i0 from "@angular/core";
 export declare class NovoSearchBoxElement implements ControlValueAccessor {
     element: ElementRef;
     labels: NovoLabelService;
@@ -58,4 +59,6 @@ export declare class NovoSearchBoxElement implements ControlValueAccessor {
      * Clear any previous selected option and emit a selection change event for this option
      */
     clearValue(skip: any): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoSearchBoxElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoSearchBoxElement, "novo-search", never, { "name": "name"; "icon": "icon"; "position": "position"; "placeholder": "placeholder"; "alwaysOpen": "alwaysOpen"; "theme": "theme"; "color": "color"; "closeOnSelect": "closeOnSelect"; "displayField": "displayField"; "displayValue": "displayValue"; "hint": "hint"; }, { "searchChanged": "searchChanged"; }, never, ["*"]>;
 }
