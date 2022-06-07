@@ -4,6 +4,7 @@ import { ControlValueAccessor, FormGroupDirective, NgControl, NgForm } from '@an
 import { CanUpdateErrorStateCtor, ErrorStateMatcher } from '../common';
 import { NovoFieldControl } from '../field';
 import { NovoRadioElement } from './Radio';
+import * as i0 from "@angular/core";
 declare class NovoRadioGroupBase {
     _defaultErrorStateMatcher: ErrorStateMatcher;
     _parentForm: NgForm;
@@ -84,5 +85,7 @@ export declare class NovoRadioGroup extends NovoRadioGroupMixins implements Novo
      * are no eligible chips.
      */
     focus(options?: FocusOptions): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoRadioGroup, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoRadioGroup, "novo-radio-group", never, { "id": "id"; "tabindex": "tabindex"; "errorStateMatcher": "errorStateMatcher"; "appearance": "appearance"; "value": "value"; "name": "name"; "disabled": "disabled"; "required": "required"; "placeholder": "placeholder"; }, { "change": "change"; "blur": "blur"; }, ["_radios"], ["*"]>;
 }
 export {};

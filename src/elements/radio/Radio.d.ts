@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, EventEmitter, OnInit } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { RadioGroup } from './tokens';
+import * as i0 from "@angular/core";
 export declare class NovoRadioElement implements ControlValueAccessor, OnInit {
     radioGroup: RadioGroup;
     private ref;
@@ -36,4 +37,6 @@ export declare class NovoRadioElement implements ControlValueAccessor, OnInit {
     private onChangeCallback;
     private onTouchedCallback;
     setDisabledState(disabled: boolean): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoRadioElement, [{ optional: true; }, null]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoRadioElement, "novo-radio", never, { "id": "id"; "name": "name"; "tabindex": "tabindex"; "vertical": "vertical"; "label": "label"; "button": "button"; "theme": "theme"; "size": "size"; "icon": "icon"; "color": "color"; "checked": "checked"; "value": "value"; "disabled": "disabled"; }, { "change": "change"; "blur": "blur"; "focus": "focus"; }, never, ["*"]>;
 }
