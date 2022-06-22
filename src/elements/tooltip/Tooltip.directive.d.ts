@@ -1,5 +1,6 @@
 import { Overlay } from '@angular/cdk/overlay';
 import { ElementRef, OnDestroy, OnInit, ViewContainerRef } from '@angular/core';
+import * as i0 from "@angular/core";
 export declare class TooltipDirective implements OnDestroy, OnInit {
     protected overlay: Overlay;
     private viewContainerRef;
@@ -8,7 +9,7 @@ export declare class TooltipDirective implements OnDestroy, OnInit {
     position: string;
     type: string;
     size: string;
-    bounce: string;
+    bounce: boolean;
     noAnimate: boolean;
     rounded: boolean;
     always: boolean;
@@ -31,5 +32,6 @@ export declare class TooltipDirective implements OnDestroy, OnInit {
     private show;
     private hide;
     private getPosition;
-    private withFallbackStrategy;
+    static ɵfac: i0.ɵɵFactoryDeclaration<TooltipDirective, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<TooltipDirective, "[tooltip]", never, { "tooltip": "tooltip"; "position": "tooltipPosition"; "type": "tooltipType"; "size": "tooltipSize"; "bounce": "tooltipBounce"; "noAnimate": "tooltipNoAnimate"; "rounded": "tooltipRounded"; "always": "tooltipAlways"; "active": "tooltipActive"; "preline": "tooltipPreline"; "removeArrow": "removeTooltipArrow"; "autoPosition": "tooltipAutoPosition"; "isHTML": "tooltipIsHTML"; }, {}, never>;
 }
