@@ -1,0 +1,38 @@
+import * as i0 from "@angular/core";
+import * as i1 from "./criteria-builder/criteria-builder.component";
+import * as i2 from "./query-builder.component";
+import * as i3 from "./condition-builder/condition-builder.component";
+import * as i4 from "./condition-definitions/address-condition.definition";
+import * as i5 from "./condition-definitions/boolean-condition.definition";
+import * as i6 from "./condition-definitions/date-condition.definition";
+import * as i7 from "./query-builder.directives";
+import * as i8 from "./condition-definitions/string-condition.definition";
+import * as i9 from "./condition-definitions/number-condition.definition";
+import * as i10 from "./condition-definitions/id-condition.definition";
+import * as i11 from "./condition-definitions/picker-condition.definition";
+import * as i12 from "@angular/common";
+import * as i13 from "@angular/forms";
+import * as i14 from "@angular/cdk/drag-drop";
+import * as i15 from "@angular/cdk/table";
+import * as i16 from "../button/Button.module";
+import * as i17 from "../common/common.module";
+import * as i18 from "../form/Form.module";
+import * as i19 from "../select/Select.module";
+import * as i20 from "../non-ideal-state/NonIdealState.module";
+import * as i21 from "../field/field.module";
+import * as i22 from "../common/option/index";
+import * as i23 from "../flex/Flex.module";
+import * as i24 from "../tabs/Tabs.module";
+import * as i25 from "../loading/Loading.module";
+import * as i26 from "../card/Card.module";
+import * as i27 from "../date-picker/DatePicker.module";
+import * as i28 from "../icon/Icon.module";
+import * as i29 from "../search/SearchBox.module";
+import * as i30 from "../switch/Switch.module";
+import * as i31 from "../chips/Chips.module";
+import * as i32 from "../select-search/select-search.module";
+export declare class NovoQueryBuilderModule {
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoQueryBuilderModule, never>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<NovoQueryBuilderModule, [typeof i1.CriteriaBuilderComponent, typeof i2.QueryBuilderComponent, typeof i3.ConditionBuilderComponent, typeof i3.ConditionInputOutlet, typeof i3.ConditionOperatorOutlet, typeof i4.NovoDefaultAddressConditionDef, typeof i5.NovoDefaultBooleanConditionDef, typeof i6.NovoDefaultDateConditionDef, typeof i7.NovoConditionOperatorsDef, typeof i7.NovoConditionInputDef, typeof i7.NovoConditionFieldDef, typeof i8.NovoDefaultStringConditionDef, typeof i9.NovoDefaultNumberConditionDef, typeof i10.NovoDefaultIdConditionDef, typeof i11.NovoDefaultPickerConditionDef], [typeof i12.CommonModule, typeof i13.FormsModule, typeof i13.ReactiveFormsModule, typeof i14.DragDropModule, typeof i15.CdkTableModule, typeof i16.NovoButtonModule, typeof i17.NovoCommonModule, typeof i18.NovoFormModule, typeof i19.NovoSelectModule, typeof i20.NovoNonIdealStateModule, typeof i21.NovoFieldModule, typeof i22.NovoOptionModule, typeof i23.NovoFlexModule, typeof i24.NovoTabModule, typeof i25.NovoLoadingModule, typeof i26.NovoCardModule, typeof i27.NovoDatePickerModule, typeof i28.NovoIconModule, typeof i29.NovoSearchBoxModule, typeof i30.NovoSwitchModule, typeof i31.NovoChipsModule, typeof i32.NovoSelectSearchModule], [typeof i1.CriteriaBuilderComponent, typeof i2.QueryBuilderComponent, typeof i3.ConditionBuilderComponent, typeof i4.NovoDefaultAddressConditionDef, typeof i5.NovoDefaultBooleanConditionDef, typeof i6.NovoDefaultDateConditionDef, typeof i7.NovoConditionOperatorsDef, typeof i7.NovoConditionInputDef, typeof i7.NovoConditionFieldDef, typeof i8.NovoDefaultStringConditionDef, typeof i9.NovoDefaultNumberConditionDef, typeof i10.NovoDefaultIdConditionDef, typeof i11.NovoDefaultPickerConditionDef]>;
+    static ɵinj: i0.ɵɵInjectorDeclaration<NovoQueryBuilderModule>;
+}

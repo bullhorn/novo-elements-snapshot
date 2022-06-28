@@ -5,6 +5,7 @@ import { NovoLabelService } from '../../services/novo-label-service';
 import { NovoTemplateService } from '../../services/template/NovoTemplateService';
 import { OutsideClick } from '../../utils/outside-click/OutsideClick';
 import { FieldInteractionApi } from './FieldInteractionApi';
+import * as i0 from "@angular/core";
 export interface IMaskOptions {
     mask: any;
     keepCharPositions: boolean;
@@ -16,6 +17,8 @@ export declare class NovoAutoSize implements AfterContentInit {
     constructor(element: ElementRef);
     ngAfterContentInit(): void;
     adjust(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoAutoSize, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NovoAutoSize, "textarea[autosize]", never, {}, {}, never>;
 }
 export declare class NovoControlElement extends OutsideClick implements OnInit, OnDestroy, AfterViewInit, AfterContentInit {
     labels: NovoLabelService;
@@ -104,4 +107,6 @@ export declare class NovoControlElement extends OutsideClick implements OnInit, 
     handleUpload(value: any): void;
     handleAddressChange(data: any): void;
     updateValidity(shouldEventBeEmitted: any): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoControlElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoControlElement, "novo-control", never, { "control": "control"; "form": "form"; "condensed": "condensed"; "autoFocus": "autoFocus"; }, { "change": "change"; "edit": "edit"; "save": "save"; "delete": "delete"; "upload": "upload"; "onBlur": "blur"; "onFocus": "focus"; }, never, never>;
 }

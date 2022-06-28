@@ -3,6 +3,7 @@ import { AfterContentInit, AfterViewInit, ChangeDetectorRef, ElementRef, OnChang
 import { NovoButtonElement } from '../../button';
 import { NovoOverlayTemplateComponent } from '../../common/overlay';
 import { NovoFieldElement } from '../field';
+import * as i0 from "@angular/core";
 export declare class NovoPickerToggleElement<T = any> implements AfterContentInit, AfterViewInit, OnChanges, OnDestroy {
     private _elementRef;
     private cdr;
@@ -15,6 +16,8 @@ export declare class NovoPickerToggleElement<T = any> implements AfterContentIni
     tabIndex: number | null;
     /** Screenreader label for the button. */
     ariaLabel: string;
+    /** . */
+    triggerOnFocus: boolean;
     /** Whether the toggle button is disabled. */
     get disabled(): boolean;
     set disabled(value: boolean);
@@ -29,6 +32,7 @@ export declare class NovoPickerToggleElement<T = any> implements AfterContentIni
     ngOnDestroy(): void;
     ngAfterContentInit(): void;
     ngAfterViewInit(): void;
+    checkPanel(): void;
     togglePanel(event?: Event): void;
     /** BEGIN: Convenient Panel Methods. */
     openPanel(event?: Event): void;
@@ -36,4 +40,6 @@ export declare class NovoPickerToggleElement<T = any> implements AfterContentIni
     get panelOpen(): boolean;
     private _watchStateChanges;
     static ngAcceptInputType_disabled: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoPickerToggleElement<any>, [null, null, { attribute: "tabindex"; }, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoPickerToggleElement<any>, "novo-picker-toggle", ["novoPickerToggle"], { "picker": "for"; "icon": "icon"; "tabIndex": "tabIndex"; "ariaLabel": "aria-label"; "triggerOnFocus": "triggerOnFocus"; "disabled": "disabled"; }, {}, never, ["*"]>;
 }

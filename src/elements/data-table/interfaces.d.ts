@@ -3,6 +3,11 @@ export interface IDataTablePreferences {
     name: string;
     sort?: IDataTableSort;
     filter?: IDataTableFilter | IDataTableFilter[];
+    where?: {
+        query: string;
+        form: any;
+    };
+    advancedFilter?: IDataTableFilter[];
     globalSearch?: any;
     pageSize?: number;
     displayedColumns?: string[];
@@ -93,6 +98,12 @@ export interface IDataTableChangeEvent {
     page?: number;
     pageSize?: number;
     globalSearch?: string;
+    outsideFilter?: IDataTableFilter | IDataTableFilter[];
+    advancedFilter?: IDataTableFilter[];
+    where?: {
+        query: string;
+        form: any;
+    };
 }
 export interface IDataTableSelectionChangeEvent {
     selected: any[];
@@ -122,7 +133,10 @@ export interface IDataTableService<T> {
         id: string;
         value: string;
         transform?: Function;
-    } | IDataTableFilter | IDataTableFilter[], page: number, pageSize: number, globalSearch?: string, outsideFilter?: any): Observable<{
+    } | IDataTableFilter | IDataTableFilter[], page: number, pageSize: number, globalSearch?: string, outsideFilter?: any, advancedFilter?: IDataTableFilter[], where?: {
+        query: string;
+        form: any;
+    }): Observable<{
         results: T[];
         total: number;
     }>;

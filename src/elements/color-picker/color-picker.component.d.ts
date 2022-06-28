@@ -1,6 +1,7 @@
 import { EventEmitter, OnChanges, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Color, HSL, HSLA, HSV, HSVA, RGB, RGBA } from '../../utils/color-utils/ColorUtils';
+import * as i0 from "@angular/core";
 export declare class NovoColorPickerComponent implements OnInit, OnChanges, OnDestroy {
     /** Pixel value for picker width */
     width: string | number;
@@ -35,4 +36,6 @@ export declare class NovoColorPickerComponent implements OnInit, OnChanges, OnDe
     /** hook for components after a complete change */
     afterValidChange(): void;
     handleSwatchHover($event: any): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoColorPickerComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoColorPickerComponent, "novo-color-picker", never, { "width": "width"; "colors": "colors"; "color": "color"; }, { "onChange": "onChange"; "onChangeComplete": "onChangeComplete"; "onSwatchHover": "onSwatchHover"; }, never, never>;
 }
