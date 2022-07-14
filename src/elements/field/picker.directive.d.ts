@@ -1,6 +1,7 @@
 import { ElementRef } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { NovoInputFormat } from './formats/base-format';
+import * as i0 from "@angular/core";
 /** Directive used to connect an input to a MatDatepicker. */
 export declare class NovoPickerDirective {
     private _elementRef;
@@ -16,4 +17,6 @@ export declare class NovoPickerDirective {
     constructor(_elementRef: ElementRef<HTMLInputElement>, formatter: NovoInputFormat<any>);
     updateValue(value: any): void;
     updatePicker(value: any): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoPickerDirective, [null, { optional: true; self: true; }]>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NovoPickerDirective, "input[picker]", never, { "picker": "picker"; "autocompleteAttribute": "autocomplete"; }, {}, never>;
 }

@@ -1,6 +1,7 @@
 import { ElementRef, EventEmitter, OnInit } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 import { NovoLabelService } from '../../services/novo-label-service';
+import * as i0 from "@angular/core";
 interface Item {
     type: any;
     label: any;
@@ -103,5 +104,7 @@ export declare class NovoMultiPickerElement implements OnInit {
     writeValue(model: any): void;
     registerOnChange(fn: Function): void;
     registerOnTouched(fn: Function): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoMultiPickerElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoMultiPickerElement, "multi-picker", never, { "source": "source"; "placeholder": "placeholder"; "types": "types"; "value": "value"; }, { "changed": "changed"; "focus": "focus"; "blur": "blur"; }, never, never>;
 }
 export {};
