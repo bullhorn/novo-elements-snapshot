@@ -9,6 +9,7 @@ import { CanUpdateErrorState, CanUpdateErrorStateCtor, ErrorStateMatcher } from 
 import { NovoFieldControl } from '../field';
 import { NovoChipElement, NovoChipEvent, NovoChipSelectionChange } from './Chip';
 import { NovoChipTextControl } from './ChipTextControl';
+import * as i0 from "@angular/core";
 /** @docs-private */
 declare class NovoChipListBase {
     _defaultErrorStateMatcher: ErrorStateMatcher;
@@ -279,5 +280,7 @@ export declare class NovoChipList extends _NovoChipListMixinBase implements Novo
     static ngAcceptInputType_required: BooleanInput;
     static ngAcceptInputType_disabled: BooleanInput;
     static ngAcceptInputType_selectable: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoChipList, [null, null, { optional: true; }, { optional: true; }, { optional: true; }, null, { optional: true; self: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoChipList, "novo-chip-list", ["novoChipList"], { "errorStateMatcher": "errorStateMatcher"; "multiple": "multiple"; "stacked": "stacked"; "compareWith": "compareWith"; "value": "value"; "required": "required"; "placeholder": "placeholder"; "disabled": "disabled"; "ariaOrientation": "aria-orientation"; "selectable": "selectable"; "tabIndex": "tabIndex"; }, { "change": "change"; "valueChange": "valueChange"; }, ["chips"], ["*"]>;
 }
 export {};
