@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, ElementRef, OnDestroy } from '@angular/core';
 import { NovoExpansionPanel } from './expansion-panel';
+import * as i0 from "@angular/core";
 /**
  * `<novo-expansion-panel-header>`
  *
@@ -28,6 +29,8 @@ export declare class NovoExpansionPanelHeader implements OnDestroy {
     /** Handle keydown event calling to toggle() if appropriate. */
     _keydown(event: KeyboardEvent): void;
     ngOnDestroy(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoExpansionPanelHeader, [{ host: true; }, null, null]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoExpansionPanelHeader, "novo-expansion-panel-header", never, { "expandedHeight": "expandedHeight"; "collapsedHeight": "collapsedHeight"; }, {}, never, ["novo-panel-title", "novo-panel-description", "*"]>;
 }
 /**
  * `<novo-panel-description>`
@@ -35,6 +38,8 @@ export declare class NovoExpansionPanelHeader implements OnDestroy {
  * This direction is to be used inside of the NovoExpansionPanelHeader component.
  */
 export declare class NovoExpansionPanelDescription {
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoExpansionPanelDescription, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NovoExpansionPanelDescription, "novo-panel-description", never, {}, {}, never>;
 }
 /**
  * `<novo-panel-title>`
@@ -42,4 +47,6 @@ export declare class NovoExpansionPanelDescription {
  * This direction is to be used inside of the NovoExpansionPanelHeader component.
  */
 export declare class NovoExpansionPanelTitle {
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoExpansionPanelTitle, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NovoExpansionPanelTitle, "novo-panel-title", never, {}, {}, never>;
 }
