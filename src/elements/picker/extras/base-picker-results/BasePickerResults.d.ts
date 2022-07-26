@@ -2,6 +2,7 @@ import { OverlayRef } from '@angular/cdk/overlay';
 import { ChangeDetectorRef, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NovoControlConfig } from '../../../form/controls/BaseControl';
+import * as i0 from "@angular/core";
 /**
  * @description This is the actual list of matches that gets injected into the DOM. It's also the piece that can be
  * overwritten if custom list options are needed.
@@ -9,7 +10,6 @@ import { NovoControlConfig } from '../../../form/controls/BaseControl';
 export declare class BasePickerResults {
     _term: string;
     selected: Array<any>;
-    matches: any;
     hasError: boolean;
     isLoading: boolean;
     isStatic: boolean;
@@ -25,6 +25,9 @@ export declare class BasePickerResults {
     optionsFunctionHasChanged: boolean;
     private selectingMatches;
     private scrollHandler;
+    _matches: Array<any>;
+    set matches(m: Array<any>);
+    get matches(): Array<any>;
     constructor(element: ElementRef, ref: ChangeDetectorRef);
     cleanUp(): void;
     onScrollDown(event: WheelEvent): void;
@@ -88,4 +91,6 @@ export declare class BasePickerResults {
      */
     highlight(match: any, query: any): any;
     preselected(match: any): boolean;
+    static ɵfac: i0.ɵɵFactoryDeclaration<BasePickerResults, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<BasePickerResults, never, never, { "matches": "matches"; }, {}, never>;
 }

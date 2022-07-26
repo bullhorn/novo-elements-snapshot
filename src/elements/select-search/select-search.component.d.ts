@@ -7,6 +7,7 @@ import { NovoOption } from '../common';
 import { NovoFieldElement } from '../field';
 import { NovoSelectElement } from '../select';
 import { NovoSelectSearchClearDirective } from './select-search-clear.directive';
+import * as i0 from "@angular/core";
 /**
  * Component providing an input field for searching NovoSelectElement options.
  *
@@ -230,4 +231,6 @@ export declare class NovoSelectSearchComponent implements OnInit, OnDestroy, Con
      * Determine the offset to length that can be caused by the optional novoOption used as a search input.
      */
     private getOptionsLengthOffset;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoSelectSearchComponent, [null, null, null, { optional: true; }, null, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoSelectSearchComponent, "novo-select-search", never, { "name": "name"; "placeholderLabel": "placeholderLabel"; "type": "type"; "noEntriesFoundLabel": "noEntriesFoundLabel"; "indexAndLengthScreenReaderText": "indexAndLengthScreenReaderText"; "clearSearchInput": "clearSearchInput"; "searching": "searching"; "disableInitialFocus": "disableInitialFocus"; "enableClearOnEscapePressed": "enableClearOnEscapePressed"; "preventHomeEndKeyPropagation": "preventHomeEndKeyPropagation"; "disableScrollToActiveOnOptionsChanged": "disableScrollToActiveOnOptionsChanged"; "ariaLabel": "ariaLabel"; "showToggleAllCheckbox": "showToggleAllCheckbox"; "toggleAllCheckboxChecked": "toggleAllCheckboxChecked"; "toggleAllCheckboxIndeterminate": "toggleAllCheckboxIndeterminate"; "toggleAllCheckboxTooltipMessage": "toggleAllCheckboxTooltipMessage"; "toogleAllCheckboxTooltipPosition": "toogleAllCheckboxTooltipPosition"; "hideClearSearchButton": "hideClearSearchButton"; "alwaysRestoreSelectedOptionsMulti": "alwaysRestoreSelectedOptionsMulti"; }, { "toggleAll": "toggleAll"; }, ["clearIcon"], ["[novoSelectSearchClear]", ".novo-select-search-custom-header-content"]>;
 }

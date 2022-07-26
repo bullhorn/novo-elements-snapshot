@@ -1,6 +1,7 @@
 import { ElementRef, OnDestroy, OnInit, ViewContainerRef } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { ComponentUtils } from './../../../../utils/component-utils/ComponentUtils';
+import * as i0 from "@angular/core";
 export declare class TableCell implements OnInit, OnDestroy {
     private element;
     private componentUtils;
@@ -15,4 +16,6 @@ export declare class TableCell implements OnInit, OnDestroy {
     ngOnInit(): void;
     ngOnDestroy(): void;
     onClick(event: any): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<TableCell, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<TableCell, "novo-table-cell", never, { "column": "column"; "row": "row"; "form": "form"; "hasEditor": "hasEditor"; }, {}, never, never>;
 }
