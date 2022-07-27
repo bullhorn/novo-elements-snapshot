@@ -1,3 +1,4 @@
+import * as i0 from "@angular/core";
 export interface BigDecimalFormatOptions extends Intl.NumberFormatOptions {
     useAccountingFormat?: boolean;
 }
@@ -10,6 +11,7 @@ export declare class NovoLabelService {
     dateAdded: string;
     emptyTableMessage: string;
     noMatchingRecordsMessage: string;
+    noMoreRecordsMessage: string;
     erroredTableMessage: string;
     pickerError: string;
     pickerTextFieldEmpty: string;
@@ -138,6 +140,8 @@ export declare class NovoLabelService {
     formatDateShort(value: string | number | Date): string;
     formatTime(value: string | number | Date): string;
     formatDate(value: string | number | Date): string;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoLabelService, [{ optional: true; }]>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<NovoLabelService>;
 }
 export declare const NOVO_ELEMENTS_LABELS_PROVIDERS: {
     provide: typeof NovoLabelService;

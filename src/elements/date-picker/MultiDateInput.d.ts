@@ -3,6 +3,7 @@ import { ControlValueAccessor } from '@angular/forms';
 import { DateFormatService } from '../../services/date-format/DateFormat';
 import { NovoLabelService } from '../../services/novo-label-service';
 import { NovoOverlayTemplateComponent } from '../common/overlay/Overlay';
+import * as i0 from "@angular/core";
 export declare class NovoMultiDateInputElement implements OnInit, ControlValueAccessor {
     element: ElementRef;
     labels: NovoLabelService;
@@ -63,4 +64,6 @@ export declare class NovoMultiDateInputElement implements OnInit, ControlValueAc
      */
     clearValue(): void;
     get hasValue(): boolean;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoMultiDateInputElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoMultiDateInputElement, "novo-multi-date-input", never, { "name": "name"; "start": "start"; "end": "end"; "placeholder": "placeholder"; "format": "format"; "allowInvalidDate": "allowInvalidDate"; "weekStart": "weekStart"; "chipsCount": "chipsCount"; "value": "value"; "disabled": "disabled"; }, { "blurEvent": "blurEvent"; "focusEvent": "focusEvent"; "change": "change"; "blur": "blur"; "focus": "focus"; }, never, never>;
 }
