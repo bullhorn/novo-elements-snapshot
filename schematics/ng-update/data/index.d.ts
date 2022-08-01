@@ -8,3 +8,4 @@ export * from './method-call-checks';
 export * from './output-names';
 export * from './property-names';
 export * from './scss-variables';
+export * from './symbol-removal';
