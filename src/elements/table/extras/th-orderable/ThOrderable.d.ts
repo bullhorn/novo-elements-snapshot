@@ -1,4 +1,5 @@
 import { ElementRef, EventEmitter, OnInit } from '@angular/core';
+import * as i0 from "@angular/core";
 export declare class ThOrderable implements OnInit {
     private element;
     column: any;
@@ -27,4 +28,6 @@ export declare class ThOrderable implements OnInit {
     }): boolean;
     onDragEnter(event: any): void;
     onDragLeave(event?: any): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<ThOrderable, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<ThOrderable, "[novoThOrderable]", never, { "column": "novoThOrderable"; }, { "onOrderChange": "onOrderChange"; }, never>;
 }
