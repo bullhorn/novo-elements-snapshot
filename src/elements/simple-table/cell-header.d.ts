@@ -5,10 +5,13 @@ import { NovoDropdownElement } from '../dropdown/Dropdown';
 import { NovoSimpleSortFilter, SimpleTableColumnFilterConfig } from './interfaces';
 import { NovoSortFilter } from './sort';
 import { NovoActivityTableState } from './state';
+import * as i0 from "@angular/core";
 export declare class NovoSimpleFilterFocus implements AfterViewInit {
     private element;
     constructor(element: ElementRef);
     ngAfterViewInit(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoSimpleFilterFocus, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NovoSimpleFilterFocus, "[novoSimpleFilterFocus]", never, {}, {}, never>;
 }
 export declare class NovoSimpleCellHeader implements NovoSimpleSortFilter, OnInit, OnDestroy {
     private changeDetectorRef;
@@ -59,4 +62,6 @@ export declare class NovoSimpleCellHeader implements NovoSimpleSortFilter, OnIni
     clearFilter(): void;
     private getNextSortDirection;
     private getDefaultDateFilterOptions;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoSimpleCellHeader, [null, null, null, { optional: true; }, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoSimpleCellHeader, "[novo-simple-cell-config]", never, { "defaultSort": "defaultSort"; "config": "novo-simple-cell-config"; }, {}, never, ["*"]>;
 }
