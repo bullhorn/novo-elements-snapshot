@@ -1,4 +1,5 @@
 import { EventEmitter } from '@angular/core';
+import * as i0 from "@angular/core";
 export declare class Security {
     credentials: string[];
     change: EventEmitter<any>;
@@ -16,4 +17,6 @@ export declare class Security {
     }[], options: {
         entityType?: string;
     }): any;
+    static ɵfac: i0.ɵɵFactoryDeclaration<Security, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<Security>;
 }
