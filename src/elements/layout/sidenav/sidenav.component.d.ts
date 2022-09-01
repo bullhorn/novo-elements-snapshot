@@ -5,6 +5,7 @@ import { Platform } from '@angular/cdk/platform';
 import { AfterContentChecked, AfterContentInit, ElementRef, EventEmitter, NgZone, OnDestroy } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { NovoSidenavMode, NovoSidenavToggleResult } from '../layout.constants';
+import * as i0 from "@angular/core";
 export declare class NovoSidenavComponent implements AfterContentInit, AfterContentChecked, OnDestroy {
     private _elementRef;
     private _focusTrapFactory;
@@ -141,4 +142,6 @@ export declare class NovoSidenavComponent implements AfterContentInit, AfterCont
     static ngAcceptInputType_fixedInViewport: BooleanInput;
     static ngAcceptInputType_fixedTopGap: NumberInput;
     static ngAcceptInputType_fixedBottomGap: NumberInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoSidenavComponent, [null, null, null, null, null, { optional: true; }, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoSidenavComponent, "novo-sidenav", ["novoSidenav"], { "fixedInViewport": "fixedInViewport"; "fixedTopGap": "fixedTopGap"; "fixedBottomGap": "fixedBottomGap"; "position": "position"; "mode": "mode"; "disableClose": "disableClose"; "autoFocus": "autoFocus"; "opened": "opened"; }, { "openedChange": "openedChange"; "_openedStream": "opened"; "openedStart": "openedStart"; "_closedStream": "closed"; "closedStart": "closedStart"; "onPositionChanged": "positionChanged"; }, never, ["*"]>;
 }
