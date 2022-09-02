@@ -4,6 +4,7 @@ import { MenuContentComponent } from './menu-content.component';
 import type { MenuItemDirective } from './menu-item.directive';
 import type { MenuComponent } from './menu.component';
 import type { MenuDirective } from './menu.directive';
+import * as i0 from "@angular/core";
 export interface IMenuClickEvent {
     anchorElement?: Element | EventTarget;
     menu?: MenuComponent;
@@ -54,4 +55,6 @@ export declare class NovoMenuService {
     destroyLeafMenu({ exceptRootMenu, event }?: CloseLeafMenuEvent): void;
     destroySubMenus(menu: MenuContentComponent): void;
     isLeafMenu(menuContent: MenuContentComponent): boolean;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoMenuService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<NovoMenuService>;
 }
