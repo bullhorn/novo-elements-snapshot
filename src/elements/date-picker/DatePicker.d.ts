@@ -3,6 +3,7 @@ import { ControlValueAccessor } from '@angular/forms';
 import { DomSanitizer } from '@angular/platform-browser';
 import { NovoLabelService } from '../../services/novo-label-service';
 import { DatePickerSelectModes, modelTypes, rangeSelectModes } from './date-picker.types';
+import * as i0 from "@angular/core";
 export declare class NovoDatePickerElement implements ControlValueAccessor, OnInit {
     labels: NovoLabelService;
     private element;
@@ -99,6 +100,9 @@ export declare class NovoDatePickerElement implements ControlValueAccessor, OnIn
     toggleRangeSelect(range: rangeSelectModes): void;
     modelToSelection(model: modelTypes): void;
     writeValue(model: modelTypes): void;
+    setRangeSelection(): void;
     registerOnChange(fn: Function): void;
     registerOnTouched(fn: Function): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoDatePickerElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoDatePickerElement, "novo-date-picker", never, { "minYear": "minYear"; "maxYear": "maxYear"; "start": "start"; "end": "end"; "inline": "inline"; "weekStart": "weekStart"; "preselected": "preselected"; "hideOverflowDays": "hideOverflowDays"; "hideFooter": "hideFooter"; "disabledDateMessage": "disabledDateMessage"; "numberOfMonths": "numberOfMonths"; "mode": "mode"; "range": "range"; "weekRangeSelect": "weekRangeSelect"; }, { "onSelect": "onSelect"; }, never, never>;
 }

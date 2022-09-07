@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { ValidatorFn } from '@angular/forms';
 import { NovoLabelService } from '../../services/novo-label-service';
 import { AppBridge } from '../../utils/app-bridge/AppBridge';
 import { FormUtils } from '../../utils/form-utils/FormUtils';
@@ -8,6 +9,7 @@ import { ModifyPickerConfigArgs, OptionsFunction } from './FieldInteractionApiTy
 import { NovoFieldset, ResultsTemplateType } from './FormInterfaces';
 import { NovoFormControl } from './NovoFormControl';
 import { NovoFormGroup } from './NovoFormGroup';
+import * as i0 from "@angular/core";
 export declare class FieldInteractionApi {
     private toaster;
     private modalService;
@@ -63,6 +65,7 @@ export declare class FieldInteractionApi {
     }, otherForm?: NovoFormGroup): void;
     setReadOnly(key: string, isReadOnly: boolean, otherForm?: NovoFormGroup): void;
     setRequired(key: string, required: boolean, otherForm?: NovoFormGroup): void;
+    setDescription(key: string, description: string, otherForm?: NovoFormGroup): void;
     highlight(key: string, isHighlighted: boolean, otherForm?: NovoFormGroup): void;
     hide(key: string, clearValue?: boolean, otherForm?: NovoFormGroup): NovoFormControl;
     show(key: string, otherForm?: NovoFormGroup): void;
@@ -97,6 +100,8 @@ export declare class FieldInteractionApi {
         onlySelf?: boolean;
         emitEvent?: boolean;
     }, otherForm?: NovoFormGroup): void;
+    addValidators(key: string, validators: ValidatorFn[], otherForm?: NovoFormGroup): void;
+    removeValidator(key: string, validators: ValidatorFn[], otherForm?: NovoFormGroup): void;
     displayToast(toastConfig: ToastOptions): void;
     displayTip(key: string, tip: string, icon?: string, allowDismiss?: boolean, sanitize?: boolean, otherForm?: NovoFormGroup): void;
     clearTip(key: string, otherForm?: NovoFormGroup): void;
@@ -159,4 +164,6 @@ export declare class FieldInteractionApi {
      */
     getIndex(otherForm?: NovoFormGroup): any;
     private triggerEvent;
+    static ɵfac: i0.ɵɵFactoryDeclaration<FieldInteractionApi, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<FieldInteractionApi>;
 }
