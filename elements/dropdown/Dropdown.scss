@@ -3,7 +3,7 @@
 novo-dropdown {
   display: inline-block;
   position: relative;
-
+  outline: none;
   .novo-dropdown-trigger {
     cursor: pointer;
     -webkit-appearance: none;
@@ -12,6 +12,7 @@ novo-dropdown {
   novo-button {
     position: relative;
     z-index: 0;
+    user-select: text !important;
     .novo-button-icon {
       font-size: 0.8em !important;
       width: 1em !important;
