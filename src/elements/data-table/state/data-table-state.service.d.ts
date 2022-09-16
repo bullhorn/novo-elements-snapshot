@@ -1,6 +1,7 @@
 import { EventEmitter } from '@angular/core';
 import { Subject } from 'rxjs';
-import { IDataTableChangeEvent, IDataTableFilter, IDataTableSelectionOption, IDataTableSort } from '../interfaces';
+import { IDataTableChangeEvent, IDataTableFilter, IDataTablePreferences, IDataTableSelectionOption, IDataTableSort } from '../interfaces';
+import * as i0 from "@angular/core";
 export declare class DataTableState<T> {
     selectionSource: Subject<unknown>;
     paginationSource: Subject<unknown>;
@@ -11,6 +12,10 @@ export declare class DataTableState<T> {
     dataLoaded: Subject<unknown>;
     sort: IDataTableSort;
     filter: IDataTableFilter | IDataTableFilter[];
+    where: {
+        query: string;
+        form: any;
+    };
     page: number;
     pageSize: number;
     globalSearch: string;
@@ -21,17 +26,24 @@ export declare class DataTableState<T> {
     selectionOptions: IDataTableSelectionOption[];
     updates: EventEmitter<IDataTableChangeEvent>;
     retainSelected: boolean;
+    savedSearchName: string;
+    displayedColumns: string[];
     get userFiltered(): boolean;
     get userFilteredInternal(): boolean;
     get selected(): T[];
     reset(fireUpdate?: boolean, persistUserFilters?: any): void;
     clearSort(fireUpdate?: boolean): void;
     clearFilter(fireUpdate?: boolean): void;
+    clearQuery(fireUpdate?: boolean): void;
     clearSelected(fireUpdate?: boolean): void;
     onSelectionChange(): void;
     onExpandChange(targetId?: number): void;
     onPaginationChange(isPageSizeChange: boolean, pageSize: number): void;
     onSortFilterChange(): void;
     setInitialSortFilter(preferences: any): void;
+    setState(preferences: IDataTablePreferences, fireUpdate?: boolean, persistUserFilters?: boolean): void;
     checkRetainment(caller: string, allMatchingSelected?: boolean): void;
+    private transformFilters;
+    static ɵfac: i0.ɵɵFactoryDeclaration<DataTableState<any>, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<DataTableState<any>>;
 }
