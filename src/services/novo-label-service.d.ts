@@ -1,8 +1,11 @@
+import * as i0 from "@angular/core";
 export interface BigDecimalFormatOptions extends Intl.NumberFormatOptions {
     useAccountingFormat?: boolean;
 }
 export declare class NovoLabelService {
     userLocale: string;
+    and: string;
+    not: string;
     filters: string;
     clear: string;
     sort: string;
@@ -10,6 +13,7 @@ export declare class NovoLabelService {
     dateAdded: string;
     emptyTableMessage: string;
     noMatchingRecordsMessage: string;
+    noMoreRecordsMessage: string;
     erroredTableMessage: string;
     pickerError: string;
     pickerTextFieldEmpty: string;
@@ -23,7 +27,12 @@ export declare class NovoLabelService {
     cancel: string;
     next: string;
     itemsPerPage: string;
+    chooseAField: string;
+    operator: string;
     select: string;
+    value: string;
+    selectDateRange: string;
+    typeToAddChips: string;
     selected: string;
     selectAllOnPage: string;
     deselectAll: string;
@@ -38,6 +47,7 @@ export declare class NovoLabelService {
     clearAllNormalCase: string;
     clearSort: string;
     clearFilter: string;
+    clearSearch: string;
     clearSelected: string;
     today: string;
     now: string;
@@ -98,6 +108,23 @@ export declare class NovoLabelService {
     invalidIntegerInput: string;
     maxRecordsReached: string;
     selectFilterOptions: string;
+    addCondition: string;
+    includeAny: string;
+    includeAll: string;
+    exclude: string;
+    radius: string;
+    equals: string;
+    equalTo: string;
+    greaterThan: string;
+    lessThan: string;
+    doesNotEqual: string;
+    true: string;
+    false: string;
+    before: string;
+    after: string;
+    between: string;
+    within: string;
+    refreshPagination: string;
     constructor(userLocale?: string);
     maxlengthMetWithField(field: string, maxlength: number): string;
     maxlengthMet(maxlength: number): string;
@@ -138,6 +165,8 @@ export declare class NovoLabelService {
     formatDateShort(value: string | number | Date): string;
     formatTime(value: string | number | Date): string;
     formatDate(value: string | number | Date): string;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoLabelService, [{ optional: true; }]>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<NovoLabelService>;
 }
 export declare const NOVO_ELEMENTS_LABELS_PROVIDERS: {
     provide: typeof NovoLabelService;
