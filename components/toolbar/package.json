@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-components-toolbar.mjs",
+  "es2020": "../../fesm2020/novo-elements-components-toolbar.mjs",
+  "esm2020": "../../esm2020/components/toolbar/novo-elements-components-toolbar.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-components-toolbar.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-components-toolbar.mjs",
+  "typings": "novo-elements-components-toolbar.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/toolbar"
+}

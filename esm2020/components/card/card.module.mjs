@@ -1,0 +1,23 @@
+// NG2
+import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
+import { CardActionsElement, CardContentElement, CardElement, CardFooterElement, CardHeaderElement, } from './card';
+import { NovoTooltipModule } from 'novo-elements/components/tooltip';
+import { NovoLoadingModule } from 'novo-elements/components/loading';
+import { NovoIconModule } from 'novo-elements/components/icon';
+import { NovoButtonModule } from 'novo-elements/components/button';
+import * as i0 from "@angular/core";
+export class NovoCardModule {
+}
+NovoCardModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.3.11", ngImport: i0, type: NovoCardModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+NovoCardModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.3.11", ngImport: i0, type: NovoCardModule, declarations: [CardElement, CardActionsElement, CardContentElement, CardHeaderElement, CardFooterElement], imports: [CommonModule, NovoIconModule, NovoButtonModule, NovoLoadingModule, NovoTooltipModule], exports: [CardElement, CardActionsElement, CardContentElement, CardHeaderElement, CardFooterElement] });
+NovoCardModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.3.11", ngImport: i0, type: NovoCardModule, imports: [[CommonModule, NovoIconModule, NovoButtonModule, NovoLoadingModule, NovoTooltipModule]] });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.3.11", ngImport: i0, type: NovoCardModule, decorators: [{
+            type: NgModule,
+            args: [{
+                    imports: [CommonModule, NovoIconModule, NovoButtonModule, NovoLoadingModule, NovoTooltipModule],
+                    declarations: [CardElement, CardActionsElement, CardContentElement, CardHeaderElement, CardFooterElement],
+                    exports: [CardElement, CardActionsElement, CardContentElement, CardHeaderElement, CardFooterElement],
+                }]
+        }] });
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiY2FyZC5tb2R1bGUuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi9wcm9qZWN0cy9lbGVtZW50cy9jb21wb25lbnRzL2NhcmQvY2FyZC5tb2R1bGUudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsTUFBTTtBQUNOLE9BQU8sRUFBRSxZQUFZLEVBQUUsTUFBTSxpQkFBaUIsQ0FBQztBQUMvQyxPQUFPLEVBQUUsUUFBUSxFQUFFLE1BQU0sZUFBZSxDQUFDO0FBQ3pDLE9BQU8sRUFDTCxrQkFBa0IsRUFDbEIsa0JBQWtCLEVBQ2xCLFdBQVcsRUFDWCxpQkFBaUIsRUFDakIsaUJBQWlCLEdBQ2xCLE1BQU0sUUFBUSxDQUFDO0FBQ2hCLE9BQU8sRUFBRSxpQkFBaUIsRUFBRSxNQUFNLGtDQUFrQyxDQUFDO0FBQ3JFLE9BQU8sRUFBRSxpQkFBaUIsRUFBRSxNQUFNLGtDQUFrQyxDQUFDO0FBQ3JFLE9BQU8sRUFBRSxjQUFjLEVBQUUsTUFBTSwrQkFBK0IsQ0FBQztBQUMvRCxPQUFPLEVBQUUsZ0JBQWdCLEVBQUUsTUFBTSxpQ0FBaUMsQ0FBQzs7QUFPbkUsTUFBTSxPQUFPLGNBQWM7OzRHQUFkLGNBQWM7NkdBQWQsY0FBYyxpQkFIVixXQUFXLEVBQUUsa0JBQWtCLEVBQUUsa0JBQWtCLEVBQUUsaUJBQWlCLEVBQUUsaUJBQWlCLGFBRDlGLFlBQVksRUFBRSxjQUFjLEVBQUUsZ0JBQWdCLEVBQUUsaUJBQWlCLEVBQUUsaUJBQWlCLGFBRXBGLFdBQVcsRUFBRSxrQkFBa0IsRUFBRSxrQkFBa0IsRUFBRSxpQkFBaUIsRUFBRSxpQkFBaUI7NkdBRXhGLGNBQWMsWUFKaEIsQ0FBQyxZQUFZLEVBQUUsY0FBYyxFQUFFLGdCQUFnQixFQUFFLGlCQUFpQixFQUFFLGlCQUFpQixDQUFDOzRGQUlwRixjQUFjO2tCQUwxQixRQUFRO21CQUFDO29CQUNSLE9BQU8sRUFBRSxDQUFDLFlBQVksRUFBRSxjQUFjLEVBQUUsZ0JBQWdCLEVBQUUsaUJBQWlCLEVBQUUsaUJBQWlCLENBQUM7b0JBQy9GLFlBQVksRUFBRSxDQUFDLFdBQVcsRUFBRSxrQkFBa0IsRUFBRSxrQkFBa0IsRUFBRSxpQkFBaUIsRUFBRSxpQkFBaUIsQ0FBQztvQkFDekcsT0FBTyxFQUFFLENBQUMsV0FBVyxFQUFFLGtCQUFrQixFQUFFLGtCQUFrQixFQUFFLGlCQUFpQixFQUFFLGlCQUFpQixDQUFDO2lCQUNyRyIsInNvdXJjZXNDb250ZW50IjpbIi8vIE5HMlxuaW1wb3J0IHsgQ29tbW9uTW9kdWxlIH0gZnJvbSAnQGFuZ3VsYXIvY29tbW9uJztcbmltcG9ydCB7IE5nTW9kdWxlIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5pbXBvcnQge1xuICBDYXJkQWN0aW9uc0VsZW1lbnQsXG4gIENhcmRDb250ZW50RWxlbWVudCxcbiAgQ2FyZEVsZW1lbnQsXG4gIENhcmRGb290ZXJFbGVtZW50LFxuICBDYXJkSGVhZGVyRWxlbWVudCxcbn0gZnJvbSAnLi9jYXJkJztcbmltcG9ydCB7IE5vdm9Ub29sdGlwTW9kdWxlIH0gZnJvbSAnbm92by1lbGVtZW50cy9jb21wb25lbnRzL3Rvb2x0aXAnO1xuaW1wb3J0IHsgTm92b0xvYWRpbmdNb2R1bGUgfSBmcm9tICdub3ZvLWVsZW1lbnRzL2NvbXBvbmVudHMvbG9hZGluZyc7XG5pbXBvcnQgeyBOb3ZvSWNvbk1vZHVsZSB9IGZyb20gJ25vdm8tZWxlbWVudHMvY29tcG9uZW50cy9pY29uJztcbmltcG9ydCB7IE5vdm9CdXR0b25Nb2R1bGUgfSBmcm9tICdub3ZvLWVsZW1lbnRzL2NvbXBvbmVudHMvYnV0dG9uJztcblxuQE5nTW9kdWxlKHtcbiAgaW1wb3J0czogW0NvbW1vbk1vZHVsZSwgTm92b0ljb25Nb2R1bGUsIE5vdm9CdXR0b25Nb2R1bGUsIE5vdm9Mb2FkaW5nTW9kdWxlLCBOb3ZvVG9vbHRpcE1vZHVsZV0sXG4gIGRlY2xhcmF0aW9uczogW0NhcmRFbGVtZW50LCBDYXJkQWN0aW9uc0VsZW1lbnQsIENhcmRDb250ZW50RWxlbWVudCwgQ2FyZEhlYWRlckVsZW1lbnQsIENhcmRGb290ZXJFbGVtZW50XSxcbiAgZXhwb3J0czogW0NhcmRFbGVtZW50LCBDYXJkQWN0aW9uc0VsZW1lbnQsIENhcmRDb250ZW50RWxlbWVudCwgQ2FyZEhlYWRlckVsZW1lbnQsIENhcmRGb290ZXJFbGVtZW50XSxcbn0pXG5leHBvcnQgY2xhc3MgTm92b0NhcmRNb2R1bGUge31cbiJdfQ==

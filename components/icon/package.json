@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-components-icon.mjs",
+  "es2020": "../../fesm2020/novo-elements-components-icon.mjs",
+  "esm2020": "../../esm2020/components/icon/novo-elements-components-icon.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-components-icon.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-components-icon.mjs",
+  "typings": "novo-elements-components-icon.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/icon"
+}

@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-components-places.mjs",
+  "es2020": "../../fesm2020/novo-elements-components-places.mjs",
+  "esm2020": "../../esm2020/components/places/novo-elements-components-places.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-components-places.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-components-places.mjs",
+  "typings": "novo-elements-components-places.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/places"
+}

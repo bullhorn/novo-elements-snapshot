@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-components-tooltip.mjs",
+  "es2020": "../../fesm2020/novo-elements-components-tooltip.mjs",
+  "esm2020": "../../esm2020/components/tooltip/novo-elements-components-tooltip.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-components-tooltip.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-components-tooltip.mjs",
+  "typings": "novo-elements-components-tooltip.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/tooltip"
+}
