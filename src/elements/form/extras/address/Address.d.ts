@@ -1,6 +1,7 @@
 import { EventEmitter, OnInit } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { NovoLabelService } from '../../../../services/novo-label-service';
+import * as i0 from "@angular/core";
 export interface NovoAddressSubfieldConfig {
     label: string;
     required: boolean;
@@ -62,4 +63,6 @@ export declare class NovoAddressElement implements ControlValueAccessor, OnInit 
     registerOnTouched(fn: Function): void;
     private getDefaultStateConfig;
     private getDefaultCountryConfig;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoAddressElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoAddressElement, "novo-address", never, { "config": "config"; "readOnly": "readOnly"; }, { "change": "change"; "focus": "focus"; "blur": "blur"; "validityChange": "validityChange"; }, never, never>;
 }

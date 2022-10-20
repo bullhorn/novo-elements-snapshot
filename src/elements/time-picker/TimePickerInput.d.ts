@@ -3,6 +3,7 @@ import { ControlValueAccessor } from '@angular/forms';
 import { DateFormatService } from '../../services/date-format/DateFormat';
 import { NovoLabelService } from '../../services/novo-label-service';
 import { NovoOverlayTemplateComponent } from '../common/overlay/Overlay';
+import * as i0 from "@angular/core";
 export declare class NovoTimePickerInputElement implements OnInit, OnChanges, ControlValueAccessor {
     element: ElementRef;
     labels: NovoLabelService;
@@ -57,4 +58,6 @@ export declare class NovoTimePickerInputElement implements OnInit, OnChanges, Co
     scrollToIndex(index: number): void;
     convertTime12to24(time12h: string): string;
     hourOneFormatRequired(hourInput: string): boolean;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoTimePickerInputElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoTimePickerInputElement, "novo-time-picker-input", never, { "name": "name"; "placeholder": "placeholder"; "military": "military"; "maskOptions": "maskOptions"; "disabled": "disabled"; "analog": "analog"; }, { "blurEvent": "blurEvent"; "focusEvent": "focusEvent"; }, never, never>;
 }

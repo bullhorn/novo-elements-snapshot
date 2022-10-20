@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, EventEmitter, OnInit } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { ProgressAppearance } from './ProgressConstants';
+import * as i0 from "@angular/core";
 export declare class NovoProgressBarElement implements ControlValueAccessor, OnInit {
     private ref;
     progress: any;
@@ -39,4 +40,6 @@ export declare class NovoProgressBarElement implements ControlValueAccessor, OnI
     setDisabledState(disabled: boolean): void;
     isLinear(): boolean;
     isRadial(): boolean;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoProgressBarElement, [null, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoProgressBarElement, "novo-progress-bar", never, { "id": "id"; "name": "name"; "tabindex": "tabindex"; "label": "label"; "theme": "theme"; "color": "color"; "indeterminate": "indeterminate"; "striped": "striped"; "animated": "animated"; "value": "value"; "disabled": "disabled"; }, { "change": "change"; "blur": "blur"; "focus": "focus"; }, never, never>;
 }

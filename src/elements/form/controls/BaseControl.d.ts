@@ -1,6 +1,6 @@
 import { EventEmitter } from '@angular/core';
-import { IMaskOptions } from '../Control';
-import { NovoControlGroupAddConfig } from '../ControlGroup';
+import type { IMaskOptions } from '../Control';
+import type { NovoControlGroupAddConfig } from '../ControlGroup';
 export interface NovoGroupedControlConfig {
     label?: string;
     icon?: string;

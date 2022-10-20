@@ -1,5 +1,6 @@
 import { ChangeDetectorRef, EventEmitter } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
+import * as i0 from "@angular/core";
 export declare class NovoSwitchElement implements ControlValueAccessor {
     private ref;
     theme: string;
@@ -17,4 +18,6 @@ export declare class NovoSwitchElement implements ControlValueAccessor {
     writeValue(model: boolean): void;
     registerOnChange(fn: Function): void;
     registerOnTouched(fn: Function): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoSwitchElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoSwitchElement, "novo-switch", never, { "theme": "theme"; "icons": "icons"; "disabled": "disabled"; }, { "onChange": "onChange"; }, never, ["*"]>;
 }

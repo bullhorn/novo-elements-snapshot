@@ -5,3 +5,8 @@ export interface NovoInputFormat<T = any> extends ControlValueAccessor {
     valueChange: EventEmitter<any>;
     formatValue(value: T): string;
 }
+export declare enum DATE_FORMATS {
+    DATE = "date",
+    ISO8601 = "iso8601",
+    STRING = "string"
+}

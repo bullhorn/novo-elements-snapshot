@@ -6,6 +6,7 @@ import { IDataTableChangeEvent, IDataTableColumn, IDataTableColumnFilterConfig, 
 import { SortDirection } from '../sort-filter';
 import { NovoDataTableSortFilter } from '../sort-filter/sort-filter.directive';
 import { DataTableState } from '../state/data-table-state.service';
+import * as i0 from "@angular/core";
 export declare class NovoDataTableCellHeader<T> implements IDataTableSortFilter, OnInit, OnDestroy {
     changeDetectorRef: ChangeDetectorRef;
     labels: NovoLabelService;
@@ -81,4 +82,6 @@ export declare class NovoDataTableCellHeader<T> implements IDataTableSortFilter,
     clearFilter(): void;
     private getNextSortDirection;
     private getDefaultDateFilterOptions;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoDataTableCellHeader<any>, [null, null, null, null, null, { optional: true; }, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoDataTableCellHeader<any>, "[novo-data-table-cell-config]", never, { "defaultSort": "defaultSort"; "allowMultipleFilters": "allowMultipleFilters"; "resized": "resized"; "filterTemplate": "filterTemplate"; "column": "novo-data-table-cell-config"; }, {}, never, never>;
 }
