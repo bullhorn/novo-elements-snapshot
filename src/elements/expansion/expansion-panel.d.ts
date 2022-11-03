@@ -6,6 +6,7 @@ import { AfterContentInit, ChangeDetectorRef, EventEmitter, OnChanges, OnDestroy
 import { Subject } from 'rxjs';
 import { NovoAccordion } from './accordion';
 import { NovoExpansionPanelContent } from './expansion-panel-content';
+import * as i0 from "@angular/core";
 /** NovoExpansionPanel's states. */
 export declare type NovoExpansionPanelState = 'expanded' | 'collapsed';
 /**
@@ -47,6 +48,10 @@ export declare class NovoExpansionPanel extends CdkAccordionItem implements Afte
     ngOnChanges(changes: SimpleChanges): void;
     ngOnDestroy(): void;
     _bodyAnimation(event: AnimationEvent): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoExpansionPanel, [{ optional: true; host: true; }, null, null, null]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoExpansionPanel, "novo-expansion-panel", ["novoExpansionPanel"], { "hideToggle": "hideToggle"; "padding": "padding"; }, { "opened": "opened"; "closed": "closed"; "expandedChange": "expandedChange"; }, ["_lazyContent"], ["novo-expansion-panel-header", "*", "novo-action-row"]>;
 }
 export declare class NovoExpansionPanelActionRow {
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoExpansionPanelActionRow, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NovoExpansionPanelActionRow, "novo-action-row", never, {}, {}, never>;
 }

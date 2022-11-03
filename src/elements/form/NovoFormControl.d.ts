@@ -1,6 +1,6 @@
 import { EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { IMaskOptions } from './Control';
+import type { IMaskOptions } from './Control';
 import { NovoControlConfig } from './FormControls';
 export declare class NovoFormControl extends FormControl {
     displayValueChanges: EventEmitter<any>;
