@@ -10,4 +10,5 @@ export interface NovoChipTextControl {
     empty: boolean;
     /** Focuses the text control. */
     focus(options?: FocusOptions): void;
+    clearValue(): void;
 }

@@ -14,8 +14,6 @@ export declare class NovoFormGroup extends FormGroup {
         [key: string]: any;
     };
     novoControls: any[];
-    get value(): any;
-    set value(v: any);
     enableAllControls(): void;
     disableAllControls(): void;
 }
