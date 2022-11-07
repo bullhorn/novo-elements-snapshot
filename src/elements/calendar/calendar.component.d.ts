@@ -2,6 +2,7 @@ import { ChangeDetectorRef, ElementRef, EventEmitter, OnInit } from '@angular/co
 import { DomSanitizer } from '@angular/platform-browser';
 import { NovoLabelService } from '../../services/novo-label-service';
 import type { DatePickerSelectModes, NovoDateSelectEvent, NovoDateSelectionStrategy, NovoMonthSelectEvent, NovoYearSelectEvent, OverlayDate } from '../date-picker/date-picker.types';
+import * as i0 from "@angular/core";
 export declare class NovoCalendarElement implements OnInit {
     labels: NovoLabelService;
     private element;
@@ -51,4 +52,6 @@ export declare class NovoCalendarElement implements OnInit {
     nextMonth(event: Event): void;
     openView(event: Event, type: string): void;
     _isRange(): boolean;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoCalendarElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoCalendarElement, "novo-calendar", never, { "minYear": "minYear"; "maxYear": "maxYear"; "minDate": "minDate"; "maxDate": "maxDate"; "activeView": "activeView"; "layout": "layout"; "selected": "selected"; "preview": "preview"; "overlays": "overlays"; "disabledDateMessage": "disabledDateMessage"; "activeDate": "activeDate"; "weekStartsOn": "weekStartsOn"; "numberOfMonths": "numberOfMonths"; "mode": "mode"; }, { "selectedChange": "selectedChange"; "previewChange": "previewChange"; "activeDateChange": "activeDateChange"; }, never, never>;
 }

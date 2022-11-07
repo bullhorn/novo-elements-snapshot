@@ -1,8 +1,10 @@
 import { BooleanInput } from '@angular/cdk/coercion';
 import { ElementRef, EventEmitter, OnChanges } from '@angular/core';
+import { NgControl } from '@angular/forms';
 import { NovoChipsDefaultOptions } from './ChipDefaults';
 import { NovoChipList } from './ChipList';
 import { NovoChipTextControl } from './ChipTextControl';
+import * as i0 from "@angular/core";
 /** Represents an input event on a `novoChipInput`. */
 export interface NovoChipInputEvent {
     /** The native `<input>` element that the event is being fired for. */
@@ -11,13 +13,14 @@ export interface NovoChipInputEvent {
     value: string;
 }
 /**
- * Directive that adds chip-specific behaviors to an input element inside `<mat-form-field>`.
- * May be placed inside or outside of an `<mat-chip-list>`.
+ * Directive that adds chip-specific behaviors to an input element inside `<novo-form-field>`.
+ * May be placed inside or outside of an `<novo-chip-list>`.
  */
 export declare class NovoChipInput implements NovoChipTextControl, OnChanges {
     protected _elementRef: ElementRef<HTMLInputElement>;
     private _defaultOptions;
     private _chipList;
+    protected ngControl: NgControl;
     /** Whether the control is focused. */
     focused: boolean;
     /**
@@ -46,7 +49,7 @@ export declare class NovoChipInput implements NovoChipTextControl, OnChanges {
     get empty(): boolean;
     /** The native input element to which this directive is attached. */
     protected _inputElement: HTMLInputElement;
-    constructor(_elementRef: ElementRef<HTMLInputElement>, _defaultOptions: NovoChipsDefaultOptions, _chipList: NovoChipList);
+    constructor(_elementRef: ElementRef<HTMLInputElement>, _defaultOptions: NovoChipsDefaultOptions, _chipList: NovoChipList, ngControl: NgControl);
     ngOnChanges(): void;
     /** Utility method to make host definition/tests more clear. */
     _keydown(event?: KeyboardEvent): void;
@@ -58,8 +61,12 @@ export declare class NovoChipInput implements NovoChipTextControl, OnChanges {
     _onInput(): void;
     /** Focuses the input. */
     focus(options?: FocusOptions): void;
+    /** Clears the input. */
+    clearValue(): void;
     /** Checks whether a keycode is one of the configured separators. */
     private _isSeparatorKey;
     static ngAcceptInputType_addOnBlur: BooleanInput;
     static ngAcceptInputType_disabled: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoChipInput, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NovoChipInput, "input[novoChipInput]", ["novoChipInput", "novoChipInputFor"], { "addOnBlur": "novoChipInputAddOnBlur"; "separatorKeyCodes": "novoChipInputSeparatorKeyCodes"; "placeholder": "placeholder"; "id": "id"; "disabled": "disabled"; }, { "chipEnd": "novoChipInputTokenEnd"; }, never>;
 }
