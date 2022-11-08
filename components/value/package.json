@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-components-value.mjs",
+  "es2020": "../../fesm2020/novo-elements-components-value.mjs",
+  "esm2020": "../../esm2020/components/value/novo-elements-components-value.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-components-value.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-components-value.mjs",
+  "typings": "novo-elements-components-value.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/value"
+}

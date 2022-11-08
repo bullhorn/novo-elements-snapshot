@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-components-multi-picker.mjs",
+  "es2020": "../../fesm2020/novo-elements-components-multi-picker.mjs",
+  "esm2020": "../../esm2020/components/multi-picker/novo-elements-components-multi-picker.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-components-multi-picker.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-components-multi-picker.mjs",
+  "typings": "novo-elements-components-multi-picker.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/multi-picker"
+}

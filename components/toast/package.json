@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-components-toast.mjs",
+  "es2020": "../../fesm2020/novo-elements-components-toast.mjs",
+  "esm2020": "../../esm2020/components/toast/novo-elements-components-toast.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-components-toast.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-components-toast.mjs",
+  "typings": "novo-elements-components-toast.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/toast"
+}

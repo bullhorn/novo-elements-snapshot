@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-components-card.mjs",
+  "es2020": "../../fesm2020/novo-elements-components-card.mjs",
+  "esm2020": "../../esm2020/components/card/novo-elements-components-card.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-components-card.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-components-card.mjs",
+  "typings": "novo-elements-components-card.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/card"
+}

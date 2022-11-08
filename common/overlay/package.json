@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-common-overlay.mjs",
+  "es2020": "../../fesm2020/novo-elements-common-overlay.mjs",
+  "esm2020": "../../esm2020/common/overlay/novo-elements-common-overlay.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-common-overlay.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-common-overlay.mjs",
+  "typings": "novo-elements-common-overlay.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/common/overlay"
+}

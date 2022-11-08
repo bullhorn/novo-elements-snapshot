@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-components-progress.mjs",
+  "es2020": "../../fesm2020/novo-elements-components-progress.mjs",
+  "esm2020": "../../esm2020/components/progress/novo-elements-components-progress.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-components-progress.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-components-progress.mjs",
+  "typings": "novo-elements-components-progress.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/progress"
+}

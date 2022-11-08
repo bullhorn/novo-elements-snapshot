@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-components-checkbox.mjs",
+  "es2020": "../../fesm2020/novo-elements-components-checkbox.mjs",
+  "esm2020": "../../esm2020/components/checkbox/novo-elements-components-checkbox.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-components-checkbox.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-components-checkbox.mjs",
+  "typings": "novo-elements-components-checkbox.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/checkbox"
+}
