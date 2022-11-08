@@ -1,0 +1,4 @@
+export * from './extras';
+export * from './quick-note';
+export * from './quick-note.module';
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiaW5kZXguanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi9wcm9qZWN0cy9lbGVtZW50cy9jb21wb25lbnRzL3F1aWNrLW5vdGUvaW5kZXgudHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsY0FBYyxVQUFVLENBQUM7QUFDekIsY0FBYyxjQUFjLENBQUM7QUFDN0IsY0FBYyxxQkFBcUIsQ0FBQyIsInNvdXJjZXNDb250ZW50IjpbImV4cG9ydCAqIGZyb20gJy4vZXh0cmFzJztcbmV4cG9ydCAqIGZyb20gJy4vcXVpY2stbm90ZSc7XG5leHBvcnQgKiBmcm9tICcuL3F1aWNrLW5vdGUubW9kdWxlJztcbiJdfQ==

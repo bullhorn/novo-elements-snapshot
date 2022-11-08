@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-components-query-builder.mjs",
+  "es2020": "../../fesm2020/novo-elements-components-query-builder.mjs",
+  "esm2020": "../../esm2020/components/query-builder/novo-elements-components-query-builder.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-components-query-builder.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-components-query-builder.mjs",
+  "typings": "novo-elements-components-query-builder.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/query-builder"
+}

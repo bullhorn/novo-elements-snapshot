@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-components-tabs.mjs",
+  "es2020": "../../fesm2020/novo-elements-components-tabs.mjs",
+  "esm2020": "../../esm2020/components/tabs/novo-elements-components-tabs.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-components-tabs.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-components-tabs.mjs",
+  "typings": "novo-elements-components-tabs.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/tabs"
+}
