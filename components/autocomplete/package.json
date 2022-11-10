@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-components-autocomplete.mjs",
+  "es2020": "../../fesm2020/novo-elements-components-autocomplete.mjs",
+  "esm2020": "../../esm2020/components/autocomplete/novo-elements-components-autocomplete.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-components-autocomplete.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-components-autocomplete.mjs",
+  "typings": "novo-elements-components-autocomplete.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/autocomplete"
+}

@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-components-avatar.mjs",
+  "es2020": "../../fesm2020/novo-elements-components-avatar.mjs",
+  "esm2020": "../../esm2020/components/avatar/novo-elements-components-avatar.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-components-avatar.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-components-avatar.mjs",
+  "typings": "novo-elements-components-avatar.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/avatar"
+}

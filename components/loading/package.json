@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-components-loading.mjs",
+  "es2020": "../../fesm2020/novo-elements-components-loading.mjs",
+  "esm2020": "../../esm2020/components/loading/novo-elements-components-loading.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-components-loading.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-components-loading.mjs",
+  "typings": "novo-elements-components-loading.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/loading"
+}

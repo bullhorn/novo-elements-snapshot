@@ -1,0 +1,7 @@
+export var SortDirection;
+(function (SortDirection) {
+    SortDirection["ASC"] = "ascending";
+    SortDirection["DESC"] = "descending";
+    SortDirection["NONE"] = "none";
+})(SortDirection || (SortDirection = {}));
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoic29ydC1kaXJlY3Rpb24uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi9wcm9qZWN0cy9lbGVtZW50cy9jb21wb25lbnRzL2RhdGEtdGFibGUvc29ydC1maWx0ZXIvc29ydC1kaXJlY3Rpb24udHMiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQUEsTUFBTSxDQUFOLElBQVksYUFJWDtBQUpELFdBQVksYUFBYTtJQUN2QixrQ0FBaUIsQ0FBQTtJQUNqQixvQ0FBbUIsQ0FBQTtJQUNuQiw4QkFBYSxDQUFBO0FBQ2YsQ0FBQyxFQUpXLGFBQWEsS0FBYixhQUFhLFFBSXhCIiwic291cmNlc0NvbnRlbnQiOlsiZXhwb3J0IGVudW0gU29ydERpcmVjdGlvbiB7XG4gIEFTQyA9ICdhc2NlbmRpbmcnLFxuICBERVNDID0gJ2Rlc2NlbmRpbmcnLFxuICBOT05FID0gJ25vbmUnLFxufVxuIl19
