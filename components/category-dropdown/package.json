@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-components-category-dropdown.mjs",
+  "es2020": "../../fesm2020/novo-elements-components-category-dropdown.mjs",
+  "esm2020": "../../esm2020/components/category-dropdown/novo-elements-components-category-dropdown.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-components-category-dropdown.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-components-category-dropdown.mjs",
+  "typings": "novo-elements-components-category-dropdown.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/category-dropdown"
+}

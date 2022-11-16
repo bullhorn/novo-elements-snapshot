@@ -1,0 +1,10 @@
+{
+  "module": "../../../fesm2015/novo-elements-components-form-extras.mjs",
+  "es2020": "../../../fesm2020/novo-elements-components-form-extras.mjs",
+  "esm2020": "../../../esm2020/components/form/extras/novo-elements-components-form-extras.mjs",
+  "fesm2020": "../../../fesm2020/novo-elements-components-form-extras.mjs",
+  "fesm2015": "../../../fesm2015/novo-elements-components-form-extras.mjs",
+  "typings": "novo-elements-components-form-extras.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/form/extras"
+}

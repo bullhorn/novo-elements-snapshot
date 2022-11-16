@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-components-date-picker.mjs",
+  "es2020": "../../fesm2020/novo-elements-components-date-picker.mjs",
+  "esm2020": "../../esm2020/components/date-picker/novo-elements-components-date-picker.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-components-date-picker.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-components-date-picker.mjs",
+  "typings": "novo-elements-components-date-picker.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/date-picker"
+}

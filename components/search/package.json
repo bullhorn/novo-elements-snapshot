@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-components-search.mjs",
+  "es2020": "../../fesm2020/novo-elements-components-search.mjs",
+  "esm2020": "../../esm2020/components/search/novo-elements-components-search.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-components-search.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-components-search.mjs",
+  "typings": "novo-elements-components-search.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/search"
+}
