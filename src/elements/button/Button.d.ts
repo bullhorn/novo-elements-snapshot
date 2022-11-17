@@ -1,4 +1,5 @@
 import { ElementRef } from '@angular/core';
+import * as i0 from "@angular/core";
 export declare class NovoButtonElement {
     element: ElementRef;
     /**
@@ -36,4 +37,6 @@ export declare class NovoButtonElement {
     constructor(element: ElementRef);
     /** Focuses the input. */
     focus(options?: FocusOptions): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoButtonElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoButtonElement, "novo-button,button[theme]", never, { "color": "color"; "side": "side"; "size": "size"; "theme": "theme"; "loading": "loading"; "icon": "icon"; "disabled": "disabled"; }, {}, never, ["*"]>;
 }
