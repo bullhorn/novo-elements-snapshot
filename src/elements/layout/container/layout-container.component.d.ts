@@ -6,6 +6,7 @@ import { Subject } from 'rxjs';
 import { NovoLayoutContent } from '../content/layout-content.component';
 import { NovoRailComponent } from '../rail/rail.component';
 import { NovoSidenavComponent } from '../sidenav/sidenav.component';
+import * as i0 from "@angular/core";
 export declare class NovoLayoutContainer implements AfterContentInit, DoCheck, OnDestroy {
     private _dir;
     private _element;
@@ -112,4 +113,6 @@ export declare class NovoLayoutContainer implements AfterContentInit, DoCheck, O
     private _isDrawerOpen;
     static ngAcceptInputType_autosize: BooleanInput;
     static ngAcceptInputType_hasBackdrop: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoLayoutContainer, [{ optional: true; }, null, null, null, null, null, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoLayoutContainer, "novo-layout-container", ["novoLayoutContainer"], { "autosize": "autosize"; "hasBackdrop": "hasBackdrop"; }, { "backdropClick": "backdropClick"; }, ["_rail", "_content", "_allDrawers"], ["novo-sidenav", "novo-rail", "novo-layout-content", "*"]>;
 }
