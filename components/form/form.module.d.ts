@@ -1,0 +1,38 @@
+import * as i0 from "@angular/core";
+import * as i1 from "./control";
+import * as i2 from "./dynamic-form";
+import * as i3 from "./form";
+import * as i4 from "./field-interaction-modals";
+import * as i5 from "./control-group";
+import * as i6 from "./control-templates";
+import * as i7 from "@angular/common";
+import * as i8 from "@angular/cdk/overlay";
+import * as i9 from "@angular/forms";
+import * as i10 from "novo-elements/components/radio";
+import * as i11 from "novo-elements/components/tiles";
+import * as i12 from "novo-elements/components/select";
+import * as i13 from "novo-elements/components/picker";
+import * as i14 from "novo-elements/components/chips";
+import * as i15 from "novo-elements/components/date-picker";
+import * as i16 from "novo-elements/components/time-picker";
+import * as i17 from "novo-elements/addons/ck-editor";
+import * as i18 from "./extras/form-extras.module";
+import * as i19 from "novo-elements/components/quick-note";
+import * as i20 from "novo-elements/components/date-time-picker";
+import * as i21 from "novo-elements/components/header";
+import * as i22 from "novo-elements/components/tooltip";
+import * as i23 from "novo-elements/addons/dragula";
+import * as i24 from "angular-imask";
+import * as i25 from "novo-elements/components/tip-well";
+import * as i26 from "novo-elements/components/modal";
+import * as i27 from "novo-elements/components/button";
+import * as i28 from "novo-elements/addons/ace-editor";
+import * as i29 from "novo-elements/common";
+import * as i30 from "novo-elements/components/checkbox";
+import * as i31 from "novo-elements/components/icon";
+import * as i32 from "novo-elements/components/switch";
+export declare class NovoFormModule {
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoFormModule, never>;
+    static ɵmod: i0.ɵɵNgModuleDeclaration<NovoFormModule, [typeof i1.NovoAutoSize, typeof i1.NovoControlElement, typeof i2.NovoDynamicFormElement, typeof i3.NovoFormElement, typeof i2.NovoFieldsetElement, typeof i2.NovoFieldsetHeaderElement, typeof i4.ControlConfirmModal, typeof i4.ControlPromptModal, typeof i5.NovoControlGroup, typeof i6.NovoControlTemplates], [typeof i7.CommonModule, typeof i8.OverlayModule, typeof i9.ReactiveFormsModule, typeof i10.NovoRadioModule, typeof i11.NovoTilesModule, typeof i12.NovoSelectModule, typeof i13.NovoPickerModule, typeof i14.NovoChipsModule, typeof i15.NovoDatePickerModule, typeof i16.NovoTimePickerModule, typeof i17.NovoNovoCKEditorModule, typeof i18.NovoFormExtrasModule, typeof i19.NovoQuickNoteModule, typeof i20.NovoDateTimePickerModule, typeof i21.NovoHeaderModule, typeof i22.NovoTooltipModule, typeof i23.NovoDragulaModule, typeof i24.IMaskDirectiveModule, typeof i25.NovoTipWellModule, typeof i26.NovoModalModule, typeof i27.NovoButtonModule, typeof i28.NovoAceEditorModule, typeof i29.NovoCommonModule, typeof i30.NovoCheckboxModule, typeof i31.NovoIconModule, typeof i10.NovoRadioModule, typeof i32.NovoSwitchModule], [typeof i1.NovoAutoSize, typeof i2.NovoDynamicFormElement, typeof i1.NovoControlElement, typeof i3.NovoFormElement, typeof i2.NovoFieldsetHeaderElement, typeof i5.NovoControlGroup, typeof i6.NovoControlTemplates]>;
+    static ɵinj: i0.ɵɵInjectorDeclaration<NovoFormModule>;
+}

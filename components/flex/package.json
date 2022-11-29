@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-components-flex.mjs",
+  "es2020": "../../fesm2020/novo-elements-components-flex.mjs",
+  "esm2020": "../../esm2020/components/flex/novo-elements-components-flex.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-components-flex.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-components-flex.mjs",
+  "typings": "novo-elements-components-flex.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/flex"
+}

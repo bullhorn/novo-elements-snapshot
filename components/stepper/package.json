@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-components-stepper.mjs",
+  "es2020": "../../fesm2020/novo-elements-components-stepper.mjs",
+  "esm2020": "../../esm2020/components/stepper/novo-elements-components-stepper.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-components-stepper.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-components-stepper.mjs",
+  "typings": "novo-elements-components-stepper.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/stepper"
+}

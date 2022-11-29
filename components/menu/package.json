@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-components-menu.mjs",
+  "es2020": "../../fesm2020/novo-elements-components-menu.mjs",
+  "esm2020": "../../esm2020/components/menu/novo-elements-components-menu.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-components-menu.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-components-menu.mjs",
+  "typings": "novo-elements-components-menu.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/menu"
+}

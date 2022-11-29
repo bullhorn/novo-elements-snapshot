@@ -1,0 +1,10 @@
+{
+  "module": "../fesm2015/novo-elements-types.mjs",
+  "es2020": "../fesm2020/novo-elements-types.mjs",
+  "esm2020": "../esm2020/types/novo-elements-types.mjs",
+  "fesm2020": "../fesm2020/novo-elements-types.mjs",
+  "fesm2015": "../fesm2015/novo-elements-types.mjs",
+  "typings": "novo-elements-types.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/types"
+}

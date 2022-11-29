@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-components-field.mjs",
+  "es2020": "../../fesm2020/novo-elements-components-field.mjs",
+  "esm2020": "../../esm2020/components/field/novo-elements-components-field.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-components-field.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-components-field.mjs",
+  "typings": "novo-elements-components-field.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/components/field"
+}
