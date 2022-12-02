@@ -2,9 +2,12 @@ import { AfterContentInit, AfterViewInit, ChangeDetectorRef, ElementRef, EventEm
 import { NovoButtonElement } from '../button';
 import { CanDisableCtor, HasOverlayCtor, HasTabIndexCtor, NovoOptgroup, NovoOption } from '../common';
 import { NovoOverlayTemplateComponent } from '../common/overlay/Overlay';
+import * as i0 from "@angular/core";
 export declare class NovoDropDownTrigger {
     element: ElementRef;
     constructor(element: ElementRef);
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoDropDownTrigger, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NovoDropDownTrigger, "[dropdownTrigger]", never, {}, {}, never>;
 }
 declare class NovoDropdownBase {
     constructor();
@@ -69,6 +72,8 @@ export declare class NovoDropdownElement extends NovoDropdowMixins implements On
     protected _scrollOptionIntoView(index: number): void;
     /** Calculates the height of the select's options. */
     private _getItemHeight;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoDropdownElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoDropdownElement, "novo-dropdown", never, { "parentScrollSelector": "parentScrollSelector"; "parentScrollAction": "parentScrollAction"; "containerClass": "containerClass"; "side": "side"; "scrollStrategy": "scrollStrategy"; "keepOpen": "keepOpen"; "height": "height"; "width": "width"; "appendToBody": "appendToBody"; "multiple": "multiple"; }, { "toggled": "toggled"; }, ["_button", "_trigger", "optionGroups", "options"], ["button,novo-button,[dropdownTrigger]", "*"]>;
 }
 export declare class NovoItemElement {
     private dropdown;
@@ -79,14 +84,20 @@ export declare class NovoItemElement {
     active: boolean;
     constructor(dropdown: NovoDropdownElement, element: ElementRef);
     onClick(event: Event): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoItemElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoItemElement, "item", never, { "disabled": "disabled"; "keepOpen": "keepOpen"; }, { "action": "action"; }, never, ["*"]>;
 }
 export declare class NovoDropdownListElement implements AfterContentInit {
     private dropdown;
     items: QueryList<NovoItemElement>;
     constructor(dropdown: NovoDropdownElement);
     ngAfterContentInit(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoDropdownListElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoDropdownListElement, "list", never, {}, {}, ["items"], ["*"]>;
 }
 export declare class NovoDropDownItemHeaderElement {
     constructor();
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoDropDownItemHeaderElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoDropDownItemHeaderElement, "dropdown-item-header", never, {}, {}, never, ["*"]>;
 }
 export {};

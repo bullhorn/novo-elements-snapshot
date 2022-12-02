@@ -4,6 +4,7 @@ import { FormBuilder } from '@angular/forms';
 import { FormUtils } from './../../utils/form-utils/FormUtils';
 import { BaseControl } from './controls/BaseControl';
 import { NovoFormGroup } from './NovoFormGroup';
+import * as i0 from "@angular/core";
 export interface NovoControlGroupAddConfig {
     label: string;
 }
@@ -105,4 +106,6 @@ export declare class NovoControlGroup implements AfterContentInit, OnChanges, On
     static ngAcceptInputType_disabled: BooleanInput;
     static ngAcceptInputType_stacked: BooleanInput;
     static ngAcceptInputType_vertical: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoControlGroup, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoControlGroup, "novo-control-group", never, { "appearance": "appearance"; "vertical": "vertical"; "stacked": "stacked"; "add": "add"; "remove": "remove"; "edit": "edit"; "collapsible": "collapsible"; "form": "form"; "controls": "controls"; "key": "key"; "label": "label"; "description": "description"; "emptyMessage": "emptyMessage"; "icon": "icon"; "editIcon": "editIcon"; "removeIcon": "removeIcon"; "initialValue": "initialValue"; "canEdit": "canEdit"; "canRemove": "canRemove"; "shouldRemove": "shouldRemove"; "rowTemplate": "rowTemplate"; "columnLabelTemplate": "columnLabelTemplate"; }, { "onRemove": "onRemove"; "onEdit": "onEdit"; "onAdd": "onAdd"; "change": "change"; }, never, never>;
 }

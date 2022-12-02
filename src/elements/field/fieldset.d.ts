@@ -1,5 +1,6 @@
 import { AfterContentInit, QueryList } from '@angular/core';
 import { NovoFieldElement } from './field';
+import * as i0 from "@angular/core";
 export declare class NovoFieldsElement implements AfterContentInit {
     _fields: QueryList<NovoFieldElement>;
     _layout: 'horizontal' | 'vertical';
@@ -12,4 +13,6 @@ export declare class NovoFieldsElement implements AfterContentInit {
     ngAfterContentInit(): any;
     private _updateFieldLayout;
     private _updateFieldAppearance;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoFieldsElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoFieldsElement, "novo-fields", never, { "layout": "layout"; "appearance": "appearance"; "fullWidth": "fullWidth"; }, {}, ["_fields"], ["*"]>;
 }
