@@ -23,12 +23,12 @@ const schematics_2 = require("@angular/cdk/schematics");
  * Internally it bootstraps the base component schematic
  */
 function default_1(options) {
-    return schematics_1.chain([
-        schematics_2.buildComponent(Object.assign({}, options), {
+    return (0, schematics_1.chain)([
+        (0, schematics_2.buildComponent)(Object.assign({}, options), {
             template: './__path__/__name@dasherize@if-flat__/__name@dasherize__.component.html.template',
             stylesheet: './__path__/__name@dasherize@if-flat__/__name@dasherize__.component.__style__.template',
         }),
-        options.skipImport ? schematics_1.noop() : addRecordModulesToModule(options),
+        options.skipImport ? (0, schematics_1.noop)() : addRecordModulesToModule(options),
     ]);
 }
 exports.default = default_1;
@@ -37,9 +37,9 @@ exports.default = default_1;
  */
 function addRecordModulesToModule(options) {
     return (host) => __awaiter(this, void 0, void 0, function* () {
-        const modulePath = (yield schematics_2.findModuleFromOptions(host, options));
-        schematics_2.addModuleImportToModule(host, modulePath, 'LayoutModule', '@angular/cdk/layout');
-        schematics_2.addModuleImportToModule(host, modulePath, 'NovoElementsModule', 'novo-elements');
+        const modulePath = (yield (0, schematics_2.findModuleFromOptions)(host, options));
+        (0, schematics_2.addModuleImportToModule)(host, modulePath, 'LayoutModule', '@angular/cdk/layout');
+        (0, schematics_2.addModuleImportToModule)(host, modulePath, 'NovoElementsModule', 'novo-elements');
     });
 }
 //# sourceMappingURL=index.js.map

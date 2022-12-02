@@ -2,13 +2,14 @@ import { FocusKeyManager } from '@angular/cdk/a11y';
 import { Directionality } from '@angular/cdk/bidi';
 import { BooleanInput } from '@angular/cdk/coercion';
 import { SelectionModel } from '@angular/cdk/collections';
-import { AfterContentInit, ChangeDetectorRef, DoCheck, ElementRef, EventEmitter, OnDestroy, OnInit, QueryList } from '@angular/core';
+import { AfterContentInit, AfterViewInit, ChangeDetectorRef, DoCheck, ElementRef, EventEmitter, OnDestroy, OnInit, QueryList } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl, NgForm } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { CanUpdateErrorState, CanUpdateErrorStateCtor, ErrorStateMatcher } from '../common';
 import { NovoFieldControl } from '../field';
 import { NovoChipElement, NovoChipEvent, NovoChipSelectionChange } from './Chip';
 import { NovoChipTextControl } from './ChipTextControl';
+import * as i0 from "@angular/core";
 /** @docs-private */
 declare class NovoChipListBase {
     _defaultErrorStateMatcher: ErrorStateMatcher;
@@ -34,9 +35,9 @@ export declare class NovoChipListChange {
     value: any);
 }
 /**
- * A material design chips component (named ChipList for its similarity to the List component).
+ * A chip list component (named ChipList for its similarity to the List component).
  */
-export declare class NovoChipList extends _NovoChipListMixinBase implements NovoFieldControl<any>, ControlValueAccessor, AfterContentInit, DoCheck, OnInit, OnDestroy, CanUpdateErrorState {
+export declare class NovoChipList extends _NovoChipListMixinBase implements NovoFieldControl<any>, ControlValueAccessor, AfterViewInit, AfterContentInit, DoCheck, OnInit, OnDestroy, CanUpdateErrorState {
     protected _elementRef: ElementRef<HTMLElement>;
     private _changeDetectorRef;
     private _dir;
@@ -186,6 +187,7 @@ export declare class NovoChipList extends _NovoChipListMixinBase implements Novo
     /** @docs-private */
     ngControl: NgControl);
     ngAfterContentInit(): void;
+    ngAfterViewInit(): void;
     ngOnInit(): void;
     ngDoCheck(): void;
     ngOnDestroy(): void;
@@ -197,6 +199,8 @@ export declare class NovoChipList extends _NovoChipListMixinBase implements Novo
      */
     setDescribedByIds(ids: string[]): void;
     writeValue(value: any): void;
+    addValue(value: any): void;
+    removeValue(value: any): void;
     registerOnChange(fn: (value: any) => void): void;
     registerOnTouched(fn: () => void): void;
     setDisabledState(isDisabled: boolean): void;
@@ -279,5 +283,7 @@ export declare class NovoChipList extends _NovoChipListMixinBase implements Novo
     static ngAcceptInputType_required: BooleanInput;
     static ngAcceptInputType_disabled: BooleanInput;
     static ngAcceptInputType_selectable: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoChipList, [null, null, { optional: true; }, { optional: true; }, { optional: true; }, null, { optional: true; self: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoChipList, "novo-chip-list", ["novoChipList"], { "errorStateMatcher": "errorStateMatcher"; "multiple": "multiple"; "stacked": "stacked"; "compareWith": "compareWith"; "value": "value"; "required": "required"; "placeholder": "placeholder"; "disabled": "disabled"; "ariaOrientation": "aria-orientation"; "selectable": "selectable"; "tabIndex": "tabIndex"; }, { "change": "change"; "valueChange": "valueChange"; }, ["chips"], ["*"]>;
 }
 export {};
