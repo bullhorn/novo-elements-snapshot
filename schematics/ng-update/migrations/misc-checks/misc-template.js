@@ -15,7 +15,7 @@ class MiscTemplateMigration extends schematics_1.Migration {
     }
     visitTemplate(template) {
         // Migration for: https://github.com/angular/components/pull/10398 (v6)
-        schematics_1.findOutputsOnElementWithTag(template.content, 'selectionChange', ['mat-list-option']).forEach((offset) => {
+        (0, schematics_1.findOutputsOnElementWithTag)(template.content, 'selectionChange', ['mat-list-option']).forEach((offset) => {
             this.failures.push({
                 filePath: template.filePath,
                 position: template.getCharacterAndLineOfPosition(template.start + offset),
@@ -24,7 +24,7 @@ class MiscTemplateMigration extends schematics_1.Migration {
             });
         });
         // Migration for: https://github.com/angular/components/pull/10413 (v6)
-        schematics_1.findOutputsOnElementWithTag(template.content, 'selectedChanged', ['mat-datepicker']).forEach((offset) => {
+        (0, schematics_1.findOutputsOnElementWithTag)(template.content, 'selectedChanged', ['mat-datepicker']).forEach((offset) => {
             this.failures.push({
                 filePath: template.filePath,
                 position: template.getCharacterAndLineOfPosition(template.start + offset),
@@ -33,7 +33,7 @@ class MiscTemplateMigration extends schematics_1.Migration {
             });
         });
         // Migration for: https://github.com/angular/components/commit/f0bf6e7 (v6)
-        schematics_1.findInputsOnElementWithTag(template.content, 'selected', ['mat-button-toggle-group']).forEach((offset) => {
+        (0, schematics_1.findInputsOnElementWithTag)(template.content, 'selected', ['mat-button-toggle-group']).forEach((offset) => {
             this.failures.push({
                 filePath: template.filePath,
                 position: template.getCharacterAndLineOfPosition(template.start + offset),
