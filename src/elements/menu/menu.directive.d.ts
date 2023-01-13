@@ -3,6 +3,7 @@ import { Subscription } from 'rxjs';
 import { MenuContentComponent } from './menu-content.component';
 import { MenuComponent } from './menu.component';
 import { NovoMenuService } from './menu.service';
+import * as i0 from "@angular/core";
 export declare class MenuDirective implements OnInit, OnDestroy {
     private element;
     private menuService;
@@ -23,4 +24,6 @@ export declare class MenuDirective implements OnInit, OnDestroy {
     ngOnInit(): void;
     ngOnDestroy(): void;
     onMenuClick(event: MouseEvent): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<MenuDirective, [null, null, null, { optional: true; }]>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<MenuDirective, "[menu]", never, { "menuContext": "menuContext"; "menu": "menu"; "menuContent": "menuContent"; "waitWhenOpen": "waitWhenOpen"; "capture": "capture"; "anchor": "anchor"; "trigger": "trigger"; }, {}, never>;
 }

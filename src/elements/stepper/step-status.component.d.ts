@@ -1,6 +1,7 @@
-import { NovoStepHeader } from './step-header.component';
-import { NovoStepper } from './stepper.component';
+import * as i0 from "@angular/core";
 export declare class NovoStepStatus {
     state: string;
-    constructor(stepper: NovoStepper, step: NovoStepHeader);
+    constructor();
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoStepStatus, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoStepStatus, "novo-step-status", never, { "state": "state"; }, {}, never, never>;
 }

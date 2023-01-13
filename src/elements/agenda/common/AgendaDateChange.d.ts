@@ -1,4 +1,5 @@
 import { EventEmitter } from '@angular/core';
+import * as i0 from "@angular/core";
 export declare class NovoAgendaDateChangeElement {
     /**
      * The current view
@@ -22,4 +23,6 @@ export declare class NovoAgendaDateChangeElement {
     changeDate(unit: number): void;
     get startOfWeek(): Date;
     get endOfWeek(): Date;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoAgendaDateChangeElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoAgendaDateChangeElement, "novo-agenda-date-change", never, { "view": "view"; "viewDate": "viewDate"; "locale": "locale"; }, { "viewDateChange": "viewDateChange"; }, never, never>;
 }
