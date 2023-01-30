@@ -3,6 +3,7 @@ import { AfterViewChecked, ChangeDetectorRef, ElementRef, EventEmitter, OnDestro
 import { Subject } from 'rxjs';
 import { NovoOptgroup, NovoOptgroupBase } from './optgroup.component';
 import { NovoOptionParentComponent } from './option-parent';
+import * as i0 from "@angular/core";
 /** Event object emitted by NovoOption when selected or deselected. */
 export declare class NovoOptionSelectionChange {
     /** Reference to the option that emitted the event. */
@@ -28,7 +29,7 @@ export declare class NovoOptionBase implements FocusableOption, AfterViewChecked
     private _clickPassive;
     /** TODO: deprecate maybe, check support for table headers */
     keepOpen: boolean;
-    inert: boolean;
+    novoInert: boolean;
     /** If there is no parent then nothing is managing the selection. */
     get selectable(): NovoOptionParentComponent;
     /** Whether the wrapping component is in multiple selection mode. */
@@ -107,12 +108,16 @@ export declare class NovoOptionBase implements FocusableOption, AfterViewChecked
     ngOnDestroy(): void;
     /** Emits the selection change event. */
     private _emitSelectionChangeEvent;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoOptionBase, [null, null, { optional: true; }, { optional: true; }]>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NovoOptionBase, never, never, { "keepOpen": "keepOpen"; "novoInert": "novoInert"; "value": "value"; "id": "id"; "disabled": "disabled"; "selected": "selected"; }, { "onSelectionChange": "onSelectionChange"; }, never>;
 }
 /**
  * Single option inside of a `<novo-select>` element.
  */
 export declare class NovoOption extends NovoOptionBase {
     constructor(element: ElementRef<HTMLElement>, changeDetectorRef: ChangeDetectorRef, parent: NovoOptionParentComponent, group: NovoOptgroup);
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoOption, [null, null, { optional: true; }, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoOption, "novo-option", ["novoOption"], { "selected": "selected"; "keepOpen": "keepOpen"; "novoInert": "novoInert"; "value": "value"; "disabled": "disabled"; }, {}, never, ["*", "[novoSuffix]"]>;
 }
 /**
  * Counts the amount of option group labels that precede the specified option.
