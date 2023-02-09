@@ -3,9 +3,14 @@ export interface IDataTablePreferences {
     name: string;
     sort?: IDataTableSort;
     filter?: IDataTableFilter | IDataTableFilter[];
+    where?: {
+        query: string;
+        form: any;
+    };
     globalSearch?: any;
     pageSize?: number;
     displayedColumns?: string[];
+    savedSearchName?: string;
 }
 export interface IDataTableColumn<T> {
     id: string;
@@ -51,7 +56,7 @@ export interface IDataTableColumn<T> {
         width: number;
     };
     rightAlignCellContent?: boolean;
-    configuration?: object;
+    configuration?: any;
 }
 export interface IDataTablePaginationOptions {
     theme: 'basic' | 'standard' | 'basic-wide';
@@ -61,12 +66,16 @@ export interface IDataTablePaginationOptions {
         value: string;
         label: string;
     }[];
+    loading?: boolean;
+    errorLoading?: boolean;
 }
 export interface IDataTableColumnSortConfig {
     transform?: Function;
 }
 export interface IDataTableColumnFilterConfig {
     type: 'text' | 'number' | 'date' | 'select' | 'multi-select' | 'custom';
+    customTemplate?: string;
+    useCustomHeader?: boolean;
     options?: string[] | IDataTableColumnFilterOption[];
     allowCustomRange?: boolean;
     transform?: Function;
@@ -93,6 +102,13 @@ export interface IDataTableChangeEvent {
     page?: number;
     pageSize?: number;
     globalSearch?: string;
+    outsideFilter?: IDataTableFilter | IDataTableFilter[];
+    where?: {
+        query: string;
+        form: any;
+    };
+    savedSearchName?: string;
+    displayedColumns?: string[];
 }
 export interface IDataTableSelectionChangeEvent {
     selected: any[];
@@ -122,7 +138,10 @@ export interface IDataTableService<T> {
         id: string;
         value: string;
         transform?: Function;
-    } | IDataTableFilter | IDataTableFilter[], page: number, pageSize: number, globalSearch?: string, outsideFilter?: any): Observable<{
+    } | IDataTableFilter | IDataTableFilter[], page: number, pageSize: number, globalSearch?: string, outsideFilter?: any, where?: {
+        query: string;
+        form: any;
+    }): Observable<{
         results: T[];
         total: number;
     }>;

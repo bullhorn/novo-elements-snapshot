@@ -1,6 +1,6 @@
 import { EventEmitter } from '@angular/core';
 import { FormControl } from '@angular/forms';
-import { IMaskOptions } from './Control';
+import type { IMaskOptions } from './Control';
 import { NovoControlConfig } from './FormControls';
 export declare class NovoFormControl extends FormControl {
     displayValueChanges: EventEmitter<any>;
@@ -15,6 +15,16 @@ export declare class NovoFormControl extends FormControl {
     tooltipPosition: string;
     tooltipSize?: string;
     tooltipPreline?: boolean;
+    tooltipIsHTML?: boolean;
+    popoverContent?: string;
+    popoverHtmlContent?: string;
+    popoverTitle?: string;
+    popoverPlacement?: 'left' | 'right' | 'top' | 'bottom';
+    popoverOnHover?: boolean;
+    popoverAlways?: boolean;
+    popoverDisabled?: boolean;
+    popoverAnimation?: boolean;
+    popoverDismissTimeout?: number;
     removeTooltipArrow?: boolean;
     tooltipAutoPosition?: boolean;
     initialValue: any;
