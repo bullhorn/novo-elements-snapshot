@@ -4,6 +4,7 @@ import 'brace/index';
 import 'brace/mode/javascript';
 import 'brace/theme/chrome';
 import 'brace/ext/language_tools.js';
+import * as i0 from "@angular/core";
 export declare class NovoAceEditor implements ControlValueAccessor, OnInit, OnDestroy {
     private elementRef;
     set theme(theme: any);
@@ -34,4 +35,6 @@ export declare class NovoAceEditor implements ControlValueAccessor, OnInit, OnDe
     writeValue(value: any): void;
     registerOnChange(fn: any): void;
     registerOnTouched(fn: any): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoAceEditor, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoAceEditor, "novo-ace-editor", never, { "theme": "theme"; "options": "options"; "mode": "mode"; "name": "name"; }, { "blur": "blur"; "focus": "focus"; }, never, never>;
 }
