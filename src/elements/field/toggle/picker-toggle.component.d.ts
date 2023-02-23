@@ -1,13 +1,14 @@
-import { BooleanInput } from '@angular/cdk/coercion';
 import { AfterContentInit, AfterViewInit, ChangeDetectorRef, ElementRef, OnChanges, OnDestroy, SimpleChanges } from '@angular/core';
 import { NovoButtonElement } from '../../button';
 import { NovoOverlayTemplateComponent } from '../../common/overlay';
 import { NovoFieldElement } from '../field';
+import * as i0 from "@angular/core";
 export declare class NovoPickerToggleElement<T = any> implements AfterContentInit, AfterViewInit, OnChanges, OnDestroy {
     private _elementRef;
     private cdr;
     private _formField;
     private _stateChanges;
+    private _onDestroy;
     /** Datepicker instance that the button will toggle. */
     picker: T;
     icon: string;
@@ -15,6 +16,12 @@ export declare class NovoPickerToggleElement<T = any> implements AfterContentIni
     tabIndex: number | null;
     /** Screenreader label for the button. */
     ariaLabel: string;
+    /** Determines whether the overlay is triggered on input focus or solely button click. */
+    triggerOnFocus: boolean;
+    /** An id to select the correct overlay.*/
+    overlayId: string;
+    /** Width to pass to overlay.*/
+    width: string;
     /** Whether the toggle button is disabled. */
     get disabled(): boolean;
     set disabled(value: boolean);
@@ -29,11 +36,13 @@ export declare class NovoPickerToggleElement<T = any> implements AfterContentIni
     ngOnDestroy(): void;
     ngAfterContentInit(): void;
     ngAfterViewInit(): void;
+    checkPanel(): void;
     togglePanel(event?: Event): void;
     /** BEGIN: Convenient Panel Methods. */
     openPanel(event?: Event): void;
     closePanel(event?: Event): void;
     get panelOpen(): boolean;
     private _watchStateChanges;
-    static ngAcceptInputType_disabled: BooleanInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoPickerToggleElement<any>, [null, null, { attribute: "tabindex"; }, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoPickerToggleElement<any>, "novo-picker-toggle", ["novoPickerToggle"], { "picker": "for"; "icon": "icon"; "tabIndex": "tabIndex"; "ariaLabel": "aria-label"; "triggerOnFocus": "triggerOnFocus"; "overlayId": "overlayId"; "width": "width"; "disabled": "disabled"; }, {}, never, ["*"]>;
 }

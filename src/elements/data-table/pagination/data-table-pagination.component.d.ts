@@ -1,7 +1,9 @@
 import { ChangeDetectorRef, EventEmitter, OnDestroy, OnInit } from '@angular/core';
+import { Subject } from 'rxjs';
 import { NovoLabelService } from '../../../services/novo-label-service';
 import { IDataTablePaginationEvent } from '../interfaces';
 import { DataTableState } from '../state/data-table-state.service';
+import * as i0 from "@angular/core";
 export declare class NovoDataTablePagination<T> implements OnInit, OnDestroy {
     private changeDetectorRef;
     labels: NovoLabelService;
@@ -19,6 +21,9 @@ export declare class NovoDataTablePagination<T> implements OnInit, OnDestroy {
     private _pageSizeOptions;
     canSelectAll: boolean;
     allMatchingSelected: boolean;
+    loading: boolean;
+    errorLoading: boolean;
+    paginationRefreshSubject: Subject<unknown>;
     get length(): number;
     set length(length: number);
     _length: number;
@@ -51,4 +56,6 @@ export declare class NovoDataTablePagination<T> implements OnInit, OnDestroy {
     private calculateTotalPages;
     private makePage;
     private getPages;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoDataTablePagination<any>, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoDataTablePagination<any>, "novo-data-table-pagination", never, { "theme": "theme"; "page": "page"; "pageSize": "pageSize"; "dataFeatureId": "dataFeatureId"; "pageSizeOptions": "pageSizeOptions"; "canSelectAll": "canSelectAll"; "allMatchingSelected": "allMatchingSelected"; "loading": "loading"; "errorLoading": "errorLoading"; "paginationRefreshSubject": "paginationRefreshSubject"; "length": "length"; }, { "pageChange": "pageChange"; }, never, never>;
 }

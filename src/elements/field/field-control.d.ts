@@ -1,5 +1,6 @@
 import { NgControl } from '@angular/forms';
 import { Observable } from 'rxjs';
+import * as i0 from "@angular/core";
 /** An interface which allows a control to work inside of a `NovoField`. */
 export declare abstract class NovoFieldControl<T> {
     /** The value of the control. */
@@ -48,4 +49,6 @@ export declare abstract class NovoFieldControl<T> {
     /** Handles a click on the control's container. */
     abstract onContainerClick(event: MouseEvent): void;
     abstract focus(options?: FocusOptions): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoFieldControl<any>, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NovoFieldControl<any>, never, never, {}, {}, never>;
 }

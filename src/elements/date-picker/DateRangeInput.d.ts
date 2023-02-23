@@ -4,6 +4,7 @@ import { DateFormatService } from '../../services/date-format/DateFormat';
 import { NovoLabelService } from '../../services/novo-label-service';
 import { NovoOverlayTemplateComponent } from '../common/overlay/Overlay';
 import { RangeModel } from './date-picker.types';
+import * as i0 from "@angular/core";
 export declare class NovoDateRangeInputElement implements OnInit, OnChanges, ControlValueAccessor {
     element: ElementRef;
     labels: NovoLabelService;
@@ -72,4 +73,6 @@ export declare class NovoDateRangeInputElement implements OnInit, OnChanges, Con
     formatDateValue(value: any): any;
     get hasStartValue(): boolean;
     get hasEndValue(): boolean;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoDateRangeInputElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoDateRangeInputElement, "novo-date-range-input", never, { "name": "name"; "start": "start"; "end": "end"; "weekRangeSelect": "weekRangeSelect"; "mode": "mode"; "placeholder": "placeholder"; "maskOptions": "maskOptions"; "format": "format"; "textMaskEnabled": "textMaskEnabled"; "allowInvalidDate": "allowInvalidDate"; "weekStart": "weekStart"; "value": "value"; "disabled": "disabled"; }, { "blurEvent": "blurEvent"; "focusEvent": "focusEvent"; "change": "change"; "blur": "blur"; "focus": "focus"; }, never, never>;
 }
