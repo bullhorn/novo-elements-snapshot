@@ -14,7 +14,7 @@ const test_project_1 = require("./test-project");
 /** Create a base app used for testing. */
 function createTestApp(runner, appOptions = {}, tree) {
     return __awaiter(this, void 0, void 0, function* () {
-        return test_project_1.createTestProject(runner, 'application', appOptions, tree);
+        return (0, test_project_1.createTestProject)(runner, 'application', appOptions, tree);
     });
 }
 exports.createTestApp = createTestApp;
