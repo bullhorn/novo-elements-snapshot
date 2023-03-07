@@ -1,6 +1,7 @@
 import { EventEmitter, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { DeferredPromise } from '../../utils';
+import * as i0 from "@angular/core";
 export declare class NovoToastElement implements OnInit, OnChanges {
     private sanitizer;
     appearance: 'growl' | 'banner';
@@ -31,4 +32,6 @@ export declare class NovoToastElement implements OnInit, OnChanges {
     close(event: any): void;
     actionHandler(event: any): void;
     onAction(fn: () => void): Promise<void>;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoToastElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoToastElement, "novo-toast", never, { "appearance": "appearance"; "theme": "theme"; "icon": "icon"; "title": "title"; "action": "action"; "hasDialogue": "hasDialogue"; "link": "link"; "isCloseable": "isCloseable"; "message": "message"; }, { "closed": "closed"; }, never, ["*"]>;
 }
