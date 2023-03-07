@@ -1,8 +1,9 @@
 import { ElementRef, EventEmitter, OnInit, ViewContainerRef } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { ReplaySubject } from 'rxjs';
-import { NovoLabelService } from '../../services/novo-label-service';
-import { ComponentUtils } from '../../utils/component-utils/ComponentUtils';
+import { NovoLabelService } from '../../services';
+import { ComponentUtils } from '../../utils';
+import * as i0 from "@angular/core";
 export declare class NovoChipsElement implements OnInit, ControlValueAccessor {
     element: ElementRef;
     private componentUtils;
@@ -36,6 +37,7 @@ export declare class NovoChipsElement implements OnInit, ControlValueAccessor {
     set value(selected: any);
     clearValue(): void;
     setItems(): void;
+    propagateValueChanges(): void;
     getLabelFromOptions(value: any): {
         value: any;
         label: any;
@@ -70,4 +72,6 @@ export declare class NovoChipsElement implements OnInit, ControlValueAccessor {
      * @description - This method deletes the preview popup from the DOM.
      */
     hidePreview(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoChipsElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoChipsElement, "chips,novo-chips", never, { "closeOnSelect": "closeOnSelect"; "placeholder": "placeholder"; "source": "source"; "maxlength": "maxlength"; "type": "type"; "disablePickerInput": "disablePickerInput"; "value": "value"; }, { "changed": "changed"; "focus": "focus"; "blur": "blur"; "typing": "typing"; }, never, never>;
 }
