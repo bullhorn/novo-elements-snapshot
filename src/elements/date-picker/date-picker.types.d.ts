@@ -15,7 +15,11 @@ export interface RangeModel {
     startDate: Date;
     endDate: Date;
 }
-export declare type modelTypes = Date | Date[] | RangeModel;
+export interface DataTableRangeModel {
+    min: Date;
+    max: Date;
+}
+export declare type modelTypes = Date | Date[] | RangeModel | DataTableRangeModel;
 export interface Day {
     date: Date;
     isCurrentMonth?: boolean;
