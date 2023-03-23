@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, ElementRef, EventEmitter, NgZone } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { NovoLabelService } from '../../services/novo-label-service';
+import * as i0 from "@angular/core";
 export declare class NovoSearchBoxElement implements ControlValueAccessor {
     element: ElementRef;
     labels: NovoLabelService;
@@ -17,7 +18,11 @@ export declare class NovoSearchBoxElement implements ControlValueAccessor {
     displayField: string;
     displayValue: string;
     hint: string;
+    keepOpen: boolean;
+    hasBackdrop: boolean;
+    allowPropagation: boolean;
     searchChanged: EventEmitter<string>;
+    applySearch: EventEmitter<KeyboardEvent>;
     focused: boolean;
     value: any;
     /** View -> model callback called when value changes */
@@ -36,6 +41,7 @@ export declare class NovoSearchBoxElement implements ControlValueAccessor {
     showSearch(event?: any, forceClose?: boolean): void;
     onFocus(): void;
     onBlur(): void;
+    onSelect(): void;
     /** BEGIN: Convenient Panel Methods. */
     openPanel(): void;
     closePanel(): void;
@@ -58,4 +64,6 @@ export declare class NovoSearchBoxElement implements ControlValueAccessor {
      * Clear any previous selected option and emit a selection change event for this option
      */
     clearValue(skip: any): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoSearchBoxElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoSearchBoxElement, "novo-search", never, { "name": "name"; "icon": "icon"; "position": "position"; "placeholder": "placeholder"; "alwaysOpen": "alwaysOpen"; "theme": "theme"; "color": "color"; "closeOnSelect": "closeOnSelect"; "displayField": "displayField"; "displayValue": "displayValue"; "hint": "hint"; "keepOpen": "keepOpen"; "hasBackdrop": "hasBackdrop"; "allowPropagation": "allowPropagation"; }, { "searchChanged": "searchChanged"; "applySearch": "applySearch"; }, never, ["*"]>;
 }

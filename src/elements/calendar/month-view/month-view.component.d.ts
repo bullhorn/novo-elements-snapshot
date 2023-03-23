@@ -2,6 +2,7 @@ import { ChangeDetectorRef, ElementRef, EventEmitter, OnInit } from '@angular/co
 import { DomSanitizer } from '@angular/platform-browser';
 import { NovoLabelService } from '../../../services/novo-label-service';
 import type { DateLike, Day, OverlayDate } from '../../date-picker/date-picker.types';
+import * as i0 from "@angular/core";
 export declare class NovoMonthViewElement implements OnInit {
     labels: NovoLabelService;
     private element;
@@ -34,9 +35,9 @@ export declare class NovoMonthViewElement implements OnInit {
     buildWeek(date: Date, month: Date): Array<Object>;
     isDisabled(day: DateLike): boolean;
     /** Returns whether a cell should be marked as selected. */
-    _isSelected(value: DateLike): string | number | Date;
+    _isSelected(value: DateLike): DateLike;
     /** Returns whether a cell should be marked as preview. */
-    _isPreview(value: DateLike): string | number | Date;
+    _isPreview(value: DateLike): DateLike;
     /** Returns whether a cell should be marked as an overlay. */
     _isOverlay(value: DateLike): OverlayDate;
     /** Returns whether a cell should be marked as an overlay. */
@@ -53,4 +54,6 @@ export declare class NovoMonthViewElement implements OnInit {
     _isPreviewEnd(value: DateLike): boolean;
     /** Gets whether a value is inside the preview range. */
     _isInPreview(value: DateLike): boolean;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoMonthViewElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoMonthViewElement, "novo-month-view", never, { "minDate": "minDate"; "maxDate": "maxDate"; "activeDate": "activeDate"; "selected": "selected"; "preview": "preview"; "overlays": "overlays"; "disabledDateMessage": "disabledDateMessage"; "isRange": "isRange"; "hideOverflowDays": "hideOverflowDays"; "weekStartsOn": "weekStartsOn"; }, { "select": "select"; "hover": "hover"; }, never, never>;
 }
