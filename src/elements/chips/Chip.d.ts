@@ -4,6 +4,7 @@ import { Platform } from '@angular/cdk/platform';
 import { ChangeDetectorRef, ElementRef, EventEmitter, InjectionToken, NgZone, OnDestroy } from '@angular/core';
 import { Subject } from 'rxjs';
 import { CanColor, CanColorCtor, CanSizeCtor, HasTabIndex, HasTabIndexCtor } from '../common';
+import * as i0 from "@angular/core";
 export interface IRemovable {
     remove: () => void;
     removable: boolean;
@@ -42,6 +43,8 @@ declare const NovoChipMixinBase: CanSizeCtor & CanColorCtor & HasTabIndexCtor & 
  * @docs-private
  */
 export declare class NovoChipAvatar {
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoChipAvatar, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NovoChipAvatar, "novo-chip-avatar, [novoChipAvatar]", never, {}, {}, never>;
 }
 /**
  * Applies proper (click) support and adds styling for use with Bullhorn's "x" icon *
@@ -59,6 +62,8 @@ export declare class NovoChipRemove {
     constructor(_parentChip: IRemovable, elementRef: ElementRef<HTMLElement>);
     /** Calls the parent chip's public `remove()` method if applicable. */
     _handleClick(event: Event): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoChipRemove, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NovoChipRemove, "[novoChipRemove]", never, {}, {}, never>;
 }
 /**
  * Chip component. Used inside the NovoChipList component.
@@ -151,5 +156,7 @@ export declare class NovoChipElement extends NovoChipMixinBase implements Focusa
     static ngAcceptInputType_removable: BooleanInput;
     static ngAcceptInputType_disabled: BooleanInput;
     static ngAcceptInputType_tabIndex: NumberInput;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoChipElement, [null, null, null, { optional: true; }, null, { optional: true; }, { attribute: "tabindex"; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoChipElement, "novo-chip, [novo-chip]", never, { "color": "color"; "tabIndex": "tabIndex"; "size": "size"; "type": "type"; "selected": "selected"; "value": "value"; "selectable": "selectable"; "disabled": "disabled"; "removable": "removable"; }, { "selectionChange": "selectionChange"; "destroyed": "destroyed"; "removed": "removed"; }, ["avatar", "removeIcon"], ["*"]>;
 }
 export {};
