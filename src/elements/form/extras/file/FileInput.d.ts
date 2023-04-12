@@ -1,10 +1,11 @@
 import { FocusKeyManager } from '@angular/cdk/a11y';
-import { ElementRef, EventEmitter, OnChanges, OnDestroy, OnInit, SimpleChanges, TemplateRef, ViewContainerRef } from '@angular/core';
+import { ElementRef, EventEmitter, OnDestroy, OnInit, TemplateRef, ViewContainerRef } from '@angular/core';
 import { ControlValueAccessor, FormGroupDirective, NgControl, NgForm } from '@angular/forms';
 import { NovoDragulaService } from '../../../../elements/dragula/DragulaService';
 import { NovoLabelService } from '../../../../services/novo-label-service';
 import { CanUpdateErrorStateCtor, ErrorStateMatcher } from '../../../common';
 import { NovoFieldControl } from '../../../field';
+import * as i0 from "@angular/core";
 declare class NovoFileInputBase {
     _defaultErrorStateMatcher: ErrorStateMatcher;
     _parentForm: NgForm;
@@ -13,7 +14,7 @@ declare class NovoFileInputBase {
     constructor(_defaultErrorStateMatcher: ErrorStateMatcher, _parentForm: NgForm, _parentFormGroup: FormGroupDirective, ngControl: NgControl);
 }
 declare const NovoFileInputMixins: CanUpdateErrorStateCtor & typeof NovoFileInputBase;
-export declare class NovoFileInputElement extends NovoFileInputMixins implements NovoFieldControl<any>, ControlValueAccessor, OnInit, OnDestroy, OnChanges {
+export declare class NovoFileInputElement extends NovoFileInputMixins implements NovoFieldControl<any>, ControlValueAccessor, OnInit, OnDestroy {
     private element;
     labels: NovoLabelService;
     private dragula;
@@ -38,6 +39,7 @@ export declare class NovoFileInputElement extends NovoFileInputMixins implements
     fileInput: TemplateRef<any>;
     fileOutput: TemplateRef<any>;
     container: ViewContainerRef;
+    inputElement: ElementRef<HTMLInputElement>;
     multiple: boolean;
     layoutOptions: {
         order?: string;
@@ -90,7 +92,6 @@ export declare class NovoFileInputElement extends NovoFileInputMixins implements
     constructor(element: ElementRef, labels: NovoLabelService, dragula: NovoDragulaService, _defaultErrorStateMatcher: ErrorStateMatcher, _parentForm: NgForm, _parentFormGroup: FormGroupDirective, _ngControl: NgControl);
     ngOnInit(): void;
     ngOnDestroy(): void;
-    ngOnChanges(changes?: SimpleChanges): void;
     updateLayout(): void;
     insertTemplatesBasedOnLayout(): any;
     initializeDragula(): void;
@@ -128,5 +129,7 @@ export declare class NovoFileInputElement extends NovoFileInputMixins implements
      * are no eligible chips.
      */
     focus(options?: FocusOptions): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoFileInputElement, [null, null, null, null, { optional: true; }, { optional: true; }, { optional: true; self: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoFileInputElement, "novo-file-input", never, { "id": "id"; "tabindex": "tabindex"; "errorStateMatcher": "errorStateMatcher"; "multiple": "multiple"; "layoutOptions": "layoutOptions"; "value": "value"; "dataFeatureId": "dataFeatureId"; "name": "name"; "disabled": "disabled"; "required": "required"; "placeholder": "placeholder"; }, { "edit": "edit"; "save": "save"; "delete": "delete"; "upload": "upload"; }, never, never>;
 }
 export {};
