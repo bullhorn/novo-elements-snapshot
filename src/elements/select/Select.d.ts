@@ -7,6 +7,7 @@ import { NovoLabelService } from '../../services/novo-label-service';
 import { CanDisableCtor, CanRequireCtor, CanUpdateErrorStateCtor, ErrorStateMatcher, HasOverlayCtor, HasTabIndexCtor, NovoOptgroup, NovoOption } from '../common';
 import { NovoOverlayTemplateComponent } from '../common/overlay/Overlay';
 import { NovoFieldControl } from '../field';
+import * as i0 from "@angular/core";
 /** Change event object that is emitted when the select value has changed. */
 export declare class NovoSelectChange {
     /** Reference to the select that emitted the change event. */
@@ -184,10 +185,15 @@ export declare class NovoSelectElement extends NovoSelectMixins implements OnIni
      * TODO: Deprecate all header methods
      */
     toggleHeader(event: any, forceValue?: boolean): void;
+    /**
+     * @deprecated use highlight pipe
+     */
     highlight(match: any, query: any): any;
     escapeRegexp(queryToEscape: any): any;
     saveHeader(): void;
     /** Determines the `aria-activedescendant` to be set on the host. */
     _getAriaActiveDescendant(): string | null;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoSelectElement, [null, null, null, null, null, null, { optional: true; self: true; }, { optional: true; }, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoSelectElement, "novo-select", never, { "disabled": "disabled"; "required": "required"; "tabIndex": "tabIndex"; "id": "id"; "name": "name"; "options": "options"; "placeholder": "placeholder"; "readonly": "readonly"; "headerConfig": "headerConfig"; "position": "position"; "overlayWidth": "overlayWidth"; "overlayHeight": "overlayHeight"; "displayWith": "displayWith"; "compareWith": "compareWith"; "value": "value"; "multiple": "multiple"; }, { "onSelect": "onSelect"; "selectionChange": "selectionChange"; "valueChange": "valueChange"; "openedChange": "openedChange"; "_openedStream": "opened"; "_closedStream": "closed"; }, ["optionGroups", "contentOptions"], ["*"]>;
 }
 export {};

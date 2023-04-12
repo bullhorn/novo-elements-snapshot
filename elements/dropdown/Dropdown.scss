@@ -3,7 +3,7 @@
 novo-dropdown {
   display: inline-block;
   position: relative;
-
+  outline: none;
   .novo-dropdown-trigger {
     cursor: pointer;
     -webkit-appearance: none;
@@ -30,6 +30,9 @@ novo-dropdown {
   margin-top: $spacing-sm;
   margin-bottom: $spacing-sm;
   box-shadow: $shadow-3;
+  max-height: calc(100vh - 400px);
+  overflow-y: scroll;
+  min-height: 225px;
   &.has-height {
     overflow: auto;
   }

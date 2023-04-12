@@ -2,6 +2,7 @@ import { ChangeDetectorRef, EventEmitter, OnDestroy, OnInit } from '@angular/cor
 import { NovoLabelService } from '../../services/novo-label-service';
 import { NovoSimplePaginationEvent } from './interfaces';
 import { NovoActivityTableState } from './state';
+import * as i0 from "@angular/core";
 export declare class NovoSimpleTablePagination implements OnInit, OnDestroy {
     private changeDetectorRef;
     labels: NovoLabelService;
@@ -34,4 +35,6 @@ export declare class NovoSimpleTablePagination implements OnInit, OnDestroy {
     changePageSize(pageSize: number): void;
     private updateDisplayedPageSizeOptions;
     private emitPageEvent;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoSimpleTablePagination, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoSimpleTablePagination, "novo-simple-table-pagination", never, { "page": "page"; "length": "length"; "pageSize": "pageSize"; "pageSizeOptions": "pageSizeOptions"; }, { "pageChange": "pageChange"; }, never, never>;
 }
