@@ -1,9 +1,9 @@
-import { BooleanInput } from '@angular/cdk/coercion';
 import { AfterContentInit, AfterViewInit, ChangeDetectorRef, ElementRef, EventEmitter, OnChanges, OnDestroy, QueryList, SimpleChanges } from '@angular/core';
 import { CanDisable, CanDisableCtor, HasOverlayCtor, NovoOptgroup, NovoOption } from '../../common';
 import { NovoOverlayTemplateComponent } from '../../common/overlay';
 import { NovoFieldElement } from '../field';
 import { NovoFieldControl } from '../field-control';
+import * as i0 from "@angular/core";
 /** Event object that is emitted when an autocomplete option is selected. */
 export declare class NovoOptionSelectedEvent {
     /** Reference to the autocomplete panel that emitted the event. */
@@ -81,6 +81,13 @@ export declare class NovoAutocompleteElement extends NovoAutocompleteMixins impl
     /** The currently active option, coerced to MatOption type. */
     get activeOption(): NovoOption | null;
     _handleKeydown(event: KeyboardEvent): void;
-    static ngAcceptInputType_disabled: BooleanInput;
+    private checkSelectedOptions;
+    /**
+     * Finds and selects and option based on its value.
+     * @returns Option that has the corresponding value.
+     */
+    private _selectValue;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoAutocompleteElement, [null, null, { attribute: "tabindex"; }, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoAutocompleteElement, "novo-autocomplete", ["novoAutocomplete"], { "tabIndex": "tabIndex"; "triggerOn": "triggerOn"; "displayWith": "displayWith"; "ariaLabel": "aria-label"; "multiple": "multiple"; "disabled": "disabled"; }, { "optionSelected": "optionSelected"; "optionActivated": "optionActivated"; }, ["optionGroups", "options"], ["*"]>;
 }
 export {};
