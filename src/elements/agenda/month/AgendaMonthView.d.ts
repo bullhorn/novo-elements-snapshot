@@ -1,6 +1,7 @@
 import { ChangeDetectorRef, EventEmitter, OnChanges, OnDestroy, OnInit, TemplateRef } from '@angular/core';
 import { Subject, Subscription } from 'rxjs';
 import { CalendarEvent, CalendarEventTimesChangedEvent, MonthView, MonthViewDay, WeekDay } from '../../../utils/calendar-utils/CalendarUtils';
+import * as i0 from "@angular/core";
 /**
  * Shows all events on a given month. Example usage:
  *
@@ -107,4 +108,6 @@ export declare class NovoAgendaMonthViewElement implements OnChanges, OnInit, On
     private refreshHeader;
     private refreshBody;
     refreshAll(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoAgendaMonthViewElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoAgendaMonthViewElement, "novo-agenda-month", never, { "viewDate": "viewDate"; "events": "events"; "excludeDays": "excludeDays"; "dayModifier": "dayModifier"; "refresh": "refresh"; "locale": "locale"; "tooltipPosition": "tooltipPosition"; "weekStartsOn": "weekStartsOn"; "headerTemplate": "headerTemplate"; "cellTemplate": "cellTemplate"; }, { "dayClicked": "dayClicked"; "eventClicked": "eventClicked"; "eventTimesChanged": "eventTimesChanged"; "viewDateChange": "viewDateChange"; }, never, never>;
 }

@@ -1,5 +1,6 @@
 import { ComponentFactoryResolver, ComponentRef, EventEmitter, OnChanges, SimpleChange, ViewContainerRef } from '@angular/core';
 import { PopOverContent } from './PopOverContent';
+import * as i0 from "@angular/core";
 export declare class PopOverDirective implements OnChanges {
     protected viewContainerRef: ViewContainerRef;
     protected resolver: ComponentFactoryResolver;
@@ -8,6 +9,7 @@ export declare class PopOverDirective implements OnChanges {
     protected visible: boolean;
     constructor(viewContainerRef: ViewContainerRef, resolver: ComponentFactoryResolver);
     content: string | PopOverContent;
+    popoverHtmlContent: string;
     popoverDisabled: boolean;
     popoverAlways: boolean;
     popoverAnimation: boolean;
@@ -27,4 +29,6 @@ export declare class PopOverDirective implements OnChanges {
     show(): void;
     hide(): void;
     getElement(): any;
+    static ɵfac: i0.ɵɵFactoryDeclaration<PopOverDirective, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<PopOverDirective, "[popover]", never, { "content": "popover"; "popoverHtmlContent": "popoverHtmlContent"; "popoverDisabled": "popoverDisabled"; "popoverAlways": "popoverAlways"; "popoverAnimation": "popoverAnimation"; "popoverPlacement": "popoverPlacement"; "popoverTitle": "popoverTitle"; "popoverOnHover": "popoverOnHover"; "popoverDismissTimeout": "popoverDismissTimeout"; }, { "onShown": "onShown"; "onHidden": "onHidden"; }, never>;
 }
