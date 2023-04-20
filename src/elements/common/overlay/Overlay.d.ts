@@ -1,7 +1,8 @@
-import { ConnectedPositionStrategy, Overlay, OverlayConfig, OverlayRef, ScrollStrategy } from '@angular/cdk/overlay';
+import { FlexibleConnectedPositionStrategy, Overlay, OverlayConfig, OverlayRef, ScrollStrategy } from '@angular/cdk/overlay';
 import { TemplatePortal } from '@angular/cdk/portal';
 import { ChangeDetectorRef, ElementRef, EventEmitter, NgZone, OnDestroy, TemplateRef, ViewContainerRef } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
+import * as i0 from "@angular/core";
 export declare class NovoOverlayTemplateComponent implements OnDestroy {
     protected overlay: Overlay;
     protected viewContainerRef: ViewContainerRef;
@@ -16,6 +17,7 @@ export declare class NovoOverlayTemplateComponent implements OnDestroy {
     width: number;
     height: number;
     closeOnSelect: boolean;
+    hasBackdrop: boolean;
     select: EventEmitter<any>;
     opening: EventEmitter<any>;
     closing: EventEmitter<any>;
@@ -50,9 +52,12 @@ export declare class NovoOverlayTemplateComponent implements OnDestroy {
      * Supports the following position strategies:
      * 'default', 'right', 'bottom', 'center', 'bottom-left', 'bottom-right', 'top-left', 'top-right'
      */
-    protected getPosition(): ConnectedPositionStrategy;
+    protected getPosition(): FlexibleConnectedPositionStrategy;
     protected getScrollStrategy(): ScrollStrategy;
     protected checkSizes(): void;
     protected getConnectedElement(): ElementRef;
+    protected elementIsInNestedOverlay(el: any): boolean;
     protected getHostWidth(): number;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoOverlayTemplateComponent, [null, null, null, null, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoOverlayTemplateComponent, "novo-overlay-template", never, { "position": "position"; "scrollStrategy": "scrollStrategy"; "width": "width"; "height": "height"; "closeOnSelect": "closeOnSelect"; "hasBackdrop": "hasBackdrop"; "parent": "parent"; }, { "select": "select"; "opening": "opening"; "closing": "closing"; }, never, ["*"]>;
 }
