@@ -1,4 +1,5 @@
 import { NovoLabelService } from '../../services/novo-label-service';
+import * as i0 from "@angular/core";
 export declare class DateFormatService {
     private labels;
     constructor(labels: NovoLabelService);
@@ -10,4 +11,6 @@ export declare class DateFormatService {
     parseTimeString(timeString: string, militaryTime: boolean): [Date, string];
     parseString(dateTimeString: string, militaryTime: boolean, type: string): [Date, string, boolean?];
     isValidDatePart(value: string, format: string): boolean;
+    static ɵfac: i0.ɵɵFactoryDeclaration<DateFormatService, never>;
+    static ɵprov: i0.ɵɵInjectableDeclaration<DateFormatService>;
 }

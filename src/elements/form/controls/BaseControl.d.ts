@@ -1,6 +1,6 @@
 import { EventEmitter } from '@angular/core';
-import { IMaskOptions } from '../Control';
-import { NovoControlGroupAddConfig } from '../ControlGroup';
+import type { IMaskOptions } from '../Control';
+import type { NovoControlGroupAddConfig } from '../ControlGroup';
 export interface NovoGroupedControlConfig {
     label?: string;
     icon?: string;
@@ -55,6 +55,15 @@ declare class ControlConfig {
     optionsType: string;
     parentScrollSelector: string;
     placeholder: string;
+    popoverAlways?: boolean;
+    popoverAnimation?: boolean;
+    popoverContent?: string;
+    popoverDisabled?: boolean;
+    popoverDismissTimeout?: number;
+    popoverHtmlContent?: string;
+    popoverOnHover?: boolean;
+    popoverPlacement?: 'left' | 'right' | 'top' | 'bottom';
+    popoverTitle?: string;
     readOnly: boolean;
     removeTooltipArrow?: boolean;
     required: boolean;
