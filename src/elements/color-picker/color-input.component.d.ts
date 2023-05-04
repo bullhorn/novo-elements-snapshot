@@ -2,6 +2,7 @@ import { ChangeDetectorRef, ElementRef, EventEmitter, OnInit } from '@angular/co
 import { ControlValueAccessor } from '@angular/forms';
 import { NovoLabelService } from '../../services/novo-label-service';
 import { NovoOverlayTemplateComponent } from '../common/overlay/Overlay';
+import * as i0 from "@angular/core";
 export declare class NovoColorInputElement implements OnInit, ControlValueAccessor {
     element: ElementRef;
     labels: NovoLabelService;
@@ -51,4 +52,6 @@ export declare class NovoColorInputElement implements OnInit, ControlValueAccess
      */
     clearValue(): void;
     get hasValue(): boolean;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoColorInputElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoColorInputElement, "novo-color-input", never, { "name": "name"; "placeholder": "placeholder"; "value": "value"; "disabled": "disabled"; }, { "blurEvent": "blurEvent"; "focusEvent": "focusEvent"; "change": "change"; "blur": "blur"; "focus": "focus"; }, never, never>;
 }

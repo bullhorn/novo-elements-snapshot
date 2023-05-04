@@ -1,6 +1,8 @@
-import { ElementRef, EventEmitter, OnChanges, OnInit } from '@angular/core';
+import { ChangeDetectorRef, ElementRef, EventEmitter, OnChanges, OnInit } from '@angular/core';
+import { ControlValueAccessor } from '@angular/forms';
 import { GlobalRef } from '../../services/global/global.service';
 import { GooglePlacesService } from './places.service';
+import * as i0 from "@angular/core";
 export interface Settings {
     geoPredictionServerUrl?: string;
     geoLatLangServiceUrl?: string;
@@ -25,11 +27,12 @@ export interface Settings {
     searchIconUrl?: string;
     locationIconUrl?: string;
 }
-export declare class PlacesListComponent implements OnInit, OnChanges {
+export declare class PlacesListComponent implements OnInit, OnChanges, ControlValueAccessor {
     private platformId;
     private _elmRef;
     private _global;
     private _googlePlacesService;
+    private cdr;
     userSettings: Settings;
     term: string;
     termChange: EventEmitter<any>;
@@ -47,9 +50,15 @@ export declare class PlacesListComponent implements OnInit, OnChanges {
     private recentSearchData;
     private userSelectedOption;
     private defaultSettings;
-    constructor(platformId: Object, _elmRef: ElementRef, _global: GlobalRef, _googlePlacesService: GooglePlacesService);
+    model: any;
+    onModelChange: Function;
+    onModelTouched: Function;
+    constructor(platformId: Object, _elmRef: ElementRef, _global: GlobalRef, _googlePlacesService: GooglePlacesService, cdr: ChangeDetectorRef);
     ngOnInit(): any;
     ngOnChanges(): any;
+    writeValue(model: any): void;
+    registerOnChange(fn: Function): void;
+    registerOnTouched(fn: Function): void;
     searchinputClickCallback(event: any): any;
     searchinputCallback(event: any): any;
     activeListNode(index: number): any;
@@ -68,4 +77,6 @@ export declare class PlacesListComponent implements OnInit, OnChanges {
     private getPlaceLocationInfo;
     private setRecentLocation;
     private getRecentLocations;
+    static ɵfac: i0.ɵɵFactoryDeclaration<PlacesListComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<PlacesListComponent, "google-places-list", never, { "userSettings": "userSettings"; "term": "term"; }, { "termChange": "termChange"; "select": "select"; }, never, never>;
 }
