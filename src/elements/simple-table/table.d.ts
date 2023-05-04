@@ -4,19 +4,30 @@ import { NovoLabelService } from '../../services/novo-label-service';
 import { SimpleTableActionColumn, SimpleTableColumn, SimpleTablePaginationOptions, SimpleTableSearchOptions } from './interfaces';
 import { NovoActivityTableState } from './state';
 import { ActivityTableDataSource, ActivityTableService } from './table-source';
-/** Workaround for https://github.com/angular/angular/issues/17849 */
-export declare const _NovoTable: typeof CdkTable;
-export declare class NovoTable<T> extends _NovoTable<T> {
+import * as i0 from "@angular/core";
+export declare class NovoTable<T> extends CdkTable<T> {
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoTable<any>, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoTable<any>, "novo-simple-table", never, {}, {}, never, ["caption", "colgroup, col"]>;
 }
 export declare class NovoActivityTableActions {
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoActivityTableActions, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NovoActivityTableActions, "novo-activity-table-actions", never, {}, {}, never>;
 }
 export declare class NovoActivityTableCustomHeader {
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoActivityTableCustomHeader, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NovoActivityTableCustomHeader, "novo-activity-table-custom-header", never, {}, {}, never>;
 }
 export declare class NovoActivityTableCustomFilter {
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoActivityTableCustomFilter, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NovoActivityTableCustomFilter, "novo-activity-table-custom-filter", never, {}, {}, never>;
 }
 export declare class NovoActivityTableEmptyMessage {
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoActivityTableEmptyMessage, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NovoActivityTableEmptyMessage, "novo-activity-table-empty-message", never, {}, {}, never>;
 }
 export declare class NovoActivityTableNoResultsMessage {
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoActivityTableNoResultsMessage, never>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NovoActivityTableNoResultsMessage, "novo-activity-table-no-results-message", never, {}, {}, never>;
 }
 export declare class NovoActivityTable<T> implements AfterContentInit, OnChanges, OnDestroy {
     labels: NovoLabelService;
@@ -56,4 +67,6 @@ export declare class NovoActivityTable<T> implements AfterContentInit, OnChanges
     ngOnDestroy(): void;
     ngAfterContentInit(): void;
     onSearchChange(term: string): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoActivityTable<any>, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoActivityTable<any>, "novo-activity-table", never, { "activityService": "activityService"; "columns": "columns"; "displayedColumns": "displayedColumns"; "actionColumns": "actionColumns"; "paginationOptions": "paginationOptions"; "searchOptions": "searchOptions"; "defaultSort": "defaultSort"; "outsideFilter": "outsideFilter"; "customFilter": "customFilter"; "forceShowHeader": "forceShowHeader"; "hideGlobalSearch": "hideGlobalSearch"; "debug": "debug"; }, {}, never, ["[novo-activity-table-custom-header]", "[novo-activity-table-actions]", "[novo-activity-table-custom-filter]", "*", "[novo-activity-table-no-results-message]", "[novo-activity-table-empty-message]"]>;
 }

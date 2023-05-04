@@ -1,3 +1,4 @@
+import * as i0 from "@angular/core";
 /**
  * Possible states for a pseudo checkbox.
  * @docs-private
@@ -26,4 +27,6 @@ export declare class NovoPseudoCheckbox {
     /** Whether the checkbox is disabled. */
     disabled: boolean;
     constructor(_animationMode?: string);
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoPseudoCheckbox, [{ optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoPseudoCheckbox, "novo-pseudo-checkbox", never, { "state": "state"; "shape": "shape"; "disabled": "disabled"; }, {}, never, never>;
 }
