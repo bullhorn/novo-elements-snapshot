@@ -2,6 +2,7 @@ import { ChangeDetectorRef, ElementRef } from '@angular/core';
 import { Observable } from 'rxjs';
 import { NovoLabelService } from '../../../../services/novo-label-service';
 import { PickerResults } from '../../../picker/extras/picker-results/PickerResults';
+import * as i0 from "@angular/core";
 export declare class QuickNoteResults extends PickerResults {
     labels: NovoLabelService;
     taggingMode: string;
@@ -27,4 +28,6 @@ export declare class QuickNoteResults extends PickerResults {
      * @description
      */
     selectMatch(event: KeyboardEvent): boolean;
+    static ɵfac: i0.ɵɵFactoryDeclaration<QuickNoteResults, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<QuickNoteResults, "quick-note-results", never, {}, {}, never, never>;
 }
