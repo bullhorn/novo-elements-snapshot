@@ -1,6 +1,7 @@
 import { FocusMonitor, FocusOrigin } from '@angular/cdk/a11y';
 import { ChangeDetectorRef, ElementRef, EventEmitter, OnInit } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
+import * as i0 from "@angular/core";
 /** Change event object emitted by NovoCheckbox. */
 export declare class NovoCheckboxChange {
     /** The source NovoCheckbox of the event. */
@@ -23,6 +24,7 @@ export declare class NovoCheckboxElement implements ControlValueAccessor, OnInit
     /** The 'aria-describedby' attribute is read after the element's label and field type. */
     ariaDescribedby: string;
     private _uniqueId;
+    boxIcon: boolean;
     id: string;
     name: string;
     label: string;
@@ -37,14 +39,14 @@ export declare class NovoCheckboxElement implements ControlValueAccessor, OnInit
     /** Whether the checkbox is required. */
     get required(): boolean;
     set required(value: boolean);
-    private _required;
+    _required: boolean;
     /** Whether the checkbox is checked. */
     get checked(): boolean;
     set checked(value: boolean);
-    private _checked;
+    _checked: boolean;
     get indeterminate(): boolean;
     set indeterminate(value: boolean);
-    private _indeterminate;
+    _indeterminate: boolean;
     /** The native `<input type="checkbox">` element */
     _inputElement: ElementRef<HTMLInputElement>;
     /** Event emitted when the checkbox's `checked` value changes. */
@@ -52,7 +54,6 @@ export declare class NovoCheckboxElement implements ControlValueAccessor, OnInit
     /** Event emitted when the checkbox's `indeterminate` value changes. */
     readonly indeterminateChange: EventEmitter<boolean>;
     onSelect: EventEmitter<any>;
-    boxIcon: boolean;
     onModelChange: Function;
     onModelTouched: Function;
     constructor(_cdr: ChangeDetectorRef, _focusMonitor: FocusMonitor, tabIndex: string);
@@ -78,4 +79,6 @@ export declare class NovoCheckboxElement implements ControlValueAccessor, OnInit
     focus(origin?: FocusOrigin, options?: FocusOptions): void;
     _onInteractionEvent(event: Event): void;
     private _syncIndeterminate;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoCheckboxElement, [null, null, { attribute: "tabindex"; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoCheckboxElement, "novo-checkbox", never, { "ariaLabel": "aria-label"; "ariaLabelledby": "aria-labelledby"; "ariaDescribedby": "aria-describedby"; "id": "id"; "name": "name"; "label": "label"; "disabled": "disabled"; "layoutOptions": "layoutOptions"; "color": "color"; "value": "value"; "tabIndex": "tabIndex"; "required": "required"; "checked": "checked"; "indeterminate": "indeterminate"; }, { "change": "change"; "indeterminateChange": "indeterminateChange"; "onSelect": "onSelect"; }, never, ["*"]>;
 }

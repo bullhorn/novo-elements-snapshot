@@ -1,4 +1,5 @@
 import { AfterContentInit, ChangeDetectorRef, ElementRef, EventEmitter, OnDestroy, QueryList, TemplateRef } from '@angular/core';
+import { Subject } from 'rxjs';
 import { NovoLabelService } from '../../services/novo-label-service';
 import { NovoTemplate } from '../common/novo-template/novo-template.directive';
 import { NovoDataTableCellHeader } from './cell-headers/data-table-header-cell.component';
@@ -6,6 +7,7 @@ import { DataTableSource } from './data-table.source';
 import { IDataTableColumn, IDataTablePaginationOptions, IDataTablePreferences, IDataTableSearchOptions, IDataTableSelectionOption, IDataTableService } from './interfaces';
 import { ListInteractionDictionary, ListInteractionEvent } from './ListInteractionTypes';
 import { DataTableState } from './state/data-table-state.service';
+import * as i0 from "@angular/core";
 export declare class NovoDataTable<T> implements AfterContentInit, OnDestroy {
     labels: NovoLabelService;
     private ref;
@@ -39,6 +41,8 @@ export declare class NovoDataTable<T> implements AfterContentInit, OnDestroy {
     maxSelected: number;
     canSelectAll: boolean;
     allMatchingSelected: boolean;
+    overrideTotal: number;
+    paginationRefreshSubject: Subject<void>;
     set dataTableService(service: IDataTableService<T>);
     set rows(rows: T[]);
     set outsideFilter(outsideFilter: EventEmitter<any>);
@@ -82,6 +86,7 @@ export declare class NovoDataTable<T> implements AfterContentInit, OnDestroy {
     private initialized;
     get empty(): boolean;
     get loadingClass(): boolean;
+    get useOverrideTotal(): boolean;
     listInteractions: ListInteractionDictionary;
     constructor(labels: NovoLabelService, ref: ChangeDetectorRef, state: DataTableState<T>);
     modifyCellHeaderMultiSelectFilterOptions(column: string, newOptions: {
@@ -105,4 +110,6 @@ export declare class NovoDataTable<T> implements AfterContentInit, OnDestroy {
     private configureColumns;
     private scrollListener;
     performInteractions(event: ListInteractionEvent): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoDataTable<any>, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoDataTable<any>, "novo-data-table", never, { "displayedColumns": "displayedColumns"; "paginationOptions": "paginationOptions"; "searchOptions": "searchOptions"; "selectionOptions": "selectionOptions"; "defaultSort": "defaultSort"; "name": "name"; "allowMultipleFilters": "allowMultipleFilters"; "rowIdentifier": "rowIdentifier"; "activeRowIdentifier": "activeRowIdentifier"; "trackByFn": "trackByFn"; "templates": "templates"; "fixedHeader": "fixedHeader"; "paginatorDataFeatureId": "paginatorDataFeatureId"; "maxSelected": "maxSelected"; "canSelectAll": "canSelectAll"; "allMatchingSelected": "allMatchingSelected"; "overrideTotal": "overrideTotal"; "paginationRefreshSubject": "paginationRefreshSubject"; "dataTableService": "dataTableService"; "rows": "rows"; "outsideFilter": "outsideFilter"; "refreshSubject": "refreshSubject"; "columns": "columns"; "customFilter": "customFilter"; "hasExandedRows": "hasExandedRows"; "forceShowHeader": "forceShowHeader"; "hideGlobalSearch": "hideGlobalSearch"; "listInteractions": "listInteractions"; }, { "resized": "resized"; "preferencesChanged": "preferencesChanged"; "allSelected": "allSelected"; }, ["customTemplates"], ["*"]>;
 }

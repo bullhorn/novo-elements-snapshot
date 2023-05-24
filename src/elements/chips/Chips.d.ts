@@ -3,6 +3,7 @@ import { ControlValueAccessor } from '@angular/forms';
 import { ReplaySubject } from 'rxjs';
 import { NovoLabelService } from '../../services/novo-label-service';
 import { ComponentUtils } from '../../utils/component-utils/ComponentUtils';
+import * as i0 from "@angular/core";
 export declare class NovoChipsElement implements OnInit, ControlValueAccessor {
     element: ElementRef;
     private componentUtils;
@@ -54,6 +55,7 @@ export declare class NovoChipsElement implements OnInit, ControlValueAccessor {
     registerOnChange(fn: Function): void;
     registerOnTouched(fn: Function): void;
     setDisabledState(disabled: boolean): void;
+    private _finalizeItemValue;
     /** Emits change event to set the model value. */
     private _propagateChanges;
     /**
@@ -70,4 +72,6 @@ export declare class NovoChipsElement implements OnInit, ControlValueAccessor {
      * @description - This method deletes the preview popup from the DOM.
      */
     hidePreview(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoChipsElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoChipsElement, "chips,novo-chips", never, { "closeOnSelect": "closeOnSelect"; "placeholder": "placeholder"; "source": "source"; "maxlength": "maxlength"; "type": "type"; "disablePickerInput": "disablePickerInput"; "value": "value"; }, { "changed": "changed"; "focus": "focus"; "blur": "blur"; "typing": "typing"; }, never, never>;
 }

@@ -1,5 +1,6 @@
 import { AfterContentChecked, ChangeDetectorRef, ElementRef, EventEmitter, OnInit } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
+import * as i0 from "@angular/core";
 export declare class NovoNavElement implements AfterContentChecked {
     theme: string;
     direction: string;
@@ -23,6 +24,8 @@ export declare class NovoNavElement implements AfterContentChecked {
     private _deactivateAllItems;
     /** Clamps the given index to the bounds of 0 and the tabs length. */
     private _clampTabIndex;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoNavElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoNavElement, "novo-nav", never, { "theme": "theme"; "direction": "direction"; "outlet": "outlet"; "router": "router"; "condensed": "condensed"; "selectedIndex": "selectedIndex"; }, { "selectedIndexChange": "selectedIndexChange"; }, never, ["*"]>;
 }
 export declare class NovoTabElement {
     private el;
@@ -38,6 +41,8 @@ export declare class NovoTabElement {
     nav: any;
     constructor(nav: NovoNavElement, el: ElementRef, cdr: ChangeDetectorRef);
     select(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoTabElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoTabElement, "novo-tab", never, { "active": "active"; "color": "color"; "disabled": "disabled"; }, { "activeChange": "activeChange"; }, never, ["*"]>;
 }
 export declare class NovoTabButtonElement {
     role: string;
@@ -46,6 +51,8 @@ export declare class NovoTabButtonElement {
     nav: any;
     constructor(nav: NovoNavElement);
     select(): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoTabButtonElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoTabButtonElement, "novo-tab-button", never, { "active": "active"; "disabled": "disabled"; }, {}, never, ["*"]>;
 }
 export declare class NovoTabLinkElement implements OnInit {
     private router;
@@ -60,15 +67,21 @@ export declare class NovoTabLinkElement implements OnInit {
     ngOnInit(): void;
     select(): void;
     private isLinkActive;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoTabLinkElement, [null, null, null, { optional: true; }]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoTabLinkElement, "novo-tab-link", never, { "active": "active"; "disabled": "disabled"; "spy": "spy"; }, {}, never, ["*"]>;
 }
 export declare class NovoNavOutletElement {
     items: Array<any>;
     show(index: any): void;
     add(item: any): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoNavOutletElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoNavOutletElement, "novo-nav-outlet", never, {}, {}, never, ["*"]>;
 }
 export declare class NovoNavContentElement {
     active: boolean;
     constructor(outlet: NovoNavOutletElement);
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoNavContentElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoNavContentElement, "novo-nav-content", never, { "active": "active"; }, {}, never, ["*"]>;
 }
 export declare class NovoNavHeaderElement {
     role: string;
@@ -77,4 +90,6 @@ export declare class NovoNavHeaderElement {
     outlet: any;
     constructor(outlet: NovoNavOutletElement);
     show(event?: any): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoNavHeaderElement, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoNavHeaderElement, "novo-nav-header", never, { "active": "active"; "forElement": "for"; }, {}, never, ["*"]>;
 }
