@@ -1,10 +1,13 @@
 import { ChangeDetectorRef, EventEmitter, OnInit } from '@angular/core';
 import { ControlValueAccessor } from '@angular/forms';
 import { RadioGroup } from './tokens';
+import * as i0 from "@angular/core";
 export declare class NovoRadioElement implements ControlValueAccessor, OnInit {
     radioGroup: RadioGroup;
     private ref;
     private _uniqueId;
+    private _value;
+    _checked: boolean;
     id: string;
     name: string;
     tabindex: number;
@@ -15,18 +18,14 @@ export declare class NovoRadioElement implements ControlValueAccessor, OnInit {
     size: string;
     icon: string;
     color: string;
+    disabled: boolean;
     change: EventEmitter<any>;
     blur: EventEmitter<any>;
     focus: EventEmitter<any>;
-    private _checked;
-    private _value;
-    private _disabled;
     get checked(): boolean;
     set checked(value: boolean);
     get value(): boolean;
     set value(value: boolean);
-    get disabled(): boolean;
-    set disabled(value: boolean);
     constructor(radioGroup: RadioGroup, ref: ChangeDetectorRef);
     ngOnInit(): void;
     _onInputChange(event: Event): void;
@@ -36,4 +35,6 @@ export declare class NovoRadioElement implements ControlValueAccessor, OnInit {
     private onChangeCallback;
     private onTouchedCallback;
     setDisabledState(disabled: boolean): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoRadioElement, [{ optional: true; }, null]>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoRadioElement, "novo-radio", never, { "id": "id"; "name": "name"; "tabindex": "tabindex"; "vertical": "vertical"; "label": "label"; "button": "button"; "theme": "theme"; "size": "size"; "icon": "icon"; "color": "color"; "disabled": "disabled"; "checked": "checked"; "value": "value"; }, { "change": "change"; "blur": "blur"; "focus": "focus"; }, never, ["*"]>;
 }

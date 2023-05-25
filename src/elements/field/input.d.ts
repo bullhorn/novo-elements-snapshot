@@ -12,6 +12,7 @@ import { AfterViewInit, DoCheck, ElementRef, InjectionToken, NgZone, OnChanges, 
 import { FormGroupDirective, NgControl, NgForm } from '@angular/forms';
 import { Subject } from 'rxjs';
 import { NovoFieldControl } from './field-control';
+import * as i0 from "@angular/core";
 /**
  * This token is used to inject the object whose value should be set into `NovoInput`. If none is
  * provided, the native `HTMLInputElement` is used. Directives like `MatDatepickerInput` can provide
@@ -157,5 +158,7 @@ export declare class NovoInput extends NovoInputBase implements NovoFieldControl
     static ngAcceptInputType_readonly: BooleanInput;
     static ngAcceptInputType_required: BooleanInput;
     static ngAcceptInputType_value: any;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoInput, [null, null, { optional: true; self: true; }, { optional: true; }, { optional: true; }, { optional: true; self: true; }, null, null]>;
+    static ɵdir: i0.ɵɵDirectiveDeclaration<NovoInput, "input[novoInput], textarea[novoInput], select[novoInput]", never, { "disabled": "disabled"; "id": "id"; "placeholder": "placeholder"; "required": "required"; "type": "type"; "value": "value"; "readonly": "readonly"; }, {}, never>;
 }
 export {};
