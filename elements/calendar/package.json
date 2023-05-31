@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-calendar.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-calendar.mjs",
+  "esm2020": "../../esm2020/elements/calendar/novo-elements-elements-calendar.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-calendar.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-calendar.mjs",
+  "typings": "novo-elements-elements-calendar.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/calendar"
+}
