@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-dragula.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-dragula.mjs",
+  "esm2020": "../../esm2020/elements/dragula/novo-elements-elements-dragula.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-dragula.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-dragula.mjs",
+  "typings": "novo-elements-elements-dragula.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/dragula"
+}
