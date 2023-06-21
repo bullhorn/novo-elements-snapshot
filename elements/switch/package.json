@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-switch.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-switch.mjs",
+  "esm2020": "../../esm2020/elements/switch/novo-elements-elements-switch.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-switch.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-switch.mjs",
+  "typings": "novo-elements-elements-switch.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/switch"
+}

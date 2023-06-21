@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-chips.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-chips.mjs",
+  "esm2020": "../../esm2020/elements/chips/novo-elements-elements-chips.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-chips.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-chips.mjs",
+  "typings": "novo-elements-elements-chips.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/chips"
+}

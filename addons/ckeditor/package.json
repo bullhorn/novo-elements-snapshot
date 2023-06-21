@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-addons-ckeditor.mjs",
+  "es2020": "../../fesm2020/novo-elements-addons-ckeditor.mjs",
+  "esm2020": "../../esm2020/addons/ckeditor/novo-elements-addons-ckeditor.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-addons-ckeditor.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-addons-ckeditor.mjs",
+  "typings": "novo-elements-addons-ckeditor.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/addons/ckeditor"
+}
