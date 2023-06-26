@@ -1,0 +1,20 @@
+// NG2
+import { NgModule } from '@angular/core';
+import { NovoOptionModule, NovoOverlayModule } from 'novo-elements/elements/common';
+// APP
+import { NovoDropdownElement, NovoDropDownItemHeaderElement, NovoDropdownListElement, NovoDropDownTrigger, NovoItemElement, } from './Dropdown';
+import * as i0 from "@angular/core";
+export class NovoDropdownModule {
+}
+NovoDropdownModule.ɵfac = i0.ɵɵngDeclareFactory({ minVersion: "12.0.0", version: "13.3.11", ngImport: i0, type: NovoDropdownModule, deps: [], target: i0.ɵɵFactoryTarget.NgModule });
+NovoDropdownModule.ɵmod = i0.ɵɵngDeclareNgModule({ minVersion: "12.0.0", version: "13.3.11", ngImport: i0, type: NovoDropdownModule, declarations: [NovoDropdownElement, NovoItemElement, NovoDropdownListElement, NovoDropDownItemHeaderElement, NovoDropDownTrigger], imports: [NovoOverlayModule, NovoOptionModule], exports: [NovoDropdownElement, NovoItemElement, NovoDropdownListElement, NovoDropDownItemHeaderElement, NovoDropDownTrigger] });
+NovoDropdownModule.ɵinj = i0.ɵɵngDeclareInjector({ minVersion: "12.0.0", version: "13.3.11", ngImport: i0, type: NovoDropdownModule, imports: [[NovoOverlayModule, NovoOptionModule]] });
+i0.ɵɵngDeclareClassMetadata({ minVersion: "12.0.0", version: "13.3.11", ngImport: i0, type: NovoDropdownModule, decorators: [{
+            type: NgModule,
+            args: [{
+                    imports: [NovoOverlayModule, NovoOptionModule],
+                    declarations: [NovoDropdownElement, NovoItemElement, NovoDropdownListElement, NovoDropDownItemHeaderElement, NovoDropDownTrigger],
+                    exports: [NovoDropdownElement, NovoItemElement, NovoDropdownListElement, NovoDropDownItemHeaderElement, NovoDropDownTrigger],
+                }]
+        }] });
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiRHJvcGRvd24ubW9kdWxlLmpzIiwic291cmNlUm9vdCI6IiIsInNvdXJjZXMiOlsiLi4vLi4vLi4vLi4vLi4vcHJvamVjdHMvbm92by1lbGVtZW50cy9zcmMvZWxlbWVudHMvZHJvcGRvd24vRHJvcGRvd24ubW9kdWxlLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFBLE1BQU07QUFDTixPQUFPLEVBQUUsUUFBUSxFQUFFLE1BQU0sZUFBZSxDQUFDO0FBQ3pDLE9BQU8sRUFBRSxnQkFBZ0IsRUFBRSxpQkFBaUIsRUFBRSxNQUFNLCtCQUErQixDQUFDO0FBQ3BGLE1BQU07QUFDTixPQUFPLEVBQ0wsbUJBQW1CLEVBQ25CLDZCQUE2QixFQUM3Qix1QkFBdUIsRUFDdkIsbUJBQW1CLEVBQ25CLGVBQWUsR0FDaEIsTUFBTSxZQUFZLENBQUM7O0FBT3BCLE1BQU0sT0FBTyxrQkFBa0I7O2dIQUFsQixrQkFBa0I7aUhBQWxCLGtCQUFrQixpQkFIZCxtQkFBbUIsRUFBRSxlQUFlLEVBQUUsdUJBQXVCLEVBQUUsNkJBQTZCLEVBQUUsbUJBQW1CLGFBRHRILGlCQUFpQixFQUFFLGdCQUFnQixhQUVuQyxtQkFBbUIsRUFBRSxlQUFlLEVBQUUsdUJBQXVCLEVBQUUsNkJBQTZCLEVBQUUsbUJBQW1CO2lIQUVoSCxrQkFBa0IsWUFKcEIsQ0FBQyxpQkFBaUIsRUFBRSxnQkFBZ0IsQ0FBQzs0RkFJbkMsa0JBQWtCO2tCQUw5QixRQUFRO21CQUFDO29CQUNSLE9BQU8sRUFBRSxDQUFDLGlCQUFpQixFQUFFLGdCQUFnQixDQUFDO29CQUM5QyxZQUFZLEVBQUUsQ0FBQyxtQkFBbUIsRUFBRSxlQUFlLEVBQUUsdUJBQXVCLEVBQUUsNkJBQTZCLEVBQUUsbUJBQW1CLENBQUM7b0JBQ2pJLE9BQU8sRUFBRSxDQUFDLG1CQUFtQixFQUFFLGVBQWUsRUFBRSx1QkFBdUIsRUFBRSw2QkFBNkIsRUFBRSxtQkFBbUIsQ0FBQztpQkFDN0giLCJzb3VyY2VzQ29udGVudCI6WyIvLyBORzJcbmltcG9ydCB7IE5nTW9kdWxlIH0gZnJvbSAnQGFuZ3VsYXIvY29yZSc7XG5pbXBvcnQgeyBOb3ZvT3B0aW9uTW9kdWxlLCBOb3ZvT3ZlcmxheU1vZHVsZSB9IGZyb20gJ25vdm8tZWxlbWVudHMvZWxlbWVudHMvY29tbW9uJztcbi8vIEFQUFxuaW1wb3J0IHtcbiAgTm92b0Ryb3Bkb3duRWxlbWVudCxcbiAgTm92b0Ryb3BEb3duSXRlbUhlYWRlckVsZW1lbnQsXG4gIE5vdm9Ecm9wZG93bkxpc3RFbGVtZW50LFxuICBOb3ZvRHJvcERvd25UcmlnZ2VyLFxuICBOb3ZvSXRlbUVsZW1lbnQsXG59IGZyb20gJy4vRHJvcGRvd24nO1xuXG5ATmdNb2R1bGUoe1xuICBpbXBvcnRzOiBbTm92b092ZXJsYXlNb2R1bGUsIE5vdm9PcHRpb25Nb2R1bGVdLFxuICBkZWNsYXJhdGlvbnM6IFtOb3ZvRHJvcGRvd25FbGVtZW50LCBOb3ZvSXRlbUVsZW1lbnQsIE5vdm9Ecm9wZG93bkxpc3RFbGVtZW50LCBOb3ZvRHJvcERvd25JdGVtSGVhZGVyRWxlbWVudCwgTm92b0Ryb3BEb3duVHJpZ2dlcl0sXG4gIGV4cG9ydHM6IFtOb3ZvRHJvcGRvd25FbGVtZW50LCBOb3ZvSXRlbUVsZW1lbnQsIE5vdm9Ecm9wZG93bkxpc3RFbGVtZW50LCBOb3ZvRHJvcERvd25JdGVtSGVhZGVyRWxlbWVudCwgTm92b0Ryb3BEb3duVHJpZ2dlcl0sXG59KVxuZXhwb3J0IGNsYXNzIE5vdm9Ecm9wZG93bk1vZHVsZSB7fVxuIl19
