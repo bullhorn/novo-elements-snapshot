@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-tiles.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-tiles.mjs",
+  "esm2020": "../../esm2020/elements/tiles/novo-elements-elements-tiles.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-tiles.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-tiles.mjs",
+  "typings": "novo-elements-elements-tiles.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/tiles"
+}
