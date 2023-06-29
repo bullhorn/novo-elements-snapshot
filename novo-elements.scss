@@ -23,11 +23,17 @@
 @include cdk-overlay();
 
 // --------------------------------------------------
+// Addons
+// --------------------------------------------------
+@import "./addons/ace-editor/AceEditor";
+@import "./addons/ckeditor/CKEditor";
+@import "./addons/dragula/Dragula";
+
+// --------------------------------------------------
 // Elements
 // --------------------------------------------------
 @import "./elements/data-table/data-table.component";
 @import "./elements/tabs/Tabs";
-@import "./elements/ace-editor/AceEditor";
 @import "./elements/radio/Radio";
 @import "./elements/toast/Toast";
 @import "./elements/modal/modal.component";
@@ -53,14 +59,12 @@
 @import "./elements/list/List";
 @import "./elements/table/Table";
 @import "./elements/table/extras/pagination/Pagination";
-@import "./elements/dragula/Dragula";
 @import "./elements/form/Form";
 @import "./elements/quick-note/QuickNote";
 @import "./elements/tiles/Tiles";
 @import "./elements/tooltip/Tooltip";
 @import "./elements/slider/Slider";
 @import "./elements/tip-well/TipWell";
-@import "./elements/ckeditor/CKEditor";
 @import "./elements/category-dropdown/CategoryDropdown";
 @import "./elements/multi-picker/MultiPicker";
 @import "./elements/popover/PopOver";
@@ -98,13 +102,17 @@
   background-color: var(--background-body, $color-silver);
 }
 .txc-main {
-  color: var(--text-main, $color-dark);
-}
-.txc-bright {
-  color: var(--text-bright, $color-black);
+  color: var(--text-main, $color-charcoal);
 }
 .txc-muted {
-  color: var(--text-muted, $color-slate);
+  color: var(--text-muted, $color-neutral);
+}
+.txc-disabled {
+  color: var(--text-disabled, $color-slate);
+}
+
+.novo-visibility-hidden {
+  visibility: hidden !important;
 }
 
 @include theme-colors() using ($name, $color, $contrast, $tint, $shade, $pale) {

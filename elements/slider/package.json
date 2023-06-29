@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-slider.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-slider.mjs",
+  "esm2020": "../../esm2020/elements/slider/novo-elements-elements-slider.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-slider.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-slider.mjs",
+  "typings": "novo-elements-elements-slider.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/slider"
+}
