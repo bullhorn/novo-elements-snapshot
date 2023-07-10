@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-non-ideal-state.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-non-ideal-state.mjs",
+  "esm2020": "../../esm2020/elements/non-ideal-state/novo-elements-elements-non-ideal-state.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-non-ideal-state.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-non-ideal-state.mjs",
+  "typings": "novo-elements-elements-non-ideal-state.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/non-ideal-state"
+}

@@ -1,15 +1,15 @@
 @import "../common/typography/text.mixins";
 
-novo-dropdown {
+:host {
   display: inline-block;
   position: relative;
-
+  outline: none;
   .novo-dropdown-trigger {
     cursor: pointer;
     -webkit-appearance: none;
   }
-  button,
-  novo-button {
+  ::ng-deep button,
+  ::ng-deep novo-button {
     position: relative;
     z-index: 0;
     .novo-button-icon {
