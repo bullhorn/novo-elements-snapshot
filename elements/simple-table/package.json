@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-simple-table.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-simple-table.mjs",
+  "esm2020": "../../esm2020/elements/simple-table/novo-elements-elements-simple-table.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-simple-table.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-simple-table.mjs",
+  "typings": "novo-elements-elements-simple-table.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/simple-table"
+}
