@@ -1,7 +1,11 @@
 "use strict";
 var __createBinding = (this && this.__createBinding) || (Object.create ? (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
-    Object.defineProperty(o, k2, { enumerable: true, get: function() { return m[k]; } });
+    var desc = Object.getOwnPropertyDescriptor(m, k);
+    if (!desc || ("get" in desc ? !m.__esModule : desc.writable || desc.configurable)) {
+      desc = { enumerable: true, get: function() { return m[k]; } };
+    }
+    Object.defineProperty(o, k2, desc);
 }) : (function(o, m, k, k2) {
     if (k2 === undefined) k2 = k;
     o[k2] = m[k];
@@ -14,7 +18,7 @@ var __setModuleDefault = (this && this.__setModuleDefault) || (Object.create ? (
 var __importStar = (this && this.__importStar) || function (mod) {
     if (mod && mod.__esModule) return mod;
     var result = {};
-    if (mod != null) for (var k in mod) if (k !== "default" && Object.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
+    if (mod != null) for (var k in mod) if (k !== "default" && Object.prototype.hasOwnProperty.call(mod, k)) __createBinding(result, mod, k);
     __setModuleDefault(result, mod);
     return result;
 };
@@ -28,7 +32,7 @@ class ClassNamesMigration extends schematics_1.DevkitMigration {
         super(...arguments);
         /** Change data that upgrades to the specified target version. */
         // @ts-ignore
-        this.data = schematics_1.getVersionUpgradeData(this, 'classNames');
+        this.data = (0, schematics_1.getVersionUpgradeData)(this, 'classNames');
         /**
          * List of identifier names that have been imported from `@ng-zorro-antd`
          * in the current source file and therefore can be considered trusted.
@@ -49,14 +53,14 @@ class ClassNamesMigration extends schematics_1.DevkitMigration {
         if (!this.data.some((data) => data.replace === identifier.text)) {
             return;
         }
-        if (schematics_1.isNamespaceImportNode(identifier) && module_specifiers_1.isNovoElementsImportDeclaration(identifier)) {
+        if ((0, schematics_1.isNamespaceImportNode)(identifier) && (0, module_specifiers_1.isNovoElementsImportDeclaration)(identifier)) {
             this.trustedNamespaces.add(identifier.text);
             return this._createFailureWithReplacement(identifier);
         }
-        if (schematics_1.isExportSpecifierNode(identifier) && module_specifiers_1.isNovoElementsExportDeclaration(identifier)) {
+        if ((0, schematics_1.isExportSpecifierNode)(identifier) && (0, module_specifiers_1.isNovoElementsExportDeclaration)(identifier)) {
             return this._createFailureWithReplacement(identifier);
         }
-        if (schematics_1.isImportSpecifierNode(identifier) && module_specifiers_1.isNovoElementsImportDeclaration(identifier)) {
+        if ((0, schematics_1.isImportSpecifierNode)(identifier) && (0, module_specifiers_1.isNovoElementsImportDeclaration)(identifier)) {
             this.trustedIdentifiers.add(identifier.text);
             return this._createFailureWithReplacement(identifier);
         }
