@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-divider.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-divider.mjs",
+  "esm2020": "../../esm2020/elements/divider/novo-elements-elements-divider.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-divider.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-divider.mjs",
+  "typings": "novo-elements-elements-divider.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/divider"
+}
