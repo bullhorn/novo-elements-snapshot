@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-breadcrumbs.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-breadcrumbs.mjs",
+  "esm2020": "../../esm2020/elements/breadcrumbs/novo-elements-elements-breadcrumbs.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-breadcrumbs.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-breadcrumbs.mjs",
+  "typings": "novo-elements-elements-breadcrumbs.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/breadcrumbs"
+}
