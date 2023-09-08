@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-layout.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-layout.mjs",
+  "esm2020": "../../esm2020/elements/layout/novo-elements-elements-layout.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-layout.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-layout.mjs",
+  "typings": "novo-elements-elements-layout.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/layout"
+}
