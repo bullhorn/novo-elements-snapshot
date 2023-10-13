@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-quick-note.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-quick-note.mjs",
+  "esm2020": "../../esm2020/elements/quick-note/novo-elements-elements-quick-note.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-quick-note.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-quick-note.mjs",
+  "typings": "novo-elements-elements-quick-note.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/quick-note"
+}
