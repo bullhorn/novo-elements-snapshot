@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-aside.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-aside.mjs",
+  "esm2020": "../../esm2020/elements/aside/novo-elements-elements-aside.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-aside.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-aside.mjs",
+  "typings": "novo-elements-elements-aside.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/aside"
+}

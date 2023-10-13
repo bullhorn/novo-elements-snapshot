@@ -41,15 +41,10 @@ $chip-spacing: (
   box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   // Chips could be set on buttons so we need to reset the user agent styles.
-  border: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-}
-
-.novo-chip {
   @include novo-body-text();
   background: var(--background-main);
-  box-sizing: border-box;
   border: 1px solid transparent;
   transition: all 200ms ease-in-out;
   display: inline-flex;
@@ -93,7 +88,8 @@ $chip-spacing: (
   }
 
   &.novo-chip-disabled {
-    opacity: 0.4;
+    color: var(--text-main);
+    opacity: 0.7;
     pointer-events: none;
     &::after {
       opacity: 0;
@@ -104,22 +100,6 @@ $chip-spacing: (
       cursor: default;
     }
   }
-
-  // &.novo-chip-with-trailing-icon.novo-chip-with-avatar,
-  // &.novo-chip-with-avatar {
-  //   padding-top: $novo-chip-avatar-vertical-padding;
-  //   padding-bottom: $novo-chip-avatar-vertical-padding;
-  // }
-
-  // &.novo-chip-with-trailing-icon.novo-chip-with-avatar {
-  //   padding-right: $novo-chip-remove-after-padding;
-  //   padding-left: $novo-chip-avatar-before-padding;
-  // }
-
-  // &.novo-chip-with-avatar {
-  //   padding-left: $novo-chip-avatar-before-padding;
-  //   padding-right: $novo-chip-horizontal-padding;
-  // }
 
   .novo-chip-avatar::not(novo-icon) {
     width: $novo-chip-avatar-size;
@@ -177,10 +157,10 @@ $chip-spacing: (
       gap: $spacing;
 
       &.novo-chip-with-avatar {
-        padding-left: $spacing / 2;
+        padding-left: calc($spacing / 2);
       }
       &.novo-chip-with-trailing-icon {
-        padding-right: $spacing / 2;
+        padding-right: calc($spacing / 2);
       }
       .novo-text {
         font-size: inherit;
