@@ -8,17 +8,17 @@ class ScssVariablesMigration extends schematics_1.DevkitMigration {
     constructor() {
         super(...arguments);
         // @ts-ignore
-        this.data = schematics_1.getVersionUpgradeData(this, 'scssVariables');
+        this.data = (0, schematics_1.getVersionUpgradeData)(this, 'scssVariables');
         this.enabled = this.targetVersion === schematics_1.TargetVersion.V6;
     }
     /*override*/ visitStylesheet(stylesheet) {
-        const extension = core_1.extname(stylesheet.filePath);
+        const extension = (0, core_1.extname)(stylesheet.filePath);
         if (extension === '.scss' || extension === '.css') {
             this.data.forEach((data) => {
                 if (data.replaceIn && !data.replaceIn.stylesheet) {
                     return;
                 }
-                schematics_1.findAllSubstringIndices(stylesheet.content, data.replace)
+                (0, schematics_1.findAllSubstringIndices)(stylesheet.content, data.replace)
                     .map((offset) => stylesheet.start + offset)
                     .forEach((start) => this._replaceSelector(stylesheet.filePath, start, data));
             });

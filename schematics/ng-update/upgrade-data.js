@@ -14,5 +14,6 @@ exports.elementsUpgradeData = {
     outputNames: data_1.outputNames,
     propertyNames: data_1.propertyNames,
     scssVariables: data_1.scssVariables,
+    symbolRemoval: data_1.symbolRemoval,
 };
 //# sourceMappingURL=upgrade-data.js.map
