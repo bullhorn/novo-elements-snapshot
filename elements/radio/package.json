@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-radio.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-radio.mjs",
+  "esm2020": "../../esm2020/elements/radio/novo-elements-elements-radio.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-radio.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-radio.mjs",
+  "typings": "novo-elements-elements-radio.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/radio"
+}
