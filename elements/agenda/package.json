@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-agenda.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-agenda.mjs",
+  "esm2020": "../../esm2020/elements/agenda/novo-elements-elements-agenda.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-agenda.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-agenda.mjs",
+  "typings": "novo-elements-elements-agenda.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/agenda"
+}

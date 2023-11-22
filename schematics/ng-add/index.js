@@ -24,8 +24,8 @@ function default_1(options) {
         // Version tag of the `@angular/core` dependency that has been loaded from the `package.json`
         // of the CLI project. This tag should be preferred because all Angular dependencies should
         // have the same version tag if possible.
-        const ngCoreVersionTag = package_config_1.getPackageVersionFromPackageJson(host, '@angular/core');
-        const novoVersionRange = package_config_1.getPackageVersionFromPackageJson(host, 'novo-elements');
+        const ngCoreVersionTag = (0, package_config_1.getPackageVersionFromPackageJson)(host, '@angular/core');
+        const novoVersionRange = (0, package_config_1.getPackageVersionFromPackageJson)(host, 'novo-elements');
         const angularDependencyVersion = ngCoreVersionTag || `0.0.0-NG`;
         // The CLI inserts `novo-elements` into the `package.json` before this schematic runs.
         // This means that we do not need to insert Novo Elements into `package.json` files again.
@@ -33,11 +33,11 @@ function default_1(options) {
         // command, or Novo is only listed a dev dependency. If that is the case, we insert a
         // version based on the current build version (substituted version placeholder).
         if (novoVersionRange === null) {
-            package_config_1.addPackageToPackageJson(host, 'novo-elements', fallbackNovoVersionRange);
+            (0, package_config_1.addPackageToPackageJson)(host, 'novo-elements', fallbackNovoVersionRange);
         }
-        package_config_1.addPackageToPackageJson(host, '@angular/cdk', novoVersionRange || fallbackNovoVersionRange);
-        package_config_1.addPackageToPackageJson(host, '@angular/forms', angularDependencyVersion);
-        package_config_1.addPackageToPackageJson(host, '@angular/animations', angularDependencyVersion);
+        (0, package_config_1.addPackageToPackageJson)(host, '@angular/cdk', novoVersionRange || fallbackNovoVersionRange);
+        (0, package_config_1.addPackageToPackageJson)(host, '@angular/forms', angularDependencyVersion);
+        (0, package_config_1.addPackageToPackageJson)(host, '@angular/animations', angularDependencyVersion);
         // Since the Novo Elements schematics depend on the schematic utility functions from the
         // CDK, we need to install the CDK before loading the schematic files that import from the CDK.
         const installTaskId = context.addTask(new tasks_1.NodePackageInstallTask());

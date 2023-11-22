@@ -6,12 +6,12 @@ const schematics_1 = require("@angular/cdk/schematics");
 exports.novoElementsModuleSpecifier = 'novo-elements';
 /** Whether the specified node is part of an Novo Elements or CDK import declaration. */
 function isNovoElementsImportDeclaration(node) {
-    return isNovoElementsDeclaration(schematics_1.getImportDeclaration(node));
+    return isNovoElementsDeclaration((0, schematics_1.getImportDeclaration)(node));
 }
 exports.isNovoElementsImportDeclaration = isNovoElementsImportDeclaration;
 /** Whether the specified node is part of an Novo Elements or CDK import declaration. */
 function isNovoElementsExportDeclaration(node) {
-    return isNovoElementsDeclaration(schematics_1.getExportDeclaration(node));
+    return isNovoElementsDeclaration((0, schematics_1.getExportDeclaration)(node));
 }
 exports.isNovoElementsExportDeclaration = isNovoElementsExportDeclaration;
 /** Whether the declaration is part of Novo Elements. */
