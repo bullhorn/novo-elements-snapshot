@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-data-table.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-data-table.mjs",
+  "esm2020": "../../esm2020/elements/data-table/novo-elements-elements-data-table.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-data-table.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-data-table.mjs",
+  "typings": "novo-elements-elements-data-table.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/data-table"
+}
