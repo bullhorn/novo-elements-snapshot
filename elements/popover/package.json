@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-popover.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-popover.mjs",
+  "esm2020": "../../esm2020/elements/popover/novo-elements-elements-popover.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-popover.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-popover.mjs",
+  "typings": "novo-elements-elements-popover.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/popover"
+}
