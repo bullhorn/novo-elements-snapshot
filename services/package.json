@@ -1,0 +1,10 @@
+{
+  "module": "../fesm2015/novo-elements-services.mjs",
+  "es2020": "../fesm2020/novo-elements-services.mjs",
+  "esm2020": "../esm2020/services/novo-elements-services.mjs",
+  "fesm2020": "../fesm2020/novo-elements-services.mjs",
+  "fesm2015": "../fesm2015/novo-elements-services.mjs",
+  "typings": "novo-elements-services.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/services"
+}
