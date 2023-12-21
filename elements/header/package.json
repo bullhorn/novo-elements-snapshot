@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-header.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-header.mjs",
+  "esm2020": "../../esm2020/elements/header/novo-elements-elements-header.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-header.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-header.mjs",
+  "typings": "novo-elements-elements-header.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/header"
+}
