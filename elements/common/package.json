@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-common.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-common.mjs",
+  "esm2020": "../../esm2020/elements/common/novo-elements-elements-common.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-common.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-common.mjs",
+  "typings": "novo-elements-elements-common.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/common"
+}
