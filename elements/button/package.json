@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-button.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-button.mjs",
+  "esm2020": "../../esm2020/elements/button/novo-elements-elements-button.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-button.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-button.mjs",
+  "typings": "novo-elements-elements-button.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/button"
+}
