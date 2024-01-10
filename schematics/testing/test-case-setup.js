@@ -28,7 +28,7 @@ const TEST_CASE_OUTPUT_SUFFIX = '_expected_output.$1';
 const MISC_FOLDER_NAME = 'misc';
 /** Reads the UTF8 content of the specified file. Normalizes the path and ensures that */
 function readFileContent(filePath) {
-    return fs_extra_1.readFileSync(filePath, 'utf8');
+    return (0, fs_extra_1.readFileSync)(filePath, 'utf8');
 }
 exports.readFileContent = readFileContent;
 /**
@@ -41,7 +41,7 @@ exports.readFileContent = readFileContent;
 function createFileSystemTestApp(runner) {
     return __awaiter(this, void 0, void 0, function* () {
         const hostTree = new schematics_1.HostTree();
-        const appTree = yield test_app_1.createTestApp(runner, { name: 'cdk-testing' }, hostTree);
+        const appTree = yield (0, test_app_1.createTestApp)(runner, { name: 'cdk-testing' }, hostTree);
         // Since the TypeScript compiler API expects all files to be present on the real file system, we
         // map every file in the app tree to a temporary location on the file system.
         appTree.files.forEach((f) => writeFile(f, appTree.readContent(f)));
@@ -73,8 +73,8 @@ function createTestCaseSetup(migrationName, collectionPath, inputFiles) {
         // Write each test-case input to the file-system. This is necessary because otherwise
         // TypeScript compiler API won't be able to pick up the test cases.
         inputFiles.forEach((inputFilePath) => {
-            const inputTestName = path_1.basename(inputFilePath, path_1.extname(inputFilePath));
-            const inputTextExt = path_1.extname(inputFilePath);
+            const inputTestName = (0, path_1.basename)(inputFilePath, (0, path_1.extname)(inputFilePath));
+            const inputTextExt = (0, path_1.extname)(inputFilePath);
             const relativePath = `projects/cdk-testing/src/test-cases/${inputTestName}${inputTextExt}`;
             const inputContent = readFileContent(inputFilePath);
             writeFile(relativePath, inputContent);
@@ -82,7 +82,7 @@ function createTestCaseSetup(migrationName, collectionPath, inputFiles) {
         const testAppTsconfigPath = 'projects/cdk-testing/tsconfig.app.json';
         // Parse TypeScript configuration files with JSONC (like the CLI does) as the
         // config files could contain comments or trailing commas
-        const testAppTsconfig = jsonc_parser_1.parse(appTree.readContent(testAppTsconfigPath), [], {
+        const testAppTsconfig = (0, jsonc_parser_1.parse)(appTree.readContent(testAppTsconfigPath), [], {
             allowTrailingComma: true,
         });
         // include all TypeScript files in the project. Otherwise all test input
@@ -113,14 +113,14 @@ function findVersionTestCases(basePath) {
     const testCasesMap = new Map();
     // const runfilesDir = process.env['RUNFILES'];
     const runfilesBaseDir = basePath;
-    const inputFiles = glob_1.sync(`**/!(${MISC_FOLDER_NAME})/*${TEST_CASE_INPUT_SUFFIX}`, {
+    const inputFiles = (0, glob_1.sync)(`**/!(${MISC_FOLDER_NAME})/*${TEST_CASE_INPUT_SUFFIX}`, {
         cwd: runfilesBaseDir,
     });
     inputFiles.forEach((inputFile) => {
         // The target version of an input file will be determined from the first
         // path segment. (e.g. "v6/my_rule_input.ts" will be for "v6")
         const targetVersion = inputFile.split(path_1.sep)[0];
-        const resolvedInputPath = path_1.join(runfilesBaseDir, inputFile);
+        const resolvedInputPath = (0, path_1.join)(runfilesBaseDir, inputFile);
         testCasesMap.set(targetVersion, (testCasesMap.get(targetVersion) || []).concat(resolvedInputPath));
     });
     return testCasesMap;
@@ -147,10 +147,10 @@ function defineJasmineTestCases(versionName, collectionFile, inputFiles) {
     // Iterates through every test case directory and generates a jasmine test block that will
     // verify that the update schematics properly updated the test input to the expected output.
     inputFiles.forEach((inputFile) => {
-        const inputTestName = path_1.basename(inputFile, path_1.extname(inputFile));
-        const inputTestExt = path_1.extname(inputFile);
+        const inputTestName = (0, path_1.basename)(inputFile, (0, path_1.extname)(inputFile));
+        const inputTestExt = (0, path_1.extname)(inputFile);
         it(`should apply update schematics to test case: ${inputTestName}`, () => {
-            expect(appTree.readContent(path_1.join(testCasesOutputPath, `${inputTestName}${inputTestExt}`))).toBe(readFileContent(inputFile.replace(new RegExp(TEST_CASE_INPUT_REGEXP, 'gi'), TEST_CASE_OUTPUT_SUFFIX)));
+            expect(appTree.readContent((0, path_1.join)(testCasesOutputPath, `${inputTestName}${inputTestExt}`))).toBe(readFileContent(inputFile.replace(new RegExp(TEST_CASE_INPUT_REGEXP, 'gi'), TEST_CASE_OUTPUT_SUFFIX)));
         });
     });
 }
@@ -168,7 +168,7 @@ function _patchTypeScriptDefaultLib(tree) {
         // package from within the Bazel "@npm" repository  is used. The virtual tree can't be
         // used because the "@npm" repository directory is not part of the virtual file system.
         if (filePath.match(/node_modules[/\\]typescript/)) {
-            return fs_extra_1.readFileSync(core_1.getSystemPath(filePath));
+            return (0, fs_extra_1.readFileSync)((0, core_1.getSystemPath)(filePath));
         }
         else {
             return _originalRead.call(this, filePath);
