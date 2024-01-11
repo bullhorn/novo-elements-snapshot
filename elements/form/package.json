@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-form.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-form.mjs",
+  "esm2020": "../../esm2020/elements/form/novo-elements-elements-form.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-form.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-form.mjs",
+  "typings": "novo-elements-elements-form.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/form"
+}

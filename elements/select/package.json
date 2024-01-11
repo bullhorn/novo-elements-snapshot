@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-select.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-select.mjs",
+  "esm2020": "../../esm2020/elements/select/novo-elements-elements-select.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-select.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-select.mjs",
+  "typings": "novo-elements-elements-select.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/select"
+}
