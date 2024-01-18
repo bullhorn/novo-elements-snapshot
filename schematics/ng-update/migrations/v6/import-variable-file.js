@@ -10,7 +10,7 @@ class ImportVariableFileMigration extends schematics_1.DevkitMigration {
         this.enabled = this.targetVersion === schematics_1.TargetVersion.V6;
     }
     /*override*/ visitStylesheet(stylesheet) {
-        const extension = core_1.extname(stylesheet.filePath);
+        const extension = (0, core_1.extname)(stylesheet.filePath);
         if (extension === '.scss' || extension === '.sass') {
             const content = stylesheet.content;
             const replaceObj = {

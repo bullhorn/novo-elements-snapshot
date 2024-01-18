@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-addons-code-editor.mjs",
+  "es2020": "../../fesm2020/novo-elements-addons-code-editor.mjs",
+  "esm2020": "../../esm2020/addons/code-editor/novo-elements-addons-code-editor.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-addons-code-editor.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-addons-code-editor.mjs",
+  "typings": "novo-elements-addons-code-editor.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/addons/code-editor"
+}
