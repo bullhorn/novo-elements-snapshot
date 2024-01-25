@@ -1,6 +1,6 @@
 {
   "name": "novo-elements",
-  "version": "6.0.0",
+  "version": "8.0.0",
   "sideEffects": true,
   "peerDependencies": {
     "@angular/animations": ">=10",
@@ -9,29 +9,575 @@
     "@angular/core": ">=10",
     "@angular/forms": ">=10",
     "@bullhorn/dragula": ">=1",
+    "@codemirror/commands": "^6.2.4",
+    "@codemirror/lang-javascript": "^6.1.9",
+    "@codemirror/state": "^6.2.1",
+    "@codemirror/view": "^6.16.0",
     "angular-imask": "^6.0.5",
-    "angular2-text-mask": "^9.0.0",
     "brace": "^0.11.0",
     "classlist.js": "^1.1.20150312",
-    "date-fns": ">=1",
-    "novo-design-tokens": "^0.0.8",
+    "codemirror": "6.0.1",
+    "date-fns": ">=2",
+    "novo-design-tokens": "^0.0.9",
     "post-robot": "^8.0.0",
-    "rxjs": ">=6",
-    "text-mask-addons": "^3.7.0",
-    "timezone-support": "^2.0.2"
+    "rxjs": ">=7",
+    "timezone-support": "^3.1.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"
   },
-  "schematics": "./schematics/collection.json",
-  "ng-update": {
-    "migrations": "./schematics/migration.json"
+  "exports": {
+    "./novo-elements": {
+      "sass": "./novo-elements.scss"
+    },
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./index.d.ts",
+      "esm2020": "./esm2020/novo-elements.mjs",
+      "es2020": "./fesm2020/novo-elements.mjs",
+      "es2015": "./fesm2015/novo-elements.mjs",
+      "node": "./fesm2015/novo-elements.mjs",
+      "default": "./fesm2020/novo-elements.mjs"
+    },
+    "./addons/ace-editor": {
+      "types": "./addons/ace-editor/index.d.ts",
+      "esm2020": "./esm2020/addons/ace-editor/novo-elements-addons-ace-editor.mjs",
+      "es2020": "./fesm2020/novo-elements-addons-ace-editor.mjs",
+      "es2015": "./fesm2015/novo-elements-addons-ace-editor.mjs",
+      "node": "./fesm2015/novo-elements-addons-ace-editor.mjs",
+      "default": "./fesm2020/novo-elements-addons-ace-editor.mjs"
+    },
+    "./addons/ckeditor": {
+      "types": "./addons/ckeditor/index.d.ts",
+      "esm2020": "./esm2020/addons/ckeditor/novo-elements-addons-ckeditor.mjs",
+      "es2020": "./fesm2020/novo-elements-addons-ckeditor.mjs",
+      "es2015": "./fesm2015/novo-elements-addons-ckeditor.mjs",
+      "node": "./fesm2015/novo-elements-addons-ckeditor.mjs",
+      "default": "./fesm2020/novo-elements-addons-ckeditor.mjs"
+    },
+    "./addons/code-editor": {
+      "types": "./addons/code-editor/index.d.ts",
+      "esm2020": "./esm2020/addons/code-editor/novo-elements-addons-code-editor.mjs",
+      "es2020": "./fesm2020/novo-elements-addons-code-editor.mjs",
+      "es2015": "./fesm2015/novo-elements-addons-code-editor.mjs",
+      "node": "./fesm2015/novo-elements-addons-code-editor.mjs",
+      "default": "./fesm2020/novo-elements-addons-code-editor.mjs"
+    },
+    "./addons/dragula": {
+      "types": "./addons/dragula/index.d.ts",
+      "esm2020": "./esm2020/addons/dragula/novo-elements-addons-dragula.mjs",
+      "es2020": "./fesm2020/novo-elements-addons-dragula.mjs",
+      "es2015": "./fesm2015/novo-elements-addons-dragula.mjs",
+      "node": "./fesm2015/novo-elements-addons-dragula.mjs",
+      "default": "./fesm2020/novo-elements-addons-dragula.mjs"
+    },
+    "./addons": {
+      "types": "./addons/index.d.ts",
+      "esm2020": "./esm2020/addons/novo-elements-addons.mjs",
+      "es2020": "./fesm2020/novo-elements-addons.mjs",
+      "es2015": "./fesm2015/novo-elements-addons.mjs",
+      "node": "./fesm2015/novo-elements-addons.mjs",
+      "default": "./fesm2020/novo-elements-addons.mjs"
+    },
+    "./elements/agenda": {
+      "types": "./elements/agenda/index.d.ts",
+      "esm2020": "./esm2020/elements/agenda/novo-elements-elements-agenda.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-agenda.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-agenda.mjs",
+      "node": "./fesm2015/novo-elements-elements-agenda.mjs",
+      "default": "./fesm2020/novo-elements-elements-agenda.mjs"
+    },
+    "./elements/aside": {
+      "types": "./elements/aside/index.d.ts",
+      "esm2020": "./esm2020/elements/aside/novo-elements-elements-aside.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-aside.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-aside.mjs",
+      "node": "./fesm2015/novo-elements-elements-aside.mjs",
+      "default": "./fesm2020/novo-elements-elements-aside.mjs"
+    },
+    "./elements/autocomplete": {
+      "types": "./elements/autocomplete/index.d.ts",
+      "esm2020": "./esm2020/elements/autocomplete/novo-elements-elements-autocomplete.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-autocomplete.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-autocomplete.mjs",
+      "node": "./fesm2015/novo-elements-elements-autocomplete.mjs",
+      "default": "./fesm2020/novo-elements-elements-autocomplete.mjs"
+    },
+    "./elements/avatar": {
+      "types": "./elements/avatar/index.d.ts",
+      "esm2020": "./esm2020/elements/avatar/novo-elements-elements-avatar.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-avatar.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-avatar.mjs",
+      "node": "./fesm2015/novo-elements-elements-avatar.mjs",
+      "default": "./fesm2020/novo-elements-elements-avatar.mjs"
+    },
+    "./elements/breadcrumbs": {
+      "types": "./elements/breadcrumbs/index.d.ts",
+      "esm2020": "./esm2020/elements/breadcrumbs/novo-elements-elements-breadcrumbs.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-breadcrumbs.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-breadcrumbs.mjs",
+      "node": "./fesm2015/novo-elements-elements-breadcrumbs.mjs",
+      "default": "./fesm2020/novo-elements-elements-breadcrumbs.mjs"
+    },
+    "./elements/button": {
+      "types": "./elements/button/index.d.ts",
+      "esm2020": "./esm2020/elements/button/novo-elements-elements-button.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-button.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-button.mjs",
+      "node": "./fesm2015/novo-elements-elements-button.mjs",
+      "default": "./fesm2020/novo-elements-elements-button.mjs"
+    },
+    "./elements/calendar": {
+      "types": "./elements/calendar/index.d.ts",
+      "esm2020": "./esm2020/elements/calendar/novo-elements-elements-calendar.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-calendar.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-calendar.mjs",
+      "node": "./fesm2015/novo-elements-elements-calendar.mjs",
+      "default": "./fesm2020/novo-elements-elements-calendar.mjs"
+    },
+    "./elements/card": {
+      "types": "./elements/card/index.d.ts",
+      "esm2020": "./esm2020/elements/card/novo-elements-elements-card.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-card.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-card.mjs",
+      "node": "./fesm2015/novo-elements-elements-card.mjs",
+      "default": "./fesm2020/novo-elements-elements-card.mjs"
+    },
+    "./elements/category-dropdown": {
+      "types": "./elements/category-dropdown/index.d.ts",
+      "esm2020": "./esm2020/elements/category-dropdown/novo-elements-elements-category-dropdown.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-category-dropdown.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-category-dropdown.mjs",
+      "node": "./fesm2015/novo-elements-elements-category-dropdown.mjs",
+      "default": "./fesm2020/novo-elements-elements-category-dropdown.mjs"
+    },
+    "./elements/checkbox": {
+      "types": "./elements/checkbox/index.d.ts",
+      "esm2020": "./esm2020/elements/checkbox/novo-elements-elements-checkbox.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-checkbox.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-checkbox.mjs",
+      "node": "./fesm2015/novo-elements-elements-checkbox.mjs",
+      "default": "./fesm2020/novo-elements-elements-checkbox.mjs"
+    },
+    "./elements/chips": {
+      "types": "./elements/chips/index.d.ts",
+      "esm2020": "./esm2020/elements/chips/novo-elements-elements-chips.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-chips.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-chips.mjs",
+      "node": "./fesm2015/novo-elements-elements-chips.mjs",
+      "default": "./fesm2020/novo-elements-elements-chips.mjs"
+    },
+    "./elements/color-picker": {
+      "types": "./elements/color-picker/index.d.ts",
+      "esm2020": "./esm2020/elements/color-picker/novo-elements-elements-color-picker.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-color-picker.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-color-picker.mjs",
+      "node": "./fesm2015/novo-elements-elements-color-picker.mjs",
+      "default": "./fesm2020/novo-elements-elements-color-picker.mjs"
+    },
+    "./elements/common": {
+      "types": "./elements/common/index.d.ts",
+      "esm2020": "./esm2020/elements/common/novo-elements-elements-common.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-common.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-common.mjs",
+      "node": "./fesm2015/novo-elements-elements-common.mjs",
+      "default": "./fesm2020/novo-elements-elements-common.mjs"
+    },
+    "./elements/data-table": {
+      "types": "./elements/data-table/index.d.ts",
+      "esm2020": "./esm2020/elements/data-table/novo-elements-elements-data-table.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-data-table.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-data-table.mjs",
+      "node": "./fesm2015/novo-elements-elements-data-table.mjs",
+      "default": "./fesm2020/novo-elements-elements-data-table.mjs"
+    },
+    "./elements/date-picker": {
+      "types": "./elements/date-picker/index.d.ts",
+      "esm2020": "./esm2020/elements/date-picker/novo-elements-elements-date-picker.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-date-picker.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-date-picker.mjs",
+      "node": "./fesm2015/novo-elements-elements-date-picker.mjs",
+      "default": "./fesm2020/novo-elements-elements-date-picker.mjs"
+    },
+    "./elements/date-time-picker": {
+      "types": "./elements/date-time-picker/index.d.ts",
+      "esm2020": "./esm2020/elements/date-time-picker/novo-elements-elements-date-time-picker.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-date-time-picker.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-date-time-picker.mjs",
+      "node": "./fesm2015/novo-elements-elements-date-time-picker.mjs",
+      "default": "./fesm2020/novo-elements-elements-date-time-picker.mjs"
+    },
+    "./elements/divider": {
+      "types": "./elements/divider/index.d.ts",
+      "esm2020": "./esm2020/elements/divider/novo-elements-elements-divider.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-divider.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-divider.mjs",
+      "node": "./fesm2015/novo-elements-elements-divider.mjs",
+      "default": "./fesm2020/novo-elements-elements-divider.mjs"
+    },
+    "./elements/drag-drop": {
+      "types": "./elements/drag-drop/index.d.ts",
+      "esm2020": "./esm2020/elements/drag-drop/novo-elements-elements-drag-drop.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-drag-drop.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-drag-drop.mjs",
+      "node": "./fesm2015/novo-elements-elements-drag-drop.mjs",
+      "default": "./fesm2020/novo-elements-elements-drag-drop.mjs"
+    },
+    "./elements/dropdown": {
+      "types": "./elements/dropdown/index.d.ts",
+      "esm2020": "./esm2020/elements/dropdown/novo-elements-elements-dropdown.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-dropdown.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-dropdown.mjs",
+      "node": "./fesm2015/novo-elements-elements-dropdown.mjs",
+      "default": "./fesm2020/novo-elements-elements-dropdown.mjs"
+    },
+    "./elements/expansion": {
+      "types": "./elements/expansion/index.d.ts",
+      "esm2020": "./esm2020/elements/expansion/novo-elements-elements-expansion.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-expansion.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-expansion.mjs",
+      "node": "./fesm2015/novo-elements-elements-expansion.mjs",
+      "default": "./fesm2020/novo-elements-elements-expansion.mjs"
+    },
+    "./elements/field": {
+      "types": "./elements/field/index.d.ts",
+      "esm2020": "./esm2020/elements/field/novo-elements-elements-field.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-field.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-field.mjs",
+      "node": "./fesm2015/novo-elements-elements-field.mjs",
+      "default": "./fesm2020/novo-elements-elements-field.mjs"
+    },
+    "./elements/flex": {
+      "types": "./elements/flex/index.d.ts",
+      "esm2020": "./esm2020/elements/flex/novo-elements-elements-flex.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-flex.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-flex.mjs",
+      "node": "./fesm2015/novo-elements-elements-flex.mjs",
+      "default": "./fesm2020/novo-elements-elements-flex.mjs"
+    },
+    "./elements/form": {
+      "types": "./elements/form/index.d.ts",
+      "esm2020": "./esm2020/elements/form/novo-elements-elements-form.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-form.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-form.mjs",
+      "node": "./fesm2015/novo-elements-elements-form.mjs",
+      "default": "./fesm2020/novo-elements-elements-form.mjs"
+    },
+    "./elements/header": {
+      "types": "./elements/header/index.d.ts",
+      "esm2020": "./esm2020/elements/header/novo-elements-elements-header.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-header.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-header.mjs",
+      "node": "./fesm2015/novo-elements-elements-header.mjs",
+      "default": "./fesm2020/novo-elements-elements-header.mjs"
+    },
+    "./elements/icon": {
+      "types": "./elements/icon/index.d.ts",
+      "esm2020": "./esm2020/elements/icon/novo-elements-elements-icon.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-icon.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-icon.mjs",
+      "node": "./fesm2015/novo-elements-elements-icon.mjs",
+      "default": "./fesm2020/novo-elements-elements-icon.mjs"
+    },
+    "./elements/layout": {
+      "types": "./elements/layout/index.d.ts",
+      "esm2020": "./esm2020/elements/layout/novo-elements-elements-layout.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-layout.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-layout.mjs",
+      "node": "./fesm2015/novo-elements-elements-layout.mjs",
+      "default": "./fesm2020/novo-elements-elements-layout.mjs"
+    },
+    "./elements/list": {
+      "types": "./elements/list/index.d.ts",
+      "esm2020": "./esm2020/elements/list/novo-elements-elements-list.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-list.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-list.mjs",
+      "node": "./fesm2015/novo-elements-elements-list.mjs",
+      "default": "./fesm2020/novo-elements-elements-list.mjs"
+    },
+    "./elements/loading": {
+      "types": "./elements/loading/index.d.ts",
+      "esm2020": "./esm2020/elements/loading/novo-elements-elements-loading.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-loading.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-loading.mjs",
+      "node": "./fesm2015/novo-elements-elements-loading.mjs",
+      "default": "./fesm2020/novo-elements-elements-loading.mjs"
+    },
+    "./elements/menu": {
+      "types": "./elements/menu/index.d.ts",
+      "esm2020": "./esm2020/elements/menu/novo-elements-elements-menu.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-menu.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-menu.mjs",
+      "node": "./fesm2015/novo-elements-elements-menu.mjs",
+      "default": "./fesm2020/novo-elements-elements-menu.mjs"
+    },
+    "./elements/modal": {
+      "types": "./elements/modal/index.d.ts",
+      "esm2020": "./esm2020/elements/modal/novo-elements-elements-modal.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-modal.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-modal.mjs",
+      "node": "./fesm2015/novo-elements-elements-modal.mjs",
+      "default": "./fesm2020/novo-elements-elements-modal.mjs"
+    },
+    "./elements/multi-picker": {
+      "types": "./elements/multi-picker/index.d.ts",
+      "esm2020": "./esm2020/elements/multi-picker/novo-elements-elements-multi-picker.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-multi-picker.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-multi-picker.mjs",
+      "node": "./fesm2015/novo-elements-elements-multi-picker.mjs",
+      "default": "./fesm2020/novo-elements-elements-multi-picker.mjs"
+    },
+    "./elements": {
+      "types": "./elements/index.d.ts",
+      "esm2020": "./esm2020/elements/novo-elements-elements.mjs",
+      "es2020": "./fesm2020/novo-elements-elements.mjs",
+      "es2015": "./fesm2015/novo-elements-elements.mjs",
+      "node": "./fesm2015/novo-elements-elements.mjs",
+      "default": "./fesm2020/novo-elements-elements.mjs"
+    },
+    "./elements/non-ideal-state": {
+      "types": "./elements/non-ideal-state/index.d.ts",
+      "esm2020": "./esm2020/elements/non-ideal-state/novo-elements-elements-non-ideal-state.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-non-ideal-state.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-non-ideal-state.mjs",
+      "node": "./fesm2015/novo-elements-elements-non-ideal-state.mjs",
+      "default": "./fesm2020/novo-elements-elements-non-ideal-state.mjs"
+    },
+    "./elements/picker": {
+      "types": "./elements/picker/index.d.ts",
+      "esm2020": "./esm2020/elements/picker/novo-elements-elements-picker.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-picker.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-picker.mjs",
+      "node": "./fesm2015/novo-elements-elements-picker.mjs",
+      "default": "./fesm2020/novo-elements-elements-picker.mjs"
+    },
+    "./elements/places": {
+      "types": "./elements/places/index.d.ts",
+      "esm2020": "./esm2020/elements/places/novo-elements-elements-places.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-places.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-places.mjs",
+      "node": "./fesm2015/novo-elements-elements-places.mjs",
+      "default": "./fesm2020/novo-elements-elements-places.mjs"
+    },
+    "./elements/popover": {
+      "types": "./elements/popover/index.d.ts",
+      "esm2020": "./esm2020/elements/popover/novo-elements-elements-popover.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-popover.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-popover.mjs",
+      "node": "./fesm2015/novo-elements-elements-popover.mjs",
+      "default": "./fesm2020/novo-elements-elements-popover.mjs"
+    },
+    "./elements/progress": {
+      "types": "./elements/progress/index.d.ts",
+      "esm2020": "./esm2020/elements/progress/novo-elements-elements-progress.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-progress.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-progress.mjs",
+      "node": "./fesm2015/novo-elements-elements-progress.mjs",
+      "default": "./fesm2020/novo-elements-elements-progress.mjs"
+    },
+    "./elements/query-builder": {
+      "types": "./elements/query-builder/index.d.ts",
+      "esm2020": "./esm2020/elements/query-builder/novo-elements-elements-query-builder.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-query-builder.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-query-builder.mjs",
+      "node": "./fesm2015/novo-elements-elements-query-builder.mjs",
+      "default": "./fesm2020/novo-elements-elements-query-builder.mjs"
+    },
+    "./elements/quick-note": {
+      "types": "./elements/quick-note/index.d.ts",
+      "esm2020": "./esm2020/elements/quick-note/novo-elements-elements-quick-note.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-quick-note.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-quick-note.mjs",
+      "node": "./fesm2015/novo-elements-elements-quick-note.mjs",
+      "default": "./fesm2020/novo-elements-elements-quick-note.mjs"
+    },
+    "./elements/radio": {
+      "types": "./elements/radio/index.d.ts",
+      "esm2020": "./esm2020/elements/radio/novo-elements-elements-radio.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-radio.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-radio.mjs",
+      "node": "./fesm2015/novo-elements-elements-radio.mjs",
+      "default": "./fesm2020/novo-elements-elements-radio.mjs"
+    },
+    "./elements/search": {
+      "types": "./elements/search/index.d.ts",
+      "esm2020": "./esm2020/elements/search/novo-elements-elements-search.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-search.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-search.mjs",
+      "node": "./fesm2015/novo-elements-elements-search.mjs",
+      "default": "./fesm2020/novo-elements-elements-search.mjs"
+    },
+    "./elements/select-search": {
+      "types": "./elements/select-search/index.d.ts",
+      "esm2020": "./esm2020/elements/select-search/novo-elements-elements-select-search.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-select-search.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-select-search.mjs",
+      "node": "./fesm2015/novo-elements-elements-select-search.mjs",
+      "default": "./fesm2020/novo-elements-elements-select-search.mjs"
+    },
+    "./elements/select": {
+      "types": "./elements/select/index.d.ts",
+      "esm2020": "./esm2020/elements/select/novo-elements-elements-select.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-select.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-select.mjs",
+      "node": "./fesm2015/novo-elements-elements-select.mjs",
+      "default": "./fesm2020/novo-elements-elements-select.mjs"
+    },
+    "./elements/simple-table": {
+      "types": "./elements/simple-table/index.d.ts",
+      "esm2020": "./esm2020/elements/simple-table/novo-elements-elements-simple-table.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-simple-table.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-simple-table.mjs",
+      "node": "./fesm2015/novo-elements-elements-simple-table.mjs",
+      "default": "./fesm2020/novo-elements-elements-simple-table.mjs"
+    },
+    "./elements/slider": {
+      "types": "./elements/slider/index.d.ts",
+      "esm2020": "./esm2020/elements/slider/novo-elements-elements-slider.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-slider.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-slider.mjs",
+      "node": "./fesm2015/novo-elements-elements-slider.mjs",
+      "default": "./fesm2020/novo-elements-elements-slider.mjs"
+    },
+    "./elements/stepper": {
+      "types": "./elements/stepper/index.d.ts",
+      "esm2020": "./esm2020/elements/stepper/novo-elements-elements-stepper.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-stepper.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-stepper.mjs",
+      "node": "./fesm2015/novo-elements-elements-stepper.mjs",
+      "default": "./fesm2020/novo-elements-elements-stepper.mjs"
+    },
+    "./elements/switch": {
+      "types": "./elements/switch/index.d.ts",
+      "esm2020": "./esm2020/elements/switch/novo-elements-elements-switch.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-switch.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-switch.mjs",
+      "node": "./fesm2015/novo-elements-elements-switch.mjs",
+      "default": "./fesm2020/novo-elements-elements-switch.mjs"
+    },
+    "./elements/tabbed-group-picker": {
+      "types": "./elements/tabbed-group-picker/index.d.ts",
+      "esm2020": "./esm2020/elements/tabbed-group-picker/novo-elements-elements-tabbed-group-picker.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-tabbed-group-picker.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-tabbed-group-picker.mjs",
+      "node": "./fesm2015/novo-elements-elements-tabbed-group-picker.mjs",
+      "default": "./fesm2020/novo-elements-elements-tabbed-group-picker.mjs"
+    },
+    "./elements/table": {
+      "types": "./elements/table/index.d.ts",
+      "esm2020": "./esm2020/elements/table/novo-elements-elements-table.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-table.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-table.mjs",
+      "node": "./fesm2015/novo-elements-elements-table.mjs",
+      "default": "./fesm2020/novo-elements-elements-table.mjs"
+    },
+    "./elements/tabs": {
+      "types": "./elements/tabs/index.d.ts",
+      "esm2020": "./esm2020/elements/tabs/novo-elements-elements-tabs.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-tabs.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-tabs.mjs",
+      "node": "./fesm2015/novo-elements-elements-tabs.mjs",
+      "default": "./fesm2020/novo-elements-elements-tabs.mjs"
+    },
+    "./elements/tiles": {
+      "types": "./elements/tiles/index.d.ts",
+      "esm2020": "./esm2020/elements/tiles/novo-elements-elements-tiles.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-tiles.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-tiles.mjs",
+      "node": "./fesm2015/novo-elements-elements-tiles.mjs",
+      "default": "./fesm2020/novo-elements-elements-tiles.mjs"
+    },
+    "./elements/time-picker": {
+      "types": "./elements/time-picker/index.d.ts",
+      "esm2020": "./esm2020/elements/time-picker/novo-elements-elements-time-picker.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-time-picker.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-time-picker.mjs",
+      "node": "./fesm2015/novo-elements-elements-time-picker.mjs",
+      "default": "./fesm2020/novo-elements-elements-time-picker.mjs"
+    },
+    "./elements/tip-well": {
+      "types": "./elements/tip-well/index.d.ts",
+      "esm2020": "./esm2020/elements/tip-well/novo-elements-elements-tip-well.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-tip-well.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-tip-well.mjs",
+      "node": "./fesm2015/novo-elements-elements-tip-well.mjs",
+      "default": "./fesm2020/novo-elements-elements-tip-well.mjs"
+    },
+    "./elements/toast": {
+      "types": "./elements/toast/index.d.ts",
+      "esm2020": "./esm2020/elements/toast/novo-elements-elements-toast.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-toast.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-toast.mjs",
+      "node": "./fesm2015/novo-elements-elements-toast.mjs",
+      "default": "./fesm2020/novo-elements-elements-toast.mjs"
+    },
+    "./elements/toolbar": {
+      "types": "./elements/toolbar/index.d.ts",
+      "esm2020": "./esm2020/elements/toolbar/novo-elements-elements-toolbar.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-toolbar.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-toolbar.mjs",
+      "node": "./fesm2015/novo-elements-elements-toolbar.mjs",
+      "default": "./fesm2020/novo-elements-elements-toolbar.mjs"
+    },
+    "./elements/tooltip": {
+      "types": "./elements/tooltip/index.d.ts",
+      "esm2020": "./esm2020/elements/tooltip/novo-elements-elements-tooltip.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-tooltip.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-tooltip.mjs",
+      "node": "./fesm2015/novo-elements-elements-tooltip.mjs",
+      "default": "./fesm2020/novo-elements-elements-tooltip.mjs"
+    },
+    "./elements/unless": {
+      "types": "./elements/unless/index.d.ts",
+      "esm2020": "./esm2020/elements/unless/novo-elements-elements-unless.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-unless.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-unless.mjs",
+      "node": "./fesm2015/novo-elements-elements-unless.mjs",
+      "default": "./fesm2020/novo-elements-elements-unless.mjs"
+    },
+    "./elements/value": {
+      "types": "./elements/value/index.d.ts",
+      "esm2020": "./esm2020/elements/value/novo-elements-elements-value.mjs",
+      "es2020": "./fesm2020/novo-elements-elements-value.mjs",
+      "es2015": "./fesm2015/novo-elements-elements-value.mjs",
+      "node": "./fesm2015/novo-elements-elements-value.mjs",
+      "default": "./fesm2020/novo-elements-elements-value.mjs"
+    },
+    "./pipes": {
+      "types": "./pipes/index.d.ts",
+      "esm2020": "./esm2020/pipes/novo-elements-pipes.mjs",
+      "es2020": "./fesm2020/novo-elements-pipes.mjs",
+      "es2015": "./fesm2015/novo-elements-pipes.mjs",
+      "node": "./fesm2015/novo-elements-pipes.mjs",
+      "default": "./fesm2020/novo-elements-pipes.mjs"
+    },
+    "./services": {
+      "types": "./services/index.d.ts",
+      "esm2020": "./esm2020/services/novo-elements-services.mjs",
+      "es2020": "./fesm2020/novo-elements-services.mjs",
+      "es2015": "./fesm2015/novo-elements-services.mjs",
+      "node": "./fesm2015/novo-elements-services.mjs",
+      "default": "./fesm2020/novo-elements-services.mjs"
+    },
+    "./utils": {
+      "types": "./utils/index.d.ts",
+      "esm2020": "./esm2020/utils/novo-elements-utils.mjs",
+      "es2020": "./fesm2020/novo-elements-utils.mjs",
+      "es2015": "./fesm2015/novo-elements-utils.mjs",
+      "node": "./fesm2015/novo-elements-utils.mjs",
+      "default": "./fesm2020/novo-elements-utils.mjs"
+    }
   },
-  "main": "bundles/novo-elements.umd.js",
-  "module": "fesm2015/novo-elements.js",
-  "es2015": "fesm2015/novo-elements.js",
-  "esm2015": "esm2015/novo-elements.js",
-  "fesm2015": "fesm2015/novo-elements.js",
-  "typings": "novo-elements.d.ts",
-  "metadata": "novo-elements.metadata.json"
+  "schematics": "../../schematics/collection.json",
+  "ng-update": {
+    "migrations": "../../schematics/migration.json"
+  },
+  "module": "fesm2015/novo-elements.mjs",
+  "es2020": "fesm2020/novo-elements.mjs",
+  "esm2020": "esm2020/novo-elements.mjs",
+  "fesm2020": "fesm2020/novo-elements.mjs",
+  "fesm2015": "fesm2015/novo-elements.mjs",
+  "typings": "index.d.ts"
 }
