@@ -1,4 +1,4 @@
-@import "~novo-design-tokens/scss";
+@import "node_modules/novo-design-tokens/scss";
 
 // TODO: DEPRECATE COLORS AND USE TOKENS
 
@@ -123,6 +123,7 @@ $entity-colors: (
   "earnCode": $color-earn-code,
   "billableCharge": $color-billable-charge,
   "payableCharge": $color-payable-charge,
+  "complianceManager": $color-positive,
   "invoiceStatement": $color-invoice-statement,
 );
 // Generic Color Map
