@@ -1,0 +1,31 @@
+import { Subject } from 'rxjs';
+/**
+ * Mixin to augment a directive with updateErrorState method.
+ * For component with `errorState` and need to update `errorState`.
+ */
+export function mixinErrorState(base) {
+    return class extends base {
+        updateErrorState() {
+            const oldState = this.errorState;
+            const parent = this._parentFormGroup || this._parentForm;
+            const matcher = this.errorStateMatcher || this._defaultErrorStateMatcher;
+            const control = this.ngControl ? this.ngControl.control : null;
+            const newState = matcher.isErrorState(control, parent);
+            if (newState !== oldState) {
+                this.errorState = newState;
+                this.stateChanges.next();
+            }
+        }
+        constructor(...args) {
+            super(...args);
+            /** Whether the component is in an error state. */
+            this.errorState = false;
+            /**
+             * Stream that emits whenever the state of the input changes such that the wrapping
+             * `MatFormField` needs to run change detection.
+             */
+            this.stateChanges = new Subject();
+        }
+    };
+}
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZXJyb3Itc3RhdGUubWl4aW4uanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyIuLi8uLi8uLi8uLi8uLi8uLi9wcm9qZWN0cy9ub3ZvLWVsZW1lbnRzL3NyYy9lbGVtZW50cy9jb21tb24vbWl4aW5zL2Vycm9yLXN0YXRlLm1peGluLnRzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUNBLE9BQU8sRUFBRSxPQUFPLEVBQUUsTUFBTSxNQUFNLENBQUM7QUF1Qi9COzs7R0FHRztBQUNILE1BQU0sVUFBVSxlQUFlLENBQXVDLElBQU87SUFDM0UsT0FBTyxLQUFNLFNBQVEsSUFBSTtRQVl2QixnQkFBZ0I7WUFDZCxNQUFNLFFBQVEsR0FBRyxJQUFJLENBQUMsVUFBVSxDQUFDO1lBQ2pDLE1BQU0sTUFBTSxHQUFHLElBQUksQ0FBQyxnQkFBZ0IsSUFBSSxJQUFJLENBQUMsV0FBVyxDQUFDO1lBQ3pELE1BQU0sT0FBTyxHQUFHLElBQUksQ0FBQyxpQkFBaUIsSUFBSSxJQUFJLENBQUMseUJBQXlCLENBQUM7WUFDekUsTUFBTSxPQUFPLEdBQUcsSUFBSSxDQUFDLFNBQVMsQ0FBQyxDQUFDLENBQUUsSUFBSSxDQUFDLFNBQVMsQ0FBQyxPQUF1QixDQUFDLENBQUMsQ0FBQyxJQUFJLENBQUM7WUFDaEYsTUFBTSxRQUFRLEdBQUcsT0FBTyxDQUFDLFlBQVksQ0FBQyxPQUFPLEVBQUUsTUFBTSxDQUFDLENBQUM7WUFFdkQsSUFBSSxRQUFRLEtBQUssUUFBUSxFQUFFO2dCQUN6QixJQUFJLENBQUMsVUFBVSxHQUFHLFFBQVEsQ0FBQztnQkFDM0IsSUFBSSxDQUFDLFlBQVksQ0FBQyxJQUFJLEVBQUUsQ0FBQzthQUMxQjtRQUNILENBQUM7UUFFRCxZQUFZLEdBQUcsSUFBVztZQUN4QixLQUFLLENBQUMsR0FBRyxJQUFJLENBQUMsQ0FBQztZQXpCakIsa0RBQWtEO1lBQ2xELGVBQVUsR0FBWSxLQUFLLENBQUM7WUFFNUI7OztlQUdHO1lBQ00saUJBQVksR0FBRyxJQUFJLE9BQU8sRUFBUSxDQUFDO1FBbUI1QyxDQUFDO0tBQ0YsQ0FBQztBQUNKLENBQUMiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBGb3JtQ29udHJvbCwgRm9ybUdyb3VwRGlyZWN0aXZlLCBOZ0NvbnRyb2wsIE5nRm9ybSB9IGZyb20gJ0Bhbmd1bGFyL2Zvcm1zJztcbmltcG9ydCB7IFN1YmplY3QgfSBmcm9tICdyeGpzJztcbmltcG9ydCB7IEVycm9yU3RhdGVNYXRjaGVyIH0gZnJvbSAnLi4vZXJyb3IvZXJyb3Itb3B0aW9ucyc7XG5pbXBvcnQgeyBDb25zdHJ1Y3RvciB9IGZyb20gJy4vY29uc3RydWN0b3InO1xuXG4vKiogQGRvY3MtcHJpdmF0ZSAqL1xuZXhwb3J0IGludGVyZmFjZSBDYW5VcGRhdGVFcnJvclN0YXRlIHtcbiAgdXBkYXRlRXJyb3JTdGF0ZSgpOiB2b2lkO1xuICByZWFkb25seSBzdGF0ZUNoYW5nZXM6IFN1YmplY3Q8dm9pZD47XG4gIGVycm9yU3RhdGU6IGJvb2xlYW47XG4gIGVycm9yU3RhdGVNYXRjaGVyOiBFcnJvclN0YXRlTWF0Y2hlcjtcbn1cblxuLyoqIEBkb2NzLXByaXZhdGUgKi9cbmV4cG9ydCB0eXBlIENhblVwZGF0ZUVycm9yU3RhdGVDdG9yID0gQ29uc3RydWN0b3I8Q2FuVXBkYXRlRXJyb3JTdGF0ZT47XG5cbi8qKiBAZG9jcy1wcml2YXRlICovXG5leHBvcnQgaW50ZXJmYWNlIEhhc0Vycm9yU3RhdGUge1xuICBfcGFyZW50Rm9ybUdyb3VwOiBGb3JtR3JvdXBEaXJlY3RpdmU7XG4gIF9wYXJlbnRGb3JtOiBOZ0Zvcm07XG4gIF9kZWZhdWx0RXJyb3JTdGF0ZU1hdGNoZXI6IEVycm9yU3RhdGVNYXRjaGVyO1xuICBuZ0NvbnRyb2w6IE5nQ29udHJvbDtcbn1cblxuLyoqXG4gKiBNaXhpbiB0byBhdWdtZW50IGEgZGlyZWN0aXZlIHdpdGggdXBkYXRlRXJyb3JTdGF0ZSBtZXRob2QuXG4gKiBGb3IgY29tcG9uZW50IHdpdGggYGVycm9yU3RhdGVgIGFuZCBuZWVkIHRvIHVwZGF0ZSBgZXJyb3JTdGF0ZWAuXG4gKi9cbmV4cG9ydCBmdW5jdGlvbiBtaXhpbkVycm9yU3RhdGU8VCBleHRlbmRzIENvbnN0cnVjdG9yPEhhc0Vycm9yU3RhdGU+PihiYXNlOiBUKTogQ2FuVXBkYXRlRXJyb3JTdGF0ZUN0b3IgJiBUIHtcbiAgcmV0dXJuIGNsYXNzIGV4dGVuZHMgYmFzZSB7XG4gICAgLyoqIFdoZXRoZXIgdGhlIGNvbXBvbmVudCBpcyBpbiBhbiBlcnJvciBzdGF0ZS4gKi9cbiAgICBlcnJvclN0YXRlOiBib29sZWFuID0gZmFsc2U7XG5cbiAgICAvKipcbiAgICAgKiBTdHJlYW0gdGhhdCBlbWl0cyB3aGVuZXZlciB0aGUgc3RhdGUgb2YgdGhlIGlucHV0IGNoYW5nZXMgc3VjaCB0aGF0IHRoZSB3cmFwcGluZ1xuICAgICAqIGBNYXRGb3JtRmllbGRgIG5lZWRzIHRvIHJ1biBjaGFuZ2UgZGV0ZWN0aW9uLlxuICAgICAqL1xuICAgIHJlYWRvbmx5IHN0YXRlQ2hhbmdlcyA9IG5ldyBTdWJqZWN0PHZvaWQ+KCk7XG5cbiAgICBlcnJvclN0YXRlTWF0Y2hlcjogRXJyb3JTdGF0ZU1hdGNoZXI7XG5cbiAgICB1cGRhdGVFcnJvclN0YXRlKCkge1xuICAgICAgY29uc3Qgb2xkU3RhdGUgPSB0aGlzLmVycm9yU3RhdGU7XG4gICAgICBjb25zdCBwYXJlbnQgPSB0aGlzLl9wYXJlbnRGb3JtR3JvdXAgfHwgdGhpcy5fcGFyZW50Rm9ybTtcbiAgICAgIGNvbnN0IG1hdGNoZXIgPSB0aGlzLmVycm9yU3RhdGVNYXRjaGVyIHx8IHRoaXMuX2RlZmF1bHRFcnJvclN0YXRlTWF0Y2hlcjtcbiAgICAgIGNvbnN0IGNvbnRyb2wgPSB0aGlzLm5nQ29udHJvbCA/ICh0aGlzLm5nQ29udHJvbC5jb250cm9sIGFzIEZvcm1Db250cm9sKSA6IG51bGw7XG4gICAgICBjb25zdCBuZXdTdGF0ZSA9IG1hdGNoZXIuaXNFcnJvclN0YXRlKGNvbnRyb2wsIHBhcmVudCk7XG5cbiAgICAgIGlmIChuZXdTdGF0ZSAhPT0gb2xkU3RhdGUpIHtcbiAgICAgICAgdGhpcy5lcnJvclN0YXRlID0gbmV3U3RhdGU7XG4gICAgICAgIHRoaXMuc3RhdGVDaGFuZ2VzLm5leHQoKTtcbiAgICAgIH1cbiAgICB9XG5cbiAgICBjb25zdHJ1Y3RvciguLi5hcmdzOiBhbnlbXSkge1xuICAgICAgc3VwZXIoLi4uYXJncyk7XG4gICAgfVxuICB9O1xufVxuIl19
