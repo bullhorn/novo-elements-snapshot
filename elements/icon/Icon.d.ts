@@ -1,0 +1,31 @@
+import { AfterViewInit, ChangeDetectorRef, ElementRef } from '@angular/core';
+import { TypographySize } from 'novo-elements/elements/common';
+import { BooleanInputAccept } from 'novo-elements/utils';
+import * as i0 from "@angular/core";
+export declare class NovoIconComponent implements AfterViewInit {
+    element: ElementRef;
+    private cdr;
+    raised: boolean;
+    static readonly ngAcceptInputType_raised: BooleanInputAccept;
+    theme: string;
+    shape: string;
+    color: string;
+    role: string;
+    ariaLabel: string;
+    size: TypographySize;
+    smaller: boolean;
+    static readonly ngAcceptInputType_smaller: BooleanInputAccept;
+    larger: boolean;
+    static readonly ngAcceptInputType_larger: BooleanInputAccept;
+    set alt(value: string);
+    get alt(): string;
+    set name(iconName: string);
+    get name(): string;
+    get hb_classBinding(): string;
+    iconName: string;
+    constructor(element: ElementRef, cdr: ChangeDetectorRef);
+    ngAfterViewInit(): void;
+    projectContentChanged(record: MutationRecord[]): void;
+    static ɵfac: i0.ɵɵFactoryDeclaration<NovoIconComponent, never>;
+    static ɵcmp: i0.ɵɵComponentDeclaration<NovoIconComponent, "novo-icon", never, { "raised": "raised"; "theme": "theme"; "shape": "shape"; "color": "color"; "size": "size"; "smaller": "smaller"; "larger": "larger"; "alt": "alt"; "name": "name"; }, {}, never, ["*"]>;
+}
