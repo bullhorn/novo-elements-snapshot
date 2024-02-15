@@ -1,0 +1,10 @@
+{
+  "module": "../fesm2015/novo-elements-addons.mjs",
+  "es2020": "../fesm2020/novo-elements-addons.mjs",
+  "esm2020": "../esm2020/addons/novo-elements-addons.mjs",
+  "fesm2020": "../fesm2020/novo-elements-addons.mjs",
+  "fesm2015": "../fesm2015/novo-elements-addons.mjs",
+  "typings": "novo-elements-addons.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/addons"
+}
