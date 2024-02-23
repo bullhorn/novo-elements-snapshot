@@ -1,0 +1,10 @@
+{
+  "module": "../../fesm2015/novo-elements-elements-drag-drop.mjs",
+  "es2020": "../../fesm2020/novo-elements-elements-drag-drop.mjs",
+  "esm2020": "../../esm2020/elements/drag-drop/novo-elements-elements-drag-drop.mjs",
+  "fesm2020": "../../fesm2020/novo-elements-elements-drag-drop.mjs",
+  "fesm2015": "../../fesm2015/novo-elements-elements-drag-drop.mjs",
+  "typings": "novo-elements-elements-drag-drop.d.ts",
+  "sideEffects": false,
+  "name": "novo-elements/elements/drag-drop"
+}
