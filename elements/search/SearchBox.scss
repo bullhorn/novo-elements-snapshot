@@ -1,6 +1,6 @@
 @import "../../styles/variables.scss";
 
-novo-search {
+:host {
   display: grid;
   grid-template-areas: "icon input";
   grid-template-columns: 3.2rem 1fr;
@@ -8,6 +8,7 @@ novo-search {
   align-items: center;
   height: 3.2rem;
   background: $white;
+  font-size: 1.4rem;
   border: 1px solid $light;
   border-radius: 0.2rem;
   max-width: 400px;
@@ -26,13 +27,17 @@ novo-search {
     grid-template-columns: 4rem 1fr;
   }
 
+  > button[theme][theme='fab'] {
+    width: 2.8em;
+    height: 2.8em;
+    min-height: 2.8em;
+  }
+
   > input {
     height: 100%;
-    max-width: 400px;
     display: block;
     background: transparent;
     position: relative;
-    font-size: 1.4em;
     color: var(--text-main);
     z-index: z(above);
     border: none;
@@ -61,6 +66,23 @@ novo-search {
         > novo-icon {
           color: $color !important;
         }
+      }
+    }
+  }
+}
+
+header {
+  novo-search.always-open:not(.focused) {
+    button {
+      background: rgba($white, 0.25) !important;
+      color: rgba($positive, 0.25) !important;
+    }
+    input {
+      background-color: rgba($white, 0.25) !important;
+      border-color: rgba($white, 0.25) !important;
+      color: rgba($positive, 0.25) !important;
+      &::placeholder {
+        color: $empty !important;
       }
     }
   }
