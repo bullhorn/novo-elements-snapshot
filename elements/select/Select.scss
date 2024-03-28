@@ -1,7 +1,7 @@
 @import "../../styles/variables.scss";
 @import "../common/typography/text.mixins.scss";
 
-novo-select {
+:host {
   display: block;
   position: relative;
   width: 100%;
@@ -25,7 +25,7 @@ novo-select {
     z-index: z(default);
     cursor: pointer;
     text-transform: none;
-    padding: 0 $spacing-sm;
+    padding: 0 $spacing-md 0 $spacing-sm;
     margin-bottom: -1px;
     -webkit-appearance: none;
 
@@ -87,6 +87,10 @@ novo-select {
   font-size: 1rem;
   z-index: z(below);
   opacity: 0;
+
+  .select-item {
+    height: 35px;
+  }
 }
 
 .select-header {
