@@ -21,7 +21,6 @@ $novo-menu-side-padding: 0.5rem;
 
   &:hover:not(.novo-option-inert) {
     background: var(--background-main, rgba($ocean, 0.1));
-    color: var(--text-bright, $dark);
   }
 
   &:active:not(.novo-option-inert),
@@ -81,7 +80,7 @@ $novo-menu-side-padding: 0.5rem;
 }
 
 .novo-option-pseudo-checkbox {
-  $margin: $novo-menu-side-padding / 2;
+  $margin: calc($novo-menu-side-padding / 2);
   margin-right: $margin;
 
   [dir="rtl"] & {
