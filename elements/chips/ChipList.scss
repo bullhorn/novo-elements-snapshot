@@ -40,8 +40,6 @@ $novo-chip-input-margin: 4px;
 
 novo-field.novo-focused {
   input.novo-chip-input {
-    width: $novo-chip-input-width;
-    margin: $novo-chip-input-margin;
     flex: 1 0 $novo-chip-input-width;
   }
 }
