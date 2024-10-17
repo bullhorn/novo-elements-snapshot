@@ -23,7 +23,7 @@ $tooltip-success-color: var(--color-shade-success, #458746);
   }
 }
 
-novo-tooltip {
+:host {
   div {
     background: $tooltip-background;
     color: var(--color-white, #fff);
@@ -140,6 +140,23 @@ novo-tooltip {
     }
     &.preline {
       white-space: pre-line;
+    }
+
+    // Bounce
+    &.bounce {
+      animation: bounce 0.75s ease-in-out infinite;
+    }
+
+    @keyframes bounce {
+      0% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+      100% {
+        transform: translateY(0px);
+      }
     }
   }
 }
