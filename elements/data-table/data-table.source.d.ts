@@ -1,0 +1,30 @@
+import { CdkVirtualScrollViewport } from '@angular/cdk/scrolling';
+import { DataSource } from '@angular/cdk/table';
+import { ChangeDetectorRef } from '@angular/core';
+import { Observable } from 'rxjs';
+import { IDataTableService } from './interfaces';
+import { DataTableState } from './state/data-table-state.service';
+export declare class DataTableSource<T> extends DataSource<T> {
+    private tableService;
+    private state;
+    private ref;
+    private viewport;
+    total: number;
+    currentTotal: number;
+    current: number;
+    loading: boolean;
+    pristine: boolean;
+    private totalSet;
+    itemsLoadedAtOnce: number;
+    itemSize: number;
+    rowHeight: number;
+    private readonly visibleData;
+    private _data;
+    get data(): any[];
+    set data(data: any[]);
+    get totallyEmpty(): boolean;
+    get currentlyEmpty(): boolean;
+    constructor(tableService: IDataTableService<T>, state: DataTableState<T>, ref: ChangeDetectorRef, viewport: CdkVirtualScrollViewport);
+    connect(): Observable<any>;
+    disconnect(): void;
+}
