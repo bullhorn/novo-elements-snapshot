@@ -1,0 +1,4 @@
+{
+  "module": "../fesm2022/novo-elements-elements.mjs",
+  "typings": "../types/novo-elements-elements.d.ts"
+}

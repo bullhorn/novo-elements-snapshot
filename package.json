@@ -1,6 +1,6 @@
 {
   "name": "novo-elements",
-  "version": "6.0.0",
+  "version": "10.0.0",
   "sideEffects": true,
   "peerDependencies": {
     "@angular/animations": ">=10",
@@ -8,30 +8,295 @@
     "@angular/common": ">=10",
     "@angular/core": ">=10",
     "@angular/forms": ">=10",
-    "@bullhorn/dragula": ">=1",
-    "angular-imask": "^6.0.5",
-    "angular2-text-mask": "^9.0.0",
+    "@codemirror/commands": "^6.2.4",
+    "@codemirror/lang-javascript": "^6.1.9",
+    "@codemirror/state": "^6.2.1",
+    "@codemirror/view": "^6.16.0",
+    "angular-imask": "^7.3.0",
     "brace": "^0.11.0",
     "classlist.js": "^1.1.20150312",
-    "date-fns": ">=1",
-    "novo-design-tokens": "^0.0.8",
+    "codemirror": "6.0.1",
+    "date-fns": ">=2",
+    "novo-design-tokens": "^0.0.9",
     "post-robot": "^8.0.0",
-    "rxjs": ">=6",
-    "text-mask-addons": "^3.7.0",
-    "timezone-support": "^2.0.2"
+    "rxjs": ">=7",
+    "timezone-support": "^3.1.0"
   },
   "dependencies": {
     "tslib": "^2.0.0"
   },
-  "schematics": "./schematics/collection.json",
-  "ng-update": {
-    "migrations": "./schematics/migration.json"
+  "exports": {
+    "./novo-elements": {
+      "sass": "./novo-elements.scss"
+    },
+    "./package.json": {
+      "default": "./package.json"
+    },
+    ".": {
+      "types": "./types/novo-elements.d.ts",
+      "default": "./fesm2022/novo-elements.mjs"
+    },
+    "./addons": {
+      "types": "./types/novo-elements-addons.d.ts",
+      "default": "./fesm2022/novo-elements-addons.mjs"
+    },
+    "./addons/ace-editor": {
+      "types": "./types/novo-elements-addons-ace-editor.d.ts",
+      "default": "./fesm2022/novo-elements-addons-ace-editor.mjs"
+    },
+    "./addons/ckeditor": {
+      "types": "./types/novo-elements-addons-ckeditor.d.ts",
+      "default": "./fesm2022/novo-elements-addons-ckeditor.mjs"
+    },
+    "./addons/code-editor": {
+      "types": "./types/novo-elements-addons-code-editor.d.ts",
+      "default": "./fesm2022/novo-elements-addons-code-editor.mjs"
+    },
+    "./elements": {
+      "types": "./types/novo-elements-elements.d.ts",
+      "default": "./fesm2022/novo-elements-elements.mjs"
+    },
+    "./elements/agenda": {
+      "types": "./types/novo-elements-elements-agenda.d.ts",
+      "default": "./fesm2022/novo-elements-elements-agenda.mjs"
+    },
+    "./elements/aside": {
+      "types": "./types/novo-elements-elements-aside.d.ts",
+      "default": "./fesm2022/novo-elements-elements-aside.mjs"
+    },
+    "./elements/autocomplete": {
+      "types": "./types/novo-elements-elements-autocomplete.d.ts",
+      "default": "./fesm2022/novo-elements-elements-autocomplete.mjs"
+    },
+    "./elements/avatar": {
+      "types": "./types/novo-elements-elements-avatar.d.ts",
+      "default": "./fesm2022/novo-elements-elements-avatar.mjs"
+    },
+    "./elements/breadcrumbs": {
+      "types": "./types/novo-elements-elements-breadcrumbs.d.ts",
+      "default": "./fesm2022/novo-elements-elements-breadcrumbs.mjs"
+    },
+    "./elements/button": {
+      "types": "./types/novo-elements-elements-button.d.ts",
+      "default": "./fesm2022/novo-elements-elements-button.mjs"
+    },
+    "./elements/calendar": {
+      "types": "./types/novo-elements-elements-calendar.d.ts",
+      "default": "./fesm2022/novo-elements-elements-calendar.mjs"
+    },
+    "./elements/card": {
+      "types": "./types/novo-elements-elements-card.d.ts",
+      "default": "./fesm2022/novo-elements-elements-card.mjs"
+    },
+    "./elements/category-dropdown": {
+      "types": "./types/novo-elements-elements-category-dropdown.d.ts",
+      "default": "./fesm2022/novo-elements-elements-category-dropdown.mjs"
+    },
+    "./elements/checkbox": {
+      "types": "./types/novo-elements-elements-checkbox.d.ts",
+      "default": "./fesm2022/novo-elements-elements-checkbox.mjs"
+    },
+    "./elements/chips": {
+      "types": "./types/novo-elements-elements-chips.d.ts",
+      "default": "./fesm2022/novo-elements-elements-chips.mjs"
+    },
+    "./elements/color-picker": {
+      "types": "./types/novo-elements-elements-color-picker.d.ts",
+      "default": "./fesm2022/novo-elements-elements-color-picker.mjs"
+    },
+    "./elements/common": {
+      "types": "./types/novo-elements-elements-common.d.ts",
+      "default": "./fesm2022/novo-elements-elements-common.mjs"
+    },
+    "./elements/data-table": {
+      "types": "./types/novo-elements-elements-data-table.d.ts",
+      "default": "./fesm2022/novo-elements-elements-data-table.mjs"
+    },
+    "./elements/date-picker": {
+      "types": "./types/novo-elements-elements-date-picker.d.ts",
+      "default": "./fesm2022/novo-elements-elements-date-picker.mjs"
+    },
+    "./elements/date-time-picker": {
+      "types": "./types/novo-elements-elements-date-time-picker.d.ts",
+      "default": "./fesm2022/novo-elements-elements-date-time-picker.mjs"
+    },
+    "./elements/divider": {
+      "types": "./types/novo-elements-elements-divider.d.ts",
+      "default": "./fesm2022/novo-elements-elements-divider.mjs"
+    },
+    "./elements/drag-drop": {
+      "types": "./types/novo-elements-elements-drag-drop.d.ts",
+      "default": "./fesm2022/novo-elements-elements-drag-drop.mjs"
+    },
+    "./elements/dropdown": {
+      "types": "./types/novo-elements-elements-dropdown.d.ts",
+      "default": "./fesm2022/novo-elements-elements-dropdown.mjs"
+    },
+    "./elements/expansion": {
+      "types": "./types/novo-elements-elements-expansion.d.ts",
+      "default": "./fesm2022/novo-elements-elements-expansion.mjs"
+    },
+    "./elements/field": {
+      "types": "./types/novo-elements-elements-field.d.ts",
+      "default": "./fesm2022/novo-elements-elements-field.mjs"
+    },
+    "./elements/flex": {
+      "types": "./types/novo-elements-elements-flex.d.ts",
+      "default": "./fesm2022/novo-elements-elements-flex.mjs"
+    },
+    "./elements/form": {
+      "types": "./types/novo-elements-elements-form.d.ts",
+      "default": "./fesm2022/novo-elements-elements-form.mjs"
+    },
+    "./elements/header": {
+      "types": "./types/novo-elements-elements-header.d.ts",
+      "default": "./fesm2022/novo-elements-elements-header.mjs"
+    },
+    "./elements/icon": {
+      "types": "./types/novo-elements-elements-icon.d.ts",
+      "default": "./fesm2022/novo-elements-elements-icon.mjs"
+    },
+    "./elements/layout": {
+      "types": "./types/novo-elements-elements-layout.d.ts",
+      "default": "./fesm2022/novo-elements-elements-layout.mjs"
+    },
+    "./elements/list": {
+      "types": "./types/novo-elements-elements-list.d.ts",
+      "default": "./fesm2022/novo-elements-elements-list.mjs"
+    },
+    "./elements/loading": {
+      "types": "./types/novo-elements-elements-loading.d.ts",
+      "default": "./fesm2022/novo-elements-elements-loading.mjs"
+    },
+    "./elements/menu": {
+      "types": "./types/novo-elements-elements-menu.d.ts",
+      "default": "./fesm2022/novo-elements-elements-menu.mjs"
+    },
+    "./elements/modal": {
+      "types": "./types/novo-elements-elements-modal.d.ts",
+      "default": "./fesm2022/novo-elements-elements-modal.mjs"
+    },
+    "./elements/multi-picker": {
+      "types": "./types/novo-elements-elements-multi-picker.d.ts",
+      "default": "./fesm2022/novo-elements-elements-multi-picker.mjs"
+    },
+    "./elements/non-ideal-state": {
+      "types": "./types/novo-elements-elements-non-ideal-state.d.ts",
+      "default": "./fesm2022/novo-elements-elements-non-ideal-state.mjs"
+    },
+    "./elements/picker": {
+      "types": "./types/novo-elements-elements-picker.d.ts",
+      "default": "./fesm2022/novo-elements-elements-picker.mjs"
+    },
+    "./elements/places": {
+      "types": "./types/novo-elements-elements-places.d.ts",
+      "default": "./fesm2022/novo-elements-elements-places.mjs"
+    },
+    "./elements/popover": {
+      "types": "./types/novo-elements-elements-popover.d.ts",
+      "default": "./fesm2022/novo-elements-elements-popover.mjs"
+    },
+    "./elements/progress": {
+      "types": "./types/novo-elements-elements-progress.d.ts",
+      "default": "./fesm2022/novo-elements-elements-progress.mjs"
+    },
+    "./elements/query-builder": {
+      "types": "./types/novo-elements-elements-query-builder.d.ts",
+      "default": "./fesm2022/novo-elements-elements-query-builder.mjs"
+    },
+    "./elements/quick-note": {
+      "types": "./types/novo-elements-elements-quick-note.d.ts",
+      "default": "./fesm2022/novo-elements-elements-quick-note.mjs"
+    },
+    "./elements/radio": {
+      "types": "./types/novo-elements-elements-radio.d.ts",
+      "default": "./fesm2022/novo-elements-elements-radio.mjs"
+    },
+    "./elements/search": {
+      "types": "./types/novo-elements-elements-search.d.ts",
+      "default": "./fesm2022/novo-elements-elements-search.mjs"
+    },
+    "./elements/select": {
+      "types": "./types/novo-elements-elements-select.d.ts",
+      "default": "./fesm2022/novo-elements-elements-select.mjs"
+    },
+    "./elements/select-search": {
+      "types": "./types/novo-elements-elements-select-search.d.ts",
+      "default": "./fesm2022/novo-elements-elements-select-search.mjs"
+    },
+    "./elements/simple-table": {
+      "types": "./types/novo-elements-elements-simple-table.d.ts",
+      "default": "./fesm2022/novo-elements-elements-simple-table.mjs"
+    },
+    "./elements/slider": {
+      "types": "./types/novo-elements-elements-slider.d.ts",
+      "default": "./fesm2022/novo-elements-elements-slider.mjs"
+    },
+    "./elements/stepper": {
+      "types": "./types/novo-elements-elements-stepper.d.ts",
+      "default": "./fesm2022/novo-elements-elements-stepper.mjs"
+    },
+    "./elements/switch": {
+      "types": "./types/novo-elements-elements-switch.d.ts",
+      "default": "./fesm2022/novo-elements-elements-switch.mjs"
+    },
+    "./elements/tabbed-group-picker": {
+      "types": "./types/novo-elements-elements-tabbed-group-picker.d.ts",
+      "default": "./fesm2022/novo-elements-elements-tabbed-group-picker.mjs"
+    },
+    "./elements/tabs": {
+      "types": "./types/novo-elements-elements-tabs.d.ts",
+      "default": "./fesm2022/novo-elements-elements-tabs.mjs"
+    },
+    "./elements/tiles": {
+      "types": "./types/novo-elements-elements-tiles.d.ts",
+      "default": "./fesm2022/novo-elements-elements-tiles.mjs"
+    },
+    "./elements/time-picker": {
+      "types": "./types/novo-elements-elements-time-picker.d.ts",
+      "default": "./fesm2022/novo-elements-elements-time-picker.mjs"
+    },
+    "./elements/tip-well": {
+      "types": "./types/novo-elements-elements-tip-well.d.ts",
+      "default": "./fesm2022/novo-elements-elements-tip-well.mjs"
+    },
+    "./elements/toast": {
+      "types": "./types/novo-elements-elements-toast.d.ts",
+      "default": "./fesm2022/novo-elements-elements-toast.mjs"
+    },
+    "./elements/toolbar": {
+      "types": "./types/novo-elements-elements-toolbar.d.ts",
+      "default": "./fesm2022/novo-elements-elements-toolbar.mjs"
+    },
+    "./elements/tooltip": {
+      "types": "./types/novo-elements-elements-tooltip.d.ts",
+      "default": "./fesm2022/novo-elements-elements-tooltip.mjs"
+    },
+    "./elements/unless": {
+      "types": "./types/novo-elements-elements-unless.d.ts",
+      "default": "./fesm2022/novo-elements-elements-unless.mjs"
+    },
+    "./elements/value": {
+      "types": "./types/novo-elements-elements-value.d.ts",
+      "default": "./fesm2022/novo-elements-elements-value.mjs"
+    },
+    "./pipes": {
+      "types": "./types/novo-elements-pipes.d.ts",
+      "default": "./fesm2022/novo-elements-pipes.mjs"
+    },
+    "./services": {
+      "types": "./types/novo-elements-services.d.ts",
+      "default": "./fesm2022/novo-elements-services.mjs"
+    },
+    "./utils": {
+      "types": "./types/novo-elements-utils.d.ts",
+      "default": "./fesm2022/novo-elements-utils.mjs"
+    }
   },
-  "main": "bundles/novo-elements.umd.js",
-  "module": "fesm2015/novo-elements.js",
-  "es2015": "fesm2015/novo-elements.js",
-  "esm2015": "esm2015/novo-elements.js",
-  "fesm2015": "fesm2015/novo-elements.js",
-  "typings": "novo-elements.d.ts",
-  "metadata": "novo-elements.metadata.json"
+  "schematics": "../../schematics/collection.json",
+  "ng-update": {
+    "migrations": "../../schematics/migration.json"
+  },
+  "module": "fesm2022/novo-elements.mjs",
+  "typings": "types/novo-elements.d.ts"
 }

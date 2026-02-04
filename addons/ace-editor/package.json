@@ -1,0 +1,4 @@
+{
+  "module": "../../fesm2022/novo-elements-addons-ace-editor.mjs",
+  "typings": "../../types/novo-elements-addons-ace-editor.d.ts"
+}
