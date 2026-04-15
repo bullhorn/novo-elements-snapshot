@@ -1,4 +1,7 @@
-novo-tip-well {
+@import "../../styles/variables.scss";
+@import "../common/typography/text.mixins.scss";
+
+:host {
   &.active {
     display: inline-block;
     margin-bottom: $spacing-md;
@@ -15,14 +18,12 @@ novo-tip-well {
       > i {
         flex-shrink: 0;
         text-align: center;
-        margin-top: 0.3rem;
         margin-right: $spacing-md;
         color: #aaaaaa;
       }
       > p {
         @include novo-body-text();
         width: 100%;
-        max-width: 40rem;
         padding: 0;
         text-align: left;
         white-space: pre-line;
