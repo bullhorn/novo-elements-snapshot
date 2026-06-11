@@ -1,10 +1,9 @@
 @import "../../../styles/variables.scss";
 @import "../typography/text.mixins.scss";
-// @import "../style/menu-common";
-// @import "../style/vendor-prefixes";
 
 .novo-optgroup-label {
   @include novo-label-text();
+  // TODO: semantic role TBD - rec font-secondary
   color: $grey;
   cursor: default;
   flex: 1;

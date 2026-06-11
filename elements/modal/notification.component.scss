@@ -1,0 +1,109 @@
+@import "../common/typography/text.mixins.scss";
+
+:host {
+  text-align: center;
+  display: block;
+  background-color: var(--background-bright);
+  // TODO: semantic role TBD - could be border-radius or border-radius-small
+  border-radius: 4px;
+  box-shadow: 0 1px 7px rgba(0, 0, 0, 0.09), 0 1px 3px rgba(0, 0, 0, 0.2);
+  z-index: z(modal);
+  position: relative;
+  min-width: 330px;
+  max-width: 600px;
+
+  & > .novo-button.modal-close {
+    position: absolute;
+    right: var(--spacing-xl);
+    top: var(--spacing-xl);
+  }
+
+  ::ng-deep .novo-notification-body {
+    display: flex;
+    flex-direction: column;
+    padding: 0 var(--spacing-xl);
+    margin: var(--spacing-lg) 0 55px;
+
+    & > img {
+      width: 100%;
+    }
+
+    h1 {
+      font-size: var(--font-size-2xl);
+      margin: 10px auto 0;
+    }
+    h2 {
+      font-size: var(--font-size-xl);
+      color: var(--text-muted);
+      margin: 0 auto;
+      padding: 0;
+    }
+    h3 {
+      font-size: var(--font-size-lg);
+      margin: 0 auto;
+    }
+    h4 {
+      font-size: var(--font-size-lg);
+      color: var(--text-muted);
+      margin: 0 auto;
+      padding: 0;
+    }
+    h5 {
+      font-size: var(--font-size-md);
+      margin: 0 auto;
+    }
+    h6 {
+      font-size: var(--font-size-md);
+      margin: 0 auto;
+    }
+
+    i.indicator {
+      color: var(--text-muted);
+      border: 1px solid var(--text-muted);
+      font-size: var(--font-size-2xl);
+      border-radius: 50%;
+      padding: var(--spacing-md);
+      margin: 2rem auto;
+      align-self: center;
+    }
+  }
+
+  &[type="success"] {
+    .novo-notification-body {
+      i.indicator {
+        color: var(--color-success);
+        border-color: var(--color-success);
+      }
+    }
+  }
+
+  &[type="warning"] {
+    .novo-notification-body {
+      i.indicator {
+        color: var(--color-warning);
+        border-color: var(--color-warning);
+      }
+    }
+  }
+
+  &[type="error"] {
+    .novo-notification-body {
+      i.indicator {
+        color: var(--color-negative);
+        border-color: var(--color-negative);
+      }
+    }
+  }
+
+  ::ng-deep .novo-notification-footer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: var(--spacing-md);
+    gap: var(--spacing-md);
+
+    button {
+      min-width: 10rem;
+    }
+  }
+}

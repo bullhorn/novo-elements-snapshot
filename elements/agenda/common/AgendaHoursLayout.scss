@@ -1,0 +1,54 @@
+@import "../../../styles/variables.scss";
+
+:host {
+  ::ng-deep .cal-day-view,
+  ::ng-deep .cal-week-view {
+    .cal-hour-rows {
+      width: 100%;
+      border: solid 1px #e1e1e1;
+      overflow-x: scroll;
+      position: relative;
+    }
+
+    .cal-hour:nth-child(even) {
+      background-color: var(--background-main);
+    }
+    .cal-hour:nth-child(odd) {
+      background-color: var(--background-body);
+    }
+
+    .cal-hour-segment {
+      height: 30px;
+    }
+
+    .cal-hour-segment::after {
+      content: "\00a0";
+    }
+
+    .cal-hour:not(:last-child) .cal-hour-segment,
+    .cal-hour:last-child :not(:last-child) .cal-hour-segment {
+      border-bottom: thin dashed #e1e1e1;
+    }
+
+    .cal-time {
+      font-weight: bold;
+      padding-top: 5px;
+      width: 70px;
+      text-align: center;
+      // TODO: semantic role TBD - rec disabled
+      color: $grey;
+    }
+
+    .cal-hour-segment.cal-after-hour-start {
+      .cal-time {
+        display: none;
+      }
+    }
+
+    .cal-hour-segment:hover,
+    .cal-drag-over .cal-hour-segment {
+      // TODO: semantic role TBD - rec background-bright
+      background-color: #ededed;
+    }
+  }
+}

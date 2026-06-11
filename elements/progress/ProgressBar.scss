@@ -1,14 +1,13 @@
 @import "../../styles/variables";
 @import "../../styles/global/functions";
 
-/* default styling for progress bar */
 :host {
   display: flex;
   height: 100%;
 
   &.linear {
     @include theme-backgrounds("color");
-    background-color: $positive;
+    background-color: var(--color-positive);
 
     &:first-child {
       border-radius: 0.2em 0 0 0.2em;
@@ -34,13 +33,25 @@
     &.animated {
       animation: progress-bar-stripes 2s linear infinite;
     }
+
+    &.flash {
+      padding: 0 calc(100% + 100px);
+      background-image: linear-gradient(
+        135deg,
+        $silver 46%,
+        $sand 48%,
+        $sand 52%,
+        $silver 54%
+      );
+      animation: progress-bar-flash 3s linear infinite;
+    }
   }
 
   &.radial {
     @include theme-colors() using ($name, $color, $contrast, $tint, $shade, $pale) {
       &[color="#{$name}"] {
         svg circle {
-          stroke: $color;
+          stroke: getCssVarname($name);
         }
       }
     }
@@ -48,7 +59,7 @@
 
     svg {
       circle {
-        stroke: $positive;
+        stroke: var(--color-positive);
         transform-origin: 50% 50%;
         transform: rotate(-90deg);
         transition: 0.35s stroke-dashoffset;
@@ -80,4 +91,17 @@
   to {
     background-position: 40px 0;
   }
+}
+
+@-webkit-keyframes progress-bar-flash {
+  0% { transform: translateX(calc(-50% - 100px)) }
+  30% { transform: translateX(calc(-50% - 100px)) }
+  60% { transform: translateX(0%) }
+  100% { transform: translateX(0%) }
+}
+@keyframes progress-bar-flash {
+  0% { transform: translateX(calc(-50% - 100px)) }
+  30% { transform: translateX(calc(-50% - 100px)) }
+  60% { transform: translateX(0%) }
+  100% { transform: translateX(0%) }
 }

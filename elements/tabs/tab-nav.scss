@@ -1,0 +1,40 @@
+@import "../common/typography/text.mixins";
+
+:host {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0;
+
+  &[type="button-bar"] {
+    display: inline-flex;
+    // TODO: semantic role TBD - could be border-radius or border-radius-small
+    border-radius: 3px;
+    border: 2px solid #fff;
+  }
+
+  &[theme="neutral"], // temporarily added back for backwards compatibility
+  &[theme="color"] {
+    background: rgba(0, 0, 0, 0.2);
+    &[type="button-bar"] {
+      border: 2px solid #fff;
+    }
+  }
+
+  &[theme="white"] {
+    background-color: var(--background-body);
+    &[direction="vertical"] {
+      background: transparent;
+    }
+    &[type="button-bar"] {
+      border: 2px solid var(--color-border);
+    }
+  }
+
+  &[direction="vertical"] {
+    flex-direction: column;
+    width: auto;
+  }
+}
