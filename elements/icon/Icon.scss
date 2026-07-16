@@ -8,7 +8,7 @@ $medium-icon-size: 1.8em;
 $large-icon-size: 2.1em;
 $icon-border-radius: 0.3em;
 
-novo-icon {
+:host {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -24,6 +24,9 @@ novo-icon {
     width: 1em;
     height: 1em;
     color: inherit;
+    &:not(:focus-visible) {
+      outline: none;
+    }
     &:before {
       color: inherit;
     }
@@ -37,10 +40,15 @@ novo-icon {
     &[theme="#{$name}"] {
       i {
         color: $white;
-        background: $color;
+        background: getCssVarname($name);
         border-radius: $icon-border-radius;
         width: 1.6em;
         height: 1.6em;
+      }
+      &[shape='circle'] {
+        i {
+          border-radius: 50%;
+        }
       }
     }
   }
@@ -50,5 +58,16 @@ novo-icon {
       // background-color: rgba(0, 0, 0, .25);
       box-shadow: 2px 2px 0px rgba(0, 0, 0, 0.2);
     }
+  }
+  &[shape='circle'] {
+    i {
+      border-radius: 50%;
+    }
+  }
+  &.icon-size-smaller {
+    font-size: 1.0em;
+  }
+  &.icon-size-larger {
+    font-size: 1.4em;
   }
 }
