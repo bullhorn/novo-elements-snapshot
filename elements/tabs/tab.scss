@@ -1,0 +1,223 @@
+@import "../common/typography/text.mixins.scss";
+
+:host {
+  @include theme-text-colors();
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  &.disabled {
+    .novo-tab-link {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    &:hover {
+      .novo-tab-link {
+        opacity: 0.5;
+      }
+    }
+  }
+  .novo-tab-link {
+    @include novo-label-text();
+    font-size: var(--font-size-tab);
+    padding: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    cursor: pointer;
+    text-transform: uppercase;
+    &:focus {
+      outline: none;
+    }
+  }
+  .indicator {
+    position: absolute;
+    bottom: 0;
+    width: 0;
+    height: 3px;
+    display: block;
+    background: transparent;
+    transition: all 220ms ease-in-out;
+  }
+  &.active,
+  &.router-link-active {
+    .novo-tab-link {
+      opacity: 1;
+      font-weight: 500;
+    }
+    .indicator {
+      background: var(--focus);
+      width: 100%;
+    }
+  }
+  &:hover {
+    .novo-tab-link {
+      opacity: 1;
+    }
+  }
+  &:focus {
+    outline: none;
+  }
+}
+
+:host-context(novo-nav[direction="vertical"]) {
+  display: flex;
+  width: 100%;
+  flex-direction: row;
+  align-items: center;
+  min-width: 12rem;
+  justify-content: space-between;
+  transition: all 120ms ease-in-out;
+  .novo-tab-link {
+    order: 2;
+    flex: 1;
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: var(--spacing-xs);
+    max-width: 90%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    opacity: 0.75;
+  }
+  .indicator {
+    order: 1;
+    width: 4px;
+    height: 0;
+    display: block;
+    background: transparent;
+    transition: all 220ms ease-in-out;
+  }
+  &.active,
+  &.router-link-active {
+    background: rgba(0, 0, 0, 0.05);
+    .novo-tab-link {
+      opacity: 1;
+    }
+    .indicator {
+      height: 100%;
+      top: 0;
+      bottom: 0;
+    }
+  }
+  &:hover {
+    .novo-tab-link {
+      opacity: 1;
+    }
+  }
+  &.disabled {
+    .novo-tab-link {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    &:hover {
+      .novo-tab-link {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+:host-context(novo-nav[theme="white"]) {
+  height: auto;
+  &.disabled {
+    .novo-tab-link {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    &:hover {
+      .novo-tab-link {
+        opacity: 0.5;
+        font-weight: 400;
+      }
+    }
+  }
+  .novo-tab-link {
+    color: var(--text-main);
+    opacity: 0.75;
+  }
+  &.active,
+  &.router-link-active {
+    color: var(--selection);
+    .novo-tab-link {
+      color: var(--selection);
+      opacity: 1;
+    }
+    .indicator {
+      background: currentColor;
+    }
+  }
+  &:hover {
+    .novo-tab-link {
+      font-weight: 500;
+    }
+  }
+}
+
+// bh2026: charcoal tabs, near-black active text + rounded neutral indicator
+:host-context([data-theme='bh2026']) {
+  margin-right: var(--spacing-gap-lg);
+
+  .novo-tab-link {
+    color: var(--color-content-link, #282828);
+    // Tabs are Title Case, not uppercase.
+    text-transform: none;
+    font-weight: 400;
+  }
+
+  &.active,
+  &.router-link-active {
+    color: var(--color-content-link-hover, #221f1f);
+    .novo-tab-link {
+      color: var(--color-content-link-hover, #221f1f);
+      font-weight: 500;
+    }
+    .indicator {
+      background: var(--color-content-link-hover, #221f1f);
+      border-radius: 999px;
+      // Quarter round from the top, flat on bottom
+      border-radius: 3px 3px 0 0 / 100% 100% 0 0;
+    }
+  }
+
+  &:hover {
+    .novo-tab-link {
+      font-weight: 500;
+    }
+  }
+}
+
+
+:host-context(novo-nav[theme="color"]),
+:host-context(novo-nav[theme="neutral"]) {
+  .novo-tab-link {
+    color: #fff;
+  }
+  &.active,
+  &.router-link-active {
+    .indicator {
+      background: #fff;
+    }
+  }
+  &.disabled {
+    .novo-tab-link {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    &:hover {
+      .novo-tab-link {
+        opacity: 0.5;
+      }
+    }
+  }
+}
+
+:host-context(novo-nav.condensed) {
+  font-size: var(--font-size-xs);
+  .novo-tab-link {
+    padding: var(--spacing-sm);
+  }
+}
