@@ -1,17 +1,21 @@
 @import "../../../styles/variables.scss";
 
 :host {
-  // Dialoge Themed Button
+  // Dialogue Themed Button
   &[theme="dialogue"] {
     @include theme-text-colors("color");
     background: transparent;
-    color: $positive;
-    &:hover,
-    &:focus {
-      background: lighten($light, 7%);
+    color: var(--button-color, var(--color-positive));
+    i {
+      line-height: 1.2;
     }
+    &[color=text] {
+      color: inherit;
+    }
+    &:hover,
+    &:focus,
     &:active {
-      background: lighten($light, 2%);
+      background: var(--background-muted);
     }
     &[inverse] {
       &:hover,
