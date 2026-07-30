@@ -1,4 +1,7 @@
-$table-bg-accent: var(--background-bright, $off-white);
+@import "../../styles/variables.scss";
+@import "../../styles/reset";
+
+$table-bg-accent: var(--background-bright, $color-off-white);
 $novo-row-horizontal-padding: 20px;
 $table-header-font-weight: 400;
 $breakpoint: 1000px;
@@ -28,10 +31,10 @@ cdk-table {
       .novo-data-table-dropdown-cell,
       .novo-data-table-expand-cell,
       .novo-data-table-checkbox-cell {
-        background-color: rgba($ocean, 0.15);
+        background-color: rgb(from var(--color-positive) r g b / 0.15);
       }
       + .novo-data-table-detail-row {
-        background-color: rgba($ocean, 0.15);
+        background-color: rgb(from var(--color-positive) r g b / 0.15);
       }
     }
     + .novo-data-table-detail-row {
@@ -52,10 +55,10 @@ cdk-table {
       .novo-data-table-dropdown-cell,
       .novo-data-table-expand-cell,
       .novo-data-table-checkbox-cell {
-        background-color: rgba($ocean, 0.15);
+        background-color: rgb(from var(--color-positive) r g b / 0.15);
       }
       + .novo-data-table-detail-row {
-        background-color: rgba($ocean, 0.15);
+        background-color: rgb(from var(--color-positive) r g b / 0.15);
       }
     }
     + .novo-data-table-detail-row {
@@ -66,6 +69,9 @@ cdk-table {
 
 .novo-data-table-cell-align-right {
   text-align: right;
+  justify-content: flex-end;
+  overflow: hidden;
+  text-overflow: clip;
 }
 
 .novo-data-table-header-row,
@@ -88,7 +94,6 @@ cdk-table {
   background-color: var(--background-body, $white);
   .novo-data-table-header-cell,
   .novo-data-table-checkbox-header-cell {
-    // border-bottom: 1px solid var(--border, $off-white);
     background-color: var(--background-body, $white);
   }
   &.expanded {
@@ -105,12 +110,17 @@ cdk-table {
 .novo-data-table-header-cell {
   &.resizable {
     padding-right: 0;
+    &:hover {
+      background-color: var(--background-muted, --color-neutral);
+    }
     .data-table-header-resizable {
       height: 100%;
 
       span {
         cursor: ew-resize;
-        width: 8px;
+        background-color: var(--border, --color-neutral);
+        width: 1px;
+        margin: 0 4px;
         display: block;
       }
     }
@@ -122,6 +132,10 @@ cdk-table {
     &.spacer {
       flex-grow: 100;
     }
+  }
+  &[draggable=true] label {
+    cursor: grab;
+    user-select: none;
   }
 }
 
@@ -155,9 +169,9 @@ cdk-table {
     color: var(--text-muted);
     background: transparent;
     pointer-events: all;
-    margin-left: 0.5rem;
+    margin-left: var(--spacing-sm);
     line-height: 1em;
-
+    outline: none;
     &:hover {
       color: var(--text-main);
     }
@@ -167,18 +181,18 @@ cdk-table {
   }
 
   button.active {
-    color: $white;
-    background: $positive;
+    color: var(--color-contrast-positive);
+    background: var(--color-positive);
     &:hover,
     &:active,
     &:focus,
     &:visited {
-      background: $positive !important;
+      background: var(--color-positive) !important;
     }
   }
   &.clickable {
     cursor: pointer;
-    color: $company;
+    color: var(--color-company);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -224,7 +238,7 @@ cdk-table {
     cursor: pointer;
     font-size: 1.2em;
     padding: 0.5em;
-    border-radius: 3px;
+    border-radius: var(--border-radius-sm, 3px);
     &.disabled {
       pointer-events: none;
       opacity: 0.7;
@@ -239,7 +253,6 @@ cdk-table {
 }
 
 .novo-data-table-header-cell {
-  // border-left: 1px solid var(--border, $off-white);
   white-space: normal;
   overflow-wrap: break-word;
   display: flex;
@@ -320,7 +333,7 @@ cdk-table {
       }
       &.bhi-box-yes,
       &.bhi-checkbox-filled {
-        color: $positive;
+        color: var(--color-positive);
       }
     }
   }
@@ -345,7 +358,10 @@ novo-data-table {
     display: flex;
     align-items: center;
     flex-shrink: 0;
-    border-bottom: 1px solid var(--border, $off-white);
+    border-bottom: 1px solid var(--border, $color-off-white);
+    &.pagination-footer {
+      justify-content: space-between;
+    }
     &.empty {
       padding: 0;
     }
@@ -426,7 +442,8 @@ novo-data-table {
   .novo-data-table-empty-container {
     padding-top: 0;
   }
-  .novo-data-table-no-results-container {
+  .novo-data-table-no-results-container,
+  .novo-data-table-no-more-results-container{
     position: absolute;
     top: 48%;
     left: 0;
@@ -434,7 +451,8 @@ novo-data-table {
     width: 100%;
   }
   .novo-data-table-empty-container,
-  .novo-data-table-no-results-container {
+  .novo-data-table-no-results-container,
+  .novo-data-table-no-more-results-container{
     padding: 2em;
     flex: 1;
     display: flex;
@@ -447,7 +465,7 @@ novo-data-table {
     display: flex;
     flex: 1;
     .novo-data-table-custom-filter {
-      border-right: 1px solid var(--border, $off-white);
+      border-right: 1px solid var(--border, $color-off-white);
       novo-date-picker {
         .calendar {
           box-shadow: none;
@@ -497,7 +515,7 @@ novo-data-table {
     align-items: center;
     > div,
     div.novo-data-table-footer-cell {
-      border-top: 1px solid var(--border, $off-white);
+      border-top: 1px solid var(--border, $color-off-white);
       flex: 1;
       min-width: 200px;
       display: flex;
@@ -509,130 +527,9 @@ novo-data-table {
   }
 }
 
-novo-data-table-pagination {
-  &.basic,
-  &.basic-wide {
-    display: flex;
-    align-items: center;
-    flex: 1;
-    novo-tiles > .tile-container .tile {
-      padding: 7px 10px;
-    }
-    > .novo-data-table-pagination-size {
-      padding-right: 10px;
-    }
-    > .novo-data-table-range-label-long,
-    > .novo-data-table-range-label-short {
-      padding-right: 10px;
-      white-space: nowrap;
-    }
-    > .novo-data-table-range-label-long {
-      display: none;
-      @media (min-width: $breakpoint) {
-        display: block;
-      }
-    }
-    > .novo-data-table-spacer {
-      width: 100%;
-    }
-    > .novo-data-table-range-label-short {
-      display: block;
-      @media (min-width: $breakpoint) {
-        display: none;
-      }
-    }
-    > button:first-of-type {
-      margin-right: 5px;
-    }
-    > button {
-      span {
-        display: none;
-        @media (min-width: $breakpoint) {
-          display: block;
-        }
-      }
-    }
-    > button[theme][theme="dialogue"][icon][side="left"] {
-      padding: 5px;
-      @media (min-width: $breakpoint) {
-        padding: 5px 15px 5px 5px;
-      }
-    }
-    > button[theme][theme="dialogue"][icon][side="right"] {
-      padding: 5px;
-      @media (min-width: $breakpoint) {
-        padding: 5px 5px 5px 15px;
-      }
-    }
-  }
-  &.standard {
-    display: flex;
-    flex-flow: row nowrap;
-    flex: 1;
-    > * {
-      margin: auto 5px;
-    }
-    h5.rows {
-      padding: 0;
-      font-size: 12px;
-      opacity: 0.75;
-      letter-spacing: 0.1px;
-    }
-    span.spacer {
-      flex: 1;
-    }
-    novo-select {
-      max-width: 100px;
-      min-width: 100px;
-      div[type="button"] {
-        &:hover {
-          i {
-            opacity: 0.75;
-          }
-        }
-        &:active,
-        &:focus {
-          i {
-            opacity: 1;
-          }
-        }
-        i {
-          opacity: 0.45;
-        }
-      }
-    }
-    .pager {
-      list-style-type: none;
-      user-select: none;
-      display: flex;
-      .page {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 2.4rem;
-        height: 2.4rem;
-        font-size: var(--font-size-text);
-        border-radius: 2px;
-        list-style-type: none;
-        cursor: pointer;
-        color: $company;
-        &.disabled {
-          opacity: 0.3;
-          pointer-events: none;
-        }
-      }
-      .page.active {
-        color: $company;
-        background-color: $off-white;
-        opacity: 1;
-      }
-    }
-  }
-}
-
 .dropdown-container.data-table-dropdown {
   min-width: 220px;
-  max-width: 230px;
+  max-width: 280px;
   max-height: 500px;
   overflow-x: hidden;
   overflow-y: hidden;
@@ -644,12 +541,6 @@ novo-data-table-pagination {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    // button {
-    //   padding: 3px;
-    //   icon {
-    //     font-size: 0.8em;
-    //   }
-    // }
   }
   .optgroup-container {
     max-height: 346px;
@@ -662,7 +553,7 @@ novo-data-table-pagination {
     overflow-x: hidden;
   }
   .footer {
-    border-top: 1px solid var(--border, $off-white);
+    border-top: 1px solid var(--border, $color-off-white);
     padding: 5px 10px;
     display: flex;
     justify-content: flex-end;
@@ -690,10 +581,10 @@ novo-data-table-pagination {
     height: 100%;
     min-height: 200px;
     width: 100%;
-    background: #fff;
+    background: var(--background-bright);
     padding: 0 !important;
     .back-link {
-      color: $positive;
+      color: var(--color-positive);
       line-height: 3em;
       font-size: 0.9em;
       padding-left: 5px;
@@ -711,24 +602,103 @@ novo-data-table-pagination {
       }
     }
   }
-  // i.bhi-search {
-  //   color: inherit;
-  //   position: relative;
-  //   left: 196px;
-  //   top: -25px;
-  // }
   span.error-text {
-    color: $negative;
+    color: var(--color-negative);
     position: relative;
     left: 10px;
     top: -17px;
     font-size: x-small;
   }
   .filter-null-results {
-    background-color: $white;
+    background-color: var(--background-body);
     text-align: center;
-    color: darken($light, 15%);
+    color: darkenLive('--color-light', 15);
     background: transparent;
     font-weight: 500;
+  }
+}
+
+// bh2026: banded rows, horizontal borders, modern spacing
+[data-theme='bh2026'] {
+  .novo-data-table-header-cell,
+  .novo-data-table-header-cell > label {
+    font-weight: var(--typography-font-weight-600);
+    font-size: var(--font-size-caption);
+    color: var(--color-text-subtle);
+  }
+
+  .novo-data-table-row,
+  .novo-data-table-header-row {
+    border-bottom: var(--border-width-border-default) solid var(--color-border-subtle);
+  }
+
+  .novo-data-table-cell,
+  .novo-data-table-header-cell {
+    padding: var(--spacing-padding-sm) var(--spacing-padding-md);
+    color: var(--color-text-body);
+  }
+
+  // Restore zero vertical padding on action/control cells — the general rule above overrides
+  // the base .button-cell / .dropdown-cell padding: 0 5px, putting 8px above/below the button.
+  .novo-data-table-cell {
+    &.button-cell,
+    &.dropdown-cell,
+    &.expand-cell,
+    &.checkbox-cell {
+      padding-top: 0;
+      padding-bottom: 0;
+    }
+  }
+
+  .novo-data-table-cell.clickable {
+    color: var(--color-text-link);
+  }
+
+  cdk-table {
+    > .novo-data-table-row:nth-of-type(odd) {
+      .novo-data-table-cell,
+      .novo-data-table-button-cell,
+      .novo-data-table-dropdown-cell,
+      .novo-data-table-expand-cell,
+      .novo-data-table-checkbox-cell {
+        background-color: var(--color-background-muted);
+      }
+      + .novo-data-table-detail-row {
+        background-color: var(--color-background-muted);
+      }
+    }
+    > .novo-data-table-row:nth-of-type(even) {
+      .novo-data-table-cell,
+      .novo-data-table-button-cell,
+      .novo-data-table-dropdown-cell,
+      .novo-data-table-expand-cell,
+      .novo-data-table-checkbox-cell {
+        background-color: var(--background-body);
+      }
+      + .novo-data-table-detail-row {
+        background-color: var(--background-body);
+      }
+    }
+    > .novo-data-table-row:hover {
+      .novo-data-table-cell,
+      .novo-data-table-button-cell,
+      .novo-data-table-dropdown-cell,
+      .novo-data-table-expand-cell,
+      .novo-data-table-checkbox-cell {
+        background-color: var(--color-background-subtle);
+      }
+    }
+    > .novo-data-table-row.active {
+      .novo-data-table-cell,
+      .novo-data-table-button-cell,
+      .novo-data-table-dropdown-cell,
+      .novo-data-table-expand-cell,
+      .novo-data-table-checkbox-cell {
+        background-color: var(--color-utility-blue-100);
+      }
+      + .novo-data-table-detail-row {
+        background-color: var(--color-utility-blue-100);
+      }
+    }
   }
 }
