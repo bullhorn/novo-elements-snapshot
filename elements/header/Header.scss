@@ -1,4 +1,7 @@
-.novo-header {
+@import "../../styles/variables.scss";
+@import "../common/typography/text.mixins.scss";
+
+:host {
   display: block;
   background-color: var(--background-bright, $white);
 
@@ -26,8 +29,8 @@
     display: flex;
     flex-direction: row;
     align-items: center;
-    padding: 0 $spacing-lg;
-    gap: $spacing-sm;
+    padding: 0 var(--spacing-lg);
+    gap: var(--spacing-sm);
     box-sizing: border-box;
     // line-height: 4rem;
 
@@ -37,11 +40,18 @@
     div.header-title {
       display: flex;
       align-items: center;
-      max-width: calc(100% - 40px);
-      gap: $spacing-sm;
+      gap: var(--spacing-sm);
+      // making room for ellipsis
+      padding-inline-end: 2em;
+      // prevent pushing other flex content
+      min-width: 0;
+      flex-shrink: 1;
+      .novo-title {
+        overflow: hidden;
+      }
 
-      novo-icon {
-        margin-right: 1rem;
+      ::ng-deep novo-icon {
+        margin-right: var(--spacing-md);
       }
     }
     .header-titles {
@@ -64,19 +74,19 @@
         padding-right: 20px;
       }
     }
-    > section {
+    > ::ng-deep section {
       flex: 2 2 250px;
       min-width: 100px;
     }
-    utils,
-    novo-utils {
+    ::ng-deep utils,
+    ::ng-deep novo-utils {
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      gap: $spacing-sm;
+      gap: var(--spacing-sm);
     }
 
-    .novo-action {
+    ::ng-deep .novo-action {
       display: flex;
     }
   }
@@ -85,24 +95,26 @@
     &.novo-accent-#{$name} {
       .header-titles,
       .header-title {
-        .novo-icon {
-          color: $color;
+        ::ng-deep .novo-icon {
+          color: getCssVarname($name);
         }
       }
       & > section:first-of-type {
-        border-bottom: 2px solid $color;
+        border-bottom: 2px solid getCssVarname($name);
       }
     }
     &.novo-theme-#{$name} {
       & > section:first-of-type {
-        background: $color;
-        color: $contrast;
+        background: getCssVarname($name);
+        color: getContrastColor($name);
         border-bottom: none;
       }
-      .novo-title {
+      ::ng-deep .novo-title {
         color: inherit;
+        overflow: hidden;
+        padding-right: var(--spacing-sm);
       }
-      .novo-action {
+      ::ng-deep .novo-action {
         button,
         .novo-button {
           color: inherit;
@@ -114,7 +126,7 @@
   & > main {
     padding: 4px 16px 4px 32px;
   }
-  & > novo-nav {
+  & > ::ng-deep novo-nav {
     padding-left: 16px;
     &.block {
       padding-left: 0;
@@ -128,7 +140,7 @@
     > section {
       height: 3.6rem;
     }
-    .novo-icon {
+    ::ng-deep .novo-icon {
       margin-right: 0.5rem !important;
       font-size: 1.8rem;
     }
@@ -140,10 +152,50 @@
   }
 }
 
-header-spacer {
-  display: inline-block;
-  height: 1.8em;
-  width: 2px;
-  margin: 0 0.6em;
-  background-color: rgba(0, 0, 0, 0.25);
+// bh2026: frosted translucent header + entity squircle icon
+:host-context([data-theme='bh2026']) {
+  & > section {
+    gap: var(--spacing-gap-lg);
+  }
+
+  .header-actions {
+    gap: var(--spacing-gap-sm);
+  }
+
+  ::ng-deep utils,
+  ::ng-deep novo-utils {
+    gap: var(--spacing-gap-sm);
+  }
+
+  &[class*='novo-accent-'] {
+    background: var(--header-background, var(--color-transparency-white-90));
+    backdrop-filter: blur(12px);
+    box-shadow: 0 1px 2px var(--color-transparency-black-10);
+    padding-top: var(--spacing-md);
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
+
+    & > section:first-of-type {
+      border-bottom: none;
+    }
+
+    utils {
+      color: var(--color-text-subtle);
+    }
+  }
+
+  @each $entity, $color in $entity-colors {
+    &.novo-accent-#{$entity} {
+      ::ng-deep .header-icon i {
+        color: var(--color-white);
+        background: $color;
+        border-radius: var(--border-radius-sm);
+        width: var(--typography-font-size-40);
+        height: var(--typography-font-size-40);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
 }
