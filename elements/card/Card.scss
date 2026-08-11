@@ -1,13 +1,16 @@
 @import "../common/typography/text.mixins";
 
-.novo-card {
+:host {
   display: flex;
   flex-flow: column;
   background-color: var(--background-bright, $color-white);
   box-shadow: $shadow-card;
-  border-radius: 0.4em;
+  border-radius: var(--border-radius-round);
   position: relative;
   overflow-x: hidden;
+  :root[data-theme=bh2026] & {
+    --spacing-md: var(--spacing-padding-md);
+  }
 
   &.loading {
     min-height: 200px;
@@ -19,7 +22,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 0.4em;
+    border-radius: var(--border-radius-round);
     background-color: var(--background-bright, $color-white);
     display: flex;
     flex-direction: column;
@@ -38,15 +41,15 @@
       align-items: center;
       min-width: 0;
       flex: 1;
-      i.bhi-move {
-        color: $light;
+      ::ng-deep i.bhi-move {
+        color: var(--font-color-secondary);
         margin-right: 0.3em;
         cursor: pointer;
       }
       h1,
       h2,
       h3 {
-        font-size: $font-size-lg;
+        font-size: var(--font-size-lg);
         font-weight: 500;
         line-height: 1.5;
         color: var(--text-main, #3d464d);
@@ -57,14 +60,14 @@
         text-overflow: ellipsis;
         i {
           font-size: 1.2em;
-          &.bhi-info {
-            color: $light;
-          }
         }
+      }
+      :root:not([data-theme='bh2026']) & i.bhi-info {
+        color: $light;
       }
     }
     .actions {
-      color: lighten($dark, 15%);
+      color: brightenLive('--color-dark', 15);
       white-space: nowrap;
     }
   }
@@ -74,12 +77,12 @@
     max-width: inherit;
     text-align: center;
     line-height: 25px;
-    color: lighten($grey, 10%);
+    color: brightenLive('--color-grey', 10);
     i {
       display: block;
       font-size: 24px;
       margin: 0 0 0.5em;
-      color: lighten($grey, 20%);
+      color: brightenLive('--color-grey', 20);
     }
   }
 
@@ -87,60 +90,125 @@
     display: flex;
     justify-content: center;
   }
+
+  &.novo-card-inline {
+    display: inline-flex;
+    justify-self: start;
+    align-self: start;
+  }
+  &.novo-card-inset-none {
+    padding: 0;
+  }
+  &.novo-card-inset-small {
+    padding: var(--spacing-sm);
+  }
+  &.novo-card-inset-medium {
+    padding: var(--spacing-md);
+  }
+  &.novo-card-inset-large {
+    padding: var(--spacing-lg);
+  }
+
+  ::ng-deep .novo-card-header + .novo-card-content.condensed,
+  ::ng-deep .novo-card-header + :not(.novo-card-content) {
+    margin-top: var(--spacing-sm);
+  }
+
+  ::ng-deep [novo-card-image] {
+    width: calc(100%);
+    margin: var(--spacing-md) 0;
+  }
 }
 
-.novo-card-header,
-.novo-card-footer {
-  @include theme-backgrounds();
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  gap: $spacing-md;
-}
+// bh2026: rounder card, grippy on hover
+:host-context([data-theme='bh2026']) {
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border-default);
+  box-shadow: 0 1px 2px var(--color-transparency-black-10);
 
-.novo-card-header-text {
-  flex: 1 1 0px;
-}
+  div.card-loading-container {
+    border-radius: var(--border-radius-md);
+  }
 
-.novo-card-content {
-  display: block;
-}
+  header {
+    padding: var(--spacing-padding-md) var(--spacing-padding-lg) var(--spacing-padding-md) 0;
+    border-bottom: 1px solid var(--color-border-default);
 
-.novo-card-header {
-  padding: $spacing-md $spacing-md 0 $spacing-md;
-}
-.novo-card-footer {
-  padding: 0 $spacing-md $spacing-md $spacing-md;
-}
-.novo-card-content:not(.condensed) {
-  padding: $spacing-md $spacing-md;
-}
+    .title {
+      padding-inline: var(--spacing-gutter);
+      h1,
+      h2,
+      h3 {
+        font-size: var(--typography-card-header-font-size, var(--typography-font-size-18));
+        font-weight: var(--typography-card-header-font-weight, var(--typography-font-weight-500));
+        ::ng-deep .card-flag-icon {
+          font-size: var(--font-size-lg);
+          vertical-align: 10%;
+        }
+      }
 
-.novo-card-header + .novo-card-content.condensed,
-.novo-card-header + :not(.novo-card-content) {
-  margin-top: $spacing-sm;
-}
+      ::ng-deep i {
+        margin: 0;
+      }
+    }
 
-.novo-card-inline {
-  display: inline-flex;
-  justify-self: start;
-  align-self: start;
-}
+    .card-move-handle {
+      position: absolute;
+      left: var(--spacing-padding-xxsm);
+      color: var(--color-content-icon, #89909A);
+    }
 
-.novo-card-inset-none {
-  padding: 0;
-}
-.novo-card-inset-small {
-  padding: $spacing-sm;
-}
-.novo-card-inset-medium {
-  padding: $spacing-md;
-}
-.novo-card-inset-large {
-  padding: $spacing-lg;
-}
+    .actions {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-gap-sm);
+    }
 
-[novo-card-image] {
-  width: calc(100%);
-  margin: $spacing-md 0;
+    novo-button {
+      color: var(--color-text-subtle);
+    }
+    ::ng-deep .novo-card-header-text {
+      padding-inline-start: var(--spacing-padding-sm);
+    }
+  }
+  :host {
+    ::ng-deep .card-flag-icon {
+      color: var(--color-content-subtle, #5d7798);
+    }
+    &.icon-color-auto header .title ::ng-deep .card-flag-icon {
+      color: var(--page-entity-color, var(--color-content-subtle, #5d7798));
+      @each $entity, $color in $entity-colors {
+        &.bhi-#{$entity} {
+          @if ($entity == 'person') {
+            color: var(--color-entity-contact);
+          } @else if ($entity == 'notes') {
+            color: var(--color-entity-note);
+          } @else {
+            color: var(--color-entity-#{$entity});
+          }
+        }
+      }
+    }
+    &.icon-color-parent ::ng-deep .card-flag-icon {
+      color: var(--page-entity-color);
+    }
+    .novo-card-header {
+      padding-inline-start: var(--spacing-gutter);
+    }
+    // ng-deep in case this is declared within title bar implementation.
+    ::ng-deep .card-move-handle {
+      position: absolute;
+      left: var(--spacing-padding-xxsm);
+      color: var(--color-content-icon, #89909A);
+      transition: color 0.3s ease-in-out;
+    }
+    header ::ng-deep, ::ng-deep .novo-card-header {
+      &:not(:hover) .card-move-handle {
+        color: transparent;
+      }
+      .novo-icon.card-move-handle i {
+        color: inherit;
+      }
+    }
+  }
 }
