@@ -1,3 +1,5 @@
+@import "../common/typography/text.mixins.scss";
+
 $switch-width: 36px !default;
 $switch-height: 24px !default;
 $switch-bar-height: 14px !default;
@@ -14,10 +16,9 @@ $switch-thumb-size: 20px !default;
   }
 }
 
-.novo-switch {
+:host {
   display: flex;
   align-items: center;
-  // margin: 15px;
   white-space: nowrap;
   cursor: pointer;
   outline: none;
@@ -36,7 +37,7 @@ $switch-thumb-size: 20px !default;
     height: $switch-height;
     position: relative;
     user-select: none;
-    margin-right: 8px;
+    margin: 0 8px;
   }
   &:not(.novo-switch-disabled) {
     &.novo-switch-dragging .novo-switch-container,
@@ -50,13 +51,13 @@ $switch-thumb-size: 20px !default;
   .novo-switch-bar {
     left: 1px;
     width: $switch-width - 2px;
-    top: $switch-height / 2 - $switch-bar-height / 2;
+    top: calc($switch-height / 2) - calc($switch-bar-height / 2);
     height: $switch-bar-height;
-    border-radius: 8px;
+    border-radius: var(--border-radius-lg, 8px);
     position: absolute;
   }
   .novo-switch-thumb-container {
-    top: $switch-height / 2 - $switch-thumb-size / 2;
+    top: calc($switch-height / 2) - calc($switch-thumb-size / 2);
     left: 0;
     width: $switch-width - $switch-thumb-size;
     position: absolute;
@@ -78,7 +79,7 @@ $switch-thumb-size: 20px !default;
     height: $switch-thumb-size;
     width: $switch-thumb-size;
     border-radius: 50%;
-    box-shadow: $shadow-1; // todo
+    box-shadow: var(--shadow-1); // todo
     color: getContrastColor("light");
 
     .novo-icon {
@@ -98,22 +99,20 @@ $switch-thumb-size: 20px !default;
     }
   }
   &.novo-switch-disabled {
-    opacity: 0.5;
+    opacity: 0.4;
     cursor: not-allowed;
     .novo-switch-container {
       cursor: not-allowed;
       pointer-events: none;
     }
   }
-}
 
-.novo-switch {
   // Base color: $ocean
   // @include novo-switch-style($ocean, lighten($ocean, 18%));
   // Loop through analytics colors and make a switch color class for each
   @include theme-colors() using ($name, $color, $contrast, $tint, $shade, $pale) {
     &.#{$name} {
-      @include novo-switch-style($color, lighten($color, 18%));
+      @include novo-switch-style($color, brightenLive('--color-#{$name}', 18));
       &[aria-checked="true"] {
         .novo-switch-thumb {
           color: getContrastColor($name);
@@ -123,22 +122,66 @@ $switch-thumb-size: 20px !default;
   }
 
   &.dark {
-    @include novo-switch-style($dark, darken($dark, 5%));
+    @include novo-switch-style($dark, darkenLive('--color-dark', 5));
   }
   &.light {
-    @include novo-switch-style(darken($light, 3%), $light);
+    @include novo-switch-style(darkenLive('--color-light', 3), $light);
   }
 
   .novo-switch-thumb {
     background-color: $light;
   }
   .novo-switch-bar {
-    background-color: lighten($light, 10%);
+    background-color: brightenLive('--color-light', 10);
   }
 
   &:focus {
     .novo-switch-label:not(:empty) {
-      border: 1px dotted $light;
+      border: 1px dotted var(--color-border);
+    }
+  }
+}
+
+// bh2026: 32×20 pill track, 16×16 thumb, always white — per Figma spec
+:host-context([data-theme='bh2026']) {
+  .novo-switch-container {
+    width: 32px;
+    height: 20px;
+  }
+  .novo-switch-bar {
+    top: 0;
+    left: 0;
+    width: 32px;
+    height: 20px;
+    border-radius: 10px;
+    background-color: white;
+    border: 1px solid var(--color-border-input);
+  }
+  .novo-switch-thumb-container {
+    top: 2px;
+    left: 2px;
+    width: 12px; // travel: 32 - 16 - 4px padding = 12px
+  }
+  .novo-switch-thumb {
+    height: 16px;
+    width: 16px;
+    background-color: white;
+    border: 1px solid var(--color-border-input);
+    box-shadow: 0px 2px 4px 0px var(--color-transparency-charcoal-04);
+
+    novo-icon {
+      display: none;
+    }
+  }
+
+  &[aria-checked="true"] {
+    .novo-switch-bar {
+      background-color: var(--color-utility-blue-600);
+      border: none;
+    }
+    .novo-switch-thumb {
+      background-color: white;
+      border: none;
     }
   }
 }
