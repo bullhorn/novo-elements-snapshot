@@ -1,0 +1,10 @@
+@import "../common/typography/text.mixins";
+
+:host {
+  @include theme-backgrounds();
+  padding: 0 var(--spacing-md) var(--spacing-md) var(--spacing-md);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: var(--spacing-md);
+}
