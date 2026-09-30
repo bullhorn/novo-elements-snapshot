@@ -4,11 +4,11 @@
   // Icon Themed Button
   &[theme="icon"] {
     @include theme-text-colors("color");
-    padding: $spacing-sm;
+    padding: var(--spacing-sm);
     font-size: 1.4rem;
     height: 2.4rem;
     &[inverse] {
-      color: #fff;
+      color: var(--color-contrast-text);
     }
     i {
       display: contents;
@@ -25,14 +25,37 @@
       display: contents;
     }
     &[size="small"] {
-      padding: $spacing-sm;
-      font-size: 1.2rem;
+      padding: var(--spacing-sm);
+      font-size: var(--font-size-sm);
       height: 2rem;
+    }
+    &[size="medium"] {
+      font-size: 1.6rem;
     }
     &[size="large"] {
       font-size: 2rem;
       height: 2.8rem;
-      padding: $spacing-md;
+      padding: var(--spacing-md);
+    }
+  }
+}
+
+:host-context([data-theme='bh2026']) {
+  &[theme="icon"] {
+    height: var(--button-height);
+    min-width: var(--button-height);
+    border-radius: var(--border-radius-sm);
+    color: var(--color-text-subtle);
+    box-shadow: none;
+
+    &:focus,
+    &:hover {
+      background: var(--color-background-subtle);
+      box-shadow: none;
+    }
+    &:active {
+      background: var(--color-background-subtle-hover);
+      box-shadow: none;
     }
   }
 }
