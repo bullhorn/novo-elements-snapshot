@@ -1,7 +1,6 @@
 // Hyperlinks
 // --------------------------------------------------
 a {
-  // color: $font-color-link;
   color: var(--links);
   font-weight: 500;
   text-decoration: none;
@@ -14,4 +13,8 @@ a {
   &:hover {
     color: darken($font-color-link, 10%);
   }
+}
+
+[data-theme='bh2026'] a {
+  font-weight: unset;
 }
