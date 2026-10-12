@@ -1,0 +1,47 @@
+@import "../../styles/variables.scss";
+
+@include theme-colors() using ($name, $color, $contrast, $tint, $shade, $pale) {
+  $contrast: getContrastColor($name);
+  :host-context([theme="#{$name}"]) {
+    background: getCssVarname($name);
+    color: getContrastColor($name);
+    border: unset;
+    border-bottom: 1px solid rgba(#fff, 0.1);
+    outline: none;
+    item-title h6,
+    i {
+      color: getContrastColor($name);
+    }
+    item-content {
+      > * {
+        color: rgba(#fff, 0.65);
+      }
+    }
+    &:hover,
+    &:active {
+      background: brightenLive('--color-#{$name}', 20);
+    }
+  }
+}
+
+:host {
+  border-bottom: 1px solid var(--border, #f4f4f4);
+  padding: 1rem;
+  display: flex;
+  flex-direction: row;
+  outline: none;
+  &:hover {
+    background: rgb(from var(--color-positive) r g b / 0.2);
+  }
+  &.active {
+    background: rgb(from var(--color-positive) r g b / 0.3);
+  }
+  &:last-child {
+    border-bottom: none;
+  }
+  .list-item {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 100%;
+  }
+}
