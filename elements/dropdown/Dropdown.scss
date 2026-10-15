@@ -1,52 +1,182 @@
 @import "../common/typography/text.mixins";
 
-novo-dropdown {
+:host {
   display: inline-block;
   position: relative;
-
-  .novo-dropdown-trigger {
+  outline: none;
+  ::ng-deep .novo-dropdown-trigger {
     cursor: pointer;
     -webkit-appearance: none;
   }
-  button,
-  novo-button {
+  ::ng-deep button,
+  ::ng-deep novo-button {
     position: relative;
     z-index: 0;
     .novo-button-icon {
       font-size: 0.8em !important;
       width: 1em !important;
       height: 1em !important;
-      margin: 0 0.5em;
+      margin: 0 var(--button-icon-margin, 0.5em);
     }
+  }
+}
+
+// bh2026: swap out the collapse icon for the sort-desc icon and style to ensure proper placement
+:host-context([data-theme='bh2026']) {
+  ::ng-deep .novo-button-icon {
+    font-size: 1em !important;
+  }
+  ::ng-deep i.bhi-collapse {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+  }
+  ::ng-deep i.bhi-collapse::before {
+    content: "\f226"; // bhi-sort-desc - all code points are fixed in bullhorn-icons
   }
 }
 
 .dropdown-container {
   background-color: var(--background-bright, $color-bright);
+  border-radius: var(--border-radius-sm);
   list-style: none;
   margin: 0;
   padding: 0;
   min-width: 180px;
-  margin-top: $spacing-sm;
-  margin-bottom: $spacing-sm;
-  box-shadow: $shadow-3;
+  margin-top: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  box-shadow: var(--shadow-3);
   &.has-height {
     overflow: auto;
   }
-  list {
+  ::ng-deep list {
     dropdown-item-header {
       color: #9e9e9e;
       font-size: 0.8em;
       flex: 1;
       font-weight: 500;
       text-transform: uppercase;
-      padding: $spacing-sm $spacing-md;
+      padding: var(--spacing-sm) var(--spacing-md);
       display: block;
     }
     hr {
       border: none;
       height: 1px;
       background: $light;
+    }
+  }
+  &.novo-table-dropdown-cell {
+    ::ng-deep list {
+      max-height: 400px;
+      display: block;
+      overflow: auto;
+      padding: 5px 0;
+    }
+    ::ng-deep item {
+      height: 30px !important;
+      padding: 0 16px !important;
+      span {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        display: inline-block;
+        max-width: 80%;
+      }
+      &.active {
+        font-weight: 500;
+      }
+    }
+    ::ng-deep dropdown-item-header {
+      padding: 0 10px !important;
+    }
+  }
+}
+
+// bh2026: the overlay panel is portaled out of the host, so :host-context cannot match here.
+// ::ng-deep must lead the selector, otherwise emulated encapsulation tags [data-theme] with
+// _ngcontent and it never matches.
+::ng-deep [data-theme='bh2026'] .dropdown-container {
+  background-color: var(--dropdown-color-background-default, #fff);
+  border: 1px solid var(--dropdown-color-border-default, #c2c5cb);
+  border-radius: var(--dropdown-border-radius, 0.8rem);
+  box-shadow: 0 0.4rem 0.8rem 0 var(--color-transparency-charcoal-04, rgba(40, 40, 40, 0.04)),
+    0.8rem 1.2rem 1.6rem 0 var(--color-transparency-charcoal-08, rgba(47, 47, 51, 0.08));
+  padding: var(--dropdown-spacing-container-padding-horizontal, 0.8rem) 0;
+
+  list {
+    padding: 0;
+  }
+
+  list + list,
+  novo-optgroup + novo-optgroup {
+    margin-top: var(--dropdown-spacing-container-gap, 0.8rem);
+  }
+
+  item {
+    display: block;
+    height: auto !important;
+    min-height: 0;
+    padding: 0 !important;
+  }
+
+  // Legacy `item span` makes .novo-option-text a block, whose line box adds height
+  novo-option.novo-option > .novo-option-text {
+    display: flex;
+    max-width: none;
+  }
+
+  // novo-option.novo-option outranks the optgroup padding-left rule in option.component.scss
+  novo-option.novo-option {
+    align-items: center;
+    border-radius: var(--border-radius-xsm, 0.4rem);
+    gap: var(--dropdown-spacing-option-gap, 0.8rem);
+    // Inset via margin, not container padding: the container also wraps full-bleed content (data-table headers/footers, tabbed picker nav)
+    margin: 0 var(--dropdown-spacing-container-padding-horizontal, 0.8rem);
+    padding: var(--dropdown-spacing-option-padding, 0.8rem);
+    font-size: var(--typography-input-value-default-font-size, 1.4rem);
+    font-weight: var(--typography-input-value-default-font-weight, 400);
+    letter-spacing: var(--typography-input-value-default-letter-spacing, 0);
+    line-height: var(--typography-input-value-default-line-height, 2rem);
+
+    &:not(.disabled):not(.novo-option-disabled) {
+      color: var(--dropdown-color-content-text-default, #3d464d);
+    }
+
+    &:hover:not(.novo-option-inert),
+    &:active:not(.novo-option-inert),
+    &.novo-active:not(.novo-option-inert) {
+      background: var(--dropdown-color-content-background-hover, #e6f1ff);
+
+      &:not(.disabled):not(.novo-option-disabled) {
+        color: var(--dropdown-color-content-text-hover, #011e44);
+      }
+    }
+  }
+
+  list dropdown-item-header,
+  .novo-optgroup-label {
+    color: var(--dropdown-color-content-text-header, #525b63);
+    font-size: var(--typography-input-label-md-font-size, 1.2rem);
+    font-weight: var(--typography-input-label-md-font-weight, 400);
+    letter-spacing: var(--typography-input-label-md-letter-spacing, 0.05rem);
+    line-height: var(--typography-input-label-md-line-height, 1.4rem);
+    padding: var(--dropdown-spacing-header-padding-vertical, 0.8rem) calc(2 * var(--dropdown-spacing-header-padding-horizontal, 0.8rem));
+    text-transform: uppercase;
+  }
+
+  // The legacy novo-table-dropdown-cell rules are more specific and use !important
+  &.novo-table-dropdown-cell {
+    list {
+      padding: 0;
+    }
+
+    item {
+      height: auto !important;
+      padding: 0 !important;
+    }
+
+    dropdown-item-header {
+      padding: var(--dropdown-spacing-header-padding-vertical, 0.8rem) calc(2 * var(--dropdown-spacing-header-padding-horizontal, 0.8rem)) !important;
     }
   }
 }
