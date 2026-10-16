@@ -1,6 +1,6 @@
 @import "../common/typography/text.mixins";
 
-popover-content {
+:host {
   .popover {
     position: absolute;
     top: 0;
@@ -13,6 +13,7 @@ popover-content {
     color: var(--text-main, $dark);
     background-clip: padding-box;
     box-shadow: $shadow-popover;
+    border-radius: var(--border-radius-sm);
 
     &.top {
       margin-top: -1rem;
@@ -21,7 +22,7 @@ popover-content {
       }
     }
     &.right {
-      margin-left: 1rem;
+      margin-left: var(--spacing-md);
       &.virtual-area {
         left: -1.1rem;
       }
@@ -152,6 +153,9 @@ popover-content {
   .popover-title {
     @include novo-title-text();
     margin-bottom: 1rem;
+    white-space: normal;
+    overflow: hidden;
+    max-width: 100%;
   }
   .popover-content {
     @include novo-body-text();
