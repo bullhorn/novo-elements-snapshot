@@ -1,165 +1,231 @@
 @import "../../styles/variables";
 
-.tabbed-group-picker-button {
-  .tabbed-group-picker-button-label {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    min-width: 100px;
-    width: 100%;
-  }
-}
-
-.tabbed-group-picker-search {
-  width: 100%;
-  padding: 0.5em;
-  border-bottom: 0.1em solid #ccc;
-  position: relative;
-  input {
-    font-size: 1.2em;
-    background: transparent;
-    border: none;
-    border-radius: 0;
-    outline: none;
-    height: 2rem;
-    width: 95%;
-    margin: 0 0 0 1em;
-    padding: 0;
-    box-shadow: none;
-    box-sizing: content-box;
-    transition: all 300ms;
-    color: $dark;
-    &::placeholder {
-      color: var(--form-placeholder);
+:host {
+  .tabbed-group-picker-button {
+    .tabbed-group-picker-button-label {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      min-width: 40px;
+      width: 100%;
     }
   }
-  i.bhi-search,
-  i.bhi-times {
-    position: absolute;
-    bottom: 1em;
-    right: 0.5em;
-    color: $grey;
-    font-size: 1.2rem;
-    margin-right: 1em;
-  }
-  i.bhi-times {
-    cursor: pointer;
-  }
 }
 
-.tabbed-group-picker-column-container {
-  display: flex;
-  flex-direction: row;
-
-  .tabbed-group-picker-column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    &.left {
-      border-right: 1px solid $light;
-      justify-content: space-between;
-
-      .clear-all-button {
-        margin-bottom: 0.5em;
+::ng-deep .dropdown-container {
+  .tabbed-group-picker-search {
+    width: 100%;
+    padding: 0.5em;
+    border-bottom: 0.1em solid #ccc;
+    position: relative;
+    input {
+      background: transparent;
+      border: none;
+      border-radius: 0;
+      outline: none;
+      height: 2rem;
+      width: 95%;
+      padding: 0;
+      box-shadow: none;
+      box-sizing: content-box;
+      transition: all 300ms;
+      color: var(--font-color-base);
+      &.chip-list-input {
+        flex: 1 0 20px;
       }
+      &::placeholder {
+        color: var(--form-placeholder);
+      }
+    }
+    i.bhi-search,
+    i.bhi-times {
+      position: absolute;
+      bottom: 1em;
+      right: 0.5em;
+      color: $grey;
+      font-size: var(--font-size-sm);
+      margin-right: 1em;
+    }
+    i.bhi-times {
+      cursor: pointer;
+    }
+    .hidden-chips-toggle {
+      cursor: pointer;
+    }
+    &.use-chips {
+      max-width: 500px;
+    }
+  }
 
-      novo-nav {
-        overflow: auto;
+  .footer {
+    background: var(--background-main);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+  }
 
-        > novo-tab {
-          min-height: 3em;
+  .tabbed-group-picker-column-container {
+    display: flex;
+    flex-direction: row;
+    user-select: none;
 
-          > .novo-tab-link {
-            max-width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-          }
-          &.active {
-            .novo-tab-link {
-              font-weight: 400;
+    .tabbed-group-picker-column {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      &.left {
+        border-right: 1px solid var(--color-border);
+        justify-content: space-between;
+
+        .clear-all-button {
+          margin-bottom: 0.5em;
+        }
+
+        novo-nav {
+          overflow: auto;
+
+          > novo-tab {
+            min-height: 3em;
+
+            > .novo-tab-link {
+              max-width: 100%;
+              height: 100%;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            }
+            &.active {
+              .novo-tab-link {
+                font-weight: 400;
+              }
+              &:hover {
+                .novo-tab-link {
+                  font-weight: 400;
+                  color: var(--color-positive);
+                }
+              }
             }
             &:hover {
               .novo-tab-link {
                 font-weight: 400;
-                color: $positive;
+                color: $black;
+                opacity: 1;
               }
             }
           }
-          &:hover {
-            .novo-tab-link {
-              font-weight: 400;
-              color: $black;
-              opacity: 1;
+        }
+      }
+
+      &.right {
+        display: block;
+        width: 23em;
+        overflow: hidden;
+
+        .quick-select {
+          font-weight: 500;
+
+          .quick-select-label {
+            padding: 0.7em 1.9em 0 1.9em;
+            background: brightenLive('--color-light', 10);
+            text-transform: uppercase;
+            font-size: 0.8em;
+          }
+
+          .quick-select-list {
+            .quick-select-item {
+              background: brightenLive('--color-light', 10);
+              padding: 0.5em 0.8em;
+              border-bottom: none;
             }
           }
         }
+        novo-optgroup {
+          cdk-virtual-scroll-viewport {
+            height: 27em;
+            overflow-x: hidden;
+            @media (max-height: 720px) {
+              height: 18em;
+            }
+          }
+
+          novo-option {
+            &:hover.novo-option-inert {
+              background: var(--background-main, rgb(from var(--color-ocean) r g b / 0.1));
+            }
+          }
+        }
+
+        .tabbed-group-picker-empty-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          color: $grey;
+          width: 100%;
+          height: 27em;
+
+          i {
+            padding-bottom: 0.2em;
+            font-size: 3em;
+          }
+          .empty-item-main-message {
+            font-weight: 500;
+            color: var(--font-color-base);
+          }
+          .empty-item-sub-message {
+            font-size: 0.9em;
+          }
+        }
       }
     }
+  }
+}
 
-    &.right {
-      display: block;
-      width: 23em;
-      overflow: hidden;
+// bh2026: icon-theme button must not be constrained to a square when it carries chips/label content
+::ng-deep [data-theme='bh2026'] novo-button.tabbed-group-picker-button[theme='icon'] {
+  width: auto;
+  min-width: max-content;
+}
 
-      .quick-select {
-        font-weight: 500;
+// bh2026: Half-pill shaped indicator, updated colors
+::ng-deep [data-theme='bh2026'] .dropdown-container {
+  .tabbed-group-picker-search {
+    padding-left: var(--spacing-lg);
+  }
+  .tabbed-group-picker-column.left {
+    novo-nav > novo-tab {
+      margin-right: 0;
 
-        .quick-select-label {
-          padding: 0.7em 1.9em 0 1.9em;
-          background: lighten($light, 10%);
-          text-transform: uppercase;
-          font-size: 0.8em;
-        }
-
-        .quick-select-list {
-          .quick-select-item {
-            background: lighten($light, 10%);
-            padding: 0.5em 1.75em;
-            border-bottom: none;
-          }
-        }
-      }
-      novo-optgroup {
-        cdk-virtual-scroll-viewport {
-          height: 27em;
-          overflow-x: hidden;
-          @media (max-height: 720px) {
-            height: 18em;
-          }
-        }
-
-        novo-option {
-          &:hover.novo-option-inert {
-            background: var(--background-main, rgba($ocean, 0.1));
-            color: var(--text-bright, $dark);
-          }
-        }
-      }
-
-      .tabbed-group-picker-empty-item {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        color: $grey;
-        width: 100%;
-        height: 27em;
+      .novo-tab-link {
+        margin-left: var(--spacing-sm);
+        margin-right: var(--spacing-sm);
 
         i {
-          padding-bottom: 0.2em;
-          font-size: 3em;
+          padding-left: var(--spacing-sm);
         }
-        .empty-item-main-message {
-          font-weight: 500;
-          color: $dark;
+      }
+
+      &.active {
+        .novo-tab-link {
+          font-weight: var(--typography-tabs-active-font-weight);
+          color: var(--color-text-body);
         }
-        .empty-item-sub-message {
-          font-size: 0.9em;
+
+        .indicator {
+          background: var(--novo-tabbed-picker-accent, var(--color-border-utility-positive));
+          border-radius: 0 var(--border-radius-pill) var(--border-radius-pill) 0;
+        }
+
+        &:hover .novo-tab-link {
+          font-weight: var(--typography-tabs-active-font-weight);
+          color: var(--color-text-body);
         }
       }
     }
+  }
+  .tabbed-group-picker-column.right {
+    padding-top: var(--spacing-sm);
   }
 }
