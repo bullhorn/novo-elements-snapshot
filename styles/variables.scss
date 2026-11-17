@@ -1,4 +1,4 @@
-@import "~novo-design-tokens/scss";
+@import 'novo-design-tokens/scss';
 
 // TODO: DEPRECATE COLORS AND USE TOKENS
 
@@ -68,12 +68,12 @@ $disabled: $color-stone;
 // --------------------------------------------------
 $spacing-rules: (
   "none": $spacing-none,
-  "px": $spacing-px,
-  "xs": $spacing-xs,
-  "sm": $spacing-sm,
-  "md": $spacing-md,
-  "lg": $spacing-lg,
-  "xl": $spacing-xl,
+  "px": var(--spacing-px),
+  "xs": var(--spacing-xs),
+  "sm": var(--spacing-sm),
+  "md": var(--spacing-md),
+  "lg": var(--spacing-lg),
+  "xl": var(--spacing-xl),
 );
 
 // Sizes
@@ -98,6 +98,7 @@ $analytics-colors: (
 );
 // Entity Color Map
 $entity-colors: (
+  "appointment": $color-neutral,
   "star": $color-placement,
   "person": $color-contact,
   "company": $color-company,
@@ -118,11 +119,13 @@ $entity-colors: (
   "credential": $color-neutral,
   "user": $color-neutral,
   "corporateuser": $color-neutral,
+  "neutral": $color-neutral,
   "contract": $color-contract,
   "jobCode": $color-job-code,
   "earnCode": $color-earn-code,
   "billableCharge": $color-billable-charge,
   "payableCharge": $color-payable-charge,
+  "complianceManager": $color-positive,
   "invoiceStatement": $color-invoice-statement,
 );
 // Generic Color Map

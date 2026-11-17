@@ -1,22 +1,26 @@
-grouped-multi-picker-results {
-  background-color: $white;
+@import "../../../../styles/variables.scss";
+
+:host {
+  background-color: var(--background-body);
   max-height: 300px;
   padding: 0;
   margin: 0;
   box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-  border: 1px solid $positive;
+  border: 1px solid var(--color-positive);
   transform: translateY(0%);
   transition: all 0.15s cubic-bezier(0.35, 0, 0.25, 1);
   display: flex;
   flex-direction: row;
+  width: fit-content;
   novo-list-item {
     cursor: pointer;
-    padding: 10px;
-    border-bottom: none;
     flex-shrink: 0;
     &.disabled {
       pointer-events: none;
       opacity: 0.75;
+    }
+    ::ng-deep div.list-item {
+      flex: 1 !important;
     }
   }
   > .grouped-multi-picker-groups {
@@ -32,7 +36,7 @@ grouped-multi-picker-results {
       height: 50px;
       display: flex;
       align-items: center;
-      border-top: 1px solid $off-white;
+      border-top: 1px solid var(--border-2);
       label {
         font-weight: 500;
       }
@@ -45,21 +49,21 @@ grouped-multi-picker-results {
       font-weight: 500;
       color: #999999;
       border-left: 3px solid $white;
-      .list-item {
+      ::ng-deep .list-item {
         justify-content: center;
       }
       item-end {
         color: #999999;
       }
       &.active {
-        color: $positive;
-        border-left-color: $positive;
+        color: var(--color-positive);
+        border-left-color: var(--color-positive);
         background-color: #e9e9e9;
         item-end {
-          color: $positive;
+          color: var(--color-positive);
         }
-        .list-item > item-content > * {
-          color: $positive !important;
+        ::ng-deep .list-item > item-content > * {
+          color: var(--color-positive) !important;
         }
       }
     }
@@ -78,8 +82,8 @@ grouped-multi-picker-results {
         padding: 0.95em;
         background: transparent !important;
         border: none;
-        border-bottom: 1px solid $off-white;
-        border-left: 1px solid $off-white;
+        border-bottom: 1px solid var(--border-2);
+        border-left: 1px solid var(--border-2);
         border-radius: 0;
         border-radius: 0;
         outline: none;
@@ -89,11 +93,11 @@ grouped-multi-picker-results {
         transition: all 300ms;
         color: #26282b;
         &:hover {
-          border-bottom: 1px solid $off-white;
+          border-bottom: 1px solid var(--border-2);
         }
         &:focus {
-          border-bottom: 1px solid $positive;
-          border-left: 1px solid $positive;
+          border-bottom: 1px solid var(--color-positive);
+          border-left: 1px solid var(--color-positive);
         }
         &[disabled] {
           pointer-events: none;
@@ -105,7 +109,7 @@ grouped-multi-picker-results {
         position: absolute;
         right: 10px;
         top: 12px;
-        font-size: 1.2rem;
+        font-size: var(--font-size-sm);
         &.disabled {
           pointer-events: none;
           opacity: 0.4;
@@ -116,7 +120,7 @@ grouped-multi-picker-results {
       }
     }
     .grouped-multi-picker-list-container {
-      border-left: 1px solid $off-white;
+      border-left: 1px solid var(--border-2);
       flex: 1;
       display: flex;
       flex-direction: column;
